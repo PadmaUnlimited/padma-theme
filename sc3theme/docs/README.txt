@@ -8,3 +8,4 @@ INSTALL:
 
 SUPPORT & DOCUMENTATION:
 If you are looking for detailed documentation or theme support, please visit http://[ Support URL ]
+

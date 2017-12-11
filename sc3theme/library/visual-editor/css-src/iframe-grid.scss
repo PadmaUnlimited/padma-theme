@@ -1,0 +1,449 @@
+@import '../../media/css/reset.css',
+	'../../media/css/grid.css',
+	'../../media/css/alerts.css',
+  'mixins',
+  'loading',
+  'iframe',
+  'tooltips';
+
+/* Structure */
+html {
+	height: 100%;
+}
+
+body {
+	position: relative;
+	min-height: 100%;
+	height: auto;
+}
+
+	/* Hide Guides */
+		body.hide-guides {
+			.grid-guides {
+				opacity: 0 !important;
+			}
+
+			.block {
+				outline: none;
+			}
+		}
+
+	/* Wrapper Mirroring */
+		/* Hide these by default and only show them if the wrapper mirrored class is on the wrapper */
+			div.wrapper-mirror-notice,
+			div.wrapper-mirror-overlay {
+				display: none;
+			}
+
+		div.wrapper-mirrored {
+			height: 120px !important;
+			min-height: 0 !important;
+			padding: 10px !important;
+		}
+
+			div.wrapper-mirrored div.grid-container {
+				min-height: 0 !important;
+				height: 100% !important;
+			}
+
+		div.wrapper-mirrored .block,
+		div.wrapper-mirrored .grid-guides,
+		div.wrapper-mirrored .ui-resizable-handle {
+			display: none !important;
+		}
+
+		div.wrapper-mirrored div.wrapper-mirror-notice,
+		div.wrapper-mirrored div.wrapper-mirror-overlay {
+			display: block;
+		}
+
+
+		/* Wrapper Mirror Notice */
+			div.wrapper-mirrored div.wrapper-mirror-notice {
+				color: rgba(0, 0, 0, .8);
+				background: rgba(255, 112, 42, .25);
+				width: 100%;
+				text-align: center;
+				border-radius: 5px;
+				height: 100%;
+				border: 1px dashed rgba(255, 112, 42, .6);
+				@include border-box;
+				position: relative;
+			}
+
+			div.wrapper-mirrored div.wrapper-mirror-notice div {
+				height: 54px;
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				margin-top: -27px;
+			}
+
+			div.wrapper-mirrored div.wrapper-mirror-notice h2 {
+				font-size: 15px; 
+				font-weight: 600; 
+				margin: 0; 
+			}
+
+			div.wrapper-mirrored div.wrapper-mirror-notice p {
+				margin: 10px 0 5px;
+			}
+
+			div.wrapper-mirrored div.wrapper-mirror-notice small {
+				font-style: italic;
+				font-size: 11px;
+			}
+
+	/* End Wrapper Mirroring */
+	
+	/* Wrapper Buttons */
+		#wrapper-buttons-template {
+			display: none;
+		}
+
+		div.wrapper-buttons {
+			position: absolute;
+			top: 10px;
+			right: -27px;
+			z-index: 999;
+			display: none;
+		}
+
+			/* Put a buffer area for fixed wrappers that way the buttons don't sporadically disappear */
+				div.wrapper-fixed div.wrapper-buttons {
+					height: 95%;
+					min-height: 90px;
+					width: 27px;
+				}
+
+			/* Hover hiding and showing */
+				div.wrapper:hover div.wrapper-buttons,
+				div.wrapper.ui-sortable-helper div.wrapper-buttons,
+				div.wrapper.wrapper-handle-in-use div.wrapper-buttons,
+				body.ipad div.wrapper div.wrapper-buttons {
+					display: block !important;
+				}
+
+			div.wrapper-fluid div.wrapper-buttons {
+				right: 10px;
+			}
+
+		/* General handle styling */
+			div.wrapper-handle {
+				display: block;
+				width: 25px;
+				height: auto;
+				padding: 7px 0;
+			  	background: #000;
+				cursor: move;
+			}
+
+				/* Lines inside of wrapper handle */
+				div.wrapper-handle span {
+					width: 15px;
+					background: rgba(255, 255, 255, .3);
+					height: 1px;
+					display: block;
+					margin: 1px auto;
+				}
+
+		/* Ordering Handle */
+			div.wrapper-drag-handle {
+				border-top: none;
+				border-bottom: none;
+				border-radius: 0;
+			}
+
+		/* Margin Handles */
+			div.wrapper-top-margin-handle,
+			div.wrapper-bottom-margin-handle {
+				padding: 4px 0;
+				background: #333;
+				cursor: row-resize;
+			}
+
+				/* Hide the margin handles for mirrored wrappers */
+					div.wrapper-mirrored div.wrapper-margin-handle {
+						display: none;
+					}
+
+
+				/* Inside Lines */
+					div.wrapper-top-margin-handle span:first-child,
+					div.wrapper-bottom-margin-handle span:nth-child(3) {
+						width: 2px;
+					}
+
+					div.wrapper-top-margin-handle span:nth-child(2),
+					div.wrapper-bottom-margin-handle span:nth-child(2) {
+						width: 6px;
+					}
+
+					div.wrapper-top-margin-handle span:nth-child(3),
+					div.wrapper-bottom-margin-handle span:first-child {
+						width: 10px;
+					}
+	
+		/* Wrapper Options Button */
+			div.wrapper-options {
+				display: block;
+				margin: 6px 0 0;
+				width: 25px;
+				height: 25px;
+				padding: 0;
+				background: #000;
+				cursor: pointer;
+				text-align: center;
+				line-height: 25px;
+			}
+
+				div.wrapper-options span:before {
+					content: '\33';
+					@include icon-font;
+					color: #dedede;
+					font-size: 15px;
+				}
+	/* End Wrapper Buttons */
+
+	div.wrapper.wrapper-fluid {
+		width: 100% !important;
+	}
+
+	div.wrapper.wrapper-fluid:first-of-type {
+		margin-top: 0;
+	}
+
+div#whitewrap { 
+	width: 100%;
+	float: left;
+	margin: 0;
+	/* padding: 36px 0 0; */
+	padding: 0;
+	@include border-box;
+	min-height: 100%;
+	position: relative;
+}
+
+
+/* Grid and Blocks */
+div.grid-container {
+	width: 100%;
+	height: 100%;
+	min-height: 10px;
+	margin: 0 auto; 
+	float: none;
+	position: relative;
+	z-index: 2;
+}
+	
+	div.wrapper-fluid-grid div.grid-container {
+		width: 100% !important;
+	}
+
+	div.grid-container.ui-state-hover {
+		background: #ddd;
+	}
+
+.block {
+	position: absolute !important;
+	cursor: move;
+	overflow: hidden;
+	min-height: 0 !important;
+	
+	box-sizing: content-box !important; 
+	-moz-box-sizing: content-box !important;
+	
+	margin: 0 !important;
+	outline: 1px dashed rgba(0, 0, 0, .25); /* DON'T GET RID OF THIS OUTLINE... IT WILL SCREW GRID BEHAVIOR UP IN FIREFOX */
+	border: none;
+}
+
+	.block-ghost {
+		opacity: .5 !important;
+	}
+	
+	.block-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.block-content-cover {
+		position: absolute;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		display: block;
+
+		> svg, > span {
+			display: none;
+		}
+	}
+
+/* Unknown Block Types */
+.block-type-unknown div.block-content {
+	padding: 10px;
+	@include border-box;
+}
+
+	.block-type-unknown div.block-type-unknown-notice {
+		overflow: auto;
+		margin: 0;
+		height: 100%;
+		@include border-box;
+		overflow: auto;
+		display: block;
+	}
+
+	.block-safe-mode {
+		overflow: auto;
+		margin: 10px;
+		@include border-box;
+		overflow: auto;
+		display: block;
+	}
+
+/* Grouped Blocks */
+div.grouping-active .block { 
+	opacity: .3 !important; 
+}
+
+div.grouping-active .grouped-block {
+	box-shadow: 0 0 5px rgba(20, 192, 241, .6) !important;
+	opacity: 1 !important; 
+}
+
+	body.firefox {
+		div.grouping-active .grouped-block  {
+			outline-offset: -7px;
+		}
+	}
+
+/* Wrapper Stuff */
+	div.add-wrapper-buttons {
+	  	width: 36px;
+	  	height: 36px;
+
+		margin: 0;
+
+		position: absolute;
+		left: 0;
+	  	top: 20px;
+
+		z-index: 998;
+		@include border-box;
+		display: block;
+
+		div.add-wrapper-button-fixed {
+			display: inline-block;
+			border-radius: 0;
+			cursor: pointer;
+			position: relative;
+			height: 30px;
+			width: 30px;
+		  	font-size: 22px;
+		  	color: #fff;
+			line-height: 28px;
+			text-align: left;
+		  	background: #000;
+		  	text-align: center;
+		  	opacity: .5;
+		  	@include transition('opacity 100ms linear');
+
+			&:hover {
+			  	opacity: .9;
+			}
+		}
+
+
+		/* Top & Bottom Add Wrapper Button Positions */
+			&.add-wrapper-buttons-bottom {
+				left: 0;
+				top: auto;
+			  	bottom: 20px;
+			}
+
+	}
+
+/* Grid Guides */
+.grid-guides { 
+	display: block;
+	z-index: 0; 
+	position: absolute;
+	height: 100%;
+	@include border-box;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.grid-guides .grid-guide {
+	margin: 0 10px;
+	overflow: visible;
+	float: left;
+	display: inline;
+	height: 100%;
+	@include border-box;
+}
+	
+	.grid-guides-red .grid-guide {
+		background: rgba(255, 0, 0, .075); 
+		border-left: 1px solid rgba(255, 0, 0, .1);
+		border-right: 1px solid rgba(255, 0, 0, .1);
+	}
+	
+	.grid-guides-grey .grid-guide {
+		background: rgba(0, 0, 0, .035); 
+		border-left: 1px solid rgba(0, 0, 0, .07);
+		border-right: 1px solid rgba(0, 0, 0, .07);
+	}
+	
+	.grid-guides-blue .grid-guide {
+		background: rgba(0, 0, 255, .06); 
+		border-left: 1px solid rgba(0, 0, 255, .075);
+		border-right: 1px solid rgba(0, 0, 255, .075);
+	}
+	
+	.grid-guides .grid-guide:first-child {
+		margin-left: 0 !important;
+		border-left: none;
+	}
+	
+	.grid-guides .grid-guide:last-child {
+		margin-right: 0 !important;
+		border-right: none;
+	}
+
+
+/* Touch Optimization */
+body.ipad .wrapper:hover > div.ui-resizable-handle {
+	background: rgba(0, 0, 0, .05);
+}
+
+body.ipad .block:hover > div.ui-resizable-handle {
+	background: rgba(0, 0, 0, .05);
+}
+
+
+/* Helper */
+div.ui-grid-helper { 
+	z-index: 10000;
+	border: none;
+	display: block; 
+	position: absolute;
+	margin: -1px 0 0 -1px; 
+}
+
+div.wrapper-sortable-placeholder {
+	display: block;
+	background: rgba(0, 0, 0, .1);
+	margin: 0 auto;
+	border: 1px dashed rgba(205, 246, 244, 0.6);
+	box-shadow: inset 0 0 15px rgba(20, 192, 241, .7), 0 0 15px rgba(20, 192, 241, .7);
+	@include border-box;
+}
+
+div.ui-sortable-helper.wrapper {
+	opacity: .65;
+}
+
+@import 'iframe-grid-wireframe';

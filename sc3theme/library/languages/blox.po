@@ -1,0 +1,364 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blox 1.0.0\n"
+"POT-Creation-Date: 2014-01-23 14:10-0600\n"
+"PO-Revision-Date: 2016-10-03 17:13+0200\n"
+"Last-Translator: Clay Griffiths <clay@bloxtheme.com>\n"
+"Language-Team: Blox Theme <hello@bloxtheme.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox\n"
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/admin.php:146
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/admin.php:183
+msgid "Please contact Blox Support if this error persists."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/admin.php:170
+msgid "License saved and activated."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/admin.php:174
+msgid ""
+"\n"
+"\t\t\t\t\t<strong>Whoops!</strong> Could not activate license.  Please check "
+"that you have entered your license correctly and that it has not expired."
+"<br /><br />\n"
+"\t\t\t\t\tMake sure you copied your license correctly from the <a href="
+"\"http://bloxtheme.com/dashboard\" target=\"_blank\">Blox Dashboard</a>.\n"
+"\t\t\t\t"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/pages/options.php:49
+msgid "Deactivate License"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/pages/options.php:50
+msgid "Active"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/pages/options.php:52
+msgid "Activate License"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/admin/pages/options.php:55
+msgid "Save & Activate License"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-admin-meta-box.php:12
+msgid "Error: The meta box class being registered does not exist."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-block.php:135
+msgid "Error: The block options class being registered does not exist."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-box.php:12
+msgid "Error: The box class being registered does not exist."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:128
+msgid "Error: Arguments must be an array for this element."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:153
+msgid "Error: An ID is required for this element."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:156
+msgid "Error: A name is required for this element."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:159
+msgid "Error: A group is required for this element."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:162
+msgid "Error: A CSS selector is required for this element."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:165
+msgid "Error: Properties are required for this element."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:208
+msgid "Error: Arguments must be an array for this element instance."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:224
+msgid "Error: An ID is required for this element instance."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:227
+msgid "Error: A name is required for this element instance."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:230
+msgid "Error: A group is required for this element instance."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:233
+msgid "Error: A parent element is required for this element instance."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:236
+msgid "Error: A CSS selector is required for this element instance."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-element.php:271
+msgid "Error: The group being registered already exists."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/api/api-panel.php:12
+msgid "Error: The panel class being registered does not exist."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/blocks.php:85
+msgid "The block class being registered does not exist."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/blocks.php:759
+msgid "The Blox blocks array does not exist."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:55
+msgid "Home"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:98
+msgid "Search Results For:"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:107
+msgid "Author Archives:"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:114
+msgid "Tag Archives:"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:121
+msgid "Archives:"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:128
+msgid "Whoops! Page Not Found..."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/breadcrumbs/breadcrumbs.php:136
+msgid "You Are Here:"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/comments-template.php:53
+msgid "Sorry, comments are closed for this post."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/comments-template.php:67
+msgid ""
+"This post is password protected.  Please enter the password to view the "
+"comments."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:123
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/listings/content-display.php:69
+msgid "<p>Sorry, there was no content that matched your search.</p>"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:209
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:212
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:215
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:218
+msgid "Blog Archives"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:228
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:246
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:249
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:259
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:268
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:558
+msgid "Pages:"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:593
+msgid "Whoops!  Page Not Found"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:601
+msgid ""
+"<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
+"are looking for does not exist or has been moved elsewhere.</p>"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:603
+#, php-format
+msgid ""
+"<p>If you keep ending up here, please head back to our <a href=\"%s"
+"\">homepage</a> or try the search form below.</p>"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:678
+msgid "Discard Reply"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:704
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:705
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:859
+#, php-format
+msgid "%s &ndash; Comments"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:868
+#, php-format
+msgid "Respond to %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/content/content-display.php:875
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:120
+msgid "Administration Panel"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:122
+msgid "Administration Login"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:143
+msgid "Powered by Blox, the "
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:155
+msgid "Copyright"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:171
+msgid "Go To Top"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:193
+msgid "View Full Site"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/footer/footer.php:200
+msgid "View Mobile Site"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/blocks/navigation/navigation.php:219
+msgid "Navigation"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/compiler.php:354
+msgid ""
+"There was an error while Blox tried to compile the LESS CSS.  Full Error: "
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/functions.php:666
+msgid "Type to search, then press enter"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/functions.php:694
+msgid "Search"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/image-resizer.php:57
+msgid "Error: Invalid image URL or size inputs"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/image-resizer.php:81
+msgid "Error: Image not local"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/image-resizer.php:88
+msgid "Error: Image does not exist or not accessible"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/image-resizer.php:113
+msgid "Error: Cannot resize, check if $upscale is enabled"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/image-resizer.php:125
+msgid "Error: Cannot resize image with WP_Image_Editor class"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/common/image-resizer.php:133
+msgid "Error: Unable to save image with WP_Image_Editor class"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/display/layout-renderer.php:115
+msgid "No Content to Display"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/display/layout-renderer.php:121
+#, php-format
+msgid ""
+"<p>There are no blocks to display.  Add some by going to the <a href=\"%s"
+"\">Blox Grid</a>!</p>"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/display/layout-renderer.php:125
+#, php-format
+msgid ""
+"<p>There is no content to display.  Please notify the site administrator or "
+"<a href=\"%s\">login</a>.</p>"
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/fonts/traditional-fonts.php:127
+msgid ""
+"To register a font, the argument array must include an \"id\", \"stack\", "
+"and \"name\"."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/updater/theme-updater.php:68
+msgid ""
+"Before clicking OK to update, be sure that you have a backup of your website."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/visual-editor/panels/design/property-inputs.php:151
+msgid "You have customized a property in this property group."
+msgstr ""
+
+#: /Users/clay/Dropbox/Web/dev/wp-content/themes/blox/library/visual-editor/panels/design/property-inputs.php:274
+msgid "You have customized this property."
+msgstr ""

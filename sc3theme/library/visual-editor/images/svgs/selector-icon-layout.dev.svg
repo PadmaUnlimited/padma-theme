@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>selector-icon-layout</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <filter x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="8.07692308" height="7.18471338"></rect>
+        <rect id="path-3" x="1.53846154" y="0.993630573" width="5.15384615" height="0.76433121"></rect>
+        <rect id="path-4" x="1.53846154" y="5.27388535" width="5.15384615" height="0.840764331"></rect>
+        <rect id="path-5" x="3.07692308" y="2.21656051" width="3.61538462" height="2.59872611"></rect>
+        <rect id="path-6" x="1.53846154" y="2.21656051" width="0.923076923" height="0.917197452"></rect>
+        <rect id="path-7" x="1.53846154" y="3.89808917" width="0.923076923" height="0.917197452"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-8">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#9A9A9A" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feGaussianBlur stdDeviation="0" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path id="path-10" d="M3.76923077,2.67515924 L3.76923077,10.0470833 L5.71392532,8.3113334 L7.6586391,12 L9.31082228,11.2180793 L7.36612773,7.52941272 L10,7.09832096 L3.76923077,2.67515924 Z M3.76923077,2.67515924"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(3.000000, 2.000000)">
+            <g id="Layout" transform="translate(0.500001, 0.000000)">
+                <g id="Group">
+                    <g id="Rectangle-142" filter="url(#filter-1)">
+                        <use stroke="#EEEEEE" stroke-width="1" sketch:type="MSShapeGroup" xlink:href="#path-2"></use>
+                        <use stroke="none" xlink:href="#path-2"></use>
+                    </g>
+                    <g id="Rectangle-143">
+                        <use fill="#D9D9D9" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+                        <use fill="none" xlink:href="#path-3"></use>
+                    </g>
+                    <g id="Rectangle-143">
+                        <use fill="#D9D9D9" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-4"></use>
+                        <use fill="none" xlink:href="#path-4"></use>
+                    </g>
+                    <g id="Rectangle-143">
+                        <use fill="#D9D9D9" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-5"></use>
+                        <use fill="none" xlink:href="#path-5"></use>
+                    </g>
+                    <g id="Rectangle-143">
+                        <use fill="#D9D9D9" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-6"></use>
+                        <use fill="none" xlink:href="#path-6"></use>
+                    </g>
+                    <g id="Rectangle-143">
+                        <use fill="#D9D9D9" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-7"></use>
+                        <use fill="none" xlink:href="#path-7"></use>
+                    </g>
+                </g>
+                <g id="Shape" filter="url(#filter-9)">
+                    <use stroke="#000000" stroke-width="1" stroke-opacity="0.342859605" fill="url(#linearGradient-8)" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-10"></use>
+                    <use stroke="none" fill="none" xlink:href="#path-10"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

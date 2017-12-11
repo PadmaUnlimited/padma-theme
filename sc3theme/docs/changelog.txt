@@ -1,0 +1,59 @@
+# Change Log
+All notable changes to this project will be documented in this file/
+
+## [v1.0.3]
+- links getting-started fixed
+- fixed internal links
+- fixed Image resizer multi lang
+- fixed maintenance to correct version
+- delete files that are not in use anymore
+- license API
+- updated jquery.masonry.js v4.2.0
+- updated qtip2.js v3.0.3
+- updated scrollTo.js v2.1.3
+- updated tabby.js v0.13.0
+- updated knockout.js v3.4.2
+- updated superfish.js and minified v1.7.9
+- updated selectnav and minified v0.1
+- updated imageLoaded.js v4.1.3
+- updated Aqua Resizer v1.2.2
+- updated Waypoints v4.0.1
+- updated FlexSlider v2.6.4
+- updated WooCommerce Functions
+- updated HTML5 Shiv v 3.7.3
+- updated FitVids v1.1
+- updated hoverIntent v1.9.0
+- updated Sticky-Kit v1.1.2
+- updated pep.js v2017
+- updated ace.js new Live CSS editor
+- updated jQuery
+- updated CKEditor v4.7
+
+- changed default css / need some more updates
+
+Next Release Blox Theme v1.0.4
+- WooCommerce 3.0 Blocks for all elements
+- Expand Ace.js (Live CSS editor) choose color, fonts, themes dark/light
+- new Parallex jQuery script, Script Stellar.js is outdated
+- new wysiwyg Block with inline editing
+
+## [v1.0.2]
+- Change version calculation in data-portability.php
+
+## [v1.0.1]
+- 100% GPL version 2.0
+- Delete scripts that no more in use
+- Remove Redactor
+- New WYSIWYG CKeditor
+- Change ace-editor.php
+
+## [v1.0.0]
+- google-fonts 			/ our own api for google fonts
+- default-design-settings.php 	/ delete margins, shadows and default Arial font
+
+## [Beta v1.0.1]
+- original license Headway Themes
+
+## [Beta v1.0.0]
+- all files changes from Headway Themes to Blox Theme
+- Small css changes and graphics (work in progress)

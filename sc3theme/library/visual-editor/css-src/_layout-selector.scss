@@ -1,0 +1,500 @@
+/* Layout Selector */
+	div#layout-selector-select.layout-selector-visible div#layout-selector {
+		display: block;
+	}
+
+	div#layout-selector-select-content {	
+		width: 320px;
+		float: left;
+		color: rgba(255, 255, 255, 0.65);
+		margin: 0;
+		height: $menu_height;
+		background: rgba(255, 255, 255, 0.1);
+		line-height: $menu_height;
+		padding: 0 0 0 10px;
+		border-right: rgba(0, 0, 0, 0.4) 1px solid;
+		cursor: pointer;
+		white-space: nowrap;
+		position: relative;
+
+		&:hover {
+			span#layout-selector-select-content-arrow {
+				color: rgba(255, 255, 255, 0.95);
+			}
+		}
+	}
+
+		div#layout-selector-select-content span#currently-editing {
+			color: rgba(255, 255, 255, .5);
+			margin: 0 5px 0 0;
+			float: left;
+		}
+
+		div#layout-selector-select-content span#current-layout {
+			max-width: 180px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			display: inline-block;
+		}
+
+		span#layout-selector-select-content-arrow {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 35px;
+			height: $menu_height;
+			text-align: center;
+			margin-left: 10px;
+			background: rgba(255, 255, 255, 0.15);
+			display: block;
+			border-left: 1px solid rgba(0, 0, 0, 0.5);
+		}
+
+		span#layout-selector-select-content-arrow:after {
+			@include icon-font;
+			content: 'g';
+			font-size: 13px;
+		}
+
+			div#layout-selector-select.layout-selector-visible span#layout-selector-select-content-arrow {
+				background: rgba(255, 255, 255, 0.3);
+			}
+
+		div#layout-selector {
+			width: 330px;
+			padding: 0;
+			background: #fff;
+			height: 75%;
+			max-height: 550px;
+			position: fixed;
+			border: 1px solid #E5E5E5;
+			border-top: 0;
+			display: none;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+			top: $menu_height;
+			left: 0;
+		}
+
+			div.layout-selector-content { 
+				float: left;
+				clear: both;
+				width: 100%;
+				height: auto;
+				position: absolute;
+				top: 31px;
+				bottom: 0;
+				padding: 0;
+				@include border-box;
+				margin: 0;
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+			
+				div.layout-selector-content ul li {
+					display: block;
+					float: left;
+					width: 100%;
+				}
+					
+				div.layout-selector-content ul ul {
+					display: none;
+				}
+
+					div.layout-selector-content > ul ul > li.layout-item span.layout,
+					div.layout-selector-content > ul ul > li.layout-loading-children {
+						padding-left: 45px;
+					}
+
+						div.layout-selector-content > ul ul ul > li.layout-item span.layout,
+						div.layout-selector-content > ul ul ul > li.layout-loading-children {
+							padding-left: 70px;
+						}
+
+							div.layout-selector-content > ul ul ul ul > li.layout-item span.layout,
+							div.layout-selector-content > ul ul ul ul > li.layout-loading-children {
+								padding-left: 95px;
+							}
+
+								div.layout-selector-content > ul ul ul ul ul > li.layout-item span.layout,
+								div.layout-selector-content > ul ul ul ul ul > li.layout-loading-children {
+									padding-left: 120px;
+								}
+
+									div.layout-selector-content > ul ul ul ul ul ul > li.layout-item span.layout,
+									div.layout-selector-content > ul ul ul ul ul ul > li.layout-loading-children {
+										padding-left: 145px;
+									}
+
+				/* Style big boy layout */
+				div.layout-selector-content ul > li:nth-child(even) > span.layout {
+					background: #F9F9F9;
+				}
+
+				div.layout-selector-content li.layout-item span.layout {
+					padding: 10px 20px;
+					cursor: pointer;
+					display: block;
+					position: relative;
+					float: left;
+					width: 100%;
+					min-height: 18px;
+					line-height: 18px;
+					@include border-box;
+					
+					clear: both;
+				}
+
+					div.layout-selector-content li.layout-item span.layout strong { 
+						float: left;
+						color: #0074A2; 
+					}
+					
+						div.layout-selector-content li.layout-item span.layout strong:hover {
+							color: #2EA2CC;
+						}
+
+					div.layout-selector-content li.layout-item span.layout span.status {
+						color: #555;
+						float: left;
+						margin: 0 0 0 10px;
+						/* Hide all statuses by default */
+						display: none;
+					}
+				/* Change position of buttons for pages vs templates */
+					div.layout-selector-content li.layout-item span.layout-page span.layout-selector-button {
+						right: 10px;
+					}
+
+				div.layout-selector-content li.layout-item span.layout-template { }
+
+					div.layout-selector-content li.layout-item span.layout-template span.assign-template { 
+						right: 60px;
+					}
+
+					div.layout-selector-content li.layout-item span.layout-template span.delete-template {
+						text-indent: -9999px;
+						/* Hide the delete template button by default */
+						display: none;
+						cursor: pointer;
+						width: 15px;
+						height: 14px;
+						margin: 1px 0 -3px 6px;
+						color: rgba(0, 0, 0, .35);
+						float: left;
+						@include transition('color 100ms linear');
+					}
+
+						div.layout-selector-content li.layout-item span.layout-template span.delete-template:before {
+							@include icon-font;
+							content: '\58';
+							line-height: 16px;
+							float: left;
+						}
+					
+						div.layout-selector-content li.layout-item span.layout-template span.delete-template:hover {
+							color: rgba(0, 0, 0, .85);
+						}
+				
+			
+				/* Style buttons and hide them */
+					span.layout-selector-button { 
+						display: none; 
+						position: absolute; 
+						cursor: pointer;
+						top: 10px;
+						right: 10px;
+						height: 20px;
+						line-height: 20px;
+						font-size: 11px;
+					}
+
+                /* Load more button */
+                    span.load-more-layouts {
+                        display: block;
+                        clear: both;
+                        position: static;
+                        margin: 10px 0 10px 70px;
+                        height: 25px;
+                        width: 100px;
+                        text-align: center;
+                        line-height: 25px;
+                        float:left;
+                    }
+
+                    div.layout-selector-content span.layout:not(.layout-open) ~ span.load-more-layouts,
+                    div.layout-selector-content li:not(.has-children) > span.load-more-layouts {
+                        display: none !important;
+                    }
+
+				/* Hide the revert button in the design mode. */
+					body.visual-editor-mode-design span.revert {
+						display: none !important;
+					}
+				
+				/* Conditionals */
+					/* Hierarchial indicators */
+						div.layout-selector-content li.has-children > span.layout:before { 
+							@include icon-font;
+							font-size: 18px;
+							content: 'i';
+							float: left;
+							color: #BBB;
+							margin: 0 0 0 -15px;
+						}
+
+						div.layout-selector-content li.has-children > span.layout-open:before { 
+							content: 'd';
+							margin-left: -16px;
+						}
+
+                        div.layout-selector-content li.has-children > span.layout-open ~ ul {
+                            display: block;
+                        }
+					
+					/* Show edit button on all layouts (including templates) except for layouts that have a template assigned to them and selected layouts */
+						div.layout-selector-content li.layout-item:not(.layout-item-template-used):not(.layout-selected) > span.layout:hover span.edit {
+							display: block;
+						}
+				
+					/* Show the template-specific assign template button for templates that are not selected */
+						div.layout-selector-content li.layout-item:not(.layout-selected) > span.layout-template:hover span.assign-template {
+							display: block;
+						}
+
+					/* Customized layouts: show the customized status flag */
+						div.layout-selector-content li.layout-item-customized > span.layout span.status-customized { 
+							display: block; 
+						}
+
+					/* Layouts using a template: show status template flag, hide edit button, hide revert button, and show the remove template button */
+						div.layout-selector-content li.layout-item-template-used > span.layout span.edit {
+							display: none;
+						}
+
+						div.layout-selector-content li.layout-item-template-used > span.layout span.revert {
+							display: none;
+						}
+
+						div.layout-selector-content li.layout-item-template-used > span.layout span.status-template { 
+							display: block; 
+						}
+
+						/* Hide it on hover too */
+						div.layout-selector-content li.layout-item-template-used > span.layout:hover span.edit {
+							display: none;
+						}
+
+						div.layout-selector-content li.layout-item-template-used > span.layout:hover span.revert {
+							display: none;
+						}
+
+						div.layout-selector-content li.layout-item-template-used > span.layout:hover span.remove-template {
+							display: block;
+						}
+
+					/* Selected layout: 
+						* hide customized or template flag, 
+						* lighten the template name to show that it's selected, 
+						* add the currently editing flag, 
+						* hide all buttons */
+							div.layout-selector-content li.layout-selected > span.layout strong {
+								color: #222 !important;
+								font-weight: bold;
+							}
+
+							div.layout-selector-content li.layout-selected > span.layout span.status {
+								display: none;
+							}
+
+							div.layout-selector-content li.layout-selected > span.layout span.status-currently-editing {
+								display: block;
+							}
+
+							/* Hide the buttons */
+							div.layout-selector-content li.layout-selected > span.layout span.layout-selector-button { 
+								display: none;
+							}
+
+							div.layout-selector-content li.layout-selected > span.layout:hover span.layout-selector-button {
+								display: none;
+							}
+							/* End hiding buttons */
+
+					/* Selected layout that's customized: show revert button */
+						div.layout-selector-content li.layout-selected.layout-item-customized > span.layout span.revert {
+						display: block;
+					}
+					
+					/* Selected layout that's using a template: show remove template button */
+						div.layout-selector-content li.layout-selected.layout-item-template-used > span.layout span.remove-template {
+						display: block;
+					}
+					
+					/* Selected and hovered template: show delete button */
+						div.layout-selector-content li.layout-selected > span.layout-template span.delete-template, 
+						div.layout-selector-content li.layout-item > span.layout-template:hover span.delete-template {
+							display: block;
+						}
+
+					/* Rename */
+						div.layout-selector-content li.layout-selected > span.layout-template span.rename-template,
+						div.layout-selector-content li.layout-selected > span.layout-template:hover span.rename-template {
+							display: block;
+						}
+
+					/* Layout No Edit */
+						div.layout-selector-content li.layout-item-no-edit > span.layout strong {
+							color: #555;
+						}
+						
+						div.layout-selector-content li.layout-item-no-edit > span.layout span.layout-selector-button { 
+							display: none !important;
+						}
+						
+						div.layout-selector-content li.layout-item-no-edit.has-children > span.layout:before { 
+							color: #555;
+						}
+						
+					/* Layout With Customized Children */
+						div.layout-selector-content li.layout-item.has-customized-children {
+							position: relative;
+							clear: both;
+						}
+						
+						div.layout-selector-content li.layout-item > span.layout-has-customized-children {
+							display: none;
+							font-size: 8px;
+							margin: 0;
+							font-weight: 200;
+							top: 12px;
+							left: 9px;
+							position: absolute;
+							color: #0EA8C7;
+							z-index: 2;
+							cursor: help;
+						}
+						
+						div.layout-selector-content li.layout-item.has-customized-children > span.layout-has-customized-children {
+							display: inline;
+						}
+				/* End Conditionals */
+				
+			/* Info Layout Item */
+				div.layout-selector-content li.info-layout-item span.layout strong, div.layout-selector-content li.info-layout-item span.layout strong:hover { 
+					color: #888;
+					cursor: default;
+				}
+			/* End Info Layout Item */
+
+			div.layout-selector-content li.layout-loading-children {
+				min-height: 18px;
+				line-height: 19px;
+				@include border-box;
+				padding: 10px 20px 10px 20px;
+				width: 100%;
+				color: #888;
+
+				span {
+					@include animation('spin 2000ms infinite linear');
+				}
+			}
+
+			div.layout-selector-content ul > li.layout-loading-children:nth-child(even) {
+				background: #f9f9f9;
+			}
+
+			div.layout-selector-content > ul { 
+				width: 100%;
+				margin: 0; 
+				height: 100%;
+				float: left;
+			}
+
+			/* Layout Selector Input */
+				div#layout-selector-templates, div#layout-selector-pages {
+					bottom: 35px;
+				}
+
+				div.layout-selector-bottom-input {
+					float: left;
+					position: absolute;
+					bottom: 0;
+
+					background: #fff;
+					border-top: 1px solid #E1E1E1;
+
+					width: 100%;
+					padding: 8px 9px 6px;
+					@include border-box;
+				}
+
+					div.layout-selector-bottom-input input {
+						float: left;
+						padding: 3px;
+						margin: 0 0 0 2px;
+						width: 150px;
+					}
+
+					input#layout-search-input {
+						width: 232px;
+						box-sizing: border-box;
+					}
+
+						div.layout-selector-bottom-input input::-webkit-input-placeholder { opacity: .6; }
+						div.layout-selector-bottom-input input::-moz-placeholder { opacity: .6; }
+
+					div.layout-selector-bottom-input span.button {
+						display: block;
+						position: static;
+						top: auto;
+						left: auto;
+					
+						margin: 0 0 0 8px;
+
+						float: right;
+					}
+				
+				/* Hide the add template button in the design mode. */
+					body.visual-editor-mode-design div#template-name-input-container { 
+						display: none !important; 
+					}
+			/* End Template Inputs */
+		
+		div#layout-selector-tabs { 
+			z-index: 5;
+			width: 100%;
+			height: 30px;
+			border-bottom: 1px solid #E1E1E1;
+		}
+		
+			div#layout-selector-tabs ul.tabs { 
+				float: left;
+				display: block;
+				height: 30px;
+				list-style: none;
+				margin: 0;
+			}
+			
+				div#layout-selector-tabs li {
+					float: left;
+				}
+				
+					div#layout-selector-tabs a {
+						color: #666;
+						height: 30px;
+						line-height: 30px;
+						padding: 0 10px;
+						display: block;
+						text-decoration: none;
+						font-weight: bold;
+					}
+					
+						div#layout-selector-tabs a:hover {
+							color: #0074A2;
+						}
+				
+				div#layout-selector-tabs li.ui-tabs-active a {
+					color: #222;
+				}

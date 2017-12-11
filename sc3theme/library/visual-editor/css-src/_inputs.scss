@@ -1,0 +1,1547 @@
+@import 'chosen';
+@import 'redactor';
+
+/* All inputs */
+	textarea, input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="url"] {
+		color: #333;
+		background-color: #FFF;
+		border: 1px solid #DDD;
+		box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+		padding: 3px 5px;
+		font-size: 14px;
+		line-height: 15px;
+	}
+
+		textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="checkbox"]:focus, input[type="radio"]:focus, select:focus {
+			border-color: #5B9DD9;
+			-webkit-box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
+			box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
+		}
+
+		input:disabled, input.disabled, textarea:disabled, textarea.disabled {
+			-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+			border-color: rgba(222, 222, 222, 0.75);
+			background: rgba(255, 255, 255, 0.5);
+			color: rgba(51, 51, 51, 0.5);
+		}
+
+	input[type="checkbox"], input[type="radio"] {
+		border-width: 1px;
+		border-style: solid;
+		clear: none;
+		cursor: pointer;
+		display: inline-block;
+		line-height: 0;
+		height: 16px;
+		margin: -4px 4px 0 0;
+		outline: 0;
+		padding: 0 !important;
+		text-align: center;
+		vertical-align: middle;
+		width: 16px;
+		min-width: 16px;
+		-webkit-appearance: none;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+
+		background: #FFF;
+		border-color: #BBB;
+		color: #555;
+		-webkit-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+		box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+	}
+
+		input[type=checkbox]:checked:before, input[type=radio]:checked:before {
+			float: left;
+			display: inline-block;
+			vertical-align: middle;
+			width: 16px;
+			font: normal 21px/1 'dashicons';
+			speak: none;
+			@include antialias();
+		}
+
+			input[type=checkbox]:checked:before {
+				content: '\f147';
+				margin: -3px 0 0 -4px;
+				color: #1E8CBE;
+			}
+
+			input[type=radio]:checked:before {
+				content: '\2022';
+				text-indent: -9999px;
+				border-radius: 50px;
+				font-size: 24px;
+				width: 6px;
+				height: 6px;
+				margin: 4px;
+				line-height: 16px;
+			}
+
+/* Visual Editor Sub Tabs Content Inputs */
+div.sub-tabs-content div.input {
+	background: #fff; 
+	float: left;
+	margin: 0 15px 15px 0;
+	height: 25px;
+	padding: 8px;
+	border: 1px solid #E5E5E5;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+	div.sub-tabs-content div.input label { 
+		color: #444;
+		font-weight: bold;
+		line-height: 25px; 
+		font-size: 14px;
+		margin: 0 5px; 
+		float: left; 
+	}
+	
+	/* Global Text Inputs */
+	div.sub-tabs-content div.input input.text { 
+		margin: 0 0 0 2px;
+	}
+
+		div.sub-tabs-content div.input input.text::-webkit-input-placeholder,
+		div.sub-tabs-content div.input input.text::-moz-placeholder {
+			color: #666;
+		}
+	
+	div.sub-tabs-content div.input div.input-left { 
+		float: left; 
+		margin-right: 5px;
+	}
+
+	div.sub-tabs-content div.input div.input-right { 
+		float: left; 
+	}
+
+/* Integer Inputs */
+div.sub-tabs-content div.input-integer input { 
+	width: 30px; 
+}
+
+/* Heading Element */
+div.sub-tabs-content div.input-heading {
+	background: none;
+	border: none;
+	padding: 0;
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 11px 0;
+	height: 35px;
+	box-shadow: none;
+}
+
+	div.sub-tabs-content div.input-heading:first-child {
+		margin-top: 0;
+	}
+
+	div.sub-tabs-content .options-heading {
+		text-transform: none;
+		font-weight: bold;
+		color: #222;
+		width: 100%;
+		margin: 0 0 15px;
+		padding: 10px 0;
+		@include border-box;
+		font-size: 18px;
+	}
+
+	div.sub-tabs-content div.input-heading .tooltip-button {
+		margin: 10px 6px 0 0;
+	}
+
+/* Notices */
+div.sub-tabs-content div.input-notice {
+	background: none;
+	border: 0;
+	box-shadow: none;
+	padding: 0;
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 15px 0 20px;
+	height: auto;
+}
+
+	div.sub-tabs-content div.input-notice:first-child {
+		margin-top: 0;
+	}
+
+	div.sub-tabs-content div.input-notice p {
+		margin: 0;
+	}
+
+/* Suffixes/units */
+div.sub-tabs-content div.input span.suffix { 
+	color: #666;
+	margin: 0 5px 0 7px;
+	font-size: 11px; 
+}
+
+/* Pencil Icon */
+	span.pencil-icon {
+		color: #555;
+		display: block;
+		width: 12px;
+		height: 14px;
+		cursor: pointer;
+		@include transition('color 150ms linear');
+		margin: 5px 8px 0 2px;
+	}
+
+		span.pencil-icon:hover {
+			color: #999;
+		}
+
+		span.pencil-icon:before {
+			@include icon-font;
+			font-size: 16px;
+			content: '\34';
+		}
+
+/* Textarea */
+div.sub-tabs-content div.input-textarea {
+	position: relative;
+}
+
+	div.sub-tabs-content div.input-textarea div.textarea-container {
+		display: none;
+		position: fixed;
+		background: #0d0d0d;
+		width: auto;
+		height: auto;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		@include rounded-corners(5px);
+		padding: 5px;
+		opacity: .85;
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+		z-index: 11; /* Stay above panel resize handle */
+		margin: 0 0 10px;
+	}
+	
+		div.sub-tabs-content div.input-textarea div.textarea-container textarea {
+			@include rounded-corners(5px);
+			width: 450px;
+			height: 200px;
+			@include border-box;
+			padding: 7px;
+			opacity: .9;
+			font-family: courier, monospace;
+			line-height: 16px;
+		}
+
+/* Code Editor */
+div.sub-tabs-content div.input-code textarea {
+    display: none;
+}
+
+/* WYSIWYG */
+div.sub-tabs-content div.input-wysiwyg {
+	position: relative;
+}
+
+	div.sub-tabs-content div.input-wysiwyg .wysiwyg-container > textarea {
+		display: none;
+	}
+	
+	div.sub-tabs-content div.input-wysiwyg div.wysiwyg-container {
+		display: none;
+		position: fixed;
+		background: #eee;
+		width: 660px;
+		height: 350px;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 5px;
+		padding: 5px;
+		opacity: .96;
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+		z-index: 11; /* Stay above panel resize handle */
+		margin: 0 0 10px;
+	}
+
+		div.sub-tabs-content div.input-wysiwyg div.wysiwyg-container textarea {
+			height: 318px !important;
+		}
+
+div.sub-tabs-content .redactor-box {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+	.redactor-toolbar {
+		height: 32px;
+		overflow: hidden;
+	}
+
+	.redactor-editor {
+		position: absolute;
+		top: 32px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		@include allow-highlight;
+
+		* {
+			@include allow-highlight;
+		}
+	}
+}
+
+
+		
+
+/* Checkbox */
+div.sub-tabs-content div.input-checkbox {
+	cursor: pointer;
+}
+
+	div.sub-tabs-content div.input-checkbox label { 
+		cursor: pointer;
+
+		/* Make the label take up most of the box so it's clickable */
+		padding: 8px 17px 8px 0;
+		margin-top: -8px;
+		margin-right: -12px;
+	}
+
+/* Selects */
+.select-container select {
+	font-size: 14px;
+	padding: 2px;
+	line-height: 28px;
+	height: 28px;
+	font-family: 'Open Sans', sans-serif;
+	vertical-align: middle;
+	max-width: 270px;
+	-webkit-appearance: menulist-button;
+	border-color: #DDD;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+	.select-container select:focus {
+		border-color: #999;
+	}
+
+		/* Repeaters */
+			div.sub-tabs-content .repeater {
+				float: left;
+				width: 100%;
+
+				.options-heading {
+					clear: none;
+				}
+
+				.repeater-group {
+					background: #fff;
+					float: left;
+					padding: 2px;
+					border-radius: 5px;
+					margin: 0 0 10px;
+					clear: both;
+					position: relative;
+					padding-left: 16px;
+					padding-right: 75px;
+
+					div.input {
+						margin: 5px;
+					}
+
+					.sortable-handle {
+						height: 26px;
+						display: block;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						margin: -13px 1px 0 6px;
+						cursor: move;
+
+						span {
+							width: 1px;
+							height: 26px;
+							background: #dfdfdf;
+							margin: 0 1px;
+							display: inline-block;
+						}
+					}
+
+					.repeater-group-buttons {
+						float: left;
+						top: 15px;
+						right: 7px;
+						position: absolute;
+					}
+
+					.remove-group, .add-group {
+						float: left;
+						color: #555;
+						width: 26px;
+						background: #eee;
+						border-radius: 2px;
+						height: 26px;
+						margin: 0 4px;
+						text-align: center;
+						line-height: 26px;
+						cursor: pointer;
+
+						&:hover {
+							background: #ddd;
+						}
+					}
+
+						.remove-group::after {
+							@include icon-font;
+							content: '\5f';
+						}
+
+						.add-group::after {
+							@include icon-font;
+							content: '\3d';
+						}
+
+						&.repeater-group-single .remove-group {
+							display: none;
+						}
+
+					&.repeater-group-template {
+						display: none;
+					}
+
+					div.input-heading {
+						width: 99%;
+						height: auto;
+						float: none;
+						margin: 0;
+					}
+
+					.options-heading {
+						float: none;
+						margin: 0 0 2px 6px;
+						font-size: 12px;
+						padding: 10px 0 4px 4px;
+						font-weight: normal;
+						@include border-box()
+					}
+				}
+
+				.ui-sortable-placeholder {
+					border: 2px dotted #bbb;
+					background: none;
+					visibility: visible !important;
+				}
+
+				&.limit-met {
+					.add-group {
+						display: none !important;
+					}
+				}
+			}
+
+/* Multi-select */
+div.sub-tabs-content div.input-multi-select {
+	position: relative;
+}
+
+	div.sub-tabs-content div.input-multi-select div.multi-select-container {
+		display: none;
+		position: fixed;
+		top: -180px;
+		left: 0;
+		background: #0d0d0d;
+		width: auto;
+		height: auto;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		@include rounded-corners(5px);
+		padding: 5px;
+		opacity: .95;
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+		z-index: 11; /* Stay above panel resize handle */
+		margin: 0 0 10px;
+	}
+	
+		div.sub-tabs-content div.input-multi-select div.multi-select-container select {
+			padding: 5px;
+			@include border-box;
+			width: 170px;
+			height: 160px;
+			font-size: 12px;
+		}
+
+/* Colorpicker Buttons */		
+div.sub-tabs-content div.input-colorpicker {
+	padding-right: 10px;
+}
+
+div.colorpicker-box-container { 
+	display: block; 
+	width: 15px; 
+	height: 15px; 
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .15);
+	border: 1px solid #ccc;
+	@include rounded-corners(2px);
+	float: right; 
+	margin: 3px 0 0 0; 
+	padding: 1px;
+	text-indent: -9999px;
+	overflow: hidden;
+	position: relative;
+}
+
+	div.colorpicker-box-transparency {
+		background-image: url(../images/transparent-bg.png);
+		background-repeat: no-repeat;
+		display: block;
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		z-index: 0;
+		@include rounded-corners(2px);
+	}
+
+	div.colorpicker-box {
+		display: block;
+		width: 15px;
+		height: 15px;
+		cursor: pointer;
+		position: absolute;
+		z-index: 1;
+		@include rounded-corners(1px);
+	}
+
+div.colorpicker-color { 
+	display: block; 
+	width: 15px; 
+	height: 15px; 
+	background-color: #fff;
+}
+
+/* Slider */
+div.input-slider-bar {
+	@include rounded-corners(3px);
+	width: 200px;
+	height: 10px;
+	border: 1px solid #dfdfdf;
+	display: block;
+	float: left;
+	margin: 6px 7px 0 8px;
+	position: relative; 
+}
+
+	.input-slider-bar-input {
+		width: 40px;
+		margin: 0;
+	}
+
+	div.input-slider-bar div.ui-slider-range { 
+		background: #eee; 
+		height: 10px; 
+		@include rounded-corners(2px);
+	}
+	
+	div.input-slider-bar a.ui-slider-handle { 
+		background: #2ea2cc;
+		@include rounded-corners(8px);
+	    display: block;
+	    height: 16px;
+		width: 16px;
+	    margin: -13px 0 0 -8px;
+	    position: absolute; 
+	    cursor: pointer; 
+	}
+	
+	div.input-slider-bar a.ui-slider-handle.ui-state-active { background: #1E8CBE; }
+
+div.input-slider-bar-text { 
+	font-size: 11px; 
+	float: left; 
+	margin: 0 0 0 6px; 
+}
+	
+	div.input-slider-bar-text span { 
+		margin: 0 0 0 5px;
+	}
+	
+	div.input-slider-bar-text span.slider-value { color: #666; }
+	
+	div.input-slider-bar-text span.slider-unit { color: #5a5a5a; }
+
+
+/* Fonts */
+	/* Font Tabs */
+		.font-browser ul.tabs {
+			margin: 0 0 0 10px;
+			padding: 0;
+			width: 100%;
+			height: 25px;
+			display: block;
+			background: none;
+			@include rounded-corners(0 0 0 3px);
+		}
+	 
+	 		.font-browser ul.tabs li {
+	 			display: inline-block;
+	 			padding: 0;
+	 			@include rounded-corners(0);
+	 			margin: 0 5px 0 0;
+	 			width: auto;
+	 			background: none;
+	 		}
+
+			.font-browser ul.tabs li a {
+				color: #ccc;
+				background: #666;
+				float: left;
+				padding: 7px 10px;
+				height: 25px;
+				font-size: 11px;
+				display: block;
+				text-decoration: none;
+				@include rounded-corners(5px 5px 0 0);
+				@include border-box;
+			}
+		
+				.font-browser ul.tabs li.ui-tabs-active a {
+					color: #eee;
+					background: #444;
+				}
+
+
+				.font-browser ul.tabs li:not(.ui-tabs-active) a:hover {
+					color: #ddd;
+				}
+ 
+	/* Fonts Tab Content */
+		.font-browser .tab-content {
+			padding: 0;	
+			float: left;
+			width: 100%;
+			height: 325px;
+			overflow: hidden;
+
+			background: #eee;
+			@include rounded-corners(5px);
+			box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+
+			position: absolute;
+
+			@include border-box;
+		}
+
+	/* Loader */
+		.fonts-loading {
+			display: block;
+			position: absolute;
+			top: 33%;
+			font-size: 50px;
+			text-align: center;
+			width: 100%;
+			color: #CCC;
+
+			.cog-container {
+				opacity: 1;
+			}
+		}
+ 
+	/* fonts-search-input */
+		div.property-font-family-select form.fonts-search {
+			position: relative;
+			background: #444;
+			border-radius: 5px 5px 0 0;
+			padding: 7px 7px 0 7px;
+			height: 35px;
+			width: 100%;
+			float: left;
+			@include border-box;
+
+			.fonts-filter {
+				width: 100%;
+				padding: 6px 110px 6px 6px;
+				background-color: #FFFFFF;
+				background-image: -moz-linear-gradient(center top , #EEEEEE 1%, #FFFFFF 15%);
+				border: 1px solid #222;
+				cursor: text;
+				height: auto !important;
+				margin: 0;
+				overflow: hidden;
+				position: relative;
+				float: right;
+				@include border-box;
+				@include rounded-corners(5px);
+			}
+
+			.select-container {
+				margin: 0;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				width: 100px;
+			}
+
+				select {
+					background-color: #777;
+					border-color: #666;
+					color: #EEE;
+					width: 100%;
+				}
+		}
+
+
+	/* Content */
+		.fonts-noresults {
+			display: block;
+			position: absolute;
+			top: 0;
+			font-size: 50px;
+			text-align: center;
+			width: 100%;
+			color: #CCC;
+			height: 100%;
+			line-height: 250px;
+		}
+	 
+		.font-browser .fonts-list {
+			position: relative;
+			clear: both;
+			border-radius: 5px;
+			height: 320px;
+			border-top: 5px solid #444;
+			overflow: hidden;
+			-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* Rounded corner overflow hidden fix */
+		}
+
+		.font-browser p.error {
+			margin: 20px;
+			padding: 12px 20px;
+			line-height: 20px;
+			color: #B94A48;
+			background-color: #F2DEDE;
+			border-color: #EED3D7;
+			border: 1px solid #EED3D7;
+			@include rounded-corners(10px);
+		}
+
+			.font-browser form.fonts-search + .fonts-list {
+				height: 285px;
+				border-radius: 0 0 5px 5px;
+			}
+
+		.font-browser .fonts-list ul {
+			height: 100%;
+			overflow-y: scroll;
+		}
+	 
+		.font-browser .fonts-list ul li {
+			border-bottom: 1px solid #DDDDDD;
+		    font-size: 16px;
+		    height: 16px;
+		    padding: 0 60px 10px 10px;
+		    position: relative;
+		    overflow: hidden;
+		    width: 100%;
+		    @include border-box;
+		    background: #fafafa;
+		    height: 38px;
+		    line-height: 2;
+		    margin: 0;
+		    border-radius: 0;
+		}
+
+			.font-browser .fonts-list ul li.selected-font {
+				border-left: 2px solid #57b196;
+				background: #f3f3f3;
+			}
+
+			.font-browser .webfonts-list ul li span {
+			    opacity: 0.2;
+			    @include transition("opacity 100ms linear");
+			}
+
+			.font-browser .fonts-list ul li span.font-family {
+				font-family: inherit;
+				font-size: 19px;
+			}
+
+			.font-browser .fonts-list ul li span.font-preview-text {
+				font-family: inherit;
+				font-size: 19px;
+				margin-left: 10px;
+				padding-left: 10px;
+				border-left: 1px solid #DDD;
+			}
+
+				.font-browser .webfonts-list ul li span.font-preview-text {
+					display: none;
+				}
+
+				.font-browser .fonts-list ul li span.font-loading {
+					display: none;
+				}
+
+				.font-browser .webfonts-list ul li span.font-loading {
+					opacity: 1;
+					position: absolute;
+					right: 10px;
+					top: 11px;
+					width: 14px;
+					height: 15px;
+
+					@include icon-font;
+					font-size: 16px;
+
+					line-height: 16px;
+					font-size: 17px;
+					color: #DDD;
+
+					@include animation('spin 2000ms infinite linear');
+				}
+
+		.font-browser .fonts-list ul li:hover {
+			background: #eaeaea;
+			cursor: pointer;
+		}
+	 
+		.font-browser .fonts-list ul li span.action {
+			position: absolute;
+			top: 8px;
+			color: #fff;
+			text-decoration: none;
+			@include rounded-corners(100px);
+			margin: 0 2px 0 0;
+			display: none;
+			opacity: 1;
+			cursor: pointer;
+
+			font-size: 12px;
+			width: 22px;
+			line-height: 22px;
+			height: 22px;
+			text-align: center;
+
+			&:hover { 
+				background: #444;
+				color: #fff;
+			}
+
+			&::before {
+				@include icon-font;
+				font-size: 12px;
+			}
+		}
+
+			.font-browser .fonts-list ul li span.font-loading ~ span.action {
+				display: none !important;
+			}
+
+			.font-browser .fonts-list ul li span.use-font {
+				right: 30px;
+				background: #57b196;
+			}
+
+				.font-browser .fonts-list ul li span.use-font::before {
+					content: '\32';
+				}
+
+			.font-browser .fonts-list ul li span.preview-font {
+				right: 3px;
+				background: #DD5A2A;
+			}
+
+				.font-browser .fonts-list ul li span.preview-font::before {
+					content: '\25be';
+				}
+		 
+			.font-browser .fonts-list ul li:hover span.action {
+				display: block;
+			}
+ 
+ 	/* Input for opening browser */
+	 	.property-font-family-select {
+	 		.open-font-browser {
+	 			position: absolute;
+	 			right: 3px;
+	 		}
+
+	 		.font-browser {
+	 			display: none;
+	 			position: fixed;
+	 			top: -180px;
+	 			left: 0;
+	 			width: 500px;
+	 			height: 350px;
+	 			z-index: 11; /* Stay above panel resize handle */
+	 			margin: 0 0 10px;
+	 		}
+	 		
+	 		.property-fonts.property {
+	 			min-width: 70px;
+	 			padding-right: 18px;
+	 		}
+
+	 		.font-name {
+	 			color: #999;
+	 			float: right;
+	 			margin: 4px 26px 0 0;
+	 			line-height: 20px;
+	 			height: 20px;
+
+	 			max-width: 85px;
+	 			overflow: hidden;
+
+	 			white-space: nowrap;
+
+	 			&.font-name-webfont {
+	 				opacity: 0;
+	 			}
+	 		}
+	 	}
+
+ 	/* font preview overlay */
+		.font-preview-overlay {
+			padding: 20px;
+			background: #fafafa;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			@include rounded-corners(5px);
+		}
+
+		.font-preview-overlay,
+		.font-preview-overlay * {
+			user-select: auto!important;
+			-webkit-user-select: auto!important;
+			@include border-box;
+		}
+
+		.font-preview-overlay header,
+		.font-preview-overlay header h4,
+		.font-preview-overlay header h4 span {
+			font-size: 33px;
+			font-family: inherit !important;
+		}
+
+		.font-preview-overlay span {
+			color: #ccc;
+		}
+
+		.font-preview-overlay header,
+		.font-preview-overlay footer  {
+			text-align: center;
+			color: #999;
+		}
+
+		.font-preview-overlay header {
+			border-bottom: 3px solid #ccc;
+			margin: 0;
+			padding: 0 0 10px;
+		}
+
+		.font-preview-overlay header p {
+			margin: 6px 0 0 -26px;
+			& strong { font-weight: bold }
+		}
+
+		.font-preview-overlay header p * {
+			font-size: 13px;
+			font-weight: bold;
+		}
+
+		.font-preview-overlay footer {
+			border-top: 3px solid #ccc;
+			padding: 7px 0 0;
+			position: absolute;
+			height: 45px;
+			bottom: 0;
+			left: 20px;
+			right: 20px;
+		}
+
+		.font-preview-overlay .close-preview {
+			width: 19px;
+			height: 19px;
+			float: right;
+			display: block;
+			cursor: pointer; 
+			color: #ddd;
+			@include transition('color 150ms linear');
+		}
+
+			.font-preview-overlay .close-preview:before {
+				@include icon-font;
+				content: '\58';
+				font-size: 22px;
+			}
+
+			.font-preview-overlay .close-preview:hover {
+				color: #b3b3b3;
+			}
+
+		.font-preview-overlay .tools span {
+			color: #777;
+			text-decoration: none;
+			@include rounded-corners(100px);
+			background: #ddd;
+			margin: 0 2px;
+
+			width: 22px;
+			height: 22px;
+			line-height: 22px;
+			font-size: 12px;
+			text-align: center;
+
+			cursor: pointer;
+			float: left;
+
+			&:hover { 
+				background: #444;
+				color: #fff;
+			}
+
+			&:before {
+				@include icon-font;
+			}
+		}
+
+			.font-preview-overlay .tools span.reset-preview:before {
+				content: '\72';
+			}
+
+			.font-preview-overlay .tools span.size-down:before {
+				content: '\5f';
+			}
+
+			.font-preview-overlay .tools span.size-up:before  {
+				content: '\3d';
+			}
+
+			.font-preview-overlay .tools span.use-font {
+				float: right;
+				background: #57b196;
+				color: #fff;
+
+				&:before {
+					content: '\32';				
+				}
+
+				&:hover {
+					background: #444;
+				}
+			}
+
+
+		.font-preview-overlay .editable {
+			font-size: 34px;
+			text-align: center;
+			line-height: 130%;
+			height: 195px;
+			overflow: scroll;
+			font-family: inherit;
+			padding: 10px 0;
+		}
+
+			.font-preview-overlay .editable:focus {
+				box-shadow: 0 0 4px #57b196;
+			}
+/* End font browser */
+
+
+/* Import Files */
+	div.input-import-file input[type="file"] {
+		visibility: hidden;
+		position: absolute;
+		top: -99999px;
+		left: -99999px;
+	}
+
+
+/* Buttons */
+	div.input div.input-right:first-child:last-child .button {
+		margin: 0;
+	}
+
+
+/* Redactor */
+	.redactor_box {
+		height: 100% !important;
+	}
+
+	.redactor_box * {
+		user-select: auto!important;
+		-webkit-user-select: auto!important;
+	}
+
+	.redactor_editor {
+		height: 318px !important;
+		box-sizing: border-box !important;
+		-moz-box-sizing: border-box !important;
+	}
+
+/* Colorpicker */
+input.color {
+	display: inline-block;
+	vertical-align: middle;
+	width: 3em;
+	height: 1.5em;
+	margin: 0.1em;
+	border-radius: 2px;
+
+	width: 4em;
+	border: 0 none;
+	padding: 0.2em;
+}
+input.color.alphaHex {
+	width: 5.25em;
+}
+input.color.selected {
+	outline: none;
+}
+input.color.error {
+	box-shadow: 0 0 3px 3px #d00;
+}
+.colorContainer {
+	width: auto;
+	height: auto;
+	overflow: visible;
+	box-shadow: none;
+	background: url(../images/transparent.png) repeat;
+}
+.colorContainer > .color {
+	margin: 0;
+	display: block;
+}
+.colorContainer.color-null {
+	background: none;
+}
+.colorContainer.color-null .color {
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 1px 1px rgba(255,255,255,0.7);
+	background-color: transparent !important;
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 100%),
+		-moz-linear-gradient(left, rgba(255,0,0,0.25) 0%, rgba(255,255,0,0.25) 16.67%, rgba(0,255,0,0.25) 33.33%, rgba(0,255,255,0.25) 50%, rgba(0,0,255,0.25) 66.67%, rgba(255,0,255,0.25) 83.33%, rgba(255,0,0,0.25) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(50%,rgba(255,255,255,0)), color-stop(50%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.35))),
+		-webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,0,0,0.25)), color-stop(16.67%,rgba(255,255,0,0.25)), color-stop(33.33%,rgba(0,255,0,0.25)), color-stop(50%,rgba(0,255,255,0.25)), color-stop(66.67%,rgba(0,0,255,0.25)), color-stop(83.33%,rgba(255,0,255,0.25)), color-stop(100%,rgba(255,0,0,0.25)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.35) 100%),
+		-webkit-linear-gradient(left, rgba(255,0,0,0.25) 0%,rgba(255,255,0,0.25) 16.67%,rgba(0,255,0,0.25) 33.33%,rgba(0,255,255,0.25) 50%,rgba(0,0,255,0.25) 66.67%,rgba(255,0,255,0.25) 83.33%,rgba(255,0,0,0.25) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.35) 100%),
+		-o-linear-gradient(left, rgba(255,0,0,0.25) 0%,rgba(255,255,0,0.25) 16.67%,rgba(0,255,0,0.25) 33.33%,rgba(0,255,255,0.25) 50%,rgba(0,0,255,0.25) 66.67%,rgba(255,0,255,0.25) 83.33%,rgba(255,0,0,0.25) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.35) 100%),
+		-ms-linear-gradient(left, rgba(255,0,0,0.25) 0%,rgba(255,255,0,0.25) 16.67%,rgba(0,255,0,0.25) 33.33%,rgba(0,255,255,0.25) 50%,rgba(0,0,255,0.25) 66.67%,rgba(255,0,255,0.25) 83.33%,rgba(255,0,0,0.25) 100%);
+	background: linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.35) 100%),
+		linear-gradient(left, rgba(255,0,0,0.25) 0%,rgba(255,255,0,0.25) 16.67%,rgba(0,255,0,0.25) 33.33%,rgba(0,255,255,0.25) 50%,rgba(0,0,255,0.25) 66.67%,rgba(255,0,255,0.25) 83.33%,rgba(255,0,0,0.25) 100%);
+}
+.colorContainer.color-null .color.selected {
+	box-shadow: 0 0 1px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+#css3colorpicker-div {
+	z-index: 1000;
+	display: block;
+	padding: 10px;
+	position: absolute;
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, .2);
+	border-radius: 5px;
+	background: #121212;
+	border: 1px solid #393939;
+}
+#css3colorpicker-div-container {
+	width: 378px;
+	height: 256px;
+	position: relative;
+}
+#css3colorpicker-div.alphaOn #css3colorpicker-div-container {
+	height: 282px;
+}
+#css3colorpicker-div-swatchContainer {
+	width: 378px;
+	height: auto;
+	display: none;
+	position: relative;
+}
+	#css3colorpicker-div.swatchesOn #css3colorpicker-div-swatchContainer {
+		display: block;
+	}
+	#css3colorpicker-div-swatches {
+		width: 378px;
+		height: 28px;
+		position: relative;
+		margin-top: 10px;
+		background: #222;
+		border: 1px solid #444;
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	#css3colorpicker-div-add-swatch-button {
+		position: absolute;
+		background: #414141;
+		display: block;
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		line-height: 20px;
+		right: 4px;
+		top: 5px;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+		#css3colorpicker-div-add-swatch-button:hover {
+			background: #3a3a3a;
+		}
+
+		#css3colorpicker-div-add-swatch-button:before {
+			@include icon-font;
+			color: #ccc;
+			content: '\2b';
+		}
+
+	#css3colorpicker-div-swatches .swatch {
+		display: inline-block;
+		vertical-align: middle;
+		float: left;
+		width: 20px;
+		height: 20px;
+		margin: 4px 5px;
+		margin-right: 0;
+		border-radius: 2px;
+		position: relative;
+		cursor: pointer;
+	}
+	#css3colorpicker-div.alphaOn #css3colorpicker-div-swatches .swatch {
+		background: url(../images/transparent.png) repeat;
+	}
+	#css3colorpicker-div-swatches .swatch > div {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-radius: 2px;
+	}
+	#css3colorpicker-div-swatches .swatch:first-child {
+		margin-left: 4px;
+	}
+#css3colorpicker-div-colorContainer {
+	width: 85px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	border-radius: 2px;
+	overflow: hidden;
+	background: url(../images/transparent.png) repeat;
+}
+#css3colorpicker-div-color {
+	width: 50px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 2px 0 0 2px;
+}
+#css3colorpicker-div-colorOld {
+	width: 35px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 0 2px 2px 0;
+}
+.css3colorpicker-inputContainer {
+	width: 85px;
+	height: auto;
+	padding: 1px 0;
+	display: block;
+	position: absolute;
+	right: 0;
+	margin: 0;
+	overflow: hidden;
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 2px;
+}
+#css3colorpicker-div-inputContainer-hsv {
+	top: 53px;
+}
+#css3colorpicker-div-inputContainer-rgba {
+	top: 141px;
+}
+#css3colorpicker-div-inputContainer-hex {
+	top: 256px;
+}
+.css3colorpicker-inputContainer li {
+	list-style: none;
+	display: block;
+	font-family: arial;
+	font-weight: normal;
+	font-size: 10px;
+	padding: 3px 5px;
+	background: transparent;
+	position: relative;
+	height: 20px;
+	line-height: 20px;
+	margin: 0;
+	cursor: default;
+	overflow: hidden;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.45);
+	color: #bfbfbf;
+	border-bottom: 1px solid #333;
+}
+.css3colorpicker-inputContainer li:last-child {
+	border-bottom: none;
+}
+.css3colorpicker-inputContainer li.selected {
+	background: rgba(0, 0, 0, 0.5);
+}
+.css3colorpicker-inputContainer input {
+	width: 45px;
+	height: 14px;
+	margin: 0;
+	border: 0 none;
+	padding: 2px 0 2px 4px;
+	font-size: 10px;
+	position: absolute;
+	right: 17px;
+	border-radius: 2px;
+	background: #121212;
+	border: 1px solid #2e2e2e;
+	color: #898989;
+}
+.css3colorpicker-inputContainer input#css3colorpicker-div-hex {
+	width: 56px;
+	right: 5px;
+}
+.css3colorpicker-inputContainer li span {
+	position: absolute;
+	right: 5px;
+	font-size: 10px;
+}
+#css3colorpicker-div-1d,
+#css3colorpicker-div-2d,
+#css3colorpicker-div-alpha {
+	position: absolute;
+	overflow: visible;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+}
+#css3colorpicker-div-1d,
+#css3colorpicker-div-2d {
+	height: 256px;
+	background: #fff;
+}
+#css3colorpicker-div-1d {
+	cursor: n-resize;
+	width: 20px;
+	top: 0;
+	left: 265px;
+}
+#css3colorpicker-div-2d {
+	cursor: crosshair;
+	width: 256px;
+	top: 0;
+	left: 0;
+}
+#css3colorpicker-div-alpha {
+	cursor: e-resize;
+	width: 256px;
+	height: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+#css3colorpicker-div.alphaOn #css3colorpicker-div-alpha {
+	height: 20px;
+}
+#css3colorpicker-div-alpha:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: url(../images/transparentGrad.png) left top repeat-y;
+}
+
+#css3colorpicker-div-1dControl,
+#css3colorpicker-div-2dControl,
+#css3colorpicker-div-alphaControl {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+#css3colorpicker-div-1dControl {
+	width: auto;
+	height: 1px;
+	right: 0;
+}
+#css3colorpicker-div-2dControl {
+	width: 11px;
+	height: 11px;
+	margin-left: -5px;
+	margin-top: -5px;
+	border-radius: 6px;
+}
+#css3colorpicker-div-alphaControl {
+	width: 1px;
+	height: auto;
+	bottom: 0;
+	display: none;
+}
+#css3colorpicker-div.alphaOn #css3colorpicker-div-alphaControl {
+	display: block;
+}
+
+#css3colorpicker-div-1dColor,
+#css3colorpicker-div-1dColor:after,
+#css3colorpicker-div-1dGradient,
+#css3colorpicker-div-2dColor,
+#css3colorpicker-div-2dColor:after,
+#css3colorpicker-div-2dGradient,
+#css3colorpicker-div-2dGradient:after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+#css3colorpicker-div-1dColor:after,
+#css3colorpicker-div-2dColor:after,
+#css3colorpicker-div-2dGradient:after {
+	content: '';
+	display: block;
+}
+
+
+/* Gradients */
+
+#css3colorpicker-div.mode-h #css3colorpicker-div-1dGradient {
+	background: #000;
+}
+#css3colorpicker-div.mode-h #css3colorpicker-div-1dColor {
+	background: -moz-linear-gradient(top, #ff0000 0%, #ff00ff 16.67%, #0000ff 33.33%, #00ffff 50%, #00ff00 66.67%, #ffff00 83.33%, #ff0000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0000), color-stop(16.67%,#ff00ff), color-stop(33.33%,#0000ff), color-stop(50%,#00ffff), color-stop(66.67%,#00ff00), color-stop(83.33%,#ffff00), color-stop(100%,#ff0000));
+	background: -webkit-linear-gradient(top, #ff0000 0%,#ff00ff 16.67%,#0000ff 33.33%,#00ffff 50%,#00ff00 66.67%,#ffff00 83.33%,#ff0000 100%);
+	background: -o-linear-gradient(top, #ff0000 0%,#ff00ff 16.67%,#0000ff 33.33%,#00ffff 50%,#00ff00 66.67%,#ffff00 83.33%,#ff0000 100%);
+	background: -ms-linear-gradient(top, #ff0000 0%,#ff00ff 16.67%,#0000ff 33.33%,#00ffff 50%,#00ff00 66.67%,#ffff00 83.33%,#ff0000 100%);
+	background: linear-gradient(top, #ff0000 0%,#ff00ff 16.67%,#0000ff 33.33%,#00ffff 50%,#00ff00 66.67%,#ffff00 83.33%,#ff0000 100%);
+}
+#css3colorpicker-div.mode-h #css3colorpicker-div-2dGradient:after,
+#css3colorpicker-div.mode-s #css3colorpicker-div-2dGradient,
+#css3colorpicker-div.mode-v #css3colorpicker-div-1dGradient {
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1)));
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+	background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+	background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+	background: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+}
+#css3colorpicker-div.mode-v #css3colorpicker-div-2dColor:after,
+#css3colorpicker-div.mode-s #css3colorpicker-div-1dColor:after {
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+}
+#css3colorpicker-div.mode-h #css3colorpicker-div-2dGradient {
+	background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+#css3colorpicker-div.mode-s #css3colorpicker-div-2dColor,
+#css3colorpicker-div.mode-v #css3colorpicker-div-2dColor {
+	background: -moz-linear-gradient(left, #ff0000 0%, #ffff00 16.67%, #00ff00 33.33%, #00ffff 50%, #0000ff 66.67%, #ff00ff 83.33%, #ff0000 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff0000), color-stop(16.67%,#ffff00), color-stop(33.33%,#00ff00), color-stop(50%,#00ffff), color-stop(66.67%,#0000ff), color-stop(83.33%,#ff00ff), color-stop(100%,#ff0000));
+	background: -webkit-linear-gradient(left, #ff0000 0%,#ffff00 16.67%,#00ff00 33.33%,#00ffff 50%,#0000ff 66.67%,#ff00ff 83.33%,#ff0000 100%);
+	background: -o-linear-gradient(left, #ff0000 0%,#ffff00 16.67%,#00ff00 33.33%,#00ffff 50%,#0000ff 66.67%,#ff00ff 83.33%,#ff0000 100%);
+	background: -ms-linear-gradient(left, #ff0000 0%,#ffff00 16.67%,#00ff00 33.33%,#00ffff 50%,#0000ff 66.67%,#ff00ff 83.33%,#ff0000 100%);
+	background: linear-gradient(left, #ff0000 0%,#ffff00 16.67%,#00ff00 33.33%,#00ffff 50%,#0000ff 66.67%,#ff00ff 83.33%,#ff0000 100%);
+}
+#css3colorpicker-div.mode-v #css3colorpicker-div-2dGradient,
+#css3colorpicker-div.mode-s #css3colorpicker-div-1dGradient {
+	background: #000;
+}
+
+
+/* Control Themes */
+
+#css3colorpicker-div.controls-inset #css3colorpicker-div-1d,
+#css3colorpicker-div.controls-raised #css3colorpicker-div-1d,
+#css3colorpicker-div.controls-inset #css3colorpicker-div-2d,
+#css3colorpicker-div.controls-inset #css3colorpicker-div-alpha,
+#css3colorpicker-div.controls-raised #css3colorpicker-div-alpha {
+	overflow: hidden;
+}
+#css3colorpicker-div.controls-raised #css3colorpicker-div-2d,
+#css3colorpicker-div.controls-simple #css3colorpicker-div-1d,
+#css3colorpicker-div.controls-simple #css3colorpicker-div-2d,
+#css3colorpicker-div.controls-simple #css3colorpicker-div-alpha {
+	overflow: visible;
+}
+
+
+#css3colorpicker-div.controls-simple #css3colorpicker-div-1dControl,
+#css3colorpicker-div.controls-simple #css3colorpicker-div-alphaControl {
+	border: 1px solid #000;
+	box-shadow: 0 0 3px 1px rgba(255,255,255,0.65);
+}
+#css3colorpicker-div.controls-simple #css3colorpicker-div-1dControl {
+	margin-top: -1px;
+}
+#css3colorpicker-div.controls-simple #css3colorpicker-div-alphaControl {
+	margin-left: -1px;
+}
+#css3colorpicker-div.controls-simple.controls-invert #css3colorpicker-div-1dControl,
+#css3colorpicker-div.controls-simple.controls-invert #css3colorpicker-div-alphaControl {
+	border: 1px solid #fff;
+	box-shadow: 0 0 3px 1px rgba(0,0,0,0.65);
+}
+#css3colorpicker-div.controls-simple #css3colorpicker-div-2dControl {
+	border: 1px solid #000;
+	width: 9px;
+	height: 9px;
+	box-shadow: 0 0 3px 1px rgba(255,255,255,0.65);
+}
+#css3colorpicker-div.controls-simple.controls-invert #css3colorpicker-div-2dControl {
+	width: 9px;
+	height: 9px;
+	border: 1px solid #fff;
+	box-shadow: 0 0 3px 1px rgba(0,0,0,0.65);
+}
+
+
+#css3colorpicker-div.controls-inset.controls-invert #css3colorpicker-div-1dControl,
+#css3colorpicker-div.controls-raised #css3colorpicker-div-1dControl {
+	box-shadow: 0 -1px 1px rgba(255,255,255,0.65), 0 1px 1px rgba(0,0,0,0.65);
+}
+#css3colorpicker-div.controls-inset.controls-invert #css3colorpicker-div-alphaControl,
+#css3colorpicker-div.controls-raised #css3colorpicker-div-alphaControl {
+	box-shadow: -1px 0 1px rgba(255,255,255,0.65), 1px 0 1px rgba(0,0,0,0.65);
+}
+#css3colorpicker-div.controls-inset #css3colorpicker-div-1dControl,
+#css3colorpicker-div.controls-raised.controls-invert #css3colorpicker-div-1dControl {
+	box-shadow: 0 -1px 1px rgba(0,0,0,0.65), 0 1px 1px rgba(255,255,255,0.65);
+}
+#css3colorpicker-div.controls-inset #css3colorpicker-div-alphaControl,
+#css3colorpicker-div.controls-raised.controls-invert #css3colorpicker-div-alphaControl {
+	box-shadow: -1px 0 1px rgba(0,0,0,0.65), 1px 0 1px rgba(255,255,255,0.65);
+}
+#css3colorpicker-div.controls-inset.controls-invert #css3colorpicker-div-2dControl,
+#css3colorpicker-div.controls-raised #css3colorpicker-div-2dControl {
+	box-shadow: inset 0 1px 1px rgba(255,255,255,0.65), 0 1px 3px rgba(0,0,0,0.65);
+}
+#css3colorpicker-div.controls-inset #css3colorpicker-div-2dControl,
+#css3colorpicker-div.controls-raised.controls-invert #css3colorpicker-div-2dControl {
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.65), 0 1px 1px rgba(255,255,255,0.65);
+}

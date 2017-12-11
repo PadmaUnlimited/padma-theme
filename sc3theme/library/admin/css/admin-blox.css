@@ -1,0 +1,612 @@
+/* Important Stuff */
+.wrap.blox-page h2 {
+	margin-bottom: 15px;
+}
+
+/* Regular Elements */
+abbr,
+acronym {
+	background: #EEEEEE;
+	cursor: help;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+div.hr {
+	background: transparent;
+	border-top: 1px solid #EAEAEA;
+	clear: both;
+	height: 1px;
+	margin: 24px 0;
+	overflow: hidden;
+	display: block;
+	width: 100%;
+}
+/* End Regular Elements */
+
+
+/* Messages */
+/* Reset */
+div.reset-alert {
+	width: 700px;
+}
+
+div.reset-alert input.alert-big-button {
+	color: #832525;
+}
+/* End Reset */
+
+/* Alert Buttons */
+input.alert-big-button,
+.wp-core-ui input.alert-big-button {
+	font-size: 15px !important;
+	width: 300px;
+	height: 34px;
+	position: relative;
+	margin: 15px 0 20px -158px;
+	left: 50%;
+}
+/* End Alert Buttons */
+/* End Messages */
+
+/* Buttons */
+.wp-core-ui input.blox-medium-button {
+	font-size: 15px !important;
+	width: 300px;
+	height: 34px;
+	margin: 15px 0;
+}
+/* End Buttons */
+
+/* Wrapper */
+div.blox-small-wrap {
+	max-width: 1000px;
+}
+/* End Wrapper */
+
+
+/* Titles */
+h3.title {
+	margin: 30px 0 15px;
+}
+
+h3.title code {
+	font-size: 1em;
+}
+
+h3.title-hr {
+	border-top: 1px solid #EEEEEE;
+	padding-top: 30px;
+}
+/* End Titles */
+
+
+/* Tabs */
+h2.big-tabs-tabs {
+	opacity: 0;
+	margin-bottom: 20px;
+}
+
+h2.big-tabs-tabs a.nav-tab-active {
+	color: #D54E21;
+}
+h2.big-tabs-tabs a:hover:not(.nav-tab-active) {
+	color: #464646;
+}
+
+h2.big-tabs-tabs a.nav-tab-inactive {
+	opacity: 0.4;
+	cursor: help;
+	color: #AAAAAA !important;
+}
+
+div.big-tab {
+	max-width: 1100px;
+	display: none;
+}
+
+div.big-tab-fading {
+	z-index: 1;
+}
+
+
+/* End Tabs */
+
+
+/* Inputs */
+table.form-table tr {
+	border-bottom: 1px solid #F3F3F3;
+}
+
+table.form-table tr.no-bottom-border {
+	border-bottom: none;
+}
+
+table.form-table tr th,
+table.form-table tr td {
+	padding: 15px 10px;
+}
+
+table.form-table label {
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+table.form-table textarea {
+	resize: none;
+}
+
+table.form-table select {
+	width: 150px;
+}
+
+label span.label-tooltip {
+	width: 14px;
+	height: 13px;
+	background: url(../images/help-grey.png);
+	display: inline-block;
+	text-indent: -9999px;
+	margin: 0 0 -1px 8px;
+	cursor: help;
+	opacity: 0.5;
+}
+
+label span.label-tooltip:hover {
+	opacity: 0.9;
+}
+
+label.radio-label {
+	margin-right: 15px;
+}
+
+div.hr-submit {
+	margin: 45px 0 20px;
+}
+
+p.submit {
+	padding-top: 0;
+}
+
+table.form-table input.large-text {
+	width: 350px !important;
+}
+
+input.blox-save {
+	width: 220px;
+	height: 28px !important;
+}
+/* End Inputs */
+
+
+/* Input Descriptions and Tooltips */
+p.description {
+	clear: both;
+	margin: 0;
+}
+/* End Input Descripts and Tooltips */
+
+
+/* Getting Started Page */
+h3.blox-sub-title {
+	color: #777777;
+	font-size: 16px;
+	line-height: 25px;
+	font-weight: normal;
+}
+
+div#blox-getting-started-ve-link-container {
+	margin: 15px 0 15px -250px;
+	position: relative;
+	left: 50%;
+	float: left;
+	clear: both;
+}
+
+div#blox-getting-started-ve-link-container p {
+	margin-left: 10px;
+}
+
+div#blox-getting-started-license-notice {
+	font-size: 13px;
+}
+
+input.blox-big-button {
+	font-size: 18px !important;
+	width: 500px;
+	height: 50px !important;
+}
+/* End Getting Started Page */
+
+
+/* Templates Page */
+form#upload-skin {
+	display: none;
+}
+
+.blox-templates .blox-template .theme-actions .delete-template {
+	color: #AA0000;
+	text-decoration: none;
+	border-color: rgba(0, 0, 0, 0);
+	box-shadow: none;
+	background: rgba(0, 0, 0, 0);
+}
+
+.blox-templates .blox-template .theme-actions .delete-template:hover {
+	background: #D54E21;
+	color: #FFFFFF;
+	border-color: #D54E21;
+}
+
+.blox-templates .blox-template.missing-image .theme-screenshot {
+	background: url(../../visual-editor/images/logo.png) no-repeat 50% 50% !important;
+}
+
+button#template-export-image-button {
+	padding-left: 5px;
+}
+
+button#template-export-image-button span {
+	line-height: 18px;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	color: #888888;
+	vertical-align: text-top;
+	margin: 0 2px;
+}
+
+button#template-export-image-button span::after {
+	font-family: "dashicons";
+	content: "\f128";
+	font: normal 18px/1 "dashicons";
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img#template-export-image-preview {
+	max-width: 340px;
+	margin-top: 15px;
+	border: 1px solid #DDDDDD;
+}
+
+/* Loading indicator */
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes spin {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes spin {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+.template-installing .template-loading-indicator {
+	position: absolute;
+	display: block;
+	width: 80px;
+	height: 80px;
+	left: 50%;
+	top: 50%;
+	margin: -40px 0 0 -40px;
+	text-align: center;
+	-webkit-animation: spin 1500ms infinite linear;
+	-moz-animation: spin 1500ms infinite linear;
+	animation: spin 1500ms infinite linear;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZGF0YS1pY29uPSJjb2ciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBjbGFzcz0iaWNvbmljIGljb25pYy1jb2cgaWNvbmljLW9yaWVudGF0aW9uLXNxdWFyZSIgdmlld0JveD0iMCAwIDEyOCAxMjgiPgogIDxnIGRhdGEtd2lkdGg9IjEyOCIgZGF0YS1oZWlnaHQ9IjEyOCIgY2xhc3M9Imljb25pYy1sZyIgZGlzcGxheT0iaW5saW5lIj4KICAgIDxwYXRoIGQ9Ik0xMjggNzMuOXYtMTkuOWwtMTQuMy0zLjZjLTEuMi00LjItMi44LTguMy01LTEybDcuNS0xMi43LTE0LjEtMTQuMS0xMi43IDcuNmMtMy43LTIuMS03LjgtMy44LTEyLTVsLTMuNS0xNC4yaC0xOS45bC0zLjYgMTQuM2MtNC4yIDEuMi04LjMgMi44LTEyIDVsLTEyLjctNy41LTE0IDE0IDcuNiAxMi43Yy0yLjEgMy43LTMuOCA3LjgtNSAxMmwtMTQuMyAzLjZ2MTkuOWwxNC4zIDMuNmMxLjIgNC4yIDIuOCA4LjMgNSAxMmwtNy41IDEyLjcgMTQuMSAxNC4xIDEyLjctNy42YzMuNyAyLjEgNy44IDMuOCAxMiA1bDMuNyAxNC4zaDE5LjdsMy42LTE0LjNjNC4yLTEuMiA4LjMtMi44IDEyLTVsMTIuNyA3LjUgMTQuMS0xNC4xLTcuNi0xMi43YzIuMS0zLjcgMy44LTcuOCA1LTEybDE0LjItMy42em0tNjQgMjQuMWMtMTguOCAwLTM0LTE1LjItMzQtMzRzMTUuMi0zNCAzNC0zNCAzNCAxNS4yIDM0IDM0LTE1LjIgMzQtMzQgMzR6IgogICAgY2xhc3M9Imljb25pYy1jb2ctYm9keSBpY29uaWMtZWxlbWVudC1maWxsIiAvPgogIDwvZz4KPC9zdmc+);
+	background-size: 80px;
+	opacity: 0.6;
+}
+
+.blox-templates .blox-template.missing-image.template-installing div.theme-screenshot {
+	background: none !important;
+}
+/* End Templates */
+
+
+/* Options Page */
+/* SEO Tab */
+h3#seo-templates-title {
+	margin: 30px 0 -25px 125px;
+	font-size: 1.3em;
+}
+
+div#seo-templates-header {
+	width: auto;
+	float: left;
+	border: 1px solid #E5E5E5;
+	padding: 5px;
+	border-bottom: none;
+	border-radius: 8px 8px 0 0;
+	background: #FFFFFF;
+	margin: 0 0 -1px 800px;
+	position: relative;
+	background: #FAFAFA;
+}
+
+div#seo-templates-header span {
+	top: 9px;
+	left: -140px;
+	position: absolute;
+	width: 130px;
+	text-align: right;
+	color: #999999;
+}
+
+div#seo-templates-header select {
+	width: 150px;
+}
+
+div#seo-templates-inputs {
+	width: 850px;
+	padding: 15px;
+	border: 1px solid #E5E5E5;
+	border-radius: 8px;
+	clear: both;
+	margin: 0 0 0 110px;
+	background: #FAFAFA;
+	box-shadow: 1px 1px 0 #DDDDDD;
+}
+
+div#seo-templates-inputs th {
+	width: 130px;
+}
+
+div#seo-templates-inputs input.large-text,
+div#seo-templates-inputs textarea {
+	width: 100%;
+}
+
+h3#seo-templates-advanced-options-title span {
+	cursor: pointer;
+	margin: 0 0 0 5px;
+	font-size: 11px;
+	font-weight: bold;
+	color: #21759B;
+	padding: 5px 10px;
+	background: #EEEEEE;
+	text-shadow: 1px 1px 0 #FFFFFF;
+	border-radius: 3px;
+	box-shadow: 1px 1px 0 #DDDDDD;
+}
+
+h3#seo-templates-advanced-options-title span:hover {
+	color: #D54E21;
+}
+
+div#seo-templates-advanced-options {
+	display: none;
+}
+
+p#seo-description {
+	margin: 25px 0 -5px 0;
+}
+/* End SEO Tab */
+
+/* License Validation */
+div.license-key-input-table {
+	border: 1px solid #DADADA;
+	border-radius: 5px;
+	background: #FFFFFF;
+	display: block;
+	padding: 0 30px 10px;
+	margin: 10px 0 -10px;
+}
+
+span.license-key-validation {
+	margin: 0 0 0 6px;
+	padding-bottom: 1px;
+}
+
+span.license-key-validation.red {
+	border-bottom: 1px dotted #990000;
+}
+/* End License Validation */
+/* End Options Page */
+
+
+/* Tools */
+/* System Info */
+textarea#system-info-textarea {
+	font-family: "courier new", monospace;
+	margin: 10px 0 0 0;
+	width: 900px;
+	height: 400px;
+}
+
+/* End Tools */
+
+
+
+/* Updates */
+.blox-update-backup-reminder {
+	width: 650px !important;
+	padding: 5px 20px !important;
+}
+/* End Updates */
+
+
+/* Colored Text */
+span.red {
+	color: #990000;
+}
+
+span.green {
+	color: #009900;
+}
+/* End Colored Text */
+
+
+/* Obligatory stupid jQuery stuff */
+.ui-helper-hidden {
+	display: none;
+}
+
+.ui-helper-hidden-accessible {
+	left: -9999px;
+	position: absolute;
+}
+
+.ui-helper-reset {
+	border: 0;
+	font-size: 100%;
+	line-height: 1.3;
+	list-style: none;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+.ui-helper-clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.ui-helper-clearfix {
+	display: inline-block;
+}
+
+* html .ui-helper-clearfix {
+	height: 1%;
+}
+
+.ui-helper-clearfix {
+	display: block;
+}
+
+.ui-helper-zfix {
+	filter: alpha(opacity=0);
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.ui-widget-overlay {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* Getting Started page */
+.blox-getting-started-wrap .blox-sub-title {
+	font-size: 18px;
+	margin: 20px 0;
+}
+
+.wrap .blox-getting-started-wrap h2 {
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.blox-sub-title img {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.blox-infobox-row {
+	margin-top: 3%;
+}
+
+.blox-infobox-row::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.blox-infobox {
+	background: #ffffff;
+	padding: 13px 25px;
+	min-height: 66px;
+	float: left;
+	width: 42%;
+	border: solid 1px #b92256;
+}
+
+.blox-infobox-icon {
+	width: 43%;
+	padding: 0 20px;
+	height: 76px;
+	line-height: 73px;
+}
+
+.blox-infobox.inrow {
+	margin-right: 3%;
+}
+
+.blox-infobox.big {
+	min-height: 150px;
+}
+
+.blox-infobox span.dashicons {
+	font-size: 46px;
+	color: #b92256;
+	margin-right: 10px;
+	width: 46px;
+	height: 76px;
+	line-height: 76px;
+	position: relative;
+	vertical-align: middle;
+	float: left;
+}
+
+.blox-infobox span.dashicons.bigfix {
+	font-size: 40px;
+}
+
+.blox-infobox a.big {
+	font-size: 22px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.blox-infobox a:hover {
+	text-decoration: none;
+	color: #b92256;
+}
+
+.blox-infobox.big h3 a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.blox-infobox.big h3 a:hover {
+	text-decoration: none;
+	color: #b92256;
+}
+
+.blox-infobox.big h3 {
+	font-size: 18px;
+	color: #000000;
+	font-weight: normal;
+	margin-top: 10px;
+}

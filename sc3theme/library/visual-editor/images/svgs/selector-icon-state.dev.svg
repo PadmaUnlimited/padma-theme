@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="17px" viewBox="0 0 16 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>selector-icon-state</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E9E9E9" offset="0%"></stop>
+            <stop stop-color="#BCBCBC" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#9A9A9A" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feGaussianBlur stdDeviation="0" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path id="path-4" d="M3.76923077,2.96202532 L3.76923077,10.8977305 L5.71392532,9.02923601 L7.6586391,13 L9.31082228,12.1582805 L7.36612773,8.18751654 L10,7.72345626 L3.76923077,2.96202532 Z M3.76923077,2.96202532"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="State-select-icon" sketch:type="MSLayerGroup" transform="translate(3.000000, 1.000000)">
+            <g id="Star-press" transform="translate(0.261961, 0.000000)" fill="#C8C8C8" sketch:type="MSShapeGroup">
+                <path d="M5.89804042,0.0544328015 L6.28988261,0.492294025 L1.18108088,6.18762872 L0.789238683,5.74976749 L5.89804042,0.0544328015" id="Fill-1"></path>
+                <path d="M6.91442531,1.65286168 L7.07639618,2.24530831 L0.164695982,4.58919984 L0.0034324077,3.9967532 L6.91442531,1.65286168" id="Fill-2"></path>
+                <path d="M0.789238683,0.493078722 L1.18178817,0.055217499 L6.29058991,5.75055219 L5.89733312,6.18841341 L0.789238683,0.493078722" id="Fill-3"></path>
+                <path d="M0.024651299,2.14172824 L0.200768097,1.55398979 L7.05446999,4.10111798 L6.87835319,4.68885643 L0.024651299,2.14172824" id="Fill-4"></path>
+            </g>
+            <g id="Shape" filter="url(#filter-3)">
+                <use stroke="#000000" stroke-width="1" stroke-opacity="0.342859605" fill="url(#linearGradient-2)" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-4"></use>
+                <use stroke="none" fill="none" xlink:href="#path-4"></use>
+            </g>
+        </g>
+    </g>
+</svg>

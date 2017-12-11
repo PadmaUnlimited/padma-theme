@@ -1,0 +1,86 @@
+@import 'mixins',
+'loading',
+'tooltips';
+
+/* General */
+body { 
+	float: left;
+	width: 100%; 
+}
+
+* {
+	user-select: none !important;
+	-webkit-user-select: none !important;
+}
+
+
+/* Design Editor */
+body:not(.inspector-disabled) .inspector-element-hover {
+	outline: 1px solid #0ea8c7 !important;
+	outline-offset: -1px;
+}
+
+body:not(.inspector-disabled) .inspector-element-selected {
+	outline: 1px solid #ee7248 !important;
+	outline-offset: -1px;
+}
+
+
+/* jQuery UI Staples */
+.ui-resizable {
+	position: relative; }
+	
+.ui-resizable-handle {
+	display: block;
+	font-size: 0.1px;
+	position: absolute;
+	z-index: 10; }
+	
+.ui-resizable-n {
+	cursor: ns-resize;
+	height: 15px;
+	left: 0;
+	top: -5px;
+	width: 100%; }
+	
+.ui-resizable-s {
+	bottom: -5px;
+	cursor: ns-resize;
+	height: 15px;
+	left: 0;
+	width: 98%; }
+	
+.ui-resizable-e {
+	cursor: ew-resize;
+	height: 98%;
+	right: -5px;
+	top: 0;
+	width: 15px; }
+	
+.ui-resizable-w {
+	cursor: ew-resize;
+	height: 100%;
+	left: -5px;
+	top: 0;
+	width: 15px; }
+	
+.ui-resizable-se {
+	bottom: -5px;
+	cursor: se-resize;
+	height: 15px;
+	right: -5px;
+	width: 15px; }
+
+.ui-resizable-sw {
+	bottom: -5px;
+	cursor: sw-resize;
+	height: 15px;
+	left: -5px;
+	width: 15px; }
+
+.ui-resizable-nw {
+	top: -5px;
+	cursor: nw-resize;
+	height: 15px;
+	left: -5px;
+	width: 15px; }

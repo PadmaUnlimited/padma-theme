@@ -1,0 +1,519 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blox Base v3.4.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2016-10-03 17:10+0200\n"
+"Last-Translator: Mikkel Breum <mikkel@wpkitchen.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Textdomain-Support: yes\n"
+"Language: da_DK\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ blox
+#: library/admin/admin.php:353
+#, php-format
+msgid ""
+"<div class=\"blox-update-backup-reminder alert-red alert\"><h3>Remember!</"
+"h3><p>Please backup before updating.  Blox Theme recommends <a href=\"%s\" "
+"target=\"_blank\"><strong>BackupBuddy</strong></a> for all backup and "
+"migration needs.</div>"
+msgstr ""
+"<div class=\"blox-update-backup-reminder alert-red alert\"><h3>Husk!</"
+"h3><p>Tag en backup før du opdaterer.  Blox Theme anbefaler <a href=\"%s\" "
+"target=\"_blank\"><strong>BackupBuddy</strong></a> når du skal tage backup "
+"eller flytte server.</div>"
+
+# @ blox
+#: library/api/api-admin-meta-box.php:12
+msgid "Error: The meta box class being registered does not exist."
+msgstr "Fejl: Meta box klassen kan ikke registreres, da den ikke findes."
+
+# @ blox
+#: library/api/api-block.php:127
+msgid "Error: The block options class being registered does not exist."
+msgstr "Fejl: Block options klassen kan ikke registreres, da den ikke findes."
+
+# @ blox
+#: library/api/api-box.php:12
+msgid "Error: The box class being registered does not exist."
+msgstr "Fejl: Box klassen kan ikke registreres, da den ikke findes."
+
+# @ blox
+#: library/api/api-element.php:125
+msgid "Error: Arguments must be an array for this element."
+msgstr "Fejl: Argumenterne for dette element skal være et Array."
+
+# @ blox
+#: library/api/api-element.php:150
+msgid "Error: An ID is required for this element."
+msgstr "Fejl: Et ID er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:153
+msgid "Error: A name is required for this element."
+msgstr "Fejl: Et navn er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:156
+msgid "Error: A group is required for this element."
+msgstr "Fejl: En gruppe er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:159
+msgid "Error: A CSS selector is required for this element."
+msgstr "Fejl: En CSS selector er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:162
+msgid "Error: Properties are required for this element."
+msgstr "Fejl: Egenskaber er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:201
+msgid "Error: Arguments must be an array for this element instance."
+msgstr "Fejl: Argumenterne for dette element skal være et Array."
+
+# @ blox
+#: library/api/api-element.php:217
+msgid "Error: An ID is required for this element instance."
+msgstr "Fejl: Et ID er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:220
+msgid "Error: A name is required for this element instance."
+msgstr "Fejl: Et navn er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:223
+msgid "Error: A group is required for this element instance."
+msgstr "Fejl: En gruppe er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:226
+msgid "Error: A parent element is required for this element instance."
+msgstr "Fejl: Et forældre-element er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:229
+msgid "Error: A CSS selector is required for this element instance."
+msgstr "Fejl: En CSS selector er krævet for dette element."
+
+# @ blox
+#: library/api/api-element.php:239
+msgid "Error: The element specified does not support instances."
+msgstr "Fejl: Det specificerede element understøtter ikke instantiering."
+
+# @ blox
+#: library/api/api-element.php:265
+msgid "Error: The group being registered already exists."
+msgstr "Fejl: Gruppen findes allerede."
+
+# @ blox
+#: library/api/api-element.php:281
+msgid "Error: Arguments must be an array for deregistering this element."
+msgstr ""
+"Fejl: Argumenterne for afregistrering af dette element skal være et array."
+
+# @ blox
+#: library/api/api-element.php:293
+msgid "Error: A group is required for deregistering this element."
+msgstr "Fejl: En gruppe er krævet for afregistrering af dette element."
+
+# @ blox
+#: library/api/api-element.php:296
+msgid "Error: An ID is required for deregistering this element."
+msgstr "Fejl: Et ID er krævet for afregistrering af dette element."
+
+# @ blox
+#: library/api/api-element.php:318
+msgid ""
+"Error: Arguments must be an array for deregistering this element instance."
+msgstr ""
+"Fejl: Argumenterne for afregistrering af dette element skal være et array."
+
+# @ blox
+#: library/api/api-element.php:331
+msgid "Error: A group is required for deregistering this element instance."
+msgstr "Fejl: En gruppe er krævet for afregistrering af dette element."
+
+# @ blox
+#: library/api/api-element.php:334
+msgid ""
+"Error: An instance ID is required for deregistering this element instance."
+msgstr "Fejl: Et ID er krævet for afregistrering af dette element."
+
+# @ blox
+#: library/api/api-element.php:337
+msgid "Error: An element is required for deregistering this element instance."
+msgstr "Fejl: Et element er krævet for afregistrering af dette element."
+
+# @ blox
+#: library/api/api-element.php:357
+msgid "Error: The group being deregistered does not exist."
+msgstr "Fejl: Gruppen kan ikke afregistreres, da den ikke findes."
+
+# @ blox
+#: library/api/api-panel.php:12
+msgid "Error: The panel class being registered does not exist."
+msgstr "Fejl: Panel klassen kan ikke registreres, da den ikke findes."
+
+# @ blox
+#: library/api/api-updater.php:168
+#, php-format
+msgid ""
+"<div id=\"update-nag\">%s %s is now available, you're running %s! <a href="
+"\"%s\">Click here to update</a> or <a href=\"%s\" target=\"_blank\">learn "
+"more</a> about the update.</div>"
+msgstr ""
+"<div id=\"update-nag\">%s %s er nu tilgængelig, du kører %s! <a href=\"%s"
+"\">Klik her for at opdatere</a> eller <a href=\"%s\" target=\"_blank\">find "
+"ud af mere</a> om opdateringen.</div>"
+
+# @ blox
+#: library/api/api-updater.php:173
+#, php-format
+msgid ""
+"<div id=\"update-nag\">%s %s is now available, you're running %s! Go to the "
+"<a href=\"%s\" target=\"_blank\">Blox Dashboard</a> to download the latest "
+"version or <a href=\"%s\" target=\"_blank\">learn more</a> about the update."
+"</div>"
+msgstr ""
+"<div id=\"update-nag\">%s %s er nu tilgængelig, du kører %s! Gå til <a href="
+"\"%s\" target=\"_blank\">Blox Dashboard'et</a> for at  downloade den seneste "
+"versioneller <a href=\"%s\" target=\"_blank\">find ud af mere</a> om "
+"opdateringen.</div>"
+
+# @ blox
+#: library/api/api-updater.php:185
+#, php-format
+msgid ""
+"<div id=\"update-nag\">%s %s is now available, you're running %s!  Your Blox "
+"license has expired.  Please visit the <a href=\"%s\">Blox Dashboard</a> to "
+"renew your license so you can continue to receive updates.</div>"
+msgstr ""
+"<div id=\"update-nag\">%s %s er nu tilgængelig, du kører %s!  Din Blox "
+"licens er udløbet.  Gå venligst til <a href=\"%s\">Blox Dashboard'et</a> for "
+"at forny din licens så du fortsat kan modtage opdateringer.</div>"
+
+# @ blox
+#: library/api/api-updater.php:190
+#, php-format
+msgid ""
+"<div id=\"update-nag\">%s %s is now available, you're running %s!  You will "
+"not be able to update until you enter a valid license key on the <a href=\"%s"
+"\">Blox Options</a> panel.</div>"
+msgstr ""
+"<div id=\"update-nag\">%s %s er nu tilgængelig, du kører %s!  Du kan ikke "
+"opdaterer før du indtaster en godkendt licenskode under <a href=\"%s\">Blox "
+"Indstillingspanelet</a>.</div>"
+
+# @ blox
+#: library/blocks/blocks.php:80
+msgid "The block class being registered does not exist."
+msgstr "Block klassen kan ikke registreres, da den ikke findes."
+
+# @ blox
+#: library/blocks/blocks.php:636
+msgid "The Blox blocks array does not exist."
+msgstr "Blox blocks array'et eksisterer ikke."
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:51
+msgid "Home"
+msgstr "Hjem"
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:94
+msgid "Search Results For:"
+msgstr "Søgeresutat for:"
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:103
+msgid "Author Archives:"
+msgstr "Forfatterarkiv:"
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:110
+msgid "Tag Archives:"
+msgstr "Emnearkiv:"
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:117
+msgid "Archives:"
+msgstr "Arkiv:"
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:124
+msgid "Whoops! Page Not Found..."
+msgstr "Siden findes ikke."
+
+# @ blox
+#: library/blocks/breadcrumbs/breadcrumbs.php:132
+msgid "You Are Here:"
+msgstr "Du er her:"
+
+# @ blox
+#: library/blocks/content/comments.php:28
+msgid ""
+"This post is password protected.  Please enter the password to view the "
+"comments."
+msgstr ""
+"Dette indlæg er kodeordsbeskyttet. Indtast venligst koden for at se "
+"kommentarene."
+
+# @ blox
+#: library/blocks/content/comments.php:44
+msgid "No Responses"
+msgstr "Ingen svar"
+
+# @ blox
+#: library/blocks/content/comments.php:44
+msgid "One Response"
+msgstr "Et svar"
+
+# @ blox
+#: library/blocks/content/comments.php:44
+msgid "% Responses"
+msgstr "%s svar"
+
+# @ blox
+#: library/blocks/content/comments.php:45
+msgid "to"
+msgstr "til"
+
+# @ blox
+#: library/blocks/content/comments.php:68
+msgid "Sorry, comments are closed for this post."
+msgstr "Der kan ikke kommenteres på dette indlæg."
+
+# @ blox
+#: library/blocks/content/content-display.php:159
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "dagsarkiv: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:162
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "Månedsarkiv: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:165
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "Årsarkiv: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:168
+msgid "Blog Archives"
+msgstr "Blogarkiv:"
+
+# @ blox
+#: library/blocks/content/content-display.php:178
+#, php-format
+msgid "Category Archives: %s"
+msgstr "Kategoriarkiv: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:196
+#: library/blocks/content/content-display.php:199
+#, php-format
+msgid "Author Archives: %s"
+msgstr "Forfatterarkiv: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:209
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Søgeresultat for: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:218
+#, php-format
+msgid "Tag Archives: %s"
+msgstr "Emnearkiv: %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:383
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+# @ blox
+#: library/blocks/content/content-display.php:509
+msgid "Pages:"
+msgstr "Sider:"
+
+# @ blox
+#: library/blocks/content/content-display.php:545
+msgid "Whoops!  Page Not Found"
+msgstr "Siden blev ikke fundet"
+
+# @ blox
+#: library/blocks/content/content-display.php:553
+msgid ""
+"<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
+"are looking for does not exist or has been moved elsewhere.</p>"
+msgstr ""
+"<p>Det ser ud til, at siden du leder efter ikke findes, eller er blevet "
+"flyttet.</p>"
+
+# @ blox
+#: library/blocks/content/content-display.php:555
+#, php-format
+msgid ""
+"<p>If you keep ending up here, please head back to our <a href=\"%s"
+"\">homepage</a> or try the search form below.</p>"
+msgstr ""
+"<p>Hvis du hele tiden ender her, kan du gå tilbahe til <a href=\"%s"
+"\">forsiden</a> eller benytte søgefeltet nedenfor.</p>"
+
+# @ blox
+#: library/blocks/content/content-display.php:621
+msgid "Discard Reply"
+msgstr "Slet svar"
+
+# @ blox
+#: library/blocks/content/content-display.php:647
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Ældre indlæg"
+
+# @ blox
+#: library/blocks/content/content-display.php:648
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Nyere indlæg <span class=\"meta-nav\">&rarr;</span>"
+
+# @ blox
+#: library/blocks/content/content-display.php:800
+#, php-format
+msgid "%s &ndash; Comments"
+msgstr "%s &ndash; Kommentarer"
+
+# @ blox
+#: library/blocks/content/content-display.php:809
+#, php-format
+msgid "Respond to %s"
+msgstr "Svar til %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:816
+#, php-format
+msgid "View all posts by %s"
+msgstr "Se alle indlæg af %s"
+
+# @ blox
+#: library/blocks/content/content-display.php:826
+msgid "<span class=\"tag-links\"><span>Tags:</span> "
+msgstr "<span class=\"tag-links\"><span>Emner:</span> "
+
+# @ blox
+#: library/blocks/footer/footer.php:118
+msgid "Administration Panel"
+msgstr "Administrationspanel"
+
+# @ blox
+#: library/blocks/footer/footer.php:120
+msgid "Administration Login"
+msgstr "Administrationslogin"
+
+# @ blox
+#: library/blocks/footer/footer.php:141
+msgid "Powered by Blox, the "
+msgstr "Powered by Blox, the "
+
+# @ blox
+#: library/blocks/footer/footer.php:153
+msgid "Copyright"
+msgstr "Copyright"
+
+# @ blox
+#: library/blocks/footer/footer.php:169
+msgid "Go To Top"
+msgstr "Gå til toppen"
+
+# @ blox
+#: library/blocks/footer/footer.php:191
+msgid "View Full Site"
+msgstr "Se desktop version"
+
+# @ blox
+#: library/blocks/footer/footer.php:198
+msgid "View Mobile Site"
+msgstr "Se mobil version"
+
+# @ blox
+#: library/common/compiler.php:336
+msgid ""
+"There was an error while Blox tried to compile the LESS CSS.  Full Error: "
+msgstr ""
+"Der skete en fejl når Blox forsøgte at kompilere LESS CSS'en. Fejlen var:"
+
+# @ blox
+#: library/common/functions.php:756
+msgid "Type to search, then press enter"
+msgstr "Skriv og tryk retur for at søge"
+
+# @ blox
+#: library/common/functions.php:784 library/common/functions.php:786
+msgid "Search"
+msgstr "Søg"
+
+# @ blox
+#: library/data/data-elements.php:65 library/data/data-elements.php:92
+#: library/data/data-elements.php:173 library/data/data-elements.php:204
+#: library/data/data-elements.php:233 library/data/data-elements.php:257
+msgid "The element ID is not registered."
+msgstr "Dette element ID er ikke registreret."
+
+# @ blox
+#: library/display/grid-renderer.php:2
+msgid "No Content to Display"
+msgstr "Der er intet indhold at vise"
+
+# @ blox
+#: library/display/grid-renderer.php:2
+#, php-format
+msgid ""
+"<p>There are no blocks to display.  Add some by going to the <a href=\"%s"
+"\">Blox Grid</a>!</p>"
+msgstr ""
+"<p>Der er ingen blokke at vise.  Tilføj nogle ved at gå til <a href=\"%s"
+"\">Blox Grid'et</a>!</p>"
+
+# @ blox
+#: library/display/grid-renderer.php:2
+#, php-format
+msgid ""
+"<p>There is no content to display.  Please notify the site administrator or "
+"<a href=\"%s\">login</a>.</p>"
+msgstr "<p>Der er intet indhold at vise. <a href=\"%s\">Login</a>.</p>"
+
+# @ blox
+#: library/fonts/traditional-fonts.php:127
+msgid ""
+"To register a font, the argument array must include an \"id\", \"stack\", "
+"and \"name\"."
+msgstr ""
+"For at registrere  en font, skal argument array'et indeholde \"id\", \"stack"
+"\", og \"name\"."
+
+# @ blox
+#: library/visual-editor/panels/design/panel-default-elements.php:32
+msgid "Please select a default element to the left."
+msgstr "Vælg venligst et standard element til venstre."
+
+# @ blox
+#: library/visual-editor/panels/design/panel-editor.php:115
+msgid "Please select an element to the left."
+msgstr "Vælg venligst et element til venstre."

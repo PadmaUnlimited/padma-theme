@@ -1,0 +1,421 @@
+# Copyright (C) 2015 Blox Theme
+# This file is distributed under the Terms of Service.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blox Base 3.7.16\n"
+"Report-Msgid-Bugs-To: http://support.bloxtheme.com\n"
+"POT-Creation-Date: 2015-01-24 18:26:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-02-09 10:11+0100\n"
+"Last-Translator: Ulf Seijmer <ulf@induo.com>\n"
+"Language-Team: Blox Theme\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: library/admin/admin.php:150 library/admin/admin.php:187
+msgid "Please contact Blox Support if this error persists."
+msgstr "Vänligen kontakta Blox Support om felet kvarstår. "
+
+#: library/admin/admin.php:174
+msgid "License saved and activated."
+msgstr "Licensen är sparad och aktiverad."
+
+#: library/admin/admin.php:178
+msgid ""
+"\n"
+"\t\t\t\t\t<strong>Whoops!</strong> Could not activate license.  Please check "
+"that you have entered your license correctly and that it has not expired."
+"<br /><br />\n"
+"\t\t\t\t\tMake sure you copied your license correctly from the <a href="
+"\"http://bloxtheme.com/dashboard\" target=\"_blank\">Blox Dashboard</"
+"a>.\n"
+"\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t\t<strong>Hoppsan!</strong>Kunde inte aktivera licensen.  "
+"Kontrollera att du skrivit in korrekt licensinformation och att din licens "
+"inte förfallit.<br /><br />\n"
+"\t\t\t\t\tSäkerställ att du kopierade rätt livensnyckel från <a href="
+"\"http://bloxtheme.com/dashboard\" target=\"_blank\">Bloxs "
+"kontrollpanel</a>.\n"
+"\t\t\t\t"
+
+#: library/admin/pages/options.php:49
+msgid "Deactivate License"
+msgstr "Deaktivera licens"
+
+#: library/admin/pages/options.php:50
+msgid "Active"
+msgstr "Aktiv"
+
+#: library/admin/pages/options.php:52 library/admin/pages/options.php:55
+msgid "Save & Activate License"
+msgstr "Spara och aktivera licens"
+
+#: library/admin/pages/whats-new.php:2
+msgid "Welcome to Blox %s"
+msgstr "Välkommen till Blox %s"
+
+#: library/admin/pages/whats-new.php:4
+msgid ""
+"Thank you for updating!  Blox 3.7 has many improvements we think you'll "
+"enjoy."
+msgstr ""
+"Tack för din uppdatering!  Blox 3.7 har många nyheter som vi tror att du "
+"uppskattar."
+
+#: library/api/api-admin-meta-box.php:37
+msgid "Error: The meta box class being registered does not exist."
+msgstr "Felmeddelande: Den meta box class som registrerades existerar inte."
+
+#: library/api/api-block.php:143
+msgid "Error: The block options class being registered does not exist."
+msgstr ""
+"Felmeddelande: Den block options class som registrerades existerar inte."
+
+#: library/api/api-box.php:12
+msgid "Error: The box class being registered does not exist."
+msgstr "Felmeddelande: Den box class som registrerades existerar inte."
+
+#: library/api/api-element.php:110
+msgid "Error: Arguments must be an array for this element."
+msgstr "Felmeddelande: Arguments måste vara en array för detta element."
+
+#: library/api/api-element.php:134
+msgid "Error: An ID is required for this element."
+msgstr "Felmeddelande: ett ID krävs för detta element."
+
+#: library/api/api-element.php:137
+msgid "Error: A name is required for this element."
+msgstr "Felmeddelande: ett namn krävs för detta element."
+
+#: library/api/api-element.php:140
+msgid "Error: A group is required for this element."
+msgstr "Felmeddelande: en grupp krävs för detta element."
+
+#: library/api/api-element.php:143
+msgid "Error: A CSS selector is required for this element."
+msgstr "Felmeddelande: en CSS-selector krävs för detta element."
+
+#: library/api/api-element.php:146
+msgid "Error: Properties are required for this element."
+msgstr "Felmeddelande: du måste ange egenskaper för detta element."
+
+#: library/api/api-element.php:189
+msgid "Error: Arguments must be an array for this element instance."
+msgstr "Felmeddelande: Arguments måste vara en array för denna elementinstans."
+
+#: library/api/api-element.php:205
+msgid "Error: An ID is required for this element instance."
+msgstr "Felmeddelande: ett ID krävs för denna elementinstans."
+
+#: library/api/api-element.php:208
+msgid "Error: A name is required for this element instance."
+msgstr "Felmeddelande: ett namn krävs för denna elementinstans."
+
+#: library/api/api-element.php:211
+msgid "Error: A group is required for this element instance."
+msgstr "Felmeddelande: en grupp krävs för denna elementinstans."
+
+#: library/api/api-element.php:214
+msgid "Error: A parent element is required for this element instance."
+msgstr "Felmeddelande: ett föräldraelement krävs för denna elementinstans."
+
+#: library/api/api-element.php:217
+msgid "Error: A CSS selector is required for this element instance."
+msgstr "Felmeddelande: en CSS-väljare krävs för denna elementinstans."
+
+#: library/api/api-element.php:252
+msgid "Error: The group being registered already exists."
+msgstr "Felmeddelande: gruppen som registreras existerar redan."
+
+#: library/api/api-panel.php:12
+msgid "Error: The panel class being registered does not exist."
+msgstr "Felmeddelande: panelklassen existerar inte."
+
+#: library/blocks/blocks.php:71
+msgid "The block class being registered does not exist."
+msgstr "Felmeddelande: blockklassen existerar inte."
+
+#: library/blocks/blocks.php:767
+msgid "The Blox blocks array does not exist."
+msgstr "Blox block array existerar inte."
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:66
+msgid "Home"
+msgstr "Hem"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:109
+msgid "Search Results For:"
+msgstr "Sökresultat för: "
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:118
+msgid "Author Archives:"
+msgstr "Författararkiv:"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:125
+msgid "Tag Archives:"
+msgstr "Etikettarkiv:"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:132
+msgid "Archives:"
+msgstr "Arkiv:"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:139
+msgid "Whoops! Page Not Found..."
+msgstr "Hoppsan, sidan kan inte hittas. "
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:147
+msgid "You Are Here:"
+msgstr "Du är här:"
+
+#: library/blocks/content/comments-template.php:54
+msgid "Sorry, comments are closed for this post."
+msgstr "Kommentarerna är stängda för denna post. "
+
+#: library/blocks/content/comments-template.php:68
+msgid ""
+"This post is password protected.  Please enter the password to view the "
+"comments."
+msgstr ""
+"Denna post är lösenordsskyddad. Ange lösenordet för att se kommentarer. "
+
+#: library/blocks/content/content-display.php:126
+#: library/blocks/listings/content-display.php:69
+msgid "<p>Sorry, there was no content that matched your search.</p>"
+msgstr "<p>Ledsen men inget innehåll matchade med din sökning</p>"
+
+#: library/blocks/content/content-display.php:215
+msgid "Daily Archives: %s"
+msgstr "Dagligt arkiv: %s"
+
+#: library/blocks/content/content-display.php:218
+msgid "Monthly Archives: %s"
+msgstr "Månadsarkiv: %s"
+
+#: library/blocks/content/content-display.php:221
+msgid "Yearly Archives: %s"
+msgstr "Årligt arkiv: %s"
+
+#: library/blocks/content/content-display.php:224
+msgid "Blog Archives"
+msgstr "Bloggarkiv"
+
+#: library/blocks/content/content-display.php:234
+msgid "Category Archives: %s"
+msgstr "Kategoriarkiv: %s"
+
+#: library/blocks/content/content-display.php:252
+#: library/blocks/content/content-display.php:255
+msgid "Author Archives: %s"
+msgstr "Författararkiv: %s"
+
+#: library/blocks/content/content-display.php:265
+msgid "Search Results for: %s"
+msgstr "Sökresultat för: %s"
+
+#: library/blocks/content/content-display.php:274
+msgid "Tag Archives: %s"
+msgstr "Etikettarkiv: %s"
+
+#: library/blocks/content/content-display.php:433
+#: library/blocks/listings/content-display.php:200
+msgid "%s"
+msgstr "%s"
+
+#: library/blocks/content/content-display.php:567
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: library/blocks/content/content-display.php:602
+msgid "Whoops!  Page Not Found"
+msgstr "Hoppsan, sidan kan inte hittas"
+
+#: library/blocks/content/content-display.php:610
+msgid ""
+"<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
+"are looking for does not exist or has been moved elsewhere.</p>"
+msgstr ""
+"<p>Misströsta inte, du gjorde inget fel. Det verkar som att sidan du söker "
+"inte existerar eller har flyttats till en annan plats.</p>"
+
+#: library/blocks/content/content-display.php:612
+msgid ""
+"<p>If you keep ending up here, please head back to our <a href=\"%s"
+"\">homepage</a> or try the search form below.</p>"
+msgstr ""
+"<p>Om du hamnar här hela tiden navigera tillbaka till vår <a href=\"%s"
+"\">startsida</a> eller försök med sökformuläret nedan. </p>"
+
+#: library/blocks/content/content-display.php:687
+msgid "Discard Reply"
+msgstr "Bortse från svar"
+
+#: library/blocks/content/content-display.php:713
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Äldre inlägg"
+
+#: library/blocks/content/content-display.php:714
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Nyare inlägg <span class=\"meta-nav\">&rarr;</span>"
+
+#: library/blocks/content/content-display.php:869
+msgid "%s &ndash; Comments"
+msgstr "%s &ndash; Kommentarer"
+
+#: library/blocks/content/content-display.php:878
+msgid "Respond to %s"
+msgstr "Svara på %s"
+
+#: library/blocks/content/content-display.php:885
+msgid "View all posts by %s"
+msgstr "Se alla inlägg av %s"
+
+#: library/blocks/footer/footer.php:120
+msgid "Administration Panel"
+msgstr "Administrationspanel"
+
+#: library/blocks/footer/footer.php:122
+msgid "Administration Login"
+msgstr "Administrationsinloggning"
+
+#: library/blocks/footer/footer.php:143
+msgid "Powered by Blox, the "
+msgstr "Använder Blox"
+
+#: library/blocks/footer/footer.php:155
+msgid "Copyright"
+msgstr "Upphovsrätt"
+
+#: library/blocks/footer/footer.php:171
+msgid "Go To Top"
+msgstr "Till toppen"
+
+#: library/blocks/footer/footer.php:193
+msgid "View Full Site"
+msgstr "Till vanliga sidan"
+
+#: library/blocks/footer/footer.php:200
+msgid "View Mobile Site"
+msgstr "Till mobilsidan"
+
+#: library/blocks/navigation/navigation.php:219
+msgid "Navigation"
+msgstr "Navigation"
+
+#: library/blocks/pin-board/pin-board.php:644
+msgid "&laquo; Previous Page"
+msgstr "&laquo; Föregående sida"
+
+#: library/common/functions.php:721
+msgid "Type to search, then press enter"
+msgstr "Skriv för att söka, tryck sedan enter"
+
+#: library/common/functions.php:749 library/common/functions.php:751
+msgid "Search"
+msgstr "Sök"
+
+#: library/common/image-resizer.php:57
+msgid "Error: Invalid image URL or size inputs"
+msgstr "Felmeddelande: ogiltig bild-URL eller angivande av storlekar"
+
+#: library/common/image-resizer.php:81
+msgid "Error: Image not local"
+msgstr "Felmeddelande: Bilden finns inte lokalt"
+
+#: library/common/image-resizer.php:88
+msgid "Error: Image does not exist or not accessible"
+msgstr "Felmeddelande: Bilden existerar inte eller kan inte hämtas"
+
+#: library/common/image-resizer.php:113
+msgid "Error: Cannot resize, check if $upscale is enabled"
+msgstr "Felmeddelande: Kan inte ändra storlek kontrollera om $upscale är valt"
+
+#: library/common/image-resizer.php:125
+msgid "Error: Cannot resize image with WP_Image_Editor class"
+msgstr "Felmeddelande: Kan inte ändra storlek med WP_Image_Editor class"
+
+#: library/common/image-resizer.php:133
+msgid "Error: Unable to save image with WP_Image_Editor class"
+msgstr "Felmeddelande: Kan inte spara bild med WP_Image_Editor class"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:14
+msgid "Search results for &ldquo;"
+msgstr "Sökresults för &ldquo;"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgid "Products tagged &ldquo;"
+msgstr "Producter taggade &ldquo;"
+
+#: library/display/layout-renderer.php:131
+msgid "No Content to Display"
+msgstr "Inget innehåll att visa"
+
+#: library/display/layout-renderer.php:137
+msgid ""
+"<p>There are no blocks to display.  Add some by going to the <a href=\"%s"
+"\">Blox Grid</a>!</p>"
+msgstr ""
+"<p>Det finns inga block att visa.  Lägg till några via <a href=\"%s"
+"\">Blox Grid</a>!</p>"
+
+#: library/display/layout-renderer.php:141
+msgid ""
+"<p>There is no content to display.  Please notify the site administrator or "
+"<a href=\"%s\">login</a>.</p>"
+msgstr ""
+"<p>Det finns inget innehåll att visa.  Meddela sidans administratör eller <a "
+"href=\"%s\">logga in</a>.</p>"
+
+#: library/fonts/traditional-fonts.php:127
+msgid ""
+"To register a font, the argument array must include an \"id\", \"stack\", "
+"and \"name\"."
+msgstr ""
+"För att registrera ett typsnitt måste argument array inkludera \"id\", "
+"\"stack\", och \"name\"."
+
+#: library/updater/theme-updater.php:66
+msgid ""
+"Before clicking OK to update, be sure that you have a backup of your website."
+msgstr "Innan du uppdaterar säkerställ att du har en backup av din hemsida. "
+
+#: library/visual-editor/panels/design/property-inputs.php:151
+msgid "You have customized a property in this property group."
+msgstr "Du har anpassat innehåll i denna grupp. "
+
+#: library/visual-editor/panels/design/property-inputs.php:275
+msgid "You have customized this property."
+msgstr "Du har anpassat detta innehåll. "
+
+#. Theme Name of the plugin/theme
+msgid "Blox Base"
+msgstr "Blox Base"
+
+#. Author URI of the plugin/theme
+msgid "http://www.bloxtheme.com"
+msgstr "http://www.bloxtheme.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Blox is a feature-packed theme with drag and drop layout editing, point "
+"and click design capabilities, powerful search engine optimization and much "
+"more.  For help, you can <a href=\"http://support.bloxtheme.com\" target="
+"\"_blank\">access our support</a> or go to the <a href=\"http://docs."
+"bloxtheme.com/\" target=\"_blank\">Blox documentation</a>."
+msgstr ""
+"Blox är ett tema fyllt av möjligheter där du skapar din design genom att "
+"dra och släppa, peka och klicka, kraftfulla SEO-verktyg och mycket mer. För "
+"support kan du <a href=\"http://support.bloxtheme.com\" target=\"_blank"
+"\">besöka vårt supportforum </a> eller läsa mer i vår <a href=\"http://docs."
+"bloxtheme.com/\" target=\"_blank\">dokumentation</a>."
+
+#. Author of the plugin/theme
+msgid "Blox Theme"
+msgstr "Blox Theme"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgctxt "endquote"
+msgid "&rdquo;"
+msgstr "&rdquo;"

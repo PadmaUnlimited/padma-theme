@@ -1,0 +1,233 @@
+.pin-board {
+	opacity: 0;
+	width: 100%;
+}
+
+.block-type-pin-board {
+	overflow: visible !important;
+}
+
+/* Pins */
+	.pin-board-pin {
+		width: 30%;
+		word-wrap: break-word;
+
+		margin: 0;
+
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+
+/* Titles */
+	.pin-board-pin h3 {
+		margin: 0;
+	}
+
+		.pin-board-pin h3 a {
+			display: block;
+		}
+
+	.pin-board-pin h3:last-child {
+		margin-bottom: 12px;
+	}
+/* Meta */
+	.pin-board-pin .entry-meta {
+		margin: 15px 0;
+	}
+
+		.pin-board-pin .entry-title + .entry-meta {
+			margin-top: 5px;
+		}
+
+/* Text */
+	.pin-board-pin-text {
+		margin: 15px 0;
+	}
+
+		.pin-board-pin-text :last-child {
+			margin-bottom: 0;
+		}
+
+/* Social */
+	.pin-board-pin .twitter-share-button,
+	.pin-board-pin .facebook-share-button,
+	.pin-board-pin .pin-it-button img {
+		opacity: 0;
+	}
+
+	/* Secondary social area */
+		.pin-board-pin-social {
+			float: left;
+			padding: 0 15px 15px;
+		}
+
+		.pin-board-pin-social > * {
+			float: left;
+			margin: 0 3px;
+		}
+
+	/* Facebook iframe */
+		.pin-board-pin .facebook-share-button {
+			border: none; 
+			overflow: hidden; 
+			width: 90px; 
+			height: 21px;
+		}
+
+			.pin-board-pin .facebook-recommend-button {
+				width: 140px;
+			}
+
+	/* Twitter iframe */
+		.pin-board-pin .twitter-share-button {
+			width: 56px; 
+			height: 20px; 
+		}
+
+/* Thumbnails */
+	.pin-board-pin-thumbnail {
+		position: relative;
+	}
+
+	.pin-board-pin .post-thumbnail {
+		display: block;
+	}
+
+		.pin-board-pin .post-thumbnail img {
+			width: 100%;
+			display: block;
+		}
+
+	/* Thumbnail Social */
+		.pin-board-pin-thumbnail-social {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			right: 10px;
+			opacity: 0;
+
+			transition: opacity 250ms linear;
+			-moz-transition: opacity 250ms linear;
+			-webkit-transition: opacity 250ms linear;
+			-ms-transition: opacity 250ms linear;
+		}
+
+			.pin-board-pin-thumbnail-social .twitter-share-button,
+			.pin-board-pin-thumbnail-social .pin-it-button {
+				float: right;
+				margin: 0 3px;
+			}
+
+			.pin-board-pin-thumbnail-social .facebook-share-button {
+				float: left;
+			}
+
+			.pin-board-pin:hover .pin-board-pin-thumbnail .pin-board-pin-thumbnail-social {
+				opacity: .6;
+			}
+
+			.pin-board-pin:hover .pin-board-pin-thumbnail:hover .pin-board-pin-thumbnail-social {
+				opacity: 1;
+			}
+
+/* Hover Effect */
+	.pin-board-hover-focus .pin-board-pin {
+		-moz-transition: opacity 220ms linear, margin 220ms linear;
+		-webkit-transition: opacity 220ms linear, margin 220ms linear;
+		transition: opacity 220ms linear, margin 220ms linear;
+		opacity: 1;
+	}
+
+	.pin-board-hover-focus .pin-board-pin-blur {
+		opacity: .6;
+	}
+
+	.pin-board-hover-focus .pin-board-pin-hover {
+		margin-top: -3px;
+	}
+
+/* Pagination */
+	.pin-board-pagination {
+		text-align: center;
+		margin: 10px 0;
+	}
+
+		.pin-board-pagination a {
+			margin: 0 5px;
+		}
+
+/* Infinite Scroll */
+	.pin-board-infinite-scroll {
+		position: relative;
+	}
+
+		.pin-board-infinite-scroll + .pin-board-pagination {
+			opacity: 0;
+		}
+
+	.pin-board-infinite-scroll .pin-board-scroll-loading {
+		display: block;
+		clear: both;
+		position: absolute;
+		bottom: 15px;
+		left: 0;
+		z-index: 5;
+		width: 100%;
+		text-align: center;
+	}
+
+		.pin-board-infinite-scroll .pin-board-scroll-loading span {
+			background: rgba(0, 0, 0, .4);
+			color: rgba(255, 255, 255, .85);
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			width: auto;
+			display: inline-block;
+			padding: 7px 10px;
+			font-family: helvetica, sans-serif;
+		}
+
+/* DESIGN EDITOR DEFAULTS FOR CHILD THEMES */
+	body.design-editor-disabled .pin-board-pin {
+		padding: 1px;
+		border: 1px solid #eee;
+		background-color: #fff;
+		box-shadow: 0 2px 3px #eee;
+	}
+
+	body.design-editor-disabled .pin-board-pin .entry-title a {
+		padding: 15px 15px 0;
+		font-size: 18px;
+		line-height: 120%;
+		text-decoration: none;
+	}
+
+		body.design-editor-disabled .pin-board-pin .entry-title a:hover {
+			text-decoration: underline;
+		}
+
+	body.design-editor-disabled .pin-board-pin .entry-meta {
+		font-size: 12px;
+		line-height: 120%;
+		padding: 0 15px;
+		color: #888;
+	}
+
+	body.design-editor-disabled .pin-board-pin .entry-content {
+		padding: 0 15px;
+		color: #555;
+		font-size: 13px;
+		line-height: 20px;
+	}
+
+	body.design-editor-disabled .pin-board-pagination a {
+		text-decoration: none;
+		background-color: #eee;
+		border-radius: 4px;
+		padding: 5px 9px;
+	}
+
+		body.design-editor-disabled .pin-board-pagination a:hover {
+			background-color: #e7e7e7;
+		}

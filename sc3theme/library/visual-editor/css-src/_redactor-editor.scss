@@ -1,0 +1,250 @@
+.redactor-editor {
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+}
+
+.redactor-editor b,
+.redactor-editor strong {
+    font-weight: bold;
+}
+
+.redactor-editor em,
+.redactor-editor i {
+  font-style: italic;
+}
+
+.redactor-editor code,
+.redactor-editor pre {
+    font-family: Menlo, Monaco, monospace, sans-serif;
+}
+
+.redactor-editor div,
+.redactor-editor p,
+.redactor-editor ul,
+.redactor-editor ol,
+.redactor-editor table,
+.redactor-editor dl,
+.redactor-editor blockquote,
+.redactor-editor pre {
+    font-size: 15px;
+    line-height: 1.5rem;
+}
+
+.redactor-editor div {
+    border: 1px dashed #bbb !important;
+}
+
+.redactor-editor a {
+    color: #15c;
+    text-decoration: underline;
+}
+
+.redactor_placeholder {
+    color: #999 !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+}
+
+.redactor-editor object,
+.redactor-editor embed,
+.redactor-editor video,
+.redactor-editor img {
+    max-width: 100%;
+    width: auto;
+}
+
+.redactor-editor video,
+.redactor-editor img {
+    height: auto;
+}
+
+.redactor-editor div,
+.redactor-editor p,
+.redactor-editor ul,
+.redactor-editor ol,
+.redactor-editor table,
+.redactor-editor dl,
+.redactor-editor blockquote,
+.redactor-editor pre {
+    margin: 0;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.redactor-editor iframe,
+.redactor-editor object,
+.redactor-editor hr {
+    margin-bottom: 15px;
+}
+
+.redactor-editor blockquote {
+    margin-left: 1.5em !important;
+    padding-left: 0;
+    color: #777;
+    font-style: italic;
+}
+
+.redactor-editor ul,
+.redactor-editor ol {
+    padding-left: 2em;
+}
+
+.redactor-editor ul ul,
+.redactor-editor ol ol,
+.redactor-editor ul ol,
+.redactor-editor ol ul {
+    margin: 2px;
+    padding: 0;
+    padding-left: 2em;
+    border: none;
+}
+
+.redactor-editor ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.redactor-editor ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.redactor-editor ul ul,
+.redactor-editor ol ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+
+.redactor-editor ol ol,
+.redactor-editor ul ol {
+  list-style-type: lower-latin;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+
+.redactor-editor dl dt { font-weight: bold; }
+.redactor-editor dd { margin-left: 1em;}
+
+.redactor-editor table {
+    border-collapse: collapse;
+    font-size: 1em;
+}
+
+.redactor-editor table td {
+    padding: 5px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.redactor-editor table thead td {
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+}
+
+.redactor-editor code {
+    background-color: #d8d7d7;
+}
+
+.redactor-editor pre {
+    overflow: auto;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #f8f8f8;
+    white-space: pre;
+    font-size: 90%;
+}
+
+.redactor-editor hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.redactor-editor h1,
+.redactor-editor h2,
+.redactor-editor h3,
+.redactor-editor h4,
+.redactor-editor h5 {
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.redactor-editor h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    line-height: 40px;
+}
+
+.redactor-editor h2 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    line-height: 38px;
+}
+
+.redactor-editor h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.redactor-editor h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.redactor-editor h5 {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+body.redactor-editor_wym {
+    background: #f4f4f4;
+}
+.redactor-editor_wym div,
+.redactor-editor_wym p,
+.redactor-editor_wym ul,
+.redactor-editor_wym ol,
+.redactor-editor_wym table,
+.redactor-editor_wym dl,
+.redactor-editor_wym pre,
+.redactor-editor_wym h1,
+.redactor-editor_wym h2,
+.redactor-editor_wym h3,
+.redactor-editor_wym h4,
+.redactor-editor_wym h5,
+.redactor-editor_wym blockquote {
+    margin: 0 0 10px 0;
+    padding: 7px 10px;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+}
+.redactor-editor_wym div {
+    border: 1px dashed #bbb !important;
+}
+.redactor-editor_wym pre {
+    border: 2px dashed #e4e4e4 !important;
+    background-color: #fafafa !important;
+}
+.redactor-editor_wym code {
+    background-color: #f4f4f4 !important;
+}
+.redactor-editor_wym ul,
+.redactor-editor_wym ol {
+    padding-left: 2em !important;
+}
+.redactor-editor_wym ul li ul,
+.redactor-editor_wym ul li ol,
+.redactor-editor_wym ol li ol,
+.redactor-editor_wym ol li ul {
+    border: none !important;
+}

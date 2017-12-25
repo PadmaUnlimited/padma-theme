@@ -1,5 +1,0 @@
-# Change Log
-All notable changes to this project will be documented in this file/
-
-## [Beta v0.0.1]
-- all files changes from Blox Theme to SC3 Theme

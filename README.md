@@ -1,2 +1,2 @@
-# SC3Theme
+# PadmaTheme
 Wordpress Framework template system

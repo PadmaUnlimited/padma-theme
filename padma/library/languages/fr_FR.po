@@ -1,0 +1,441 @@
+# Copyright (C) 2015 Padma Theme
+# This file is distributed under the Terms of Service.
+msgid ""
+msgstr ""
+"Project-Id-Version: Padma Base 3.7.16\n"
+"Report-Msgid-Bugs-To: http://support.padmatheme.com\n"
+"POT-Creation-Date: 2015-01-24 18:26:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-02-03 23:27-0500\n"
+"Last-Translator: Gérard Godin <Gerard@getgointernetcoaching.com>\n"
+"Language-Team: Padma Theme\n"
+"X-Generator: Poedit 1.7.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+#: library/admin/admin.php:150 library/admin/admin.php:187
+msgid "Please contact Padma Support if this error persists."
+msgstr ""
+"Vous êtes priés de contacter le soutien technique de Padma si cette "
+"erreur persiste."
+
+#: library/admin/admin.php:174
+msgid "License saved and activated."
+msgstr "Licence enregistrée et activée."
+
+#: library/admin/admin.php:178
+msgid ""
+"\n"
+"\t\t\t\t\t<strong>Whoops!</strong> Could not activate license.  Please "
+"check that you have entered your license correctly and that it has not "
+"expired.<br /><br />\n"
+"\t\t\t\t\tMake sure you copied your license correctly from the <a href="
+"\"http://padmatheme.com/dashboard\" target=\"_blank\">Padma Dashboard</"
+"a>.\n"
+"\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t\t<strong>Oups!</strong> Impossible d'activer la licence. S'il vous "
+"plaît, vérifiez que vous l'avez entrée correctement et qu'elle ne soit pas "
+"expirée.<br /><br />\n"
+"\t\t\t\t\tAssurez-vous d'avoir copié correctement votre licence à partir du "
+"<a href=\"http://padmatheme.com/dashboard\" target=\"_blank\">tableau de "
+"bord de Padma</a>.\n"
+"\t\t\t\t"
+
+#: library/admin/pages/options.php:49
+msgid "Deactivate License"
+msgstr "Désactiver la licence"
+
+#: library/admin/pages/options.php:50
+msgid "Active"
+msgstr "Active"
+
+#: library/admin/pages/options.php:52 library/admin/pages/options.php:55
+msgid "Save & Activate License"
+msgstr "Enregistrer et Activer la licence"
+
+#: library/admin/pages/whats-new.php:2
+msgid "Welcome to Padma %s"
+msgstr "Bienvenue à Padma %s"
+
+#: library/admin/pages/whats-new.php:4
+msgid ""
+"Thank you for updating!  Padma 3.7 has many improvements we think you'll "
+"enjoy."
+msgstr ""
+"Merci d'avoir effectuer la mise à jour! Padma 3,7 a de nombreuses "
+"améliorations que nous pensons que vous apprécierez."
+
+#: library/api/api-admin-meta-box.php:37
+msgid "Error: The meta box class being registered does not exist."
+msgstr "Erreur : La classe de boîte méta étant enregistrée n'existe pas."
+
+#: library/api/api-block.php:143
+msgid "Error: The block options class being registered does not exist."
+msgstr ""
+"Erreur : La classe d'options de bloc en cours d'enregistrement n'existe pas."
+
+#: library/api/api-box.php:12
+msgid "Error: The box class being registered does not exist."
+msgstr "Erreur : La classe de boîte étant enregistrée n'existe pas."
+
+# array = tableau?
+#: library/api/api-element.php:110
+msgid "Error: Arguments must be an array for this element."
+msgstr "Erreur : Les arguments doivent être un tableau pour cet élément."
+
+#: library/api/api-element.php:134
+msgid "Error: An ID is required for this element."
+msgstr "Erreur : Une ID est nécessaire pour cet élément."
+
+#: library/api/api-element.php:137
+msgid "Error: A name is required for this element."
+msgstr "Erreur : Un nom est requis pour cet élément."
+
+#: library/api/api-element.php:140
+msgid "Error: A group is required for this element."
+msgstr "Erreur : Un groupe est requis pour cet élément."
+
+#: library/api/api-element.php:143
+msgid "Error: A CSS selector is required for this element."
+msgstr "Erreur : Un sélecteur CSS est requis pour cet élément."
+
+#: library/api/api-element.php:146
+msgid "Error: Properties are required for this element."
+msgstr "Erreur : Des propriétés sont requises pour cet élément."
+
+#: library/api/api-element.php:189
+msgid "Error: Arguments must be an array for this element instance."
+msgstr ""
+"Erreur : Les arguments doivent être un tableau pour cette instance de "
+"l'élément."
+
+#: library/api/api-element.php:205
+msgid "Error: An ID is required for this element instance."
+msgstr "Erreur : Une identité est requise pour cette instance de l'élément."
+
+#: library/api/api-element.php:208
+msgid "Error: A name is required for this element instance."
+msgstr "Erreur : Un nom est requis pour cette instance de l'élément."
+
+#: library/api/api-element.php:211
+msgid "Error: A group is required for this element instance."
+msgstr "Erreur : Un groupe est requis pour cette instance de l'élément."
+
+#: library/api/api-element.php:214
+msgid "Error: A parent element is required for this element instance."
+msgstr ""
+"Erreur : Un élément parent est nécessaire pour cette instance de l'élément."
+
+#: library/api/api-element.php:217
+msgid "Error: A CSS selector is required for this element instance."
+msgstr "Erreur : Un sélecteur CSS est requis pour cet élément."
+
+#: library/api/api-element.php:252
+msgid "Error: The group being registered already exists."
+msgstr "Erreur : Ce groupe étant enregistré existe déjà."
+
+#: library/api/api-panel.php:12
+msgid "Error: The panel class being registered does not exist."
+msgstr "Erreur : La classe de boîte étant enregistrée n'existe pas."
+
+#: library/blocks/blocks.php:71
+msgid "The block class being registered does not exist."
+msgstr "La classe de bloc en cours d'enregistrement n'existe pas."
+
+#: library/blocks/blocks.php:767
+msgid "The Padma blocks array does not exist."
+msgstr "Le tableau des blocs Padma n'existe pas."
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:66
+msgid "Home"
+msgstr "Accueil"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:109
+msgid "Search Results For:"
+msgstr "Résultats de la recherche pour :"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:118
+msgid "Author Archives:"
+msgstr "Archives de l'auteur :"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:125
+msgid "Tag Archives:"
+msgstr "Archives des Mots-clés :"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:132
+msgid "Archives:"
+msgstr "Archives :"
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:139
+msgid "Whoops! Page Not Found..."
+msgstr "Oups! Page introuvable ..."
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:147
+msgid "You Are Here:"
+msgstr "Vous êtes ici :"
+
+#: library/blocks/content/comments-template.php:54
+msgid "Sorry, comments are closed for this post."
+msgstr "Désolé, les commentaires sont fermés pour cet article."
+
+#: library/blocks/content/comments-template.php:68
+msgid ""
+"This post is password protected.  Please enter the password to view the "
+"comments."
+msgstr ""
+"Cet article est protégé par un mot de passe. Saisissez le mot de passe pour "
+"voir les commentaires."
+
+#: library/blocks/content/content-display.php:126
+#: library/blocks/listings/content-display.php:69
+msgid "<p>Sorry, there was no content that matched your search.</p>"
+msgstr "<p>Désolé, aucun contenu ne corresponds à votre recherche.</p>"
+
+#: library/blocks/content/content-display.php:215
+msgid "Daily Archives: %s"
+msgstr "Archives quotidiennes : %s"
+
+#: library/blocks/content/content-display.php:218
+msgid "Monthly Archives: %s"
+msgstr "Archives mensuelles : %s"
+
+#: library/blocks/content/content-display.php:221
+msgid "Yearly Archives: %s"
+msgstr "Archives annuelles : %s"
+
+#: library/blocks/content/content-display.php:224
+msgid "Blog Archives"
+msgstr "Archives du blogue"
+
+#: library/blocks/content/content-display.php:234
+msgid "Category Archives: %s"
+msgstr "Archives des catégories : %s"
+
+# DES auteurs?
+#: library/blocks/content/content-display.php:252
+#: library/blocks/content/content-display.php:255
+msgid "Author Archives: %s"
+msgstr "Archives des auteurs : %s"
+
+#: library/blocks/content/content-display.php:265
+msgid "Search Results for: %s"
+msgstr "Résultats de la recherche pour : %s"
+
+#: library/blocks/content/content-display.php:274
+msgid "Tag Archives: %s"
+msgstr "Archives des Mots-clés : %s"
+
+#: library/blocks/content/content-display.php:433
+#: library/blocks/listings/content-display.php:200
+msgid "%s"
+msgstr "%s"
+
+#: library/blocks/content/content-display.php:567
+msgid "Pages:"
+msgstr "Pages :"
+
+#: library/blocks/content/content-display.php:602
+msgid "Whoops!  Page Not Found"
+msgstr "Oups! Page introuvable"
+
+#: library/blocks/content/content-display.php:610
+msgid ""
+"<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
+"are looking for does not exist or has been moved elsewhere.</p>"
+msgstr ""
+"<p> Ne vous inquiétez pas, vous ne avez rien fait de mal. Il semble que la "
+"page que vous cherchez n'existe pas, ou a étée déplacée.</p>"
+
+#: library/blocks/content/content-display.php:612
+msgid ""
+"<p>If you keep ending up here, please head back to our <a href=\"%s"
+"\">homepage</a> or try the search form below.</p>"
+msgstr ""
+"<p>Si vous arrivez toujours ici, essayez en recommençant à partir de la <a "
+"href=\"%s\">page d'accueil</a> ou essayez le formulaire de recherche plus "
+"loin sur cette page.</p>"
+
+#: library/blocks/content/content-display.php:687
+msgid "Discard Reply"
+msgstr "Abandonner la réponse"
+
+#: library/blocks/content/content-display.php:713
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Anciens articles"
+
+#: library/blocks/content/content-display.php:714
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Nouveaux articles <span class=\"meta-nav\">&rarr;</span>"
+
+#: library/blocks/content/content-display.php:869
+msgid "%s &ndash; Comments"
+msgstr "%s - Commentaires"
+
+#: library/blocks/content/content-display.php:878
+msgid "Respond to %s"
+msgstr "Répondre à %s"
+
+#: library/blocks/content/content-display.php:885
+msgid "View all posts by %s"
+msgstr "Voir tous les articles par %s"
+
+#: library/blocks/footer/footer.php:120
+msgid "Administration Panel"
+msgstr "Panneau de contrôle administratif"
+
+#: library/blocks/footer/footer.php:122
+msgid "Administration Login"
+msgstr "Connexion administrative"
+
+#: library/blocks/footer/footer.php:143
+msgid "Powered by Padma, the "
+msgstr "Propulsé par Padma"
+
+#: library/blocks/footer/footer.php:155
+msgid "Copyright"
+msgstr "Droits d'auteur"
+
+#: library/blocks/footer/footer.php:171
+msgid "Go To Top"
+msgstr "Revenir en haut"
+
+#: library/blocks/footer/footer.php:193
+msgid "View Full Site"
+msgstr "Visualiser le site normal"
+
+#: library/blocks/footer/footer.php:200
+msgid "View Mobile Site"
+msgstr "Voir le site mobile"
+
+#: library/blocks/navigation/navigation.php:219
+msgid "Navigation"
+msgstr "Navigation"
+
+#: library/blocks/pin-board/pin-board.php:644
+msgid "&laquo; Previous Page"
+msgstr "&laquo; Page précédente"
+
+#: library/common/functions.php:721
+msgid "Type to search, then press enter"
+msgstr "Tapez un texte à rechercher et appuyez sur Entrée"
+
+#: library/common/functions.php:749 library/common/functions.php:751
+msgid "Search"
+msgstr "Recherche"
+
+#: library/common/image-resizer.php:57
+msgid "Error: Invalid image URL or size inputs"
+msgstr ""
+"Erreur : L'adresse (URL) de l'image, ou ses paramètres de grandeurs, n'est/"
+"ne sont pas correct(e)(s)"
+
+#: library/common/image-resizer.php:81
+msgid "Error: Image not local"
+msgstr "Erreur : Image non locale"
+
+#: library/common/image-resizer.php:88
+msgid "Error: Image does not exist or not accessible"
+msgstr "Erreur: L'image n'existe pas, ou n'est pas accessible"
+
+#: library/common/image-resizer.php:113
+msgid "Error: Cannot resize, check if $upscale is enabled"
+msgstr ""
+"Erreur : Vous ne pouvez pas redimensionner, vérifiez si $upscale est activé"
+
+#: library/common/image-resizer.php:125
+msgid "Error: Cannot resize image with WP_Image_Editor class"
+msgstr ""
+"Erreur : Impossible de redimensionner l'image avec la classe WP_Image_Editor"
+
+#: library/common/image-resizer.php:133
+msgid "Error: Unable to save image with WP_Image_Editor class"
+msgstr ""
+"Erreur : Impossible d'enregistrer l'image avec la classe WP_Image_Editor"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:14
+msgid "Search results for &ldquo;"
+msgstr "Résultats de la recherche pour :"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgid "Products tagged &ldquo;"
+msgstr "Produits étiquettés"
+
+#: library/display/layout-renderer.php:131
+msgid "No Content to Display"
+msgstr "Aucun contenu à afficher"
+
+#: library/display/layout-renderer.php:137
+msgid ""
+"<p>There are no blocks to display.  Add some by going to the <a href=\"%s"
+"\">Padma Grid</a>!</p>"
+msgstr ""
+"<p>Il n'y a aucun blocs à afficher.  Ajoutez-en en allant à la <a href=\"%s"
+"\">grille de Padma</a>!</p>"
+
+#: library/display/layout-renderer.php:141
+msgid ""
+"<p>There is no content to display.  Please notify the site administrator or "
+"<a href=\"%s\">login</a>.</p>"
+msgstr ""
+"<p>Il n'y a aucun contenu à afficher.  Veuillez aviser l'administrateur du "
+"site ou <a href=\"%s\">connectez-vous</a>.</p>"
+
+#: library/fonts/traditional-fonts.php:127
+msgid ""
+"To register a font, the argument array must include an \"id\", \"stack\", "
+"and \"name\"."
+msgstr ""
+"Pour enregistrer une police, le tableau d'arguments doit inclure un « id », "
+"« pile » et « nom »."
+
+#: library/updater/theme-updater.php:66
+msgid ""
+"Before clicking OK to update, be sure that you have a backup of your "
+"website."
+msgstr ""
+"Avant de cliquer sur OK pour mettre à jour, assurez-vous que vous avez une "
+"sauvegarde de votre site web."
+
+#: library/visual-editor/panels/design/property-inputs.php:151
+msgid "You have customized a property in this property group."
+msgstr "Vous avez personnalisé une propriété dans ce groupe de propriétés."
+
+#: library/visual-editor/panels/design/property-inputs.php:275
+msgid "You have customized this property."
+msgstr "Vous avez personnalisé cette propriété."
+
+#. Theme Name of the plugin/theme
+msgid "Padma Base"
+msgstr "Padma de base"
+
+#. Author URI of the plugin/theme
+msgid "http://www.padmatheme.com"
+msgstr "http://www.padmatheme.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Padma is a feature-packed theme with drag and drop layout editing, point "
+"and click design capabilities, powerful search engine optimization and much "
+"more.  For help, you can <a href=\"http://support.padmatheme.com\" "
+"target=\"_blank\">access our support</a> or go to the <a href=\"http://docs."
+"padmatheme.com/\" target=\"_blank\">Padma documentation</a>."
+msgstr ""
+"Padma est un thème riche en fonctionnalités, telles l'édition de la mise "
+"en page et du design en glisser-déposer, pointer-cliquer, et un puissant "
+"système d'optimisation du SEO. Pour de l'assistance, vous pouvez <a href="
+"\"http://support.padmatheme.com\" target=\"_blank\">accéder à notre "
+"support technique</a> ou aller à notre section <a href=\"http://docs."
+"padmatheme.com/\" target=\"_blank\">documentation Padma</a>."
+
+#. Author of the plugin/theme
+msgid "Padma Theme"
+msgstr "Thèmes Padma"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgctxt "endquote"
+msgid "&rdquo;"
+msgstr "&rdquo;"

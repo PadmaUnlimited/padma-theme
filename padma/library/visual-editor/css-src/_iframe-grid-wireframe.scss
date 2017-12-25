@@ -1,0 +1,251 @@
+body {
+	font-family: helvetica, sans-serif;
+	font-size: 13px;
+	background: #4C4C4C;
+}
+
+.block {
+	background: #fff;
+	box-shadow: 0 0 0 1px #000;
+	outline: none;
+
+	/* Force hardware acceleration */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+	.block:hover {
+		box-shadow: 0 0 0 1px #2ea2cc;
+
+		svg .x-line {
+			stroke: #2ea2cc;
+		}
+	}
+
+	.block-mirrored {
+		box-shadow: 0 0 0 1px #008FD5;
+	}
+
+	.block-error, .block-type-unknown {
+		box-shadow: 0 0 0 1px #f00;
+
+		&:hover {
+			box-shadow: 0 0 0 1px #c00;
+		}
+	}
+
+	div.ui-grid-helper {
+		box-shadow: 0 0 0 1px #2ea2cc;
+	}
+
+
+
+div#whitewrap {
+	background: #ddd;
+}
+
+.wrapper {
+	border: 1px solid #000;
+	background: #fff;
+	padding: 15px;
+	position: relative;
+}
+
+/* Give a background to block content cover to cover up content of all blocks */
+.block-content-cover {
+	background: #fff;
+}
+
+/* Block Type readout styling */
+	.block-content-cover svg .x-line {
+		stroke: #000;
+		stroke-width: 1;
+	}
+
+	.block-content-cover span.block-type-and-id {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: #000;
+		color: #FFF;
+		font-size: 11px;
+		padding: 3px 5px;
+
+		span {
+			color: rgba(255, 255, 255, .6);
+		}
+	}
+
+		/* Mirrored Blocks */
+			.block-mirrored {
+
+				.block-content-cover {
+					span.block-type-and-id {
+						background: #008FD5;
+					}
+
+					svg .x-line {
+						stroke: #008FD5;
+					}
+				}
+
+			}
+
+		/* Erred Blocks */
+			.block-error, .block-type-unknown {
+
+				.block-content-cover {
+					span.block-type-and-id {
+						background: #f00;
+					}
+
+					svg .x-line {
+						stroke: #f00;
+					}
+				}
+
+			}
+
+/* Show SVG Cover for all blocks then hide it certain blocks */
+	.block-content-cover svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.block:not(.hide-content-in-grid) {
+
+		.block-content-cover {
+			background: none;
+
+			svg {
+				display: none;
+			}
+		}
+
+	}
+
+/* All Hyperlink */
+.block-content-fade a {
+	color: #222;
+}
+
+/* Blocks */
+	/* Header */
+	.block-type-header span.banner a {
+		font-size: 32px;
+		text-decoration: none;
+		margin: 20px 10px 0;
+		display: block;
+	}
+	
+	.block-type-header .tagline {
+		font-size: 14px;
+		color: #666;
+		margin: 10px 10px 20px; 
+		display: block;
+	}
+		
+	
+	/* Navigation */	
+		.block-type-navigation .nav-horizontal, .block-type-navigation ul {
+			height: 100%;
+		}
+
+		.block-type-navigation .nav-align-left ul 		{ text-align: left;   }
+		.block-type-navigation .nav-align-right ul 		{ text-align: right;  }
+		.block-type-navigation .nav-align-center ul 	{ text-align: center; }
+
+		.block-type-navigation ul li {
+			height: 100%;
+			display: inline-block;
+		}
+		
+		.block-type-navigation ul li a { 
+			text-decoration: none;
+			display: table;
+			height: 100% !important;
+			line-height: normal !important;
+			padding: 0 15px;
+		}
+		
+			.block-type-navigation .nav-vertical ul li a {
+				height: auto;
+				line-height: 40px !important;
+			}
+		
+			.block-type-navigation .nav-horizontal ul li a {
+				border-right: 1px solid #888;
+			}
+			
+			.block-type-navigation .nav-vertical ul li a {
+				width: 100%;
+				border-bottom: 1px solid #888;
+			}
+		
+			.block-type-navigation a span {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		
+			.block-type-navigation ul li.current_page_item a {
+				background: #aaa;
+			}
+
+			.block-type-navigation ul li ul {
+				display: none;
+			}
+			
+		.block-type-navigation .nav-search-active .nav-search {
+			height: 100% !important;
+		}
+
+		.block-type-navigation .nav-hide-home-link .menu-item-home {
+			display: none !important;
+		}
+
+	/* Footer */
+		.block-type-footer .footer-left {
+			margin-top: 10px;
+			margin-left: 10px;
+			float: left;
+		}
+
+		.block-type-footer .footer-right {
+			margin-top: 10px;
+			margin-right: 10px;
+			float: right;
+		}
+		
+		.block-type-footer .footer-link {
+			margin-bottom: 10px;
+		}
+
+		.block-type-footer .copyright {
+			float: left;
+			width: 100%;
+			clear: both;
+			text-align: center;
+			margin: 10px 0;
+		}
+
+		.block-type-footer a {
+			color: inherit;
+		}
+		
+		.block-type-footer p.footer-responsive-grid-link-container {
+			float: left;
+			width: 100%;
+			clear: both;
+			text-align: center;
+			margin: 10px 0;
+			display: none;
+		}
+		
+		.block-type-footer p.footer-responsive-grid-link-enable-container {
+			display: block;
+		}
+/* END BLOCKS */

@@ -1,0 +1,388 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Padma Theme\n"
+"POT-Creation-Date: 2016-10-03 15:10-0300\n"
+"PO-Revision-Date: 2016-10-03 15:08-0300\n"
+"Last-Translator: Gerard Godin <gerard@getgointernetcoaching.com>\n"
+"Language-Team: Gerard Godin <gerard@getgointernetcoaching.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: library/api/api-admin-meta-box.php:37
+msgid "Error: The meta box class being registered does not exist."
+msgstr ""
+
+#: library/api/api-block.php:143
+msgid "Error: The block options class being registered does not exist."
+msgstr ""
+
+#: library/api/api-box.php:12
+msgid "Error: The box class being registered does not exist."
+msgstr ""
+
+#: library/api/api-element.php:110
+msgid "Error: Arguments must be an array for this element."
+msgstr ""
+
+#: library/api/api-element.php:134
+msgid "Error: An ID is required for this element."
+msgstr ""
+
+#: library/api/api-element.php:137
+msgid "Error: A name is required for this element."
+msgstr ""
+
+#: library/api/api-element.php:140
+msgid "Error: A group is required for this element."
+msgstr ""
+
+#: library/api/api-element.php:143
+msgid "Error: A CSS selector is required for this element."
+msgstr ""
+
+#: library/api/api-element.php:146
+msgid "Error: Properties are required for this element."
+msgstr ""
+
+#: library/api/api-element.php:189
+msgid "Error: Arguments must be an array for this element instance."
+msgstr ""
+
+#: library/api/api-element.php:205
+msgid "Error: An ID is required for this element instance."
+msgstr ""
+
+#: library/api/api-element.php:208
+msgid "Error: A name is required for this element instance."
+msgstr ""
+
+#: library/api/api-element.php:211
+msgid "Error: A group is required for this element instance."
+msgstr ""
+
+#: library/api/api-element.php:214
+msgid "Error: A parent element is required for this element instance."
+msgstr ""
+
+#: library/api/api-element.php:217
+msgid "Error: A CSS selector is required for this element instance."
+msgstr ""
+
+#: library/api/api-element.php:252
+msgid "Error: The group being registered already exists."
+msgstr ""
+
+#: library/api/api-panel.php:12
+msgid "Error: The panel class being registered does not exist."
+msgstr ""
+
+#: library/blocks/blocks.php:71
+msgid "The block class being registered does not exist."
+msgstr ""
+
+#: library/blocks/blocks.php:767
+msgid "The Padma blocks array does not exist."
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:66
+msgid "Home"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:109
+msgid "Search Results For:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:118
+msgid "Author Archives:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:125
+msgid "Tag Archives:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:132
+msgid "Archives:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:139
+msgid "Whoops! Page Not Found..."
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:147
+msgid "You Are Here:"
+msgstr ""
+
+#: library/blocks/content/comments-template.php:54
+msgid "Sorry, comments are closed for this post."
+msgstr ""
+
+#: library/blocks/content/comments-template.php:68
+msgid ""
+"This post is password protected.  Please enter the password to view the "
+"comments."
+msgstr ""
+
+#: library/blocks/content/content-display.php:147
+#: library/blocks/listings/content-display.php:69
+msgid "<p>Sorry, there was no content that matched your search.</p>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:255
+#, php-format
+msgid " Results for: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:278
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:281
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:284
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:287
+msgid "Blog Archives"
+msgstr ""
+
+#: library/blocks/content/content-display.php:297
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:315
+#: library/blocks/content/content-display.php:318
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:328
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:337
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:524
+#: library/blocks/listings/content-display.php:200
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:666
+msgid "Pages:"
+msgstr ""
+
+#: library/blocks/content/content-display.php:703
+msgid "Whoops!  Page Not Found"
+msgstr ""
+
+#: library/blocks/content/content-display.php:711
+msgid ""
+"<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
+"are looking for does not exist or has been moved elsewhere.</p>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:713
+#, php-format
+msgid ""
+"<p>If you keep ending up here, please head back to our <a href=\"%s"
+"\">homepage</a> or try the search form below.</p>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:788
+msgid "Discard Reply"
+msgstr ""
+
+#: library/blocks/content/content-display.php:826
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: library/blocks/content/content-display.php:827
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1010
+#, php-format
+msgid "%s &ndash; Comments"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1019
+#, php-format
+msgid "Respond to %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1026
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: library/blocks/footer/footer.php:120
+msgid "Administration Panel"
+msgstr ""
+
+#: library/blocks/footer/footer.php:122
+msgid "Administration Login"
+msgstr ""
+
+#: library/blocks/footer/footer.php:143
+msgid "Powered by Padma, the "
+msgstr ""
+
+#: library/blocks/footer/footer.php:155
+msgid "Copyright"
+msgstr ""
+
+#: library/blocks/footer/footer.php:171
+msgid "Go To Top"
+msgstr ""
+
+#: library/blocks/footer/footer.php:193
+msgid "View Full Site"
+msgstr ""
+
+#: library/blocks/footer/footer.php:200
+msgid "View Mobile Site"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:219
+msgid "Navigation"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:644
+msgid "&laquo; Previous Page"
+msgstr ""
+
+#: library/common/functions.php:701
+msgid "Type to search, then press enter"
+msgstr ""
+
+#: library/common/functions.php:729 library/common/functions.php:731
+msgid "Search"
+msgstr ""
+
+#: library/common/image-resizer.php:57
+msgid "Error: Invalid image URL or size inputs"
+msgstr ""
+
+#: library/common/image-resizer.php:81
+msgid "Error: Image not local"
+msgstr ""
+
+#: library/common/image-resizer.php:88
+msgid "Error: Image does not exist or not accessible"
+msgstr ""
+
+#: library/common/image-resizer.php:113
+msgid "Error: Cannot resize, check if $upscale is enabled"
+msgstr ""
+
+#: library/common/image-resizer.php:125
+msgid "Error: Cannot resize image with WP_Image_Editor class"
+msgstr ""
+
+#: library/common/image-resizer.php:133
+msgid "Error: Unable to save image with WP_Image_Editor class"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:14
+msgid "Search results for &ldquo;"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgid "Products tagged &ldquo;"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgctxt "endquote"
+msgid "&rdquo;"
+msgstr ""
+
+#: library/display/layout-renderer.php:131
+msgid "No Content to Display"
+msgstr ""
+
+#: library/display/layout-renderer.php:137
+#, php-format
+msgid ""
+"<p>There are no blocks to display.  Add some by going to the <a href=\"%s"
+"\">Padma Grid</a>!</p>"
+msgstr ""
+
+#: library/display/layout-renderer.php:141
+#, php-format
+msgid ""
+"<p>There is no content to display.  Please notify the site administrator or "
+"<a href=\"%s\">login</a>.</p>"
+msgstr ""
+
+#: library/fonts/traditional-fonts.php:127
+msgid ""
+"To register a font, the argument array must include an \"id\", \"stack\", "
+"and \"name\"."
+msgstr ""
+
+#: library/maintenance/legacy-classes.php:64
+#: library/maintenance/legacy-classes.php:94
+#: library/maintenance/legacy-classes.php:179
+#: library/maintenance/legacy-classes.php:212
+#: library/maintenance/legacy-classes.php:243
+#: library/maintenance/legacy-classes.php:269
+msgid "The element ID is not registered."
+msgstr ""
+
+#: library/updater/theme-updater.php:66
+msgid ""
+"Before clicking OK to update, be sure that you have a backup of your website."
+msgstr ""
+
+#: library/visual-editor/panels/design/property-inputs.php:151
+msgid "You have customized a property in this property group."
+msgstr ""
+
+#: library/visual-editor/panels/design/property-inputs.php:275
+msgid "You have customized this property."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Padma Theme"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://padmatheme.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Padma Theme is a template builder theme with drag and drop editing, point and "
+"click design capabilities, powerful search engine optimization and much "
+"more.  For more info come to our <a href=\"http://padmatheme.com\" target="
+"\"_blank\">Padma Theme</a> website. Original written by Clay Griffith from "
+"Headway Themes"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "United 7"
+msgstr ""

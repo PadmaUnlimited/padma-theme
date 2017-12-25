@@ -1,0 +1,117 @@
+/* Body Overlay */
+div#ve-loading-overlay {
+	position: fixed;
+	background: #eee;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 999;
+	opacity: 1;
+	-webkit-transition: opacity 150ms linear;
+	transition: opacity 150ms linear;
+}
+
+/* Loading */		
+	@-webkit-keyframes spin {
+	  from { -webkit-transform: rotate(0deg); }
+	  to { -webkit-transform: rotate(360deg); }
+	}
+
+	@-moz-keyframes spin {
+	  from { -moz-transform: rotate(0deg); }
+	  to { -moz-transform: rotate(360deg); }
+	}
+
+	@-ms-keyframes spin {
+	  from { -ms-transform: rotate(0deg); }
+	  to { -ms-transform: rotate(360deg); }
+	}
+
+	@-webkit-keyframes spinReverse {
+	  from { -webkit-transform: rotate(0deg); }
+	  to { -webkit-transform: rotate(-360deg); }
+	}
+
+	@-moz-keyframes spinReverse {
+	  from { -moz-transform: rotate(0deg); }
+	  to { -moz-transform: rotate(-360deg); }
+	}
+
+	@-ms-keyframes spinReverse {
+	  from { -ms-transform: rotate(0deg); }
+	  to { -ms-transform: rotate(-360deg); }
+	}
+
+	div.cog-container { 
+		position: absolute; 
+		opacity: .8; 
+		top: 50%;
+		left: 50%;
+		width: 1px; /* Width and height keep jQuery :visible from return false */
+		height: 1px;
+		margin: -10px 0 0 -25px;
+		-webkit-filter: brightness(80%);
+		filter: brightness(80%);
+		overflow: visible !important;
+	}
+	
+		div.panel div.cog-container {
+			margin-top: 15px;
+		}
+
+	div.cog-container div {
+		background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZGF0YS1pY29uPSJjb2ciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBjbGFzcz0iaWNvbmljIGljb25pYy1jb2cgaWNvbmljLW9yaWVudGF0aW9uLXNxdWFyZSIgdmlld0JveD0iMCAwIDEyOCAxMjgiPgogIDxnIGRhdGEtd2lkdGg9IjEyOCIgZGF0YS1oZWlnaHQ9IjEyOCIgY2xhc3M9Imljb25pYy1sZyIgZGlzcGxheT0iaW5saW5lIj4KICAgIDxwYXRoIGQ9Ik0xMjggNzMuOXYtMTkuOWwtMTQuMy0zLjZjLTEuMi00LjItMi44LTguMy01LTEybDcuNS0xMi43LTE0LjEtMTQuMS0xMi43IDcuNmMtMy43LTIuMS03LjgtMy44LTEyLTVsLTMuNS0xNC4yaC0xOS45bC0zLjYgMTQuM2MtNC4yIDEuMi04LjMgMi44LTEyIDVsLTEyLjctNy41LTE0IDE0IDcuNiAxMi43Yy0yLjEgMy43LTMuOCA3LjgtNSAxMmwtMTQuMyAzLjZ2MTkuOWwxNC4zIDMuNmMxLjIgNC4yIDIuOCA4LjMgNSAxMmwtNy41IDEyLjcgMTQuMSAxNC4xIDEyLjctNy42YzMuNyAyLjEgNy44IDMuOCAxMiA1bDMuNyAxNC4zaDE5LjdsMy42LTE0LjNjNC4yLTEuMiA4LjMtMi44IDEyLTVsMTIuNyA3LjUgMTQuMS0xNC4xLTcuNi0xMi43YzIuMS0zLjcgMy44LTcuOCA1LTEybDE0LjItMy42em0tNjQgMjQuMWMtMTguOCAwLTM0LTE1LjItMzQtMzRzMTUuMi0zNCAzNC0zNCAzNCAxNS4yIDM0IDM0LTE1LjIgMzQtMzQgMzR6IgogICAgY2xhc3M9Imljb25pYy1jb2ctYm9keSBpY29uaWMtZWxlbWVudC1maWxsIiAvPgogIDwvZz4KPC9zdmc+);
+	}
+	
+	div.cog-container div.cog-bottom-left { 
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		width: 36px; 
+		height: 36px; 
+		display: block;
+		-webkit-animation: spin 3000ms infinite linear;
+		-moz-animation: spin 3000ms infinite linear;
+	  animation: spin 3000ms infinite linear;
+		background-size: 36px;
+		background-repeat: none;
+	}
+
+	div.cog-container div.cog-top-right { 
+		position: absolute; 
+		top: -21px;
+		left: 21px;
+		width: 28px; 
+		height: 28px; 
+		display: block;
+		-webkit-animation: spinReverse 3000ms infinite linear;
+		-moz-animation: spinReverse 3000ms infinite linear;
+		animation: spinReverse 3000ms infinite linear;
+		background-size: 28px;
+
+		background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZGF0YS1pY29uPSJjb2ciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgY2xhc3M9Imljb25pYyBpY29uaWMtY29nIGljb25pYy1vcmllbnRhdGlvbi1zcXVhcmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+CiAgPHRpdGxlPkNvZzwvdGl0bGU+CiAgPGcgZGF0YS13aWR0aD0iMTYiIGRhdGEtaGVpZ2h0PSIxNiIgY2xhc3M9Imljb25pYy1zbSI+CiAgICA8cGF0aCBkPSJNMTYgOXYtMmwtMi0xYy0uMS0uMy0uMi0uNi0uNC0uOWwuOS0yLjEtMS41LTEuNS0yLjEuOC0uOS0uMy0xLTJoLTJsLTEgMi0uOS4zLTIuMS0uOC0xLjUgMS41LjggMi4xLS4zLjktMiAxdjJsMiAxYy4xLjMuMi42LjQuOWwtLjkgMi4xIDEuNSAxLjUgMi4xLS44LjkuMyAxIDJoMmwxLTJjLjMtLjEuNi0uMi45LS40bDIuMS44IDEuNS0xLjUtLjgtMi4xLjQtLjkgMS45LS45em0tOCAyYy0xLjcgMC0zLTEuMy0zLTNzMS4zLTMgMy0zIDMgMS4zIDMgMy0xLjMgMy0zIDN6IgogICAgY2xhc3M9Imljb25pYy1jb2ctYm9keSBpY29uaWMtZWxlbWVudC1maWxsIiAvPgogIDwvZz4KPC9zdmc+);
+	}
+
+/* iframe sizing */
+	div#iframe-container {
+		width: auto;
+		height: auto;
+		top: 35px;
+		bottom: 260px;
+		left: 0;
+		right: 0;
+		padding: 0;
+		margin: 0;
+		position: fixed;
+		opacity: 0;
+	}
+
+	iframe.content {
+		width: 100%;
+		height: 100%;
+	}
+
+
+	body.visual-editor-mode-design:not(.side-panel-hidden) div#iframe-container {
+		right: 290px !important;
+	}

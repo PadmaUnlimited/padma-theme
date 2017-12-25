@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>Nudging</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Edit-Icons-All-Closed" sketch:type="MSLayerGroup" transform="translate(-15.000000, -189.000000)">
+            <g id="Row-3" transform="translate(12.000000, 190.000000)" sketch:type="MSShapeGroup">
+                <g id="Nudging" transform="translate(5.000000, 1.000000)">
+                    <rect id="Rectangle-5" stroke="#93979B" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="30" height="30"></rect>
+                    <rect id="Rectangle-5" stroke="#979797" fill="#D4D4D4" x="10" y="10" width="12" height="12"></rect>
+                    <rect id="Rectangle-5" stroke="#93979B" stroke-width="2" fill="#FFFFFF" x="0" y="0" width="4" height="4"></rect>
+                    <rect id="Rectangle-5" stroke="#93979B" stroke-width="2" fill="#FFFFFF" x="0" y="28" width="4" height="4"></rect>
+                    <rect id="Rectangle-5" stroke="#93979B" stroke-width="2" fill="#FFFFFF" x="28" y="0" width="4" height="4"></rect>
+                    <rect id="Rectangle-5" stroke="#93979B" stroke-width="2" fill="#FFFFFF" x="28" y="28" width="4" height="4"></rect>
+                    <g id="scale-up" transform="translate(7.000000, 7.000000)" fill="#9B9B9B">
+                        <path d="M12.0892857,1.80357143 L17.875,-0.125 L15.9464286,5.66071429 L15.9464286,5.66071429 L12.0892857,1.80357143 L12.0892857,1.80357143 Z M1.80357143,5.66071429 L-0.125,-0.125 L5.66071429,1.80357143 L5.66071429,1.80357143 L1.80357143,5.66071429 L1.80357143,5.66071429 Z M5.66071429,15.9464286 L-0.125,17.875 L1.80357143,12.0892857 L1.80357143,12.0892857 L5.66071429,15.9464286 L5.66071429,15.9464286 Z M15.9464286,12.0892857 L17.875,17.875 L12.0892857,15.9464286 L12.0892857,15.9464286 L15.9464286,12.0892857 L15.9464286,12.0892857 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

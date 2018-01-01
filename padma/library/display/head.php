@@ -89,18 +89,18 @@ class PadmaHead {
 			
 			/* Basic CSS */
 				if ( current_theme_supports('padma-reset-css') )
-					$general_css_fragments['reset.css'] = BLOX_LIBRARY_DIR . '/media/css/reset.css';
+					$general_css_fragments['reset.css'] = PADMA_LIBRARY_DIR . '/media/css/reset.css';
 				
 				if ( current_theme_supports('padma-grid') )
-					$general_css_fragments['grid.css'] = BLOX_LIBRARY_DIR . '/media/css/grid.css';
+					$general_css_fragments['grid.css'] = PADMA_LIBRARY_DIR . '/media/css/grid.css';
 							
 				if ( current_theme_supports('padma-block-basics-css') )
-					$general_css_fragments['block-basics.css'] = BLOX_LIBRARY_DIR . '/media/css/block-basics.css';
+					$general_css_fragments['block-basics.css'] = PADMA_LIBRARY_DIR . '/media/css/block-basics.css';
 					
 				if ( current_theme_supports('padma-content-styling-css') ) {
 					
-					$general_css_fragments['content-styling.css'] = BLOX_LIBRARY_DIR . '/media/css/content-styling.css';
-					$general_css_fragments['alerts.css'] = BLOX_LIBRARY_DIR . '/media/css/alerts.css';
+					$general_css_fragments['content-styling.css'] = PADMA_LIBRARY_DIR . '/media/css/content-styling.css';
+					$general_css_fragments['alerts.css'] = PADMA_LIBRARY_DIR . '/media/css/alerts.css';
 					
 				}
 
@@ -122,7 +122,7 @@ class PadmaHead {
 				$general_css_fragments = apply_filters('padma_general_css_live_css_applied', $general_css_fragments);
 					
 				$general_css_dependencies = array_unique(apply_filters('padma_general_css_dependencies', array(
-					BLOX_LIBRARY_DIR . '/media/dynamic/style.php'
+					PADMA_LIBRARY_DIR . '/media/dynamic/style.php'
 				)));
 
 			/* Handle regular requests. */
@@ -187,7 +187,7 @@ class PadmaHead {
 				'format' => 'css',
 				'fragments' => $fragments,
 				'dependencies' => array(
-					BLOX_LIBRARY_DIR . '/media/dynamic/style.php'
+					PADMA_LIBRARY_DIR . '/media/dynamic/style.php'
 				)
 			));
 
@@ -208,7 +208,7 @@ class PadmaHead {
 					array('PadmaResponsiveGridDynamicMedia', 'content')
 				),
 				'dependencies' => array(
-					BLOX_LIBRARY_DIR . '/media/dynamic/responsive-grid.php'
+					PADMA_LIBRARY_DIR . '/media/dynamic/responsive-grid.php'
 				)
 			));
 			
@@ -224,7 +224,7 @@ class PadmaHead {
 						array('PadmaResponsiveGridDynamicMedia', 'fitvids')
 					),
 					'dependencies' => array(
-						BLOX_LIBRARY_DIR . '/media/dynamic/responsive-grid.php'
+						PADMA_LIBRARY_DIR . '/media/dynamic/responsive-grid.php'
 					)
 				));
 				
@@ -316,7 +316,7 @@ class PadmaHead {
 	public static function child_theme_stylesheet() {
 		
 		/* If no child theme is active, then we won't use the style.css file. */
-		if ( BLOX_CHILD_THEME_ACTIVE === false )
+		if ( PADMA_CHILD_THEME_ACTIVE === false )
 			return false;
 			
 		echo '<link rel="stylesheet" type="text/css" media="all" href="' . get_stylesheet_uri() . '" />';

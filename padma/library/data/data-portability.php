@@ -11,7 +11,7 @@ class PadmaDataPortability {
 		$wp_options_prefix = 'padma_|template=' . PadmaOption::$current_skin . '|_';
 
 		$skin = array(
-			'bt-version' => BLOX_VERSION,
+			'bt-version' => PADMA_VERSION,
 			'name' => padma_get('name', $info, 'Unnamed'),
 			'author' => padma_get('author', $info),
 			'image-url' => padma_get('image-url', $info),

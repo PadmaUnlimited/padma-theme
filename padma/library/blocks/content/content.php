@@ -16,7 +16,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 	function init() {
 		
 		/* Load dependencies */
-		require_once BLOX_LIBRARY_DIR . '/blocks/content/content-display.php';
+		require_once PADMA_LIBRARY_DIR . '/blocks/content/content-display.php';
 		
 		/* Set up the comments template */
 		add_filter('comments_template', array(__CLASS__, 'add_blank_comments_template'), 5);
@@ -32,7 +32,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 	
 	public static function add_blank_comments_template() {
 		
-		return BLOX_LIBRARY_DIR . '/blocks/content/comments-template.php';
+		return PADMA_LIBRARY_DIR . '/blocks/content/comments-template.php';
 		
 	}
 
@@ -66,7 +66,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'fragments' => array(
 				'padma_content_block_editor_style'
 			),
-			'dependencies' => array(BLOX_LIBRARY_DIR . '/blocks/content/editor-style.php'),
+			'dependencies' => array(PADMA_LIBRARY_DIR . '/blocks/content/editor-style.php'),
 			'enqueue' => false
 		));
 

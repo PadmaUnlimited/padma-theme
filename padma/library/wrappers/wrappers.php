@@ -205,7 +205,7 @@ class PadmaWrappers {
 
 	public static function options_panel($wrapper, $layout) {
 
-		require_once BLOX_LIBRARY_DIR . '/wrappers/wrapper-options.php';
+		require_once PADMA_LIBRARY_DIR . '/wrappers/wrapper-options.php';
 
 		//Initiate options class
 		$options = new PadmaWrapperOptions;

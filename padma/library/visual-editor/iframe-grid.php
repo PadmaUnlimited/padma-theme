@@ -161,7 +161,7 @@ class PadmaVisualEditorIframeGrid {
 				array('PadmaDynamicStyle', 'wrapper')
 			),
 			'dependencies' => array(
-				BLOX_LIBRARY_DIR . '/media/dynamic/style.php'
+				PADMA_LIBRARY_DIR . '/media/dynamic/style.php'
 			)
 		));
 

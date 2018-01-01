@@ -1,6 +1,6 @@
 <?php
-class PadmaAdmin {
 
+class PadmaAdmin {
 
 	public static function init() {
 
@@ -95,71 +95,71 @@ class PadmaAdmin {
 
 
 		/* Save and activations */
-			if ( $save_and_activations = padma_get('save-and-activate', padma_post('padma-licenses')) ) {
+		if ( $save_and_activations = padma_get('save-and-activate', padma_post('padma-licenses')) ) {
 
-				if ( is_array($save_and_activations) && count($save_and_activations) ) {
+			if ( is_array($save_and_activations) && count($save_and_activations) ) {
 
-					foreach ( $save_and_activations as $item_slug_to_activate => $submit_value ) {
+				foreach ( $save_and_activations as $item_slug_to_activate => $submit_value ) {
 
-						PadmaOption::set('license-key-' . $item_slug_to_activate, padma_get('license-key-' . $item_slug_to_activate, padma_post('padma-admin-input')));
-						$activation_request = padma_activate_license($item_slug_to_activate);
+					PadmaOption::set('license-key-' . $item_slug_to_activate, padma_get('license-key-' . $item_slug_to_activate, padma_post('padma-admin-input')));
+					$activation_request = padma_activate_license($item_slug_to_activate);
 
-						self::set_license_activation_message($activation_request);
-
-					}
+					self::set_license_activation_message($activation_request);
 
 				}
 
 			}
+
+		}
 
 		/* Activations */
-			if ( $activations = padma_get('activate', padma_post('padma-licenses')) ) {
+		if ( $activations = padma_get('activate', padma_post('padma-licenses')) ) {
 
-				if ( is_array($activations) && count($activations) ) {
+			if ( is_array($activations) && count($activations) ) {
 
-					foreach ( padma_get('activate', padma_post('padma-licenses')) as $item_slug_to_activate => $submit_value ) {
+				foreach ( padma_get('activate', padma_post('padma-licenses')) as $item_slug_to_activate => $submit_value ) {
 
-						$activation_request = padma_activate_license($item_slug_to_activate);
+					$activation_request = padma_activate_license($item_slug_to_activate);
 
-						self::set_license_activation_message($activation_request);
-
-					}
+					self::set_license_activation_message($activation_request);
 
 				}
 
 			}
+
+		}
 
 		/* Deactivations */
-			if ( $deactivations = padma_get('deactivate', padma_post('padma-licenses')) ) {
+		if ( $deactivations = padma_get('deactivate', padma_post('padma-licenses')) ) {
 
-				if ( is_array($deactivations) && count($deactivations) ) {
+			if ( is_array($deactivations) && count($deactivations) ) {
 
-					foreach ( padma_get('deactivate', padma_post('padma-licenses')) as $item_slug_to_deactivate => $submit_value ) {
+				foreach ( padma_get('deactivate', padma_post('padma-licenses')) as $item_slug_to_deactivate => $submit_value ) {
 
-						$deactivation_request = padma_deactivate_license($item_slug_to_deactivate);
+					$deactivation_request = padma_deactivate_license($item_slug_to_deactivate);
 
-						if ( $deactivation_request == 'deactivated' ) {
+					if ( $deactivation_request == 'deactivated' ) {
 
-							$padma_admin_save_message = 'License deactivated.';
+						$padma_admin_save_message = 'License deactivated.';
 
-						} else if ( !is_wp_error($deactivation_request) ) {
+					} else if ( !is_wp_error($deactivation_request) ) {
 
-							$padma_admin_save_error_message = '<strong>Whoops!</strong> Could not deactivate license. Please check that you have entered your license correctly.';
+						$padma_admin_save_error_message = '<strong>Whoops!</strong> Could not deactivate license. Please check that you have entered your license correctly.';
 
-						} else {
+					} else {
 
-							$padma_admin_save_error_message = '
-								<strong>Error While Deactivating:</strong> (' . $deactivation_request->get_error_code() . ') ' . $deactivation_request->get_error_message() . '<br /><br />
-								'  . __('Please contact Padma Support if this error persists.', 'padma') . '
-							';
-
-						}
+						$padma_admin_save_error_message = '
+							<strong>Error While Deactivating:</strong> (' . $deactivation_request->get_error_code() . ') ' . $deactivation_request->get_error_message() . '<br /><br />
+							'  . __('Please contact Padma Support if this error persists.', 'padma') . '
+						';
 
 					}
 
 				}
 
 			}
+
+		}
 
 
 		return true;
@@ -167,32 +167,32 @@ class PadmaAdmin {
 	}
 
 
-		public static function set_license_activation_message($activation_request) {
+	public static function set_license_activation_message($activation_request) {
 
-			global $padma_admin_save_message;
-			global $padma_admin_save_error_message;
+		global $padma_admin_save_message;
+		global $padma_admin_save_error_message;
 
-			if ( $activation_request == 'active' || $activation_request == 'valid' ) {
+		if ( $activation_request == 'active' || $activation_request == 'valid' ) {
 
-				$padma_admin_save_message = __('License saved and activated.', 'padma');
+			$padma_admin_save_message = __('License saved and activated.', 'padma');
 
-			} else if ( $activation_request == 'invalid' || $activation_request == 'expired' ) {
+		} else if ( $activation_request == 'invalid' || $activation_request == 'expired' ) {
 
-				$padma_admin_save_error_message = __('
-					<strong>Whoops!</strong> Could not activate license.  Please check that you have entered your license correctly and that it has not expired.<br /><br />
-					Make sure you copied your license correctly from the <a href="http://padmatheme.com/dashboard" target="_blank">Padma Dashboard</a>.
-				', 'padma');
+			$padma_admin_save_error_message = __('
+				<strong>Whoops!</strong> Could not activate license.  Please check that you have entered your license correctly and that it has not expired.<br /><br />
+				Make sure you copied your license correctly from the <a href="http://padmatheme.com/dashboard" target="_blank">Padma Dashboard</a>.
+			', 'padma');
 
-			} else if ( is_wp_error($activation_request) ) {
+		} else if ( is_wp_error($activation_request) ) {
 
-				$padma_admin_save_error_message = '
-					<strong>Error While Activating:</strong> (' . $activation_request->get_error_code() . ') ' . $activation_request->get_error_message() . '<br /><br />
-					'  . __('Please contact Padma Support if this error persists.', 'padma') . '
-				';
-
-			}
+			$padma_admin_save_error_message = '
+				<strong>Error While Activating:</strong> (' . $activation_request->get_error_code() . ') ' . $activation_request->get_error_message() . '<br /><br />
+				'  . __('Please contact Padma Support if this error persists.', 'padma') . '
+			';
 
 		}
+
+	}
 
 	public static function form_action_delete_snapshots() {
 
@@ -226,7 +226,7 @@ class PadmaAdmin {
 
 		global $wpdb;
 
-		if ( !defined('BLOX_ALLOW_RESET') || BLOX_ALLOW_RESET !== true )
+		if ( !defined('PADMA_ALLOW_RESET') || PADMA_ALLOW_RESET !== true )
 			return false;
 
 		//Form action for all Padma configuration panels.  Not in function/hook so it can load before everything else.
@@ -293,7 +293,7 @@ class PadmaAdmin {
 
 		//If a child theme has been activated rather than Padma, then don't redirect.
 		//Let the child theme developer redirect if they want by using the hook above.
-		if ( BLOX_CHILD_THEME_ACTIVE === true )
+		if ( PADMA_CHILD_THEME_ACTIVE === true )
 			return false;
 
 		$parent_menu = self::parent_menu();
@@ -340,14 +340,14 @@ class PadmaAdmin {
 	public static function add_menus(){
 
 		//If the hide menus constant is set to true, don't hide the menus!
-		if (defined('BLOX_HIDE_MENUS') && BLOX_HIDE_MENUS === true)
+		if (defined('PADMA_HIDE_MENUS') && PADMA_HIDE_MENUS === true)
 		 	return false;
 
 		//If user cannot access the admin panels, then don't bother running these functions
 		if ( !PadmaCapabilities::can_user_visually_edit() )
 			return false;
 
-		$menu_name = ( PadmaOption::get('hide-menu-version-number', false, true) == true ) ? 'Padma Theme' : 'Padma Theme ' . BLOX_VERSION;
+		$menu_name = ( PadmaOption::get('hide-menu-version-number', false, true) == true ) ? 'Padma Theme' : 'Padma Theme ' . PADMA_VERSION;
 
 		$icon = (version_compare($GLOBALS['wp_version'], '3.8', '>=') && get_user_option('admin_color') != 'light') ? 'padma-32-white.png' : 'padma-16.png';
 		$icon_url = padma_url() . '/library/admin/images/' . $icon;

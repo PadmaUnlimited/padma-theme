@@ -11,8 +11,8 @@ function padma_get_license_key($slug = false) {
 	if ( !$slug )
 		return false;
 
-	if ( defined('BLOX_LICENSE_KEY') && $slug == 'padma' )
-		return apply_filters('padma_license_key', trim(BLOX_LICENSE_KEY), $slug);
+	if ( defined('PADMA_LICENSE_KEY') && $slug == 'padma' )
+		return apply_filters('padma_license_key', trim(PADMA_LICENSE_KEY), $slug);
 
 	return apply_filters('padma_license_key', trim(PadmaOption::get_from_main_site('license-key-' . $slug)), $slug);
 
@@ -39,7 +39,7 @@ function padma_activate_license($item_slug, $item_name = null) {
 		'item_name' => urlencode($item_name)
 	);
 
-	$response = wp_remote_get( add_query_arg( $api_params, BLOX_SITE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+	$response = wp_remote_get( add_query_arg( $api_params, PADMA_SITE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 	if ( is_wp_error( $response ) ) {
 		return $response;
@@ -66,7 +66,7 @@ function padma_deactivate_license($item_slug, $item_name = null) {
 		'item_name' => urlencode($item_name)
 	);
 
-	$response = wp_remote_get( add_query_arg( $api_params, BLOX_SITE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+	$response = wp_remote_get( add_query_arg( $api_params, PADMA_SITE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 	if ( is_wp_error( $response ) )
 		return false;
@@ -355,12 +355,12 @@ function padma_is_ie($version_check = false) {
 function padma_parse_php($content) {
 	
 	/* If Padma PHP parsing is disabled, then return the content now. */
-	if ( defined('BLOX_DISABLE_PHP_PARSING') && BLOX_DISABLE_PHP_PARSING === true )
+	if ( defined('PADMA_DISABLE_PHP_PARSING') && PADMA_DISABLE_PHP_PARSING === true )
 		return $content;
 	
 	/* If it's a WordPress Network setup and the current site being viewed isn't the main site, 
-	   then don't parse unless BLOX_ALLOW_NETWORK_PHP_PARSING is true. */
-	if ( !is_main_site() && (!defined('BLOX_ALLOW_NETWORK_PHP_PARSING') || BLOX_ALLOW_NETWORK_PHP_PARSING === false) )
+	   then don't parse unless PADMA_ALLOW_NETWORK_PHP_PARSING is true. */
+	if ( !is_main_site() && (!defined('PADMA_ALLOW_NETWORK_PHP_PARSING') || PADMA_ALLOW_NETWORK_PHP_PARSING === false) )
 		return $content;
 	
 	ob_start();

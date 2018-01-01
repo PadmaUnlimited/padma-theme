@@ -152,7 +152,7 @@ class PadmaCompiler {
 		if ( 
 			self::caching_enabled() /* Make sure caching is enabled and possible */
 			&& padma_get('filename', $cache[$file]) /* Filename in DB must be present */
-			&& file_exists(BLOX_CACHE_DIR . '/' . padma_get('filename', $cache[$file]))  /* Cached file must be present */
+			&& file_exists(PADMA_CACHE_DIR . '/' . padma_get('filename', $cache[$file]))  /* Cached file must be present */
 			&& !(PadmaRoute::is_visual_editor_iframe() && !padma_get('iframe-cache', $cache[$file])) /* Either not be iframe or if is iframe, iframe-cache must be true */
 		) {
 									
@@ -223,12 +223,12 @@ class PadmaCompiler {
 		$cache[$file]['filename'] = $file . '-' . substr($cache[$file]['hash'], 0, 7) . '.' . $cache[$file]['format'];
 
 		//Build file
-		$file_handle = @fopen(BLOX_CACHE_DIR . '/' . $cache[$file]['filename'], 'w');
+		$file_handle = @fopen(PADMA_CACHE_DIR . '/' . $cache[$file]['filename'], 'w');
 		
 		if ( !@fwrite($file_handle, $content) )
 			return false;
 	
-		@chmod(BLOX_CACHE_DIR . '/' . $cache[$file]['filename'], 0644);
+		@chmod(PADMA_CACHE_DIR . '/' . $cache[$file]['filename'], 0644);
 			
 		@fclose($file_handle);
 
@@ -354,8 +354,8 @@ class PadmaCompiler {
 		}
 	
 		$search = array(
-			'%BLOX_URL%',
-			'%BLOX_LIBRARY_URL%',
+			'%PADMA_URL%',
+			'%PADMA_LIBRARY_URL%',
 			'%VISUALEDITOR%',
 			'%SITE_URL%',
 			'%HOME_URL%'
@@ -382,7 +382,7 @@ class PadmaCompiler {
 
 		public static function strip_whitespace($content) {
 
-			if ( defined('BLOX_COMPILER_STRIP_WHITESPACE') && BLOX_COMPILER_STRIP_WHITESPACE === false )
+			if ( defined('PADMA_COMPILER_STRIP_WHITESPACE') && PADMA_COMPILER_STRIP_WHITESPACE === false )
 				return $content;
 
 			$replace = array(
@@ -419,10 +419,10 @@ class PadmaCompiler {
 	 **/
 	public static function caching_enabled() {
 		
-		if ( defined('BLOX_DISABLE_CACHE') && BLOX_DISABLE_CACHE === true )
+		if ( defined('PADMA_DISABLE_CACHE') && PADMA_DISABLE_CACHE === true )
 			return false;
 			
-		if ( defined('BLOX_FORCE_CACHE') && BLOX_FORCE_CACHE === true )
+		if ( defined('PADMA_FORCE_CACHE') && PADMA_FORCE_CACHE === true )
 			return true;
 		
 		if ( defined('WP_DEBUG') && WP_DEBUG === true )
@@ -444,7 +444,7 @@ class PadmaCompiler {
 	 **/
 	public static function can_cache() {
 		
-		if ( !is_dir(BLOX_CACHE_DIR) || !is_writable(BLOX_CACHE_DIR) )
+		if ( !is_dir(PADMA_CACHE_DIR) || !is_writable(PADMA_CACHE_DIR) )
 			return false;
 
 		return true;
@@ -466,14 +466,14 @@ class PadmaCompiler {
 				'.'
 			);
 				
-			if ( $handle = opendir(BLOX_CACHE_DIR) ) {
+			if ( $handle = opendir(PADMA_CACHE_DIR) ) {
 			
 			    while (false !== ($file = readdir($handle)) ) {
 
 					if ( in_array($file, $no_delete) )
 						continue;
 					
-					@unlink(BLOX_CACHE_DIR . '/' . $file);
+					@unlink(PADMA_CACHE_DIR . '/' . $file);
 		
 			    }
 		
@@ -520,10 +520,10 @@ class PadmaCompiler {
 	 **/
 	public static function delete_cache_file($filename) {
 
-		if ( !$filename || !file_exists(BLOX_CACHE_DIR . '/' . $filename) )
+		if ( !$filename || !file_exists(PADMA_CACHE_DIR . '/' . $filename) )
 			return false;
 		
-		return @unlink(BLOX_CACHE_DIR . '/' . $filename);
+		return @unlink(PADMA_CACHE_DIR . '/' . $filename);
 		
 	}
 

@@ -570,7 +570,7 @@ class PadmaVisualEditor {
 				do_action('padma_visual_editor_save');
 
 			/* Save snapshot if allowed */
-			if ( !defined('BLOX_DISABLE_AUTO_SNAPSHOT') || BLOX_DISABLE_AUTO_SNAPSHOT !== true ) {
+			if ( !defined('PADMA_DISABLE_AUTO_SNAPSHOT') || PADMA_DISABLE_AUTO_SNAPSHOT !== true ) {
 				$output['snapshot'] = PadmaDataSnapshots::save_snapshot(true);
 			}
 

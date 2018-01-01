@@ -18,7 +18,7 @@ class PadmaTemplates {
 				'id' => 'base',
 				'name' => 'Base',
 				'author' => 'Padma Theme',
-				'version' => BLOX_VERSION,
+				'version' => PADMA_VERSION,
 				'image-url' => padma_url() . '/screenshot.png',
 				'description' => null
 			)
@@ -97,10 +97,10 @@ class PadmaTemplates {
 
 	public static function get_active() {
 
-		$current_skin_id = PadmaOption::get('current-skin', 'general', BLOX_DEFAULT_SKIN);
+		$current_skin_id = PadmaOption::get('current-skin', 'general', PADMA_DEFAULT_SKIN);
 		$all_skins = self::get_all(true);
 
-		return padma_get($current_skin_id, $all_skins, padma_get(BLOX_DEFAULT_SKIN, $all_skins));
+		return padma_get($current_skin_id, $all_skins, padma_get(PADMA_DEFAULT_SKIN, $all_skins));
 
 	}
 

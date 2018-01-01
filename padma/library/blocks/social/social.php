@@ -535,7 +535,7 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 
 	public static function get_icon_sets() {
 
-		$path = BLOX_LIBRARY_DIR.'/blocks/social/icons';
+		$path = PADMA_LIBRARY_DIR.'/blocks/social/icons';
 		$results = scandir($path);
 
 		$icons_options = array();
@@ -562,7 +562,7 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 
 		if ( $icon_set != 'custom' ) {
 
-			$path = BLOX_LIBRARY_DIR.'/blocks/social/icons/' . $icon_set . '/';
+			$path = PADMA_LIBRARY_DIR.'/blocks/social/icons/' . $icon_set . '/';
 
 			$results = scandir($path);
 

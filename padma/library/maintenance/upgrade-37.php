@@ -150,7 +150,7 @@ END BACKUP CONTENTS */
 ';
 
 	/* Write the backup to a text file */
-	$file_handle = @fopen(BLOX_UPLOADS_DIR . '/' . 'padma_37_upgrade_backup_' . mktime() . '.php', 'w');
+	$file_handle = @fopen(PADMA_UPLOADS_DIR . '/' . 'padma_37_upgrade_backup_' . mktime() . '.php', 'w');
 
 	if ( !@fwrite($file_handle, $file_content) )
 		return false;
@@ -232,7 +232,7 @@ function padma_upgrade_37_fix_templates() {
 		$wpdb->query( "UPDATE IGNORE $wpdb->options SET option_name = replace(option_name, 'padma_|skin=$original_template_id|', 'padma_|skin=$new_template_id|') WHERE option_name LIKE 'padma_|skin=$original_template_id|%'" );
 
 		/* If the current skin is the one with the name change then change that */
-		if ( PadmaOption::get('current-skin', 'general', BLOX_DEFAULT_SKIN) == $original_template_id ) {
+		if ( PadmaOption::get('current-skin', 'general', PADMA_DEFAULT_SKIN) == $original_template_id ) {
 			PadmaOption::set('current-skin', $new_template_id);
 			PadmaOption::$current_skin = $new_template_id;
 		}

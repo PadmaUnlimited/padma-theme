@@ -1,6 +1,6 @@
 <?php
-class PadmaAdminInputs {
-	
+
+class PadmaAdminInputs {	
 	
 	public static function generate($inputs, $table_class = 'form-table') {
 		
@@ -231,6 +231,5 @@ class PadmaAdminInputs {
 		echo '</fieldset>';
 		
 	}
-	
-	
+		
 }

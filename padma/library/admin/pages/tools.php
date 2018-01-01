@@ -37,14 +37,14 @@ global $wpdb;
 
     ### Begin System Info ###
 
-	Child Theme:		<?php echo BLOX_CHILD_THEME_ACTIVE ? (function_exists('wp_get_theme') ? wp_get_theme() : get_current_theme()) . "\n" : "N/A\n" ?>
+	Child Theme:		<?php echo PADMA_CHILD_THEME_ACTIVE ? (function_exists('wp_get_theme') ? wp_get_theme() : get_current_theme()) . "\n" : "N/A\n" ?>
 
     Multi-site: 		<?php echo is_multisite() ? 'Yes' . "\n" : 'No' . "\n" ?>
 	
     SITE_URL:  			<?php echo site_url() . "\n"; ?>
     HOME_URL:			<?php echo home_url() . "\n"; ?>
     	
-    Padma Version:  	<?php echo BLOX_VERSION . "\n"; ?>
+    Padma Version:  	<?php echo PADMA_VERSION . "\n"; ?>
     WordPress Version:	<?php echo get_bloginfo('version') . "\n"; ?>
     
     PHP Version:		<?php echo PHP_VERSION . "\n"; ?>
@@ -160,7 +160,7 @@ if ( is_array($active_plugins) && count($active_plugins) ) {
 
 	<div class="big-tab" id="tab-reset-content">
 			
-		<?php if ( defined('BLOX_ALLOW_RESET') && BLOX_ALLOW_RESET === true ): ?>
+		<?php if ( defined('PADMA_ALLOW_RESET') && PADMA_ALLOW_RESET === true ): ?>
 		<?php if ( !isset($GLOBALS['padma_reset_success']) || $GLOBALS['padma_reset_success'] == false ): ?>
 		<div class="alert-red reset-alert alert">
 			<h3>Warning</h3>
@@ -182,7 +182,7 @@ if ( is_array($active_plugins) && count($active_plugins) ) {
 
 			<p>If you wish to reset your Padma installation, please <span style="font-weight: 600;color: #fff;background: #2f2f2f; padding: 2px 4px;">add the code below to your wp-config.php file</span>. <p>Please make sure to add the code above this line in your wp.config.php file:  <code> /* That's all, stop editing! Happy blogging. */</code><br />Not sure how to edit your wp-config.php file?  Please see <a href="http://codex.wordpress.org/Editing_wp-config.php" target="_blank">Editing wp-config.php</a> in the official WordPress documentation.</p>
 
-			<textarea class="code" style="width: 400px;height:45px;resize:none;margin: 10px 0 10px;" readonly="readonly">define('BLOX_ALLOW_RESET', true);</textarea>
+			<textarea class="code" style="width: 400px;height:45px;resize:none;margin: 10px 0 10px;" readonly="readonly">define('PADMA_ALLOW_RESET', true);</textarea>
 		</div>
 		<?php endif; ?>
 		

@@ -9,10 +9,10 @@ class PadmaCompatibilityWooCommerce {
 			return;
 
 		/* Load things */
-		require_once BLOX_LIBRARY_DIR . '/compatibility/woocommerce/woocommerce-breadcrumbs.php';
+		require_once PADMA_LIBRARY_DIR . '/compatibility/woocommerce/woocommerce-breadcrumbs.php';
 
-		require_once BLOX_LIBRARY_DIR . '/compatibility/woocommerce/woocommerce-design-elements.php';
-		require_once BLOX_LIBRARY_DIR . '/compatibility/woocommerce/woocommerce-design-defaults.php';
+		require_once PADMA_LIBRARY_DIR . '/compatibility/woocommerce/woocommerce-design-elements.php';
+		require_once PADMA_LIBRARY_DIR . '/compatibility/woocommerce/woocommerce-design-defaults.php';
 
 		/* Handle elements */
 		add_action('padma_register_elements', 'padma_storefront_wc_register_elements', 50);

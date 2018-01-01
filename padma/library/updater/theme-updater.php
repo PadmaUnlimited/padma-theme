@@ -10,7 +10,7 @@ class Padma_Theme_Updater {
 
 	function __construct( $args = array() ) {
 		$args = wp_parse_args( $args, array(
-			'remote_api_url' => BLOX_SITE_URL,
+			'remote_api_url' => PADMA_SITE_URL,
 			'request_data'   => array(),
 			'theme_slug'     => get_template(),
 			'item_name'      => '',

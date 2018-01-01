@@ -28,13 +28,13 @@ class PadmaMaintenance {
 		self::setup_upgrade_environment();
 		PadmaMaintenance::output_status('Current DB version is ' . $db_version);
 
-		if ( $db_version == BLOX_VERSION ) {
+		if ( $db_version == PADMA_VERSION ) {
 			return false;
 		}
 
 		/* Add current version to upgrades if it's not there so the basic upgrade routine is still ran */
-		if ( !in_array(BLOX_VERSION, self::$available_upgrades) ) {
-			self::$available_upgrades[] = BLOX_VERSION;
+		if ( !in_array(PADMA_VERSION, self::$available_upgrades) ) {
+			self::$available_upgrades[] = PADMA_VERSION;
 		}
 
 		if ( !$version_to_upgrade ) {
@@ -61,8 +61,8 @@ class PadmaMaintenance {
 
 				self::start_upgrade($upgrade_in_progress);
 
-				if ( file_exists(BLOX_LIBRARY_DIR . '/maintenance/upgrade-' . $version_filename . '.php') ) {
-					require_once BLOX_LIBRARY_DIR . '/maintenance/upgrade-' . $version_filename . '.php';
+				if ( file_exists(PADMA_LIBRARY_DIR . '/maintenance/upgrade-' . $version_filename . '.php') ) {
+					require_once PADMA_LIBRARY_DIR . '/maintenance/upgrade-' . $version_filename . '.php';
 				}
 
 				do_action('padma_do_upgrade_' . $version_filename);

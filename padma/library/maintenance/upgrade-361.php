@@ -11,7 +11,7 @@ function padma_do_upgrade_361() {
 
 	$existing_design_settings = get_option('padma_option_group_design', array());
 
-	if ( PadmaOption::$current_skin == BLOX_DEFAULT_SKIN && $existing_design_settings == PadmaElementsData::get_default_data() ) {
+	if ( PadmaOption::$current_skin == PADMA_DEFAULT_SKIN && $existing_design_settings == PadmaElementsData::get_default_data() ) {
 
 		$combined_design_settings = array();
 

@@ -20,7 +20,7 @@ class PadmaListingsBlock extends PadmaBlockAPI {
 		
 		require_once 'block-options.php';
 
-		require_once BLOX_LIBRARY_DIR . '/blocks/listings/content-display.php';
+		require_once PADMA_LIBRARY_DIR . '/blocks/listings/content-display.php';
 
 		
 	}

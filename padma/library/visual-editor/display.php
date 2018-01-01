@@ -9,12 +9,12 @@ class PadmaVisualEditorDisplay {
 		//Load boxes
 		Padma::load('api/api-box');
 
-		require_once BLOX_LIBRARY_DIR . '/visual-editor/boxes/grid-wizard.php';
-		require_once BLOX_LIBRARY_DIR . '/visual-editor/boxes/snapshots.php';
+		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/grid-wizard.php';
+		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/snapshots.php';
 
 		//Load panels
 		if ( current_theme_supports('padma-grid') ) {
-			require_once BLOX_LIBRARY_DIR . '/visual-editor/panels/grid/setup.php';
+			require_once PADMA_LIBRARY_DIR . '/visual-editor/panels/grid/setup.php';
 		}
 
 		if ( current_theme_supports('padma-design-editor') ) {
@@ -79,7 +79,7 @@ class PadmaVisualEditorDisplay {
 
 		do_action('padma_visual_editor_display');
 
-		require_once BLOX_LIBRARY_DIR . '/visual-editor/template.php';
+		require_once PADMA_LIBRARY_DIR . '/visual-editor/template.php';
 
 	}
 
@@ -124,7 +124,7 @@ class PadmaVisualEditorDisplay {
 	public static function output_inline_loading_css() {
 
 		$css = '';
-		$path = BLOX_LIBRARY_DIR . '/visual-editor/css-src/_loading.scss';
+		$path = PADMA_LIBRARY_DIR . '/visual-editor/css-src/_loading.scss';
 
 		/* Insure file exists */
 			if ( !file_exists($path) )
@@ -321,7 +321,7 @@ class PadmaVisualEditorDisplay {
 
 	public static function layout_selector() {
 
-		require_once BLOX_LIBRARY_DIR . '/visual-editor/template-layout-selector.php';
+		require_once PADMA_LIBRARY_DIR . '/visual-editor/template-layout-selector.php';
 
 	}
 

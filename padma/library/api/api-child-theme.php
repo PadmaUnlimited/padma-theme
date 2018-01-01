@@ -4,9 +4,9 @@ class PadmaChildThemeAPI {
 	
 	public static function init() {
 
-		/* Set the BLOX_CHILD_THEME_ID constant to the stylesheet option if it hasn't been set. */
-		if ( !defined('BLOX_CHILD_THEME_ID') )
-			define('BLOX_CHILD_THEME_ID', get_option('stylesheet'));
+		/* Set the PADMA_CHILD_THEME_ID constant to the stylesheet option if it hasn't been set. */
+		if ( !defined('PADMA_CHILD_THEME_ID') )
+			define('PADMA_CHILD_THEME_ID', get_option('stylesheet'));
 
 	}
 

@@ -76,7 +76,7 @@ function padma_do_upgrade_386() {
         $wpdb->query( "UPDATE $wpdb->bt_snapshots SET template = '$new_template_id' WHERE template = '$original_template_id'" );
 
         /* If the current skin is the one with the name change then change that */
-        if ( PadmaOption::get('current-skin', 'general', BLOX_DEFAULT_SKIN) == $original_template_id ) {
+        if ( PadmaOption::get('current-skin', 'general', PADMA_DEFAULT_SKIN) == $original_template_id ) {
             PadmaOption::set('current-skin', $new_template_id);
             PadmaOption::$current_skin = $new_template_id;
         }

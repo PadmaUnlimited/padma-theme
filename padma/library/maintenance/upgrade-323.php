@@ -7,7 +7,7 @@
 add_action( 'padma_do_upgrade_323', 'padma_do_upgrade_323' );
 function padma_do_upgrade_323() {
 
-	require_once BLOX_LIBRARY_DIR . '/maintenance/legacy-classes.php';
+	require_once PADMA_LIBRARY_DIR . '/maintenance/legacy-classes.php';
 
 	$horizontal_padding = PadmaOption::get( 'wrapper-horizontal-padding', 'general', 15 );
 	$vertical_padding = PadmaOption::get( 'wrapper-vertical-padding', 'general', 15 );

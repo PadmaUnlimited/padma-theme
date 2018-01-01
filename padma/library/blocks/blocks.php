@@ -102,10 +102,10 @@ class PadmaBlocks {
 			$block_path = '/blocks/' . $block . '/' . $block . '.php';
 
 			/* Allow blocks to be overriden by child themes */
-			if ( BLOX_CHILD_THEME_ACTIVE && file_exists( untrailingslashit(BLOX_CHILD_THEME_DIR) . $block_path ) ) {
-				require_once untrailingslashit( BLOX_CHILD_THEME_DIR ) . $block_path;
+			if ( PADMA_CHILD_THEME_ACTIVE && file_exists( untrailingslashit(PADMA_CHILD_THEME_DIR) . $block_path ) ) {
+				require_once untrailingslashit( PADMA_CHILD_THEME_DIR ) . $block_path;
 			} else {
-				require_once BLOX_LIBRARY_DIR . $block_path;
+				require_once PADMA_LIBRARY_DIR . $block_path;
 			}
 
 		}

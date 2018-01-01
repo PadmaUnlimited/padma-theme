@@ -18,7 +18,7 @@ class PadmaUpdaterAPI {
 	 */
 	function __construct( $args = null ) {
 
-		$this->api_url  = trailingslashit(BLOX_SITE_URL);
+		$this->api_url  = trailingslashit(PADMA_SITE_URL);
 		$this->name     = $args['path'];
 		$this->slug     = basename( $args['path'], '.php');
 		$this->version  = $args['current_version'];

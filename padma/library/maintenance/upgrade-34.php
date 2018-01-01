@@ -8,7 +8,7 @@
 add_action( 'padma_do_upgrade_34', 'padma_do_upgrade_34' );
 function padma_do_upgrade_34() {
 
-	require_once BLOX_LIBRARY_DIR . '/maintenance/legacy-classes.php';
+	require_once PADMA_LIBRARY_DIR . '/maintenance/legacy-classes.php';
 
 	/* Change block and wrapper margins to Design Editor values */
 	PadmaElementsData_Upgrade34::set_property( 'structure', 'wrapper', 'margin-top', PadmaOption::get( 'wrapper-top-margin', 'general', 30 ) );

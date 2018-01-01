@@ -4,9 +4,10 @@
  *
  * @package Padma
  * @author Clay Griffiths
+ *
  **/
 
-class Padma {
+class padma {
 
 
 	public static $loaded_classes = array();
@@ -16,7 +17,9 @@ class Padma {
 	 * Let's get Padma on the road!  We'll define constants here, run the setup function and do a few other fun things.
 	 *
 	 * @return void
+	 *
 	 **/
+	
 	public static function init() {
 
 		global $wpdb;
@@ -26,19 +29,19 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('BLOX_VERSION', '1.0.3');
+		define('PADMA_VERSION', '1.0.3');
 
 		/* Define directories */
-		define('BLOX_DIR', padma_change_to_unix_path(TEMPLATEPATH));
-		define('BLOX_LIBRARY_DIR', padma_change_to_unix_path(BLOX_DIR . '/library'));
+		define('PADMA_DIR', padma_change_to_unix_path(TEMPLATEPATH));
+		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 
 		/* Site URLs */
-		define('BLOX_SITE_URL', 'http://padmatheme.com/');
-		define('BLOX_DASHBOARD_URL', BLOX_SITE_URL . 'dashboard');
-		define('BLOX_EXTEND_URL', BLOX_SITE_URL . 'extend');
+		define('PADMA_SITE_URL', 'https://plasma.cr/');
+		define('PADMA_DASHBOARD_URL', PADMA_SITE_URL . 'dashboard');
+		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
 
 		/* Skins */
-		define('BLOX_DEFAULT_SKIN', 'base');
+		define('PADMA_DEFAULT_SKIN', 'base');
 
 		/* MySQL Table names */
 		$wpdb->bt_blocks = $wpdb->prefix . 'bt_blocks';
@@ -48,30 +51,30 @@ class Padma {
 
 		/* Handle child themes */
 		if ( get_template_directory_uri() !== get_stylesheet_directory_uri() ) {
-			define('BLOX_CHILD_THEME_ACTIVE', true);
-			define('BLOX_CHILD_THEME_DIR', get_stylesheet_directory());
+			define('PADMA_CHILD_THEME_ACTIVE', true);
+			define('PADMA_CHILD_THEME_DIR', get_stylesheet_directory());
 		} else {
-			define('BLOX_CHILD_THEME_ACTIVE', false);
-			define('BLOX_CHILD_THEME_DIR', null);
+			define('PADMA_CHILD_THEME_ACTIVE', false);
+			define('PADMA_CHILD_THEME_DIR', null);
 		}
 
 		/* Handle uploads directory and cache */
 		$uploads = wp_upload_dir();
 
-		define('BLOX_UPLOADS_DIR', padma_change_to_unix_path($uploads['basedir'] . '/padma'));
-		define('BLOX_CACHE_DIR', padma_change_to_unix_path(BLOX_UPLOADS_DIR . '/cache'));
+		define('PADMA_UPLOADS_DIR', padma_change_to_unix_path($uploads['basedir'] . '/padma'));
+		define('PADMA_CACHE_DIR', padma_change_to_unix_path(PADMA_UPLOADS_DIR . '/cache'));
 
 		/* Make directories if they don't exist */
-		if ( !is_dir(BLOX_UPLOADS_DIR) )
-			wp_mkdir_p(BLOX_UPLOADS_DIR);
+		if ( !is_dir(PADMA_UPLOADS_DIR) )
+			wp_mkdir_p(PADMA_UPLOADS_DIR);
 
-		if ( !is_dir(BLOX_CACHE_DIR) )
-			wp_mkdir_p(BLOX_CACHE_DIR);
+		if ( !is_dir(PADMA_CACHE_DIR) )
+			wp_mkdir_p(PADMA_CACHE_DIR);
 
 		self::add_index_files_to_uploads();
 
 		/* Load locale */
-		load_theme_textdomain('padma', padma_change_to_unix_path(BLOX_LIBRARY_DIR . '/languages'));
+		load_theme_textdomain('padma', padma_change_to_unix_path(PADMA_LIBRARY_DIR . '/languages'));
 
 		/* Add support for WordPress features */
 		add_action('after_setup_theme', array(__CLASS__, 'add_theme_support'), 1);
@@ -90,8 +93,8 @@ class Padma {
 		$content = '<?php' . "\n" .
 		'/* Disallow directory browsing */';
 
-		$uploads_index = trailingslashit( BLOX_UPLOADS_DIR ) . 'index.php';
-		$cache_index = trailingslashit( BLOX_CACHE_DIR ) . 'index.php';
+		$uploads_index = trailingslashit( PADMA_UPLOADS_DIR ) . 'index.php';
+		$cache_index = trailingslashit( PADMA_CACHE_DIR ) . 'index.php';
 
 		if ( ! is_file( $uploads_index  ) ) {
 
@@ -166,7 +169,7 @@ class Padma {
 		);
 
 		//Child theme API
-		if ( BLOX_CHILD_THEME_ACTIVE === true )
+		if ( PADMA_CHILD_THEME_ACTIVE === true )
 			$dependencies['api/api-child-theme'] = 'ChildThemeAPI';
 
 		//Visual editor classes
@@ -212,7 +215,7 @@ class Padma {
 		add_theme_support( 'title-tag' );
 
 		/* Loop Standard by PluginBuddy */
-		require_once BLOX_LIBRARY_DIR . '/resources/dynamic-loop.php';
+		require_once PADMA_LIBRARY_DIR . '/resources/dynamic-loop.php';
 		add_theme_support('loop-standard');
 
 	}
@@ -222,7 +225,7 @@ class Padma {
 	 **/
 	public static function child_theme_setup() {
 
-		if ( !BLOX_CHILD_THEME_ACTIVE )
+		if ( !PADMA_CHILD_THEME_ACTIVE )
 			return false;
 
 		do_action('padma_setup_child_theme');
@@ -249,7 +252,7 @@ class Padma {
 
 				/* Update the version here. */
 				$padma_settings = get_option('padma', array('version' => 0));
-				$padma_settings['version'] = BLOX_VERSION;
+				$padma_settings['version'] = PADMA_VERSION;
 
 				update_option('padma', $padma_settings);
 
@@ -258,7 +261,7 @@ class Padma {
 			}
 
 		/* If the version in the database is already up to date, then there are no upgrade functions to be ran. */
-		if ( version_compare($db_version, BLOX_VERSION, '>=') ) {
+		if ( version_compare($db_version, PADMA_VERSION, '>=') ) {
 			if ( get_option('padma_upgrading') ) {
 				delete_option('padma_upgrading');
 			}
@@ -407,8 +410,8 @@ class Padma {
 	public static function initiate_updater() {
 
 		$GLOBALS['padma_updater'] = new Padma_Theme_Updater(array(
-			'remote_api_url' 	=> BLOX_SITE_URL,
-			'version' 			=> BLOX_VERSION,
+			'remote_api_url' 	=> PADMA_SITE_URL,
+			'version' 			=> PADMA_VERSION,
 			'license' 			=> padma_get_license_key('padma'),
 			'slug'				=> '',
 			'item_name'			=> 'Unlimited',
@@ -447,15 +450,15 @@ class Padma {
 
 			//Handle anything with .php or a full path
 			if ( strpos($file, '.php') !== false )
-				require_once BLOX_LIBRARY_DIR . '/' . $file;
+				require_once PADMA_LIBRARY_DIR . '/' . $file;
 
 			//Handle main-helpers such as admin, data, etc.
 			elseif ( strpos($file, '/') === false )
-				require_once BLOX_LIBRARY_DIR . '/' . $file . '/' . $file . '.php';
+				require_once PADMA_LIBRARY_DIR . '/' . $file . '/' . $file . '.php';
 
 			//Handle anything and automatically insert .php if need be
 			elseif ( strpos($file, '/') !== false )
-				require_once BLOX_LIBRARY_DIR . '/' . $file . '.php';
+				require_once PADMA_LIBRARY_DIR . '/' . $file . '.php';
 
 			//Add the class to the main variable so we know that it has been loaded
 			Padma::$loaded_classes[] = $file;

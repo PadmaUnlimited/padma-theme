@@ -21,7 +21,7 @@ class PadmaAdminPages {
 
 		PadmaAdmin::show_header();
 
-			require_once BLOX_LIBRARY_DIR . '/admin/pages/getting-started.php';
+			require_once PADMA_LIBRARY_DIR . '/admin/pages/getting-started.php';
 
 		PadmaAdmin::show_footer();
 
@@ -32,7 +32,7 @@ class PadmaAdminPages {
 
 		PadmaAdmin::show_header();
 
-			require_once BLOX_LIBRARY_DIR . '/admin/pages/templates.php';
+			require_once PADMA_LIBRARY_DIR . '/admin/pages/templates.php';
 
 		PadmaAdmin::show_footer();
 
@@ -43,7 +43,7 @@ class PadmaAdminPages {
 
 		PadmaAdmin::show_header();
 
-			require_once BLOX_LIBRARY_DIR . '/admin/pages/options.php';
+			require_once PADMA_LIBRARY_DIR . '/admin/pages/options.php';
 
 		PadmaAdmin::show_footer();
 
@@ -54,7 +54,7 @@ class PadmaAdminPages {
 
 		PadmaAdmin::show_header();
 
-			require_once BLOX_LIBRARY_DIR . '/admin/pages/tools.php';
+			require_once PADMA_LIBRARY_DIR . '/admin/pages/tools.php';
 
 		PadmaAdmin::show_footer();
 
@@ -64,7 +64,7 @@ class PadmaAdminPages {
 
 		PadmaAdmin::show_header();
 
-			require_once BLOX_LIBRARY_DIR . '/admin/pages/license.php';
+			require_once PADMA_LIBRARY_DIR . '/admin/pages/license.php';
 
 		PadmaAdmin::show_footer();
 

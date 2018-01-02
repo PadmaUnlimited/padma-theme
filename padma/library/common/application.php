@@ -119,6 +119,7 @@ class padma {
 	 * Loads all of the required core classes and initiates them.
 	 *
 	 * Dependency array setup: class (string) => init (bool)
+	 *
 	 **/
 	public static function load_dependencies() {
 
@@ -127,43 +128,44 @@ class padma {
 
 		//Core loading set
 		$dependencies = array(
+
 			'defaults/default-design-settings',
 
-			'data/data-options' => 'Option',
-			'data/data-layout-options' => 'LayoutOption',
+			'data/data-options' 			=> 'Option',
+			'data/data-layout-options' 		=> 'LayoutOption',
 			'data/data-skin-options',
 			'data/data-blocks',
 			'data/data-wrappers',
 			'data/data-snapshots',
 
-			'common/layout' => true,
-			'common/capabilities' => true,
-			'common/responsive-grid' => true,
-			'common/seo' => true,
-			'common/social-optimization' => true,
-			'common/feed' => true,
-			'common/compiler' => true,
+			'common/layout' 				=> true,
+			'common/capabilities' 			=> true,
+			'common/responsive-grid' 		=> true,
+			'common/seo' 					=> true,
+			'common/social-optimization' 	=> true,
+			'common/feed' 					=> true,
+			'common/compiler' 				=> true,
 			'common/templates',
 
-			'admin/admin-bar' => true,
+			'admin/admin-bar' 				=> true,
 
 			'api/api-panel',
 
 			'updater/plugin-updater',
 			'updater/theme-updater',
 
-			'blocks' => true,
-			'wrappers' => true,
-			'elements' => true,
+			'blocks' 						=> true,
+			'wrappers' 						=> true,
+			'elements' 						=> true,
 
 			'fonts/web-fonts-api',
-			'fonts/web-fonts-loader' => true,
+			'fonts/web-fonts-loader' 		=> true,
 			'fonts/traditional-fonts',
 			'fonts/google-fonts',
 
-			'display' => true,
+			'display' 						=> true,
 
-			'widgets' => true,
+			'widgets' 						=> true,
 
 			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce'
 		);

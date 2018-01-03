@@ -265,7 +265,7 @@ class PadmaVisualEditorDisplay {
 		 *
 		 * Mode switch
 		 *
-		 */	
+		 */	/*
 		$html = '<li id="switch-mode">
 					<div class="toggle-mode">
 						<div class="icon light"></div>
@@ -278,7 +278,7 @@ class PadmaVisualEditorDisplay {
 						<div class="icon night"></div>
 					</div>
 				</li>';
-
+				*/
 		/**
 		 *
 		 * Minimize option

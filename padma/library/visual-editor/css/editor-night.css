@@ -6,7 +6,8 @@ body.night iframe body{}
 body.night div#panel{
 
 }
-body.night ul.sub-tabs{
+body.night ul.sub-tabs li{
     background-color: #101c29;
+    color: #d3d4d4;
 }
 body.night ul.sub-tabs li.ui-state-active{}

@@ -1424,7 +1424,7 @@ ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider.ro
 }
 
 /* Minimize */
-ul#panel-top-right li#minimize .{
+ul#panel-top-right li#minimize{
 	float: right;
 	cursor: pointer;
 	padding: 0 15px;

@@ -24,35 +24,37 @@ define(['jquery', 'switch-mode'], function($) {
 	 * Initialize
 	 *
 	 */
-	init = function(){
+	return {
+		init: function(){
 
-		/**
-		 *
-		 * Read cookie
-		 *
-		 */
-		if (readCookie("night") == "true") {
-			applyNight();
-			$('#switch-style').prop('checked', true);
-		} else {
-			applyDay();
-			$('#switch-style').prop('checked', false);
+			/**
+			 *
+			 * Read cookie
+			 *
+			 */
+			if (readCookie("night") == "true") {
+				applyNight();
+				$('#switch-style').prop('checked', true);
+			} else {
+				applyDay();
+				$('#switch-style').prop('checked', false);
+			}
+
+			/**
+			 *
+			 * Add listener 
+			 *
+			 */
+			$('#switch-style').change(function() {
+			    if ($(this).is(':checked')) {
+			        applyNight();
+			        createCookie("night",true,999)
+			    } else {
+			        applyDay();
+			        eraseCookie("night")
+			    }
+			});
+			
 		}
-
-		/**
-		 *
-		 * Add listener 
-		 *
-		 */
-		$('#switch-style').change(function() {
-		    if ($(this).is(':checked')) {
-		        applyNight();
-		        createCookie("night",true,999)
-		    } else {
-		        applyDay();
-		        eraseCookie("night")
-		    }
-		});
-		
 	}
 });

@@ -1363,7 +1363,11 @@ ul#panel-top-right li#switch-mode .toggle-mode{
 	width: 110px;
 }
 ul#panel-top-right li#switch-mode .toggle-mode .icon{
+	display: inline-block;
 	background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 25px;
 }
 ul#panel-top-right li#switch-mode .toggle-mode .icon.light{
 	background-image: url(../images/switch-mode-light.png);
@@ -1371,8 +1375,13 @@ ul#panel-top-right li#switch-mode .toggle-mode .icon.light{
 ul#panel-top-right li#switch-mode .toggle-mode .icon.night{
 	background-image: url(../images/switch-mode-night.png);
 }
+ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch{
+    height: 40px;
+    width: 60px;	
+    display: inline-block;
+}
 /* Minimize */
-ul#panel-top-right li#minimize {
+ul#panel-top-right li#minimize .{
 	float: right;
 	cursor: pointer;
 	padding: 0 15px;

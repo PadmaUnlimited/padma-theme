@@ -7,7 +7,7 @@ define(['jquery'], function($) {
 	 */	
 	applyNight = function (){
 		$( "body" ).addClass( "night" );
-		$( "iframe" ).contents().find("body").removeClass("night");
+		$( "iframe" ).contents().find("body").addClass("night");
 	}
 	
 
@@ -17,8 +17,8 @@ define(['jquery'], function($) {
 	 *
 	 */	
 	applyDay = function () {
-	  $( "body" ).removeClass( "night" );
-	  $( "iframe" ).contents().find("body").addClass("night");
+		$( "body" ).removeClass( "night" );
+		$( "iframe" ).contents().find("body").removeClass("night");
 	}
 
 

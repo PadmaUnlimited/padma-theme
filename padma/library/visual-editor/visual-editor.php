@@ -1,14 +1,11 @@
 <?php
+
 class PadmaVisualEditor {
 
 
-	protected static $modes = array();
-	
-	
-	protected static $default_mode = 'grid';
-	
-	
-	protected static $default_layout = 'index';
+	protected static $modes 			= array();	
+	protected static $default_mode 		= 'grid';
+	protected static $default_layout 	= 'index';
 	
 	
 	public static function init() {

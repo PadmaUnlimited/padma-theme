@@ -259,9 +259,40 @@ class PadmaVisualEditorDisplay {
 
 	public static function panel_top_right() {
 
-		echo '<li id="minimize">
-			<span title="Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;" class="tooltip-bottom-right">g</span>
-		</li>';
+
+		/**
+		 *
+		 * Mode switch
+		 *
+		 */	
+		$html = '<li>
+					<div class="toggle-mode">
+						<div class="icon">
+							<i class="fa fa-sun-o" aria-hidden="true"></i>
+						</div>
+						<div class="toggle-switch">
+							<label class="switch">
+								<input type="checkbox" id="switch-style">
+								<div class="slider round"></div>
+						</label>
+						</div>
+						<div class="icon">
+							<i class="fa fa-moon-o" aria-hidden="true"></i>
+						</div>
+					</div>
+				</li>';
+
+		/**
+		 *
+		 * Minimize option
+		 *
+		 */
+		
+		$html .= '<li id="minimize">
+					<span title="Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;" class="tooltip-bottom-right">g</span>
+				</li>';
+
+		echo $html;
 
 	}
 
@@ -353,16 +384,13 @@ class PadmaVisualEditorDisplay {
 		foreach ( PadmaVisualEditor::get_modes() as $mode => $tooltip ) {
 
 			$current = ( PadmaVisualEditor::is_mode($mode) ) ? ' class="active"' : null;
-
 			$mode_id = strtolower($mode);
 
-			echo '
-				<li' . $current . ' id="mode-'. $mode_id . '">
+			echo '<li' . $current . ' id="mode-'. $mode_id . '">
 					<a href="' . home_url() . '/?visual-editor=true&amp;visual-editor-mode=' . $mode_id . '" title="' . esc_attr($tooltip) . '" class="tooltip-top-left">
 						<span>' . ucwords($mode) . '</span>
 					</a>
-				</li>
-			';
+				</li>';
 
 		}
 

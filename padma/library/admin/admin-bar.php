@@ -1,4 +1,5 @@
 <?php
+
 class PadmaAdminBar {
 	
 	
@@ -25,57 +26,77 @@ class PadmaAdminBar {
 		global $wp_admin_bar;
 			
 		$default_visual_editor_mode = current_theme_supports('padma-grid') ? 'grid' : 'design';
-						
+			
+
 		//Padma Root
 		$wp_admin_bar->add_menu(array(
-			'id' => 'padma', 
-			'title' => 'Padma Theme', 
-			'href' => add_query_arg(array('visual-editor' => 'true', 'visual-editor-mode' => $default_visual_editor_mode, 've-layout' => urlencode(PadmaLayout::get_current())), home_url())
+			'id' 		=> 'padma', 
+			'title' 	=> 'Padma Theme', 
+			'href' 		=> 	add_query_arg(array(
+											'visual-editor' 		=> 'true',
+											'visual-editor-mode' 	=> $default_visual_editor_mode,
+											've-layout' 			=> urlencode(PadmaLayout::get_current())), 
+										home_url())
 		));
 		
-			//Visual Editor
-				$wp_admin_bar->add_menu(array(
-					'parent' => 'padma',
-					'id' => 'padma-ve', 
-					'title' => 'Visual Editor',  
-					'href' =>  add_query_arg(array('visual-editor' => 'true', 'visual-editor-mode' => $default_visual_editor_mode, 've-layout' => urlencode( PadmaLayout::get_current() )), home_url())
-				));
-				
-					//Grid
-						if ( current_theme_supports('padma-grid') ) {
 
-							$wp_admin_bar->add_menu(array(
-								'parent' => 'padma-ve',
-								'id' => 'padma-ve-grid', 
-								'title' => 'Grid',  
-								'href' =>  add_query_arg(array('visual-editor' => 'true', 'visual-editor-mode' => 'grid', 've-layout' => urlencode( PadmaLayout::get_current() )), home_url())
-							));
-
-						}
+		//Visual Editor
+		$wp_admin_bar->add_menu(array(
+			'parent' 	=> 'padma',
+			'id' 		=> 'padma-ve', 
+			'title' 	=> 'Visual Editor',  
+			'href' 		=>  add_query_arg(array(
+											'visual-editor' 		=> 'true',
+											'visual-editor-mode' 	=> $default_visual_editor_mode,
+											've-layout' 			=> urlencode( PadmaLayout::get_current() )),
+											home_url())
+		));
 			
-					//Design Editor
-						$wp_admin_bar->add_menu(array(
-							'parent' => 'padma-ve',
-							'id' => 'padma-ve-design', 
-							'title' => 'Design',  
-							'href' => add_query_arg(array('visual-editor' => 'true', 'visual-editor-mode' => 'design', 've-layout' => urlencode( PadmaLayout::get_current() )), home_url())
-						));
 
-			//Templates
-				$wp_admin_bar->add_menu(array(
-					'parent' => 'padma',
-					'id' => 'padma-admin-templates',
-					'title' => 'Templates',
-					'href' => admin_url('admin.php?page=padma-templates')
-				));
+		//Grid
+		if ( current_theme_supports('padma-grid') ) {
+
+			$wp_admin_bar->add_menu(array(
+				'parent' 	=> 'padma-ve',
+				'id' 		=> 'padma-ve-grid', 
+				'title' 	=> 'Grid',  
+				'href' 		=>  add_query_arg(array(
+												'visual-editor' 		=> 'true',
+												'visual-editor-mode' 	=> 'grid',
+												've-layout' 			=> urlencode( PadmaLayout::get_current() )),
+												 home_url())
+			));
+
+		}
 			
-			//Admin Options
-				$wp_admin_bar->add_menu(array(
-					'parent' => 'padma',
-					'id' => 'padma-admin-options', 
-					'title' => 'Options',  
-					'href' => admin_url('admin.php?page=padma-options')
-				));
+		
+		//Design Editor
+		$wp_admin_bar->add_menu(array(
+			'parent' 	=> 'padma-ve',
+			'id' 		=> 'padma-ve-design', 
+			'title' 	=> 'Design',  
+			'href' 		=> add_query_arg(array(
+											'visual-editor' 		=> 'true',
+											'visual-editor-mode' 	=>
+											'design', 've-layout' 	=> urlencode( PadmaLayout::get_current() )),
+											 home_url())
+		));
+
+		//Templates
+		$wp_admin_bar->add_menu(array(
+			'parent' 	=> 'padma',
+			'id' 		=> 'padma-admin-templates',
+			'title' 	=> 'Templates',
+			'href' 		=> admin_url('admin.php?page=padma-templates')
+		));
+			
+		//Admin Options
+		$wp_admin_bar->add_menu(array(
+			'parent' 	=> 'padma',
+			'id' 		=> 'padma-admin-options', 
+			'title' 	=> 'Options',  
+			'href' 		=> admin_url('admin.php?page=padma-options')
+		));
 
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-options',

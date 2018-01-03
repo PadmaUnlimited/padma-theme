@@ -22,13 +22,11 @@ require(['jquery', 'util.loader'], function($) {
 	//iframe.showIframeLoadingOverlay();
 
 	/* Parse the JSON in the Padma l10n array */
-	Padma.blockTypeURLs = $.parseJSON(Padma.blockTypeURLs.replace(/&quot;/g, '"'));
-	Padma.allBlockTypes = $.parseJSON(Padma.allBlockTypes.replace(/&quot;/g, '"'));
-	Padma.ranTour = $.parseJSON(Padma.ranTour.replace(/&quot;/g, '"'));
-
-	Padma.designEditorProperties = $.parseJSON(Padma.designEditorProperties.replace(/&quot;/g, '"'));
-
-	Padma.layouts = $.parseJSON(Padma.layouts.replace(/&quot;/g, '"'));
+	Padma.blockTypeURLs 			= $.parseJSON(Padma.blockTypeURLs.replace(/&quot;/g, '"'));
+	Padma.allBlockTypes 			= $.parseJSON(Padma.allBlockTypes.replace(/&quot;/g, '"'));
+	Padma.ranTour 					= $.parseJSON(Padma.ranTour.replace(/&quot;/g, '"'));
+	Padma.designEditorProperties 	= $.parseJSON(Padma.designEditorProperties.replace(/&quot;/g, '"'));
+	Padma.layouts 					= $.parseJSON(Padma.layouts.replace(/&quot;/g, '"'));
 
 	/* Setup modules */
 	require(['modules/layout-selector'], function(layoutSelector) {
@@ -55,6 +53,10 @@ require(['jquery', 'util.loader'], function($) {
 			tour.start();
 		}
 
+	});
+
+	require(['switch-mode'], function(switchMode) {
+		switchMode.init();
 	});
 
 
@@ -94,6 +96,11 @@ require(['jquery', 'util.loader'], function($) {
 	$(document).ready(function() {
 
 		$('body').addClass('show-ve');
+
+		/*
+			Light / Night mode
+		*/
+		
 
 	});
 

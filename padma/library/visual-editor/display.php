@@ -114,7 +114,8 @@ class PadmaVisualEditorDisplay {
 			'reset' => padma_url() . '/library/media/css/reset.css',
 			'open-sans',
 			'dashicons',
-			'padma_visual_editor' => padma_url() . '/library/visual-editor/css/editor.css'
+			'padma_visual_editor' => padma_url() . '/library/visual-editor/css/editor.css',
+			'padma_visual_editor' => padma_url() . '/library/visual-editor/css/editor-night.css',
 		);
 
 		wp_enqueue_multiple_styles($styles);

@@ -96,5 +96,8 @@ body.night ul.design-editor-box-content > li > strong{
     color: #d3d4d4;   
 }
 body.night div.design-editor-box span.design-editor-box-title:hover{
-
+    color: #199EBF;
+}
+body.night div#side-panel-container div#side-panel div#side-panel-bottom{
+    box-shadow: 8px -10px 15px #101c29;    
 }

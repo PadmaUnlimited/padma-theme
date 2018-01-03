@@ -19,6 +19,23 @@ define(['jquery', 'switch-mode'], function($) {
 	  $( "body" ).removeClass( "night" );
 	}
 
+
+	/**
+	 *
+	 * Create cookie
+	 *
+	 */	
+	createCookie = function (name,value,days) {
+	    var expires = "";
+	    if (days) {
+	        var date = new Date();
+	        date.setTime(date.getTime() + (days*24*60*60*1000));
+	        expires = "; expires=" + date.toUTCString();
+	    }
+	    document.cookie = name + "=" + value + expires + "; path=/";
+	}
+
+
 	/**
 	 *
 	 * Read cookie
@@ -35,6 +52,7 @@ define(['jquery', 'switch-mode'], function($) {
 		return null;
 	}
 
+
 	/**
 	 *
 	 * Erease cookie
@@ -43,6 +61,7 @@ define(['jquery', 'switch-mode'], function($) {
 	eraseCookie = function(name) {
 		createCookie(name,"",-1);
 	}
+
 
 	/**
 	 *

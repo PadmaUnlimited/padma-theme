@@ -2,6 +2,7 @@ body.night{
 
 }
 body.night iframe body{}
+body.night ul.sub-tabs,
 body.night div#panel{
 	background-color: #192837;
     color: #d3d4d4;

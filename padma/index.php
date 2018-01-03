@@ -7,7 +7,6 @@
  *             New files by Maarten Schraven - UNITED 7
  			   ReBorn by Plasma Soluciones
  * Copywrite : Copyright 2014-2018 Plasma Soluciones M.S.V S.A.
- * Version 	 : v0.0.1
  *
  ***********************************************************/
 

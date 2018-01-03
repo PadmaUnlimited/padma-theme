@@ -1,4 +1,4 @@
-define(['jquery', 'switch-mode'], function($) {
+define(['jquery'], function($) {
 
 	/**
 	 *

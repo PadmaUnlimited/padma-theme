@@ -55,7 +55,7 @@ require(['jquery', 'util.loader'], function($) {
 
 	});
 
-	require(['switch-mode'], function(switchMode) {
+	require(['switch.mode'], function(switchMode) {
 		switchMode.init();
 	});
 

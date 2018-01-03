@@ -1,2 +1,12 @@
-body.night{}
+body.night{
+	background-color: #192837;
+    color: #d3d4d4;
+}
 body.night iframe body{}
+body.night div#panel{
+
+}
+body.night ul.sub-tabs{
+    background-color: #101c29;
+}
+body.night ul.sub-tabs li.ui-state-active{}

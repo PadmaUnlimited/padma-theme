@@ -1356,7 +1356,7 @@ ul#panel-top li.ui-state-active span.close {
 }
 /*	Switch mode option	*/
 ul.top-menu-nav > li#switch-mode {
-    float: right;
+
 }
 ul.top-menu-nav > li#switch-mode .toggle-mode{
 	width: 110px;

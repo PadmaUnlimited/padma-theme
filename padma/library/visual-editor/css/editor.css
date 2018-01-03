@@ -1354,12 +1354,21 @@ ul#panel-top li.ui-state-active a {
 ul#panel-top li.ui-state-active span.close {
 	display: block;
 }
-
-/* Minimize */
+/*	Switch mode option	*/
 ul#panel-top-right li#switch-mode {
     position: fixed;
     right: 50px;
 }
+ul#panel-top-right li#switch-mode .icon{
+	background-repeat: no-repeat;
+}
+ul#panel-top-right li#switch-mode .icon.light{
+	background-image: url(../images/switch-mode-light.png);
+}
+ul#panel-top-right li#switch-mode .icon.night{
+	background-image: url(../images/switch-mode-night.png);
+}
+/* Minimize */
 ul#panel-top-right li#minimize {
 	float: right;
 	cursor: pointer;

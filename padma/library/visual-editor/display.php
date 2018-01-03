@@ -267,7 +267,7 @@ class PadmaVisualEditorDisplay {
 		 */	
 		$html = '<li id="switch-mode">
 					<div class="toggle-mode">
-						<div class="icon">
+						<div class="icon light">
 							<i class="fa fa-sun-o" aria-hidden="true"></i>
 						</div>
 						<div class="toggle-switch">
@@ -276,7 +276,7 @@ class PadmaVisualEditorDisplay {
 								<div class="slider round"></div>
 						</label>
 						</div>
-						<div class="icon">
+						<div class="icon night">
 							<i class="fa fa-moon-o" aria-hidden="true"></i>
 						</div>
 					</div>

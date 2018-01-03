@@ -153,6 +153,7 @@ class PadmaVisualEditorIframeGrid {
 	public static function enqueue_canvas_assets() {
 
 		wp_enqueue_style( 'padma-ve-iframe-grid', padma_url() . '/library/visual-editor/css/iframe-grid.css' );
+		wp_enqueue_style( 'padma-ve-iframe-grid-night', padma_url() . '/library/visual-editor/css/iframe-grid-night.css' );
 
 		PadmaCompiler::register_file(array(
 			'name' => 've-iframe-grid-dynamic',

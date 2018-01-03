@@ -1364,10 +1364,12 @@ ul#panel-top-right li#switch-mode .toggle-mode{
 }
 ul#panel-top-right li#switch-mode .toggle-mode .icon{
 	display: inline-block;
-	background-repeat: no-repeat;
     background-repeat: no-repeat;
     height: 40px;
     width: 25px;
+    line-height: 40px;
+    background-position: center;
+    background-size: 25px;
 }
 ul#panel-top-right li#switch-mode .toggle-mode .icon.light{
 	background-image: url(../images/switch-mode-light.png);
@@ -1380,6 +1382,40 @@ ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch{
     width: 60px;	
     display: inline-block;
 }
+ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch{
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    height: 19px;
+}
+ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch #switch-style{
+    display: none;
+}
+ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider{
+	position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #c3e4f7;
+    border: 1px solid #c3e4f7;
+}
+ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider.round{
+	border-radius: 34px;
+}
+ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider.round:before{
+	background-color: #1aa2a1;
+	border-radius: 50%;
+	background-color: #4fa1d0;
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 2px;
+    bottom: 1px;
+}
+
 /* Minimize */
 ul#panel-top-right li#minimize .{
 	float: right;

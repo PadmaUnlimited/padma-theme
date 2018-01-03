@@ -40,6 +40,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 
+= 0.0.4 =
+* Released: January 3, 2018
+
+Code fixes
+Added night / day mode switcher to visual editor
+Tested on Wordpress 5
+
 = 0.0.3 =
 * Released: January 1, 2018
 

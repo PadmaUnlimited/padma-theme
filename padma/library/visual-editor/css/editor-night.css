@@ -67,6 +67,7 @@ body.night div#side-panel-container div#side-panel{
     background-color: #192837;
 }
 body.night ul#design-editor-element-selector,
+body.night ul#design-editor-element-selector li.element-group > span.element-group-name,
 body.night ul#design-editor-element-selector li.element-group > .description{
     color: #d3d4d4;
 }

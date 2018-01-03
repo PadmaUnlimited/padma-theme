@@ -39,7 +39,6 @@ body.night input[type="search"],
 body.night input[type="tel"], input[type="url"]{
 	color: #f3f3f3;
 }
-
 body.night textarea,
 body.night input[type="text"],
 body.night input[type="password"],
@@ -50,7 +49,6 @@ body.night input[type="tel"], input[type="url"]{
 	background-color: #c3e4f7;
     color: #000;
 }
-
 body.night div.input-slider-bar div.ui-slider-range{
 	background-color: #4fa1d0;
 }
@@ -86,8 +84,17 @@ body.night div.design-editor-info div.design-editor-selection span.design-editor
     color: #d3d4d4;
 }
 body.night div.design-editor-box.design-editor-box-open span.design-editor-box-title{
-
+    background-color: #4e6071;
+    color: #fff;
 }
-body.night ul.design-editor-box-content{
-    
+body.night ul.design-editor-box-content,
+body.night ul.design-editor-box-content > li{
+    background-color: #4e6071;
+    color: #fff;
+}
+body.night ul.design-editor-box-content > li > strong{
+    color: #d3d4d4;   
+}
+body.night div.design-editor-box span.design-editor-box-title:hover{
+
 }

@@ -1355,50 +1355,50 @@ ul#panel-top li.ui-state-active span.close {
 	display: block;
 }
 /*	Switch mode option	*/
-ul#panel-top-right li#switch-mode {
+ul.top-menu-nav > li#switch-mode {
     float: right;
 }
-ul#panel-top-right li#switch-mode .toggle-mode{
+ul.top-menu-nav > li#switch-mode .toggle-mode{
 	width: 110px;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .icon{
+ul.top-menu-nav > li#switch-mode .toggle-mode .icon{
 	display: inline-block;
     background-repeat: no-repeat;
-    height: 40px;
+    height: 35px;
     width: 25px;
     line-height: 40px;
     background-position: center;
     background-size: 25px;
     float: left;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .icon.light{
+ul.top-menu-nav > li#switch-mode .toggle-mode .icon.light{
 	background-image: url(../images/switch-mode-light.png);
 }
-ul#panel-top-right li#switch-mode .toggle-mode .icon.night{
+ul.top-menu-nav > li#switch-mode .toggle-mode .icon.night{
 	background-image: url(../images/switch-mode-night.png);
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch{
-    height: 40px;
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch{
+    height: 35px;
     width: 60px;	
     display: inline-block;
     float: left;
     text-align: center;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch{
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch{
     position: relative;
     display: inline-block;
     width: 47px;
     height: 19px;
-    top: 10px;
+    top: 8px;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch #switch-style{
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch #switch-style{
     display: none;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch #switch-style:checked+.slider:before {
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch #switch-style:checked+.slider:before {
     -webkit-transform: translateX(26px);
     transform: translateX(26px);
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider{
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider{
 	position: absolute;
     cursor: pointer;
     top: 0;
@@ -1408,10 +1408,10 @@ ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider{
     background-color: #c3e4f7;
     border: 1px solid #c3e4f7;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider.round{
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.round{
 	border-radius: 34px;
 }
-ul#panel-top-right li#switch-mode .toggle-mode .toggle-switch .switch .slider.round:before{
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.round:before{
 	background-color: #1aa2a1;
 	border-radius: 50%;
 	background-color: #4fa1d0;

@@ -43,3 +43,6 @@ body.night input[type="search"],
 body.night input[type="tel"], input[type="url"]{
 	color: #f3f3f3;
 }
+body.night div.input-slider-bar div.ui-slider-range{
+	background-color: #21cbc9;
+}

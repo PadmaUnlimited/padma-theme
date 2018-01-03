@@ -17,7 +17,7 @@ body.night ul.sub-tabs li{
 }
 body.night ul.sub-tabs li.ui-state-active{
 	background-color: #101c29;
-	border: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
 }
 body.night div.sub-tab-notice{
 	color: #f3f3f3;
@@ -29,4 +29,17 @@ body.night div.sub-tabs-content div.input{
 	color: #fff;
     cursor: default;
     background-color: #4e6071;
+    border: 1px solid #000;
+}
+
+body.night div.sub-tabs-content div.tooltip-button,
+body.night div.sub-tabs-content div.input label,
+body.night textarea,
+body.night input[type="text"],
+body.night input[type="password"],
+body.night input[type="email"],
+body.night input[type="number"],
+body.night input[type="search"],
+body.night input[type="tel"], input[type="url"]{
+	color: #f3f3f3;
 }

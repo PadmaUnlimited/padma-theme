@@ -57,7 +57,11 @@ body.night input[type="tel"], input[type="url"]{
 body.night div.input-slider-bar div.ui-slider-range{
 	background-color: #4fa1d0;
 }
+body.night .input.input-heading{
+    border: 0px;
+}
 body.night div.sub-tabs-content .options-heading{
 	background-color: #192837;
     color: #d3d4d4;
+    border: 0px;
 }

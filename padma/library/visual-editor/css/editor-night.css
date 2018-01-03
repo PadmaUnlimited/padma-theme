@@ -8,10 +8,12 @@ body.night div#panel{
 }
 body.night div.sub-tabs-content,
 body.night ul.sub-tabs li{
-    background-color: #192837;    
+    background-color: #101c29;    
     color: #d3d4d4;
 }
-body.night ul.sub-tabs li.ui-state-active{}
+body.night ul.sub-tabs li.ui-state-active{
+	background-color: #192837;
+}
 body.night div.sub-tab-notice{
 	color: #f3f3f3;
     background-color: #0a121b !important;

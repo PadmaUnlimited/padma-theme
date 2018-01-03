@@ -12,11 +12,21 @@ body.night ul.sub-tabs li{
     background-color: #192837;    
     color: #d3d4d4;
 }
+body.night ul.sub-tabs li{
+	border: 0px;
+}
 body.night ul.sub-tabs li.ui-state-active{
 	background-color: #101c29;
+	border: 1px solid #CCCCCC;
 }
 body.night div.sub-tab-notice{
 	color: #f3f3f3;
     background-color: #0a121b !important;
 }
 body.night div.sub-tabs-content{}
+
+body.night div.sub-tabs-content div.input{
+	color: #fff;
+    cursor: default;
+    background-color: #4e6071;
+}

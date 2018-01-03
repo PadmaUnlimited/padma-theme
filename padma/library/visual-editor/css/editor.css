@@ -1356,6 +1356,7 @@ ul#panel-top li.ui-state-active span.close {
 }
 
 /* Minimize */
+ul#panel-top-right li#switch-mode,
 ul#panel-top-right li#minimize {
 	float: right;
 	cursor: pointer;

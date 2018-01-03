@@ -265,7 +265,7 @@ class PadmaVisualEditorDisplay {
 		 * Mode switch
 		 *
 		 */	
-		$html = '<li>
+		$html = '<li id="switch-mode">
 					<div class="toggle-mode">
 						<div class="icon">
 							<i class="fa fa-sun-o" aria-hidden="true"></i>

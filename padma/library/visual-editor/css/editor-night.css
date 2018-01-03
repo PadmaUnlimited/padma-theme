@@ -43,6 +43,17 @@ body.night input[type="search"],
 body.night input[type="tel"], input[type="url"]{
 	color: #f3f3f3;
 }
+
+body.night textarea,
+body.night input[type="text"],
+body.night input[type="password"],
+body.night input[type="email"],
+body.night input[type="number"],
+body.night input[type="search"],
+body.night input[type="tel"], input[type="url"]{
+	background-color: #4fa1d0;
+}
+
 body.night div.input-slider-bar div.ui-slider-range{
-	background-color: #21cbc9;
+	background-color: #4fa1d0;
 }

@@ -1359,13 +1359,16 @@ ul#panel-top-right li#switch-mode {
     position: fixed;
     right: 50px;
 }
-ul#panel-top-right li#switch-mode .icon{
+ul#panel-top-right li#switch-mode .toggle-mode{
+	width: 110px;
+}
+ul#panel-top-right li#switch-mode .toggle-mode .icon{
 	background-repeat: no-repeat;
 }
-ul#panel-top-right li#switch-mode .icon.light{
+ul#panel-top-right li#switch-mode .toggle-mode .icon.light{
 	background-image: url(../images/switch-mode-light.png);
 }
-ul#panel-top-right li#switch-mode .icon.night{
+ul#panel-top-right li#switch-mode .toggle-mode .icon.night{
 	background-image: url(../images/switch-mode-night.png);
 }
 /* Minimize */

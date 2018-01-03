@@ -80,3 +80,14 @@ body.night ul#design-editor-element-selector li.element-just-selected > span.ele
     background-color: #4e6071;
     border: 1px solid #000;
 }
+body.night div.design-editor-info div.design-editor-selection > strong,
+body.night div.design-editor-info div.design-editor-selection span.design-editor-selection-details,
+body.night div.design-editor-info div.design-editor-selection span.design-editor-selection-details strong{
+    color: #d3d4d4;
+}
+body.night div.design-editor-box.design-editor-box-open span.design-editor-box-title{
+
+}
+body.night ul.design-editor-box-content{
+    
+}

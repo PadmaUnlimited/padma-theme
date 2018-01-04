@@ -3,7 +3,7 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 	var modeGrid = {
 		init: function() {
 			
-			console.log(this);
+			console.log('Hola!');
 
 			bindGridWizard();
 
@@ -113,3 +113,4 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 	return modeGrid;
 
 });
+console.log('Hola 2! ');

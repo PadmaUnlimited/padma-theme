@@ -21,10 +21,7 @@ require(['jquery', 'util.loader'], function($) {
 	startTitleActivityIndicator();
 	//iframe.showIframeLoadingOverlay();
 
-	/* Parse the JSON in the Padma l10n array */
-	Padma = Padma;
-	console.log(Padma);
-	console.log(Padma);
+	/* Parse the JSON in the Padma l10n array */	
 	Padma.blockTypeURLs = $.parseJSON(Padma.blockTypeURLs.replace(/&quot;/g, '"'));
 	Padma.allBlockTypes = $.parseJSON(Padma.allBlockTypes.replace(/&quot;/g, '"'));
 	Padma.ranTour = $.parseJSON(Padma.ranTour.replace(/&quot;/g, '"'));
@@ -82,6 +79,8 @@ require(['jquery', 'util.loader'], function($) {
 
 			require(['modules/grid/mode-grid', 'modules/iframe', 'modules/layout-selector'], function(modeGrid) {
 				Padma.instance = modeGrid;
+
+				console.log(modeGrid);
 
 				modeGrid.init();
 				waitForIframeLoad(modeGrid.iframeCallback);

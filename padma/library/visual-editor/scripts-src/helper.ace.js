@@ -37,7 +37,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 			editorConfig.top = ( screen.height / 2 ) - (editorConfig.height / 2);
 
 			Padma.aceEditors[id] = {
-				window: window.open(Padma.homeURL + '/?Padma-trigger=ace-editor&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
+				window: window.open(Padma.homeURL + '/?padma-trigger=ace-editor&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
 			}
 
 			Padma.aceEditors[id].window.focus();
@@ -59,7 +59,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				var ace = window.ace;
 
 				/* Set paths */
-				var acePath = Padma.PadmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/deps/ace/';
+				var acePath = Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/deps/ace/';
 
 				ace.config.set('basePath', acePath);
 				ace.config.set('modePath', acePath);

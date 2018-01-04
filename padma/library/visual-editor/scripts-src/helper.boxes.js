@@ -237,7 +237,7 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 							
 				box.find('.box-content').load(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'load_box_ajax_content',
 					box_id: id,
 					layout: Padma.viewModels.layoutSelector.currentLayout()

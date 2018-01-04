@@ -10,7 +10,7 @@
 				return false;
 
 			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-PadmaGrid');
+				var wrapperGridObject = wrapper.data('ui-padmaGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.useIndependentGrid = value;
@@ -39,7 +39,7 @@
 				}
 
 			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-PadmaGrid');
+				var wrapperGridObject = wrapper.data('ui-padmaGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.columns = value;
@@ -61,7 +61,7 @@
 				return false;
 
 			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-PadmaGrid');
+				var wrapperGridObject = wrapper.data('ui-padmaGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.columnWidth = value;
@@ -81,7 +81,7 @@
 				return false;
 
 			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-PadmaGrid');
+				var wrapperGridObject = wrapper.data('ui-padmaGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.gutterWidth = value;

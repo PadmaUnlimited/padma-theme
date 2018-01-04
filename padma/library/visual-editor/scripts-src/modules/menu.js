@@ -29,7 +29,7 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 
 					var siteURL = new Url(Padma.homeURL);
 
-					siteURL.query['Padma-trigger'] = 'layout-redirect';
+					siteURL.query['padma-trigger'] = 'layout-redirect';
 					siteURL.query['layout'] = Padma.viewModels.layoutSelector.currentLayout();
 
 					$(this).attr('href', siteURL.toString());
@@ -90,7 +90,7 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 					/* Set up parameters */
 					var parameters = {
 						security: Padma.security,
-						action: 'Padma_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'clear_cache'
 					};
 

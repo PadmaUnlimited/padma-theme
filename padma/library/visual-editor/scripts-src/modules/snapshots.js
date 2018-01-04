@@ -37,7 +37,7 @@ define(['jquery', 'knockout'], function($, ko) {
 					/* Rollback */
 					$.post(Padma.ajaxURL, {
 						security: Padma.security,
-						action: 'Padma_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'rollback_to_snapshot',
 						layout: Padma.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
@@ -80,7 +80,7 @@ define(['jquery', 'knockout'], function($, ko) {
 					/* Delete snapshot */
 					$.post(Padma.ajaxURL, {
 						security: Padma.security,
-						action: 'Padma_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'delete_snapshot',
 						layout: Padma.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
@@ -121,7 +121,7 @@ define(['jquery', 'knockout'], function($, ko) {
 
 					$.post(Padma.ajaxURL, {
 						security: Padma.security,
-						action: 'Padma_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'save_snapshot',
 						layout: Padma.viewModels.layoutSelector.currentLayout(),
 						mode: Padma.mode,

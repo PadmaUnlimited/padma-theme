@@ -349,7 +349,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			dataType: 'text',
 			data: {
 				security: Padma.security,
-				action: 'Padma_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'load_block_content',
 				unsaved_block_settings: settings.blockSettings,
 				block_origin: settings.blockOrigin,
@@ -623,13 +623,13 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			$(block).qtip({
 				style: {
-					classes: 'qtip-Padma qtip-block-dimensions'
+					classes: 'qtip-padma qtip-block-dimensions'
 				},
 				position: {
 					my: 'top center',
 					at: 'bottom center',
 					container: $i('body'),
-					viewport: $i('#Padma-tooltip-container'),
+					viewport: $i('#padma-tooltip-container'),
 					effect: false
 				},
 				show: {
@@ -781,7 +781,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			url: Padma.ajaxURL, 
 			data: {
 				security: Padma.security,
-				action: 'Padma_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'load_block_options',
 				block_type: blockType,
 				block_id: blockID,
@@ -861,7 +861,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				/* If new block then create it */
 					if ( block.hasClass('blank-block') ) {
 						
-						block.parents('.wrapper').PadmaGrid('setupBlankBlock', blockType);
+						block.parents('.wrapper').padmaGrid('setupBlankBlock', blockType);
 					
 				/* Otherwise we're switching an existing block's type */
 					} else if ( confirm('Are you sure you wish to switch block types?  All settings for this block will be lost.') ) {
@@ -1061,10 +1061,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			}
 		};
 
-		var newBlock = wrapper.data('ui-PadmaGrid').addBlock(newBlockArgs);
+		var newBlock = wrapper.data('ui-padmaGrid').addBlock(newBlockArgs);
 
 		/* Send block to top */
-		wrapper.data('ui-PadmaGrid').sendBlockToTop(newBlock);
+		wrapper.data('ui-padmaGrid').sendBlockToTop(newBlock);
 
 		/* Show alias immediately */
 		if ( duplicateAlias ) {
@@ -1220,7 +1220,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		var params = {
 			'security': Padma.security,
-			'action': 'Padma_visual_editor',
+			'action': 'padma_visual_editor',
 			'method': 'export_block_settings',
 			'block-id': args.blockID
 		}
@@ -1276,7 +1276,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 						$.post(Padma.ajaxURL, {
 							security: Padma.security,
-							action: 'Padma_visual_editor',
+							action: 'padma_visual_editor',
 							method: 'import_images',
 							importFile: blockSettingsImportArray
 						}, function(response) {

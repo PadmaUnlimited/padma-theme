@@ -53,7 +53,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			url: Padma.ajaxURL,
 			data: {
 				security: Padma.security,
-				action: 'Padma_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'load_wrapper_options',
 				wrapper_id: wrapperID.replace('wrapper-', ''),
 				unsaved_wrapper_options: getUnsavedWrapperOptionValues(wrapperID.replace('wrapper-', '')),
@@ -102,7 +102,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			var mirroredWrapperID = mirroredWrapperID.replace('wrapper-', '');
 
 			wrapper.addClass('wrapper-mirrored');
-			wrapper.PadmaGrid('disable');
+			wrapper.padmaGrid('disable');
 
 			/* Hide wrapper options */
 			if ( typeof input != 'undefined' )
@@ -112,7 +112,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 		} else {
 
 			wrapper.removeClass('wrapper-mirrored');
-			wrapper.PadmaGrid('enable');
+			wrapper.padmaGrid('enable');
 
 			/* Show wrapper options */
 			if ( typeof input != 'undefined' )
@@ -127,9 +127,9 @@ define(['modules/panel.inputs'], function(panelInputs) {
 		}
 
 		/* Recalculate wrapper height */
-		wrapper.data('ui-PadmaGrid').updateGridContainerHeight();
-		wrapper.data('ui-PadmaGrid').resetGridCalculations();
-		wrapper.data('ui-PadmaGrid').alignAllBlocksWithGuides();
+		wrapper.data('ui-padmaGrid').updateGridContainerHeight();
+		wrapper.data('ui-padmaGrid').resetGridCalculations();
+		wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
 
 	}
 

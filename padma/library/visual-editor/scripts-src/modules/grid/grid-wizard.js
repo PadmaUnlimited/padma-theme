@@ -365,7 +365,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				}
 
 				/* Add the block to the grid */
-				$i('.ui-Padma-grid').first().data('ui-PadmaGrid').addBlock(addBlockArgs);
+				$i('.ui-padma-grid').first().data('ui-padmaGrid').addBlock(addBlockArgs);
 
 			});
 
@@ -392,7 +392,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				type: 'POST',
 				async: true,
 				data: {
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'get_layout_blocks_in_json',
 					security: Padma.security,
 					layout: layoutToClone
@@ -476,16 +476,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 						if (typeof wrapperIDTranslations[blockWrapper.replace('wrapper-', '')] != 'undefined') {
 
 							var destinationWrapperID = '#wrapper-' + wrapperIDTranslations[blockWrapper.replace('wrapper-', '')];
-							var destinationWrapper = $i('.ui-Padma-grid').filter(destinationWrapperID).first();
+							var destinationWrapper = $i('.ui-padma-grid').filter(destinationWrapperID).first();
 
 						} else {
 
-							var destinationWrapper = $i('.ui-Padma-grid').last();
+							var destinationWrapper = $i('.ui-padma-grid').last();
 
 						}
 
 						/* Add block to wrapper */
-						var newBlock = destinationWrapper.data('ui-PadmaGrid').addBlock(addBlockArgs);
+						var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
 						var newBlockID = getBlockID(newBlock);
 						var oldBlockID = this.id;
 
@@ -535,7 +535,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			//Do the AJAX request to assign the template
 			$.post(Padma.ajaxURL, {
-				action: 'Padma_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'assign_template',
 				security: Padma.security,
 				template: templateToAssign,
@@ -568,7 +568,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				Padma.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + templateToAssign + '"]').find('.template-name').text());
 
 				//Reload iframe and new layout
-				PadmaIframeLoadNotification = 'Shared Layout assigned successfully!';
+				padmaIframeLoadNotification = 'Shared Layout assigned successfully!';
 
 				loadIframe(Padma.instance.iframeCallback);
 
@@ -631,7 +631,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 						});
 
 						$.post(Padma.ajaxURL, {
-							action: 'Padma_visual_editor',
+							action: 'padma_visual_editor',
 							method: 'import_images',
 							security: Padma.security,
 							importFile: layout
@@ -740,16 +740,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 				if (typeof wrapperIDTranslations[blockWrapper.replace('wrapper-', '')] != 'undefined') {
 
 					var destinationWrapperID = '#wrapper-' + wrapperIDTranslations[blockWrapper.replace('wrapper-', '')];
-					var destinationWrapper = $i('.ui-Padma-grid').filter(destinationWrapperID).first();
+					var destinationWrapper = $i('.ui-padma-grid').filter(destinationWrapperID).first();
 
 				} else {
 
-					var destinationWrapper = $i('.ui-Padma-grid').last();
+					var destinationWrapper = $i('.ui-padma-grid').last();
 
 				}
 
 				/* Add block to wrapper */
-				var newBlock = destinationWrapper.data('ui-PadmaGrid').addBlock(addBlockArgs);
+				var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
 				var newBlockID = getBlockID(newBlock);
 				var oldBlockID = this.id;
 
@@ -822,7 +822,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		$('div#boxes').delegate('#grid-wizard-export-download-file', 'click', function () {
 
 			var params = {
-				'action': 'Padma_visual_editor',
+				'action': 'padma_visual_editor',
 				'security': Padma.security,
 				'method': 'export_layout',
 				'layout': Padma.viewModels.layoutSelector.currentLayout()

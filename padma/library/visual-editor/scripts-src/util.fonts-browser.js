@@ -116,7 +116,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 			$.post(Padma.ajaxURL, {
 				security: Padma.security,
-				action: 'Padma_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'fonts_list',
 				sortby: sortBy,
 				provider: context.data('font-webfont-provider')

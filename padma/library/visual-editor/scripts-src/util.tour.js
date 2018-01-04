@@ -100,7 +100,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 				$.post(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'ran_tour',
 					mode: 'grid',
 					complete: function () {
@@ -157,7 +157,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 		{
 			target: 'window',
 			title: 'Have fun building with Padma!',
-			content: '<p>We hope you find Padma to the most powerful and easy-to-use WordPress framework around.</p><p>If you have any questions, please don\'t hesitate to visit the <a href="http://support.Padmatheme.com/?utm_source=visualeditor&utm_medium=Padma&utm_campaign=tour" target="_blank">support forums</a>.</p>',
+			content: '<p>We hope you find Padma to the most powerful and easy-to-use WordPress framework around.</p><p>If you have any questions, please don\'t hesitate to visit the <a href="http://support.padmatheme.com/?utm_source=visualeditor&utm_medium=padma&utm_campaign=tour" target="_blank">support forums</a>.</p>',
 			end: true
 		}
 	];
@@ -400,7 +400,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 							$.post(Padma.ajaxURL, {
 								security: Padma.security,
-								action: 'Padma_visual_editor',
+								action: 'padma_visual_editor',
 								method: 'ran_tour',
 								mode: Padma.mode
 							});

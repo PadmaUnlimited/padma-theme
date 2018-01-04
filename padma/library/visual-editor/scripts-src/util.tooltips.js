@@ -16,7 +16,7 @@ define(['jquery', 'qtip'], function($) {
 		
 		var tooltipOptions = {
 			style: {
-				classes: 'qtip-Padma'
+				classes: 'qtip-padma'
 			},
 			show: {
 				delay: 10,
@@ -37,7 +37,7 @@ define(['jquery', 'qtip'], function($) {
 		if ( location == 'iframe' ) {
 			
 			tooltipOptions.position.container = $i('body');
-			tooltipOptions.position.viewport = $i('#Padma-tooltip-container');
+			tooltipOptions.position.viewport = $i('#padma-tooltip-container');
 						
 			var tooltipElement = $i;
 			

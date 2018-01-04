@@ -182,7 +182,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		
 		//Reload iframe and new layout right away
 		if ( typeof showSwitchNotification == 'undefined' || showSwitchNotification == true )
-			PadmaIframeLoadNotification = 'Switched to <em>' + Padma.viewModels.layoutSelector.currentLayoutName() + '</em>';
+			padmaIframeLoadNotification = 'Switched to <em>' + Padma.viewModels.layoutSelector.currentLayoutName() + '</em>';
 
 		loadIframe(Padma.instance.iframeCallback, layoutURL);
 
@@ -216,7 +216,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		//Do the AJAX request to assign the template
 		$.post(Padma.ajaxURL, {
 			security: Padma.security,
-			action: 'Padma_visual_editor',
+			action: 'padma_visual_editor',
 			method: 'remove_template_from_layout',
 			layout: layoutID
 		}, function (response) {
@@ -247,7 +247,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				Padma.viewModels.layoutSelector.currentLayoutTemplate(false);
 
 				//Reload iframe and new layout
-				PadmaIframeLoadNotification = 'Shared Layout removed from layout successfully!';
+				padmaIframeLoadNotification = 'Shared Layout removed from layout successfully!';
 
 				loadIframe(Padma.instance.iframeCallback);
 
@@ -352,7 +352,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				type   : 'POST',
 				async  : true,
 				data   : {
-					action  : 'Padma_visual_editor',
+					action  : 'padma_visual_editor',
 					method  : 'get_layout_children',
 					security: Padma.security,
 					layout  : layoutData.id,
@@ -403,7 +403,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				type   : 'POST',
 				async  : true,
 				data   : {
-					action  : 'Padma_visual_editor',
+					action  : 'padma_visual_editor',
 					method  : 'query_layouts',
 					security: Padma.security,
 					query  : query
@@ -542,7 +542,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				/* Delete everything from the reverted layout */
 				$.post(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'revert_layout',
 					layout_to_revert: revertedLayoutID
 				}, function(response) {
@@ -579,7 +579,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request for the new template
 				$.post(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'add_template',
 					layout: Padma.viewModels.layoutSelector.currentLayout(),
 					template_name: templateName
@@ -645,7 +645,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request for the new template
 				$.post(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'delete_template',
 					template_to_delete: templateID
 				}, function(response) {
@@ -706,7 +706,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request to assign the template
 				$.post(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'assign_template',
 					template: template,
 					layout: Padma.viewModels.layoutSelector.currentLayout()
@@ -742,7 +742,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 						Padma.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + template + '"]').find('.template-name').text());
 
 						//Reload iframe and new layout
-						PadmaIframeLoadNotification = 'Shared layout assigned successfully!';
+						padmaIframeLoadNotification = 'Shared layout assigned successfully!';
 
 						loadIframe(Padma.instance.iframeCallback);
 
@@ -766,7 +766,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request to assign the template
 				$.post(Padma.ajaxURL, {
 					security: Padma.security,
-					action: 'Padma_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'rename_layout_template',
 					layout: layoutID,
 					newName: newName,

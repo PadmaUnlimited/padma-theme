@@ -110,7 +110,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				/* Reset grid container heights */
 				$i('.wrapper').each(function() {
-					$(this).PadmaGrid('updateGridContainerHeight');
+					$(this).padmaGrid('updateGridContainerHeight');
 				});
 
 				/* Stop scrolling intervals if they still exist */
@@ -325,9 +325,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fixed');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-PadmaGrid').resetGridCalculations();
-						wrapper.data('ui-PadmaGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-PadmaGrid').updateGridContainerHeight();
+						wrapper.data('ui-padmaGrid').resetGridCalculations();
+						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 					});
 
@@ -341,9 +341,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fluid');
 
-							wrapper.data('ui-PadmaGrid').resetGridCalculations();
-							wrapper.data('ui-PadmaGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-PadmaGrid').updateGridContainerHeight();
+							wrapper.data('ui-padmaGrid').resetGridCalculations();
+							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 						});
 
@@ -357,9 +357,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-							wrapper.data('ui-PadmaGrid').resetGridCalculations();
-							wrapper.data('ui-PadmaGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-PadmaGrid').updateGridContainerHeight();
+							wrapper.data('ui-padmaGrid').resetGridCalculations();
+							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 						});
 
@@ -377,9 +377,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-PadmaGrid').resetGridCalculations();
-						wrapper.data('ui-PadmaGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-PadmaGrid').updateGridContainerHeight();
+						wrapper.data('ui-padmaGrid').resetGridCalculations();
+						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 					});
 
@@ -561,7 +561,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			/* Initiate Padma Grid on new wrapper */
 				wrapper.data('wrapper-settings', wrapperSettings);
 
-				wrapper.PadmaGrid();
+				wrapper.padmaGrid();
 				setupWrapperResizable(wrapper);
 
 				bindWrapperMarginButtons(wrapper.find('.wrapper-margin-handle'));
@@ -651,7 +651,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					text: tooltipContentCallback
 				},
 				style: {
-					classes: 'qtip-Padma'
+					classes: 'qtip-padma'
 				},
 				show: {
 					delay: 10,

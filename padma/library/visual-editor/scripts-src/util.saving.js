@@ -29,7 +29,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 		/* Do the stuff */
 		$.post(Padma.ajaxURL, {
 			security: Padma.security,
-			action: 'Padma_visual_editor',
+			action: 'padma_visual_editor',
 			method: 'save_options',
 			options: JSON.stringify(GLOBALunsavedValues),
 			layout: Padma.viewModels.layoutSelector.currentLayout(),

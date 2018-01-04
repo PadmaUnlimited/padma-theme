@@ -64,6 +64,7 @@ body.night div.design-editor-info{
 }
 body.night ul#element-selector-tabs li.ui-state-active{
     background-color: #101c29;
+    color: #FFFFFF;
 }
 body.night ul#element-selector-tabs,
 body.night div#side-panel-container div#side-panel{

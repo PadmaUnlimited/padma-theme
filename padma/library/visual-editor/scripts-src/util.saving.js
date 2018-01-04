@@ -29,7 +29,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 		/* Do the stuff */
 		$.post(Blox.ajaxURL, {
 			security: Blox.security,
-			action: 'blox_visual_editor',
+			action: 'padma_visual_editor',
 			method: 'save_options',
 			options: JSON.stringify(GLOBALunsavedValues),
 			layout: Blox.viewModels.layoutSelector.currentLayout(),

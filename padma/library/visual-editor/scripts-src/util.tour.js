@@ -100,7 +100,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 				$.post(Blox.ajaxURL, {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'ran_tour',
 					mode: 'grid',
 					complete: function () {
@@ -400,7 +400,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 							$.post(Blox.ajaxURL, {
 								security: Blox.security,
-								action: 'blox_visual_editor',
+								action: 'padma_visual_editor',
 								method: 'ran_tour',
 								mode: Blox.mode
 							});

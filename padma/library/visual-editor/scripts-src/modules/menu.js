@@ -90,7 +90,7 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 					/* Set up parameters */
 					var parameters = {
 						security: Blox.security,
-						action: 'blox_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'clear_cache'
 					};
 

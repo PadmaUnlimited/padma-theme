@@ -53,7 +53,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			url: Blox.ajaxURL,
 			data: {
 				security: Blox.security,
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'load_wrapper_options',
 				wrapper_id: wrapperID.replace('wrapper-', ''),
 				unsaved_wrapper_options: getUnsavedWrapperOptionValues(wrapperID.replace('wrapper-', '')),

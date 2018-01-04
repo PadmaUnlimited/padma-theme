@@ -216,7 +216,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		//Do the AJAX request to assign the template
 		$.post(Blox.ajaxURL, {
 			security: Blox.security,
-			action: 'blox_visual_editor',
+			action: 'padma_visual_editor',
 			method: 'remove_template_from_layout',
 			layout: layoutID
 		}, function (response) {
@@ -352,7 +352,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				type   : 'POST',
 				async  : true,
 				data   : {
-					action  : 'blox_visual_editor',
+					action  : 'padma_visual_editor',
 					method  : 'get_layout_children',
 					security: Blox.security,
 					layout  : layoutData.id,
@@ -403,7 +403,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				type   : 'POST',
 				async  : true,
 				data   : {
-					action  : 'blox_visual_editor',
+					action  : 'padma_visual_editor',
 					method  : 'query_layouts',
 					security: Blox.security,
 					query  : query
@@ -542,7 +542,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				/* Delete everything from the reverted layout */
 				$.post(Blox.ajaxURL, {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'revert_layout',
 					layout_to_revert: revertedLayoutID
 				}, function(response) {
@@ -579,7 +579,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request for the new template
 				$.post(Blox.ajaxURL, {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'add_template',
 					layout: Blox.viewModels.layoutSelector.currentLayout(),
 					template_name: templateName
@@ -645,7 +645,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request for the new template
 				$.post(Blox.ajaxURL, {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'delete_template',
 					template_to_delete: templateID
 				}, function(response) {
@@ -706,7 +706,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request to assign the template
 				$.post(Blox.ajaxURL, {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'assign_template',
 					template: template,
 					layout: Blox.viewModels.layoutSelector.currentLayout()
@@ -766,7 +766,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				//Do the AJAX request to assign the template
 				$.post(Blox.ajaxURL, {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'rename_layout_template',
 					layout: layoutID,
 					newName: newName,

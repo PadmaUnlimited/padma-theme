@@ -37,7 +37,7 @@ define(['jquery', 'knockout'], function($, ko) {
 					/* Rollback */
 					$.post(Blox.ajaxURL, {
 						security: Blox.security,
-						action: 'blox_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'rollback_to_snapshot',
 						layout: Blox.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
@@ -80,7 +80,7 @@ define(['jquery', 'knockout'], function($, ko) {
 					/* Delete snapshot */
 					$.post(Blox.ajaxURL, {
 						security: Blox.security,
-						action: 'blox_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'delete_snapshot',
 						layout: Blox.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
@@ -121,7 +121,7 @@ define(['jquery', 'knockout'], function($, ko) {
 
 					$.post(Blox.ajaxURL, {
 						security: Blox.security,
-						action: 'blox_visual_editor',
+						action: 'padma_visual_editor',
 						method: 'save_snapshot',
 						layout: Blox.viewModels.layoutSelector.currentLayout(),
 						mode: Blox.mode,

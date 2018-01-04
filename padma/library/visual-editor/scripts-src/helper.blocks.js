@@ -349,7 +349,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			dataType: 'text',
 			data: {
 				security: Blox.security,
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'load_block_content',
 				unsaved_block_settings: settings.blockSettings,
 				block_origin: settings.blockOrigin,
@@ -781,7 +781,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			url: Blox.ajaxURL, 
 			data: {
 				security: Blox.security,
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'load_block_options',
 				block_type: blockType,
 				block_id: blockID,
@@ -1220,7 +1220,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		var params = {
 			'security': Blox.security,
-			'action': 'blox_visual_editor',
+			'action': 'padma_visual_editor',
 			'method': 'export_block_settings',
 			'block-id': args.blockID
 		}
@@ -1276,7 +1276,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 						$.post(Blox.ajaxURL, {
 							security: Blox.security,
-							action: 'blox_visual_editor',
+							action: 'padma_visual_editor',
 							method: 'import_images',
 							importFile: blockSettingsImportArray
 						}, function(response) {

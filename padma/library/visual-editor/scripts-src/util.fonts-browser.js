@@ -116,7 +116,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 			$.post(Blox.ajaxURL, {
 				security: Blox.security,
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'fonts_list',
 				sortby: sortBy,
 				provider: context.data('font-webfont-provider')

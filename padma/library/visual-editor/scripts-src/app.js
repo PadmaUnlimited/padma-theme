@@ -62,9 +62,10 @@ require(['jquery', 'util.loader'], function($) {
 	 * Load mode switcher
 	 *
 	 */	
+	 /*
 	require(['switch.mode'], function(switchMode) {
 		switchMode.init();
-	});
+	});*/
 
 
 	/* Load helpers all at once since they're used everywhere */
@@ -79,7 +80,7 @@ require(['jquery', 'util.loader'], function($) {
 
 			require(['modules/grid/mode-grid', 'modules/iframe', 'modules/layout-selector'], function(modeGrid) {
 				Padma.instance = modeGrid;
-				
+
 				modeGrid.init();
 				waitForIframeLoad(modeGrid.iframeCallback);
 			});

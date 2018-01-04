@@ -136,11 +136,11 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 		if ( typeof wrappers == 'undefined' )
 			var wrappers = $i('.wrapper');
 
-		console.log(wrappers);
-		
 		wrappers.each(function() {
 
 			var wrapperMinHeight = parseInt($(this).css('minHeight').replace('px', '')) ;
+
+			console.log(wrapperMinHeight);
 
 			$(this).resizable({
 				handles: 'n, s',

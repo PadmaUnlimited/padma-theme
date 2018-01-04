@@ -2316,21 +2316,21 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 						});
 
 						/* Add info to tooltip if hovered element is an instance */
-							var insideInstanceText = '';
+						var insideInstanceText = '';
 
-							if ( typeof inspectorElementOptions.instance != 'undefined' ) {
+						if ( typeof inspectorElementOptions.instance != 'undefined' ) {
 
-								if ( inspectorElementOptions.name.indexOf(' &ndash; ') !== -1 ) {
+							if ( inspectorElementOptions.name.indexOf(' &ndash; ') !== -1 ) {
 
-									insideInstanceText = '<span class="inspector-tooltip-instance">Inside <strong>' + inspectorElementOptions.name.split(' &ndash; ')[0] + '</strong></span>';
+								insideInstanceText = '<span class="inspector-tooltip-instance">Inside <strong>' + inspectorElementOptions.name.split(' &ndash; ')[0] + '</strong></span>';
 
-								} else {
+							} else {
 
-									elementName = inspectorElementOptions.name;
-
-								}
+								elementName = inspectorElementOptions.name;
 
 							}
+
+						}
 
 						/* Trim down the path and omit ancestors to save space if necessary */
 						if ( tooltipElementPath.join(' > ').length + elementName.length > 40 ) {
@@ -2774,7 +2774,8 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 		}
 	/* END ELEMENT INFO */
 
-	var modeDesign = {
+	return {
+		
 		init: function() {
 
 			designEditor = new designEditorTabEditor();
@@ -2817,7 +2818,5 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 		}
 	}
-
-	return modeDesign;
-
+	
 });

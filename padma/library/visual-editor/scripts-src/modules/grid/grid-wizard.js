@@ -8,6 +8,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 	}
 
 	bindGridWizard = function () {
+		console.log('Hola!');
 
 		/* Presets */
 		var gridWizardPresets = {

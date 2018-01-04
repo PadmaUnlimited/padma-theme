@@ -1968,7 +1968,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 							my: 'bottom left',
 							at: 'top right',
 							container: $i('body'),
-							viewport: $i('#blox-tooltip-container'),
+							viewport: $i('#padma-tooltip-container'),
 							effect: false,
 							adjust: {
 								x: 0,
@@ -2788,7 +2788,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				try {
 
 					/* Load editor.fonts.js */
-					$.getScript(Blox.bloxURL + '/library/visual-editor/' + Blox.scriptFolder + '/util.fonts-browser.js');
+					$.getScript(Blox.padmaURL + '/library/visual-editor/' + Blox.scriptFolder + '/util.fonts-browser.js');
 
 					/* Load Google API */
 					$.getScript('//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');

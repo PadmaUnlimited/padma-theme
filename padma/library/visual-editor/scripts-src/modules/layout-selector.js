@@ -182,7 +182,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		
 		//Reload iframe and new layout right away
 		if ( typeof showSwitchNotification == 'undefined' || showSwitchNotification == true )
-			bloxIframeLoadNotification = 'Switched to <em>' + Blox.viewModels.layoutSelector.currentLayoutName() + '</em>';
+			padmaIframeLoadNotification = 'Switched to <em>' + Blox.viewModels.layoutSelector.currentLayoutName() + '</em>';
 
 		loadIframe(Blox.instance.iframeCallback, layoutURL);
 
@@ -247,7 +247,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				Blox.viewModels.layoutSelector.currentLayoutTemplate(false);
 
 				//Reload iframe and new layout
-				bloxIframeLoadNotification = 'Shared Layout removed from layout successfully!';
+				padmaIframeLoadNotification = 'Shared Layout removed from layout successfully!';
 
 				loadIframe(Blox.instance.iframeCallback);
 
@@ -742,7 +742,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 						Blox.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + template + '"]').find('.template-name').text());
 
 						//Reload iframe and new layout
-						bloxIframeLoadNotification = 'Shared layout assigned successfully!';
+						padmaIframeLoadNotification = 'Shared layout assigned successfully!';
 
 						loadIframe(Blox.instance.iframeCallback);
 

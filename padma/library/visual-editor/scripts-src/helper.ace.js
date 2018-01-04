@@ -37,7 +37,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 			editorConfig.top = ( screen.height / 2 ) - (editorConfig.height / 2);
 
 			Blox.aceEditors[id] = {
-				window: window.open(Blox.homeURL + '/?blox-trigger=ace-editor&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
+				window: window.open(Blox.homeURL + '/?padma-trigger=ace-editor&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
 			}
 
 			Blox.aceEditors[id].window.focus();
@@ -59,7 +59,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				var ace = window.ace;
 
 				/* Set paths */
-				var acePath = Blox.bloxURL + '/library/visual-editor/' + Blox.scriptFolder + '/deps/ace/';
+				var acePath = Blox.padmaURL + '/library/visual-editor/' + Blox.scriptFolder + '/deps/ace/';
 
 				ace.config.set('basePath', acePath);
 				ace.config.set('modePath', acePath);

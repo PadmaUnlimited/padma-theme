@@ -37,7 +37,7 @@ define(['jquery', 'qtip'], function($) {
 		if ( location == 'iframe' ) {
 			
 			tooltipOptions.position.container = $i('body');
-			tooltipOptions.position.viewport = $i('#blox-tooltip-container');
+			tooltipOptions.position.viewport = $i('#padma-tooltip-container');
 						
 			var tooltipElement = $i;
 			

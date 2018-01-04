@@ -110,7 +110,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				/* Reset grid container heights */
 				$i('.wrapper').each(function() {
-					$(this).bloxGrid('updateGridContainerHeight');
+					$(this).padmaGrid('updateGridContainerHeight');
 				});
 
 				/* Stop scrolling intervals if they still exist */
@@ -561,7 +561,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			/* Initiate Blox Grid on new wrapper */
 				wrapper.data('wrapper-settings', wrapperSettings);
 
-				wrapper.bloxGrid();
+				wrapper.padmaGrid();
 				setupWrapperResizable(wrapper);
 
 				bindWrapperMarginButtons(wrapper.find('.wrapper-margin-handle'));

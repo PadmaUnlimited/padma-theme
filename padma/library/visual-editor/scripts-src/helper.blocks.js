@@ -629,7 +629,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					my: 'top center',
 					at: 'bottom center',
 					container: $i('body'),
-					viewport: $i('#blox-tooltip-container'),
+					viewport: $i('#padma-tooltip-container'),
 					effect: false
 				},
 				show: {
@@ -861,7 +861,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				/* If new block then create it */
 					if ( block.hasClass('blank-block') ) {
 						
-						block.parents('.wrapper').bloxGrid('setupBlankBlock', blockType);
+						block.parents('.wrapper').padmaGrid('setupBlankBlock', blockType);
 					
 				/* Otherwise we're switching an existing block's type */
 					} else if ( confirm('Are you sure you wish to switch block types?  All settings for this block will be lost.') ) {

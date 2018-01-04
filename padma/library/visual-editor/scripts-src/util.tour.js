@@ -157,7 +157,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 		{
 			target: 'window',
 			title: 'Have fun building with Blox!',
-			content: '<p>We hope you find Blox to the most powerful and easy-to-use WordPress framework around.</p><p>If you have any questions, please don\'t hesitate to visit the <a href="http://support.bloxtheme.com/?utm_source=visualeditor&utm_medium=blox&utm_campaign=tour" target="_blank">support forums</a>.</p>',
+			content: '<p>We hope you find Blox to the most powerful and easy-to-use WordPress framework around.</p><p>If you have any questions, please don\'t hesitate to visit the <a href="http://support.padmatheme.com/?utm_source=visualeditor&utm_medium=padma&utm_campaign=tour" target="_blank">support forums</a>.</p>',
 			end: true
 		}
 	];

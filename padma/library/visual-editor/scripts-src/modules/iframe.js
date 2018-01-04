@@ -40,8 +40,8 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			iframeURL = updateQueryStringParameter(iframeURL, 'rand', Math.floor(Math.random() * 100000001));
 
 		/* Clear out existing iframe contents */
-			if ( iframe.contents().find('.ui-padma-grid').length && typeof iframe.contents().find('.ui-padma-grid').bloxGrid != 'undefined' ) {
-				iframe.contents().find('.ui-padma-grid').bloxGrid('destroy');
+			if ( iframe.contents().find('.ui-padma-grid').length && typeof iframe.contents().find('.ui-padma-grid').padmaGrid != 'undefined' ) {
+				iframe.contents().find('.ui-padma-grid').padmaGrid('destroy');
 			}
 
 			iframe.contents().find('*')
@@ -176,7 +176,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			iframe.stopFirefoxLoadingIndicator();
 
 			/* Fire callback! */
-			$('body').triggerHandler('bloxIframeLoad');
+			$('body').triggerHandler('padmaIframeLoad');
 
 			return true;
 
@@ -196,7 +196,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 			/* Stylesheets for more accurate live designing */
 				/* Main Blox stylesheet, used primarily by design editor */
-				stylesheet = new ITStylesheet({document: Blox.iframe.contents()[0], href: Blox.homeURL + '/?blox-trigger=compiler&file=general-design-editor'}, 'find');
+				stylesheet = new ITStylesheet({document: Blox.iframe.contents()[0], href: Blox.homeURL + '/?padma-trigger=compiler&file=general-design-editor'}, 'find');
 
 				/* Catch-all adhoc stylesheet used for overriding */
 				css = new ITStylesheet({document: Blox.iframe.contents()[0]}, 'load');
@@ -274,14 +274,14 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			});
 			
 			/* Show the load message */
-			if ( typeof bloxIframeLoadNotification !== 'undefined' ) {
+			if ( typeof padmaIframeLoadNotification !== 'undefined' ) {
 				showNotification({
 					id: 'iframe-load-notification',
-					message: bloxIframeLoadNotification,
+					message: padmaIframeLoadNotification,
 					overwriteExisting: true
 				});
 				
-				delete bloxIframeLoadNotification;
+				delete padmaIframeLoadNotification;
 			}
 			
 			/* Remove the tabs that are set to close on layout switch */

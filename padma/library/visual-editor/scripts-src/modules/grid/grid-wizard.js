@@ -568,7 +568,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				Blox.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + templateToAssign + '"]').find('.template-name').text());
 
 				//Reload iframe and new layout
-				bloxIframeLoadNotification = 'Shared Layout assigned successfully!';
+				padmaIframeLoadNotification = 'Shared Layout assigned successfully!';
 
 				loadIframe(Blox.instance.iframeCallback);
 

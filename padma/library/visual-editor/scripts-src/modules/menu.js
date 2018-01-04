@@ -29,7 +29,7 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 
 					var siteURL = new Url(Blox.homeURL);
 
-					siteURL.query['blox-trigger'] = 'layout-redirect';
+					siteURL.query['padma-trigger'] = 'layout-redirect';
 					siteURL.query['layout'] = Blox.viewModels.layoutSelector.currentLayout();
 
 					$(this).attr('href', siteURL.toString());

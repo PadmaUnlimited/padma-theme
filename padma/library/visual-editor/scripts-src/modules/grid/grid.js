@@ -3,11 +3,11 @@
  *
  * Copyright 2011-2015, Blox Theme, LLC
  *
- * http://bloxtheme.com
+ * http://padmatheme.com
  */
 define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
-	$.widget("ui.bloxGrid", $.ui.mouse, {
+	$.widget("ui.padmaGrid", $.ui.mouse, {
 		options: {
 			useIndependentGrid: false,
 			columns: Blox.defaultGridColumnCount,
@@ -993,10 +993,10 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 						/* Change draggable/resizable containment on block to destination */
 							block.resizable('destroy');
-							destinationContainer.parents('.wrapper').bloxGrid('initResizable', block);
+							destinationContainer.parents('.wrapper').padmaGrid('initResizable', block);
 
 							$.pep.unbind(block);
-							destinationContainer.parents('.wrapper').bloxGrid('initDraggable', block);
+							destinationContainer.parents('.wrapper').padmaGrid('initDraggable', block);
 
 						/* Do block intersect check */
 							blockIntersectCheck(false, originalContainer);
@@ -1534,7 +1534,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		
 	});
 
-	$.extend($.ui.bloxGrid, {
+	$.extend($.ui.padmaGrid, {
 		version: "2.1"
 	});
 

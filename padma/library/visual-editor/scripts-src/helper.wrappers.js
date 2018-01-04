@@ -102,7 +102,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			var mirroredWrapperID = mirroredWrapperID.replace('wrapper-', '');
 
 			wrapper.addClass('wrapper-mirrored');
-			wrapper.bloxGrid('disable');
+			wrapper.padmaGrid('disable');
 
 			/* Hide wrapper options */
 			if ( typeof input != 'undefined' )
@@ -112,7 +112,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 		} else {
 
 			wrapper.removeClass('wrapper-mirrored');
-			wrapper.bloxGrid('enable');
+			wrapper.padmaGrid('enable');
 
 			/* Show wrapper options */
 			if ( typeof input != 'undefined' )

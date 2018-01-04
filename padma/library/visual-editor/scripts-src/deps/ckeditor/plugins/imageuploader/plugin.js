@@ -3,6 +3,6 @@
 
 CKEDITOR.plugins.add( 'imageuploader', {
     init: function( editor ) {
-        editor.config.filebrowserBrowseUrl = '/wp-content/themes/bloxtheme/library/visual-editor/scripts-src/deps/ckeditor/plugins/imageuploader/imgbrowser.php';
+        editor.config.filebrowserBrowseUrl = '/wp-content/themes/padmatheme/library/visual-editor/scripts-src/deps/ckeditor/plugins/imageuploader/imgbrowser.php';
     }
 });

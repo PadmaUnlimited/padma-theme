@@ -11,7 +11,7 @@ define(['jquery', 'underscore'], function($, _) {
 				id: 'input-image',
 				title: 'Select an image',
 				description: 'Upload or select an image',
-				src: Blox.homeURL + '/?blox-trigger=media-uploader',
+				src: Blox.homeURL + '/?padma-trigger=media-uploader',
 				load: function() {
 					initiateImageUploader(callback);
 				},

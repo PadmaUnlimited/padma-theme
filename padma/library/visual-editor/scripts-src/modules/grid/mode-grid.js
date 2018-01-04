@@ -22,7 +22,7 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 			});
 			
 			/* Initialize Grid Stylesheet */
-			gridStylesheet = new ITStylesheet({document: Blox.iframe.contents()[0], href: '/?blox-trigger=compiler&file=ve-iframe-grid-dynamic'}, 'find');
+			gridStylesheet = new ITStylesheet({document: Blox.iframe.contents()[0], href: '/?padma-trigger=compiler&file=ve-iframe-grid-dynamic'}, 'find');
 					
 			addEdgeInsertWrapperButtons();
 
@@ -41,10 +41,10 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 				}
 
 			/* Initiate Blox Grid */
-			$i('div.wrapper').bloxGrid();
+			$i('div.wrapper').padmaGrid();
 
 				/* Disable Grid on mirrored wrappers */
-				$i('div.wrapper-mirrored').bloxGrid('disable');
+				$i('div.wrapper-mirrored').padmaGrid('disable');
 
 			/* Update Default Grid Width Input */
 				updateGridWidthInput('#sub-tab-grid-content');

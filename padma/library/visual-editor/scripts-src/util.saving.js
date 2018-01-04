@@ -27,13 +27,13 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 		startTitleActivityIndicator();
 
 		/* Do the stuff */
-		$.post(Blox.ajaxURL, {
-			security: Blox.security,
+		$.post(Padma.ajaxURL, {
+			security: Padma.security,
 			action: 'padma_visual_editor',
 			method: 'save_options',
 			options: JSON.stringify(GLOBALunsavedValues),
-			layout: Blox.viewModels.layoutSelector.currentLayout(),
-			mode: Blox.mode
+			layout: Padma.viewModels.layoutSelector.currentLayout(),
+			mode: Padma.mode
 		}, function(response) {
 			
 			delete currentlySaving;
@@ -50,7 +50,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 							
 				return showErrorNotification({
 					id: 'error-wordpress-authentication',
-					message: '<strong>Notice!</strong><br /><br />Your WordPress authentication has expired and you must log in before you can save.<br /><br /><a href="' + Blox.adminURL + '" target="_blank">Click Here to log in</a>, then switch back to the window/tab the Visual Editor is in.',
+					message: '<strong>Notice!</strong><br /><br />Your WordPress authentication has expired and you must log in before you can save.<br /><br /><a href="' + Padma.adminURL + '" target="_blank">Click Here to log in</a>, then switch back to the window/tab the Visual Editor is in.',
 					closeTimer: false,
 					closable: true
 				});
@@ -174,7 +174,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 								success: true
 							});
 
-							Blox.viewModels.snapshots.snapshots.unshift({
+							Padma.viewModels.snapshots.snapshots.unshift({
 								id: response['snapshot'].id,
 								timestamp: response['snapshot'].timestamp,
 								comments: response['snapshot'].comments
@@ -226,7 +226,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 	allowSaving = function() {
 						
 		/* If it's the layout mode and there no blocks on the page, then do not allow saving.  Also do not allow saving if there are overlapping blocks */
-			if ( (Blox.mode == 'grid' && $i('.block').length === 0) || (typeof Blox.overlappingBlocks != 'undefined' && Blox.overlappingBlocks) )
+			if ( (Padma.mode == 'grid' && $i('.block').length === 0) || (typeof Padma.overlappingBlocks != 'undefined' && Padma.overlappingBlocks) )
 				return disallowSaving();
 
 		/* If saving is already allowed, don't do anything else	*/
@@ -250,7 +250,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 		$('body').removeClass('allow-saving');
 
 		/* User can safely leave VE now--changes are saved.  As long as there are no overlapping blocks */
-		if ( typeof Blox.overlappingBlocks == 'undefined' || !Blox.overlappingBlocks )
+		if ( typeof Padma.overlappingBlocks == 'undefined' || !Padma.overlappingBlocks )
 			allowVEClose();
 
 		return true;

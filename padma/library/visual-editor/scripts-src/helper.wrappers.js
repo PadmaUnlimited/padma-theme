@@ -50,14 +50,14 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			wrapperTabName += ' (' + $i('#' + wrapperID).data('alias') + ')';
 
 		addPanelTab(wrapperID, wrapperTabName, {
-			url: Blox.ajaxURL,
+			url: Padma.ajaxURL,
 			data: {
-				security: Blox.security,
+				security: Padma.security,
 				action: 'padma_visual_editor',
 				method: 'load_wrapper_options',
 				wrapper_id: wrapperID.replace('wrapper-', ''),
 				unsaved_wrapper_options: getUnsavedWrapperOptionValues(wrapperID.replace('wrapper-', '')),
-				layout: Blox.viewModels.layoutSelector.currentLayout()
+				layout: Padma.viewModels.layoutSelector.currentLayout()
 			},
 			callback: readyTabs}, true, true, 'wrapper-options');
 
@@ -136,7 +136,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 
 	updateWrapperCustomClasses = function(wrapperID, value) {
 
-		if ( Blox.mode != 'design' )
+		if ( Padma.mode != 'design' )
 			return false;
 
 		var wrapper = $i('.wrapper[data-id="' + wrapperID + '"]');

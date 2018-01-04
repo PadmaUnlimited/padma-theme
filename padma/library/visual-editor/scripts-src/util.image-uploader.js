@@ -4,14 +4,14 @@ define(['jquery', 'underscore'], function($, _) {
 
 		if ( !boxExists('input-image') ) {
 
-			if ( isNaN(Blox.viewModels.layoutSelector.currentLayout()) )
+			if ( isNaN(Padma.viewModels.layoutSelector.currentLayout()) )
 				iframePostID = 0;
 
 			var settings = {
 				id: 'input-image',
 				title: 'Select an image',
 				description: 'Upload or select an image',
-				src: Blox.homeURL + '/?padma-trigger=media-uploader',
+				src: Padma.homeURL + '/?padma-trigger=media-uploader',
 				load: function() {
 					initiateImageUploader(callback);
 				},
@@ -58,7 +58,7 @@ define(['jquery', 'underscore'], function($, _) {
 		}
 
 		wpMedia = $('#box-input-image iframe')[0].contentWindow.wp.media;
-		var currentLayoutFragments = Blox.viewModels.layoutSelector.currentLayout().split('-');
+		var currentLayoutFragments = Padma.viewModels.layoutSelector.currentLayout().split('-');
 
 		/* If the current layout is a WordPress "post" then associate all attachments uploaded with the post */
 		if (_.first(currentLayoutFragments) == 'single' && !isNaN(_.last(currentLayoutFragments)) ) {

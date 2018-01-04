@@ -10,8 +10,8 @@ define(['jquery', 'knockout'], function($, ko) {
 
 		setupViewModel: function() {
 
-			Blox.viewModels.snapshots = {
-				snapshots: ko.observableArray(Blox.snapshots),
+			Padma.viewModels.snapshots = {
+				snapshots: ko.observableArray(Padma.snapshots),
 				formatSnapshotDatetime: function(datetime) {
 
 					var datetimeFrags = datetime.split(/[- :]/);
@@ -35,13 +35,13 @@ define(['jquery', 'knockout'], function($, ko) {
 					button.text('Rolling Back..');
 
 					/* Rollback */
-					$.post(Blox.ajaxURL, {
-						security: Blox.security,
+					$.post(Padma.ajaxURL, {
+						security: Padma.security,
 						action: 'padma_visual_editor',
 						method: 'rollback_to_snapshot',
-						layout: Blox.viewModels.layoutSelector.currentLayout(),
+						layout: Padma.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
-						mode: Blox.mode
+						mode: Padma.mode
 					}, function(response) {
 
 						if ( typeof response.error != 'undefined' )
@@ -78,13 +78,13 @@ define(['jquery', 'knockout'], function($, ko) {
 					button.addClass('deletion-in-progress');
 
 					/* Delete snapshot */
-					$.post(Blox.ajaxURL, {
-						security: Blox.security,
+					$.post(Padma.ajaxURL, {
+						security: Padma.security,
 						action: 'padma_visual_editor',
 						method: 'delete_snapshot',
-						layout: Blox.viewModels.layoutSelector.currentLayout(),
+						layout: Padma.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
-						mode: Blox.mode
+						mode: Padma.mode
 					}, function (response) {
 
 						if ( typeof response.error != 'undefined' )
@@ -96,7 +96,7 @@ define(['jquery', 'knockout'], function($, ko) {
 							success: true
 						});
 
-						Blox.viewModels.snapshots.snapshots.remove(data);
+						Padma.viewModels.snapshots.snapshots.remove(data);
 
 					});
 
@@ -119,12 +119,12 @@ define(['jquery', 'knockout'], function($, ko) {
 					/* Prompt for comments about snapshot */
 					var snapshotComments = prompt("(Optional)\n\nEnter name or description of the changes in this snapshot.");
 
-					$.post(Blox.ajaxURL, {
-						security: Blox.security,
+					$.post(Padma.ajaxURL, {
+						security: Padma.security,
 						action: 'padma_visual_editor',
 						method: 'save_snapshot',
-						layout: Blox.viewModels.layoutSelector.currentLayout(),
-						mode: Blox.mode,
+						layout: Padma.viewModels.layoutSelector.currentLayout(),
+						mode: Padma.mode,
 						snapshot_comments: snapshotComments
 					}, function(response) {
 
@@ -137,7 +137,7 @@ define(['jquery', 'knockout'], function($, ko) {
 							success: true
 						});
 
-						Blox.viewModels.snapshots.snapshots.unshift({
+						Padma.viewModels.snapshots.snapshots.unshift({
 							id: response.id,
 							timestamp: response.timestamp,
 							comments: response.comments
@@ -153,7 +153,7 @@ define(['jquery', 'knockout'], function($, ko) {
 			}
 
 			$(document).ready(function() {
-				ko.applyBindings(Blox.viewModels.snapshots, $('#box-snapshots').get(0));
+				ko.applyBindings(Padma.viewModels.snapshots, $('#box-snapshots').get(0));
 			});
 
 		},

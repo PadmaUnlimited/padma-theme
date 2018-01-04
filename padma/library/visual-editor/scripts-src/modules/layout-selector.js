@@ -11,7 +11,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		});
 
 		$(document).bind('mousedown', hideLayoutSelector);
-		Blox.iframe.contents().bind('mousedown', hideLayoutSelector);
+		Padma.iframe.contents().bind('mousedown', hideLayoutSelector);
 
 		return $('div#layout-selector-select');
 
@@ -26,7 +26,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			.removeClass('layout-selector-visible');
 
 		$(document).unbind('mousedown', hideLayoutSelector);
-		Blox.iframe.contents().unbind('mousedown', hideLayoutSelector);
+		Padma.iframe.contents().unbind('mousedown', hideLayoutSelector);
 		
 		return $('div#layout-selector-select');
 
@@ -73,35 +73,35 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 			layout = layoutNode;
 			layoutID = layout.attr('data-layout-id');
-			layoutURL = Blox.mode == 'grid' ? Blox.homeURL : layout.attr('data-layout-url');
+			layoutURL = Padma.mode == 'grid' ? Padma.homeURL : layout.attr('data-layout-url');
 			layoutName = layout.find('strong').text();
 
 		} else {
 
 			layout = $();
 			layoutID = selectedLayout;
-			layoutURL = Blox.homeURL;
+			layoutURL = Padma.homeURL;
 			layoutName = selectedLayoutName;
 
 		}
 
 		//Set global variables, these will be used in the next function to switch the iframe
-		Blox.viewModels.layoutSelector.currentLayout(layoutID);
-		Blox.viewModels.layoutSelector.currentLayoutName(layoutName);
-		Blox.viewModels.layoutSelector.currentLayoutInUse(null);
-		Blox.viewModels.layoutSelector.currentLayoutInUseName(null);
+		Padma.viewModels.layoutSelector.currentLayout(layoutID);
+		Padma.viewModels.layoutSelector.currentLayoutName(layoutName);
+		Padma.viewModels.layoutSelector.currentLayoutInUse(null);
+		Padma.viewModels.layoutSelector.currentLayoutInUseName(null);
 
 		//Set global variable to tell designEditor.switchLayout that this layout was switched to and not initial load
-		Blox.switchedToLayout = true;
+		Padma.switchedToLayout = true;
 
 		//Check if layout is customized
-		Blox.viewModels.layoutSelector.currentLayoutCustomized(layout.parents('li.layout-item').first().hasClass('layout-item-customized') || layout.parents('#layout-selector-templates-container').length);
+		Padma.viewModels.layoutSelector.currentLayoutCustomized(layout.parents('li.layout-item').first().hasClass('layout-item-customized') || layout.parents('#layout-selector-templates-container').length);
 
 		//Figure out layout in use based off of hierachy
-		if ( Blox.viewModels.layoutSelector.currentLayoutCustomized() ) {
+		if ( Padma.viewModels.layoutSelector.currentLayoutCustomized() ) {
 
-			Blox.viewModels.layoutSelector.currentLayoutInUse(layoutID);
-			Blox.viewModels.layoutSelector.currentLayoutInUseName(layoutName);
+			Padma.viewModels.layoutSelector.currentLayoutInUse(layoutID);
+			Padma.viewModels.layoutSelector.currentLayoutInUseName(layoutName);
 
 		} else {
 
@@ -111,15 +111,15 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 				if ( layoutNodeData.customized() ) {
 
-					Blox.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.id);
-					Blox.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.name);
+					Padma.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.id);
+					Padma.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.name);
 
 					return false;
 
 				} else if ( layoutNodeData.template() ) {
 
-					Blox.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.template());
-					Blox.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.templateName());
+					Padma.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.template());
+					Padma.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.templateName());
 
 					return false;
 
@@ -128,7 +128,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			});
 
 			/* If no parent is found to be customized check the top level layouts */
-			if ( !Blox.viewModels.layoutSelector.currentLayoutInUse() ) {
+			if ( !Padma.viewModels.layoutSelector.currentLayoutInUse() ) {
 
 				$('ul#layout-selector-pages-content').children('li.layout-item').each(function() {
 
@@ -136,15 +136,15 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 					if ( layoutNodeData.customized() ) {
 
-						Blox.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.id);
-						Blox.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.name);
+						Padma.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.id);
+						Padma.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.name);
 
 						return false;
 
 					} else if ( layoutNodeData.template() ) {
 
-						Blox.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.template());
-						Blox.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.templateName());
+						Padma.viewModels.layoutSelector.currentLayoutInUse(layoutNodeData.template());
+						Padma.viewModels.layoutSelector.currentLayoutInUseName(layoutNodeData.templateName());
 
 						return false;
 
@@ -153,10 +153,10 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				});
 
 				/* If no match is still found then there are no customized layouts and the current layout in use is the current layout */
-				if ( !Blox.viewModels.layoutSelector.currentLayoutInUse() ) {
+				if ( !Padma.viewModels.layoutSelector.currentLayoutInUse() ) {
 
-					Blox.viewModels.layoutSelector.currentLayoutInUse(layoutID);
-					Blox.viewModels.layoutSelector.currentLayoutInUseName(layoutName);
+					Padma.viewModels.layoutSelector.currentLayoutInUse(layoutID);
+					Padma.viewModels.layoutSelector.currentLayoutInUseName(layoutName);
 
 				}
 
@@ -169,22 +169,22 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 							
 			if ( typeof possibleTemplateID != 'undefined' && possibleTemplateID != 'none' ) {
 
-				Blox.viewModels.layoutSelector.currentLayoutTemplate(possibleTemplateID);
-				Blox.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + possibleTemplateID + '"]').find('.template-name').text());
+				Padma.viewModels.layoutSelector.currentLayoutTemplate(possibleTemplateID);
+				Padma.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + possibleTemplateID + '"]').find('.template-name').text());
 
 			} else {
-				Blox.viewModels.layoutSelector.currentLayoutTemplate(false);
+				Padma.viewModels.layoutSelector.currentLayoutTemplate(false);
 			}
 
 
 		/* Push new layout ID to the URL */
-		window.history.pushState("", "", Blox.homeURL + "/?visual-editor=true&visual-editor-mode=" + Blox.mode + "&ve-layout=" + encodeURIComponent(Blox.viewModels.layoutSelector.currentLayout()));
+		window.history.pushState("", "", Padma.homeURL + "/?visual-editor=true&visual-editor-mode=" + Padma.mode + "&ve-layout=" + encodeURIComponent(Padma.viewModels.layoutSelector.currentLayout()));
 		
 		//Reload iframe and new layout right away
 		if ( typeof showSwitchNotification == 'undefined' || showSwitchNotification == true )
-			padmaIframeLoadNotification = 'Switched to <em>' + Blox.viewModels.layoutSelector.currentLayoutName() + '</em>';
+			padmaIframeLoadNotification = 'Switched to <em>' + Padma.viewModels.layoutSelector.currentLayoutName() + '</em>';
 
-		loadIframe(Blox.instance.iframeCallback, layoutURL);
+		loadIframe(Padma.instance.iframeCallback, layoutURL);
 
 		return true;
 		
@@ -214,8 +214,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			return false;
 
 		//Do the AJAX request to assign the template
-		$.post(Blox.ajaxURL, {
-			security: Blox.security,
+		$.post(Padma.ajaxURL, {
+			security: Padma.security,
 			action: 'padma_visual_editor',
 			method: 'remove_template_from_layout',
 			layout: layoutID
@@ -236,7 +236,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			}
 
 			//If the current layout is the one with the template that we're unassigning, we need to reload the iframe.
-			if ( layoutID == Blox.viewModels.layoutSelector.currentLayout() ) {
+			if ( layoutID == Padma.viewModels.layoutSelector.currentLayout() ) {
 
 				showIframeLoadingOverlay();
 
@@ -244,12 +244,12 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				changeTitle('Visual Editor: Removing Shared Layout From Layout');
 				startTitleActivityIndicator();
 
-				Blox.viewModels.layoutSelector.currentLayoutTemplate(false);
+				Padma.viewModels.layoutSelector.currentLayoutTemplate(false);
 
 				//Reload iframe and new layout
 				padmaIframeLoadNotification = 'Shared Layout removed from layout successfully!';
 
-				loadIframe(Blox.instance.iframeCallback);
+				loadIframe(Padma.instance.iframeCallback);
 
 				return true;
 
@@ -277,23 +277,23 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 		setupViewModel: function() {
 
-			Blox.viewModels.layoutSelector = {
-				currentLayout: ko.observable(Blox.currentLayout),
-				currentLayoutName: ko.observable(Blox.currentLayoutName),
-				currentLayoutInUse: ko.observable(Blox.currentLayoutInUse),
-				currentLayoutInUseName: ko.observable(Blox.currentLayoutInUseName),
-				currentLayoutTemplate: ko.observable(Blox.currentLayoutTemplate),
-				currentLayoutTemplateName: ko.observable(Blox.currentLayoutTemplateName),
-				currentLayoutCustomized: ko.observable(Blox.currentLayoutCustomized),
-				pages: layoutSelector.mapArrayToLayoutModel(Blox.layouts.pages),
+			Padma.viewModels.layoutSelector = {
+				currentLayout: ko.observable(Padma.currentLayout),
+				currentLayoutName: ko.observable(Padma.currentLayoutName),
+				currentLayoutInUse: ko.observable(Padma.currentLayoutInUse),
+				currentLayoutInUseName: ko.observable(Padma.currentLayoutInUseName),
+				currentLayoutTemplate: ko.observable(Padma.currentLayoutTemplate),
+				currentLayoutTemplateName: ko.observable(Padma.currentLayoutTemplateName),
+				currentLayoutCustomized: ko.observable(Padma.currentLayoutCustomized),
+				pages: layoutSelector.mapArrayToLayoutModel(Padma.layouts.pages),
 				search: ko.observableArray([]),
 				searching: ko.observable(false),
-				shared: layoutSelector.mapArrayToLayoutModel(Blox.layouts.shared)
+				shared: layoutSelector.mapArrayToLayoutModel(Padma.layouts.shared)
 			};
 
 			$(document).ready(function () {
-				ko.applyBindings(Blox.viewModels.layoutSelector, $('#layout-selector-pages-container').get(0));
-				ko.applyBindings(Blox.viewModels.layoutSelector, $('#layout-selector-templates-container').get(0));
+				ko.applyBindings(Padma.viewModels.layoutSelector, $('#layout-selector-pages-container').get(0));
+				ko.applyBindings(Padma.viewModels.layoutSelector, $('#layout-selector-templates-container').get(0));
 			});
 
 		},
@@ -348,16 +348,16 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			var $loadingIndicator = $('<li class="layout-item layout-loading-children"><span class="dashicons dashicons-update"></span> Loading...</li>');
 			$loadingIndicator.insertAfter($element.parent());
 
-			return $.ajax(Blox.ajaxURL, {
+			return $.ajax(Padma.ajaxURL, {
 				type   : 'POST',
 				async  : true,
 				data   : {
 					action  : 'padma_visual_editor',
 					method  : 'get_layout_children',
-					security: Blox.security,
+					security: Padma.security,
 					layout  : layoutData.id,
 					offset  : layoutData.ajaxLoadOffset,
-					mode    : Blox.mode
+					mode    : Padma.mode
 				},
 				success: function (data, textStatus) {
 
@@ -397,26 +397,26 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 		searchLayouts: function(query) {
 
-			Blox.viewModels.layoutSelector.searching(true);
+			Padma.viewModels.layoutSelector.searching(true);
 
-			return $.ajax(Blox.ajaxURL, {
+			return $.ajax(Padma.ajaxURL, {
 				type   : 'POST',
 				async  : true,
 				data   : {
 					action  : 'padma_visual_editor',
 					method  : 'query_layouts',
-					security: Blox.security,
+					security: Padma.security,
 					query  : query
 				},
 				success: function (data, textStatus) {
 
-					Blox.viewModels.layoutSelector.searching(false);
+					Padma.viewModels.layoutSelector.searching(false);
 
 					if ( !_.isArray(data) || !data.length ) {
 						return;
 					}
 
-					return Blox.viewModels.layoutSelector.search(ko.utils.unwrapObservable(layoutSelector.mapArrayToLayoutModel(data)));
+					return Padma.viewModels.layoutSelector.search(ko.utils.unwrapObservable(layoutSelector.mapArrayToLayoutModel(data)));
 
 				}
 			});
@@ -457,7 +457,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				var query = $('#layout-search-input').val();
 
 				if ( query.length === 0 ) {
-					Blox.viewModels.layoutSelector.search([]);
+					Padma.viewModels.layoutSelector.search([]);
 					event.preventDefault();
 					return false;
 				}
@@ -531,7 +531,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				/* If the user gets on a revert frenzy and reverts all pages, then it should fall back to the blog index or front page (if active) */
 				if ( typeof selectedLayoutID == 'undefined' || !selectedLayoutID ) {
 
-					selectedLayoutID = Blox.frontPage == 'posts' ? 'index' : 'front_page';
+					selectedLayoutID = Padma.frontPage == 'posts' ? 'index' : 'front_page';
 					selectedLayout = $('div#layout-selector-pages > ul > li > span[data-layout-id="' + selectedLayoutID + '"]').parent();
 
 				}
@@ -540,8 +540,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				switchToLayout(selectedLayout, false);
 
 				/* Delete everything from the reverted layout */
-				$.post(Blox.ajaxURL, {
-					security: Blox.security,
+				$.post(Padma.ajaxURL, {
+					security: Padma.security,
 					action: 'padma_visual_editor',
 					method: 'revert_layout',
 					layout_to_revert: revertedLayoutID
@@ -577,11 +577,11 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				var templateName = $('#template-name-input').val();
 
 				//Do the AJAX request for the new template
-				$.post(Blox.ajaxURL, {
-					security: Blox.security,
+				$.post(Padma.ajaxURL, {
+					security: Padma.security,
 					action: 'padma_visual_editor',
 					method: 'add_template',
-					layout: Blox.viewModels.layoutSelector.currentLayout(),
+					layout: Padma.viewModels.layoutSelector.currentLayout(),
 					template_name: templateName
 				}, function(response) {
 
@@ -643,8 +643,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					return false;
 
 				//Do the AJAX request for the new template
-				$.post(Blox.ajaxURL, {
-					security: Blox.security,
+				$.post(Padma.ajaxURL, {
+					security: Padma.security,
 					action: 'padma_visual_editor',
 					method: 'delete_template',
 					template_to_delete: templateID
@@ -675,9 +675,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					});
 
 					//If the template that was removed was the current one, then send the user back to the blog index or front page
-					if ( template === Blox.viewModels.layoutSelector.currentLayout() ) {
+					if ( template === Padma.viewModels.layoutSelector.currentLayout() ) {
 
-						var defaultLayout = Blox.frontPage == 'posts' ? 'index' : 'front_page';
+						var defaultLayout = Padma.frontPage == 'posts' ? 'index' : 'front_page';
 
 						switchToLayout($('div#layout-selector span.layout[data-layout-id="' + defaultLayout + '"]'), false);
 
@@ -697,19 +697,19 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				var layoutData = ko.dataFor($('li.layout-selected').get(0));
 
 				//If the current layout being edited is a template trigger an error.
-				if ( Blox.viewModels.layoutSelector.currentLayout().indexOf('template-') === 0 ) {
+				if ( Padma.viewModels.layoutSelector.currentLayout().indexOf('template-') === 0 ) {
 					alert('You cannot assign a shared layout to another shared layout.');
 
 					return false;
 				}
 
 				//Do the AJAX request to assign the template
-				$.post(Blox.ajaxURL, {
-					security: Blox.security,
+				$.post(Padma.ajaxURL, {
+					security: Padma.security,
 					action: 'padma_visual_editor',
 					method: 'assign_template',
 					template: template,
-					layout: Blox.viewModels.layoutSelector.currentLayout()
+					layout: Padma.viewModels.layoutSelector.currentLayout()
 				}, function(response) {
 
 					if ( typeof response === 'undefined' || response == 'failure' ) {
@@ -738,13 +738,13 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 						changeTitle('Visual Editor: Assigning Shared Layout');
 						startTitleActivityIndicator();
 
-						Blox.viewModels.layoutSelector.currentLayoutTemplate('template-' + template);
-						Blox.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + template + '"]').find('.template-name').text());
+						Padma.viewModels.layoutSelector.currentLayoutTemplate('template-' + template);
+						Padma.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + template + '"]').find('.template-name').text());
 
 						//Reload iframe and new layout
 						padmaIframeLoadNotification = 'Shared layout assigned successfully!';
 
-						loadIframe(Blox.instance.iframeCallback);
+						loadIframe(Padma.instance.iframeCallback);
 
 					//End reload iframe
 
@@ -764,8 +764,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				var newName = prompt('Please enter new Shared Layout name', currentName);
 
 				//Do the AJAX request to assign the template
-				$.post(Blox.ajaxURL, {
-					security: Blox.security,
+				$.post(Padma.ajaxURL, {
+					security: Padma.security,
 					action: 'padma_visual_editor',
 					method: 'rename_layout_template',
 					layout: layoutID,

@@ -2,16 +2,16 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 	$i = function(element) {
 
-		if ( typeof Blox.iframe == 'undefined' || typeof Blox.iframe.contents() == 'undefined' )
+		if ( typeof Padma.iframe == 'undefined' || typeof Padma.iframe.contents() == 'undefined' )
 			return $();
 
-		return Blox.iframe.contents().find(element);
+		return Padma.iframe.contents().find(element);
 
 	}
 
 	$iDocument = function() {
 
-		return $(Blox.iframe.contents());
+		return $(Padma.iframe.contents());
 
 	}
 
@@ -19,10 +19,10 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 	loadIframe = function(callback, url) {
 
 		if ( typeof url == 'undefined' || !url)
-			var url = Blox.homeURL;
+			var url = Padma.homeURL;
 
 		/* Choose contents iframe or preview iframe depending on argument */
-			var iframe = Blox.iframe;
+			var iframe = Padma.iframe;
 
 		/* Make the title talk */
 		startTitleActivityIndicator();
@@ -34,9 +34,9 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 		/* Build the URL */
 			iframeURL = url;
 			iframeURL = updateQueryStringParameter(iframeURL, 've-iframe', 'true');
-			iframeURL = updateQueryStringParameter(iframeURL, 've-layout', encodeURIComponent(Blox.viewModels.layoutSelector.currentLayout()));
-            iframeURL = updateQueryStringParameter(iframeURL, 've-layout-customized', Blox.viewModels.layoutSelector.currentLayoutCustomized());
-            iframeURL = updateQueryStringParameter(iframeURL, 've-iframe-mode', Blox.mode);
+			iframeURL = updateQueryStringParameter(iframeURL, 've-layout', encodeURIComponent(Padma.viewModels.layoutSelector.currentLayout()));
+            iframeURL = updateQueryStringParameter(iframeURL, 've-layout-customized', Padma.viewModels.layoutSelector.currentLayoutCustomized());
+            iframeURL = updateQueryStringParameter(iframeURL, 've-iframe-mode', Padma.mode);
 			iframeURL = updateQueryStringParameter(iframeURL, 'rand', Math.floor(Math.random() * 100000001));
 
 		/* Clear out existing iframe contents */
@@ -57,7 +57,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 	waitForIframeLoad = function(callback, iframeEl) {
 
 		if ( typeof iframeEl == 'undefined' || !iframeEl )
-			var iframeEl = Blox.iframe;
+			var iframeEl = Padma.iframe;
 
 		/* Setup timeout */
 			if ( typeof iframeTimeout == 'undefined' )
@@ -135,7 +135,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 			$(document).ready(function() {
 
-				Blox.iframe = $('iframe#content');
+				Padma.iframe = $('iframe#content');
 
 				iframe.bindFocusBlur();
 
@@ -145,14 +145,14 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 		bindFocusBlur: function() {
 
-			Blox.iframe.on('mouseleave', function() {
+			Padma.iframe.on('mouseleave', function() {
 				$(this).trigger('blur');
 
 				/* Hide any tooltips */
 				$i('[data-hasqtip]').qtip('disable', true);
 			});
 
-			Blox.iframe.on('mouseenter mousedown', function() {
+			Padma.iframe.on('mouseenter mousedown', function() {
 				//If there is another textarea/input that's focused, don't focus the iframe.
 				if ( $('textarea:focus, input:focus').length === 1 )
 					return;
@@ -186,8 +186,8 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 			stopTitleActivityIndicator();
 
-			changeTitle('Visual Editor: ' + Blox.viewModels.layoutSelector.currentLayoutName());
-			$('span#current-layout').text(Blox.viewModels.layoutSelector.currentLayoutName());
+			changeTitle('Visual Editor: ' + Padma.viewModels.layoutSelector.currentLayoutName());
+			$('span#current-layout').text(Padma.viewModels.layoutSelector.currentLayoutName());
 
 			/* Set up tooltips */
 			setupTooltips();
@@ -195,11 +195,11 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			/* End Tooltips */
 
 			/* Stylesheets for more accurate live designing */
-				/* Main Blox stylesheet, used primarily by design editor */
-				stylesheet = new ITStylesheet({document: Blox.iframe.contents()[0], href: Blox.homeURL + '/?padma-trigger=compiler&file=general-design-editor'}, 'find');
+				/* Main Padma stylesheet, used primarily by design editor */
+				stylesheet = new ITStylesheet({document: Padma.iframe.contents()[0], href: Padma.homeURL + '/?padma-trigger=compiler&file=general-design-editor'}, 'find');
 
 				/* Catch-all adhoc stylesheet used for overriding */
-				css = new ITStylesheet({document: Blox.iframe.contents()[0]}, 'load');
+				css = new ITStylesheet({document: Padma.iframe.contents()[0]}, 'load');
 			/* End stylesheets */
 
 			/* Hide iframe overlay if it exists */
@@ -208,14 +208,14 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			$('#iframe-notice').remove();
 
 			/* Add the template notice if it's layout mode and a template is active */
-				if ( Blox.viewModels.layoutSelector.currentLayoutTemplate() && Blox.mode == 'grid' ) {
+				if ( Padma.viewModels.layoutSelector.currentLayoutTemplate() && Padma.mode == 'grid' ) {
 
 					showIframeOverlay();
 
 					var $iframeNotice = $('<div id="iframe-notice">' +
 						'<div>' +
 							'<h1>This layout currently has a Shared Layout assigned to it.</h1>' +
-							'<h3>The shared layout assigned is <strong>' + Blox.viewModels.layoutSelector.currentLayoutTemplateName() + '</strong></h3>' +
+							'<h3>The shared layout assigned is <strong>' + Padma.viewModels.layoutSelector.currentLayoutTemplateName() + '</strong></h3>' +
 							'<p><span class="button button-blue" id="iframe-notice-switch-to-shared-layout">Switch To Shared Layout</span><span class="button button-blue" id="iframe-notice-unassign-shared-layout">Unassign Shared Layout</span></p>' +
 						'</div>' +
 					'</div>');
@@ -224,13 +224,13 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 					$iframeNotice.on('click', '#iframe-notice-unassign-shared-layout', function () {
 
-						return unassignSharedLayout(Blox.viewModels.layoutSelector.currentLayout(), false, Blox.viewModels.layoutSelector.currentLayoutName());
+						return unassignSharedLayout(Padma.viewModels.layoutSelector.currentLayout(), false, Padma.viewModels.layoutSelector.currentLayoutName());
 
 					});
 
 					$iframeNotice.on('click', '#iframe-notice-switch-to-shared-layout', function () {
 
-						switchToLayout('template-' + Blox.viewModels.layoutSelector.currentLayoutTemplate().replace('template-', ''), true, Blox.viewModels.layoutSelector.currentLayoutTemplateName());
+						switchToLayout('template-' + Padma.viewModels.layoutSelector.currentLayoutTemplate().replace('template-', ''), true, Padma.viewModels.layoutSelector.currentLayoutTemplateName());
 
 					});
 
@@ -259,10 +259,10 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 				});
 
 			/* Deactivate all links and buttons */
-			if ( Blox.touch )
-				Blox.iframe.contents().find('body').css('-webkit-touch-callout', 'none');
+			if ( Padma.touch )
+				Padma.iframe.contents().find('body').css('-webkit-touch-callout', 'none');
 
-			Blox.iframe.contents().find('body').delegate('a, input[type="submit"], button', 'click', function(event) {
+			Padma.iframe.contents().find('body').delegate('a, input[type="submit"], button', 'click', function(event) {
 
 				if ( $(this).hasClass('allow-click') )
 					return;
@@ -288,16 +288,16 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			removeLayoutSwitchPanels();
 			
 			/* Show the grid wizard if the current layout isn't customized and not using a tmeplate */
-			var layoutNode = $('div#layout-selector span.layout[data-layout-id="' + Blox.viewModels.layoutSelector.currentLayout() + '"]');
+			var layoutNode = $('div#layout-selector span.layout[data-layout-id="' + Padma.viewModels.layoutSelector.currentLayout() + '"]');
 			var layoutLi = layoutNode.parent();
 
 			if ( 
 				!$i('.block').length
-				&& !(Blox.viewModels.layoutSelector.currentLayoutCustomized() && Blox.viewModels.layoutSelector.currentLayout().indexOf('template-') !== 0)
-				&& !Blox.viewModels.layoutSelector.currentLayoutTemplate()
-				&& Blox.mode == 'grid'
-				&& Blox.viewModels.layoutSelector.currentLayoutInUse() != Blox.viewModels.layoutSelector.currentLayout()
-				&& Blox.viewModels.layoutSelector.currentLayout().indexOf('template-') === -1
+				&& !(Padma.viewModels.layoutSelector.currentLayoutCustomized() && Padma.viewModels.layoutSelector.currentLayout().indexOf('template-') !== 0)
+				&& !Padma.viewModels.layoutSelector.currentLayoutTemplate()
+				&& Padma.mode == 'grid'
+				&& Padma.viewModels.layoutSelector.currentLayoutInUse() != Padma.viewModels.layoutSelector.currentLayout()
+				&& Padma.viewModels.layoutSelector.currentLayout().indexOf('template-') === -1
 			) {
 			
 				hidePanel();
@@ -307,7 +307,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 				var $iframeNotice = $('<div id="iframe-notice">' +
 					'<div>' +
 					'<h1>This layout is inheriting from another layout.</h1>' +
-					'<h3>The inherited layout is <strong>' + Blox.viewModels.layoutSelector.currentLayoutInUseName() + '</strong></h3>' +
+					'<h3>The inherited layout is <strong>' + Padma.viewModels.layoutSelector.currentLayoutInUseName() + '</strong></h3>' +
 					'<p><span class="button button-blue" id="iframe-notice-customize-current">Customize Current Layout</span><span class="button button-blue" id="iframe-notice-switch-to-inherited">Switch To Inherited Layout</span></p>' +
 				'	</div>' +
 				'</div>');
@@ -325,11 +325,11 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 				$iframeNotice.on('click', '#iframe-notice-switch-to-inherited', function () {
 
-					switchToLayout(Blox.viewModels.layoutSelector.currentLayoutInUse(), true, Blox.viewModels.layoutSelector.currentLayoutInUseName());
+					switchToLayout(Padma.viewModels.layoutSelector.currentLayoutInUse(), true, Padma.viewModels.layoutSelector.currentLayoutInUseName());
 
 				});
 
-			} else if ( Blox.viewModels.layoutSelector.currentLayoutCustomized() || Blox.viewModels.layoutSelector.currentLayoutTemplate() ) {
+			} else if ( Padma.viewModels.layoutSelector.currentLayoutCustomized() || Padma.viewModels.layoutSelector.currentLayoutTemplate() ) {
 
 				closeBox('grid-wizard');
 				

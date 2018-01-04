@@ -17,7 +17,7 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 
 					var modeURL = new Url($(this).attr('href'));
 
-					modeURL.query['ve-layout'] = Blox.viewModels.layoutSelector.currentLayout();
+					modeURL.query['ve-layout'] = Padma.viewModels.layoutSelector.currentLayout();
 
 					$(this).attr('href', modeURL.toString());
 
@@ -27,10 +27,10 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 			/* VIEW SITE BUTTON */
 				$('#menu-link-view-site a').bind('click', function(){
 
-					var siteURL = new Url(Blox.homeURL);
+					var siteURL = new Url(Padma.homeURL);
 
 					siteURL.query['padma-trigger'] = 'layout-redirect';
-					siteURL.query['layout'] = Blox.viewModels.layoutSelector.currentLayout();
+					siteURL.query['layout'] = Padma.viewModels.layoutSelector.currentLayout();
 
 					$(this).attr('href', siteURL.toString());
 
@@ -89,13 +89,13 @@ define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceH
 
 					/* Set up parameters */
 					var parameters = {
-						security: Blox.security,
+						security: Padma.security,
 						action: 'padma_visual_editor',
 						method: 'clear_cache'
 					};
 
 					/* Do the stuff */
-					$.post(Blox.ajaxURL, parameters, function(response){
+					$.post(Padma.ajaxURL, parameters, function(response){
 
 						if ( response === 'success' ) {
 

@@ -56,9 +56,9 @@ Code fixes
 = 0.0.2 =
 * Released: December 25, 2017
 
-Renamed all references from Blox to Padma
+Renamed all references from Padma to Padma
 
 = 0.0.1 =
 * Released: December 24, 2017
 
-Initial release based on BloxTheme 1.0.3
+Initial release based on PadmaTheme 1.0.3

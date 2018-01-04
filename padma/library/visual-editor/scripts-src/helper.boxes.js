@@ -235,12 +235,12 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 				/* Add loading flag */
 				box.data('currently-ajax-loading', true);
 							
-				box.find('.box-content').load(Blox.ajaxURL, {
-					security: Blox.security,
+				box.find('.box-content').load(Padma.ajaxURL, {
+					security: Padma.security,
 					action: 'padma_visual_editor',
 					method: 'load_box_ajax_content',
 					box_id: id,
-					layout: Blox.viewModels.layoutSelector.currentLayout()
+					layout: Padma.viewModels.layoutSelector.currentLayout()
 				}, function() {
 										
 					var loadWithAjaxCallback = eval(box.attr('load_with_ajax_callback'));

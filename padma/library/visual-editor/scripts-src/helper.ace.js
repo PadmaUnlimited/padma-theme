@@ -1,6 +1,6 @@
 define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 
-	Blox.aceEditors = {};
+	Padma.aceEditors = {};
 
 	var aceHelper = {
 		init: function() {
@@ -8,7 +8,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 			/* Close all Ace Editors when Visual Editor is closed */
 			window.onunload = function() {
 
-				$.each(Blox.aceEditors, function(index, aceEditor) {
+				$.each(Padma.aceEditors, function(index, aceEditor) {
 
 					if ( typeof aceEditor.window != 'undefined' && !aceEditor.window.closed ) {
 						aceEditor.window.close();
@@ -22,10 +22,10 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 
 		showEditor: function(id, mode, initialValue, changeCallback) {
 
-			if ( typeof Blox.aceEditors[id] != 'undefined' && !Blox.aceEditors[id].window.closed ) {
-				Blox.aceEditors[id].window.focus();
+			if ( typeof Padma.aceEditors[id] != 'undefined' && !Padma.aceEditors[id].window.closed ) {
+				Padma.aceEditors[id].window.focus();
 
-				return Blox.aceEditors[id];
+				return Padma.aceEditors[id];
 			}
 
 			var editorConfig = {
@@ -36,20 +36,20 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 			editorConfig.left = ( screen.width / 2 ) - (editorConfig.width / 2);
 			editorConfig.top = ( screen.height / 2 ) - (editorConfig.height / 2);
 
-			Blox.aceEditors[id] = {
-				window: window.open(Blox.homeURL + '/?padma-trigger=ace-editor&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
+			Padma.aceEditors[id] = {
+				window: window.open(Padma.homeURL + '/?padma-trigger=ace-editor&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
 			}
 
-			Blox.aceEditors[id].window.focus();
+			Padma.aceEditors[id].window.focus();
 			aceHelper.bindEditor(id, mode, initialValue, changeCallback);
 
-			return Blox.aceEditors[id];
+			return Padma.aceEditors[id];
 
 		},
 
 		bindEditor: function(id, mode, initialValue, changeCallback) {
 
-			var window = Blox.aceEditors[id].window;
+			var window = Padma.aceEditors[id].window;
 
 			return $(window).bind('load', function() {
 
@@ -59,7 +59,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				var ace = window.ace;
 
 				/* Set paths */
-				var acePath = Blox.padmaURL + '/library/visual-editor/' + Blox.scriptFolder + '/deps/ace/';
+				var acePath = Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/deps/ace/';
 
 				ace.config.set('basePath', acePath);
 				ace.config.set('modePath', acePath);
@@ -67,27 +67,27 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				ace.config.set('themePath', acePath);
 
 				/* Init editor */
-				Blox.aceEditors[id].editor = ace.edit($(window.document).contents().find('#ace-editor').get(0));
-				Blox.aceEditors[id].editorSession = Blox.aceEditors[id].editor.getSession();
+				Padma.aceEditors[id].editor = ace.edit($(window.document).contents().find('#ace-editor').get(0));
+				Padma.aceEditors[id].editorSession = Padma.aceEditors[id].editor.getSession();
 
 				/* Set editor config */
-				Blox.aceEditors[id].editor.setTheme('ace/theme/clouds');
-				Blox.aceEditors[id].editorSession.setMode('ace/mode/' + mode);
+				Padma.aceEditors[id].editor.setTheme('ace/theme/clouds');
+				Padma.aceEditors[id].editorSession.setMode('ace/mode/' + mode);
 
-				Blox.aceEditors[id].editor.setShowPrintMargin(false);
+				Padma.aceEditors[id].editor.setShowPrintMargin(false);
 
-				Blox.aceEditors[id].editorSession.setUseWrapMode(true);
+				Padma.aceEditors[id].editorSession.setUseWrapMode(true);
 
 				/* Populate the editor */
-				Blox.aceEditors[id].editor.setValue(initialValue);
+				Padma.aceEditors[id].editor.setValue(initialValue);
 
 				/* Focus editor */
-				Blox.aceEditors[id].editor.gotoLine(0);
-				Blox.aceEditors[id].editor.focus();
+				Padma.aceEditors[id].editor.gotoLine(0);
+				Padma.aceEditors[id].editor.focus();
 
 				/* Bind the editor */
-				Blox.aceEditors[id].editorSession.on('change', function(e) {
-					return changeCallback(Blox.aceEditors[id].editor);
+				Padma.aceEditors[id].editorSession.on('change', function(e) {
+					return changeCallback(Padma.aceEditors[id].editor);
 				});
 
 			});

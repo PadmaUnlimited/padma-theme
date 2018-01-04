@@ -286,9 +286,6 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 		_mouseStart: function(event) {
 
-			console.log("grid.js > ");
-			console.log(event);
-
 			this.mouseStartPosition = [event.pageX - this.container.offset().left, event.pageY - this.container.offset().top];
 
 			var $eventTarget = $(event.target);

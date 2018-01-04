@@ -29,8 +29,8 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 			addWrapperButtons($i('div.wrapper'));
 			bindWrapperButtons();
 
-			console.log(setupWrapperSortables());
-			setupWrapperResizable();
+			setupWrapperSortables();
+			console.log(setupWrapperResizable());
 			setupWrapperContextMenu();
 
 			assignDefaultWrapperID();

@@ -198,6 +198,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				},
 				resize: function(event, ui) {
 
+					console.log('aqui');
+					console.log(event);
+
 					var heightChange = ui.originalSize.height - ui.size.height;
 					var wrapperHeight = ui.size.height;
 

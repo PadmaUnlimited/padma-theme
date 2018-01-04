@@ -9,7 +9,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			/* Get the elements and set up bindings */
 			Blox.elementsRequest = $.post(Blox.ajaxURL, {
 				security: Blox.security,
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'get_design_editor_elements',
 				layout: Blox.viewModels.layoutSelector.currentLayout()
 			}, function(elements) {
@@ -34,7 +34,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			/* Get the elements and set up bindings */
 			Blox.elementDataRequest = $.post(Blox.ajaxURL, {
 				security: Blox.security,
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'get_design_editor_element_data',
 				layout: Blox.viewModels.layoutSelector.currentLayout()
 			}, function(elementData) {
@@ -1053,7 +1053,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 				var ajaxArgs = {
 					security: Blox.security,
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'get_element_inputs',
 					unsavedValues: designEditorGetUnsavedValues(element),
 					element: designEditorGetElementObject(element)

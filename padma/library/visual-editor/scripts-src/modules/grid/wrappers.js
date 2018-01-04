@@ -651,7 +651,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					text: tooltipContentCallback
 				},
 				style: {
-					classes: 'qtip-blox'
+					classes: 'qtip-padma'
 				},
 				show: {
 					delay: 10,

@@ -16,7 +16,7 @@ define(['jquery', 'qtip'], function($) {
 		
 		var tooltipOptions = {
 			style: {
-				classes: 'qtip-blox'
+				classes: 'qtip-padma'
 			},
 			show: {
 				delay: 10,

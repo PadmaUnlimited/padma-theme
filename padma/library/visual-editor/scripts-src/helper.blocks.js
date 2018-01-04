@@ -623,7 +623,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			$(block).qtip({
 				style: {
-					classes: 'qtip-blox qtip-block-dimensions'
+					classes: 'qtip-padma qtip-block-dimensions'
 				},
 				position: {
 					my: 'top center',

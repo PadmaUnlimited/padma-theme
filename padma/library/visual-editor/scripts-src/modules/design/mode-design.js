@@ -765,7 +765,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 						elementName.find('.tooltip').qtip({
 							style: {
-								classes: 'qtip-blox qtip-blox-element-selector',
+								classes: 'qtip-padma qtip-padma-element-selector',
 								tip: false
 							},
 							position: {
@@ -1961,7 +1961,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					$i('body').qtip({
 						id: '',
 						style: {
-							classes: 'qtip-blox qtip-inspector-tooltip'
+							classes: 'qtip-padma qtip-inspector-tooltip'
 						},
 						position: {
 							target: [-9999, -9999],

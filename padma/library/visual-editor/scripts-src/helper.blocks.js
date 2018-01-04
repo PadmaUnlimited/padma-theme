@@ -1061,10 +1061,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			}
 		};
 
-		var newBlock = wrapper.data('ui-bloxGrid').addBlock(newBlockArgs);
+		var newBlock = wrapper.data('ui-padmaGrid').addBlock(newBlockArgs);
 
 		/* Send block to top */
-		wrapper.data('ui-bloxGrid').sendBlockToTop(newBlock);
+		wrapper.data('ui-padmaGrid').sendBlockToTop(newBlock);
 
 		/* Show alias immediately */
 		if ( duplicateAlias ) {

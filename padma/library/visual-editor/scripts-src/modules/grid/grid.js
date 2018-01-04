@@ -43,7 +43,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			this.helperTemplate = $('<div class="ui-grid-helper block"></div>');
 			this.offset = this.container.offset();
 									
-			this.wrapper.addClass('ui-blox-grid');
+			this.wrapper.addClass('ui-padma-grid');
 			this.wrapper.disableSelection();
 
 			/* Binding */	
@@ -88,7 +88,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			/* Bind Double Click */	
 				this.container.delegate('.' + this.options.defaultBlockClass.replace('.', ''), 'dblclick', function(event) {
 					
-					var grid = $(this).parents('.ui-blox-grid').data('ui-bloxGrid');
+					var grid = $(this).parents('.ui-padma-grid').data('ui-padmaGrid');
 					
 					//If there's only one grouped block and it's being toggled off, remove all grouping
 					if ( $(this).hasClass('grouped-block') && grid.container.find('.grouped-block').length === 1 ) {
@@ -529,7 +529,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				//this variable refers to resizabable
 				
 				var block = getBlock(ui.element);
-				var grid = block.parents('.ui-blox-grid').data('ui-bloxGrid');
+				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
 				
 				var minBlockHeight = parseInt(block.css('minHeight').replace('px', ''));
 				var height = block.height();
@@ -564,7 +564,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			resizableResize: function(event, ui) {
 				
 				var block = getBlock(ui.element);
-				var grid = block.parents('.ui-blox-grid').data('ui-bloxGrid');
+				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
 
 				/* Set classes to get rid of finicky-ness and to make the block stay in line with guides */
 				var widthGridNum = Math.round((block.width() + grid.grid.gutterWidth)/(grid.grid.columnWidth + grid.grid.gutterWidth));
@@ -589,7 +589,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 				//this variable refers to resizable
 				var block = getBlock(ui.element);
-				var grid = block.parents('.ui-blox-grid').data('ui-bloxGrid');
+				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
 
 				/* Setup variables for undo/redo */
 					var oldBlockPosition = block.data('old-position');
@@ -700,7 +700,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				}
 
 				var block = ui.el;
-				var grid = getBlock(block).parents('.ui-blox-grid').data('ui-bloxGrid');
+				var grid = getBlock(block).parents('.ui-padma-grid').data('ui-padmaGrid');
 							
 				//Grouping Code
 				blockGroupingOriginals = {};
@@ -762,7 +762,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				var isOverlapping;
 
 				var container = getBlock($(block)).parents('.grid-container');
-				var grid = getBlock($(block)).parents('.ui-blox-grid').data('ui-bloxGrid');
+				var grid = getBlock($(block)).parents('.ui-padma-grid').data('ui-padmaGrid');
 				var wrapper = getBlock($(block)).parents('.wrapper');
 
 				/* Check if mouse coordinates are overlapping another wrapper.  If they are then show droppable effect. */
@@ -937,7 +937,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				//this variable refers to draggable
 				var block = $(ui.el);
 				var container = getBlock($(block)).parents('.grid-container');
-				var grid = getBlock($(block)).parents('.ui-blox-grid').data('ui-bloxGrid');
+				var grid = getBlock($(block)).parents('.ui-padma-grid').data('ui-padmaGrid');
 				var isOverlapping;
 				var destinationContainer;
 
@@ -970,7 +970,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 					if ( isOverlapping && $i('.grid-container').length > 1 ) {
 
-						var destinationContainerBloxGrid = destinationContainer.parents('.wrapper').data('ui-bloxGrid');
+						var destinationContainerBloxGrid = destinationContainer.parents('.wrapper').data('ui-padmaGrid');
 						var originalContainer = block.parents('.grid-container');
 
 						/* Move block to destination container */
@@ -1009,7 +1009,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 							dataSetBlockWrapper(getBlockID(block), getBlockWrapper(block).attr('id'));
 
 						/* Re-align this block with the new wrapper */
-							block.parents('.ui-blox-grid').first().data('ui-bloxGrid').alignBlockWithGuides(block);
+							block.parents('.ui-padma-grid').first().data('ui-padmaGrid').alignBlockWithGuides(block);
 
 					}
 				/* End droppable handling */

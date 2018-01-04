@@ -127,9 +127,9 @@ define(['modules/panel.inputs'], function(panelInputs) {
 		}
 
 		/* Recalculate wrapper height */
-		wrapper.data('ui-bloxGrid').updateGridContainerHeight();
-		wrapper.data('ui-bloxGrid').resetGridCalculations();
-		wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
+		wrapper.data('ui-padmaGrid').updateGridContainerHeight();
+		wrapper.data('ui-padmaGrid').resetGridCalculations();
+		wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
 
 	}
 

@@ -325,9 +325,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fixed');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-bloxGrid').resetGridCalculations();
-						wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+						wrapper.data('ui-padmaGrid').resetGridCalculations();
+						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 					});
 
@@ -341,9 +341,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fluid');
 
-							wrapper.data('ui-bloxGrid').resetGridCalculations();
-							wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+							wrapper.data('ui-padmaGrid').resetGridCalculations();
+							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 						});
 
@@ -357,9 +357,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-							wrapper.data('ui-bloxGrid').resetGridCalculations();
-							wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+							wrapper.data('ui-padmaGrid').resetGridCalculations();
+							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 						});
 
@@ -377,9 +377,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-bloxGrid').resetGridCalculations();
-						wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+						wrapper.data('ui-padmaGrid').resetGridCalculations();
+						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 					});
 

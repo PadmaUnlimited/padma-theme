@@ -40,8 +40,8 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			iframeURL = updateQueryStringParameter(iframeURL, 'rand', Math.floor(Math.random() * 100000001));
 
 		/* Clear out existing iframe contents */
-			if ( iframe.contents().find('.ui-blox-grid').length && typeof iframe.contents().find('.ui-blox-grid').bloxGrid != 'undefined' ) {
-				iframe.contents().find('.ui-blox-grid').bloxGrid('destroy');
+			if ( iframe.contents().find('.ui-padma-grid').length && typeof iframe.contents().find('.ui-padma-grid').bloxGrid != 'undefined' ) {
+				iframe.contents().find('.ui-padma-grid').bloxGrid('destroy');
 			}
 
 			iframe.contents().find('*')

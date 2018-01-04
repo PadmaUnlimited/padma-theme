@@ -365,7 +365,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				}
 
 				/* Add the block to the grid */
-				$i('.ui-blox-grid').first().data('ui-bloxGrid').addBlock(addBlockArgs);
+				$i('.ui-padma-grid').first().data('ui-padmaGrid').addBlock(addBlockArgs);
 
 			});
 
@@ -476,16 +476,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 						if (typeof wrapperIDTranslations[blockWrapper.replace('wrapper-', '')] != 'undefined') {
 
 							var destinationWrapperID = '#wrapper-' + wrapperIDTranslations[blockWrapper.replace('wrapper-', '')];
-							var destinationWrapper = $i('.ui-blox-grid').filter(destinationWrapperID).first();
+							var destinationWrapper = $i('.ui-padma-grid').filter(destinationWrapperID).first();
 
 						} else {
 
-							var destinationWrapper = $i('.ui-blox-grid').last();
+							var destinationWrapper = $i('.ui-padma-grid').last();
 
 						}
 
 						/* Add block to wrapper */
-						var newBlock = destinationWrapper.data('ui-bloxGrid').addBlock(addBlockArgs);
+						var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
 						var newBlockID = getBlockID(newBlock);
 						var oldBlockID = this.id;
 
@@ -740,16 +740,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 				if (typeof wrapperIDTranslations[blockWrapper.replace('wrapper-', '')] != 'undefined') {
 
 					var destinationWrapperID = '#wrapper-' + wrapperIDTranslations[blockWrapper.replace('wrapper-', '')];
-					var destinationWrapper = $i('.ui-blox-grid').filter(destinationWrapperID).first();
+					var destinationWrapper = $i('.ui-padma-grid').filter(destinationWrapperID).first();
 
 				} else {
 
-					var destinationWrapper = $i('.ui-blox-grid').last();
+					var destinationWrapper = $i('.ui-padma-grid').last();
 
 				}
 
 				/* Add block to wrapper */
-				var newBlock = destinationWrapper.data('ui-bloxGrid').addBlock(addBlockArgs);
+				var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
 				var newBlockID = getBlockID(newBlock);
 				var oldBlockID = this.id;
 

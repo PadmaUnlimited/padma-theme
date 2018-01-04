@@ -2080,11 +2080,11 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
 					return false;
 
-				Padma.inspectorDisabled = false;
-				Padma.disableBlockDimensions = true;
+				Padma.inspectorDisabled 		= false;
+				Padma.disableBlockDimensions 	= true;
 
 				$i('body').addClass('disable-block-hover').removeClass('inspector-disabled');
-
+				
 				$i('.block[data-hasqtip]').each(function() {
 					var api = $(this).qtip('api');
 					api.destroy();
@@ -2277,9 +2277,6 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 		/* INSPECTOR TOOLTIP */
 			inspectorMouseMove = function(event) {
-
-
-				console.log(event);
 
 				if ( Padma.inspectorDisabled )
 					return;
@@ -2802,6 +2799,11 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			/* Hide DE if cookie is set to do so */
 				if ( $.cookie('hide-design-editor') === 'true' )
 					hideDesignEditor();
+
+			/*
+				Start inspector dissabled	
+			*/
+			disableInspector();
 
 		},
 

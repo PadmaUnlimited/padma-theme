@@ -36,7 +36,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				});
 
 				/* Keep track of original document height for maximum scrollTop */
-				Blox.iframe.data('maximumScrollTop', Blox.iframe.contents().height());
+				Blox.iframe.data('maximumScrollTop', Padma.iframe.contents().height());
 
 				/* Refresh sortable since heights changed */
 				$(this).sortable('refreshPositions');
@@ -72,11 +72,11 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 						wrapperDraggableScrollDownInterval = setInterval(function() {
 
-							var newScrollTop = Blox.iframe.contents().scrollTop() + 8;
+							var newScrollTop = Padma.iframe.contents().scrollTop() + 8;
 
 							/* Do not allow scrollTop to exceed the document height */
-							if ( Blox.iframe.height() + newScrollTop >= Blox.iframe.data('maximumScrollTop') ) {
-								newScrollTop = Blox.iframe.data('maximumScrollTop') - Blox.iframe.height();
+							if ( Padma.iframe.height() + newScrollTop >= Padma.iframe.data('maximumScrollTop') ) {
+								newScrollTop = Padma.iframe.data('maximumScrollTop') - Padma.iframe.height();
 							}
 
 							Blox.iframe.contents().scrollTop(newScrollTop);
@@ -312,7 +312,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					});
 
 				/* Wrapper type changing */
-				if ( wrapper.hasClass('wrapper-fluid') && Blox.mode == 'grid' ) {
+				if ( wrapper.hasClass('wrapper-fluid') && Padma.mode == 'grid' ) {
 
 					$('<li class="context-menu-wrapper-to-fixed"><span>Change Wrapper to Fixed</span></li>').appendTo(contextMenu).find('span').on('click', function() {
 
@@ -365,7 +365,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 					}
 
-				} else if ( wrapper.hasClass('wrapper-fixed') && Blox.mode == 'grid' ) {
+				} else if ( wrapper.hasClass('wrapper-fixed') && Padma.mode == 'grid' ) {
 
 					$('<li class="context-menu-wrapper-to-fluid"><span>Change Wrapper to Fluid</span></li>').appendTo(contextMenu).on('click', function() {
 
@@ -400,7 +400,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				});
 
 				/* Delete wrapper.  Do not allow it to be deleted if it's the last one. */
-				if ( $i('.wrapper:visible').length >= 2 && Blox.mode == 'grid' ) {
+				if ( $i('.wrapper:visible').length >= 2 && Padma.mode == 'grid' ) {
 
 					$('<li class="context-menu-wrapper-delete"><span>Delete Wrapper</span></li>').appendTo(contextMenu).on('click', function() {
 
@@ -558,7 +558,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			/* Set height on Grid to 100px */
 				wrapper.find('.grid-container').height(100);
 
-			/* Initiate Blox Grid on new wrapper */
+			/* Initiate Padma Grid on new wrapper */
 				wrapper.data('wrapper-settings', wrapperSettings);
 
 				wrapper.bloxGrid();
@@ -660,7 +660,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				position: {
 					my: 'right center',
 					at: 'left center',
-					container: Blox.iframe.contents().find('body'),
+					container: Padma.iframe.contents().find('body'),
 					viewport: $('#iframe-container'),
 					effect: false
 				}

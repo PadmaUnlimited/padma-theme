@@ -79,9 +79,7 @@ require(['jquery', 'util.loader'], function($) {
 
 			require(['modules/grid/mode-grid', 'modules/iframe', 'modules/layout-selector'], function(modeGrid) {
 				Padma.instance = modeGrid;
-
-				console.log(modeGrid);
-
+				
 				modeGrid.init();
 				waitForIframeLoad(modeGrid.iframeCallback);
 			});

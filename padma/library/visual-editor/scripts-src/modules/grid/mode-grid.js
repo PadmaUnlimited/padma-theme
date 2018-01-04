@@ -2,6 +2,8 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 
 	var modeGrid = {
 		init: function() {
+			
+			console.log(this);
 
 			bindGridWizard();
 

@@ -392,7 +392,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				type: 'POST',
 				async: true,
 				data: {
-					action: 'blox_visual_editor',
+					action: 'padma_visual_editor',
 					method: 'get_layout_blocks_in_json',
 					security: Blox.security,
 					layout: layoutToClone
@@ -535,7 +535,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			//Do the AJAX request to assign the template
 			$.post(Blox.ajaxURL, {
-				action: 'blox_visual_editor',
+				action: 'padma_visual_editor',
 				method: 'assign_template',
 				security: Blox.security,
 				template: templateToAssign,
@@ -631,7 +631,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 						});
 
 						$.post(Blox.ajaxURL, {
-							action: 'blox_visual_editor',
+							action: 'padma_visual_editor',
 							method: 'import_images',
 							security: Blox.security,
 							importFile: layout
@@ -822,7 +822,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		$('div#boxes').delegate('#grid-wizard-export-download-file', 'click', function () {
 
 			var params = {
-				'action': 'blox_visual_editor',
+				'action': 'padma_visual_editor',
 				'security': Blox.security,
 				'method': 'export_layout',
 				'layout': Blox.viewModels.layoutSelector.currentLayout()

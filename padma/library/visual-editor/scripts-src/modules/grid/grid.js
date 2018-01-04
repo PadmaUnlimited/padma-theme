@@ -525,13 +525,14 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		},
 			
 			resizableStart: function(event, ui) {
-
-				console.log(event);
 				
 				//this variable refers to resizabable
 				
 				var block = getBlock(ui.element);
 				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
+
+				console.log(block);
+				console.log(grid);
 				
 				var minBlockHeight = parseInt(block.css('minHeight').replace('px', ''));
 				var height = block.height();

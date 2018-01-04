@@ -1,11 +1,9 @@
 define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappers', 'modules/grid/grid-wizard', 'deps/jquery.pep', 'helper.blocks', 'helper.wrappers'], function($, btGrid, wrappers) {
 
 	var modeGrid = {
-		init: function() {
+		init: function() {	
 			
-			console.log('Hola!');
-
-			bindGridWizard();
+			bindGridWizard();			
 
 		},
 
@@ -113,4 +111,3 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 	return modeGrid;
 
 });
-console.log('Hola 2! ');

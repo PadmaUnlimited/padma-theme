@@ -274,9 +274,6 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 	updateBlockContentCover = function(block) {
 
-		console.log(Padma);
-		console.log(Padma.mode);
-
 		if ( Padma.mode != 'grid' )
 			return false;
 

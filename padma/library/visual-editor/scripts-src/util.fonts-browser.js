@@ -114,9 +114,9 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 			/* Lock search until it has finished loading */
 			context.find('.fonts-filter').attr('disabled', 'disabled');
 
-			$.post(Blox.ajaxURL, {
-				security: Blox.security,
-				action: 'blox_visual_editor',
+			$.post(Padma.ajaxURL, {
+				security: Padma.security,
+				action: 'Padma_visual_editor',
 				method: 'fonts_list',
 				sortby: sortBy,
 				provider: context.data('font-webfont-provider')
@@ -521,7 +521,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 			
 				/* Bind the document close */
 				$(document).bind('mousedown', {fontBrowser: fontBrowser}, fontBrowserClose);
-				Blox.iframe.contents().bind('mousedown', {fontBrowser: fontBrowser}, fontBrowserClose);
+				Padma.iframe.contents().bind('mousedown', {fontBrowser: fontBrowser}, fontBrowserClose);
 				
 				$(window).bind('resize', {fontBrowser: fontBrowser}, fontBrowserClose);
 			
@@ -537,7 +537,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 				/* Remove the events */
 				$(document).unbind('mousedown', fontBrowserClose);
-				Blox.iframe.contents().unbind('mousedown', fontBrowserClose);
+				Padma.iframe.contents().unbind('mousedown', fontBrowserClose);
 				
 				$(window).unbind('resize', fontBrowserClose);
 				
@@ -562,7 +562,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 		
 		/* Remove the events */
 		$(document).unbind('mousedown', fontBrowserClose);
-		Blox.iframe.contents().unbind('mousedown', fontBrowserClose);
+		Padma.iframe.contents().unbind('mousedown', fontBrowserClose);
 		
 		$(window).unbind('resize', fontBrowserClose);
 		

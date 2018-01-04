@@ -4,14 +4,14 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 	tourStepsGrid = [
 		{
 			beginning: true,
-			title: 'Welcome to the Blox Visual Editor!',
-			content: '<p>If this is your first time in the Blox Visual Editor, <strong>we recommend following this tour so you can get the most out of Blox</strong>.</p><p>Or, if you\'re experienced or want to dive in right away, just click the close button in the top right at any time.</p>'
+			title: 'Welcome to the Padma Visual Editor!',
+			content: '<p>If this is your first time in the Padma Visual Editor, <strong>we recommend following this tour so you can get the most out of Padma</strong>.</p><p>Or, if you\'re experienced or want to dive in right away, just click the close button in the top right at any time.</p>'
 		},
 
 		{
 			target: $('li#mode-grid'),
 			title: 'Mode Selector',
-			content: '<p>The Blox Visual Editor is split up into 2 modes.</p><p><ul><li><strong>Grid</strong> &ndash; Build your layouts</li><li><strong>Design</strong> &ndash; Add colors, customize fonts, and more!</li></ul></p>',
+			content: '<p>The Padma Visual Editor is split up into 2 modes.</p><p><ul><li><strong>Grid</strong> &ndash; Build your layouts</li><li><strong>Design</strong> &ndash; Add colors, customize fonts, and more!</li></ul></p>',
 			position: {
 				my: 'top left',
 				at: 'bottom center'
@@ -30,8 +30,8 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 		{
 			target: $('div#box-grid-wizard'),
-			title: 'The Blox Grid',
-			content: '<p>Now we\'re ready to get started with the Blox Grid.  In other words, the good stuff.</p><p>To build your first layout, please select a preset to the right to pre-populate the grid.  Or, you may select "Use Empty Grid" to start with a completely blank grid.</p><p>Once you have a preset selected, click "Finish".</p>',
+			title: 'The Padma Grid',
+			content: '<p>Now we\'re ready to get started with the Padma Grid.  In other words, the good stuff.</p><p>To build your first layout, please select a preset to the right to pre-populate the grid.  Or, you may select "Use Empty Grid" to start with a completely blank grid.</p><p>Once you have a preset selected, click "Finish".</p>',
 			position: {
 				my: 'right top',
 				at: 'left center'
@@ -98,14 +98,14 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 			buttonText: 'Continue to Design Mode',
 			buttonCallback: function () {
 
-				$.post(Blox.ajaxURL, {
-					security: Blox.security,
-					action: 'blox_visual_editor',
+				$.post(Padma.ajaxURL, {
+					security: Padma.security,
+					action: 'Padma_visual_editor',
 					method: 'ran_tour',
 					mode: 'grid',
 					complete: function () {
 
-						Blox.ranTour['grid'] = true;
+						Padma.ranTour['grid'] = true;
 
 						/* Advance to Design Editor */
 						$('li#mode-design a').trigger('click');
@@ -122,7 +122,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 	tourStepsDesign = [
 		{
 			beginning: true,
-			title: 'Welcome to the Blox Design Editor!',
+			title: 'Welcome to the Padma Design Editor!',
 			content: "<p>In the <strong>Design Editor</strong>, you can style your elements however you'd like.</p><p>Whether it's fonts, colors, padding, borders, shadows, or rounded corners, you can use the design editor.</p><p>Stick around to learn more!</p>"
 		},
 
@@ -156,8 +156,8 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 		{
 			target: 'window',
-			title: 'Have fun building with Blox!',
-			content: '<p>We hope you find Blox to the most powerful and easy-to-use WordPress framework around.</p><p>If you have any questions, please don\'t hesitate to visit the <a href="http://support.bloxtheme.com/?utm_source=visualeditor&utm_medium=blox&utm_campaign=tour" target="_blank">support forums</a>.</p>',
+			title: 'Have fun building with Padma!',
+			content: '<p>We hope you find Padma to the most powerful and easy-to-use WordPress framework around.</p><p>If you have any questions, please don\'t hesitate to visit the <a href="http://support.Padmatheme.com/?utm_source=visualeditor&utm_medium=Padma&utm_campaign=tour" target="_blank">support forums</a>.</p>',
 			end: true
 		}
 	];
@@ -165,14 +165,14 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 	return {
 		start: function () {
 
-			if ( Blox.mode == 'grid' ) {
+			if ( Padma.mode == 'grid' ) {
 
 				var steps = tourStepsGrid;
 
 				hidePanel();
 				openBox('grid-wizard');
 
-			} else if ( Blox.mode == 'design' ) {
+			} else if ( Padma.mode == 'design' ) {
 
 				var steps = tourStepsDesign;
 
@@ -396,16 +396,16 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 						});
 
 						//Tell the DB that the tour has been ran
-						if ( Blox.ranTour[Blox.mode] == false && Blox.ranTour.legacy != true ) {
+						if ( Padma.ranTour[Padma.mode] == false && Padma.ranTour.legacy != true ) {
 
-							$.post(Blox.ajaxURL, {
-								security: Blox.security,
-								action: 'blox_visual_editor',
+							$.post(Padma.ajaxURL, {
+								security: Padma.security,
+								action: 'Padma_visual_editor',
 								method: 'ran_tour',
-								mode: Blox.mode
+								mode: Padma.mode
 							});
 
-							Blox.ranTour[Blox.mode] = true;
+							Padma.ranTour[Padma.mode] = true;
 
 						}
 

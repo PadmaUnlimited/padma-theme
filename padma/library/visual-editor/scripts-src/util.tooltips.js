@@ -5,7 +5,7 @@ define(['jquery', 'qtip'], function($) {
 		if ( typeof location === 'undefined' )
 			location = false;
 			
-		if ( Blox.disableTooltips == 1 || Blox.touch ) {
+		if ( Padma.disableTooltips == 1 || Padma.touch ) {
 			
 			$('div.tooltip-button').hide();
 			$('*').removeAttr('title');
@@ -16,7 +16,7 @@ define(['jquery', 'qtip'], function($) {
 		
 		var tooltipOptions = {
 			style: {
-				classes: 'qtip-blox'
+				classes: 'qtip-Padma'
 			},
 			show: {
 				delay: 10,
@@ -37,7 +37,7 @@ define(['jquery', 'qtip'], function($) {
 		if ( location == 'iframe' ) {
 			
 			tooltipOptions.position.container = $i('body');
-			tooltipOptions.position.viewport = $i('#blox-tooltip-container');
+			tooltipOptions.position.viewport = $i('#Padma-tooltip-container');
 						
 			var tooltipElement = $i;
 			
@@ -111,8 +111,8 @@ define(['jquery', 'qtip'], function($) {
 						
 		}
 
-		Blox.iframe.contents().unbind('scroll', iframeScrollTooltipReposition);		
-		Blox.iframe.contents().bind('scroll', iframeScrollTooltipReposition);
+		Padma.iframe.contents().unbind('scroll', iframeScrollTooltipReposition);		
+		Padma.iframe.contents().bind('scroll', iframeScrollTooltipReposition);
 		
 	}
 	

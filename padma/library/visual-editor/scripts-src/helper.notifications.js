@@ -20,7 +20,7 @@
 		}, args);
 		
 		/* If doNotShowAgain is true and the cookie exists, don't show the notification */
-			if ( args.doNotShowAgain && $.cookie('blox-hide-notification-' + args.id) )
+			if ( args.doNotShowAgain && $.cookie('Padma-hide-notification-' + args.id) )
 				return;
 
 		/* If notification already exists, delete it. */
@@ -142,7 +142,7 @@
 					$(this).remove();
 
 					if ( args.doNotShowAgain )
-						$.cookie('blox-hide-notification-' + args.id, true);
+						$.cookie('Padma-hide-notification-' + args.id, true);
 
 				});
 
@@ -151,7 +151,7 @@
 				notification.remove();
 
 				if ( args.doNotShowAgain )
-					$.cookie('blox-hide-notification-' + args.id, true);
+					$.cookie('Padma-hide-notification-' + args.id, true);
 
 			}
 

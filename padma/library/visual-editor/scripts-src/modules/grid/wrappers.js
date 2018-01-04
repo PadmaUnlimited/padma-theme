@@ -138,6 +138,8 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 	setupWrapperResizable = function(wrappers) {
 
+		console.log(wrappers);
+
 		if ( typeof wrappers == 'undefined' )
 			var wrappers = $i('.wrapper');
 

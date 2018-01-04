@@ -470,7 +470,7 @@
 							'checked' => PadmaOption::get('hide-menu-version-number', false, true)
 						)
 					),
-					'description' => 'Check this if you wish to have the Menu say "Padma" instead of "Padma ' .HEADWAY_VERSION . '"'
+					'description' => 'Check this if you wish to have the Menu say "Padma" instead of "Padma ' .PADMA_VERSION . '"'
 				),
 
 				array(

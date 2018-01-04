@@ -39,7 +39,7 @@
     callIfNotStarted:               ['stop', 'rest'],
     startThreshold:                 [0,0],
     grid:                           [1,1],
-    debug:                          false,
+    debug:                          true,
     activeClass:                    'pep-active',
     startClass:                     'pep-start',
     easeClass:                      'pep-ease',

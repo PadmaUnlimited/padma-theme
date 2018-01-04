@@ -10,8 +10,8 @@ define(['jquery', 'knockout'], function($, ko) {
 
 		setupViewModel: function() {
 
-			Padma.viewModels.snapshots = {
-				snapshots: ko.observableArray(Padma.snapshots),
+			Blox.viewModels.snapshots = {
+				snapshots: ko.observableArray(Blox.snapshots),
 				formatSnapshotDatetime: function(datetime) {
 
 					var datetimeFrags = datetime.split(/[- :]/);
@@ -35,13 +35,13 @@ define(['jquery', 'knockout'], function($, ko) {
 					button.text('Rolling Back..');
 
 					/* Rollback */
-					$.post(Padma.ajaxURL, {
-						security: Padma.security,
-						action: 'padma_visual_editor',
+					$.post(Blox.ajaxURL, {
+						security: Blox.security,
+						action: 'blox_visual_editor',
 						method: 'rollback_to_snapshot',
-						layout: Padma.viewModels.layoutSelector.currentLayout(),
+						layout: Blox.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
-						mode: Padma.mode
+						mode: Blox.mode
 					}, function(response) {
 
 						if ( typeof response.error != 'undefined' )
@@ -78,13 +78,13 @@ define(['jquery', 'knockout'], function($, ko) {
 					button.addClass('deletion-in-progress');
 
 					/* Delete snapshot */
-					$.post(Padma.ajaxURL, {
-						security: Padma.security,
-						action: 'padma_visual_editor',
+					$.post(Blox.ajaxURL, {
+						security: Blox.security,
+						action: 'blox_visual_editor',
 						method: 'delete_snapshot',
-						layout: Padma.viewModels.layoutSelector.currentLayout(),
+						layout: Blox.viewModels.layoutSelector.currentLayout(),
 						snapshot_id: data.id,
-						mode: Padma.mode
+						mode: Blox.mode
 					}, function (response) {
 
 						if ( typeof response.error != 'undefined' )
@@ -96,7 +96,7 @@ define(['jquery', 'knockout'], function($, ko) {
 							success: true
 						});
 
-						Padma.viewModels.snapshots.snapshots.remove(data);
+						Blox.viewModels.snapshots.snapshots.remove(data);
 
 					});
 
@@ -119,12 +119,12 @@ define(['jquery', 'knockout'], function($, ko) {
 					/* Prompt for comments about snapshot */
 					var snapshotComments = prompt("(Optional)\n\nEnter name or description of the changes in this snapshot.");
 
-					$.post(Padma.ajaxURL, {
-						security: Padma.security,
-						action: 'padma_visual_editor',
+					$.post(Blox.ajaxURL, {
+						security: Blox.security,
+						action: 'blox_visual_editor',
 						method: 'save_snapshot',
-						layout: Padma.viewModels.layoutSelector.currentLayout(),
-						mode: Padma.mode,
+						layout: Blox.viewModels.layoutSelector.currentLayout(),
+						mode: Blox.mode,
 						snapshot_comments: snapshotComments
 					}, function(response) {
 
@@ -137,7 +137,7 @@ define(['jquery', 'knockout'], function($, ko) {
 							success: true
 						});
 
-						Padma.viewModels.snapshots.snapshots.unshift({
+						Blox.viewModels.snapshots.snapshots.unshift({
 							id: response.id,
 							timestamp: response.timestamp,
 							comments: response.comments
@@ -153,7 +153,7 @@ define(['jquery', 'knockout'], function($, ko) {
 			}
 
 			$(document).ready(function() {
-				ko.applyBindings(Padma.viewModels.snapshots, $('#box-snapshots').get(0));
+				ko.applyBindings(Blox.viewModels.snapshots, $('#box-snapshots').get(0));
 			});
 
 		},

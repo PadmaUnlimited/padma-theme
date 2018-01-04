@@ -63,7 +63,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 			
 			createCog(panel, true);
 
-			loadData.mode = Padma.mode;
+			loadData.mode = Blox.mode;
 						
 			$('div#panel div#' +  name + '-tab').load(loadURL, loadData, loadCallback);
 			

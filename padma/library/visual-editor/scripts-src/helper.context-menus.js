@@ -29,7 +29,7 @@
 		deactivateContextMenu(args.id);
 
 		/* Bind the right click on the element(s) */
-			var contextMenuOpenEvent = !Padma.touch ? 'contextmenu.contextMenu' + args.id : 'taphold.contextMenu' + args.id;
+			var contextMenuOpenEvent = !Blox.touch ? 'contextmenu.contextMenu' + args.id : 'taphold.contextMenu' + args.id;
 
 			/* Get to binding! */
 			if ( args.isIframeElement ) {
@@ -64,7 +64,7 @@
 			}
 
 			/* Bind mouseup to close context menu normally and tap for touch support */
-				var contextMenuCloseEvent = !Padma.touch ? 'click' : 'touchstart';
+				var contextMenuCloseEvent = !Blox.touch ? 'click' : 'touchstart';
 
 				$('body').on(contextMenuCloseEvent + '.contextMenu' + args.id, clickToClose);
 				$i('body').on(contextMenuCloseEvent + '.contextMenu' + args.id, clickToClose);
@@ -122,7 +122,7 @@
 
 				};
 
-				var contextMenuClickEvent = !Padma.touch ? 'click' : 'tap';
+				var contextMenuClickEvent = !Blox.touch ? 'click' : 'tap';
 				contextMenu.delegate('span', contextMenuClickEvent, contextMenuItemClick);
 
 			/* Context menu positioning */

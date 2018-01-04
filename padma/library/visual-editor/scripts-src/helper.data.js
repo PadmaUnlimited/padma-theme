@@ -276,9 +276,9 @@ define(['underscore'], function(_) {
 			insert_id: wrapper.data('desired-id'),
 			position: position,
 			settings: jQuery.extend({}, {
-				'columns': Padma.defaultGridColumnCount,
-				'column-width': Padma.globalGridColumnWidth,
-				'gutter-width': Padma.globalGridGutterWidth
+				'columns': Blox.defaultGridColumnCount,
+				'column-width': Blox.globalGridColumnWidth,
+				'gutter-width': Blox.globalGridGutterWidth
 			}, settings)
 		};
 
@@ -445,11 +445,11 @@ define(['underscore'], function(_) {
 		/* Figure out the selector */
 		if ( !specialElementType ) {
 
-			selector = Padma.elements[element]['selector'];
+			selector = Blox.elements[element]['selector'];
 
 		} else if ( specialElementType == 'layout' ) {
 
-			var originalSelector = Padma.elements[element]['selector'].replace('body', '');
+			var originalSelector = Blox.elements[element]['selector'].replace('body', '');
 
 			if ( originalSelector.length ) {
 
@@ -463,14 +463,14 @@ define(['underscore'], function(_) {
 
 		} else {
 
-			selector = Padma.elements[element][specialElementType + 's'][specialElementMeta]['selector'];
+			selector = Blox.elements[element][specialElementType + 's'][specialElementMeta]['selector'];
 
 		}
 
 		/* Call developer-defined callback */
-		if ( Padma.designEditorProperties.hasOwnProperty(property) ) {
+		if ( Blox.designEditorProperties.hasOwnProperty(property) ) {
 
-			var callback = eval('(function(params){' + Padma.designEditorProperties[property]['js-callback'] + '})');
+			var callback = eval('(function(params){' + Blox.designEditorProperties[property]['js-callback'] + '})');
 
 			args['selector'] = selector;
 			args['element'] = $i(selector);
@@ -519,17 +519,17 @@ define(['underscore'], function(_) {
 
 			GLOBALunsavedValues['design-editor'][element]['properties'][property] = value;
 
-			/* Change Padma.elementData as well that way other places can update before saving */
-			if ( typeof Padma.elementData != 'object' )
-				Padma.elementData = new Object();
+			/* Change Blox.elementData as well that way other places can update before saving */
+			if ( typeof Blox.elementData != 'object' )
+				Blox.elementData = new Object();
 
-			if ( typeof Padma.elementData[element] == 'undefined' )
-				Padma.elementData[element] = {properties: {}};
+			if ( typeof Blox.elementData[element] == 'undefined' )
+				Blox.elementData[element] = {properties: {}};
 
-			if ( typeof Padma.elementData[element]['properties'] == 'undefined' )
-				Padma.elementData[element]['properties'] = {};
+			if ( typeof Blox.elementData[element]['properties'] == 'undefined' )
+				Blox.elementData[element]['properties'] = {};
 
-			Padma.elementData[element]['properties'][property] = value;
+			Blox.elementData[element]['properties'][property] = value;
 
 		} else {
 
@@ -541,20 +541,20 @@ define(['underscore'], function(_) {
 
 			GLOBALunsavedValues['design-editor'][element]['special-element-' + specialElementType][specialElementMeta][property] = value;
 
-			/* Change Padma.elementData as well that way other places can update before saving */
-			if ( typeof Padma.elementData != 'object' )
-				Padma.elementData = new Object();
+			/* Change Blox.elementData as well that way other places can update before saving */
+			if ( typeof Blox.elementData != 'object' )
+				Blox.elementData = new Object();
 
-			if ( typeof Padma.elementData[element] != 'object' )
-				Padma.elementData[element] = new Object();
+			if ( typeof Blox.elementData[element] != 'object' )
+				Blox.elementData[element] = new Object();
 
-			if ( typeof Padma.elementData[element]['special-element-' + specialElementType] != 'object' )
-				Padma.elementData[element]['special-element-' + specialElementType] = new Object();
+			if ( typeof Blox.elementData[element]['special-element-' + specialElementType] != 'object' )
+				Blox.elementData[element]['special-element-' + specialElementType] = new Object();
 
-			if ( !_.isObject(Padma.elementData[element]['special-element-' + specialElementType][specialElementMeta]) || _.isArray(Padma.elementData[element]['special-element-' + specialElementType][specialElementMeta]) )
-				Padma.elementData[element]['special-element-' + specialElementType][specialElementMeta] = new Object();
+			if ( !_.isObject(Blox.elementData[element]['special-element-' + specialElementType][specialElementMeta]) || _.isArray(Blox.elementData[element]['special-element-' + specialElementType][specialElementMeta]) )
+				Blox.elementData[element]['special-element-' + specialElementType][specialElementMeta] = new Object();
 
-			Padma.elementData[element]['special-element-' + specialElementType][specialElementMeta][property] = value;
+			Blox.elementData[element]['special-element-' + specialElementType][specialElementMeta][property] = value;
 
 		}
 

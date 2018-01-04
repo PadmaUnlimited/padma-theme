@@ -36,7 +36,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				});
 
 				/* Keep track of original document height for maximum scrollTop */
-				Blox.iframe.data('maximumScrollTop', Padma.iframe.contents().height());
+				Padma.iframe.data('maximumScrollTop', Padma.iframe.contents().height());
 
 				/* Refresh sortable since heights changed */
 				$(this).sortable('refreshPositions');
@@ -55,13 +55,13 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					if ( typeof wrapperDraggableScrollUpInterval == 'undefined' ) {
 
 						wrapperDraggableScrollUpInterval = setInterval(function() {
-							Blox.iframe.contents().scrollTop(Blox.iframe.contents().scrollTop() - 8);
+							Padma.iframe.contents().scrollTop(Padma.iframe.contents().scrollTop() - 8);
 						}, 5);
 
 					}
 
 				/* Automatically scroll down */
-				} else if ( (Blox.iframe.height() - event.clientY) < 100 ) {
+				} else if ( (Padma.iframe.height() - event.clientY) < 100 ) {
 
 					if ( typeof wrapperDraggableScrollUpInterval == 'number' ) {
 						clearInterval(wrapperDraggableScrollUpInterval);
@@ -79,7 +79,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 								newScrollTop = Padma.iframe.data('maximumScrollTop') - Padma.iframe.height();
 							}
 
-							Blox.iframe.contents().scrollTop(newScrollTop);
+							Padma.iframe.contents().scrollTop(newScrollTop);
 
 						}, 5);
 
@@ -110,7 +110,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				/* Reset grid container heights */
 				$i('.wrapper').each(function() {
-					$(this).bloxGrid('updateGridContainerHeight');
+					$(this).padmaGrid('updateGridContainerHeight');
 				});
 
 				/* Stop scrolling intervals if they still exist */
@@ -325,9 +325,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fixed');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-bloxGrid').resetGridCalculations();
-						wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+						wrapper.data('ui-padmaGrid').resetGridCalculations();
+						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 					});
 
@@ -341,9 +341,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fluid');
 
-							wrapper.data('ui-bloxGrid').resetGridCalculations();
-							wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+							wrapper.data('ui-padmaGrid').resetGridCalculations();
+							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 						});
 
@@ -357,9 +357,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-							wrapper.data('ui-bloxGrid').resetGridCalculations();
-							wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+							wrapper.data('ui-padmaGrid').resetGridCalculations();
+							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 						});
 
@@ -377,9 +377,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-bloxGrid').resetGridCalculations();
-						wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+						wrapper.data('ui-padmaGrid').resetGridCalculations();
+						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
 
 					});
 
@@ -561,7 +561,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			/* Initiate Padma Grid on new wrapper */
 				wrapper.data('wrapper-settings', wrapperSettings);
 
-				wrapper.bloxGrid();
+				wrapper.padmaGrid();
 				setupWrapperResizable(wrapper);
 
 				bindWrapperMarginButtons(wrapper.find('.wrapper-margin-handle'));
@@ -651,7 +651,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					text: tooltipContentCallback
 				},
 				style: {
-					classes: 'qtip-blox'
+					classes: 'qtip-padma'
 				},
 				show: {
 					delay: 10,

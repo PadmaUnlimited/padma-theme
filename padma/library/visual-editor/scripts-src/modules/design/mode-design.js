@@ -2278,6 +2278,9 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 		/* INSPECTOR TOOLTIP */
 			inspectorMouseMove = function(event) {
 
+
+				console.log(event);
+
 				if ( Padma.inspectorDisabled )
 					return;
 
@@ -2363,7 +2366,6 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				}
 
 				inspectorTooltip.show();
-				console.log(inspectorTooltip);
 				inspectorTooltip.set('position.target', 'mouse');
 
 			}

@@ -525,6 +525,8 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		},
 			
 			resizableStart: function(event, ui) {
+
+				console.log(event);
 				
 				//this variable refers to resizabable
 				

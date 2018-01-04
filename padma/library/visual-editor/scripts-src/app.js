@@ -19,7 +19,6 @@ require(['jquery', 'util.loader'], function($) {
 
 	/* Start loading indidcator */
 	startTitleActivityIndicator();
-	//iframe.showIframeLoadingOverlay();
 
 	/* Parse the JSON in the Padma l10n array */
 	Padma.blockTypeURLs 			= $.parseJSON(Padma.blockTypeURLs.replace(/&quot;/g, '"'));
@@ -69,38 +68,29 @@ require(['jquery', 'util.loader'], function($) {
 	switch ( Padma.mode ) {
 
 		case 'grid':
-
 			require(['modules/grid/mode-grid', 'modules/iframe', 'modules/layout-selector'], function(modeGrid) {
 				Padma.instance = modeGrid;
 
 				modeGrid.init();
 				waitForIframeLoad(modeGrid.iframeCallback);
 			});
-
 		break;
 
 		case 'design':
-
 			require(['modules/design/mode-design', 'modules/iframe', 'modules/layout-selector'], function(modeDesign) {
 				Padma.instance = modeDesign;
 
 				modeDesign.init();
 				waitForIframeLoad(modeDesign.iframeCallback);
 			});
-
 		break;
 
 	}
 
 	/* After everything is loaded show the Visual Editor */
 	$(document).ready(function() {
-
-		$('body').addClass('show-ve');
-
-		/*
-			Light / Night mode
-		*/
 		
+		$('body').addClass('show-ve');
 
 	});
 

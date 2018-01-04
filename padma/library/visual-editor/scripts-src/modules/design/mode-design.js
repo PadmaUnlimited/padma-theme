@@ -2363,6 +2363,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				}
 
 				inspectorTooltip.show();
+				console.log(inspectorTooltip);
 				inspectorTooltip.set('position.target', 'mouse');
 
 			}
@@ -2775,7 +2776,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 	/* END ELEMENT INFO */
 
 	return {
-		
+
 		init: function() {
 
 			designEditor = new designEditorTabEditor();

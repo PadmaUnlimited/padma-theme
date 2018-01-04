@@ -19,16 +19,15 @@ require(['jquery', 'util.loader'], function($) {
 
 	/* Start loading indidcator */
 	startTitleActivityIndicator();
-	//iframe.showIframeLoadingOverlay();
 
-	/* Parse the JSON in the Blox l10n array */
-	Blox.blockTypeURLs = $.parseJSON(Blox.blockTypeURLs.replace(/&quot;/g, '"'));
-	Blox.allBlockTypes = $.parseJSON(Blox.allBlockTypes.replace(/&quot;/g, '"'));
-	Blox.ranTour = $.parseJSON(Blox.ranTour.replace(/&quot;/g, '"'));
+	/* Parse the JSON in the Padma l10n array */
+	Padma.blockTypeURLs = $.parseJSON(Padma.blockTypeURLs.replace(/&quot;/g, '"'));
+	Padma.allBlockTypes = $.parseJSON(Padma.allBlockTypes.replace(/&quot;/g, '"'));
+	Padma.ranTour = $.parseJSON(Padma.ranTour.replace(/&quot;/g, '"'));
 
-	Blox.designEditorProperties = $.parseJSON(Blox.designEditorProperties.replace(/&quot;/g, '"'));
+	Padma.designEditorProperties = $.parseJSON(Padma.designEditorProperties.replace(/&quot;/g, '"'));
 
-	Blox.layouts = $.parseJSON(Blox.layouts.replace(/&quot;/g, '"'));
+	Padma.layouts = $.parseJSON(Padma.layouts.replace(/&quot;/g, '"'));
 
 	/* Setup modules */
 	require(['modules/layout-selector'], function(layoutSelector) {
@@ -51,7 +50,7 @@ require(['jquery', 'util.loader'], function($) {
 	/* Init tour */
 	require(['util.tour'], function (tour) {
 
-		if ( Blox.ranTour[Blox.mode] == false && Blox.ranTour.legacy == false ) {
+		if ( Padma.ranTour[Padma.mode] == false && Padma.ranTour.legacy == false ) {
 			tour.start();
 		}
 
@@ -73,12 +72,12 @@ require(['jquery', 'util.loader'], function($) {
 	});
 
 	/* Load in the appropriate modules depending on the mode */
-	switch ( Blox.mode ) {
+	switch ( Padma.mode ) {
 
 		case 'grid':
 
 			require(['modules/grid/mode-grid', 'modules/iframe', 'modules/layout-selector'], function(modeGrid) {
-				Blox.instance = modeGrid;
+				Padma.instance = modeGrid;
 
 				modeGrid.init();
 				waitForIframeLoad(modeGrid.iframeCallback);
@@ -89,7 +88,7 @@ require(['jquery', 'util.loader'], function($) {
 		case 'design':
 
 			require(['modules/design/mode-design', 'modules/iframe', 'modules/layout-selector'], function(modeDesign) {
-				Blox.instance = modeDesign;
+				Padma.instance = modeDesign;
 
 				modeDesign.init();
 				waitForIframeLoad(modeDesign.iframeCallback);

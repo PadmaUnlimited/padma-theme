@@ -23,7 +23,9 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 			
 			/* Initialize Grid Stylesheet */
 			gridStylesheet = new ITStylesheet({document: Padma.iframe.contents()[0], href: '/?padma-trigger=compiler&file=ve-iframe-grid-dynamic'}, 'find');
-					
+			
+			console.log(gridStylesheet);
+
 			addEdgeInsertWrapperButtons();
 
 			addWrapperButtons($i('div.wrapper'));

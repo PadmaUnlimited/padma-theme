@@ -838,9 +838,6 @@ define(['deps/chosen.jquery'], function(chosen) {
 		});
 		/* End Import/Export */
 
-
-		console.log('Hola 4!');
-
 	}
 
 });

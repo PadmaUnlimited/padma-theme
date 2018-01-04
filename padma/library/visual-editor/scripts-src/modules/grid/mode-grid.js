@@ -30,7 +30,7 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 			bindWrapperButtons();
 
 			setupWrapperSortables();
-			console.log(setupWrapperResizable());
+			setupWrapperResizable();
 			setupWrapperContextMenu();
 
 			assignDefaultWrapperID();

@@ -11,11 +11,6 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			placeholder: 'wrapper-sortable-placeholder',
 			start: function(event, ui) {
 
-				console.log("Hola 6");
-				console.log(event);
-				console.log(ui);
-
-
 				/* Store previous heights of wrappers that way they can be added back after sorting */
 				$i('.wrapper').each(function() {
 					$(this).data('current-height', $(this).height());
@@ -41,7 +36,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				});
 
 				/* Keep track of original document height for maximum scrollTop */
-				Padma.iframe.data('maximumScrollTop', Padma.iframe.contents().height());
+				Blox.iframe.data('maximumScrollTop', Blox.iframe.contents().height());
 
 				/* Refresh sortable since heights changed */
 				$(this).sortable('refreshPositions');
@@ -60,13 +55,13 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					if ( typeof wrapperDraggableScrollUpInterval == 'undefined' ) {
 
 						wrapperDraggableScrollUpInterval = setInterval(function() {
-							Padma.iframe.contents().scrollTop(Padma.iframe.contents().scrollTop() - 8);
+							Blox.iframe.contents().scrollTop(Blox.iframe.contents().scrollTop() - 8);
 						}, 5);
 
 					}
 
 				/* Automatically scroll down */
-				} else if ( (Padma.iframe.height() - event.clientY) < 100 ) {
+				} else if ( (Blox.iframe.height() - event.clientY) < 100 ) {
 
 					if ( typeof wrapperDraggableScrollUpInterval == 'number' ) {
 						clearInterval(wrapperDraggableScrollUpInterval);
@@ -77,14 +72,14 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 						wrapperDraggableScrollDownInterval = setInterval(function() {
 
-							var newScrollTop = Padma.iframe.contents().scrollTop() + 8;
+							var newScrollTop = Blox.iframe.contents().scrollTop() + 8;
 
 							/* Do not allow scrollTop to exceed the document height */
-							if ( Padma.iframe.height() + newScrollTop >= Padma.iframe.data('maximumScrollTop') ) {
-								newScrollTop = Padma.iframe.data('maximumScrollTop') - Padma.iframe.height();
+							if ( Blox.iframe.height() + newScrollTop >= Blox.iframe.data('maximumScrollTop') ) {
+								newScrollTop = Blox.iframe.data('maximumScrollTop') - Blox.iframe.height();
 							}
 
-							Padma.iframe.contents().scrollTop(newScrollTop);
+							Blox.iframe.contents().scrollTop(newScrollTop);
 
 						}, 5);
 
@@ -115,7 +110,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				/* Reset grid container heights */
 				$i('.wrapper').each(function() {
-					$(this).padmaGrid('updateGridContainerHeight');
+					$(this).bloxGrid('updateGridContainerHeight');
 				});
 
 				/* Stop scrolling intervals if they still exist */
@@ -137,8 +132,6 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 	}
 
 	setupWrapperResizable = function(wrappers) {
-
-		console.log(wrappers);
 
 		if ( typeof wrappers == 'undefined' )
 			var wrappers = $i('.wrapper');
@@ -199,9 +192,6 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				},
 				resize: function(event, ui) {
-
-					console.log('aqui');
-					console.log(event);
 
 					var heightChange = ui.originalSize.height - ui.size.height;
 					var wrapperHeight = ui.size.height;
@@ -322,7 +312,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					});
 
 				/* Wrapper type changing */
-				if ( wrapper.hasClass('wrapper-fluid') && Padma.mode == 'grid' ) {
+				if ( wrapper.hasClass('wrapper-fluid') && Blox.mode == 'grid' ) {
 
 					$('<li class="context-menu-wrapper-to-fixed"><span>Change Wrapper to Fixed</span></li>').appendTo(contextMenu).find('span').on('click', function() {
 
@@ -335,9 +325,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fixed');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-padmaGrid').resetGridCalculations();
-						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
+						wrapper.data('ui-bloxGrid').resetGridCalculations();
+						wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-bloxGrid').updateGridContainerHeight();
 
 					});
 
@@ -351,9 +341,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fluid');
 
-							wrapper.data('ui-padmaGrid').resetGridCalculations();
-							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
+							wrapper.data('ui-bloxGrid').resetGridCalculations();
+							wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-bloxGrid').updateGridContainerHeight();
 
 						});
 
@@ -367,15 +357,15 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 							dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-							wrapper.data('ui-padmaGrid').resetGridCalculations();
-							wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
-							wrapper.data('ui-padmaGrid').updateGridContainerHeight();
+							wrapper.data('ui-bloxGrid').resetGridCalculations();
+							wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
+							wrapper.data('ui-bloxGrid').updateGridContainerHeight();
 
 						});
 
 					}
 
-				} else if ( wrapper.hasClass('wrapper-fixed') && Padma.mode == 'grid' ) {
+				} else if ( wrapper.hasClass('wrapper-fixed') && Blox.mode == 'grid' ) {
 
 					$('<li class="context-menu-wrapper-to-fluid"><span>Change Wrapper to Fluid</span></li>').appendTo(contextMenu).on('click', function() {
 
@@ -387,9 +377,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 						dataSetWrapperWidth(getWrapperID(wrapper), 'fluid');
 						dataSetWrapperGridWidth(getWrapperID(wrapper), 'fixed');
 
-						wrapper.data('ui-padmaGrid').resetGridCalculations();
-						wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
-						wrapper.data('ui-padmaGrid').updateGridContainerHeight();
+						wrapper.data('ui-bloxGrid').resetGridCalculations();
+						wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
+						wrapper.data('ui-bloxGrid').updateGridContainerHeight();
 
 					});
 
@@ -410,7 +400,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				});
 
 				/* Delete wrapper.  Do not allow it to be deleted if it's the last one. */
-				if ( $i('.wrapper:visible').length >= 2 && Padma.mode == 'grid' ) {
+				if ( $i('.wrapper:visible').length >= 2 && Blox.mode == 'grid' ) {
 
 					$('<li class="context-menu-wrapper-delete"><span>Delete Wrapper</span></li>').appendTo(contextMenu).on('click', function() {
 
@@ -568,10 +558,10 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			/* Set height on Grid to 100px */
 				wrapper.find('.grid-container').height(100);
 
-			/* Initiate Padma Grid on new wrapper */
+			/* Initiate Blox Grid on new wrapper */
 				wrapper.data('wrapper-settings', wrapperSettings);
 
-				wrapper.padmaGrid();
+				wrapper.bloxGrid();
 				setupWrapperResizable(wrapper);
 
 				bindWrapperMarginButtons(wrapper.find('.wrapper-margin-handle'));
@@ -661,7 +651,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 					text: tooltipContentCallback
 				},
 				style: {
-					classes: 'qtip-padma'
+					classes: 'qtip-blox'
 				},
 				show: {
 					delay: 10,
@@ -670,7 +660,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				position: {
 					my: 'right center',
 					at: 'left center',
-					container: Padma.iframe.contents().find('body'),
+					container: Blox.iframe.contents().find('body'),
 					viewport: $('#iframe-container'),
 					effect: false
 				}

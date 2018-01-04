@@ -11,6 +11,11 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			placeholder: 'wrapper-sortable-placeholder',
 			start: function(event, ui) {
 
+				console.log("Hola 6");
+				console.log(event);
+				console.log(ui);
+
+
 				/* Store previous heights of wrappers that way they can be added back after sorting */
 				$i('.wrapper').each(function() {
 					$(this).data('current-height', $(this).height());

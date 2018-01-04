@@ -140,14 +140,15 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 			var wrapperMinHeight = parseInt($(this).css('minHeight').replace('px', '')) ;
 
-			console.log(wrapperMinHeight);
-
 			$(this).resizable({
 				handles: 'n, s',
 				grid: 5,
 				minHeight: wrapperMinHeight,
 
 				start: function(event, ui) {
+
+					console.log(event);
+					console.log(ui);
 
 					if ( $(event.toElement).hasClass('ui-resizable-n') ) {
 						$(this).data('resizing-position', 'n');

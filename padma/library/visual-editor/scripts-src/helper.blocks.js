@@ -78,20 +78,20 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		if ( typeof blockInfo == 'undefined' )
 			blockInfo = false;
 			
-		if ( typeof Padma.allBlockTypes[blockType] != 'object' )
+		if ( typeof Blox.allBlockTypes[blockType] != 'object' )
 			return null;
 			
 		if ( blockInfo === true )
-			return Padma.blockTypeURLs[blockType] + '/icon-white.png';
+			return Blox.blockTypeURLs[blockType] + '/icon-white.png';
 			
-		return Padma.blockTypeURLs[blockType] + '/icon.png';
+		return Blox.blockTypeURLs[blockType] + '/icon.png';
 		
 	}
 
 
 	getBlockTypeObject = function(blockType) {
 		
-		var blockTypes = Padma.allBlockTypes;
+		var blockTypes = Blox.allBlockTypes;
 		
 		if ( typeof blockTypes[blockType] === 'undefined' )
 			return {'fixed-height': false};
@@ -274,7 +274,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 	updateBlockContentCover = function(block) {
 
-		if ( Padma.mode != 'grid' )
+		if ( Blox.mode != 'grid' )
 			return false;
 
 		/* Delete previous block content cover if it exists. */
@@ -328,10 +328,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		var blockContent = settings.blockElement.find('div.block-content');
 		var blockType = getBlockType(settings.blockElement);
 
-		if ( Padma.gridSafeMode == 1 )
+		if ( Blox.gridSafeMode == 1 )
 			return blockContent.html('<div class="alert alert-red block-safe-mode"><p>Grid Safe mode enabled.  Block content not outputted.</p></div>');
 		
-		if ( Padma.mode == 'grid' && !getBlockTypeObject(blockType)['show-content-in-grid'] ) {
+		if ( Blox.mode == 'grid' && !getBlockTypeObject(blockType)['show-content-in-grid'] ) {
 
 			if ( typeof settings.callback == 'function' )
 				settings.callback(settings.callbackArgs);
@@ -340,23 +340,23 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		}
 			
-		createCog(blockContent, true, true, Padma.iframe.contents(), 1);
+		createCog(blockContent, true, true, Blox.iframe.contents(), 1);
 
 		return $.ajax({
-			url: Padma.ajaxURL,
+			url: Blox.ajaxURL,
 			cache: false,
 			type: 'POST',
 			dataType: 'text',
 			data: {
-				security: Padma.security,
-				action: 'padma_visual_editor',
+				security: Blox.security,
+				action: 'blox_visual_editor',
 				method: 'load_block_content',
 				unsaved_block_settings: settings.blockSettings,
 				block_origin: settings.blockOrigin,
 				block_default: settings.blockDefault,
-				layout: Padma.viewModels.layoutSelector.currentLayout(),
-				mode: Padma.mode,
-				wpQueryVars: typeof Padma.iframe[0].contentWindow.BT_WP_Query_Vars != 'undefined' ? Padma.iframe[0].contentWindow.BT_WP_Query_Vars : null
+				layout: Blox.viewModels.layoutSelector.currentLayout(),
+				mode: Blox.mode,
+				wpQueryVars: typeof Blox.iframe[0].contentWindow.BT_WP_Query_Vars != 'undefined' ? Blox.iframe[0].contentWindow.BT_WP_Query_Vars : null
 			}
 		}).done(function(data) {
 
@@ -364,7 +364,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				settings.callback(settings.callbackArgs);
 
 			/* Remove script tags from Grid mode */
-				if ( Padma.mode == 'grid' ) {
+				if ( Blox.mode == 'grid' ) {
 
 					var data = data.replace(/script/g, 'SCRIPTTOCHECK');
 
@@ -381,7 +381,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			if ( typeof window.frames['content'].jQuery != 'undefined' && window.frames['content'].jQuery('#block-' + getBlockID(settings.blockElement)).html(content).length ) {
 
-				if ( Padma.mode == 'design' )
+				if ( Blox.mode == 'design' )
 					refreshInspector();
 
 				return window.frames['content'].jQuery('#block-' + getBlockID(settings.blockElement));
@@ -391,7 +391,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			/* Re-initiate inspector to make sure the block elements are still editable */
 			blockContent.html(content);
 
-			if ( Padma.mode == 'design' )
+			if ( Blox.mode == 'design' )
 				refreshInspector();
 
 			return blockContent;
@@ -429,7 +429,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					blockDefault: {
 						type: getBlockType(blockElement),
 						id: 0,
-						layout: Padma.viewModels.layoutSelector.currentLayout()
+						layout: Blox.viewModels.layoutSelector.currentLayout()
 					},
 					callback: callback,
 					callbackArgs: args
@@ -502,7 +502,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				var blockType = getBlockType(block);	
 				var blockTypeNice = getBlockTypeNice(blockType);
 
-				var contextMenuClickEvent = !Padma.touch ? 'click' : 'tap';
+				var contextMenuClickEvent = !Blox.touch ? 'click' : 'tap';
 
 				/* Block options */
 					$('<li class="context-menu-block-options"><span>Open Block Options</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function() {
@@ -510,7 +510,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					});
 
 				/* Switch block type */
-					if ( Padma.mode == 'grid' ) {
+					if ( Blox.mode == 'grid' ) {
 
 						$('<li class="context-menu-block-switch-type"><span>Switch Block Type</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function() {
 							openBlockTypeSelector(block);
@@ -519,7 +519,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					}
 
 				/* Switch block type */
-					if ( Padma.mode == 'grid' ) {
+					if ( Blox.mode == 'grid' ) {
 
 						$('<li class="context-menu-block-duplicate"><span>Duplicate Block</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function() {
 							duplicateBlock(block);
@@ -557,7 +557,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					}
 
 				/* Delete block */
-					if ( Padma.mode == 'grid' ) {
+					if ( Blox.mode == 'grid' ) {
 
 						$('<li class="context-menu-block-delete"><span>Delete Block</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function(event) {
 
@@ -578,7 +578,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		
 		bindBlockDimensionsTooltip = function() {
 
-			if ( Padma.touch )
+			if ( Blox.touch )
 				return false;
 							
 			$i('body').delegate('.block', 'mouseenter', function(event) {
@@ -586,7 +586,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				var self = this;	
 				var firstSetup = typeof $(this).data('qtip') == 'undefined' ? true : false;
 
-				if ( typeof Padma.disableBlockDimensions !== 'undefined' && Padma.disableBlockDimensions )
+				if ( typeof Blox.disableBlockDimensions !== 'undefined' && Blox.disableBlockDimensions )
 					return false;
 					
 				if ( firstSetup ) {
@@ -618,18 +618,18 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		addBlockDimensionsTooltip = function(block) {
 
-			if ( Padma.touch )
+			if ( Blox.touch )
 				return false;
 
 			$(block).qtip({
 				style: {
-					classes: 'qtip-padma qtip-block-dimensions'
+					classes: 'qtip-blox qtip-block-dimensions'
 				},
 				position: {
 					my: 'top center',
 					at: 'bottom center',
 					container: $i('body'),
-					viewport: $i('#padma-tooltip-container'),
+					viewport: $i('#blox-tooltip-container'),
 					effect: false
 				},
 				show: {
@@ -695,7 +695,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					
 					} else {
 					
-						var blockHeight = Padma.mode == 'grid' ? blockHeight : block.css('minHeight').replace('px', '');
+						var blockHeight = Blox.mode == 'grid' ? blockHeight : block.css('minHeight').replace('px', '');
 						var heightText = 'Min. Height';
 					
 					}
@@ -704,7 +704,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					var width = '<span class="block-width"><strong>Width:</strong> ' + blockWidth + '<small>px</small></span>';
 
 					//Show different width info if it's responsive
-					if ( $('#input-enable-responsive-grid label.checkbox-checked').length == 1 || (Padma.mode != 'grid' && Padma.responsiveGrid) )
+					if ( $('#input-enable-responsive-grid label.checkbox-checked').length == 1 || (Blox.mode != 'grid' && Blox.responsiveGrid) )
 						var width = '<span class="block-width"><strong>Max Width:</strong> <small>~</small>' + blockWidth + '<small>px</small></span>';
 
 					var fluidMessage = !getBlockTypeObject(blockType)['fixed-height'] ? '<span class="block-fluid-height-message">Height will auto-expand</span>' : '';
@@ -778,16 +778,16 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		}
 
 		addPanelTab('block-' + blockID, '<span class="block-type-icon" style="' + blockTypeIconStyle + '"></span>' + blockTabName, {
-			url: Padma.ajaxURL, 
+			url: Blox.ajaxURL, 
 			data: {
-				security: Padma.security,
-				action: 'padma_visual_editor',
+				security: Blox.security,
+				action: 'blox_visual_editor',
 				method: 'load_block_options',
 				block_type: blockType,
 				block_id: blockID,
 				duplicate_of: block.data('duplicateOf'),
 				unsaved_block_options: getUnsavedBlockOptionValues(blockID),
-				layout: Padma.viewModels.layoutSelector.currentLayout()
+				layout: Blox.viewModels.layoutSelector.currentLayout()
 			}, 
 			callback: readyTabs}, true, true, 'block-type-' + blockType);
 
@@ -861,7 +861,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				/* If new block then create it */
 					if ( block.hasClass('blank-block') ) {
 						
-						block.parents('.wrapper').padmaGrid('setupBlankBlock', blockType);
+						block.parents('.wrapper').bloxGrid('setupBlankBlock', blockType);
 					
 				/* Otherwise we're switching an existing block's type */
 					} else if ( confirm('Are you sure you wish to switch block types?  All settings for this block will be lost.') ) {
@@ -943,7 +943,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					blockOrigin: {
 						type: blockType,
 						id: 0,
-						layout: Padma.viewModels.layoutSelector.currentLayout()
+						layout: Blox.viewModels.layoutSelector.currentLayout()
 					},
 					blockSettings: {
 						dimensions: getBlockDimensions(block),
@@ -1061,10 +1061,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			}
 		};
 
-		var newBlock = wrapper.data('ui-padmaGrid').addBlock(newBlockArgs);
+		var newBlock = wrapper.data('ui-bloxGrid').addBlock(newBlockArgs);
 
 		/* Send block to top */
-		wrapper.data('ui-padmaGrid').sendBlockToTop(newBlock);
+		wrapper.data('ui-bloxGrid').sendBlockToTop(newBlock);
 
 		/* Show alias immediately */
 		if ( duplicateAlias ) {
@@ -1114,7 +1114,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		/* If there are overlapping blocks, then show a red notice */
 		if ( !output ) {
 
-			Padma.overlappingBlocks = true;
+			Blox.overlappingBlocks = true;
 
 			showErrorNotification({
 				id: 'overlapping-blocks',
@@ -1124,7 +1124,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		} else {
 
-			Padma.overlappingBlocks = false;
+			Blox.overlappingBlocks = false;
 			hideNotification('overlapping-blocks');
 
 		}
@@ -1180,7 +1180,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		var deleteBlock = getBlock(element);
 		var deleteBlockContainer = deleteBlock.parents('.grid-container');
 		
-		Padma.history.add({
+		Blox.history.add({
 			description: 'Deleted block',
 			up: function() {
 
@@ -1219,13 +1219,13 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	exportBlockSettingsButtonCallback = function(args) {
 
 		var params = {
-			'security': Padma.security,
-			'action': 'padma_visual_editor',
+			'security': Blox.security,
+			'action': 'blox_visual_editor',
 			'method': 'export_block_settings',
 			'block-id': args.blockID
 		}
 
-		var exportURL = Padma.ajaxURL + '?' + $.param(params);
+		var exportURL = Blox.ajaxURL + '?' + $.param(params);
 
 		return window.open(exportURL);
 
@@ -1259,7 +1259,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 				/* Check to be sure that the JSON file is a block settings export file */
 					if ( blockSettingsImportArray['data-type'] != 'block-settings' )
-						return alert('Cannot load block settings.  Please insure that the block settings are a proper Padma block settings export.');
+						return alert('Cannot load block settings.  Please insure that the block settings are a proper Blox block settings export.');
 
 				/* Make sure block type matches */
 					if ( getBlockType(getBlockByID(blockID)) != blockSettingsImportArray['type'] )
@@ -1274,9 +1274,9 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 							closeTimer: 10000
 						});
 
-						$.post(Padma.ajaxURL, {
-							security: Padma.security,
-							action: 'padma_visual_editor',
+						$.post(Blox.ajaxURL, {
+							security: Blox.security,
+							action: 'blox_visual_editor',
 							method: 'import_images',
 							importFile: blockSettingsImportArray
 						}, function(response) {
@@ -1303,7 +1303,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		} else {
 
-			alert('Cannot load block settings.  Please insure that the block settings are a proper Padma block settings export.');
+			alert('Cannot load block settings.  Please insure that the block settings are a proper Blox block settings export.');
 
 		}
 
@@ -1432,7 +1432,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 	updateBlockCustomClasses = function(input, block, value) {
 
-		if ( Padma.mode != 'design' )
+		if ( Blox.mode != 'design' )
 			return false;
 
 		if ( typeof block != 'object' ) {

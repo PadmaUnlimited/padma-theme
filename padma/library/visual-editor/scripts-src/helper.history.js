@@ -141,7 +141,7 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
 	var history = {
 		init: function() {
 
-			Padma.history = new Chronology({limit: 0});
+			Blox.history = new Chronology({limit: 0});
 
 			history.bind();
 
@@ -150,14 +150,14 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
 		bind: function() {
 
 			mousetrap.bind(['ctrl+z', 'command+z'], function(event) {
-				Padma.history.undo();
+				Blox.history.undo();
 
 				/* cancel browser default */
 				return false; 
 			});
 
 			mousetrap.bind(['ctrl+y', 'command+y'], function(event) {
-				Padma.history.redo();
+				Blox.history.redo();
 
 				/* cancel browser default */
 				return false; 

@@ -201,7 +201,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 					
 						/* Bind the document close */
 						$(document).bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
-						Padma.iframe.contents().bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
+						Blox.iframe.contents().bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
 					
 						$(window).bind('resize', {textareaContainer: textareaContainer}, textareaClose);
 					
@@ -216,7 +216,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 
 						/* Remove the events */
 						$(document).unbind('mousedown', textareaClose);
-						Padma.iframe.contents().unbind('mousedown', textareaClose);
+						Blox.iframe.contents().unbind('mousedown', textareaClose);
 						
 						$(window).unbind('resize', textareaClose);
 						
@@ -241,7 +241,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 					
 					/* Remove the events */
 					$(document).unbind('mousedown', textareaClose);
-					Padma.iframe.contents().unbind('mousedown', textareaClose);
+					Blox.iframe.contents().unbind('mousedown', textareaClose);
 					
 					$(window).unbind('resize', textareaClose);
 					
@@ -368,7 +368,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 
 						/* Bind the document close */
 							$(document).bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
-							Padma.iframe.contents().bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							Blox.iframe.contents().bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
 
 							$(window).bind('resize', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
 
@@ -383,7 +383,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 
 						/* Remove the events */
 						$(document).unbind('mousedown', wysiwygClose);
-						Padma.iframe.contents().unbind('mousedown', wysiwygClose);
+						Blox.iframe.contents().unbind('mousedown', wysiwygClose);
 						
 						$(window).unbind('resize', wysiwygClose);
 						
@@ -414,7 +414,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 					
 					/* Remove the events */
 					$(document).unbind('mousedown', wysiwygClose);
-					Padma.iframe.contents().unbind('mousedown', wysiwygClose);
+					Blox.iframe.contents().unbind('mousedown', wysiwygClose);
 					
 					$(window).unbind('resize', wysiwygClose);
 					
@@ -482,7 +482,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 
 				var val = input.is(':checked');
 
-				Padma.history.add({
+				Blox.history.add({
 					up: function() {
 
 						input.val(val);
@@ -549,7 +549,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 				
 					/* Bind the document close */
 					$(document).bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
-					Padma.iframe.contents().bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					Blox.iframe.contents().bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
 					
 					$(window).bind('resize', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
 				
@@ -564,7 +564,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 
 					/* Remove the events */
 					$(document).unbind('mousedown', multiSelectClose);
-					Padma.iframe.contents().unbind('mousedown', multiSelectClose);
+					Blox.iframe.contents().unbind('mousedown', multiSelectClose);
 					
 					$(window).unbind('resize', multiSelectClose);
 					
@@ -589,7 +589,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 				
 				/* Remove the events */
 				$(document).unbind('mousedown', multiSelectClose);
-				Padma.iframe.contents().unbind('mousedown', multiSelectClose);
+				Blox.iframe.contents().unbind('mousedown', multiSelectClose);
 				
 				$(window).unbind('resize', multiSelectClose);
 				
@@ -759,7 +759,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 					alpha: true,
 					alphaHex: true,
 					allowNull: false,
-					swatches: (typeof Padma.colorpickerSwatches == 'object' && Padma.colorpickerSwatches.length) ? Padma.colorpickerSwatches : true,
+					swatches: (typeof Blox.colorpickerSwatches == 'object' && Blox.colorpickerSwatches.length) ? Blox.colorpickerSwatches : true,
 					color: inputVal,
 					showAnim: false,
 					beforeShow: function(input, inst) {
@@ -823,7 +823,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 					if ( event.target.files[0].name.split('.').slice(-1)[0] != 'json' ) {
 
 						$(this).val(null);
-						return alert('Invalid Padma import file.  Please be sure that the Padma import file is a valid JSON formatted file.');
+						return alert('Invalid Blox import file.  Please be sure that the Blox import file is a valid JSON formatted file.');
 
 					}
 
@@ -873,7 +873,7 @@ define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.
 
 					var handleSliderChange = function(sliderInput, value) {
 
-						Padma.history.add({
+						Blox.history.add({
 							up: function() {
 
 								$(sliderInput).val(value);

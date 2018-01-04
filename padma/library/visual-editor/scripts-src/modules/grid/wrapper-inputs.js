@@ -9,8 +9,8 @@
 			if ( typeof wrapper == 'undefined' || !wrapper.length )
 				return false;
 
-			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-padmaGrid');
+			/* Find wrapper and Blox Grid UI widget */
+				var wrapperGridObject = wrapper.data('ui-bloxGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.useIndependentGrid = value;
@@ -38,8 +38,8 @@
 
 				}
 
-			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-padmaGrid');
+			/* Find wrapper and Blox Grid UI widget */
+				var wrapperGridObject = wrapper.data('ui-bloxGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.columns = value;
@@ -60,8 +60,8 @@
 			if ( typeof wrapper == 'undefined' || !wrapper.length )
 				return false;
 
-			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-padmaGrid');
+			/* Find wrapper and Blox Grid UI widget */
+				var wrapperGridObject = wrapper.data('ui-bloxGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.columnWidth = value;
@@ -80,8 +80,8 @@
 			if ( typeof wrapper == 'undefined' || !wrapper.length )
 				return false;
 
-			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-padmaGrid');
+			/* Find wrapper and Blox Grid UI widget */
+				var wrapperGridObject = wrapper.data('ui-bloxGrid');
 
 			/* Update wrapper object and the guides */
 				wrapperGridObject.options.gutterWidth = value;

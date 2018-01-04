@@ -3,47 +3,47 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
 
-			if ( Padma.elementsRequest && (!forceReload || typeof forceReload == 'undefined') )
-				return Padma.elementsRequest;
+			if ( Blox.elementsRequest && (!forceReload || typeof forceReload == 'undefined') )
+				return Blox.elementsRequest;
 
 			/* Get the elements and set up bindings */
-			Padma.elementsRequest = $.post(Padma.ajaxURL, {
-				security: Padma.security,
-				action: 'padma_visual_editor',
+			Blox.elementsRequest = $.post(Blox.ajaxURL, {
+				security: Blox.security,
+				action: 'blox_visual_editor',
 				method: 'get_design_editor_elements',
-				layout: Padma.viewModels.layoutSelector.currentLayout()
+				layout: Blox.viewModels.layoutSelector.currentLayout()
 			}, function(elements) {
 
-				Padma.elementGroups = $.extend({}, elements.groups);
+				Blox.elementGroups = $.extend({}, elements.groups);
 
 				delete elements.groups; 
 
-				Padma.elements = elements;
+				Blox.elements = elements;
 
 			}, 'json');
 
-			return Padma.elementsRequest;
+			return Blox.elementsRequest;
 
 		}
 
 		designEditorRequestElementData = function(forceReload) {
 
-			if ( Padma.elementDataRequest && (!forceReload || typeof forceReload == 'undefined') )
-				return Padma.elementDataRequest;
+			if ( Blox.elementDataRequest && (!forceReload || typeof forceReload == 'undefined') )
+				return Blox.elementDataRequest;
 
 			/* Get the elements and set up bindings */
-			Padma.elementDataRequest = $.post(Padma.ajaxURL, {
-				security: Padma.security,
-				action: 'padma_visual_editor',
+			Blox.elementDataRequest = $.post(Blox.ajaxURL, {
+				security: Blox.security,
+				action: 'blox_visual_editor',
 				method: 'get_design_editor_element_data',
-				layout: Padma.viewModels.layoutSelector.currentLayout()
+				layout: Blox.viewModels.layoutSelector.currentLayout()
 			}, function(elementData) {
 
-				Padma.elementData = elementData;
+				Blox.elementData = elementData;
 
 			}, 'json');
 
-			return Padma.elementDataRequest;
+			return Blox.elementDataRequest;
 
 		}
 	/* END DESIGN EDITOR ELEMENT LOADING */
@@ -91,7 +91,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				/* Load in elements */
 					$('#design-editor-element-selector').empty();
 
-					$.each(Padma.elementGroups, function(groupID, groupInfo) {
+					$.each(Blox.elementGroups, function(groupID, groupInfo) {
 
 						var groupNode = $('<li id="element-group-' + groupID + '" class="element-group has-children">\
 											<span class="element-group-name">' + groupInfo.name + '</span>\
@@ -107,7 +107,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 					});
 
-					$.each(Padma.elements, designEditor.addElementToSelector);
+					$.each(Blox.elements, designEditor.addElementToSelector);
 
 					/* Move each element to its appropriate parent */
 						$('#design-editor-element-selector li.element').each(function() {
@@ -394,7 +394,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 						$('.design-editor-styles-message').hide();
 
 						/* Insure that the element is customized and that there is data for it. */
-						if ( _.isEmpty(Padma.elementData[elementID]) ) {
+						if ( _.isEmpty(Blox.elementData[elementID]) ) {
 
 							$('ul#design-editor-styles').empty();
 
@@ -407,16 +407,16 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 						$('ul#design-editor-styles').prepend('<h2>' + elementNode.children('.element-name').first().text() + '</h2>');
 
-						var elementProperties = Padma.elementData[elementID];
+						var elementProperties = Blox.elementData[elementID];
 
 						/* Create a node that will hold the properties.  We'll put it into place later that way we can insure that there are properties in it */
 							var elementPropertiesLI = $('<li class="properties"><ul></ul></li>');
 							var elementPropertiesUL = $('ul#design-editor-styles');
 
 						/* Handle regular element properties */
-							if ( !_.isEmpty(Padma.elementData[elementID]['properties']) ) {
+							if ( !_.isEmpty(Blox.elementData[elementID]['properties']) ) {
 
-								$.each(Padma.elementData[elementID]['properties'], function(property, propertyValue) {
+								$.each(Blox.elementData[elementID]['properties'], function(property, propertyValue) {
 									self.addElementProperty(elementPropertiesUL, property, propertyValue);
 								});
 
@@ -427,9 +427,9 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 							$.each(specialElementTypes, function(index, specialElementType) {
 
-								if ( !_.isEmpty(Padma.elementData[elementID]['special-element-' + specialElementType]) ) {
+								if ( !_.isEmpty(Blox.elementData[elementID]['special-element-' + specialElementType]) ) {
 
-									$.each(Padma.elementData[elementID]['special-element-' + specialElementType], function(specialElementID, specialElementProperties) {
+									$.each(Blox.elementData[elementID]['special-element-' + specialElementType], function(specialElementID, specialElementProperties) {
 
 										/* Build special element name */
 											if ( specialElementType == 'layout' ) {
@@ -484,11 +484,11 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 						if ( propertyValue == 'DELETE' )
 							return false;
 
-						if ( typeof Padma.designEditorProperties[property] == 'undefined' )
+						if ( typeof Blox.designEditorProperties[property] == 'undefined' )
 							return false;
 
 						var formattedPropertyValue;
-						var propertyObject = Padma.designEditorProperties[property];
+						var propertyObject = Blox.designEditorProperties[property];
 						var propertyGroupID = propertyObject.group.toLowerCase().replace(' ', '-');
 
 						/* Add in group separators for the properties */
@@ -765,7 +765,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 						elementName.find('.tooltip').qtip({
 							style: {
-								classes: 'qtip-padma qtip-padma-element-selector',
+								classes: 'qtip-blox qtip-blox-element-selector',
 								tip: false
 							},
 							position: {
@@ -880,7 +880,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					var elementNode = $(this).parents('li.element').first();
 					var elementID = elementNode.data('element-id');
 
-					designEditor.selectSpecialElement(elementID, 'layout', Padma.viewModels.layoutSelector.currentLayout());
+					designEditor.selectSpecialElement(elementID, 'layout', Blox.viewModels.layoutSelector.currentLayout());
 
 				}
 
@@ -889,7 +889,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					var elementNode = $(this).parents('li.element').first();
 					var elementSelector = elementNode.data('selector');
 
-					var liveCSSValue = ( typeof Padma.aceEditors['live-css'] == 'undefined' || !Padma.aceEditors['live-css'] ) ? $('textarea#live-css').val() : Padma.aceEditors['live-css'].editor.getValue();
+					var liveCSSValue = ( typeof Blox.aceEditors['live-css'] == 'undefined' || !Blox.aceEditors['live-css'] ) ? $('textarea#live-css').val() : Blox.aceEditors['live-css'].editor.getValue();
 
 					var linesBefore = liveCSSValue ? "\n\n" : '';
 					$('textarea#live-css').val(liveCSSValue + linesBefore + elementSelector + " {\n\n}");
@@ -898,13 +898,13 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					$('#open-live-css').trigger('click');
 
 					/* Move the cursor to the new selector */
-					if ( typeof Padma.aceEditors['live-css'] != 'undefined' ) {
+					if ( typeof Blox.aceEditors['live-css'] != 'undefined' ) {
 
-                        Padma.aceEditors['live-css'].editor.setValue($('textarea#live-css').val());
+                        Blox.aceEditors['live-css'].editor.setValue($('textarea#live-css').val());
 
-						var lastLine = Padma.aceEditors['live-css'].editorSession.getLength();
-                        Padma.aceEditors['live-css'].editor.gotoLine(lastLine - 1);
-                        Padma.aceEditors['live-css'].editor.focus();
+						var lastLine = Blox.aceEditors['live-css'].editorSession.getLength();
+                        Blox.aceEditors['live-css'].editor.gotoLine(lastLine - 1);
+                        Blox.aceEditors['live-css'].editor.focus();
 
 					}
 
@@ -920,18 +920,18 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				var currentElementName = (typeof currentElement.specialElementName != 'undefined') ? currentElement.specialElementName : currentElement.name;
 				
 				/* Get data */
-					if ( !_.isEmpty(Padma.elementData[currentElement.id]) ) {
+					if ( !_.isEmpty(Blox.elementData[currentElement.id]) ) {
 
 						/* If it's a special element then we need to pull properties from there */
-							if ( currentElement.specialElementType && !_.isEmpty(Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType]) ) {
+							if ( currentElement.specialElementType && !_.isEmpty(Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType]) ) {
 
-								if ( !_.isEmpty(Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID]) )
-									var elementData = Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID];
+								if ( !_.isEmpty(Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID]) )
+									var elementData = Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID];
 
 						/* Otherwise looks in 'properties' for the regular elements */
-							} else if ( !_.isEmpty(Padma.elementData[currentElement.id]['properties']) ) {
+							} else if ( !_.isEmpty(Blox.elementData[currentElement.id]['properties']) ) {
 
-								var elementData = Padma.elementData[currentElement.id]['properties'];
+								var elementData = Blox.elementData[currentElement.id]['properties'];
 
 							}
 
@@ -947,7 +947,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					overwriteExisting: true
 				});
 
-				Padma.designEditorClipboard = $.extend({}, elementData);
+				Blox.designEditorClipboard = $.extend({}, elementData);
 
 			}
 
@@ -955,22 +955,22 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 				var currentElement = getSelectedElement();
 
-				if ( !currentElement || typeof Padma.designEditorClipboard == 'undefined' )
+				if ( !currentElement || typeof Blox.designEditorClipboard == 'undefined' )
 					return;
 
 				var currentElementName = (typeof currentElement.specialElementName != 'undefined') ? currentElement.specialElementName : currentElement.name;
 
 				/* Pull existing data that way we can modify it */
-						if ( !_.isEmpty(Padma.elementData[currentElement.id]) ) {
+						if ( !_.isEmpty(Blox.elementData[currentElement.id]) ) {
 
-							if ( currentElement.specialElementType && !_.isEmpty(Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType]) ) {
+							if ( currentElement.specialElementType && !_.isEmpty(Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType]) ) {
 
-								if ( !_.isEmpty(Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID]) )
-									var elementData = Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID];
+								if ( !_.isEmpty(Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID]) )
+									var elementData = Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID];
 
-							} else if ( !_.isEmpty(Padma.elementData[currentElement.id]['properties']) ) {
+							} else if ( !_.isEmpty(Blox.elementData[currentElement.id]['properties']) ) {
 
-								var elementData = Padma.elementData[currentElement.id]['properties'];
+								var elementData = Blox.elementData[currentElement.id]['properties'];
 
 							}
 
@@ -993,17 +993,17 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					});
 
 				/* Merge in the pasted data */
-					$.each(Padma.designEditorClipboard, function(property, value) {
+					$.each(Blox.designEditorClipboard, function(property, value) {
 
-						if ( typeof Padma.designEditorProperties[property]['unit'] != 'undefined' && !isNaN(value) ) {
+						if ( typeof Blox.designEditorProperties[property]['unit'] != 'undefined' && !isNaN(value) ) {
 
-							if ( typeof Padma.designEditorProperties[property]['unit'] == 'string' ) {
+							if ( typeof Blox.designEditorProperties[property]['unit'] == 'string' ) {
 
-								value = value + Padma.designEditorProperties[property]['unit'];
+								value = value + Blox.designEditorProperties[property]['unit'];
 
-							} else if ( typeof Padma.designEditorProperties[property]['unit']['default'] != 'undefined' ) {
+							} else if ( typeof Blox.designEditorProperties[property]['unit']['default'] != 'undefined' ) {
 
-								value = value + Padma.designEditorProperties[property]['unit']['default'];
+								value = value + Blox.designEditorProperties[property]['unit']['default'];
 
 							}
 
@@ -1021,9 +1021,9 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 				/* Now loop through the element data and update it in the iframe */
 					if ( currentElement.specialElementType ) {
-						var elementData = Padma.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID];
+						var elementData = Blox.elementData[currentElement.id]['special-element-' + currentElement.specialElementType][currentElement.specialElementID];
 					} else {
-						var elementData = Padma.elementData[currentElement.id]['properties'];
+						var elementData = Blox.elementData[currentElement.id]['properties'];
 					}
 
 					$.each(elementData, function(property, value) {
@@ -1052,8 +1052,8 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			this.loadElementInputs = function(element, specialElementInfo) {
 
 				var ajaxArgs = {
-					security: Padma.security,
-					action: 'padma_visual_editor',
+					security: Blox.security,
+					action: 'blox_visual_editor',
 					method: 'get_element_inputs',
 					unsavedValues: designEditorGetUnsavedValues(element),
 					element: designEditorGetElementObject(element)
@@ -1074,7 +1074,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 				}
 
-				return $.post(Padma.ajaxURL, ajaxArgs).success(function(inputs) {
+				return $.post(Blox.ajaxURL, ajaxArgs).success(function(inputs) {
 				
 					var options = $('div.design-editor-options');
 
@@ -1093,7 +1093,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					});
 
 					/* Focus the iframe to allow immediate nudging control */
-					Padma.iframe.focus();
+					Blox.iframe.focus();
 
 				});
 
@@ -1108,7 +1108,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					var currentElement = designEditor.getCurrentElement();
 					var currentElementID = currentElement.data('element-id');
 
-					designEditor.selectSpecialElement(currentElementID, 'layout', Padma.viewModels.layoutSelector.currentLayout());
+					designEditor.selectSpecialElement(currentElementID, 'layout', Blox.viewModels.layoutSelector.currentLayout());
 
 				});
 			
@@ -1130,7 +1130,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 						elementNode = $('ul#design-editor-element-selector li.element[data-element-id="' + elementID + '"]').first();
 
 					var elementObject = designEditorGetElementObject(elementID, false);
-					var specialElementName = (specialElementType != 'layout') ? elementObject[specialElementType + 's'][specialElementID].name : Padma.viewModels.layoutSelector.currentLayoutName();
+					var specialElementName = (specialElementType != 'layout') ? elementObject[specialElementType + 's'][specialElementID].name : Blox.viewModels.layoutSelector.currentLayoutName();
 					var elementSelector = (specialElementType != 'layout') ? elementObject[specialElementType + 's'][specialElementID].selector : elementObject.selector;
 
 					/* Add class to body to insure side panel is split and property inputs are showing */
@@ -1207,7 +1207,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			this.switchLayout = function() {
 
 				/* Make sure this doesn't fire on initial load */
-				if ( typeof Padma.switchedToLayout == 'undefined' || !Padma.switchedToLayout )
+				if ( typeof Blox.switchedToLayout == 'undefined' || !Blox.switchedToLayout )
 					return;
 			
 				$.when(designEditorRequestElements(true)).then(function() {
@@ -1319,7 +1319,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			if ( typeof excludeInstances == 'undefined' )
 				var excludeInstances = true;
 
-			var element = jQuery.extend(true, {}, Padma.elements[element]);
+			var element = jQuery.extend(true, {}, Blox.elements[element]);
 
 			/* Delete instances if set to do so */
 			if ( excludeInstances ) {
@@ -1679,7 +1679,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				alphaHex: true,
 				allowNull: false,
 				showAnim: false,
-				swatches: (typeof Padma.colorpickerSwatches == 'object' && Padma.colorpickerSwatches.length) ? Padma.colorpickerSwatches : true,
+				swatches: (typeof Blox.colorpickerSwatches == 'object' && Blox.colorpickerSwatches.length) ? Blox.colorpickerSwatches : true,
 				color: inputVal,
 				beforeShow: function(input, inst) {
 
@@ -1943,10 +1943,10 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 		/* INSPECTOR INIT */
 			addInspector = function(refresh) {
 
-				if ( typeof Padma.elements == 'undefined' )
+				if ( typeof Blox.elements == 'undefined' )
 					return $.when(designEditorRequestElements()).then(addInspector);
 
-				$.each(Padma.elements, function(elementID, elementSettings) {
+				$.each(Blox.elements, function(elementID, elementSettings) {
 
 					if ( !elementSettings['inspectable'] )
 						return;
@@ -1961,14 +1961,14 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					$i('body').qtip({
 						id: '',
 						style: {
-							classes: 'qtip-padma qtip-inspector-tooltip'
+							classes: 'qtip-blox qtip-inspector-tooltip'
 						},
 						position: {
 							target: [-9999, -9999],
 							my: 'bottom left',
 							at: 'top right',
 							container: $i('body'),
-							viewport: $i('#padma-tooltip-container'),
+							viewport: $i('#blox-tooltip-container'),
 							effect: false,
 							adjust: {
 								x: 0,
@@ -2077,14 +2077,14 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 			enableInspector = function() {
 
-				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
+				if ( Blox.mode != 'design' || !Blox.designEditorSupport )
 					return false;
 
-				Padma.inspectorDisabled 		= false;
-				Padma.disableBlockDimensions 	= true;
+				Blox.inspectorDisabled = false;
+				Blox.disableBlockDimensions = true;
 
 				$i('body').addClass('disable-block-hover').removeClass('inspector-disabled');
-				
+
 				$i('.block[data-hasqtip]').each(function() {
 					var api = $(this).qtip('api');
 					api.destroy();
@@ -2092,7 +2092,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 				inspectorTooltip.show();
 
-				var inspectorMouseMoveEvent = !Padma.touch ? 'mousemove' : 'tap';
+				var inspectorMouseMoveEvent = !Blox.touch ? 'mousemove' : 'tap';
 				$i('html').bind(inspectorMouseMoveEvent, inspectorMouseMove);
 
 				setupInspectorContextMenu();
@@ -2101,12 +2101,12 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				deactivateContextMenu('wrapper');
 
 				/* For some reason the iframe doesn't always focus correctly so both of these bindings are needed */
-				Padma.iframe.contents().find('body').bind('keydown', inspectorNudging);
-				Padma.iframe.bind('keydown', inspectorNudging);
+				Blox.iframe.contents().find('body').bind('keydown', inspectorNudging);
+				Blox.iframe.bind('keydown', inspectorNudging);
 
 				/* Focus iframe on mouseover */
-				Padma.iframe.bind('mouseover', function() {
-					Padma.iframe.focus();
+				Blox.iframe.bind('mouseover', function() {
+					Blox.iframe.focus();
 				});
 
 				showNotification({
@@ -2126,12 +2126,12 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 			disableInspector = function() {
 
-				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
+				if ( Blox.mode != 'design' || !Blox.designEditorSupport )
 					return false;
 
-				Padma.inspectorDisabled = true;
+				Blox.inspectorDisabled = true;
 
-				delete Padma.disableBlockDimensions;
+				delete Blox.disableBlockDimensions;
 				delete inspectorElement;
 
 				$i('.inspector-element-hover').removeClass('inspector-element-hover');
@@ -2148,8 +2148,8 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				setupBlockContextMenu();
 				setupWrapperContextMenu();
 
-				Padma.iframe.contents().find('body').unbind('keydown', inspectorNudging);
-				Padma.iframe.unbind('keydown', inspectorNudging);
+				Blox.iframe.contents().find('body').unbind('keydown', inspectorNudging);
+				Blox.iframe.unbind('keydown', inspectorNudging);
 
 				removeInspectorVisibleBoxModal();
 
@@ -2159,7 +2159,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 			toggleInspector = function() {
 
-				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
+				if ( Blox.mode != 'design' || !Blox.designEditorSupport )
 					return false;
 
 				if ( $('#toggle-inspector').hasClass('inspector-disabled') )
@@ -2208,7 +2208,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 			updateInspectorVisibleBoxModal = function() {
 
-				if ( typeof Padma.inspectorDisabled != 'undefined' && Padma.inspectorDisabled )
+				if ( typeof Blox.inspectorDisabled != 'undefined' && Blox.inspectorDisabled )
 					return;
 
 				/* Show padding/margin with box shadow */
@@ -2278,7 +2278,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 		/* INSPECTOR TOOLTIP */
 			inspectorMouseMove = function(event) {
 
-				if ( Padma.inspectorDisabled )
+				if ( Blox.inspectorDisabled )
 					return;
 
 				var targetInspectorElement = $(event.target);
@@ -2316,21 +2316,21 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 						});
 
 						/* Add info to tooltip if hovered element is an instance */
-						var insideInstanceText = '';
+							var insideInstanceText = '';
 
-						if ( typeof inspectorElementOptions.instance != 'undefined' ) {
+							if ( typeof inspectorElementOptions.instance != 'undefined' ) {
 
-							if ( inspectorElementOptions.name.indexOf(' &ndash; ') !== -1 ) {
+								if ( inspectorElementOptions.name.indexOf(' &ndash; ') !== -1 ) {
 
-								insideInstanceText = '<span class="inspector-tooltip-instance">Inside <strong>' + inspectorElementOptions.name.split(' &ndash; ')[0] + '</strong></span>';
+									insideInstanceText = '<span class="inspector-tooltip-instance">Inside <strong>' + inspectorElementOptions.name.split(' &ndash; ')[0] + '</strong></span>';
 
-							} else {
+								} else {
 
-								elementName = inspectorElementOptions.name;
+									elementName = inspectorElementOptions.name;
+
+								}
 
 							}
-
-						}
 
 						/* Trim down the path and omit ancestors to save space if necessary */
 						if ( tooltipElementPath.join(' > ').length + elementName.length > 40 ) {
@@ -2382,7 +2382,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 						/* Reactivate inspector tooltip */
 						inspectorTooltip.show();
-						Padma.inspectorDisabled = false;
+						Blox.inspectorDisabled = false;
 
 					},
 					onItemClick: inspectorContextMenuItemClick,
@@ -2398,7 +2398,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 				/* Disable inspector tooltip */
 					$(inspectorTooltip.elements.tooltip).hide();
-					Padma.inspectorDisabled = true;
+					Blox.inspectorDisabled = true;
 
 			}
 
@@ -2421,7 +2421,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 					/* Reactivate inspector tooltip */
 					inspectorTooltip.show();
-					Padma.inspectorDisabled = false;
+					Blox.inspectorDisabled = false;
 
 					/* Remove the highlight on the previously selected elements */
 					$('#design-editor-element-selector-container .ui-state-active').removeClass('ui-state-active');
@@ -2450,7 +2450,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					/* Layout-specific customizations */
 						if ( $(this).parents('li').first().hasClass('inspector-context-menu-edit-for-layout') ) {
 
-							designEditor.selectSpecialElement(inspectorElementOptions['id'], 'layout', Padma.viewModels.layoutSelector.currentLayout());
+							designEditor.selectSpecialElement(inspectorElementOptions['id'], 'layout', Blox.viewModels.layoutSelector.currentLayout());
 
 						}
 
@@ -2699,8 +2699,8 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 		getSelectedElement = function() {
 
-			if ( typeof Padma.designEditorCurrentElement != 'undefined' )
-				return Padma.designEditorCurrentElement;
+			if ( typeof Blox.designEditorCurrentElement != 'undefined' )
+				return Blox.designEditorCurrentElement;
 
 			return null;
 
@@ -2708,7 +2708,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 		setSelectedElement = function(element) {
 
-			Padma.designEditorCurrentElement = element;
+			Blox.designEditorCurrentElement = element;
 
 			if ( _.isEmpty(element) )
 				return;
@@ -2774,8 +2774,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 		}
 	/* END ELEMENT INFO */
 
-	return {
-
+	var modeDesign = {
 		init: function() {
 
 			designEditor = new designEditorTabEditor();
@@ -2789,7 +2788,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				try {
 
 					/* Load editor.fonts.js */
-					$.getScript(Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/util.fonts-browser.js');
+					$.getScript(Blox.bloxURL + '/library/visual-editor/' + Blox.scriptFolder + '/util.fonts-browser.js');
 
 					/* Load Google API */
 					$.getScript('//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
@@ -2799,6 +2798,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			/* Hide DE if cookie is set to do so */
 				if ( $.cookie('hide-design-editor') === 'true' )
 					hideDesignEditor();
+
 		},
 
 		bind: function() {
@@ -2817,5 +2817,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 		}
 	}
-	
+
+	return modeDesign;
+
 });

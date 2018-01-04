@@ -124,7 +124,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 		}
 	/* END KEY SHORTCUTS */
 
-	if ( Padma.touch ) {
+	if ( Blox.touch ) {
 
 		require(['deps/jquery.ui.touchpunch', 'deps/jquery.taphold'], function() {});
 

@@ -365,7 +365,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				}
 
 				/* Add the block to the grid */
-				$i('.ui-padma-grid').first().data('ui-padmaGrid').addBlock(addBlockArgs);
+				$i('.ui-blox-grid').first().data('ui-bloxGrid').addBlock(addBlockArgs);
 
 			});
 
@@ -388,13 +388,13 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			$(this).text('Cloning...').addClass('button-depressed').css('cursor', 'default');
 
-			var request = $.ajax(Padma.ajaxURL, {
+			var request = $.ajax(Blox.ajaxURL, {
 				type: 'POST',
 				async: true,
 				data: {
-					action: 'padma_visual_editor',
+					action: 'blox_visual_editor',
 					method: 'get_layout_blocks_in_json',
-					security: Padma.security,
+					security: Blox.security,
 					layout: layoutToClone
 				},
 				success: function (data, textStatus) {
@@ -476,16 +476,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 						if (typeof wrapperIDTranslations[blockWrapper.replace('wrapper-', '')] != 'undefined') {
 
 							var destinationWrapperID = '#wrapper-' + wrapperIDTranslations[blockWrapper.replace('wrapper-', '')];
-							var destinationWrapper = $i('.ui-padma-grid').filter(destinationWrapperID).first();
+							var destinationWrapper = $i('.ui-blox-grid').filter(destinationWrapperID).first();
 
 						} else {
 
-							var destinationWrapper = $i('.ui-padma-grid').last();
+							var destinationWrapper = $i('.ui-blox-grid').last();
 
 						}
 
 						/* Add block to wrapper */
-						var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
+						var newBlock = destinationWrapper.data('ui-bloxGrid').addBlock(addBlockArgs);
 						var newBlockID = getBlockID(newBlock);
 						var oldBlockID = this.id;
 
@@ -534,12 +534,12 @@ define(['deps/chosen.jquery'], function(chosen) {
 				return alert('Please select a shared layout to assign.');
 
 			//Do the AJAX request to assign the template
-			$.post(Padma.ajaxURL, {
-				action: 'padma_visual_editor',
+			$.post(Blox.ajaxURL, {
+				action: 'blox_visual_editor',
 				method: 'assign_template',
-				security: Padma.security,
+				security: Blox.security,
 				template: templateToAssign,
-				layout: Padma.viewModels.layoutSelector.currentLayout()
+				layout: Blox.viewModels.layoutSelector.currentLayout()
 			}, function (response) {
 
 				if (typeof response === 'undefined' || response == 'failure') {
@@ -564,13 +564,13 @@ define(['deps/chosen.jquery'], function(chosen) {
 				changeTitle('Visual Editor: Assigning Shared Layout');
 				startTitleActivityIndicator();
 
-				Padma.viewModels.layoutSelector.currentLayoutTemplate('template-' + templateToAssign);
-				Padma.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + templateToAssign + '"]').find('.template-name').text());
+				Blox.viewModels.layoutSelector.currentLayoutTemplate('template-' + templateToAssign);
+				Blox.viewModels.layoutSelector.currentLayoutTemplateName($('span.layout[data-layout-id="template-' + templateToAssign + '"]').find('.template-name').text());
 
 				//Reload iframe and new layout
-				padmaIframeLoadNotification = 'Shared Layout assigned successfully!';
+				bloxIframeLoadNotification = 'Shared Layout assigned successfully!';
 
-				loadIframe(Padma.instance.iframeCallback);
+				loadIframe(Blox.instance.iframeCallback);
 
 				//End reload iframe
 
@@ -605,7 +605,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 			var layoutChooser = input;
 
 			if (!layoutChooser.val())
-				return alert('You must select a Padma layout file before importing.');
+				return alert('You must select a Blox layout file before importing.');
 
 			var layoutFile = layoutChooser.get(0).files[0];
 
@@ -620,7 +620,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 					/* Check to be sure that the JSON file is a layout */
 					if (layout['data-type'] != 'layout')
-						return alert('Cannot load layout file.  Please insure that the selected file is a valid Padma layout export.');
+						return alert('Cannot load layout file.  Please insure that the selected file is a valid Blox layout export.');
 
 					if (typeof layout['image-definitions'] != 'undefined' && Object.keys(layout['image-definitions']).length) {
 
@@ -630,10 +630,10 @@ define(['deps/chosen.jquery'], function(chosen) {
 							closeTimer: 10000
 						});
 
-						$.post(Padma.ajaxURL, {
-							action: 'padma_visual_editor',
+						$.post(Blox.ajaxURL, {
+							action: 'blox_visual_editor',
 							method: 'import_images',
-							security: Padma.security,
+							security: Blox.security,
 							importFile: layout
 						}, function (response) {
 
@@ -659,7 +659,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			} else {
 
-				alert('Cannot load layout file.  Please insure that the selected file is a valid Padma layout export.');
+				alert('Cannot load layout file.  Please insure that the selected file is a valid Blox layout export.');
 
 			}
 
@@ -740,16 +740,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 				if (typeof wrapperIDTranslations[blockWrapper.replace('wrapper-', '')] != 'undefined') {
 
 					var destinationWrapperID = '#wrapper-' + wrapperIDTranslations[blockWrapper.replace('wrapper-', '')];
-					var destinationWrapper = $i('.ui-padma-grid').filter(destinationWrapperID).first();
+					var destinationWrapper = $i('.ui-blox-grid').filter(destinationWrapperID).first();
 
 				} else {
 
-					var destinationWrapper = $i('.ui-padma-grid').last();
+					var destinationWrapper = $i('.ui-blox-grid').last();
 
 				}
 
 				/* Add block to wrapper */
-				var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
+				var newBlock = destinationWrapper.data('ui-bloxGrid').addBlock(addBlockArgs);
 				var newBlockID = getBlockID(newBlock);
 				var oldBlockID = this.id;
 
@@ -822,13 +822,13 @@ define(['deps/chosen.jquery'], function(chosen) {
 		$('div#boxes').delegate('#grid-wizard-export-download-file', 'click', function () {
 
 			var params = {
-				'action': 'padma_visual_editor',
-				'security': Padma.security,
+				'action': 'blox_visual_editor',
+				'security': Blox.security,
 				'method': 'export_layout',
-				'layout': Padma.viewModels.layoutSelector.currentLayout()
+				'layout': Blox.viewModels.layoutSelector.currentLayout()
 			}
 
-			var exportURL = Padma.ajaxURL + '?' + $.param(params);
+			var exportURL = Blox.ajaxURL + '?' + $.param(params);
 
 			return window.open(exportURL);
 

@@ -50,14 +50,14 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			wrapperTabName += ' (' + $i('#' + wrapperID).data('alias') + ')';
 
 		addPanelTab(wrapperID, wrapperTabName, {
-			url: Padma.ajaxURL,
+			url: Blox.ajaxURL,
 			data: {
-				security: Padma.security,
-				action: 'padma_visual_editor',
+				security: Blox.security,
+				action: 'blox_visual_editor',
 				method: 'load_wrapper_options',
 				wrapper_id: wrapperID.replace('wrapper-', ''),
 				unsaved_wrapper_options: getUnsavedWrapperOptionValues(wrapperID.replace('wrapper-', '')),
-				layout: Padma.viewModels.layoutSelector.currentLayout()
+				layout: Blox.viewModels.layoutSelector.currentLayout()
 			},
 			callback: readyTabs}, true, true, 'wrapper-options');
 
@@ -102,7 +102,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 			var mirroredWrapperID = mirroredWrapperID.replace('wrapper-', '');
 
 			wrapper.addClass('wrapper-mirrored');
-			wrapper.padmaGrid('disable');
+			wrapper.bloxGrid('disable');
 
 			/* Hide wrapper options */
 			if ( typeof input != 'undefined' )
@@ -112,7 +112,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 		} else {
 
 			wrapper.removeClass('wrapper-mirrored');
-			wrapper.padmaGrid('enable');
+			wrapper.bloxGrid('enable');
 
 			/* Show wrapper options */
 			if ( typeof input != 'undefined' )
@@ -127,16 +127,16 @@ define(['modules/panel.inputs'], function(panelInputs) {
 		}
 
 		/* Recalculate wrapper height */
-		wrapper.data('ui-padmaGrid').updateGridContainerHeight();
-		wrapper.data('ui-padmaGrid').resetGridCalculations();
-		wrapper.data('ui-padmaGrid').alignAllBlocksWithGuides();
+		wrapper.data('ui-bloxGrid').updateGridContainerHeight();
+		wrapper.data('ui-bloxGrid').resetGridCalculations();
+		wrapper.data('ui-bloxGrid').alignAllBlocksWithGuides();
 
 	}
 
 
 	updateWrapperCustomClasses = function(wrapperID, value) {
 
-		if ( Padma.mode != 'design' )
+		if ( Blox.mode != 'design' )
 			return false;
 
 		var wrapper = $i('.wrapper[data-id="' + wrapperID + '"]');

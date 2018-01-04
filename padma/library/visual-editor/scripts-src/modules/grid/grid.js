@@ -1,18 +1,18 @@
 /*
- * Padma Grid
+ * Blox Grid
  *
- * Copyright 2011-2015, Padma Theme, LLC
+ * Copyright 2011-2015, Blox Theme, LLC
  *
- * http://padmatheme.com
+ * http://bloxtheme.com
  */
 define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
-	$.widget("ui.padmaGrid", $.ui.mouse, {
+	$.widget("ui.bloxGrid", $.ui.mouse, {
 		options: {
 			useIndependentGrid: false,
-			columns: Padma.defaultGridColumnCount,
-			columnWidth: Padma.globalGridColumnWidth,
-			gutterWidth: Padma.globalGridGutterWidth,
+			columns: Blox.defaultGridColumnCount,
+			columnWidth: Blox.globalGridColumnWidth,
+			gutterWidth: Blox.globalGridGutterWidth,
 			yGridInterval: 5,
 			minBlockHeight: 10,
 			selectedBlocksContainerClass: 'selected-blocks-container',
@@ -24,16 +24,16 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 			this.wrapper = this.element;
 			this.container = this.wrapper.find('.grid-container');
-			this.iframe = $(Padma.iframe);
+			this.iframe = $(Blox.iframe);
 			this.contents = $(this.iframe).contents();
 			this.document = $(this.iframe).contents();
 
 			/* Populate Grid Options from the Wrapper Settings.  This is primarily used for generating the CSS for the Grid so the right ratios and percentages can be made */
 			this.options.useIndependentGrid = this.wrapper.data('wrapper-settings')['use-independent-grid'];
 
-			this.options.columns = this.wrapper.data('wrapper-settings')['columns'] ? this.wrapper.data('wrapper-settings')['columns'] : Padma.defaultGridColumnCount;
-			this.options.columnWidth = this.wrapper.data('wrapper-settings')['column-width'] ? this.wrapper.data('wrapper-settings')['column-width'] : Padma.globalGridColumnWidth;
-			this.options.gutterWidth = this.wrapper.data('wrapper-settings')['gutter-width'] ? this.wrapper.data('wrapper-settings')['gutter-width'] : Padma.globalGridGutterWidth;
+			this.options.columns = this.wrapper.data('wrapper-settings')['columns'] ? this.wrapper.data('wrapper-settings')['columns'] : Blox.defaultGridColumnCount;
+			this.options.columnWidth = this.wrapper.data('wrapper-settings')['column-width'] ? this.wrapper.data('wrapper-settings')['column-width'] : Blox.globalGridColumnWidth;
+			this.options.gutterWidth = this.wrapper.data('wrapper-settings')['gutter-width'] ? this.wrapper.data('wrapper-settings')['gutter-width'] : Blox.globalGridGutterWidth;
 
 			this.addColumnGuides();
 
@@ -43,7 +43,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			this.helperTemplate = $('<div class="ui-grid-helper block"></div>');
 			this.offset = this.container.offset();
 									
-			this.wrapper.addClass('ui-padma-grid');
+			this.wrapper.addClass('ui-blox-grid');
 			this.wrapper.disableSelection();
 
 			/* Binding */	
@@ -88,7 +88,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			/* Bind Double Click */	
 				this.container.delegate('.' + this.options.defaultBlockClass.replace('.', ''), 'dblclick', function(event) {
 					
-					var grid = $(this).parents('.ui-padma-grid').data('ui-padmaGrid');
+					var grid = $(this).parents('.ui-blox-grid').data('ui-bloxGrid');
 					
 					//If there's only one grouped block and it's being toggled off, remove all grouping
 					if ( $(this).hasClass('grouped-block') && grid.container.find('.grouped-block').length === 1 ) {
@@ -219,7 +219,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 		iframeMouseMove: function(event) {
 
-			if ( typeof this._iframeMouseDownEvent != 'undefined' || typeof this._doingHoverBlockToTop != 'undefined' || !Padma.touch )
+			if ( typeof this._iframeMouseDownEvent != 'undefined' || typeof this._doingHoverBlockToTop != 'undefined' || !Blox.touch )
 				return;
 
 			this._doingHoverBlockToTop = true;
@@ -392,7 +392,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			var blockWidth = x2.toNearest(this.grid.columnWidth + this.grid.gutterWidth) - blockLeft - this.grid.gutterWidth;
 			var blockHeight = y2.toNearest(this.options.yGridInterval) - y1.toNearest(this.options.yGridInterval);	
 					
-			Padma.blankBlockOptions = {
+			Blox.blankBlockOptions = {
 				display: 'block',
 				left: blockLeft, 
 				top: blockTop, 
@@ -404,21 +404,21 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			
 				/* Width Max */
 				if ( blockLeft + blockWidth > (this.grid.columns * (this.grid.columnWidth + this.grid.gutterWidth)) )
-					Padma.blankBlockOptions.width = containerWidth - Padma.blankBlockOptions.left;
+					Blox.blankBlockOptions.width = containerWidth - Blox.blankBlockOptions.left;
 
 				/* If block bleeds out bottom, put a damper there. */
 				if ( event.pageY > (containerTop + containerHeight)  ) {
-					Padma.blankBlockOptions.height = containerHeight - blockTop;
+					Blox.blankBlockOptions.height = containerHeight - blockTop;
 				}
 				
 			/* End Maxes */
 			
 			/* Apply the CSS */
-				this.helper.css(Padma.blankBlockOptions);
+				this.helper.css(Blox.blankBlockOptions);
 
 			/* Change width/left to classes to keep finicky bullshit to a minimum */
-				var widthGridNum = Math.round((Padma.blankBlockOptions.width + this.grid.gutterWidth)/(this.grid.columnWidth + this.grid.gutterWidth));
-				var leftGridNum = Math.round(Padma.blankBlockOptions.left/(this.grid.columnWidth + this.grid.gutterWidth));
+				var widthGridNum = Math.round((Blox.blankBlockOptions.width + this.grid.gutterWidth)/(this.grid.columnWidth + this.grid.gutterWidth));
+				var leftGridNum = Math.round(Blox.blankBlockOptions.left/(this.grid.columnWidth + this.grid.gutterWidth));
 
 				if ( widthGridNum == 0 )
 					widthGridNum = 1;
@@ -435,7 +435,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			/* End adding classes */
 
 			/* Make block red if it is not big enough */
-			if ( Padma.blankBlockOptions.height < this.options.minBlockHeight ) {
+			if ( Blox.blankBlockOptions.height < this.options.minBlockHeight ) {
 				this.helper.addClass('block-error');
 			} else if ( this.helper.hasClass('block-error') ) {
 				this.helper.removeClass('block-error');
@@ -473,7 +473,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 			this._trigger("stop", event);
 			
-			Padma.blankBlockOptions = {
+			Blox.blankBlockOptions = {
 				width: getBlockGridWidth(this.helper),
 				left: getBlockGridLeft(this.helper),
 				pixelWidth: this.helper.width(),
@@ -492,10 +492,10 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			delete this.helper;
 			
 			//Check to make sure the block is big enough
-			if ( Padma.blankBlockOptions.pixelWidth < this.grid.columnWidth || Padma.blankBlockOptions.height < this.options.minBlockHeight )
+			if ( Blox.blankBlockOptions.pixelWidth < this.grid.columnWidth || Blox.blankBlockOptions.height < this.options.minBlockHeight )
 				return false;
 
-			this.addBlankBlock(Padma.blankBlockOptions);
+			this.addBlankBlock(Blox.blankBlockOptions);
 									
 			this.mouseStartPosition = false;
 
@@ -529,7 +529,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				//this variable refers to resizabable
 				
 				var block = getBlock(ui.element);
-				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
+				var grid = block.parents('.ui-blox-grid').data('ui-bloxGrid');
 				
 				var minBlockHeight = parseInt(block.css('minHeight').replace('px', ''));
 				var height = block.height();
@@ -564,7 +564,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			resizableResize: function(event, ui) {
 				
 				var block = getBlock(ui.element);
-				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
+				var grid = block.parents('.ui-blox-grid').data('ui-bloxGrid');
 
 				/* Set classes to get rid of finicky-ness and to make the block stay in line with guides */
 				var widthGridNum = Math.round((block.width() + grid.grid.gutterWidth)/(grid.grid.columnWidth + grid.grid.gutterWidth));
@@ -589,7 +589,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 				//this variable refers to resizable
 				var block = getBlock(ui.element);
-				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
+				var grid = block.parents('.ui-blox-grid').data('ui-bloxGrid');
 
 				/* Setup variables for undo/redo */
 					var oldBlockPosition = block.data('old-position');
@@ -655,7 +655,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 				}
 
-				Padma.history.add({
+				Blox.history.add({
 					description: 'Resized block',
 					up: function() {
 
@@ -700,7 +700,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				}
 
 				var block = ui.el;
-				var grid = getBlock(block).parents('.ui-padma-grid').data('ui-padmaGrid');
+				var grid = getBlock(block).parents('.ui-blox-grid').data('ui-bloxGrid');
 							
 				//Grouping Code
 				blockGroupingOriginals = {};
@@ -762,7 +762,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				var isOverlapping;
 
 				var container = getBlock($(block)).parents('.grid-container');
-				var grid = getBlock($(block)).parents('.ui-padma-grid').data('ui-padmaGrid');
+				var grid = getBlock($(block)).parents('.ui-blox-grid').data('ui-bloxGrid');
 				var wrapper = getBlock($(block)).parents('.wrapper');
 
 				/* Check if mouse coordinates are overlapping another wrapper.  If they are then show droppable effect. */
@@ -937,7 +937,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				//this variable refers to draggable
 				var block = $(ui.el);
 				var container = getBlock($(block)).parents('.grid-container');
-				var grid = getBlock($(block)).parents('.ui-padma-grid').data('ui-padmaGrid');
+				var grid = getBlock($(block)).parents('.ui-blox-grid').data('ui-bloxGrid');
 				var isOverlapping;
 				var destinationContainer;
 
@@ -970,7 +970,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 					if ( isOverlapping && $i('.grid-container').length > 1 ) {
 
-						var destinationContainerPadmaGrid = destinationContainer.parents('.wrapper').data('ui-padmaGrid');
+						var destinationContainerBloxGrid = destinationContainer.parents('.wrapper').data('ui-bloxGrid');
 						var originalContainer = block.parents('.grid-container');
 
 						/* Move block to destination container */
@@ -993,10 +993,10 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 						/* Change draggable/resizable containment on block to destination */
 							block.resizable('destroy');
-							destinationContainer.parents('.wrapper').padmaGrid('initResizable', block);
+							destinationContainer.parents('.wrapper').bloxGrid('initResizable', block);
 
 							$.pep.unbind(block);
-							destinationContainer.parents('.wrapper').padmaGrid('initDraggable', block);
+							destinationContainer.parents('.wrapper').bloxGrid('initDraggable', block);
 
 						/* Do block intersect check */
 							blockIntersectCheck(false, originalContainer);
@@ -1009,7 +1009,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 							dataSetBlockWrapper(getBlockID(block), getBlockWrapper(block).attr('id'));
 
 						/* Re-align this block with the new wrapper */
-							block.parents('.ui-padma-grid').first().data('ui-padmaGrid').alignBlockWithGuides(block);
+							block.parents('.ui-blox-grid').first().data('ui-bloxGrid').alignBlockWithGuides(block);
 
 					}
 				/* End droppable handling */
@@ -1116,7 +1116,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					}
 
 					/* Do the action */
-					Padma.history.add({
+					Blox.history.add({
 						description: description,
 						up: function() {
 
@@ -1172,7 +1172,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 			var temporaryID = Math.ceil(Math.random() * 1000000000);
 
-			Padma.blankBlock = $('<div><div class="block-content-fade block-content"></div></div>')
+			Blox.blankBlock = $('<div><div class="block-content-fade block-content"></div></div>')
 				.attr('id', 'block-' + temporaryID)
 				.attr('data-id', temporaryID)
 				.attr('data-temp-id', temporaryID)
@@ -1184,9 +1184,9 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				.addClass('blank-block')
 				.addClass('hide-content-in-grid');
 
-			updateBlockContentCover(Padma.blankBlock);
+			updateBlockContentCover(Blox.blankBlock);
 
-			var block = Padma.blankBlock;
+			var block = Blox.blankBlock;
 
 			/* Setup block in DOM */
 				block.css({
@@ -1213,7 +1213,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 			//Add this conditional in so addBlock doesn't take as long
 			if ( usingAddBlock == false ) {
-				openBlockTypeSelector($(Padma.blankBlock));
+				openBlockTypeSelector($(Blox.blankBlock));
 			}
 
 			//Initiate stuff
@@ -1235,22 +1235,22 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			if ( typeof usingAddBlock == 'undefined' )
 				var usingAddBlock = false;
 
-			Padma.blankBlock.removeClass('blank-block');
-			Padma.blankBlock.addClass('block-type-' + blockType);
-			Padma.blankBlock.data('type', blockType);
+			Blox.blankBlock.removeClass('blank-block');
+			Blox.blankBlock.addClass('block-type-' + blockType);
+			Blox.blankBlock.data('type', blockType);
 
 			if ( loadContent ) {
 
 				loadBlockContent({
-					blockElement: Padma.blankBlock,
+					blockElement: Blox.blankBlock,
 					blockOrigin: {
 						type: blockType,
 						id: 0,
-						layout: Padma.viewModels.layoutSelector.currentLayout()
+						layout: Blox.viewModels.layoutSelector.currentLayout()
 					},
 					blockSettings: {
-						dimensions: getBlockDimensions(Padma.blankBlock),
-						position: getBlockPosition(Padma.blankBlock)
+						dimensions: getBlockDimensions(Blox.blankBlock),
+						position: getBlockPosition(Blox.blankBlock)
 					},
 				});
 
@@ -1259,38 +1259,38 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			//Set the fluid/fixed height class so the fluid height message is shown correctly
 			if ( getBlockTypeObject(blockType)['fixed-height'] === true ) {
 
-				Padma.blankBlock.addClass('block-fixed-height');
+				Blox.blankBlock.addClass('block-fixed-height');
 
 			} else {
 
-				Padma.blankBlock.addClass('block-fluid-height');
+				Blox.blankBlock.addClass('block-fluid-height');
 
 			}
 
 			//Set the hide-content-in-grid depending on the block type
 			if ( getBlockTypeObject(blockType)['show-content-in-grid'] )
-				Padma.blankBlock.removeClass('hide-content-in-grid');
+				Blox.blankBlock.removeClass('hide-content-in-grid');
 
 			//Add the hidden input flag
-			dataAddBlock(Padma.blankBlock);
-			dataSetBlockPosition(getBlockID(Padma.blankBlock), getBlockPosition(Padma.blankBlock));
-			dataSetBlockDimensions(getBlockID(Padma.blankBlock), getBlockDimensions(Padma.blankBlock));
-			dataSetBlockWrapper(getBlockID(Padma.blankBlock), Padma.blankBlock.closest('.wrapper').attr('id'));
+			dataAddBlock(Blox.blankBlock);
+			dataSetBlockPosition(getBlockID(Blox.blankBlock), getBlockPosition(Blox.blankBlock));
+			dataSetBlockDimensions(getBlockID(Blox.blankBlock), getBlockDimensions(Blox.blankBlock));
+			dataSetBlockWrapper(getBlockID(Blox.blankBlock), Blox.blankBlock.closest('.wrapper').attr('id'));
 
 			//Check for intersectors and allow saving if possible
-			if ( blockIntersectCheck(Padma.blankBlock) ) {
+			if ( blockIntersectCheck(Blox.blankBlock) ) {
 				allowSaving();
 			} else {
 				disallowSaving();
 			}
 
-			updateBlockContentCover(Padma.blankBlock);
+			updateBlockContentCover(Blox.blankBlock);
 
 			//Save block variable to return it at the end
-			var block = Padma.blankBlock;
+			var block = Blox.blankBlock;
 
 			//Make this undoable/redoable
-			Padma.history.add({
+			Blox.history.add({
 				description: 'Added ' + getBlockTypeNice(blockType) + ' block',
 				up: function() {
 
@@ -1323,8 +1323,8 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 
 			//Clear variable
-			delete Padma.blankBlock;
-			delete Padma.blankBlockOptions;
+			delete Blox.blankBlock;
+			delete Blox.blankBlockOptions;
 
 			return block;
 
@@ -1517,7 +1517,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			) {
 				updateGridCSS(wrapperSelector, this.options.columns, this.options.columnWidth, this.options.gutterWidth, gridWidthInputContext);
 			} else {
-				updateGridCSS(wrapperSelector, this.options.columns, Padma.globalGridColumnWidth, Padma.globalGridGutterWidth, gridWidthInputContext);
+				updateGridCSS(wrapperSelector, this.options.columns, Blox.globalGridColumnWidth, Blox.globalGridGutterWidth, gridWidthInputContext);
 			}
 
 			/* Reset Grid Calculations */
@@ -1534,7 +1534,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		
 	});
 
-	$.extend($.ui.padmaGrid, {
+	$.extend($.ui.bloxGrid, {
 		version: "2.1"
 	});
 

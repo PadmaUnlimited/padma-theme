@@ -22,6 +22,7 @@ require(['jquery', 'util.loader'], function($) {
 	//iframe.showIframeLoadingOverlay();
 
 	/* Parse the JSON in the Blox l10n array */
+	Blox = Padma.clone();
 	Blox.blockTypeURLs = $.parseJSON(Blox.blockTypeURLs.replace(/&quot;/g, '"'));
 	Blox.allBlockTypes = $.parseJSON(Blox.allBlockTypes.replace(/&quot;/g, '"'));
 	Blox.ranTour = $.parseJSON(Blox.ranTour.replace(/&quot;/g, '"'));

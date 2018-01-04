@@ -2799,12 +2799,6 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 			/* Hide DE if cookie is set to do so */
 				if ( $.cookie('hide-design-editor') === 'true' )
 					hideDesignEditor();
-
-			/*
-				Start inspector dissabled	
-			*/
-			disableInspector();
-
 		},
 
 		bind: function() {

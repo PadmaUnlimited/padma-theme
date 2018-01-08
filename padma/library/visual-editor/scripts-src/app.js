@@ -61,11 +61,10 @@ require(['jquery', 'util.loader'], function($) {
 	 *
 	 * Load mode switcher
 	 *
-	 */	
-	 /*
+	 */
 	require(['switch.mode'], function(switchMode) {
 		switchMode.init();
-	});*/
+	});
 
 
 	/* Load helpers all at once since they're used everywhere */

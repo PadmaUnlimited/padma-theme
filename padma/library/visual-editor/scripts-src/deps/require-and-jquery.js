@@ -1871,7 +1871,7 @@ var requirejs, require, define;
                 //404s in IE9+. However, onreadystatechange will fire before
                 //the error handler, so that does not help. If addEventListener
                 //is used, then IE will fire error before load, but we cannot
-                //use that patbtay given the connect.microsoft.com issue
+                //use that pathway given the connect.microsoft.com issue
                 //mentioned above about not doing the 'script execute,
                 //then fire the script load event listener before execute
                 //next script' that other browsers do.

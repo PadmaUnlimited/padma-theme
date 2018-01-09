@@ -71,16 +71,13 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 					aceHelper.showEditor('live-css', 'css', $('textarea#live-css').val(), function(editor) {
 
-						var value = editor.getValue();
-						var textarea = $('textarea#live-css');
-
+						var value 		= editor.getValue();
+						var textarea 	= $('textarea#live-css');
 						textarea.val(value);
-
 						dataHandleInput(textarea);
 						$i('style#live-css-holder').html(value);
-
 						allowSaving();
-
+						
 					});
 
 				});

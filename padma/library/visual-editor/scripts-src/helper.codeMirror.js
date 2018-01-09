@@ -22,6 +22,8 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 
 		showEditor: function(id, mode, initialValue, changeCallback) {
 
+			console.log(this);
+
 			if ( typeof Padma.codeMirrorEditors[id] != 'undefined' && !Padma.codeMirrorEditors[id].window.closed ) {
 				Padma.codeMirrorEditors[id].window.focus();
 
@@ -41,7 +43,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 			}
 
 			Padma.codeMirrorEditors[id].window.focus();
-			aceHelper.bindEditor(id, mode, initialValue, changeCallback);
+			codeMirrorHelper.bindEditor(id, mode, initialValue, changeCallback);
 
 			return Padma.codeMirrorEditors[id];
 
@@ -56,27 +58,24 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				/* Add keybindings */
 				mousetrap.bindEventsTo(window.document);
 
-				var ace = window.ace;
 
-				/* Set paths */
-				var acePath = Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/deps/ace/';
-
-				ace.config.set('basePath', acePath);
-				ace.config.set('modePath', acePath);
-				ace.config.set('workerPath', acePath);
-				ace.config.set('themePath', acePath);
+				var CodeMirror = window.CodeMirror;				
 
 				/* Init editor */
 				Padma.codeMirrorEditors[id].editor = ace.edit($(window.document).contents().find('#ace-editor').get(0));
 				Padma.codeMirrorEditors[id].editorSession = Padma.codeMirrorEditors[id].editor.getSession();
+				/*
+				*/
 
 				/* Set editor config */
+				/*
 				Padma.codeMirrorEditors[id].editor.setTheme('ace/theme/clouds');
 				Padma.codeMirrorEditors[id].editorSession.setMode('ace/mode/' + mode);
 
 				Padma.codeMirrorEditors[id].editor.setShowPrintMargin(false);
 
 				Padma.codeMirrorEditors[id].editorSession.setUseWrapMode(true);
+				*/
 
 				/* Populate the editor */
 				Padma.codeMirrorEditors[id].editor.setValue(initialValue);

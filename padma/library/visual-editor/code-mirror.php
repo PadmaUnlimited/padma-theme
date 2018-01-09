@@ -5,6 +5,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
 <link rel="stylesheet" href="<?php echo padma_url() . '/library/visual-editor/' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? 'scripts-src' : 'scripts-src') . '/deps/code-mirror/codemirror.css'; ?> ">
+
 <link rel="stylesheet" href="<?php echo padma_url() . '/library/visual-editor/' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? 'scripts-src' : 'scripts-src') . '/deps/code-mirror/addon/hint/show-hint.css'; ?> ">
 
 <script type="text/javascript" src="<?php echo padma_url() . '/library/visual-editor/' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? 'scripts-src' : 'scripts-src') . '/deps/code-mirror/codemirror.js'; ?> " charset="utf-8"></script>

@@ -71,8 +71,6 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 					codeMirrorHelper.showEditor('live-css', 'css', $('textarea#live-css').val(), function(editor) {
 
-						console.log(editor.getValue());
-
 						var value 		= editor.getValue();
 						var textarea 	= $('textarea#live-css');
 						textarea.val(value);

@@ -309,7 +309,7 @@ class PadmaVisualEditorDisplay {
 						The faded orange and purple are the margins and padding.  These colors are only visible when the inspector is active.';
 
 					echo '<div class="menu-mode-buttons">';
-						echo '<span class="menu-mode-button tooltip-bottom-right inspector-disabled" id="toggle-inspector" title="' . esc_attr($tooltip) . '"></span>';
+						echo '<span class="menu-mode-button tooltip-bottom-right" id="toggle-inspector" title="' . esc_attr($tooltip) . '"></span>';
 						echo '<span class="menu-mode-button tooltip-bottom-right" id="open-live-css" title="Open Live CSS Editor"></span>';
 					echo '</div>';
 

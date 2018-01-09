@@ -63,52 +63,5 @@
 </head>
 <body>
 	<textarea id="code" name="code" placeholder="Your awesome CSS goes here"></textarea>
-	<script>
-<<<<<<< HEAD
-		/*
-=======
->>>>>>> be68020990f5510bb35a4f6ff7ea0022250262d6
-		function getCookie(name) {
-		    var dc = document.cookie;
-		    var prefix = name + "=";
-		    var begin = dc.indexOf("; " + prefix);
-		    if (begin == -1) {
-		        begin = dc.indexOf(prefix);
-		        if (begin != 0) return null;
-		    }
-		    else
-		    {
-		        begin += 2;
-		        var end = document.cookie.indexOf(";", begin);
-		        if (end == -1) {
-		        end = dc.length;
-		        }
-		    }
-		    return decodeURI(dc.substring(begin + prefix.length, end));
-		} 
-		var cookieTheme 	= getCookie("night");
-		var themeSelected 	= 'cm-s-default';
-		if (cookieTheme == 'true') {
-			themeSelected 	= 'night';
-		}
-<<<<<<< HEAD
-=======
-		/*
->>>>>>> be68020990f5510bb35a4f6ff7ea0022250262d6
-		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-			extraKeys: {				
-				"Ctrl-Space": "autocomplete",
-				"Ctrl-S": function(){
-					console.log('test');
-				}
-			},
-			styleActiveLine: 	true,
-			lineNumbers: 		true,
-    		lineWrapping: 		true,
-    		theme: 				themeSelected,
-    		autoCloseBrackets: 	true
-		});
-		*/
-    </script>
 </body>
 </html>

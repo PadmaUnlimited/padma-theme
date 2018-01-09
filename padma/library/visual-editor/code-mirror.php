@@ -64,7 +64,10 @@
 <body>
 	<textarea id="code" name="code" placeholder="Your awesome CSS goes here"></textarea>
 	<script>
+<<<<<<< HEAD
 		/*
+=======
+>>>>>>> be68020990f5510bb35a4f6ff7ea0022250262d6
 		function getCookie(name) {
 		    var dc = document.cookie;
 		    var prefix = name + "=";
@@ -88,6 +91,10 @@
 		if (cookieTheme == 'true') {
 			themeSelected 	= 'night';
 		}
+<<<<<<< HEAD
+=======
+		/*
+>>>>>>> be68020990f5510bb35a4f6ff7ea0022250262d6
 		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 			extraKeys: {				
 				"Ctrl-Space": "autocomplete",

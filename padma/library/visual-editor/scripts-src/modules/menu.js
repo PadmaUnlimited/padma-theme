@@ -1,4 +1,4 @@
-define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tour, aceHelper, url) {
+define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tour, codeMirrorHelper, url) {
 
 	var menu = {
 		init: function() {
@@ -69,18 +69,17 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 				$('#open-live-css').bind('click', function() {
 
-					aceHelper.showEditor('live-css', 'css', $('textarea#live-css').val(), function(editor) {
+					codeMirrorHelper.showEditor('live-css', 'css', $('textarea#live-css').val(), function(editor) {
 
-						var value = editor.getValue();
-						var textarea = $('textarea#live-css');
+						console.log(editor.getValue());
 
+						var value 		= editor.getValue();
+						var textarea 	= $('textarea#live-css');
 						textarea.val(value);
-
 						dataHandleInput(textarea);
 						$i('style#live-css-holder').html(value);
-
 						allowSaving();
-
+						
 					});
 
 				});

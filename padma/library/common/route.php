@@ -107,11 +107,11 @@ class PadmaRoute {
 				Padma::load('visual-editor/media-uploader');
 			break;
 
-			case 'ace-editor':
+			case 'code-mirror':
 				if ( !PadmaCapabilities::can_user_visually_edit() )
 					die();
 
-				Padma::load('visual-editor/ace-editor');
+				Padma::load('visual-editor/code-mirror');
 			break;
 
 		}

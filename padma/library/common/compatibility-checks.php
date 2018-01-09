@@ -1,4 +1,5 @@
 <?php
+
 global $pagenow, $wp_version;
 
 /* Do not throw these errors if DOING_AJAX is true or the themes page is already being viewed. */

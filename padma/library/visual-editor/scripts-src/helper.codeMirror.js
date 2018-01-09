@@ -1,4 +1,4 @@
-define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
+define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switchMode) {
 
 	Padma.codeMirrorEditors 	= {};
 	var codeMirrorHelper 		= {
@@ -58,24 +58,47 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				mousetrap.bindEventsTo(window.document);
 
 
-				/* Init editor */
-				/*
-				Padma.codeMirrorEditors[id].editor = ace.edit($(window.document).contents().find('#ace-editor').get(0));
-				Padma.codeMirrorEditors[id].editorSession = Padma.codeMirrorEditors[id].editor.getSession();
-				*/
+				var themeSelected 	= 'cm-s-default';
+				if (switchMode.mode() == "true") { // Is set on night
+					themeSelected 	= 'night';
+				}
 
+				/* Init editor */
+				var editor = window.CodeMirror.fromTextArea(window.document.getElementById("code"), {
+					extraKeys: {				
+						"Ctrl-Space": "autocomplete",
+						/*
+						"Ctrl-S": function(){
+							console.log('test');
+						}*/
+					},
+					styleActiveLine: 	true,
+					lineNumbers: 		true,
+		    		lineWrapping: 		true,
+		    		theme: 				themeSelected,
+		    		autoCloseBrackets: 	true
+				});
 
 				/* Populate the editor */
-				Padma.codeMirrorEditors[id].editor.setValue(initialValue);
+				editor.setValue(initialValue);
 
 				/* Focus editor */
-				Padma.codeMirrorEditors[id].editor.gotoLine(0);
-				Padma.codeMirrorEditors[id].editor.focus();
+				editor.focus();
 
 				/* Bind the editor */
+				editor.on('change',function(e){
+					return changeCallback(editor);
+				});
+				/*
+				Padma.codeMirrorEditors[id].editorSession.on('change', function(e) {
+					return changeCallback(editor);
+				})*/
+				/*
 				Padma.codeMirrorEditors[id].editorSession.on('change', function(e) {
 					return changeCallback(Padma.codeMirrorEditors[id].editor);
-				});
+				});*/
+				/*
+				*/
 
 			});
 

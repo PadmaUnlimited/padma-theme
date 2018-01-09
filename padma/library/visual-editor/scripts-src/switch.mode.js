@@ -1,11 +1,14 @@
 define(['jquery'], function($) {
 
+	mode: 'light',
+
 	/**
 	 *
 	 * Apply night mode
 	 *
 	 */	
 	applyNight = function (){
+		this.mode = 'night';
 		$( "body" ).addClass( "night" );
 		$( "iframe" ).contents().find("body").addClass("night");
 	}
@@ -17,6 +20,7 @@ define(['jquery'], function($) {
 	 *
 	 */	
 	applyDay = function () {
+		this.mode = 'light';
 		$( "body" ).removeClass( "night" );
 		$( "iframe" ).contents().find("body").removeClass("night");
 	}
@@ -101,6 +105,11 @@ define(['jquery'], function($) {
 			    }
 			});
 			
+		},
+
+		mode: function(){
+			return readCookie("night");
 		}
+
 	}
 });

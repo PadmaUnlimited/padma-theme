@@ -1,4 +1,4 @@
-define(['jquery', 'util.tour', 'helper.ace', 'deps/url'], function($, tour, aceHelper, url) {
+define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tour, aceHelper, url) {
 
 	var menu = {
 		init: function() {

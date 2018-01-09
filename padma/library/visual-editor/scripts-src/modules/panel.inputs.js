@@ -1,4 +1,4 @@
-define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader'], function($, aceHelper, chosen) {
+define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader'], function($, aceHelper, chosen) {
 
 	handleInputTogglesInContainer = function(container) {
 

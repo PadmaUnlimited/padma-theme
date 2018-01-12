@@ -743,7 +743,10 @@ div#menu {
 span#logo {
 	width: 26px;
 	height: 26px;
-	background: url(../images/logo-white.png) no-repeat 0;
+	background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 	display: block;
 	margin: 4px 3px 3px 10px;
 	float: left;

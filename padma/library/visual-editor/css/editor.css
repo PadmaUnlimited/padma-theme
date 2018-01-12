@@ -741,17 +741,16 @@ div#menu {
 }
 
 span#logo {
-	width: 26px;
-	height: 26px;
-	background-image: url(../images/logo.png);
+    width: 26px;
+    height: 20px;
+    background-image: url(../images/logo.png);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
-	display: block;
-	margin: 4px 3px 3px 10px;
-	float: left;
-	text-indent: -9999px;
-
+    display: block;
+    margin: 8px 3px 3px 10px;
+    float: left;
+    text-indent: -9999px;
 }
 
 /* Top Menu Navigation (Modes and Skins Button) */

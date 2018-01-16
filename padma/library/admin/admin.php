@@ -349,7 +349,7 @@ class PadmaAdmin {
 
 		$menu_name = ( PadmaOption::get('hide-menu-version-number', false, true) == true ) ? 'Padma Theme' : 'Padma Theme ' . PADMA_VERSION;
 
-		$icon = (version_compare($GLOBALS['wp_version'], '3.8', '>=') && get_user_option('admin_color') != 'light') ? 'padma-32-white.png' : 'padma-16.png';
+		$icon = (version_compare($GLOBALS['wp_version'], '3.8', '>=') && get_user_option('admin_color') != 'light') ? 'padma-32-grey.png' : 'padma-16.png';
 		$icon_url = padma_url() . '/library/admin/images/' . $icon;
 
 		$parent_menu = self::parent_menu();

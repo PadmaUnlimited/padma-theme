@@ -105,3 +105,60 @@ body.night div.design-editor-box span.design-editor-box-title:hover{
 body.night div#side-panel-container div#side-panel div#side-panel-bottom{
     box-shadow: 8px -10px 15px #101c29;    
 }
+body.night div.sub-tabs-content .repeater .repeater-group{
+    background-color: #192837;
+}
+body.night div.notification{
+    background-color: #192837;
+    color: #FFFFFF;
+}
+body.night #box-snapshots{
+    background-color: #192837;
+    color: #FFFFFF;   
+}
+body.night #box-snapshots div.box-top > strong{
+    color: #fff;
+}
+body.night div#box-snapshots #snapshots-list > li .snapshot-delete{
+    color: rgba(255, 0, 0, 0.5);
+}
+body.night div#box-snapshots #snapshots-list > li .snapshot-delete:hover{
+    color: #ff0000;   
+}
+body.night div.box-top span.box-close{
+    color: #f4f4f4;
+}
+body.night div#iframe-notice div{
+    border: 1px solid #192837;
+}
+body.night div#iframe-notice div,
+body.night div#layout-selector,
+body.night div.layout-selector-content ul > li:nth-child(even) > span.layout{
+    background-color: #192837;
+    color: #FFFFFF;      
+}
+body.night div.layout-selector-content li.layout-selected > span.layout strong,
+body.night div#layout-selector-tabs li.ui-tabs-active a,
+body.night div#box-grid-wizard div.box-content h4{
+    color: #FFFFFF !important;
+}
+body.night div.box ul.tabs li a,
+body.night div.box ul.tabs,
+body.night div.box{
+    background-color: #192837;
+    color: #FFFFFF;
+}
+body.night div.box ul.tabs li.ui-tabs-active a{
+    background-color: #4e6071;
+}
+body.night div.grid-wizard-buttons span.grid-wizard-use-empty-grid,
+body.night div.box-top > strong{
+    color: #FFFFFF;
+}
+body.night div.grid-wizard-buttons{
+    background-color: #4e6071;
+    border: 1px solid #4e6071;  
+}
+body.night div#box-grid-wizard div.box-content .grid-wizard-import-export-group p{
+    color: #FFFFFF;   
+}

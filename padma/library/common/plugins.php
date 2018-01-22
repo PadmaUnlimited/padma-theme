@@ -11,7 +11,7 @@ class PadmaPlugins{
 		}
 
 
-		add_action( 'tgmpa_register', array($this,'padma_register_required_plugins') );
+		add_action( 'tgmpa_register', array(__CLASS__,'padma_register_required_plugins'));
 		
 	}
 
@@ -20,7 +20,7 @@ class PadmaPlugins{
 	 *	
 	 * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
 	 */
-	public  function padma_register_required_plugins() {
+	public static function padma_register_required_plugins() {
 		/*
 		 * Array of plugin arrays. Required keys are name and slug.
 		 * If the source is NOT from the .org repo, then source is also required.

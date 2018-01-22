@@ -1,8 +1,8 @@
 === Padma ===
 Contributors: marodok
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5
-Version: 0.0.6
+Tested up to: WordPress 5.0-alpha
+Version: 0.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -39,6 +39,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 0.0.7
+* Released: January 22, 2018
+
+CSS and night mode fixes
+
+
 = 0.0.6
 * Released: January 12, 2018
 
@@ -48,9 +54,10 @@ CSS and images fixes
 = 0.0.5
 * Released: January 9, 2018
 
-Code fixex
+Code fixes
 Change live css editor to CodeMirror
 Added night / day mode support to live css editor
+
 
 = 0.0.4 =
 * Released: January 3, 2018
@@ -58,6 +65,7 @@ Added night / day mode support to live css editor
 Code fixes
 Added night / day mode switcher to visual editor
 Tested on Wordpress 5 alpha
+
 
 = 0.0.3 =
 * Released: January 1, 2018
@@ -68,9 +76,10 @@ Code fixes
 = 0.0.2 =
 * Released: December 25, 2017
 
-Renamed all references from Padma to Padma
+Renamed all references from Box to Padma
+
 
 = 0.0.1 =
 * Released: December 24, 2017
 
-Initial release based on PadmaTheme 1.0.3
+Initial release based on BloxTheme 1.0.3

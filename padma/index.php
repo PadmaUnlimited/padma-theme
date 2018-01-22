@@ -5,7 +5,7 @@
  * Package   : Padma Theme
  * Author    : Original by Clay Griffiths - Headway Themes
  *             New files by Maarten Schraven - UNITED 7
- 			   ReBorn by Plasma Soluciones
+ 			   Padma by Plasma Soluciones
  * Copywrite : Copyright 2014-2018 Plasma Soluciones M.S.V S.A.
  *
  ***********************************************************/

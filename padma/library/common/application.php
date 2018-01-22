@@ -36,8 +36,9 @@ class padma {
 		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 
 		/* Site URLs */
-		define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
+		define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');		
 		define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
+		define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');
 		define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');
 		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
 

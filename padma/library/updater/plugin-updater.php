@@ -1,5 +1,6 @@
 <?php
 class PadmaUpdaterAPI {
+	
 	private $api_url  = '';
 	private $api_data = array();
 	private $name     = '';

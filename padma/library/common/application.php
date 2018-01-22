@@ -29,15 +29,16 @@ class padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.0.6');
+		define('PADMA_VERSION', '0.0.7');
 
 		/* Define directories */
 		define('PADMA_DIR', padma_change_to_unix_path(TEMPLATEPATH));
 		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 
 		/* Site URLs */
-		define('PADMA_SITE_URL', 'https://plasma.cr/');
-		define('PADMA_DASHBOARD_URL', PADMA_SITE_URL . 'dashboard');
+		define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
+		define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
+		define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');
 		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
 
 		/* Skins */
@@ -145,6 +146,7 @@ class padma {
 			'common/social-optimization' 	=> true,
 			'common/feed' 					=> true,
 			'common/compiler' 				=> true,
+			'common/plugins' 				=> true,
 			'common/templates',
 
 			'admin/admin-bar' 				=> true,
@@ -153,6 +155,7 @@ class padma {
 
 			'updater/plugin-updater',
 			'updater/theme-updater',
+
 
 			'blocks' 						=> true,
 			'wrappers' 						=> true,

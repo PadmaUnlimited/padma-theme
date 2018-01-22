@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 * Released: January 22, 2018
 
 CSS and night mode fixes
+Integration of TGM-Plugin-Activation to recommends Padma Services plugin
 
 
 = 0.0.6

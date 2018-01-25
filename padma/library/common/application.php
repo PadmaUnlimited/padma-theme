@@ -7,7 +7,7 @@
  *
  **/
 
-class padma {
+class Padma {
 
 
 	public static $loaded_classes = array();

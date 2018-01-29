@@ -7,16 +7,7 @@
  * Returns the Padma License Key from the options or constant if define.
  **/
 
-function padmaGetToken(){
 
-	if(class_exists('padmaServices')){
-		$padmaServices = new padmaServices();
-
-
-	return get_option('padma_service_token');
-	}
-
-}
 /*
 function padma_get_license_key($slug = false) {
 

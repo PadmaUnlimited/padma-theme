@@ -6,20 +6,18 @@ class PadmaThemeUpdater{
 
 		if(!class_exists('Puc_v4_Factory')){			
 			if ( PADMA_CHILD_THEME_ACTIVE === true ){
-				require_once get_stylesheet_directory() . '/library/common/lib/plugin-update-checker/plugin-update-checker.php';
+				require_once get_stylesheet_directory() . '/library/common/lib/update-checker/plugin-update-checker.php';
 			}else{
-				require_once get_template_directory() . '/library/common/lib/plugin-update-checker/plugin-update-checker.php';
+				require_once get_template_directory() . '/library/common/lib/update-checker/plugin-update-checker.php';
 			}
 		}
 
+		//buildUpdateChecker($metadataUrl, $fullPath, $slug = '', $checkPeriod = 12, $optionName = '', $muPluginFile = '') 
 		$updateChecker = Puc_v4_Factory::buildUpdateChecker(
-			'http://cdn.padmaunlimited.com/software/?action=get_metadata&slug=padma',
-			__FILE__,
+			'https://cdn.padmaunlimited.com/software/?action=get_metadata&slug=padma',
+			PADMA_DIR,
 			'padma'
-		);
-
-		debug($updateChecker);
-		
+		);		
 	}
 
 }

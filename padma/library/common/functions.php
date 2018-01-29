@@ -6,6 +6,18 @@
 /**
  * Returns the Padma License Key from the options or constant if define.
  **/
+
+function padmaGetToken(){
+
+	if(class_exists('padmaServices')){
+		$padmaServices = new padmaServices();
+
+
+	return get_option('padma_service_token');
+	}
+
+}
+/*
 function padma_get_license_key($slug = false) {
 
 	if ( !$slug )
@@ -80,7 +92,7 @@ function padma_deactivate_license($item_slug, $item_name = null) {
 	return $license_data->license;
 
 }
-
+*/
 
 /**
  * Attempt to unserialize string.  If there's an error then do the preg_replace trick to correct the serialization.

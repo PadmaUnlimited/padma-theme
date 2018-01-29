@@ -416,12 +416,10 @@ class Padma {
 	public static function initiate_updater() {
 
 		$GLOBALS['padma_updater'] = new Padma_Theme_Updater(array(
-			'remote_api_url' 	=> PADMA_SITE_URL,
+			'remote_api_url' 	=> PADMA_API_URL,
 			'version' 			=> PADMA_VERSION,
-			'license' 			=> padma_get_license_key('padma'),
-			'slug'				=> '',
-			'item_name'			=> 'Unlimited',
-			'author'			=> 'Padma Theme'
+			'token' 			=> get_option('padma_service_token')
+			'slug'				=> 'padma'
 		));
 
 	}

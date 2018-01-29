@@ -30,7 +30,7 @@ class PadmaUpdaterAPI {
 		$this->api_data = urlencode_deep(array(
 			'item_slug' => $args['slug'],
 			'item_name' => $args['name'],
-			'license' => padma_get_license_key($args['slug']),
+			//'license' => padma_get_license_key($args['slug']),
 			'author' => ''
 		));
 

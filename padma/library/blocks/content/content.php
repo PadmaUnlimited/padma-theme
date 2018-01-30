@@ -106,32 +106,32 @@ class PadmaContentBlock extends PadmaBlockAPI {
 		
 	}
 
-		static function get_column_width($block) {
+	static function get_column_width($block) {
 
-			$block_width = PadmaBlocksData::get_block_width($block);
+		$block_width = PadmaBlocksData::get_block_width($block);
 
-			$columns = parent::get_setting($block, 'posts-per-row', '2');
-			$gutter_width = parent::get_setting($block, 'post-gutter-width', '20');
+		$columns = parent::get_setting($block, 'posts-per-row', '2');
+		$gutter_width = parent::get_setting($block, 'post-gutter-width', '20');
 
-			$total_gutter = $gutter_width * ($columns-1);
+		$total_gutter = $gutter_width * ($columns-1);
 
-			$columns_width = (($block_width - $total_gutter) / $columns);
+		$columns_width = (($block_width - $total_gutter) / $columns);
 
-			return $columns_width; 
-		}
+		return $columns_width; 
+	}
 
-		/* To make the layout responsive
-		 * Works out a percentage value equivalent of the px value 
-		 * using common responsive formula: target_width / container_width * 100
-		 */	
-		static function width_as_percentage($target = '', $block) {
-			$block_width = PadmaBlocksData::get_block_width($block);
-			
-			if ($block_width > 0 )
-				return ($target / $block_width)*100;
+	/* To make the layout responsive
+	 * Works out a percentage value equivalent of the px value 
+	 * using common responsive formula: target_width / container_width * 100
+	 */	
+	static function width_as_percentage($target = '', $block) {
+		$block_width = PadmaBlocksData::get_block_width($block);
+		
+		if ($block_width > 0 )
+			return ($target / $block_width)*100;
 
-			return false;
-		}
+		return false;
+	}
 
 	
 	function setup_elements() {

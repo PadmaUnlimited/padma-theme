@@ -928,19 +928,19 @@ class PadmaGridRenderer {
 				
 		$this->process();
 
-		echo '<div class="grid-container clearfix">' . "\n";
+		echo '<div class="grid-container clearfix">';
 
 		do_action('padma_grid_container_open', $this->wrapper);
 	
 		foreach ( $this->finalized_layout as $row_index => $row ) {
 
-			echo "\n" . '<section class="' . implode(' ',  array_unique(array_filter($row['classes']))) . '">' . "\n";
+			echo '<section class="' . implode(' ',  array_unique(array_filter($row['classes']))) . '">';
 
 				do_action('padma_block_row_open', $this->wrapper);
 			
 				foreach ( $row['columns'] as $column_index => $column ) {
 						
-					echo "\n" . '<section class="' . implode(' ', array_unique(array_filter($column['classes']))) . '">' . "\n";
+					echo '<section class="' . implode(' ', array_unique(array_filter($column['classes']))) . '">';
 
 					do_action('padma_block_column_open', $this->wrapper);
 														
@@ -952,7 +952,7 @@ class PadmaGridRenderer {
 							
 						} elseif ( padma_get('type', $block_or_sub_column) == 'sub-column' ) {
 														
-							echo "\n" . '<section class="' . implode(' ', array_unique(array_filter($block_or_sub_column['classes']))) . '">' . "\n";
+							echo '<section class="' . implode(' ', array_unique(array_filter($block_or_sub_column['classes']))) . '">';
 
 							do_action('padma_block_sub_column_open', $this->wrapper);
 							
@@ -961,7 +961,7 @@ class PadmaGridRenderer {
 								
 							do_action('padma_block_sub_column_column', $this->wrapper);
 							
-							echo "\n" . '</section>' . "\n";
+							echo '</section>';
 							
 						}		
 					
@@ -969,19 +969,19 @@ class PadmaGridRenderer {
 
 					do_action('padma_block_column_close', $this->wrapper);
 				
-					echo "\n" . '</section>' . "\n";
+					echo '</section>';
 										
 				}
 
 				do_action('padma_block_row_close', $this->wrapper);
 		
-			echo "\n" . '</section>' . "\n\n";
+			echo '</section>';
 			
 		}		
 
 		do_action('padma_grid_container_close', $this->wrapper);
 	
-		echo "\n" . '</div>' . "\n\n";
+		echo '</div>';
 		
 	}
 

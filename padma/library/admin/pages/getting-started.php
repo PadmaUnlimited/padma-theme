@@ -90,13 +90,13 @@ defined('ABSPATH') or die("No script kiddies please!");
 	<div id="unlimited-growth" class="padma-admin-tab" style="display:none">
 		<div class="content">
 			<h2 class="center">Padma | unlimited Growth</h2>
-			<p>Find third party developers original Templates & custom Blocks, designed to increase the possibilities to grow up  your projects. Design faster. Customize your Workflow with useful tools. Invest in other strategic areas.</p>
+			<!--<p>Find third party developers original Templates & custom Blocks, designed to increase the possibilities to grow up  your projects. Design faster. Customize your Workflow with useful tools. Invest in other strategic areas.</p>-->
 			<p>Develop, share and sale Templates & Custom Blocks. Working together will increase community growth possibilities. Design faster & Customize your Workflow with useful tools. Don´t hesitate to invest in other strategic areas to your business.</p>
 			<div class="separator"></div>
 			<div class="box">
 				<h3>Padma | unlimited Templates</h3>
 				<p><strong>Padma | unlimited Templates</strong> minimize your project development process, streamlining the design stage leading a faster content creation and upload.</p>
-				<p><a href="">Access template gallery</a> | <a href="">Register to get access our template gallery</a></p>
+				<p><a href="#">Access template gallery</a> | <a href="#">Register to get access our template gallery</a></p>
 
 			</div>
 			<div class="box">
@@ -105,7 +105,7 @@ defined('ABSPATH') or die("No script kiddies please!");
 				<p>Contact block: easy & responsive tool for contact pages management.</p>
 				<p>Shortcode block: integration & management of Woocommerce content. Contact form 7 & Gravity forms.</p>
 				<p>Services: Documentation, Backups (soon), WP Admin lock (soon), Site monitor (soon), Website auditing (soon), Templates on cloud (soon), Template market (soon), Life-Saver blocks (soon).</p>
-				<p><a href="">Access unlimited blocks gallery</a> | <a href="">Register to get access unlimited blocks gallery</a></p>
+				<p><a href="#">Access unlimited blocks gallery</a> | <a href="#">Register to get access unlimited blocks gallery</a></p>
 			</div>
 		</div>
 	</div>
@@ -120,7 +120,7 @@ defined('ABSPATH') or die("No script kiddies please!");
 				<p>Website customization support.<br>(Adjusts our tools to your needs. Get help from our development team to customize your Padma experience)</p>
 				<p>Website infrastructure advisory and configuration.<br>(Web server, web hosting, CDN configuration & improvements)</p>
 				<p>Website design support.<br>(CSS, Templates, Shared layouts, SEO, Responsiveness)</p>			
-				<p><a href="">Request a quote</a> | <a href="">Register to request a quote</a></p>
+				<p><a href="#">Request a quote</a> | <a href="#">Register to request a quote</a></p>
 			</div>
 		</div>
 	</div>

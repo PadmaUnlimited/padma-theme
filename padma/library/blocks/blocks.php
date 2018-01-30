@@ -664,7 +664,7 @@ class PadmaBlocks {
 				do_action('padma_block_open', $block);
 				do_action('padma_block_open_' . $block['id'], $block);
 
-				echo "\n" . '<div class="block-content">' . "\n";
+				echo '<div class="block-content">';
 
 					do_action('padma_block_content_open', $block);
 					do_action('padma_block_content_open_' . $block['id'], $block);
@@ -674,12 +674,12 @@ class PadmaBlocks {
 					do_action('padma_block_content_close', $block);
 					do_action('padma_block_content_close_' . $block['id'], $block);
 
-				echo "\n" . '</div>' . "\n";
+				echo '</div>';
 
 				do_action('padma_block_close', $block);
 				do_action('padma_block_close_' . $block['id'], $block);
 
-			echo "\n" . '</' . $block_tag . '>' . "\n";
+			echo '</' . $block_tag . '>';
 
 			do_action('padma_after_block', $block);
 			do_action('padma_after_block_' . $block['id'], $block);
@@ -705,9 +705,9 @@ class PadmaBlocks {
 
 					}
 
-				echo '</div>' . "\n";
+				echo '</div>';
 
-			echo '</' . $block_tag . '>' . "\n";
+			echo '</' . $block_tag . '>';
 
 		}
 

@@ -175,7 +175,7 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 					
 				}
 
-			echo "\n</p>\n\n";
+			echo '</p>';
 
 	}
 	

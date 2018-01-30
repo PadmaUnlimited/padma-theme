@@ -71,9 +71,9 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 		//Add action for footer
 		do_action('padma_before_footer');
 		
-		echo "\n" . '<div class="footer-container">' . "\n";
+		echo '<div class="footer-container">';
 		
-		echo "\n" . '<div class="footer">' . "\n";
+		echo '<div class="footer">';
 		
 		do_action('padma_footer_open');
 
@@ -98,9 +98,9 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 		
 		do_action('padma_footer_close');
 		
-		echo "\n" . '</div>';
+		echo '</div>';
 		
-		echo "\n" . '</div>';
+		echo '</div>';
 		
 		do_action('padma_after_footer');
 		
@@ -138,9 +138,9 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 		if ( PadmaOption::get('affiliate-link') )
 			$padma_location = strip_tags(PadmaOption::get('affiliate-link'));
 		else
-			$padma_location = 'http://padmaunlimited.com/';	
+			$padma_location = 'https://www.padmaunlimited.com/';	
 
-		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . __('Powered by Padma, the ', 'padma') . ' <a href="' . $padma_location . '" title="Padma Premium WordPress Theme">drag and drop WordPress theme</a></p>');
+		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . __('Powered by Padma Unlimited, the ', 'padma') . ' <a href="' . $padma_location . '" title="Padma Premium WordPress Theme">drag and drop WordPress theme</a></p>');
 
 	}
 

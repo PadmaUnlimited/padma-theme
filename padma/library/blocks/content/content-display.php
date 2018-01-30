@@ -207,7 +207,7 @@ class PadmaContentBlockDisplay {
 			if ( !(is_search() || $this->paged > 1) && $this->count <= $this->get_setting('featured-posts', 1) )
 				return;
 
-			echo "\n\n" . '<div class="entry-row">' . "\n\n";
+			echo '<div class="entry-row">';
 
 			$this->row_open = true;
 
@@ -233,7 +233,7 @@ class PadmaContentBlockDisplay {
 
 			}
 
-			echo "\n\n" . '</div>' . "\n\n";
+			echo '</div>';
 
 			$this->row_open = false;
 

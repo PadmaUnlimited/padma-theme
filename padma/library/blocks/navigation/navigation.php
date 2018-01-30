@@ -203,7 +203,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 							}
 						}
 					});		
-				});' . "\n\n";
+				});';
 
 			}
 
@@ -224,7 +224,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 					jQuery("' . $selector . '").find("ul.menu").addClass("selectnav-active");
 
-				});' . "\n\n";
+				});';
 
 			}
 		

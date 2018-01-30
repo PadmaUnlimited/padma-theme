@@ -46,24 +46,20 @@ class PadmaDisplay {
 	}
 	
 
-		public static function grid() {
-
-			echo "\n\n";
-							
-				if ( current_theme_supports('padma-grid') ) {
-			
-					$layout = new PadmaLayoutRenderer;
-					$layout->display();
-							
-				} else {
-				
-					echo '<div class="alert alert-yellow"><p>The Padma Grid is not supported in this Child Theme.</p></div>';
-				
-				}
-				
-			echo "\n\n";
-
+	public static function grid() {
+						
+		if ( current_theme_supports('padma-grid') ) {
+	
+			$layout = new PadmaLayoutRenderer;
+			$layout->display();
+					
+		} else {
+		
+			echo '<div class="alert alert-yellow"><p>The Padma Grid is not supported in this Child Theme.</p></div>';
+		
 		}
+
+	}
 
 	/**
 	 * Plugin Templateh andling sstem.
@@ -233,41 +229,32 @@ class PadmaDisplay {
 	public static function html_open() {
 				
 		echo apply_filters('padma_doctype', '<!DOCTYPE HTML>');
-		echo '<html '; language_attributes(); echo '>' . "\n";
+		echo '<html '; language_attributes(); echo '>';
 		
 		do_action('padma_html_open');
 		
-		echo "\n" . '<head>' . "\n";
-
-			echo '<meta charset="' . get_bloginfo('charset') . '" />' . "\n";
-			echo '<link rel="profile" href="http://gmpg.org/xfn/11" />' . "\n";
+		echo '<head>';
+		echo '<meta charset="' . get_bloginfo('charset') . '" />';
+		echo '<link rel="profile" href="http://gmpg.org/xfn/11" />';
 
 	}
 
 
-	public static function html_close() {
-		
-		echo "\n\n";
+	public static function html_close() {		
 		
 		do_action('padma_html_close');
-
-		echo "\n" . '</html>';
+		echo '</html>';
 		
 	}
 	
 	
 	public static function body_open() {	
 			
-		echo "\n" . '</head>' . "\n\n";
-		
-		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">' . "\n\n";
-
+		echo '</head>';		
+		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">';
 		do_action('padma_body_open');
-
-		echo "\n" . '<div id="whitewrap">' . "\n";
-		
+		echo '<div id="whitewrap">';		
 		do_action('padma_whitewrap_open');
-
 		do_action('padma_page_start');
 		
 	}
@@ -275,15 +262,11 @@ class PadmaDisplay {
 
 	public static function body_close() {
 		
-		echo "\n\n";
 		
 		do_action('padma_whitewrap_close');
-
-		echo '</div>' . "\n";
-		
-		do_action('padma_body_close');
-		
-		echo "\n" . '</body>';
+		echo '</div>';		
+		do_action('padma_body_close');		
+		echo '</body>';
 			
 	}
 	

@@ -1,0 +1,192 @@
+/*!
+ * SlickNav Responsive Mobile Menu v1.0.7
+ * (c) 2016 Josh Cope
+ * licensed under MIT
+ */
+.slicknav_btn {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+	padding: 0.438em 0.625em 0.438em 0.625em;
+	line-height: 1.125em;
+	cursor: pointer;
+}
+
+.slicknav_btn-left {
+	float: left
+}
+
+.slicknav-center {
+	text-align: center
+}
+
+.slicknav_btn-center {
+	float: none
+}
+
+.slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+	margin-top: 3px;
+}
+
+.slicknav_menu {
+	*zoom: 1;
+}
+
+.slicknav_menu .slicknav_menutxt {
+	display: block;
+	line-height: 1.188em;
+	float: left;
+}
+
+.slicknav_menu .slicknav_icon {
+	float: left;
+	width: 1.125em;
+	height: 0.875em;
+	margin: 0.188em 0 0 0.438em;
+}
+
+.slicknav_menu .slicknav_icon:before {
+	background: transparent;
+	width: 1.125em;
+	height: 0.875em;
+	display: block;
+	content: "";
+	position: absolute;
+}
+
+.slicknav_menu .slicknav_no-text {
+	margin: 0;
+}
+
+.slicknav_menu .slicknav_icon-bar {
+	display: block;
+	width: 1.125em;
+	height: 1px;
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.slicknav_menu:before {
+	content: " ";
+	display: table;
+}
+
+.slicknav_menu:after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+.block-type-navigation .slicknav_nav {
+	clear: both;
+}
+
+.block-type-navigation .slicknav_nav ul {
+	display: block;
+}
+
+.block-type-navigation .slicknav_nav li {
+	display: block;
+}
+
+.slicknav_nav .slicknav_arrow {
+	font-size: 0.8em;
+	margin: 0 0 0 0.4em;
+}
+
+.block-type-navigation .slicknav_nav .slicknav_item {
+	cursor: pointer;
+}
+
+.block-type-navigation .slicknav_nav .slicknav_item a {
+	display: inline;
+}
+
+.block-type-navigation .slicknav_nav .slicknav_row {
+	display: block;
+}
+
+.block-type-navigation .slicknav_nav a {
+	display: block;
+}
+
+.block-type-navigation .slicknav_nav .slicknav_parent-link a {
+	display: inline;
+}
+
+.block-type-navigation .slicknav_menu {
+	box-sizing: border-box;
+}
+
+.block-type-navigation .slicknav_menu * {
+	box-sizing: border-box;
+}
+
+.slicknav_btn {
+	margin: 5px 5px 6px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+.block-type-navigation .slicknav_nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+.block-type-navigation .slicknav_nav ul {
+	list-style: none;
+	overflow: hidden;
+	padding: 0;
+	margin: 0 0 0 20px;
+	display: block;
+	background: none;
+}
+
+.block-type-navigation .slicknav_nav .slicknav_row {
+	padding: 5px 10px;
+	margin: 2px 5px;
+}
+
+.block-type-navigation ul.slicknav_nav li a {
+	padding: 5px 10px;
+	margin: 2px 5px;
+	text-decoration: none;
+	min-width: 0;
+	line-height: 1;
+	max-width: none;
+}
+
+.slicknav_nav .slicknav_txtnode {
+	margin-left: 15px;
+}
+
+.block-type-navigation .slicknav_nav li a > a {
+	padding: 0;
+	margin: 0;
+}
+
+.block-type-navigation .slicknav_nav .slicknav_parent-link a {
+	padding: 0;
+	margin: 0;
+}
+
+.block-type-navigation .slicknav_menu {
+	display: none
+}
+
+.block-type-navigation .slicknav_nav {
+	display: block
+}
+
+.block-type-navigation .slicknav_nav ul {
+	position: static
+}
+
+.block-type-navigation .slicknav_nav li {
+	display: block;
+	border-top: 1px solid rgba(0, 0, 0, .05);
+}

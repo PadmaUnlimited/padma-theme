@@ -311,16 +311,18 @@ $(document).ready(function() {
 	/*
 		getting started menu on top
 	*/
-	var distance 	= $('.padma-admin-row.menu').offset().top,
-    $window 		= $(window);
+	if(jQuery('.padma-admin-row.menu').length > 0){		
+		var distance 	= jQuery('.padma-admin-row.menu').offset().top,
+	    $window 		= jQuery(window);
 
-	$window.scroll(function() {
-	    if ( $window.scrollTop() >= distance ) {
-	        $('.padma-admin-row.menu').addClass('sticky')
-	    }
-	    if($window.scrollTop() == 0){
-	    	$('.padma-admin-row.menu').removeClass('sticky')	
-	    }
-	});
+		$window.scroll(function() {
+		    if ( $window.scrollTop() >= distance ) {
+		        jQuery('.padma-admin-row.menu').addClass('sticky')
+		    }
+		    if($window.scrollTop() == 0){
+		    	jQuery('.padma-admin-row.menu').removeClass('sticky')	
+		    }
+		});
+	}
 });
 })(jQuery);

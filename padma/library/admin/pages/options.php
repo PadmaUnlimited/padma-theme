@@ -97,7 +97,7 @@
 					'label' => 'Affiliate Link',
 					'description' => '
 						If you are a member of the Padma Affiliate program, you can paste your affiliate link and earn money when someone purchases Padma through your affiliate link.  <strong>Do NOT put HTML in this field.</strong>
-							<br /><br /><strong>Not an affiliate?</strong>  If you\'re interested in the Padma Affiliate program, you may <a href="http://padmatheme.com/affiliates" target="_blank">apply here</a>. Once your application is approved you can log in and grab your affiliate link.'
+							<br /><br /><strong>Not an affiliate?</strong>  If you\'re interested in the Padma Affiliate program, you may <a href="http://padmaunlimited.com/affiliates" target="_blank">apply here</a>. Once your application is approved you can log in and grab your affiliate link.'
 				)
 			);
 

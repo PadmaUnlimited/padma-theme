@@ -40,8 +40,8 @@ function padma_do_upgrade_37($current_step = false) {
 			$wp_options_backup = padma_upgrade_37_backup_wp_options();
 
 			if ( ! $wp_options_backup ) {
-				PadmaMaintenance::output_status( 'Padma Error: Unable to back up current Padma settings. Unable to proceed with upgrade. Please contact Padma support at support@padmatheme.com' );
-				wp_die('<strong>Error: Unable to back up current Padma settings. Unable to proceed with upgrade. Please contact Padma support at support@padmatheme.com');
+				PadmaMaintenance::output_status( 'Padma Error: Unable to back up current Padma settings. Unable to proceed with upgrade. Please contact Padma support at support@padmaunlimited.com' );
+				wp_die('<strong>Error: Unable to back up current Padma settings. Unable to proceed with upgrade. Please contact Padma support at support@padmaunlimited.com');
 			}
 
 			break;

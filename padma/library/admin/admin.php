@@ -180,7 +180,7 @@ class PadmaAdmin {
 
 			$padma_admin_save_error_message = __('
 				<strong>Whoops!</strong> Could not activate license.  Please check that you have entered your license correctly and that it has not expired.<br /><br />
-				Make sure you copied your license correctly from the <a href="http://padmatheme.com/dashboard" target="_blank">Padma Dashboard</a>.
+				Make sure you copied your license correctly from the <a href="http://padmaunlimited.com/dashboard" target="_blank">Padma Dashboard</a>.
 			', 'padma');
 
 		} else if ( is_wp_error($activation_request) ) {

@@ -1,3 +1,16 @@
+function openTabAdmin(evt, option) {	
+	var i, x, tablinks;
+	x = document.getElementsByClassName("padma-admin-tab");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablink");
+	for (i = 0; i < x.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" padma-admin-border-red", "");
+	}
+	document.getElementById(option).style.display = "block";
+	evt.currentTarget.firstElementChild.className += " padma-admin-border-red";
+}
 (function($) {
 $(document).ready(function() {
 
@@ -294,5 +307,20 @@ $(document).ready(function() {
 		}
 	/* End SEO Templates */
 	
+
+	/*
+		getting started menu on top
+	*/
+	var distance 	= $('.padma-admin-row.menu').offset().top,
+    $window 		= $(window);
+
+	$window.scroll(function() {
+	    if ( $window.scrollTop() >= distance ) {
+	        $('.padma-admin-row.menu').addClass('sticky')
+	    }
+	    if($window.scrollTop() == 0){
+	    	$('.padma-admin-row.menu').removeClass('sticky')	
+	    }
+	});
 });
 })(jQuery);

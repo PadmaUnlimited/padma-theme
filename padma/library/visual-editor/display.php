@@ -426,9 +426,9 @@ class PadmaVisualEditorDisplay {
 					<li><a href="' . admin_url('admin.php?page=padma-options')  . '" target="_blank">Padma Options</a></li>
 					<li><a href="' . admin_url('admin.php?page=padma-templates')  . '" target="_blank">Padma Templates</a></li>
 					<li><a href="' . admin_url('admin.php?page=padma-tools')  . '" target="_blank">Padma Tools</a></li>
-					<li><a href="http://docs.padmatheme.com" target="_blank">Documentation</a></li>
-					<li><a href="https://padmatheme.com/dashboard/support" target="_blank">Support</a></li>
-					<li><a href="http://support.padmatheme.com" target="_blank">Community</a></li>
+					<li><a href="http://docs.padmaunlimited.com" target="_blank">Documentation</a></li>
+					<li><a href="https://padmaunlimited.com/dashboard/support" target="_blank">Support</a></li>
+					<li><a href="http://support.padmaunlimited.com" target="_blank">Community</a></li>
 				</ul>
 
 			</li>';

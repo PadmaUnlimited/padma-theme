@@ -1,10 +1,3 @@
-/*
- * Padma Grid
- *
- * Copyright 2011-2015, Padma Theme, LLC
- *
- * http://padmatheme.com
- */
 define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 	$.widget("ui.padmaGrid", $.ui.mouse, {

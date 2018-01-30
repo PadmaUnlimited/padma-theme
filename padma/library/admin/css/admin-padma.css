@@ -610,3 +610,258 @@ span.green {
 	font-weight: normal;
 	margin-top: 10px;
 }
+
+.padma-admin-container{
+	text-align: center;
+	padding-bottom: 100px;
+}
+.padma-admin-container .padma-logo{
+	
+}
+.padma-admin-container .padma-admin-row{}
+.padma-admin-container .padma-admin-row > a{
+	display: inline-block;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.padma-admin-container .padma-admin-row > a .padma-admin-title{
+	color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 20px 0 20px 20px !important;
+    width: 100%;
+    display: block;
+    float: left;
+    border-bottom: 6px solid #ccc!important;
+}
+.padma-admin-container .padma-admin-row > a .padma-admin-title.padma-admin-border-red{
+	border-color: #f44336!important;
+}
+.padma-admin-container .padma-admin-row.sticky{
+	position: fixed;
+    top: 32px;
+    width: calc(100% - 200px);
+    background-color: #f3f3f3;
+    z-index: 1;
+}
+.padma-admin-container .padma-admin-tab{
+	text-align: left;
+	padding-top: 50px;
+	height: 100vh;
+}
+.padma-admin-container .padma-admin-tab .content{
+    margin: auto;
+    max-width: 700px;
+}
+.padma-admin-container .padma-admin-tab .content p{
+	font-size: 14px;
+}
+
+.padma-admin-container .padma-admin-tab .content > h1,
+.padma-admin-container .padma-admin-tab .content > h2,
+.padma-admin-container .padma-admin-tab .content > p,
+.padma-admin-container .padma-admin-tab .content > .box{
+	padding-left: 20px;
+    padding-right: 20px;
+}
+.padma-admin-container .padma-admin-tab .content h1{
+	font-size: 70px;
+	text-align: center;
+	line-height: 120px;
+}
+.padma-admin-container .padma-admin-tab .content h2{
+}
+.padma-admin-container .padma-admin-tab .content h2.center{	
+	text-align: center;
+}
+.padma-admin-container .padma-admin-tab .content > .box{
+	background-color: #fff;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    margin-bottom: 35px;
+}
+.padma-admin-container .padma-admin-tab .content .setting-error-tgmpa{
+	margin-top: 35px;
+    margin-bottom: 35px;
+}
+.padma-admin-container .padma-admin-tab .content > .separator{
+	margin-top: 25px;
+    margin-bottom: 25px;
+    display: block;
+    width: 100%;
+    height: 1px;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor{
+	display: block;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    background-color: #0073aa;
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    /*
+    background-image: url(https://cdn.padmaunlimited.com/logos/padma-32-white.png);
+    */
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: relative;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover {
+  
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .text {
+  transform: translate3d(0, 0, 0);
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: calc(0.7em * 1.2);
+  right: calc(0.7em * 1.2);
+  height: 3px;
+  background: #1f2563;
+  z-index: -1;
+  transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+  transform-origin: left;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line {
+  position: absolute;
+  background: #1f2563;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-right,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-left {
+  width: 3px;
+  bottom: -3px;
+  top: -3px;
+  transform: scale3d(1, 0, 1);
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-top,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-bottom {
+  height: 3px;
+  left: -3px;
+  right: -3px;
+  transform: scale3d(0, 1, 1);
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-right {
+  right: -3px;
+  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+  transform-origin: top;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-top {
+  top: -3px;
+  transition: transform 0.08s linear 0.43s;
+  transform-origin: left;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-left {
+  left: -3px;
+  transition: transform 0.08s linear 0.51s;
+  transform-origin: bottom;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-bottom {
+  bottom: -3px;
+  transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+  transform-origin: right;
+}
+
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .text,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active .text {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover:after,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active:after {
+  transform: scale3d(0, 1, 1);
+  right: -3px;
+  left: -3px;
+  transform-origin: right;
+  transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .line,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active .line {
+  transform: scale3d(1, 1, 1);
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .line.-right,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active .line.-right {
+  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+  transform-origin: bottom;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .line.-top,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active .line.-top {
+  transition: transform 0.08s linear 0.4s;
+  transform-origin: right;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .line.-left,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active .line.-left {
+  transition: transform 0.08s linear 0.48s;
+  transform-origin: top;
+}
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .line.-bottom,
+.padma-admin-container .padma-admin-tab .access-to-unlimited-editor:active .line.-bottom {
+  transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+  transform-origin: left;
+}
+
+
+/*
+.padma-admin-row.logo{}
+.padma-admin-row.logo img{
+    display: inline-block;
+    height: 200px;
+}
+.padma-admin-row.logo h2{
+    display: inline-block;
+}
+.padma-logo{
+    padding: 30px;
+}
+.padma-admin-container,
+.padma-admin-panel {
+    padding: 0.01em 16px;
+}
+.padma-admin-padding {
+    padding: 8px 16px!important;
+}
+.padma-admin-bottombar {
+    border-bottom: 6px solid #ccc!important;
+}
+.padma-admin-container, .padma-admin-panel {
+    padding: 0.01em 16px;
+}
+.padma-admin-col.m4, .padma-admin-third {
+    width: 33.33333%;
+}
+.padma-admin-col, .padma-admin-half, .padma-admin-third, .padma-admin-twothird, .padma-admin-threequarter, .padma-admin-quarter{
+    float: left;
+    width: 100%;
+}
+.padma-admin-row > a{
+    display: inline-block;
+    width: 24%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.padma-admin-border-red,
+.padma-admin-hover-border-red:hover {
+    border-color: #f44336!important;
+}
+.padma-admin-title{
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 20px 0 20px 20px !important;
+    width: 100%;
+    display: block;
+}
+html{
+    background-color: #f3f3f3;
+}*/

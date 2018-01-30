@@ -371,14 +371,14 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 #. Author URI of the plugin/theme
-msgid "http://padmatheme.com"
+msgid "http://padmaunlimited.com"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
 "Padma Theme is a template builder theme with drag and drop editing, point and "
 "click design capabilities, powerful search engine optimization and much "
-"more.  For more info come to our <a href=\"http://padmatheme.com\" target="
+"more.  For more info come to our <a href=\"http://padmaunlimited.com\" target="
 "\"_blank\">Padma Theme</a> website. Original written by Clay Griffith from "
 "Headway Themes"
 msgstr ""

@@ -303,7 +303,7 @@ class PadmaSliderBlockOptions extends PadmaBlockOptionsAPI {
 				'content-types-text' => array(
 					'type' => 'notice',
 					'name' => 'content-types-text',
-					'notice' => 'This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmatheme.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmatheme.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.'
+					'notice' => 'This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmaunlimited.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmaunlimited.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.'
 				)
 		),
 
@@ -375,7 +375,7 @@ class PadmaSliderBlockOptions extends PadmaBlockOptionsAPI {
 			'content-types-text' => array(
 				'type' => 'notice',
 				'name' => 'content-types-text',
-				'notice' => 'This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmatheme.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmatheme.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.'
+				'notice' => 'This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmaunlimited.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmaunlimited.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.'
 			)
 		)
 	);

@@ -615,7 +615,7 @@ class PadmaVisualEditor {
 
 			Please upgrade to a modern browser such as <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.<br /><br />
 
-			If this message persists after upgrading to a modern browser, please visit <a href="http://support.padmatheme.com" target="_blank">Padma Support</a>.
+			If this message persists after upgrading to a modern browser, please visit <a href="http://support.padmaunlimited.com" target="_blank">Padma Support</a>.
 		';
 
 		return wp_die($message);

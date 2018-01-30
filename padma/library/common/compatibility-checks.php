@@ -17,7 +17,7 @@ if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 
 		Please deactivate Padma by going to <a href="' . admin_url('themes.php') . '">Appearance &raquo; Themes</a> and choosing a difference theme until your WordPress installation has been updated to 3.2 or higher.<br /><br />
 
-		If the issue persists, please visit <a href="http://padmatheme.com" target="_blank">Padma Support</a>.
+		If the issue persists, please visit <a href="http://padmaunlimited.com" target="_blank">Padma Support</a>.
 	';
 
 	wp_die($message);
@@ -32,7 +32,7 @@ if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 
 		Please deactivate Padma by going to <a href="' . admin_url('themes.php') . '">Appearance &raquo; Themes</a> and choosing a difference theme until your PHP has been updated to 5.2 or higher.<br /><br />
 
-		If the issue persists, please contact your web host or visit <a href="http://padmatheme.com" target="_blank">Padma Support</a>.
+		If the issue persists, please contact your web host or visit <a href="http://padmaunlimited.com" target="_blank">Padma Support</a>.
 	';
 
 	wp_die($message);

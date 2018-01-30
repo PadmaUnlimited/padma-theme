@@ -12,9 +12,8 @@ class PadmaThemeUpdater{
 			}
 		}
 
-		//buildUpdateChecker($metadataUrl, $fullPath, $slug = '', $checkPeriod = 12, $optionName = '', $muPluginFile = '') 
 		$updateChecker = Puc_v4_Factory::buildUpdateChecker(
-			'https://cdn.padmaunlimited.com/software/?action=get_metadata&slug=padma',
+			PADMA_CDN_URL . 'software/?action=get_metadata&slug=padma',
 			PADMA_DIR,
 			'padma'
 		);		

@@ -20,10 +20,10 @@ class PadmaGoogleFonts extends PadmaWebFontProvider {
 	);
 
 
-	protected $api_url = 'http://www.padmatheme.com/api/google-fonts';
+	protected $api_url = 'http://www.padmaunlimited.com/api/google-fonts';
 
 	// ToDo: arrange backuplocation
-        protected $backup_api_url = 'http://www.padmatheme.com/api/google-fonts';
+        protected $backup_api_url = 'http://www.padmaunlimited.com/api/google-fonts';
 
 
 	public function query_fonts($sortby = 'date', $retry = false) {

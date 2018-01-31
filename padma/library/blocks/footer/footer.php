@@ -134,12 +134,8 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 	 * @return mixed
 	 **/
 	public static function show_padma_link() {
-
-		if ( PadmaOption::get('affiliate-link') )
-			$padma_location = strip_tags(PadmaOption::get('affiliate-link'));
-		else
-			$padma_location = 'https://www.padmaunlimited.com/';	
-
+		
+		$padma_location = 'https://www.padmaunlimited.com/';
 		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . __('Powered by Padma Unlimited, the ', 'padma') . ' <a href="' . $padma_location . '" title="Padma Premium WordPress Theme">drag and drop WordPress theme</a></p>');
 
 	}

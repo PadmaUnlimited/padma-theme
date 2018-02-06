@@ -13,43 +13,44 @@ class PadmaWebFontsLoader {
 
 
 	/* Google Web Fonts */
-		public static function enqueue_webfont_api_for_design_editor() {
+	public static function enqueue_webfont_api_for_design_editor() {
 
-			if ( ! PadmaRoute::is_visual_editor_iframe( 'design' ) )
-				return;
+		if ( ! PadmaRoute::is_visual_editor_iframe( 'design' ) )
+			return;
 
-			wp_enqueue_script( 'webfont', padma_format_url_ssl( 'http:///ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js' ) );
+		wp_enqueue_script( 'webfont', padma_format_url_ssl( 'http:///ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js' ) );
 
+	}
+
+
+	public static function google_check_if_should_load() {
+
+		$webfonts_in_use = self::get_fonts_in_use();
+
+		if ( !is_array($webfonts_in_use) || count($webfonts_in_use) == 0 || !isset($webfonts_in_use['google']) )
+			return false;
+
+		return $webfonts_in_use;
+
+	}
+
+
+	public static function google_fonts_stylesheet() {
+
+		$webfonts_in_use = self::google_check_if_should_load();
+
+		if ( ! $webfonts_in_use || !is_array(padma_get('google', $webfonts_in_use)) )
+			return;
+
+		foreach ( $webfonts_in_use['google'] as $key => $font ){
+			$webfonts_in_use['google'][ $key ] = urlencode( $font );
 		}
 
+		$stylesheet_url = '//fonts.googleapis.com/css?family=' . implode( '|', array_filter($webfonts_in_use['google']) );
 
-		public static function google_check_if_should_load() {
+		echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
 
-			$webfonts_in_use = self::get_fonts_in_use();
-
-			if ( !is_array($webfonts_in_use) || count($webfonts_in_use) == 0 || !isset($webfonts_in_use['google']) )
-				return false;
-
-			return $webfonts_in_use;
-
-		}
-
-
-		public static function google_fonts_stylesheet() {
-
-			$webfonts_in_use = self::google_check_if_should_load();
-
-			if ( ! $webfonts_in_use || !is_array(padma_get('google', $webfonts_in_use)) )
-				return;
-
-			foreach ( $webfonts_in_use['google'] as $key => $font )
-				$webfonts_in_use['google'][ $key ] = urlencode( $font );
-
-			$stylesheet_url = '//fonts.googleapis.com/css?family=' . implode( '|', $webfonts_in_use['google'] );
-
-			echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
-
-		}
+	}
 	/* End Google Web Fonts */
 
 

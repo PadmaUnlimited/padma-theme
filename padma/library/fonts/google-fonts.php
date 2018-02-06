@@ -20,34 +20,30 @@ class PadmaGoogleFonts extends PadmaWebFontProvider {
 	);
 
 
-	protected $api_url = 'http://www.padmaunlimited.com/api/google-fonts';
+	protected $api_url = PADMA_API_URL . 'googlefonts';
 
 	// ToDo: arrange backuplocation
-        protected $backup_api_url = 'http://www.padmaunlimited.com/api/google-fonts';
+        protected $backup_api_url = PADMA_API_URL . 'googlefonts';
 
 
 	public function query_fonts($sortby = 'date', $retry = false) {
 		
-		$fonts_query = wp_remote_get(add_query_arg(array(
-			'license' => 'legacy', 
-			'sortby' => $sortby,
-		), trailingslashit($this->api_url)), array(
-			'timeout' => 20
-		));
+		$url 			= $this->api_url . '/' . $sortby;
+		$fonts_query 	= wp_remote_get($url);
 
-		/* If the original query to Padma cannot connect, find a way to proxy to Padma's CDN */
+	
 		if ( is_wp_error($fonts_query) ) {
-
-			$fonts_query = wp_remote_get(add_query_arg(array(
-                                'license' => 'legacy', 
-                                'sortby' => $sortby,
-                        ), trailingslashit($this->api_url)), array(
-                                'timeout' => 20
-                        ));
-
+			return;
 		}
 
-		return json_decode(wp_remote_retrieve_body($fonts_query), true);
+		$data = wp_remote_retrieve_body( $fonts_query );
+
+		// Check for error
+		if ( is_wp_error( $data ) ) {
+			return;
+		}
+		
+		return json_decode($data, true);
 
 	}
 

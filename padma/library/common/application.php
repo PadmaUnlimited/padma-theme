@@ -29,7 +29,7 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.0.10');
+		define('PADMA_VERSION', '0.0.11');
 
 		/* Define directories */
 		define('PADMA_DIR', padma_change_to_unix_path(TEMPLATEPATH));
@@ -155,7 +155,7 @@ class Padma {
 			'api/api-panel',
 
 			//'updater/plugin-updater',
-			'updater/updater',
+			//'updater/updater',
 
 
 			'blocks' 						=> true,
@@ -415,7 +415,11 @@ class Padma {
 	 **/
 	public static function initiate_updater() {
 
-		$GLOBALS['padma_updater'] = PadmaUpdater::init();
+		if(class_exists('PadmaUpdater')){
+			$PadmaUpdater = new PadmaUpdater();
+			$PadmaUpdater->updater('padma',PADMA_DIR);
+		}
+		//$GLOBALS['padma_updater'] = PadmaUpdater::init();
 		
 	}
 

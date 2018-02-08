@@ -1,5 +1,5 @@
 <?php
-
+/*
 class PadmaUpdater{
 
 	public static function init() {
@@ -19,4 +19,18 @@ class PadmaUpdater{
 		);
 	}
 
-}
+	public function check($slug,$dir) {
+
+		debug(__DIR__ . '/update-checker/plugin-update-checker.php');
+		if(!class_exists('Puc_v4_Factory')){		
+			require_once __DIR__ . '/update-checker/plugin-update-checker.php';
+		}
+
+		$updateServicesChecker = \Puc_v4_Factory::buildUpdateChecker(
+			PADMA_CDN_URL . 'software/?action=get_metadata&slug=' . $slug,
+			$dir,
+			$slug
+		);
+	}
+
+}*/

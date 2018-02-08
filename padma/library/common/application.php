@@ -419,7 +419,6 @@ class Padma {
 			$PadmaUpdater = new PadmaUpdater();
 			$PadmaUpdater->updater('padma',PADMA_DIR);
 		}
-		//$GLOBALS['padma_updater'] = PadmaUpdater::init();
 		
 	}
 

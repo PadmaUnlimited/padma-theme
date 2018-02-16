@@ -649,7 +649,6 @@ span.green {
 .padma-admin-container .padma-admin-tab{
 	text-align: left;
 	padding-top: 50px;
-	height: 100vh;
 }
 .padma-admin-container .padma-admin-tab .content{
     margin: auto;

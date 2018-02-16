@@ -1,5 +1,5 @@
 === Padma ===
-Contributors: marodok
+Contributors: Padma Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-alpha
 Version: 0.0.11

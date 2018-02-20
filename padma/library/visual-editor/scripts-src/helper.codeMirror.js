@@ -67,10 +67,6 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 				var editor = window.CodeMirror.fromTextArea(window.document.getElementById("code"), {
 					extraKeys: {				
 						"Ctrl-Space": "autocomplete",
-						/*
-						"Ctrl-S": function(){
-							console.log('test');
-						}*/
 					},
 					styleActiveLine: 	true,
 					lineNumbers: 		true,
@@ -89,16 +85,6 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 				editor.on('change',function(e){
 					return changeCallback(editor);
 				});
-				/*
-				Padma.codeMirrorEditors[id].editorSession.on('change', function(e) {
-					return changeCallback(editor);
-				})*/
-				/*
-				Padma.codeMirrorEditors[id].editorSession.on('change', function(e) {
-					return changeCallback(Padma.codeMirrorEditors[id].editor);
-				});*/
-				/*
-				*/
 
 			});
 

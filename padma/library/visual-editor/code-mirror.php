@@ -34,6 +34,7 @@
 	$scripts = array(
 		'/deps/code-mirror/codemirror.js',
 		'/deps/code-mirror/mode/css/css.js',
+		'/deps/code-mirror/mode/htmlmixed/htmlmixed.js',
 		'/deps/code-mirror/addon/hint/show-hint.js',
 		'/deps/code-mirror/addon/hint/css-hint.js',
 		'/deps/code-mirror/addon/edit/closebrackets.js',

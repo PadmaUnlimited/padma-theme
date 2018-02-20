@@ -2,7 +2,7 @@
 Contributors: Padma Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-alpha
-Version: 0.0.11
+Version: 0.0.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -39,44 +39,50 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 0.0.11
+= 0.0.12 =
+* Released: February 19, 2018
+
+Codemirror minor fix for HTML
+
+
+= 0.0.11 =
 * Released: February 8, 2018
 
 Support for updater plugin
 
 
-= 0.0.10
+= 0.0.10 =
 * Released: February 5, 2018
 
 Fixed Google Web Fonts API
 
 
-= 0.0.9
+= 0.0.9 =
 * Released: January 30, 2018
 
 Improved navigation block
 
 
-= 0.0.8
+= 0.0.8 =
 * Released: January 29, 2018
 
 Updates from CDN implemented
 
 
-= 0.0.7
+= 0.0.7 =
 * Released: January 22, 2018
 
 CSS and night mode fixes
 Integration of TGM-Plugin-Activation to recommends Padma Services plugin
 
 
-= 0.0.6
+= 0.0.6 =
 * Released: January 12, 2018
 
 CSS and images fixes
 
 
-= 0.0.5
+= 0.0.5 =
 * Released: January 9, 2018
 
 Code fixes

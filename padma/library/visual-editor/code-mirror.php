@@ -62,6 +62,6 @@
 </style>
 </head>
 <body>
-	<textarea id="code" name="code" placeholder="Your awesome CSS goes here"></textarea>
+	<textarea id="code" name="code" placeholder="Your awesome <?php echo $_GET['mode']; ?> goes here"></textarea>
 </body>
 </html>

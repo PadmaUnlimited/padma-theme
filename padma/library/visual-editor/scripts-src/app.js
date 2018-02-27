@@ -66,6 +66,8 @@ require(['jquery', 'util.loader'], function($) {
 		switchMode.init();
 	});
 
+	
+
 
 	/* Load helpers all at once since they're used everywhere */
 	require(['helper.data', 'helper.blocks', 'helper.wrappers', 'helper.context-menus', 'helper.notifications', 'helper.boxes', 'helper.history'], function(data, blocks, wrappers, contextMenus, notifications, boxes, history) {
@@ -87,6 +89,15 @@ require(['jquery', 'util.loader'], function($) {
 		break;
 
 		case 'design':
+
+			/**
+			 *
+			 * Load Devices Preview 
+			 *
+			 */
+			require(['util.preview'], function(devicePreview) {
+				devicePreview.init();
+			});
 
 			require(['modules/design/mode-design', 'modules/iframe', 'modules/layout-selector'], function(modeDesign) {
 				Padma.instance = modeDesign;

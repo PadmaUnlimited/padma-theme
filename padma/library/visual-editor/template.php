@@ -31,8 +31,29 @@
 		<ul id="modes" class="top-menu-nav">
 			<?php do_action('padma_visual_editor_modes'); ?>
 		</ul>
-	
+		
 		<?php do_action('padma_visual_editor_menu'); ?>
+
+		<?php
+
+			if(PadmaVisualEditor::get_current_mode() != 'grid'){
+				?>
+				
+				<!--	Device Preview options	 -->
+				<div class="devices-wrapper">
+					<div class="devices">
+						<button type="button" class="preview-desktop" aria-pressed="false" data-device="desktop">
+						</button>
+						<button type="button" class="preview-tablet" aria-pressed="false" data-device="tablet">
+						</button>
+						<button type="button" class="preview-mobile" aria-pressed="true" data-device="mobile">
+						</button>
+					</div>
+				</div>
+
+				<?php
+			}
+		?>
 	
 		<div id="menu-right">
 	
@@ -67,27 +88,29 @@
 
 	
 	<!-- Big Boy iframe -->
-	<div id="iframe-container">
-		<?php
-		$layout_url = PadmaVisualEditor::get_current_mode() == 'grid' ? home_url() : PadmaLayout::get_url(PadmaLayout::get_current());
+	<div id="customize-preview" class="wp-full-overlay-main">
+		<div id="iframe-container">
+			<?php
+			$layout_url = PadmaVisualEditor::get_current_mode() == 'grid' ? home_url() : PadmaLayout::get_url(PadmaLayout::get_current());
 
-        $current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
-	
-		$iframe_url = add_query_arg(array(
-			've-iframe' => 'true',
-			've-layout' => urlencode(PadmaLayout::get_current()),
-            've-layout-customized' => padma_get('customized', $current_layout_status, false) ? 'true' : 'false',
-            've-iframe-mode' => PadmaVisualEditor::get_current_mode(),
-			'rand' => rand(1, 999999)
-		), $layout_url);
-	
-		echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes" sandbox="allow-same-origin allow-scripts"></iframe>';
-	
-		?>
+	        $current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
 		
-		<div id="iframe-overlay"></div>
-		<div id="iframe-loading-overlay"><div class="cog-container"><div class="cog-bottom-left"></div><div class="cog-top-right"></div></div></div>
-	</div>
+			$iframe_url = add_query_arg(array(
+				've-iframe' => 'true',
+				've-layout' => urlencode(PadmaLayout::get_current()),
+	            've-layout-customized' => padma_get('customized', $current_layout_status, false) ? 'true' : 'false',
+	            've-iframe-mode' => PadmaVisualEditor::get_current_mode(),
+				'rand' => rand(1, 999999)
+			), $layout_url);
+		
+			echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes" sandbox="allow-same-origin allow-scripts"></iframe>';
+		
+			?>
+			
+			<div id="iframe-overlay"></div>
+			<div id="iframe-loading-overlay"><div class="cog-container"><div class="cog-bottom-left"></div><div class="cog-top-right"></div></div></div>
+		</div>
+	</div>	
 	<!-- #iframe#content -->
 	
 	<div id="panel">

@@ -35,6 +35,9 @@ define(['jquery'], function($) {
 		 */		
 		$('.preview-' + mode ).addClass('active');
 		$('#customize-preview').addClass('preview-' + mode);
+
+		// set preference
+		localStorage['visual-editor-preview-mode'] = mode;
 		 
 	}
 

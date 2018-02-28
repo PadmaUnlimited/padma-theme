@@ -6620,18 +6620,18 @@ div.property-image span.delete-image {
     width: 100%;
 }
 .preview-tablet #iframe-container{
-	margin: auto 0 auto -360px;
+	margin: 35px 0 auto -360px;
     width: 720px;
     height: 1080px;
-    max-height: 100%;
+    max-height: calc(100vh - 35px);
     max-width: 100%;
     left: 50%;
 }
 .preview-mobile #iframe-container{
-	margin: auto 0 auto -160px;
+	margin: 35px 0 auto -160px;
     width: 320px;
     height: 480px;
-    max-height: 100%;
+    max-height: calc(100vh - 35px);
     max-width: 100%;
     left: 50%;
 }

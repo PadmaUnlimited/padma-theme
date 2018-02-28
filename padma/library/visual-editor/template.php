@@ -35,25 +35,25 @@
 		<?php do_action('padma_visual_editor_menu'); ?>
 
 		<?php
-
+			/*
 			if(PadmaVisualEditor::get_current_mode() != 'grid'){
 				?>
-				
-				<!--	Device Preview options	 -->
-				<div class="devices-wrapper">
-					<div class="devices">
-						<button type="button" class="preview-desktop" aria-pressed="false" data-device="desktop">
-						</button>
-						<button type="button" class="preview-tablet" aria-pressed="false" data-device="tablet">
-						</button>
-						<button type="button" class="preview-mobile" aria-pressed="true" data-device="mobile">
-						</button>
-					</div>
-				</div>
+
 
 				<?php
-			}
+			}*/
 		?>
+		<!--	Device Preview options	 -->
+		<div class="devices-wrapper">
+			<div class="devices">
+				<button type="button" class="preview-desktop" aria-pressed="false" data-device="desktop">
+				</button>
+				<button type="button" class="preview-tablet" aria-pressed="false" data-device="tablet">
+				</button>
+				<button type="button" class="preview-mobile" aria-pressed="true" data-device="mobile">
+				</button>
+			</div>
+		</div>
 	
 		<div id="menu-right">
 	

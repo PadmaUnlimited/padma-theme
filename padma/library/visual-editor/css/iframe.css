@@ -640,3 +640,6 @@ body:not(.inspector-disabled) .inspector-element-selected {
 	left: -5px;
 	width: 15px;
 }
+div.wrapper{
+	width: 100% !important;
+}

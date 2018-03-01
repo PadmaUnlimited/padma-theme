@@ -2,7 +2,7 @@
 Contributors: Padma Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-alpha
-Version: 0.0.13
+Version: 0.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -38,6 +38,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
+
+= 0.0.14 =
+* Released: March 1, 2018
+
+Slide menu fix for older browsers
+Code fixes
 
 = 0.0.13 =
 * Released: February 27, 2018

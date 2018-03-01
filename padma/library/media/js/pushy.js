@@ -14,6 +14,8 @@
 			pushyOpenRight = 'pushy-open-right', //css class when menu is open (right position)
 			siteOverlay = $('.pushy-site-overlay'), //site overlay
 			menuBtn = $('.pushy-menu-toggle'), //css classes to toggle the menu
+			menuBtnFocus = $('.menu-btn'), //css class to focus when menu is closed w/ esc key
+			menuLinkFocus = $(pushy.data('focus')), //focus on link when menu is open
 			menuSpeed = 200, //jQuery fallback menu speed
 			menuWidth = pushy.width() + 'px', //jQuery fallback menu width
 			submenuClass = '.pushy-submenu',
@@ -21,12 +23,51 @@
 			submenuClosedClass = 'pushy-submenu-closed',
 			submenu = $(submenuClass);
 
+		//close menu w/ esc key
+		$(document).keyup(function(e) {
+			//check if esc key is pressed
+			if (e.keyCode == 27) {
+
+				//check if menu is open
+				if( body.hasClass(pushyOpenLeft) || body.hasClass(pushyOpenRight) ){
+					if(cssTransforms3d){
+						closePushy(); //close pushy
+					}else{
+						closePushyFallback();
+						opened = false; //set menu state
+					}					
+					//focus on menu button after menu is closed
+					if(menuBtnFocus){
+						menuBtnFocus.focus();
+					}
+					
+				}
+
+			}   
+		});
+
 		function togglePushy(){
 			//add class to body based on menu position
 			if( pushy.hasClass(pushyLeft) ){
 				body.toggleClass(pushyOpenLeft);
 			}else{
 				body.toggleClass(pushyOpenRight);
+			}
+
+			//focus on link in menu after css transition ends
+			if(menuLinkFocus){
+				pushy.one('transitionend', function() {
+					menuLinkFocus.focus();
+				});
+			}
+			
+		}
+
+		function closePushy(){
+			if( pushy.hasClass(pushyLeft) ){
+				body.removeClass(pushyOpenLeft);
+			}else{
+				body.removeClass(pushyOpenRight);
 			}
 		}
 
@@ -70,21 +111,19 @@
 			//hide submenu by default
 			$(submenuClass).addClass(submenuClosedClass);
 
-			$(submenuClass).on('click', function(e) {
-				var selected = $(this);
+			$(submenuClass).on('click', function(){
+		        var selected = $(this);
 
-				if( selected.hasClass(submenuClosedClass) ) {
-					//hide opened submenus
-					$(submenuClass).not(selected.parents('.pushy-submenu')).addClass(submenuClosedClass).removeClass(submenuOpenClass);
-					//show submenu
-					selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
-				}else{
-					//hide submenu
-					selected.addClass(submenuClosedClass).removeClass(submenuOpenClass);
-				}
-
-				e.stopPropagation();
-			});
+		        if( selected.hasClass(submenuClosedClass) ) {
+		            //hide opened submenus
+		            $(submenuClass).addClass(submenuClosedClass).removeClass(submenuOpenClass);
+		            //show submenu
+		            selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
+		        }else{
+		            //hide submenu
+		            selected.addClass(submenuClosedClass).removeClass(submenuOpenClass);
+		        }
+		    });
 		}
 
 		function toggleSubmenuFallback(){
@@ -105,33 +144,35 @@
 		//checks if 3d transforms are supported removing the modernizr dependency
 		var cssTransforms3d = (function csstransforms3d(){
 			var el = document.createElement('p'),
-				supported = false,
-				transforms = {
-					'webkitTransform':'-webkit-transform',
-					'OTransform':'-o-transform',
-					'msTransform':'-ms-transform',
-					'MozTransform':'-moz-transform',
-					'transform':'transform'
-				};
+			supported = false,
+			transforms = {
+			    'webkitTransform':'-webkit-transform',
+			    'OTransform':'-o-transform',
+			    'msTransform':'-ms-transform',
+			    'MozTransform':'-moz-transform',
+			    'transform':'transform'
+			};
 
-			// Add it to the body to get the computed style
-			document.body.insertBefore(el, null);
+			if(document.body !== null) {
+				// Add it to the body to get the computed style
+				document.body.insertBefore(el, null);
 
-			for(var t in transforms){
-				if( el.style[t] !== undefined ){
-					el.style[t] = 'translate3d(1px,1px,1px)';
-					supported = window.getComputedStyle(el).getPropertyValue(transforms[t]);
+				for(var t in transforms){
+				    if( el.style[t] !== undefined ){
+				        el.style[t] = 'translate3d(1px,1px,1px)';
+				        supported = window.getComputedStyle(el).getPropertyValue(transforms[t]);
+				    }
 				}
+
+				document.body.removeChild(el);
+
+				return (supported !== undefined && supported.length > 0 && supported !== "none");
+			}else{
+				return false;
 			}
-
-			document.body.removeChild(el);
-
-			return (supported !== undefined && supported.length > 0 && supported !== "none");
 		})();
 
 		if(cssTransforms3d){
-			//make menu visible
-			pushy.css({'visibility': 'visible'});
 
 			//toggle submenu
 			toggleSubmenu();
@@ -144,7 +185,9 @@
 			siteOverlay.on('click', function(){
 				togglePushy();
 			});
+
 		}else{
+
 			//add css class to body
 			body.addClass('no-csstransforms3d');
 
@@ -155,8 +198,6 @@
 				pushy.css({right: "-" + menuWidth});
 			}
 
-			//make menu visible
-			pushy.css({'visibility': 'visible'});
 			//fixes IE scrollbar issue
 			container.css({"overflow-x": "hidden"});
 
@@ -164,7 +205,7 @@
 			var opened = false;
 
 			//toggle submenu
-			toggleSubmenuFallback();
+			toggleSubmenu();
 
 			//toggle menu
 			menuBtn.on('click', function(){
@@ -187,6 +228,7 @@
 					opened = true;
 				}
 			});
+
 		}
 	};
 }(jQuery));

@@ -43,8 +43,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 * Released: March 15, 2018
 
 Updated Visual Editor night mode colors
-Update Grid Wizard to Grid Manager
+Updated "Grid Wizard" to "Grid Manager"
 Content editor fixes
+License references were removed.
+Cleaning of code and fixes for PHP and Javascript
 
 
 = 0.0.15 =

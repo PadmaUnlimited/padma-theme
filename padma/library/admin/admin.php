@@ -24,7 +24,6 @@ class PadmaAdmin {
 		add_action('admin_init', array(__CLASS__, 'visual_editor_redirect'), 12);
 
 		add_action('init', array(__CLASS__, 'form_action_save'), 12); // Init runs before admin_menu; admin_menu runs before admin_init
-		add_action('init', array(__CLASS__, 'form_action_licenses'), 12);
 		add_action('init', array(__CLASS__, 'form_action_reset'), 12);
 		add_action('init', array(__CLASS__, 'form_action_delete_snapshots'), 12);
 
@@ -75,122 +74,6 @@ class PadmaAdmin {
 		$padma_admin_save_message = 'Settings saved.';
 
 		return true;
-
-	}
-
-
-	public static function form_action_licenses() {
-
-		if ( !padma_post('padma-licenses', false))
-			return false;
-
-		if ( !wp_verify_nonce(padma_post('padma-admin-nonce', false), 'padma-admin-nonce') )
-			return false;
-
-		if ( !is_array(padma_post('padma-licenses')) )
-			return false;
-
-		global $padma_admin_save_message;
-		global $padma_admin_save_error_message;
-
-
-		/* Save and activations */
-		if ( $save_and_activations = padma_get('save-and-activate', padma_post('padma-licenses')) ) {
-
-			if ( is_array($save_and_activations) && count($save_and_activations) ) {
-
-				foreach ( $save_and_activations as $item_slug_to_activate => $submit_value ) {
-
-					PadmaOption::set('license-key-' . $item_slug_to_activate, padma_get('license-key-' . $item_slug_to_activate, padma_post('padma-admin-input')));
-					$activation_request = padma_activate_license($item_slug_to_activate);
-
-					self::set_license_activation_message($activation_request);
-
-				}
-
-			}
-
-		}
-
-		/* Activations */
-		if ( $activations = padma_get('activate', padma_post('padma-licenses')) ) {
-
-			if ( is_array($activations) && count($activations) ) {
-
-				foreach ( padma_get('activate', padma_post('padma-licenses')) as $item_slug_to_activate => $submit_value ) {
-
-					$activation_request = padma_activate_license($item_slug_to_activate);
-
-					self::set_license_activation_message($activation_request);
-
-				}
-
-			}
-
-		}
-
-		/* Deactivations */
-		if ( $deactivations = padma_get('deactivate', padma_post('padma-licenses')) ) {
-
-			if ( is_array($deactivations) && count($deactivations) ) {
-
-				foreach ( padma_get('deactivate', padma_post('padma-licenses')) as $item_slug_to_deactivate => $submit_value ) {
-
-					$deactivation_request = padma_deactivate_license($item_slug_to_deactivate);
-
-					if ( $deactivation_request == 'deactivated' ) {
-
-						$padma_admin_save_message = 'License deactivated.';
-
-					} else if ( !is_wp_error($deactivation_request) ) {
-
-						$padma_admin_save_error_message = '<strong>Whoops!</strong> Could not deactivate license. Please check that you have entered your license correctly.';
-
-					} else {
-
-						$padma_admin_save_error_message = '
-							<strong>Error While Deactivating:</strong> (' . $deactivation_request->get_error_code() . ') ' . $deactivation_request->get_error_message() . '<br /><br />
-							'  . __('Please contact Padma Support if this error persists.', 'padma') . '
-						';
-
-					}
-
-				}
-
-			}
-
-		}
-
-
-		return true;
-
-	}
-
-
-	public static function set_license_activation_message($activation_request) {
-
-		global $padma_admin_save_message;
-		global $padma_admin_save_error_message;
-
-		if ( $activation_request == 'active' || $activation_request == 'valid' ) {
-
-			$padma_admin_save_message = __('License saved and activated.', 'padma');
-
-		} else if ( $activation_request == 'invalid' || $activation_request == 'expired' ) {
-
-			$padma_admin_save_error_message = __('
-				<strong>Whoops!</strong> Could not activate license.  Please check that you have entered your license correctly and that it has not expired.<br /><br />
-				Make sure you copied your license correctly from the <a href="http://padmaunlimited.com/dashboard" target="_blank">Padma Dashboard</a>.
-			', 'padma');
-
-		} else if ( is_wp_error($activation_request) ) {
-
-			$padma_admin_save_error_message = '
-				<strong>Error While Activating:</strong> (' . $activation_request->get_error_code() . ') ' . $activation_request->get_error_message() . '<br /><br />
-				'  . __('Please contact Padma Support if this error persists.', 'padma') . '
-			';
-
-		}
 
 	}
 

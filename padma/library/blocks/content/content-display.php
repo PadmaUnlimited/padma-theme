@@ -67,7 +67,8 @@ class PadmaContentBlockDisplay {
 			if ( PadmaRoute::is_visual_editor_iframe() && $this->get_setting('mode', 'default') == 'default' ) {
 
 				echo '<script type="text/javascript">';
-				echo 'BT_WP_Query_Vars = ' . json_encode($GLOBALS['wp_query']->query_vars);
+				echo 'PADMA_WP_Query_Vars = ' . json_encode($GLOBALS['wp_query']->query_vars) . ';';
+				echo 'localStorage[\'visual-editor-block-post-data-'.$this->block['id'].'\'] = JSON.stringify(' . json_encode($GLOBALS['posts'][0]->ID) . ');';
 				echo '</script>';
 
 			}

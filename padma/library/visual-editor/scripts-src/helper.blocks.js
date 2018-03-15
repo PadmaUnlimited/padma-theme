@@ -114,29 +114,29 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 
-		setBlockGridWidth = function(element, gridWidth) {
+	setBlockGridWidth = function(element, gridWidth) {
 
-			var block = getBlock(element);
+		var block = getBlock(element);
 
-			if ( !block ) {
-				return false;
-			}
-
-			var previousGridWidth = block.attr('data-width');
-
-			/* Remove previous grid width */
-			if ( previousGridWidth )
-				block.removeClass('grid-width-' + previousGridWidth);
-
-			/* Set new grid width */
-				block.css('width', '');
-				block.addClass('grid-width-' + gridWidth);
-				
-				block.attr('data-width', String(gridWidth).replace('grid-width-', ''));
-			
-			return block;
-
+		if ( !block ) {
+			return false;
 		}
+
+		var previousGridWidth = block.attr('data-width');
+
+		/* Remove previous grid width */
+		if ( previousGridWidth )
+			block.removeClass('grid-width-' + previousGridWidth);
+
+		/* Set new grid width */
+			block.css('width', '');
+			block.addClass('grid-width-' + gridWidth);
+			
+			block.attr('data-width', String(gridWidth).replace('grid-width-', ''));
+		
+		return block;
+
+	}
 
 
 	getBlockGridLeft = function(element) {
@@ -152,27 +152,27 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 
-		setBlockGridLeft = function(element, gridLeft) {
+	setBlockGridLeft = function(element, gridLeft) {
 
-			var block = getBlock(element);
+		var block = getBlock(element);
 
-			if ( !block ) {
-				return false;
-			}
-
-			var previousGridLeft = getBlockGridLeft(block);
-
-			/* Remove previous grid left */
-				if ( previousGridLeft )
-					block.removeClass('grid-left-' + previousGridLeft);
-
-			/* Set new grid left */
-				block.addClass('grid-left-' + gridLeft);
-				block.attr('data-grid-left', String(gridLeft).replace('grid-left-', ''));
-
-			return block;
-
+		if ( !block ) {
+			return false;
 		}
+
+		var previousGridLeft = getBlockGridLeft(block);
+
+		/* Remove previous grid left */
+			if ( previousGridLeft )
+				block.removeClass('grid-left-' + previousGridLeft);
+
+		/* Set new grid left */
+			block.addClass('grid-left-' + gridLeft);
+			block.attr('data-grid-left', String(gridLeft).replace('grid-left-', ''));
+
+		return block;
+
+	}
 
 
 	getBlockDimensions = function(element) {
@@ -191,20 +191,20 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 
-		getBlockDimensionsPixels = function(element) {
-			
-			var block = getBlock(element);
-			
-			if ( !block ) {
-				return false;
-			}
-			
-			return {
-				width: block.width(),
-				height: block.height()
-			}
-			
+	getBlockDimensionsPixels = function(element) {
+		
+		var block = getBlock(element);
+		
+		if ( !block ) {
+			return false;
 		}
+		
+		return {
+			width: block.width(),
+			height: block.height()
+		}
+		
+	}
 
 
 	getBlockPosition = function(element) {
@@ -223,20 +223,20 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 
-		getBlockPositionPixels = function(element) {
+	getBlockPositionPixels = function(element) {
 
-			var block = getBlock(element);
-			
-			if ( !block ) {
-				return false;
-			}
-			
-			return {
-				left: block.position().left,
-				top: block.position().top
-			}
-
+		var block = getBlock(element);
+		
+		if ( !block ) {
+			return false;
 		}
+		
+		return {
+			left: block.position().left,
+			top: block.position().top
+		}
+
+	}
 
 
 	isBlockMirrored = function(element) {
@@ -356,7 +356,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				block_default: settings.blockDefault,
 				layout: Padma.viewModels.layoutSelector.currentLayout(),
 				mode: Padma.mode,
-				wpQueryVars: typeof Padma.iframe[0].contentWindow.BT_WP_Query_Vars != 'undefined' ? Padma.iframe[0].contentWindow.BT_WP_Query_Vars : null
+				wpQueryVars: typeof Padma.iframe[0].contentWindow.PADMA_WP_Query_Vars != 'undefined' ? Padma.iframe[0].contentWindow.PADMA_WP_Query_Vars : null
 			}
 		}).done(function(data) {
 

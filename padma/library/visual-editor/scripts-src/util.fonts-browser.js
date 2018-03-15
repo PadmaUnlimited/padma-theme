@@ -216,21 +216,26 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 					});
 
-					$('<link>')
-						.attr('type', 'text/css')
-						.attr('rel', 'stylesheet')
-						.attr('href', '//fonts.googleapis.com/css?family=' + googleFontsQueryString.substr(0, googleFontsQueryString.length-1))
-						.appendTo('head')
-						.bind('load', function() {
 
-							_.each(fontsToLoad, function(fontToLoad) {
+					if(googleFontsQueryString.substr(0, googleFontsQueryString.length-1) !== 'undefined'){
 
-								var fontNode = fontList.find('li[data-value="' + fontToLoad.split(':')[0] + '"]');
-								fontNode.find('span.font-family, span.font-preview-text').show().css('opacity', 1);
+						$('<link>')
+							.attr('type', 'text/css')
+							.attr('rel', 'stylesheet')
+							.attr('href', '//fonts.googleapis.com/css?family=' + googleFontsQueryString.substr(0, googleFontsQueryString.length-1))
+							.appendTo('head')
+							.bind('load', function() {
+
+								_.each(fontsToLoad, function(fontToLoad) {
+
+									var fontNode = fontList.find('li[data-value="' + fontToLoad.split(':')[0] + '"]');
+									fontNode.find('span.font-family, span.font-preview-text').show().css('opacity', 1);
+
+								});
 
 							});
+					}
 
-						});
 
 				}
 

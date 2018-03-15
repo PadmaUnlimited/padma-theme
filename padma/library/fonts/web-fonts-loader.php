@@ -46,9 +46,12 @@ class PadmaWebFontsLoader {
 			$webfonts_in_use['google'][ $key ] = urlencode( $font );
 		}
 
-		$stylesheet_url = '//fonts.googleapis.com/css?family=' . implode( '|', array_filter($webfonts_in_use['google']) );
+		$font = implode( '|', array_filter($webfonts_in_use['google']) );
 
-		echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
+		if(strlen($font) > 0 ){
+			$stylesheet_url = '//fonts.googleapis.com/css?family=' . $font ;
+			echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
+		}
 
 	}
 	/* End Google Web Fonts */

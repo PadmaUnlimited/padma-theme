@@ -563,8 +563,8 @@ class PadmaBlocks {
 		//Check if the block type exists
 		if ( !$block_type_settings = padma_get($block['type'], $block_types, array()) ) {
 
-			$block['requested-type'] = $block['type'];
-			$block['type'] = 'unknown';
+			$block['requested-type'] 	= $block['type'];
+			$block['type'] 				= 'unknown';
 
 		}
 

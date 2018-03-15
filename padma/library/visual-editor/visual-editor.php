@@ -51,7 +51,8 @@ class PadmaVisualEditor {
 
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_tooltip_container'));
 		add_action('padma_body_close', array(__CLASS__, 'iframe_tooltip_container'));
-                wp_enqueue_media();
+        
+        wp_enqueue_media();
 				
 	}
 	

@@ -184,18 +184,13 @@ abstract class PadmaWebFontProvider {
 			
 			$html = '<li data-value="' . $font['id'] . '" style="font-family:' . $font['stack'] . ';" data-variants="[';
 
-				/*
-			<li data-value="Roboto" style="font-family:Roboto;" data-variants="[&quot;100&quot;,&quot;100italic&quot;,&quot;300&quot;,&quot;300italic&quot;,&quot;regular&quot;,&quot;italic&quot;,&quot;500&quot;,&quot;500italic&quot;,&quot;700&quot;,&quot;700italic&quot;,&quot;900&quot;,&quot;900italic&quot;]" class="webfont-loaded">
-					<span class="font-family">Roboto</span> 
+			if(is_array($font['variants'])){
+				foreach ($font['variants'] as $key => $value) {
+					$variants .= '&quot;' . $value . '&quot;,';
+				}
 
-					<span title="Use Font" class="use-font action button button-blue">Select</span>
-				</li>*/
-
-			foreach ($font['variants'] as $key => $value) {
-				$variants .= '&quot;' . $value . '&quot;,';
+				$variants = rtrim($variants,',');				
 			}
-
-			$variants = rtrim($variants,',');
 			$html .= $variants;
 
 			$html .= ']">

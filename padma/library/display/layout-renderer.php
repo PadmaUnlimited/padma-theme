@@ -33,8 +33,8 @@ class PadmaLayoutRenderer {
 			/* Check if mirroring.  If mirroring, change wrapper ID to the wrapper being mirrored and preserve original ID for a later class */
 			if ( $wrapper_being_mirrored = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
 
-				$mirrored_wrapper_id = $wrapper_being_mirrored['id'];
-				$wrapper_id_for_blocks = $mirrored_wrapper_id;
+				$mirrored_wrapper_id 	= $wrapper_being_mirrored['id'];
+				$wrapper_id_for_blocks 	= $mirrored_wrapper_id;
 
 				foreach ( PadmaBlocksData::get_blocks_by_wrapper($wrapper_being_mirrored['layout'], $mirrored_wrapper_id) as $block_from_mirrored_wrapper ){
 					$this->blocks[$block_from_mirrored_wrapper['id']] = $block_from_mirrored_wrapper;

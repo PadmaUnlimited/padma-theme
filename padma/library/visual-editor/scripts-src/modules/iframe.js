@@ -319,7 +319,9 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 					$('#iframe-notice').remove();
 
 					hideIframeOverlay();
-					openBox('grid-wizard');
+					if(typeof openBox !== 'undefined'){
+						openBox('grid-wizard');
+					}
 
 				});
 
@@ -331,11 +333,15 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 			} else if ( Padma.viewModels.layoutSelector.currentLayoutCustomized() || Padma.viewModels.layoutSelector.currentLayoutTemplate() ) {
 
-				closeBox('grid-wizard');
+				if(typeof closeBox !== 'undefined'){
+					closeBox('grid-wizard');					
+				}
 				
 			} else {
 
-				openBox('grid-wizard');
+				if(typeof openBox !== 'undefined'){
+					openBox('grid-wizard');
+				}
 
 			}
 

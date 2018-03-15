@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers'], function($, _) {
+define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -2371,7 +2371,8 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 		/* INSPECTOR CONTEXT MENU */
 			setupInspectorContextMenu = function() {
 
-				return setupContextMenu({
+				
+				return setupContextMenu({					
 					id: 'inspector',
 					elements: 'body',
 					title: function(event) {
@@ -2412,12 +2413,30 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 					openBlockOptions(getBlock($(inspectorElement)));
 
+				} else if ( $(this).parents('li').first().hasClass('inspector-context-menu-edit-content') ){
+
+					var blockID 	= getBlock($(inspectorElement))[0].dataset.id;
+					var blockType 	= getBlock($(inspectorElement))[0].dataset.type;
+					
+					if(blockType == 'content'){
+						contentEditor.showEditor('content-editor', blockID, function(editor) {
+							allowSaving();
+						});
+					}else{
+						showNotification({
+							id: 'no-supported',
+							message: 'Content editor currently supports post and pages only.',
+							closeTimer: 3000
+						});
+					}
+
 				/* DE Click */
 				} else {
 
+
 					var inspectorElementOptions = contextMenu.data('element-options');
-					var instanceID = $(this).parents('li').first().data('instance-id');
-					var stateID = $(this).parents('li').first().data('state-id');
+					var instanceID 				= $(this).parents('li').first().data('instance-id');
+					var stateID 				= $(this).parents('li').first().data('state-id');
 
 					/* Reactivate inspector tooltip */
 					inspectorTooltip.show();
@@ -2427,32 +2446,32 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 					$('#design-editor-element-selector-container .ui-state-active').removeClass('ui-state-active');
 
 					/* Instances */
-						if ( typeof instanceID != 'undefined' ) {
+					if ( typeof instanceID != 'undefined' ) {
 
-							designEditor.selectSpecialElement(inspectorElementOptions['id'], 'instance', instanceID);
+						designEditor.selectSpecialElement(inspectorElementOptions['id'], 'instance', instanceID);
 
-						}
+					}
 
 					/* States */
-						else if ( typeof stateID != 'undefined' ) {
+					else if ( typeof stateID != 'undefined' ) {
 
-							designEditor.selectSpecialElement(inspectorElementOptions['id'], 'state', stateID);
+						designEditor.selectSpecialElement(inspectorElementOptions['id'], 'state', stateID);
 
-						}
+					}
 
 					/* Handle Top Level Elements */
-						else if ( !$(this).parents('li').first().hasClass('inspector-context-menu-parent') ) {
+					else if ( !$(this).parents('li').first().hasClass('inspector-context-menu-parent') ) {
 
-							$('ul#design-editor-element-selector li#element-' + inspectorElementOptions['id']).find('> span').trigger('click');
+						$('ul#design-editor-element-selector li#element-' + inspectorElementOptions['id']).find('> span').trigger('click');
 
-						}
+					}
 
 					/* Layout-specific customizations */
-						if ( $(this).parents('li').first().hasClass('inspector-context-menu-edit-for-layout') ) {
+					if ( $(this).parents('li').first().hasClass('inspector-context-menu-edit-for-layout') ) {
 
-							designEditor.selectSpecialElement(inspectorElementOptions['id'], 'layout', Padma.viewModels.layoutSelector.currentLayout());
+						designEditor.selectSpecialElement(inspectorElementOptions['id'], 'layout', Padma.viewModels.layoutSelector.currentLayout());
 
-						}
+					}
 
 				}
 
@@ -2464,7 +2483,7 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 				var inspectorElementOptions = contextMenu.data('element-options');
 
 				/* Set instance variable */
-					var isInstance = (typeof inspectorElementOptions.instance != 'undefined' && inspectorElementOptions.instance);
+				var isInstance = (typeof inspectorElementOptions.instance != 'undefined' && inspectorElementOptions.instance);
 
 				/* Add options to context menu */
 					/* Regular Element Group */
@@ -2472,7 +2491,15 @@ define(['jquery', 'underscore', 'deps/colorpicker', 'helper.blocks', 'modules/gr
 
 						if ( isInstance ) {
 
+							// Edit This Instance
 							contextMenu.append('<li class="inspector-context-menu-edit-instance" data-instance-id="' + inspectorElementOptions.instance + '"><span>Edit This Instance</span></li>');
+
+							
+							/* 
+								Edit content option
+							*/
+							contextMenu.append('<li class="inspector-context-menu-edit-content" data-instance-id="' + inspectorElementOptions.instance + '"><span>Edit Content</span></li>');
+							
 
 							var regularElementGroup = $('<li class="inspector-context-menu-edit-normal"><span class="group-title group-title-clickable">Edit Regular Element<small>' + inspectorElementOptions.parentName + '</small></span><ul></ul></li>').appendTo(contextMenu);
 							regularElementGroup = regularElementGroup.find('ul').first();

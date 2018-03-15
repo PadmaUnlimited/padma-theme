@@ -94,25 +94,32 @@ class PadmaRoute {
 			
 			case 'compiler':				
 				PadmaCompiler::output_trigger();
-			break;
+				break;
 
 			case 'layout-redirect':
 				self::redirect_to_layout();
-			break;
+				break;
 
 			case 'media-uploader':
 				if ( !PadmaCapabilities::can_user_visually_edit() )
 					die();
 
 				Padma::load('visual-editor/media-uploader');
-			break;
+				break;
 
 			case 'code-mirror':
 				if ( !PadmaCapabilities::can_user_visually_edit() )
 					die();
 
 				Padma::load('visual-editor/code-mirror');
-			break;
+				break;
+
+			case 'content-editor':
+				if ( !PadmaCapabilities::can_user_visually_edit() )
+					die();
+
+				Padma::load('visual-editor/content-editor');
+				break;
 
 		}
 

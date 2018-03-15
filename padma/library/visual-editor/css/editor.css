@@ -1850,14 +1850,14 @@ div#box-snapshots #snapshots-list > li:hover .snapshot-delete {
 	display: block;
 }
 
-/* Grid Wizard */
-div#box-grid-wizard {
+/* Grid Manager */
+div#box-grid-manager {
 	margin: -220px 0 0 -300px;
 	top: 50%;
 	left: 50%;
 }
 
-div#box-grid-wizard div.tab-content {
+div#box-grid-manager div.tab-content {
 	float: left;
 	width: 415px;
 	height: 350px;
@@ -1865,7 +1865,7 @@ div#box-grid-wizard div.tab-content {
 	left: 170px;
 }
 
-div.grid-wizard-buttons {
+div.grid-manager-buttons {
 	display: block;
 	clear: both;
 	float: left;
@@ -1884,7 +1884,7 @@ div.grid-wizard-buttons {
 	bottom: 2px;
 }
 
-div.grid-wizard-buttons span.grid-wizard-use-empty-grid {
+div.grid-manager-buttons span.grid-manager-use-empty-grid {
 	color: #888888;
 	text-decoration: underline;
 	line-height: 25px;
@@ -1895,31 +1895,31 @@ div.grid-wizard-buttons span.grid-wizard-use-empty-grid {
 	cursor: pointer;
 }
 
-div.grid-wizard-buttons span.grid-wizard-use-empty-grid:hover {
+div.grid-manager-buttons span.grid-manager-use-empty-grid:hover {
 	text-decoration: none;
 }
 
-div.grid-wizard-buttons span.grid-wizard-button-next {
+div.grid-manager-buttons span.grid-manager-button-next {
 	float: right;
 }
 
-div.grid-wizard-buttons span.grid-wizard-button-previous {
+div.grid-manager-buttons span.grid-manager-button-previous {
 	float: right;
 	margin: 0 5px 0 0;
 }
 
-div.grid-wizard-buttons span.grid-wizard-button-clone-page {
+div.grid-manager-buttons span.grid-manager-button-clone-page {
 	width: 80px;
 }
 
-div#box-grid-wizard div.box-content h4 {
+div#box-grid-manager div.box-content h4 {
 	font-size: 14px;
 	font-weight: 500;
 	color: #222222;
 	margin: 0 0 10px;
 }
 
-div#box-grid-wizard .grid-wizard-info {
+div#box-grid-manager .grid-manager-info {
 	margin: 10px 0 0;
 	padding: 9px 10px;
 	width: 100%;
@@ -1937,20 +1937,20 @@ div#box-grid-wizard .grid-wizard-info {
 }
 
 /* Import/Export */
-div#box-grid-wizard div.box-content .grid-wizard-import-export-group {
+div#box-grid-manager div.box-content .grid-manager-import-export-group {
 	position: static;
 	padding: 15px;
 	height: auto;
 	margin: 6px 0 15px;
 }
-div#box-grid-wizard div.box-content .grid-wizard-import-export-group .button {
+div#box-grid-manager div.box-content .grid-manager-import-export-group .button {
 	margin: 0;
 }
-div#box-grid-wizard div.box-content .grid-wizard-import-export-group input[type="file"] {
+div#box-grid-manager div.box-content .grid-manager-import-export-group input[type="file"] {
 	position: absolute;
 	opacity: 0;
 }
-div#box-grid-wizard div.box-content .grid-wizard-import-export-group p {
+div#box-grid-manager div.box-content .grid-manager-import-export-group p {
 	color: #555555;
 	margin: 11px 0;
 	line-height: 150%;
@@ -1958,19 +1958,19 @@ div#box-grid-wizard div.box-content .grid-wizard-import-export-group p {
 	border-top: 1px solid #EEEEEE;
 	padding: 11px 0 0;
 }
-div#box-grid-wizard div.box-content .grid-wizard-import-export-group p strong {
+div#box-grid-manager div.box-content .grid-manager-import-export-group p strong {
 	font-weight: bold;
 }
 
 /* End Import/Export */
 /* Cloning */
-#grid-wizard-tab-clone-page h4 {
+#grid-manager-tab-clone-page h4 {
 	clear: both;
 }
 
 /* End Cloning */
-/* Grid Wizard Presets */
-div#box-grid-wizard span.layout-preset {
+/* Grid Manager Presets */
+div#box-grid-manager span.layout-preset {
 	margin: 7px 14px 15px 7px;
 	float: left;
 	background: #FFFFFF;
@@ -1988,49 +1988,49 @@ div#box-grid-wizard span.layout-preset {
 	transition: opacity 0.075s linear;
 }
 
-div#box-grid-wizard span.layout-preset-selected,
-div#box-grid-wizard span.layout-preset:hover {
+div#box-grid-manager span.layout-preset-selected,
+div#box-grid-manager span.layout-preset:hover {
 	opacity: 0.9;
 }
 
-div#box-grid-wizard span.layout-preset img {
+div#box-grid-manager span.layout-preset img {
 	opacity: 0.8;
 	width: 105px;
 	height: 105px;
 }
 
 /* Step 2 */
-div#grid-wizard-presets-step-2 {
+div#grid-manager-presets-step-2 {
 	display: none;
 }
 
-div#grid-wizard-presets-step-2 h5 {
+div#grid-manager-presets-step-2 h5 {
 	font-size: 13px;
 	font-weight: 300;
 	color: #444444;
 	margin: 0 0 4px 1px;
 }
 
-div#grid-wizard-presets-step-2 div.select-container select {
+div#grid-manager-presets-step-2 div.select-container select {
 	width: 180px;
 }
 
-div.grid-wizard-presets-mirroring-column {
+div.grid-manager-presets-mirroring-column {
 	margin: 20px 0 0 0;
 	width: 195px;
 	float: left;
 }
 
-div.grid-wizard-presets-mirroring-column div {
+div.grid-manager-presets-mirroring-column div {
 	margin: 0 0 15px 0;
 }
 
-div#grid-wizard-presets-mirroring-column-1 {
+div#grid-manager-presets-mirroring-column-1 {
 	margin-right: 20px;
 }
 
-/* End Grid Wizard Presets */
-/* End Grid Wizard */
+/* End Grid Manager Presets */
+/* End Grid Manager */
 /* Black Overlay */
 div.black-overlay {
 	position: fixed;

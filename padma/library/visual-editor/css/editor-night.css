@@ -1,32 +1,35 @@
 body.night{}
 body.night ul.sub-tabs,
 body.night div#panel{
-	background-color: #192837;
+	background-color: #2D2D2D;
     color: #d3d4d4;
 }
-body.night div.sub-tabs-content,
+body.night div.sub-tabs-content{
+    background-color: #383838;
+    color: #d3d4d4;
+}
 body.night ul.sub-tabs li{
-    background-color: #192837;    
+    background-color: #2D2D2D;
     color: #d3d4d4;
 }
 body.night ul.sub-tabs li{
 	border: 0px;
 }
 body.night ul.sub-tabs li.ui-state-active{
-	background-color: #101c29;
+	background-color: #383838;
 	border-left: 1px solid #CCCCCC;
 }
 body.night div.sub-tab-notice{
 	color: #f3f3f3;
-    background-color: #0a121b !important;
+    background-color: #212121 !important;
 }
 body.night div.sub-tabs-content{}
 
 body.night div.sub-tabs-content div.input{
 	color: #fff;
     cursor: default;
-    background-color: #4e6071;
-    border: 1px solid #000;
+    background-color: #2D2D2D;
+    border: 1px solid #2D2D2D;
 }
 body.night div.sub-tabs-content div.tooltip-button,
 body.night div.sub-tabs-content div.input label,
@@ -58,7 +61,7 @@ body.night .input.input-heading{
 body.night div.sub-tabs-content .options-heading,
 body.night div#side-panel-container div#side-panel div#side-panel-bottom,
 body.night div.design-editor-info{
-	background-color: #192837;
+	background-color: #383838;
     color: #d3d4d4;
     border: 0px;
 }
@@ -68,7 +71,7 @@ body.night ul#element-selector-tabs li.ui-state-active{
 }
 body.night ul#element-selector-tabs,
 body.night div#side-panel-container div#side-panel{
-    background-color: #192837;
+    background-color: #383838;
 }
 body.night ul#design-editor-element-selector,
 body.night ul#design-editor-element-selector li.element-group > span.element-group-name,
@@ -79,7 +82,7 @@ body.night ul#design-editor-element-selector li > span.element-name:hover,
 body.night ul#design-editor-element-selector li.element-just-selected > span.element-name{
     color: #fff;
     cursor: default;
-    background-color: #4e6071;
+    background-color: #2D2D2D;
     border: 1px solid #000;
 }
 body.night div.design-editor-info div.design-editor-selection > strong,
@@ -88,12 +91,12 @@ body.night div.design-editor-info div.design-editor-selection span.design-editor
     color: #d3d4d4;
 }
 body.night div.design-editor-box.design-editor-box-open span.design-editor-box-title{
-    background-color: #4e6071;
+    background-color: #2D2D2D;
     color: #fff;
 }
 body.night ul.design-editor-box-content,
 body.night ul.design-editor-box-content > li{
-    background-color: #4e6071;
+    background-color: #2D2D2D;
     color: #fff;
 }
 body.night ul.design-editor-box-content > li > strong{
@@ -106,14 +109,14 @@ body.night div#side-panel-container div#side-panel div#side-panel-bottom{
     box-shadow: 8px -10px 15px #101c29;    
 }
 body.night div.sub-tabs-content .repeater .repeater-group{
-    background-color: #192837;
+    background-color: #383838;
 }
 body.night div.notification{
-    background-color: #192837;
+    background-color: #383838;
     color: #FFFFFF;
 }
 body.night #box-snapshots{
-    background-color: #192837;
+    background-color: #383838;
     color: #FFFFFF;   
 }
 body.night #box-snapshots div.box-top > strong{
@@ -129,36 +132,54 @@ body.night div.box-top span.box-close{
     color: #f4f4f4;
 }
 body.night div#iframe-notice div{
-    border: 1px solid #192837;
+    border: 1px solid #383838;
 }
 body.night div#iframe-notice div,
 body.night div#layout-selector,
 body.night div.layout-selector-content ul > li:nth-child(even) > span.layout{
-    background-color: #192837;
+    background-color: #383838;
     color: #FFFFFF;      
 }
 body.night div.layout-selector-content li.layout-selected > span.layout strong,
 body.night div#layout-selector-tabs li.ui-tabs-active a,
-body.night div#box-grid-wizard div.box-content h4{
+body.night div#box-grid-manager div.box-content h4{
     color: #FFFFFF !important;
 }
 body.night div.box ul.tabs li a,
 body.night div.box ul.tabs,
 body.night div.box{
-    background-color: #192837;
+    background-color: #383838;
     color: #FFFFFF;
 }
 body.night div.box ul.tabs li.ui-tabs-active a{
-    background-color: #4e6071;
+    background-color: #2D2D2D;
 }
-body.night div.grid-wizard-buttons span.grid-wizard-use-empty-grid,
+body.night div.grid-manager-buttons span.grid-manager-use-empty-grid,
 body.night div.box-top > strong{
     color: #FFFFFF;
 }
-body.night div.grid-wizard-buttons{
-    background-color: #4e6071;
-    border: 1px solid #4e6071;  
+body.night div.grid-manager-buttons{
+    background-color: #2D2D2D;
+    border: 1px solid #2D2D2D;  
 }
-body.night div#box-grid-wizard div.box-content .grid-wizard-import-export-group p{
+body.night div#box-grid-manager div.box-content .grid-manager-import-export-group p{
     color: #FFFFFF;   
+}
+
+body.night div#panel-top-container{}
+body.night div.block-type-selector div.block-type{
+    border-color: #72A9c3;
+    background: #72A9c3;
+    color: #000;
+    -webkit-box-shadow: inset 0 1px 0 #72A9c3, 0 1px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 #72A9c3, 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+body.night span.save-button,
+body.night span.button.button-blue,
+body.night ul#panel-top li.ui-state-active a{
+    background: #72A9c3;
+    color: #000;
+}
+body.night ul#modes li.active a{
+    color: #72A9c3;
 }

@@ -29,7 +29,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 		},
 
 		{
-			target: $('div#box-grid-wizard'),
+			target: $('div#box-grid-manager'),
 			title: 'The Padma Grid',
 			content: '<p>Now we\'re ready to get started with the Padma Grid.  In other words, the good stuff.</p><p>To build your first layout, please select a preset to the right to pre-populate the grid.  Or, you may select "Use Empty Grid" to start with a completely blank grid.</p><p>Once you have a preset selected, click "Finish".</p>',
 			position: {
@@ -38,7 +38,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 			},
 			nextHandler: {
 				showButton: false,
-				clickElement: '#grid-wizard-button-preset-use-preset, span.grid-wizard-use-empty-grid',
+				clickElement: '#grid-manager-button-preset-use-preset, span.grid-manager-use-empty-grid',
 				message: 'Please click <strong>"Finish"</strong> or <strong>"Use Empty Grid"</strong> to continue.'
 			}
 		},
@@ -170,7 +170,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 				var steps = tourStepsGrid;
 
 				hidePanel();
-				openBox('grid-wizard');
+				openBox('grid-manager');
 
 			} else if ( Padma.mode == 'design' ) {
 
@@ -240,7 +240,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 						$('#iframe-notice').remove();
 						hideIframeOverlay();
 
-						openBox('grid-wizard');
+						openBox('grid-manager');
 
 						// Grab tooltip element
 						var tooltip = api.elements.tooltip;

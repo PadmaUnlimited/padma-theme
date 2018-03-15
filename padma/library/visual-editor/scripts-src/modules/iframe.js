@@ -28,8 +28,8 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 		startTitleActivityIndicator();
 		showIframeLoadingOverlay();
 
-		/* Close Grid Wizard */
-		closeBox('grid-wizard');
+		/* Close Grid Manager */
+		closeBox('grid-manager');
 
 		/* Build the URL */
 			iframeURL = url;
@@ -320,7 +320,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 					hideIframeOverlay();
 					if(typeof openBox !== 'undefined'){
-						openBox('grid-wizard');
+						openBox('grid-manager');
 					}
 
 				});
@@ -334,13 +334,13 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			} else if ( Padma.viewModels.layoutSelector.currentLayoutCustomized() || Padma.viewModels.layoutSelector.currentLayoutTemplate() ) {
 
 				if(typeof closeBox !== 'undefined'){
-					closeBox('grid-wizard');					
+					closeBox('grid-manager');					
 				}
 				
 			} else {
 
 				if(typeof openBox !== 'undefined'){
-					openBox('grid-wizard');
+					openBox('grid-manager');
 				}
 
 			}

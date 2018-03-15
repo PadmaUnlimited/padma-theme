@@ -59,11 +59,11 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 			/* TOOLS */
 				$('#tools-tour').bind('click', tour.start);
 
-				$('#tools-grid-wizard').bind('click', function(){
+				$('#tools-grid-manager').bind('click', function(){
 
 					hidePanel();
 
-					openBox('grid-wizard');
+					openBox('grid-manager');
 
 				});
 

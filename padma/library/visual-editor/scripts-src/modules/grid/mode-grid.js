@@ -1,9 +1,9 @@
-define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappers', 'modules/grid/grid-wizard', 'deps/jquery.pep', 'helper.blocks', 'helper.wrappers'], function($, btGrid, wrappers) {
+define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappers', 'modules/grid/grid-manager', 'deps/jquery.pep', 'helper.blocks', 'helper.wrappers'], function($, btGrid, wrappers) {
 
 	var modeGrid = {
 		init: function() {	
 			
-			bindGridWizard();			
+			bindGridManager();			
 
 		},
 

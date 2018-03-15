@@ -9,7 +9,7 @@ class PadmaVisualEditorDisplay {
 		//Load boxes
 		Padma::load('api/api-box');
 
-		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/grid-wizard.php';
+		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/grid-manager.php';
 		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/snapshots.php';
 
 		//Load panels
@@ -387,7 +387,7 @@ class PadmaVisualEditorDisplay {
 					// <li id="tools-redo"><span>Redo <small>Ctrl + Y</small></span></li>';
 
 					if ( PadmaVisualEditor::is_mode('grid') )
-						echo '<li id="tools-grid-wizard"><span>Grid Wizard</span></li>';
+						echo '<li id="tools-grid-manager"><span>Grid Manager</span></li>';
 
 					if ( PadmaCompiler::can_cache() )
 						echo '<li id="tools-clear-cache"><span>Clear Cache' . (!PadmaCompiler::caching_enabled() ? ' (Disabled)' : '') . '</span></li>';

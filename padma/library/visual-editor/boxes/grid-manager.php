@@ -1,17 +1,17 @@
 <?php
-padma_register_visual_editor_box('PadmaGridWizardBox');
-class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
+padma_register_visual_editor_box('PadmaGridManagerBox');
+class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 	
 	/**
 	 *	Slug/ID of panel.  Will be used for HTML IDs and whatnot.
 	 **/
-	protected $id = 'grid-wizard';
+	protected $id = 'grid-manager';
 	
 	
 	/**
 	 * Name of panel.  This will be shown in the title.
 	 **/
-	protected $title = 'Grid Wizard';
+	protected $title = 'Grid Manager';
 	
 	protected $description = 'Choose a preset or a page to clone';
 	
@@ -41,7 +41,7 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 	
 	protected $load_with_ajax = true;
 	
-	protected $load_with_ajax_callback = 'afterGridWizardLoad();';
+	protected $load_with_ajax_callback = 'afterGridManagerLoad();';
 	
 	
 	
@@ -53,30 +53,30 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 		$templates_to_assign_select_options = self::templates_to_assign_select_options();
 		
 ?>
-		<ul id="grid-wizard-tabs" class="tabs">
+		<ul id="grid-manager-tabs" class="tabs">
 			<?php			
 			if ( $pages_to_clone_select_options !== '' || $templates_to_assign_select_options !== '' ) {
 
-				echo '<li><a href="#grid-wizard-tab-clone-page">Clone Existing Layout</a></li>';
-				echo '<li><a href="#grid-wizard-tab-presets">Presets</a></li>';
+				echo '<li><a href="#grid-manager-tab-clone-page">Clone Existing Layout</a></li>';
+				echo '<li><a href="#grid-manager-tab-presets">Presets</a></li>';
 
 			} else {
 
-				echo '<li><a href="#grid-wizard-tab-presets">Presets</a></li>';
+				echo '<li><a href="#grid-manager-tab-presets">Presets</a></li>';
 
 			}
 
 			if ( $templates_to_assign_select_options !== '' && strpos($current_layout, 'template-') === false )
-				echo '<li><a href="#grid-wizard-tab-assign-template">Use Shared Layout</a></li>';
+				echo '<li><a href="#grid-manager-tab-assign-template">Use Shared Layout</a></li>';
 
-			echo '<li><a href="#grid-wizard-tab-import-export">Import/Export</a></li>';
+			echo '<li><a href="#grid-manager-tab-import-export">Import/Export</a></li>';
 			?>
 		</ul>
 		
-		<div id="grid-wizard-tab-presets" class="tab-content">
+		<div id="grid-manager-tab-presets" class="tab-content">
 					
-			<div id="grid-wizard-presets-step-1">	
-				<div class="grid-wizard-presets-row">
+			<div id="grid-manager-presets-step-1">	
+				<div class="grid-manager-presets-row">
 					<span class="layout-preset layout-preset-selected" id="layout-right-sidebar" title="Content | Sidebar">
 						<img src="<?php echo padma_url() . '/library/visual-editor/images/layouts/layout-right-sidebar.png'; ?>" alt="" />
 					</span>
@@ -90,7 +90,7 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 					</span>
 				</div>
 
-				<div class="grid-wizard-presets-row">
+				<div class="grid-manager-presets-row">
 					<span class="layout-preset" id="layout-two-both" title="Sidebar 1 | Content | Sidebar 2">
 						<img src="<?php echo padma_url() . '/library/visual-editor/images/layouts/layout-two-both.png'; ?>" alt="" />
 					</span>
@@ -99,16 +99,16 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 						<img src="<?php echo padma_url() . '/library/visual-editor/images/layouts/layout-all-content.png'; ?>" alt="" />
 					</span>
 				</div>
-			</div><!-- #grid-wizard-presets-step-1 -->
+			</div><!-- #grid-manager-presets-step-1 -->
 			
-			<div id="grid-wizard-presets-step-2">
+			<div id="grid-manager-presets-step-2">
 				
 				<h4>Select Which Blocks to Mirror</h4>
 				
-				<p class="grid-wizard-info">To save time, Padma allows you to "mirror" your blocks.  If you already have a widget area or sidebar that's configured, you may choose to use it by using the select boxes below.</p>
+				<p class="grid-manager-info">To save time, Padma allows you to "mirror" your blocks.  If you already have a widget area or sidebar that's configured, you may choose to use it by using the select boxes below.</p>
 				
-				<div id="grid-wizard-presets-mirroring-column-1" class="grid-wizard-presets-mirroring-column">
-					<div id="grid-wizard-presets-mirroring-select-header">
+				<div id="grid-manager-presets-mirroring-column-1" class="grid-manager-presets-mirroring-column">
+					<div id="grid-manager-presets-mirroring-select-header">
 						<h5>Header</h5>
 				
 						<div class="select-container">
@@ -121,7 +121,7 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 						</div><!-- .select-container -->
 					</div>
 				
-					<div id="grid-wizard-presets-mirroring-select-navigation">
+					<div id="grid-manager-presets-mirroring-select-navigation">
 						<h5>Navigation</h5>
 				
 						<div class="select-container">
@@ -134,7 +134,7 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 						</div><!-- .select-container -->
 					</div>
 				
-					<div id="grid-wizard-presets-mirroring-select-content">
+					<div id="grid-manager-presets-mirroring-select-content">
 						<h5>Content</h5>
 				
 						<div class="select-container">
@@ -148,8 +148,8 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 					</div>
 				</div>
 				
-				<div id="grid-wizard-presets-mirroring-column-2" class="grid-wizard-presets-mirroring-column">
-					<div id="grid-wizard-presets-mirroring-select-sidebar-1">
+				<div id="grid-manager-presets-mirroring-column-2" class="grid-manager-presets-mirroring-column">
+					<div id="grid-manager-presets-mirroring-select-sidebar-1">
 						<h5>Sidebar 1</h5>
 				
 						<div class="select-container">
@@ -162,7 +162,7 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 						</div><!-- .select-container -->
 					</div>
 				
-					<div id="grid-wizard-presets-mirroring-select-sidebar-2">
+					<div id="grid-manager-presets-mirroring-select-sidebar-2">
 						<h5>Sidebar 2</h5>
 				
 						<div class="select-container">
@@ -175,7 +175,7 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 						</div><!-- .select-container -->
 					</div>
 				
-					<div id="grid-wizard-presets-mirroring-select-footer">
+					<div id="grid-manager-presets-mirroring-select-footer">
 						<h5>Footer</h5>
 				
 						<div class="select-container">
@@ -189,10 +189,10 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 					</div>
 				</div>
 				
-			</div><!-- #grid-wizard-presets-step-2 -->
+			</div><!-- #grid-manager-presets-step-2 -->
 			
-			<div class="grid-wizard-buttons">
-				<span class="grid-wizard-use-empty-grid">Use Empty Grid</span>
+			<div class="grid-manager-buttons">
+				<span class="grid-manager-use-empty-grid">Use Empty Grid</span>
 				
 				<?php
 				if ( $pages_to_clone_select_options !== '' ) {
@@ -207,23 +207,23 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 					
 				}
 
-				echo '<span id="grid-wizard-button-preset-next" class="button grid-wizard-button-next"' . $next_button_style . '>Next &rarr;</span>';
-				echo '<span id="grid-wizard-button-preset-use-preset" class="button grid-wizard-button-next"' . $use_button_style . '>Finish &rarr;</span>';
-				echo '<span id="grid-wizard-button-preset-previous" class="button grid-wizard-button-previous" style="display: none;">&larr; Previous</span>';
+				echo '<span id="grid-manager-button-preset-next" class="button grid-manager-button-next"' . $next_button_style . '>Next &rarr;</span>';
+				echo '<span id="grid-manager-button-preset-use-preset" class="button grid-manager-button-next"' . $use_button_style . '>Finish &rarr;</span>';
+				echo '<span id="grid-manager-button-preset-previous" class="button grid-manager-button-previous" style="display: none;">&larr; Previous</span>';
 				?>
 			</div>
 			
-		</div><!-- #grid-wizard-tab-presets -->
+		</div><!-- #grid-manager-tab-presets -->
 		
 		<?php
 		if ( $pages_to_clone_select_options !== '' || $templates_to_assign_select_options !== '' ) {
 		?>
-		<div id="grid-wizard-tab-clone-page" class="tab-content">
+		<div id="grid-manager-tab-clone-page" class="tab-content">
 		
 			<h4>Choose a Layout to Clone</h4>
 		
 			<?php
-			echo '<div class="select-container"><select id="grid-wizard-pages-to-clone">';
+			echo '<div class="select-container"><select id="grid-manager-pages-to-clone">';
 
 				echo '<optgroup label="&mdash; Pages &mdash;">';
 
@@ -240,25 +240,25 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
             echo '</select></div><!-- .select-container -->';
 			?>
 			
-			<div class="grid-wizard-buttons">
-				<span class="grid-wizard-use-empty-grid">Use Empty Grid</span>
+			<div class="grid-manager-buttons">
+				<span class="grid-manager-use-empty-grid">Use Empty Grid</span>
 				
-				<span id="grid-wizard-button-clone-page" class="button grid-wizard-button-next">Clone Layout &rarr;</span>
+				<span id="grid-manager-button-clone-page" class="button grid-manager-button-next">Clone Layout &rarr;</span>
 			</div>
 			
-		</div><!-- #grid-wizard-tab-clone-page -->
+		</div><!-- #grid-manager-tab-clone-page -->
 		<?php
 		}
 		
 		
 		if ( $templates_to_assign_select_options !== '' && strpos($current_layout, 'template-') === false ) {
 		?>
-		<div id="grid-wizard-tab-assign-template" class="tab-content">
+		<div id="grid-manager-tab-assign-template" class="tab-content">
 			
 			<h4>Choose a Shared Layout</h4>
 			
 			<?php
-			echo '<div class="select-container"><select id="grid-wizard-assign-template">';
+			echo '<div class="select-container"><select id="grid-manager-assign-template">';
 			
 				echo '<option value="" disabled="disabled">&mdash; Select a Shared Layout &mdash;</option>';
 
@@ -267,33 +267,33 @@ class PadmaGridWizardBox extends PadmaVisualEditorBoxAPI {
 			echo '</select></div><!-- .select-container -->';
 			?>
 			
-			<div class="grid-wizard-buttons">
-				<span class="grid-wizard-use-empty-grid">Use Empty Grid</span>
+			<div class="grid-manager-buttons">
+				<span class="grid-manager-use-empty-grid">Use Empty Grid</span>
 				
-				<span id="grid-wizard-button-assign-template" class="button grid-wizard-button-next">Assign Layout &rarr;</span>
+				<span id="grid-manager-button-assign-template" class="button grid-manager-button-next">Assign Layout &rarr;</span>
 			</div>
 			
-		</div><!-- #grid-wizard-tab-assign-template -->
+		</div><!-- #grid-manager-tab-assign-template -->
 		<?php
 		}
 		?>
 
-		<div id="grid-wizard-tab-import-export" class="tab-content">
+		<div id="grid-manager-tab-import-export" class="tab-content">
 		
-			<div id="grid-wizard-import" class="grid-wizard-buttons grid-wizard-import-export-group">
+			<div id="grid-manager-import" class="grid-manager-buttons grid-manager-import-export-group">
 				<h4>Import Layout</h4>
 				<p>Select the Padma Layout file you would like to import.<br /><br /><strong>Note:</strong> When you browse to and select a file below the imported layout's blocks will automatically be added to the current layout.</p>
 				<input type="file" />
-				<span class="button" id="grid-wizard-import-select-file">Select File &amp; Import</span>
-			</div><!-- #grid-wizard-import -->
+				<span class="button" id="grid-manager-import-select-file">Select File &amp; Import</span>
+			</div><!-- #grid-manager-import -->
 				
-			<div id="grid-wizard-export" class="grid-wizard-buttons grid-wizard-import-export-group">
+			<div id="grid-manager-export" class="grid-manager-buttons grid-manager-import-export-group">
 				<h4>Export Current Layout</h4>
 				<p>Clicking on the button below will package up the current layout and its blocks into a file to be saved and imported later.</p>
-				<span class="button" id="grid-wizard-export-download-file">Download Export File</span>
-			</div><!-- #grid-wizard-export -->
+				<span class="button" id="grid-manager-export-download-file">Download Export File</span>
+			</div><!-- #grid-manager-export -->
 			
-		</div><!-- #grid-wizard-tab-import-export -->
+		</div><!-- #grid-manager-tab-import-export -->
 
 	<?php
 	}

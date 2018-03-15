@@ -1,13 +1,13 @@
 define(['deps/chosen.jquery'], function(chosen) {
 
-	afterGridWizardLoad = function() {
+	afterGridManagerLoad = function() {
 
-		$('div#box-grid-wizard div.box-content').tabs({active: 0});
-		$('select#grid-wizard-pages-to-clone').chosen();
+		$('div#box-grid-manager div.box-content').tabs({active: 0});
+		$('select#grid-manager-pages-to-clone').chosen();
 
 	}
 
-	bindGridWizard = function () {
+	bindGridManager = function () {
 
 
 		/* Presets */
@@ -238,67 +238,67 @@ define(['deps/chosen.jquery'], function(chosen) {
 		}
 
 
-		$('div#boxes').delegate('div#box-grid-wizard span.layout-preset', 'mousedown', function () {
+		$('div#boxes').delegate('div#box-grid-manager span.layout-preset', 'mousedown', function () {
 
-			$('div#box-grid-wizard span.layout-preset-selected').removeClass('layout-preset-selected');
+			$('div#box-grid-manager span.layout-preset-selected').removeClass('layout-preset-selected');
 			$(this).addClass('layout-preset-selected');
 
 		});
 
 
-		$('div#boxes').delegate('span#grid-wizard-button-preset-next', 'click', function () {
+		$('div#boxes').delegate('span#grid-manager-button-preset-next', 'click', function () {
 
 			/* Populate the step 2 panel with the proper select boxes */
-			var selectedPreset = $('div#box-grid-wizard span.layout-preset-selected').attr('id').replace('layout-', '');
+			var selectedPreset = $('div#box-grid-manager span.layout-preset-selected').attr('id').replace('layout-', '');
 
 			switch (selectedPreset) {
 
 				case 'right-sidebar':
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1').show();
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2').hide();
+					$('div#grid-manager-presets-mirroring-select-sidebar-1').show();
+					$('div#grid-manager-presets-mirroring-select-sidebar-2').hide();
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1 h5').text('Right Sidebar');
+					$('div#grid-manager-presets-mirroring-select-sidebar-1 h5').text('Right Sidebar');
 
 					break;
 
 
 				case 'left-sidebar':
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1').show();
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2').hide();
+					$('div#grid-manager-presets-mirroring-select-sidebar-1').show();
+					$('div#grid-manager-presets-mirroring-select-sidebar-2').hide();
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1 h5').text('Left Sidebar');
+					$('div#grid-manager-presets-mirroring-select-sidebar-1 h5').text('Left Sidebar');
 
 					break;
 
 
 				case 'two-right':
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1').show();
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2').show();
+					$('div#grid-manager-presets-mirroring-select-sidebar-1').show();
+					$('div#grid-manager-presets-mirroring-select-sidebar-2').show();
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1 h5').text('Left Sidebar');
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2 h5').text('Right Sidebar');
+					$('div#grid-manager-presets-mirroring-select-sidebar-1 h5').text('Left Sidebar');
+					$('div#grid-manager-presets-mirroring-select-sidebar-2 h5').text('Right Sidebar');
 
 					break;
 
 
 				case 'two-both':
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1').show();
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2').show();
+					$('div#grid-manager-presets-mirroring-select-sidebar-1').show();
+					$('div#grid-manager-presets-mirroring-select-sidebar-2').show();
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1 h5').text('Left Sidebar');
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2 h5').text('Right Sidebar');
+					$('div#grid-manager-presets-mirroring-select-sidebar-1 h5').text('Left Sidebar');
+					$('div#grid-manager-presets-mirroring-select-sidebar-2 h5').text('Right Sidebar');
 
 					break;
 
 
 				case 'all-content':
 
-					$('div#grid-wizard-presets-mirroring-select-sidebar-1').hide();
-					$('div#grid-wizard-presets-mirroring-select-sidebar-2').hide();
+					$('div#grid-manager-presets-mirroring-select-sidebar-1').hide();
+					$('div#grid-manager-presets-mirroring-select-sidebar-2').hide();
 
 					break;
 
@@ -308,36 +308,36 @@ define(['deps/chosen.jquery'], function(chosen) {
 			/* Change the buttons around */
 			$(this).hide(); //Next button
 
-			$('span#grid-wizard-button-preset-previous').show();
-			$('span#grid-wizard-button-preset-use-preset').show();
+			$('span#grid-manager-button-preset-previous').show();
+			$('span#grid-manager-button-preset-use-preset').show();
 
 
 			/* Change the content that's being displayed */
-			$('div#grid-wizard-presets-step-1').hide();
-			$('div#grid-wizard-presets-step-2').show();
+			$('div#grid-manager-presets-step-1').hide();
+			$('div#grid-manager-presets-step-2').show();
 
 		});
 
 
-		$('div#boxes').delegate('span#grid-wizard-button-preset-previous', 'click', function () {
+		$('div#boxes').delegate('span#grid-manager-button-preset-previous', 'click', function () {
 
 			/* Change the buttons around */
 			$(this).hide(); //Previous button
-			$('span#grid-wizard-button-preset-use-preset').hide();
+			$('span#grid-manager-button-preset-use-preset').hide();
 
-			$('span#grid-wizard-button-preset-next').show();
+			$('span#grid-manager-button-preset-next').show();
 
 
 			/* Change the content that's being displayed */
-			$('div#grid-wizard-presets-step-2').hide();
-			$('div#grid-wizard-presets-step-1').show();
+			$('div#grid-manager-presets-step-2').hide();
+			$('div#grid-manager-presets-step-1').show();
 
 		});
 
 
-		$('div#boxes').delegate('span#grid-wizard-button-preset-use-preset', 'click', function () {
+		$('div#boxes').delegate('span#grid-manager-button-preset-use-preset', 'click', function () {
 
-			var selectedPreset = $('div#box-grid-wizard span.layout-preset-selected').attr('id').replace('layout-', '');
+			var selectedPreset = $('div#box-grid-manager span.layout-preset-selected').attr('id').replace('layout-', '');
 
 			//Delete any blocks that are on the grid already
 			$i('.block').each(function () {
@@ -356,7 +356,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 				/* Handle Mirroring */
 				var mirroringOrigin = (typeof this.mirroringOrigin != 'undefined') ? this.mirroringOrigin : this.type;
-				var mirroringSelectVal = $('div#grid-wizard-presets-mirroring-select-' + mirroringOrigin + ' select').val();
+				var mirroringSelectVal = $('div#grid-manager-presets-mirroring-select-' + mirroringOrigin + ' select').val();
 
 				if (mirroringSelectVal !== '') {
 
@@ -370,16 +370,16 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			});
 
-			return closeBox('grid-wizard');
+			return closeBox('grid-manager');
 
 		});
 		/* End Presets */
 
 
 		/* Layout Cloning */
-		$('div#boxes').delegate('span#grid-wizard-button-clone-page', 'click', function () {
+		$('div#boxes').delegate('span#grid-manager-button-clone-page', 'click', function () {
 
-			var layoutToClone = $('select#grid-wizard-pages-to-clone').val();
+			var layoutToClone = $('select#grid-manager-pages-to-clone').val();
 
 			if (layoutToClone === '' || !layoutToClone)
 				return alert('Please select a page to clone.');
@@ -517,7 +517,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 					});
 
-					return closeBox('grid-wizard');
+					return closeBox('grid-manager');
 
 				}
 			});
@@ -527,9 +527,9 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 
 		/* Template Assigning */
-		$('div#boxes').delegate('span#grid-wizard-button-assign-template', 'click', function () {
+		$('div#boxes').delegate('span#grid-manager-button-assign-template', 'click', function () {
 
-			var templateToAssign = $('select#grid-wizard-assign-template').val().replace('template-', '');
+			var templateToAssign = $('select#grid-manager-assign-template').val().replace('template-', '');
 
 			if (templateToAssign === '')
 				return alert('Please select a shared layout to assign.');
@@ -577,14 +577,14 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			});
 
-			return closeBox('grid-wizard');
+			return closeBox('grid-manager');
 
 		});
 		/* End Template Assigning */
 
 
 		/* Empty Grid */
-		$('div#boxes').delegate('span.grid-wizard-use-empty-grid', 'click', function () {
+		$('div#boxes').delegate('span.grid-manager-use-empty-grid', 'click', function () {
 
 			//Empty the grid out
 			$i('.block').each(function () {
@@ -593,7 +593,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			});
 
-			closeBox('grid-wizard');
+			closeBox('grid-manager');
 
 		});
 		/* End Empty Grid */
@@ -790,7 +790,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 				success: true
 			});
 
-			closeBox('grid-wizard');
+			closeBox('grid-manager');
 
 			allowSaving();
 
@@ -799,14 +799,14 @@ define(['deps/chosen.jquery'], function(chosen) {
 		}
 
 
-		$('div#boxes').delegate('#grid-wizard-import-select-file', 'click', function () {
+		$('div#boxes').delegate('#grid-manager-import-select-file', 'click', function () {
 
 			$(this).siblings('input[type="file"]').trigger('click');
 
 		});
 
 
-		$('div#boxes').delegate('#grid-wizard-import input[type="file"]', 'change', function (event) {
+		$('div#boxes').delegate('#grid-manager-import input[type="file"]', 'change', function (event) {
 
 			if (event.target.files[0].name.split('.').slice(-1)[0] != 'json') {
 
@@ -820,7 +820,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		});
 
 		/* Layout Export */
-		$('div#boxes').delegate('#grid-wizard-export-download-file', 'click', function () {
+		$('div#boxes').delegate('#grid-manager-export-download-file', 'click', function () {
 
 			var params = {
 				'action': 'padma_visual_editor',
@@ -833,7 +833,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			return window.open(exportURL);
 
-			closeBox('grid-wizard');
+			closeBox('grid-manager');
 
 		});
 		/* End Import/Export */

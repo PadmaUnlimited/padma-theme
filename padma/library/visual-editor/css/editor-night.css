@@ -53,7 +53,10 @@ body.night input[type="tel"], input[type="url"]{
     color: #000;
 }
 body.night div.input-slider-bar div.ui-slider-range{
-	background-color: #4fa1d0;
+	background-color: #72A9c3;
+}
+body.night div.input-slider-bar a.ui-slider-handle{
+    background-color: #588593;
 }
 body.night .input.input-heading{
     border: 0px;
@@ -177,9 +180,13 @@ body.night div.block-type-selector div.block-type{
 body.night span.save-button,
 body.night span.button.button-blue,
 body.night ul#panel-top li.ui-state-active a{
-    background: #72A9c3;
-    color: #000;
+    background: #72A9c3 !important;
+    color: #383838;
 }
 body.night ul#modes li.active a{
     color: #72A9c3;
+}
+
+body.night #customize-preview {
+    background-color: #192837;
 }

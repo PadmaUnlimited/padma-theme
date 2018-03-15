@@ -2,7 +2,7 @@
 Contributors: Padma Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-alpha
-Version: 0.0.15
+Version: 0.0.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -39,10 +39,18 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 0.0.16 =
+* Released: March 15, 2018
+
+Updated Visual Editor night mode colors
+Update Grid Wizard to Grid Manager
+Content editor fixes
+
+
 = 0.0.15 =
 * Released: March 14, 2018
 
-Code fixes
+Code fixes for PHP and Javascript
 Initial changes for content editor
 
 
@@ -50,14 +58,14 @@ Initial changes for content editor
 * Released: March 1, 2018
 
 Slide menu fix for older browsers
-Code fixes
+Code fixes for PHP and Javascript
+
 
 = 0.0.13 =
 * Released: February 27, 2018
 
-Code fixes
+Code fixes for PHP and Javascript
 Preview devices in design mode
-
 
 
 = 0.0.12 =
@@ -82,6 +90,7 @@ Fixed Google Web Fonts API
 * Released: January 30, 2018
 
 Improved navigation block
+Code fixes for PHP and Javascript
 
 
 = 0.0.8 =
@@ -106,7 +115,7 @@ CSS and images fixes
 = 0.0.5 =
 * Released: January 9, 2018
 
-Code fixes
+Code fixes for PHP and Javascript
 Change live css editor to CodeMirror
 Added night / day mode support to live css editor
 
@@ -122,7 +131,7 @@ Tested on Wordpress 5 alpha
 = 0.0.3 =
 * Released: January 1, 2018
 
-Code fixes
+Code fixes for PHP and Javascript
 
 
 = 0.0.2 =

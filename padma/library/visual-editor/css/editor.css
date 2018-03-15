@@ -6653,7 +6653,4 @@ div.property-image span.delete-image {
 #customize-preview #iframe-container{
     transition: all .2s !important;	
 }
-body.night #customize-preview {
-	background-color: #192837;
-}
 /*	End Device Preview		*/

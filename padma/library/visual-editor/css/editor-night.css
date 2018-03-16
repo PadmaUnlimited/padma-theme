@@ -170,15 +170,13 @@ body.night div#box-grid-manager div.box-content .grid-manager-import-export-grou
 }
 
 body.night div#panel-top-container{}
-/*
 body.night div.block-type-selector div.block-type{
-    border-color: #72A9c3;
-    background: #72A9c3;
-    color: #000;
-    -webkit-box-shadow: inset 0 1px 0 #72A9c3, 0 1px 0 rgba(0, 0, 0, 0.08);
-    box-shadow: inset 0 1px 0 #72A9c3, 0 1px 0 rgba(0, 0, 0, 0.08);
+    border-color: #2f4750;
+    background: #2f4750;
+    color: #FFFFFF;
+    -webkit-box-shadow: inset 0 1px 0 #2f4750, 0 1px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 #2f4750, 0 1px 0 rgba(0, 0, 0, 0.08);
 }
-*/
 body.night span.save-button,
 body.night span.button.button-blue,
 body.night ul#panel-top li.ui-state-active a{

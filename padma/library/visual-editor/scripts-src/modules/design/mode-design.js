@@ -894,7 +894,7 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 					var linesBefore = liveCSSValue ? "\n\n" : '';
 					$('textarea#live-css').val(liveCSSValue + linesBefore + elementSelector + " {\n\n}");
 
-					/* Open Live CSS Editor */
+					/* Open CSS Editor */
 					$('#open-live-css').trigger('click');
 
 					/* Move the cursor to the new selector */

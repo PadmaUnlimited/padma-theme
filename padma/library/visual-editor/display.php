@@ -292,7 +292,7 @@ class PadmaVisualEditorDisplay {
 
 					echo '<div class="menu-mode-buttons">';
 						echo '<span class="menu-mode-button tooltip-bottom-right" id="toggle-inspector" title="' . esc_attr($tooltip) . '"></span>';
-						echo '<span class="menu-mode-button tooltip-bottom-right" id="open-live-css" title="Open Live CSS Editor"></span>';
+						echo '<span class="menu-mode-button tooltip-bottom-right" id="open-live-css" title="Open CSS Editor"></span>';
 					echo '</div>';
 
 				}

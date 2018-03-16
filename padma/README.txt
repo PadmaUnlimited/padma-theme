@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.16 =
-* Released: March 15, 2018
+* Released: March 16, 2018
 
 Updated Visual Editor night mode colors
 Updated "Grid Wizard" to "Grid Manager"

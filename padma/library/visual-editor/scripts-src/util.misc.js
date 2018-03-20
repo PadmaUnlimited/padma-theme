@@ -54,7 +54,7 @@ define(['jquery'], function($) {
 		}
 
 
-		btBoolean = function(value) {
+		puBoolean = function(value) {
 
 			/* boolean to boolean */
 			if ( typeof value == 'boolean' ) {

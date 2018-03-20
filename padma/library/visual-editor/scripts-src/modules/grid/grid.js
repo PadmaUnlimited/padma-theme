@@ -1510,7 +1510,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			if (
 				typeof this.options.useIndependentGrid != 'undefined' &&
 				this.options.useIndependentGrid === true ||
-				( typeof this.options.useIndependentGrid == 'string' && btBoolean(this.options.useIndependentGrid) )
+				( typeof this.options.useIndependentGrid == 'string' && puBoolean(this.options.useIndependentGrid) )
 			) {
 				updateGridCSS(wrapperSelector, this.options.columns, this.options.columnWidth, this.options.gutterWidth, gridWidthInputContext);
 			} else {

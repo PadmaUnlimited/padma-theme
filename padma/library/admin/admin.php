@@ -548,7 +548,7 @@ class PadmaAdmin {
 
 		$visual_editor_url = home_url('/?visual-editor=true&ve-layout=' . urlencode($layout_id));
 
-		$actions['bt-visual-editor'] = '<a href="' . $visual_editor_url . '" title="Open in Padma Visual Editor" rel="permalink" target="_blank">Open in Visual Editor</a>';
+		$actions['pu-visual-editor'] = '<a href="' . $visual_editor_url . '" title="Open in Padma Visual Editor" rel="permalink" target="_blank">Open in Visual Editor</a>';
 
 		return $actions;
 

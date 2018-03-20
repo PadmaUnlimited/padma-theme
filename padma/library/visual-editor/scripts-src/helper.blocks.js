@@ -1237,8 +1237,8 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		var blockID = args.blockID;
 		var fileInput = $(input).parents('.ui-tabs-panel').first().find('input[name="block-import-settings-file"]');
 
-		var importOptions = btBoolean($(input).parents('.ui-tabs-panel').first().find('input[name="block-import-settings-include-options"]').val());
-		var importDesign = btBoolean($(input).parents('.ui-tabs-panel').first().find('input[name="block-import-settings-include-design"]').val());
+		var importOptions = puBoolean($(input).parents('.ui-tabs-panel').first().find('input[name="block-import-settings-include-options"]').val());
+		var importDesign = puBoolean($(input).parents('.ui-tabs-panel').first().find('input[name="block-import-settings-include-design"]').val());
 
 		if ( !fileInput.val() )
 			return alert('You must select a block settings export file before importing.');

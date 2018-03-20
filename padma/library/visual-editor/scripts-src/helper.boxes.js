@@ -156,10 +156,10 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 			$('div.box').each(function() {
 			
 				/* Fetch settings */
-				var draggable = btBoolean($(this).attr('draggable'));
-				var closable = btBoolean($(this).attr('closable'));
-				var resizable = btBoolean($(this).attr('resizable'));
-				var center = btBoolean($(this).attr('center'));
+				var draggable = puBoolean($(this).attr('draggable'));
+				var closable = puBoolean($(this).attr('closable'));
+				var resizable = puBoolean($(this).attr('resizable'));
+				var center = puBoolean($(this).attr('center'));
 				var width = $(this).attr('width');
 				var height = $(this).attr('height');
 				var minWidth = $(this).attr('min_width');
@@ -201,10 +201,10 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 			if ( box.length === 0 )
 				return false;
 			
-			var blackOverlay = btBoolean(box.attr('black_overlay'));
+			var blackOverlay = puBoolean(box.attr('black_overlay'));
 			var blackOverlayOpacity = box.attr('black_overlay_opacity');
-			var blackOverlayIframe = btBoolean(box.attr('black_overlay_iframe'));
-			var loadWithAjax = btBoolean(box.attr('load_with_ajax'));
+			var blackOverlayIframe = puBoolean(box.attr('black_overlay_iframe'));
+			var loadWithAjax = puBoolean(box.attr('load_with_ajax'));
 			
 			if ( blackOverlay && !boxOpen(id) ) {
 

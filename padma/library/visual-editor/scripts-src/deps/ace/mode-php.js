@@ -1095,13 +1095,13 @@ var PhpLangHighlightRules = function() {
         'pu_getparents|pu_getparentsobj|pu_getrellink|pu_getremote|pu_getremotechildren|pu_getsrcbydestobj|pu_gettext|pu_getusername|pu_identify|' +
         'pu_incollections|pu_info|pu_inscoll|pu_insdoc|pu_insertanchors|pu_insertdocument|pu_insertobject|pu_mapid|pu_modifyobject|pu_mv|' +
         'pu_new_document|pu_objrec2array|pu_output_document|pu_pconnect|pu_pipedocument|pu_root|pu_setlinkroot|pu_stat|pu_unlock|pu_who|' +
-        'btapi_attribute|btapi_attribute_key|btapi_attribute_langdepvalue|btapi_attribute_value|btapi_attribute_values|btapi_checkin|' +
-        'btapi_checkout|btapi_children|btapi_content|btapi_content_mimetype|btapi_content_read|btapi_copy|btapi_dbstat|btapi_dcstat|' +
-        'btapi_dstanchors|btapi_dstofsrcanchor|btapi_error_count|btapi_error_reason|btapi_find|btapi_ftstat|btapi_hgcsp|btapi_btstat|' +
-        'btapi_identify|btapi_info|btapi_insert|btapi_insertanchor|btapi_insertcollection|btapi_insertdocument|btapi_link|btapi_lock|btapi_move|' +
-        'btapi_new_content|btapi_object|btapi_object_assign|btapi_object_attreditable|btapi_object_count|btapi_object_insert|btapi_object_new|' +
-        'btapi_object_remove|btapi_object_title|btapi_object_value|btapi_objectbyanchor|btapi_parents|btapi_reason_description|btapi_reason_type|' +
-        'btapi_remove|btapi_replace|btapi_setcommittedversion|btapi_srcanchors|btapi_srcsofdst|btapi_unlock|btapi_user|btapi_userlist|hypot|' +
+        'puapi_attribute|puapi_attribute_key|puapi_attribute_langdepvalue|puapi_attribute_value|puapi_attribute_values|puapi_checkin|' +
+        'puapi_checkout|puapi_children|puapi_content|puapi_content_mimetype|puapi_content_read|puapi_copy|puapi_dbstat|puapi_dcstat|' +
+        'puapi_dstanchors|puapi_dstofsrcanchor|puapi_error_count|puapi_error_reason|puapi_find|puapi_ftstat|puapi_hgcsp|puapi_pustat|' +
+        'puapi_identify|puapi_info|puapi_insert|puapi_insertanchor|puapi_insertcollection|puapi_insertdocument|puapi_link|puapi_lock|puapi_move|' +
+        'puapi_new_content|puapi_object|puapi_object_assign|puapi_object_attreditable|puapi_object_count|puapi_object_insert|puapi_object_new|' +
+        'puapi_object_remove|puapi_object_title|puapi_object_value|puapi_objectbyanchor|puapi_parents|puapi_reason_description|puapi_reason_type|' +
+        'puapi_remove|puapi_replace|puapi_setcommittedversion|puapi_srcanchors|puapi_srcsofdst|puapi_unlock|puapi_user|puapi_userlist|hypot|' +
         'ibase_add_user|ibase_affected_rows|ibase_backup|ibase_blob_add|ibase_blob_cancel|ibase_blob_close|ibase_blob_create|ibase_blob_echo|' +
         'ibase_blob_get|ibase_blob_import|ibase_blob_info|ibase_blob_open|ibase_close|ibase_commit|ibase_commit_ret|ibase_connect|ibase_db_info|' +
         'ibase_delete_user|ibase_drop_db|ibase_errcode|ibase_errmsg|ibase_execute|ibase_fetch_assoc|ibase_fetch_object|ibase_fetch_row|' +
@@ -1119,7 +1119,7 @@ var PhpLangHighlightRules = function() {
         'iis_get_script_map|iis_get_server_by_comment|iis_get_server_by_path|iis_get_server_rights|iis_get_service_state|iis_remove_server|' +
         'iis_set_app_settings|iis_set_dir_security|iis_set_script_map|iis_set_server_rights|iis_start_server|iis_start_service|iis_stop_server|' +
         'iis_stop_service|image2wbmp|image_type_to_extension|image_type_to_mime_type|imagealphablending|imageantialias|imagearc|imagechar|' +
-        'imagecharup|imagecolorallocate|imagecolorallocatealpha|imagecolorat|imagecolorclosest|imagecolorclosestalpha|imagecolorclosestbtb|' +
+        'imagecharup|imagecolorallocate|imagecolorallocatealpha|imagecolorat|imagecolorclosest|imagecolorclosestalpha|imagecolorclosestpub|' +
         'imagecolordeallocate|imagecolorexact|imagecolorexactalpha|imagecolormatch|imagecolorresolve|imagecolorresolvealpha|imagecolorset|' +
         'imagecolorsforindex|imagecolorstotal|imagecolortransparent|imageconvolution|imagecopy|imagecopymerge|imagecopymergegray|' +
         'imagecopyresampled|imagecopyresized|imagecreate|imagecreatefromgd|imagecreatefromgd2|imagecreatefromgd2part|imagecreatefromgif|' +
@@ -1379,7 +1379,7 @@ var PhpLangHighlightRules = function() {
         'ocicolumnisnull|ocicolumnname|ocicolumnprecision|ocicolumnscale|ocicolumnsize|ocicolumntype|ocicolumntyperaw|ocicommit|ocidefinebyname|' +
         'ocierror|ociexecute|ocifetch|ocifetchinto|ocifetchstatement|ocifreecollection|ocifreecursor|ocifreedesc|ocifreestatement|ociinternaldebug|' +
         'ociloadlob|ocilogoff|ocilogon|ocinewcollection|ocinewcursor|ocinewdescriptor|ocinlogon|ocinumcols|ociparse|ociplogon|ociresult|' +
-        'ocirollback|ocirowcount|ocisavelob|ocisavelobfile|ociserverversion|ocisetprefetch|ocistatementtype|ociwritelobtofile|ociwritetemporarylob|' +
+        'ocirollback|ocirowcount|ocisavelob|ocisavelobfile|ociserverversion|ocisetprefetch|ocistatementtype|ociwritelopuofile|ociwritetemporarylob|' +
         'octdec|odbc_autocommit|odbc_binmode|odbc_close|odbc_close_all|odbc_columnprivileges|odbc_columns|odbc_commit|odbc_connect|odbc_cursor|' +
         'odbc_data_source|odbc_do|odbc_error|odbc_errormsg|odbc_exec|odbc_execute|odbc_fetch_array|odbc_fetch_into|odbc_fetch_object|' +
         'odbc_fetch_row|odbc_field_len|odbc_field_name|odbc_field_num|odbc_field_precision|odbc_field_scale|odbc_field_type|odbc_foreignkeys|' +
@@ -1672,7 +1672,7 @@ var PhpLangHighlightRules = function() {
         'ocicolumnsize|ocicolumntype|ocicolumntyperaw|ocicommit|ocidefinebyname|ocierror|ociexecute|ocifetch|ocifetchinto|ocifetchstatement|' +
         'ocifreecollection|ocifreecursor|ocifreedesc|ocifreestatement|ociinternaldebug|ociloadlob|ocilogoff|ocilogon|ocinewcollection|' +
         'ocinewcursor|ocinewdescriptor|ocinlogon|ocinumcols|ociparse|ociplogon|ociresult|ocirollback|ocirowcount|ocisavelob|ocisavelobfile|' +
-        'ociserverversion|ocisetprefetch|ocistatementtype|ociwritelobtofile|ociwritetemporarylob|PDF_add_annotation|PDF_add_bookmark|' +
+        'ociserverversion|ocisetprefetch|ocistatementtype|ociwritelopuofile|ociwritetemporarylob|PDF_add_annotation|PDF_add_bookmark|' +
         'PDF_add_launchlink|PDF_add_locallink|PDF_add_note|PDF_add_outline|PDF_add_pdflink|PDF_add_weblink|PDF_attach_file|PDF_begin_page|' +
         'PDF_begin_template|PDF_close_pdi|PDF_close|PDF_findfont|PDF_get_font|PDF_get_fontname|PDF_get_fontsize|PDF_get_image_height|' +
         'PDF_get_image_width|PDF_get_majorversion|PDF_get_minorversion|PDF_get_pdi_parameter|PDF_get_pdi_value|PDF_open_ccitt|PDF_open_file|' +

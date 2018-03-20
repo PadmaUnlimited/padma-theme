@@ -11,7 +11,7 @@ class PadmaDataPortability {
 		$wp_options_prefix = 'padma_|template=' . PadmaOption::$current_skin . '|_';
 
 		$skin = array(
-			'bt-version' => PADMA_VERSION,
+			'pu-version' => PADMA_VERSION,
 			'name' => padma_get('name', $info, 'Unnamed'),
 			'author' => padma_get('author', $info),
 			'image-url' => padma_get('image-url', $info),
@@ -94,7 +94,7 @@ class PadmaDataPortability {
 			PadmaLayoutOption::$current_skin = $skin['id'];
 
 		/* Process the install */
-			if ( !padma_get('bt-version', $skin) || version_compare(padma_get('bt-version', $skin), '1.0', '<') ) {
+			if ( !padma_get('pu-version', $skin) || version_compare(padma_get('pu-version', $skin), '1.0', '<') ) {
 				$skin = self::process_install_skin_pre37($skin);
 			} else {
 				$skin = self::process_install_skin($skin);

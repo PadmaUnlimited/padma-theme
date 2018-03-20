@@ -469,15 +469,15 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			}, wrapperSettings);
 
 			if ( typeof wrapperSettings['fluid'] != 'boolean' ) {
-				wrapperSettings['fluid'] = btBoolean(wrapperSettings['fluid']);
+				wrapperSettings['fluid'] = puBoolean(wrapperSettings['fluid']);
 			}
 
 			if ( typeof wrapperSettings['fluid-grid'] != 'boolean' ) {
-				wrapperSettings['fluid-grid'] = btBoolean(wrapperSettings['fluid-grid']);
+				wrapperSettings['fluid-grid'] = puBoolean(wrapperSettings['fluid-grid']);
 			}
 
             if ( typeof wrapperSettings['enable-sticky-positioning'] != 'boolean' ) {
-                wrapperSettings['enable-sticky-positioning'] = btBoolean(wrapperSettings['enable-sticky-positioning']);
+                wrapperSettings['enable-sticky-positioning'] = puBoolean(wrapperSettings['enable-sticky-positioning']);
             }
 
 			/* Generate the wrapper */

@@ -558,11 +558,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				
 				var block = getBlock(ui.element);
 				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
-
 				
-				console.log(block);
-				console.log(grid);
-
 				/* Set classes to get rid of finicky-ness and to make the block stay in line with guides */
 				var widthGridNum = Math.round((block.width() + grid.grid.gutterWidth)/(grid.grid.columnWidth + grid.grid.gutterWidth));
 				var leftGridNum = Math.round(block.position().left/(grid.grid.columnWidth + grid.grid.gutterWidth));

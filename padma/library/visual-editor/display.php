@@ -383,9 +383,6 @@ class PadmaVisualEditorDisplay {
 
 				<ul>';
 
-					// echo '<li id="tools-undo"><span>Undo <small>Ctrl + Z</small></span></li>
-					// <li id="tools-redo"><span>Redo <small>Ctrl + Y</small></span></li>';
-
 					if ( PadmaVisualEditor::is_mode('grid') )
 						echo '<li id="tools-grid-manager"><span>Grid Manager</span></li>';
 
@@ -419,6 +416,4 @@ class PadmaVisualEditorDisplay {
 		echo '<li id="menu-link-view-site"><a href="' . home_url() . '" target="_blank">View Site</a></li>';
 
 	}
-
-
 }

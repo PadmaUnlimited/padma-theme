@@ -110,7 +110,6 @@
 		contextMenu.delegate('span', contextMenuClickEvent, contextMenuItemClick);
 
 		/* Context menu positioning */
-		console.log(event);
 
 		if ( typeof event.originalEvent != 'undefined' && typeof event.originalEvent.clientX != 'undefined' ) {
 

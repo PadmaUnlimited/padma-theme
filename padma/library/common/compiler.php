@@ -418,7 +418,7 @@ class PadmaCompiler {
 	 * @return bool
 	 **/
 	public static function caching_enabled() {
-		
+
 		if ( defined('PADMA_DISABLE_CACHE') && PADMA_DISABLE_CACHE === true )
 			return false;
 			

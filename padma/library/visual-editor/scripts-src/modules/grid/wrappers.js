@@ -147,9 +147,6 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				start: function(event, ui) {
 
-					console.log(event);
-					console.log(ui);
-
 					if ( $(event.toElement).hasClass('ui-resizable-n') ) {
 						$(this).data('resizing-position', 'n');
 					} else {

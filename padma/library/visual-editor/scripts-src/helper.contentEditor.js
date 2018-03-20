@@ -70,7 +70,6 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 
 				/*	Binde Save keys	*/
 				window.addEventListener('keydown',function(event){
-					console.log(String.fromCharCode(event.which).toLowerCase());
 					if(String.fromCharCode(event.which).toLowerCase() == 's'){						
 						return changeCallback(editor);	
 					}

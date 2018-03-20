@@ -889,7 +889,7 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 					var elementNode = $(this).parents('li.element').first();
 					var elementSelector = elementNode.data('selector');
 
-					var liveCSSValue = ( typeof Padma.codeMirrorEditors['live-css'] == 'undefined' || !Padma.codeMirrorEditors['live-css'] ) ? $('textarea#live-css').val() : Padma.codeMirrorEditors['live-css'].editor.getValue();
+					var liveCSSValue = ( typeof Padma.codeMirrorEditors['live-css'] == 'undefined' || !Padma.codeMirrorEditors['live-css'] ) ? $('textarea#live-css').val() : $(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).val();
 
 					var linesBefore = liveCSSValue ? "\n\n" : '';
 					$('textarea#live-css').val(liveCSSValue + linesBefore + elementSelector + " {\n\n}");
@@ -900,11 +900,8 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 					/* Move the cursor to the new selector */
 					if ( typeof Padma.codeMirrorEditors['live-css'] != 'undefined' ) {
 
-                        Padma.codeMirrorEditors['live-css'].editor.setValue($('textarea#live-css').val());
-
-						var lastLine = Padma.codeMirrorEditors['live-css'].editorSession.getLength();
-                        Padma.codeMirrorEditors['live-css'].editor.gotoLine(lastLine - 1);
-                        Padma.codeMirrorEditors['live-css'].editor.focus();
+						$(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).val($('textarea#live-css').val());						
+                        $(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).focus();
 
 					}
 

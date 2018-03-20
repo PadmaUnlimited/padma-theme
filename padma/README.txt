@@ -42,7 +42,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 0.0.17 =
 * Released: March 20, 2018
 
-Code Fixes
+Code fixes for PHP and Javascript
+CSS Editor improvement for Global Styling panel
 
 
 = 0.0.16 =

@@ -1224,8 +1224,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 	/**
 	 * Prevent 404ing from breaking Infinite Scrolling
 	 **/
-	add_action('status_header', 'bt_pin_board_block_prevent_404');
-	function bt_pin_board_block_prevent_404($status) {
+	add_action('status_header', 'pu_pin_board_block_prevent_404');
+	function pu_pin_board_block_prevent_404($status) {
 
 		if ( strpos($status, '404') && get_query_var('paged') && padma_get('pb') )
 			return 'HTTP/1.1 200 OK';
@@ -1238,8 +1238,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 	/**
 	 * Prevent WordPress redirect from messing up pin board infinite scroll
 	 */
-	add_filter('redirect_canonical', 'bt_pin_board_block_redirect');
-	function bt_pin_board_block_redirect($redirect_url) {
+	add_filter('redirect_canonical', 'pu_pin_board_block_redirect');
+	function pu_pin_board_block_redirect($redirect_url) {
 
 		if ( padma_get('pb') )
 			return false;

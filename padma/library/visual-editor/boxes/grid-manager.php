@@ -343,7 +343,7 @@ class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 		
 		$return = '';
 
-		if ( !$customized_layouts = get_transient( 'bt_customized_layouts_template_' . PadmaOption::$current_skin ) ) {
+		if ( !$customized_layouts = get_transient( 'pu_customized_layouts_template_' . PadmaOption::$current_skin ) ) {
 			return $return;
 		}
 

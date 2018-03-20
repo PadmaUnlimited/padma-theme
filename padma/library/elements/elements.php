@@ -29,7 +29,7 @@ class PadmaElements {
 
 	public static function get_element_selectors() {
 
-		$cached_element_selectors = get_transient( 'bt_element_selectors_template_' . PadmaOption::$current_skin );
+		$cached_element_selectors = get_transient( 'pu_element_selectors_template_' . PadmaOption::$current_skin );
 
 		if ( ! $cached_element_selectors ) {
 
@@ -56,7 +56,7 @@ class PadmaElements {
 
 			}
 
-			set_transient( 'bt_element_selectors_template_' . PadmaOption::$current_skin, $cached_element_selectors );
+			set_transient( 'pu_element_selectors_template_' . PadmaOption::$current_skin, $cached_element_selectors );
 
 		}
 
@@ -67,7 +67,7 @@ class PadmaElements {
 
 	public static function flush_element_selector_cache() {
 
-		return delete_transient( 'bt_element_selectors_template_' . PadmaOption::$current_skin );
+		return delete_transient( 'pu_element_selectors_template_' . PadmaOption::$current_skin );
 
 	}
 

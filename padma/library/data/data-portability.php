@@ -17,10 +17,10 @@ class PadmaDataPortability {
 			'image-url' => padma_get('image-url', $info),
 			'version' => padma_get('version', $info),
 			'data_wp_options' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->options WHERE option_name LIKE '%s'", $wp_options_prefix . '%'), ARRAY_A),
-			'data_wp_postmeta' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_bt_|template=' . PadmaOption::$current_skin . '|_%'), ARRAY_A),
-			'data_bt_layout_meta' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_layout_meta WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
-			'data_bt_wrappers' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_wrappers WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
-			'data_bt_blocks' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_blocks WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A)
+			'data_wp_postmeta' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_pu_|template=' . PadmaOption::$current_skin . '|_%'), ARRAY_A),
+			'data_pu_layout_meta' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_layout_meta WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
+			'data_pu_wrappers' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
+			'data_pu_blocks' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A)
 		);
 
 		/* Spit the file out */
@@ -70,9 +70,9 @@ class PadmaDataPortability {
 			$data_to_remove_from_saved_skin = array(
 				'data_wp_options',
 				'data_wp_postmeta',
-				'data_bt_layout_meta',
-				'data_bt_wrappers',
-				'data_bt_blocks',
+				'data_pu_layout_meta',
+				'data_pu_wrappers',
+				'data_pu_blocks',
 				'templates',
 				'layouts',
 				'element-data'

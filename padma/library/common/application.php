@@ -29,7 +29,7 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.0.16');
+		define('PADMA_VERSION', '0.0.17');
 
 		/* Define directories */
 		define('PADMA_DIR', padma_change_to_unix_path(TEMPLATEPATH));
@@ -46,10 +46,10 @@ class Padma {
 		define('PADMA_DEFAULT_SKIN', 'base');
 
 		/* MySQL Table names */
-		$wpdb->bt_blocks = $wpdb->prefix . 'bt_blocks';
-		$wpdb->bt_wrappers = $wpdb->prefix . 'bt_wrappers';
-		$wpdb->bt_snapshots = $wpdb->prefix . 'bt_snapshots';
-		$wpdb->bt_layout_meta = $wpdb->prefix . 'bt_layout_meta';
+		$wpdb->pu_blocks = $wpdb->prefix . 'pu_blocks';
+		$wpdb->pu_wrappers = $wpdb->prefix . 'pu_wrappers';
+		$wpdb->pu_snapshots = $wpdb->prefix . 'pu_snapshots';
+		$wpdb->pu_layout_meta = $wpdb->prefix . 'pu_layout_meta';
 
 		/* Handle child themes */
 		if ( get_template_directory_uri() !== get_stylesheet_directory_uri() ) {
@@ -247,7 +247,7 @@ class Padma {
 		global $wpdb;
 
 		$padma_settings = get_option('padma', array('version' => 0));
-		$db_version = $padma_settings['version'];
+		$db_version 	= $padma_settings['version'];
 
 		/* If this is a fresh install then we need to merge in the default design editor settings */
 			if ( $db_version === 0 && !get_option('padma_option_group_general') ) {
@@ -287,10 +287,10 @@ class Padma {
 		global $wpdb;
 
 		/* Drop tables first */
-		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->bt_blocks" );
-		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->bt_wrappers" );
-		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->bt_layout_meta" );
-		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->bt_snapshots" );
+		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->pu_blocks" );
+		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->pu_wrappers" );
+		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->pu_layout_meta" );
+		$wpdb->query( "DROP TABLE IF EXISTS $wpdb->pu_snapshots" );
 
 	}
 
@@ -309,7 +309,7 @@ class Padma {
 			$charset_collate .= " COLLATE $wpdb->collate";
 		}
 
-		$bt_blocks_sql = "CREATE TABLE $wpdb->bt_blocks (
+		$pu_blocks_sql = "CREATE TABLE $wpdb->pu_blocks (
 					  id char(20) NOT NULL,
 					  template varchar(100) NOT NULL,
 					  layout varchar(80) NOT NULL,
@@ -325,10 +325,10 @@ class Padma {
 					  KEY type (type)
 					) $charset_collate;";
 
-		dbDelta($bt_blocks_sql);
+		dbDelta($pu_blocks_sql);
 
 
-		$bt_wrappers_sql = "CREATE TABLE $wpdb->bt_wrappers (
+		$pu_wrappers_sql = "CREATE TABLE $wpdb->pu_wrappers (
 					  id char(20) NOT NULL,
 					  template varchar(100) NOT NULL,
 					  layout varchar(80) NOT NULL,
@@ -340,10 +340,10 @@ class Padma {
 					  KEY layout (layout)
 					) $charset_collate;";
 
-		dbDelta($bt_wrappers_sql);
+		dbDelta($pu_wrappers_sql);
 
 
-		$bt_layout_meta_sql = "CREATE TABLE $wpdb->bt_layout_meta (
+		$pu_layout_meta_sql = "CREATE TABLE $wpdb->pu_layout_meta (
 					  meta_id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 					  template varchar(100) NOT NULL,
 					  layout varchar(80) NOT NULL,
@@ -353,32 +353,32 @@ class Padma {
 					  KEY template (layout)
 					) $charset_collate;";
 
-		dbDelta($bt_layout_meta_sql);
+		dbDelta($pu_layout_meta_sql);
 
 
-		$bt_snapshots_sql = "CREATE TABLE $wpdb->bt_snapshots (
+		$pu_snapshots_sql = "CREATE TABLE $wpdb->pu_snapshots (
 					  id int(11) unsigned NOT NULL AUTO_INCREMENT,
 					  template varchar(100) NOT NULL,
 					  timestamp datetime NOT NULL,
 					  comments text,
 					  data_wp_options longblob,
 					  data_wp_postmeta longblob,
-					  data_bt_layout_meta longblob,
-					  data_bt_wrappers longblob,
-					  data_bt_blocks longblob,
+					  data_pu_layout_meta longblob,
+					  data_pu_wrappers longblob,
+					  data_pu_blocks longblob,
 					  data_other longblob,
 					  PRIMARY KEY  (id),
 					  KEY template (template)
 					) $charset_collate;";
 
-		dbDelta($bt_snapshots_sql);
+		dbDelta($pu_snapshots_sql);
 
 		if ( function_exists('maybe_convert_table_to_utf8mb4') ) {
 
-			maybe_convert_table_to_utf8mb4( $wpdb->bt_blocks );
-			maybe_convert_table_to_utf8mb4( $wpdb->bt_wrappers );
-			maybe_convert_table_to_utf8mb4( $wpdb->bt_layout_meta );
-			maybe_convert_table_to_utf8mb4( $wpdb->bt_snapshots );
+			maybe_convert_table_to_utf8mb4( $wpdb->pu_blocks );
+			maybe_convert_table_to_utf8mb4( $wpdb->pu_wrappers );
+			maybe_convert_table_to_utf8mb4( $wpdb->pu_layout_meta );
+			maybe_convert_table_to_utf8mb4( $wpdb->pu_snapshots );
 
 		}
 

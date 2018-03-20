@@ -70,10 +70,10 @@ function padma_do_upgrade_386() {
         /* Update WP option names */
         $wpdb->query( "UPDATE IGNORE $wpdb->options SET option_name = replace(option_name, 'padma_|template=$original_template_id|', 'padma_|template=$new_template_id|') WHERE option_name LIKE 'padma_|template=$original_template_id|%'" );
 
-        $wpdb->query( "UPDATE $wpdb->bt_blocks SET template = '$new_template_id' WHERE template = '$original_template_id'" );
-        $wpdb->query( "UPDATE $wpdb->bt_wrappers SET template = '$new_template_id' WHERE template = '$original_template_id'" );
-        $wpdb->query( "UPDATE $wpdb->bt_layout_meta SET template = '$new_template_id' WHERE template = '$original_template_id'" );
-        $wpdb->query( "UPDATE $wpdb->bt_snapshots SET template = '$new_template_id' WHERE template = '$original_template_id'" );
+        $wpdb->query( "UPDATE $wpdb->pu_blocks SET template = '$new_template_id' WHERE template = '$original_template_id'" );
+        $wpdb->query( "UPDATE $wpdb->pu_wrappers SET template = '$new_template_id' WHERE template = '$original_template_id'" );
+        $wpdb->query( "UPDATE $wpdb->pu_layout_meta SET template = '$new_template_id' WHERE template = '$original_template_id'" );
+        $wpdb->query( "UPDATE $wpdb->pu_snapshots SET template = '$new_template_id' WHERE template = '$original_template_id'" );
 
         /* If the current skin is the one with the name change then change that */
         if ( PadmaOption::get('current-skin', 'general', PADMA_DEFAULT_SKIN) == $original_template_id ) {

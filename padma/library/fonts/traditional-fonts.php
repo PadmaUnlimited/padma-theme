@@ -124,7 +124,7 @@ class PadmaFonts {
 
 		/* Check args */
 		if ( !isset($id) || !isset($stack) || !isset($name) )
-			return new WP_Error('bt_fonts_register_font_invalid_args', __('To register a font, the argument array must include an "id", "stack", and "name".', 'padma'), $args);
+			return new WP_Error('pu_fonts_register_font_invalid_args', __('To register a font, the argument array must include an "id", "stack", and "name".', 'padma'), $args);
 
 		/* Add the font to the stacks first */
 		self::$font_stacks[$id] = $stack;

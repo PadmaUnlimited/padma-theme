@@ -107,7 +107,7 @@ class PadmaElementAPI {
 	public static function register_element($args) {
 		
 		if ( !is_array($args) )
-			return new WP_Error('bt_elements_register_element_args_not_array', __('Error: Arguments must be an array for this element.', 'padma'), $args);
+			return new WP_Error('pu_elements_register_element_args_not_array', __('Error: Arguments must be an array for this element.', 'padma'), $args);
 		
 		$defaults = array(
 			'group' => null,
@@ -131,19 +131,19 @@ class PadmaElementAPI {
 		
 		//If requirements are not met, throw errors
 		if ( !$item['id'] )
-			return new WP_Error('bt_elements_register_element_no_id', __('Error: An ID is required for this element.', 'padma'), $item);
+			return new WP_Error('pu_elements_register_element_no_id', __('Error: An ID is required for this element.', 'padma'), $item);
 			
 		if ( !$item['name'] )
-			return new WP_Error('bt_elements_register_element_no_name', __('Error: A name is required for this element.', 'padma'), $item);	
+			return new WP_Error('pu_elements_register_element_no_name', __('Error: A name is required for this element.', 'padma'), $item);	
 			
 		if ( $item['group'] === null && $item['default-element'] === false )
-			return new WP_Error('bt_elements_register_element_no_group', __('Error: A group is required for this element.', 'padma'), $item);	
+			return new WP_Error('pu_elements_register_element_no_group', __('Error: A group is required for this element.', 'padma'), $item);	
 			
 		if ( $item['selector'] === null  && $item['default-element'] === false )
-			return new WP_Error('bt_elements_register_element_no_selector', __('Error: A CSS selector is required for this element.', 'padma'), $item);
+			return new WP_Error('pu_elements_register_element_no_selector', __('Error: A CSS selector is required for this element.', 'padma'), $item);
 			
 		if ( $item['properties'] === array() )
-			return new WP_Error('bt_elements_register_element_no_properties', __('Error: Properties are required for this element.', 'padma'), $item);	
+			return new WP_Error('pu_elements_register_element_no_properties', __('Error: Properties are required for this element.', 'padma'), $item);	
 			
 		//Add the guts
 		$destination =& self::$elements[$item['id']];
@@ -186,7 +186,7 @@ class PadmaElementAPI {
 	public static function register_element_instance($args) {
 		
 		if ( !is_array($args) )
-			return new WP_Error('bt_elements_register_element_instance_args_not_array', __('Error: Arguments must be an array for this element instance.', 'padma'), $args);
+			return new WP_Error('pu_elements_register_element_instance_args_not_array', __('Error: Arguments must be an array for this element instance.', 'padma'), $args);
 		
 		$defaults = array(
 			'group' => null,
@@ -202,19 +202,19 @@ class PadmaElementAPI {
 		
 		//If requirements are not met, throw errors
 		if ( !$item['id'] )
-			return new WP_Error('bt_elements_register_element_instance_no_id', __('Error: An ID is required for this element instance.', 'padma'), $item);
+			return new WP_Error('pu_elements_register_element_instance_no_id', __('Error: An ID is required for this element instance.', 'padma'), $item);
 			
 		if ( !$item['name'] )
-			return new WP_Error('bt_elements_register_element_instance_no_name', __('Error: A name is required for this element instance.', 'padma'), $item);	
+			return new WP_Error('pu_elements_register_element_instance_no_name', __('Error: A name is required for this element instance.', 'padma'), $item);	
 			
 		if ( $item['group'] === null )
-			return new WP_Error('bt_elements_register_element_instance_no_group', __('Error: A group is required for this element instance.', 'padma'), $item);	
+			return new WP_Error('pu_elements_register_element_instance_no_group', __('Error: A group is required for this element instance.', 'padma'), $item);	
 		
 		if ( $item['element'] === null )
-			return new WP_Error('bt_elements_register_element_instance_no_parent', __('Error: A parent element is required for this element instance.', 'padma'), $item);
+			return new WP_Error('pu_elements_register_element_instance_no_parent', __('Error: A parent element is required for this element instance.', 'padma'), $item);
 			
 		if ( $item['selector'] === null )
-			return new WP_Error('bt_elements_register_element_instance_no_selector', __('Error: A CSS selector is required for this element instance.', 'padma'), $item);
+			return new WP_Error('pu_elements_register_element_instance_no_selector', __('Error: A CSS selector is required for this element instance.', 'padma'), $item);
 
 		//If layout is set, then set layout-name as well
 		if ( $item['layout'] )
@@ -249,7 +249,7 @@ class PadmaElementAPI {
 		
 		//Group already exists
 		if ( isset(self::$groups[$id]) )
-			return new WP_Error('bt_elements_register_group_already_exists', __('Error: The group being registered already exists.', 'padma'), $id);
+			return new WP_Error('pu_elements_register_group_already_exists', __('Error: The group being registered already exists.', 'padma'), $id);
 
 		/* Groups now accept both name and description in form of array @since 3.7 so we need backwards compatibility */
 		if ( is_string($info) ) {

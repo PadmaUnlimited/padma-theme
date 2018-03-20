@@ -60,7 +60,7 @@ class PadmaWebFontsLoader {
 	public static function get_fonts_in_use() {
 
 		/* If cache exists then use it */
-		$cache = get_transient( 'bt_webfont_cache_template_' . PadmaOption::$current_skin );
+		$cache = get_transient( 'pu_webfont_cache_template_' . PadmaOption::$current_skin );
 
 		if ( is_array($cache) )
 			return $cache;
@@ -68,7 +68,7 @@ class PadmaWebFontsLoader {
 		/* Build cache otherwise */
 		self::cache();
 
-		return get_transient( 'bt_webfont_cache_template_' . PadmaOption::$current_skin );
+		return get_transient( 'pu_webfont_cache_template_' . PadmaOption::$current_skin );
 
 	}
 
@@ -87,7 +87,7 @@ class PadmaWebFontsLoader {
 
 		}
 
-		return set_transient( 'bt_webfont_cache_template_' . PadmaOption::$current_skin, $sorted_webfonts );
+		return set_transient( 'pu_webfont_cache_template_' . PadmaOption::$current_skin, $sorted_webfonts );
 
 	}
 
@@ -119,7 +119,7 @@ class PadmaWebFontsLoader {
 
 	public static function flush_cache() {
 
-		return delete_transient( 'bt_webfont_cache_template_' . PadmaOption::$current_skin );
+		return delete_transient( 'pu_webfont_cache_template_' . PadmaOption::$current_skin );
 
 	}
 

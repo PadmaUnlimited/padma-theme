@@ -11,7 +11,7 @@ class PadmaWrappersData {
 			return false;
 
 		if ( $args['position'] === null || $args['position'] === false || $args['position'] === '' )
-			return new WP_Error('bt_add_wrapper_missing_position');
+			return new WP_Error('pu_add_wrapper_missing_position');
 
 		//Figure out mirror ID
 		$mirror_id = padma_get('mirror-wrapper', padma_get('settings', $args, array()));
@@ -39,7 +39,7 @@ class PadmaWrappersData {
 			$insert_args['legacy_id'] = $legacy_id;
 
 		//Run the query
-		$wpdb->insert($wpdb->bt_wrappers, $insert_args);
+		$wpdb->insert($wpdb->pu_wrappers, $insert_args);
 
 		//All done. Spit back ID of newly created wrapper.
 		return $insert_args['id'];
@@ -72,7 +72,7 @@ class PadmaWrappersData {
 				unset($args['template']);
 
 		/* Query */
-		$query = $wpdb->update($wpdb->bt_wrappers, array_map('padma_maybe_serialize', $args), array(
+		$query = $wpdb->update($wpdb->pu_wrappers, array_map('padma_maybe_serialize', $args), array(
 			'template' => $template,
 			'id' => $wrapper_id
 		));
@@ -99,7 +99,7 @@ class PadmaWrappersData {
 			return null;
 
 		/* Query for deletion */
-		$wrapper_delete_query = $wpdb->delete( $wpdb->bt_wrappers, array(
+		$wrapper_delete_query = $wpdb->delete( $wpdb->pu_wrappers, array(
 			'template' => PadmaOption::$current_skin,
 			'id' => $wrapper_id
 		));
@@ -108,7 +108,7 @@ class PadmaWrappersData {
 		self::delete_wrapper_design_instances($layout_id, $wrapper_id);
 
 		/* Unmirror the wrappers mirroring this wrappers */
-		$wpdb->update( $wpdb->bt_wrappers, array(
+		$wpdb->update( $wpdb->pu_wrappers, array(
 			'mirror_id' => ''
 		), array(
 			'mirror_id' => $wrapper_id
@@ -149,7 +149,7 @@ class PadmaWrappersData {
 
 		global $wpdb;
 
-		return $wpdb->delete( $wpdb->bt_wrappers, array(
+		return $wpdb->delete( $wpdb->pu_wrappers, array(
 			'template' => $template
 		));
 
@@ -172,7 +172,7 @@ class PadmaWrappersData {
 		}
 
 		/* Build cache key */
-		$cache_key = 'bt_wrapper_' . $wrapper;
+		$cache_key = 'pu_wrapper_' . $wrapper;
 
 		if ( $use_mirrored )
 			$cache_key .= '_using_mirrored';
@@ -188,7 +188,7 @@ class PadmaWrappersData {
 
 			$wrapper_id = PadmaWrappers::format_wrapper_id($wrapper);
 
-			$wrapper_query = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->bt_wrappers WHERE template = '%s' AND id = '%s'", PadmaOption::$current_skin, $wrapper_id), ARRAY_A);
+			$wrapper_query = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s' AND id = '%s'", PadmaOption::$current_skin, $wrapper_id), ARRAY_A);
 
 			if ( is_array($wrapper_query) && !is_wp_error($wrapper_query) ) {
 
@@ -197,7 +197,7 @@ class PadmaWrappersData {
 			} else {
 
 				/* If no wrapper is found, try querying the legacy_id */
-				$wrapper_from_legacy_id = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->bt_wrappers WHERE template = '%s' AND legacy_id = '%d'", PadmaOption::$current_skin, $wrapper_id), ARRAY_A);
+				$wrapper_from_legacy_id = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s' AND legacy_id = '%d'", PadmaOption::$current_skin, $wrapper_id), ARRAY_A);
 
 				if ( is_array($wrapper_from_legacy_id) && ! is_wp_error( $wrapper_from_legacy_id ) ) {
 					$wrapper = array_map( 'padma_maybe_unserialize', $wrapper_from_legacy_id );
@@ -228,7 +228,7 @@ class PadmaWrappersData {
 		global $wpdb;
 
 		/* Build cache key */
-		$cache_key = 'bt_wrappers_by_layout_' . $layout_id;
+		$cache_key = 'pu_wrappers_by_layout_' . $layout_id;
 
 		if ( $include_styling )
 			$cache_key = $cache_key . '_with_styling';
@@ -239,7 +239,7 @@ class PadmaWrappersData {
 		if ( $layout_wrappers === false ) {
 
 			/* Retrieve all wrappers from layout */
-			$layout_wrappers_query = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_wrappers WHERE template = '%s' AND layout = '%s' ORDER BY position ASC", PadmaOption::$current_skin, $layout_id), ARRAY_A);
+			$layout_wrappers_query = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s' AND layout = '%s' ORDER BY position ASC", PadmaOption::$current_skin, $layout_id), ARRAY_A);
 
 			/* Change results array into associative */
 			$layout_wrappers = array();
@@ -272,7 +272,7 @@ class PadmaWrappersData {
 		global $wpdb;
 
 		/* Build cache key */
-		$cache_key = 'bt_all_wrappers';
+		$cache_key = 'pu_all_wrappers';
 
 		if ( $include_styling )
 			$cache_key .= '_with_styling';
@@ -287,7 +287,7 @@ class PadmaWrappersData {
 			return $wrappers_from_cache;
 
 		/* Not cached... Retrieve all wrappers  */
-		$query = "SELECT * FROM $wpdb->bt_wrappers WHERE template = '%s'";
+		$query = "SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s'";
 
 		if ( $mirrored_only )
 			$query .= " AND mirror_id <> ''";

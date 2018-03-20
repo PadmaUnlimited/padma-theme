@@ -116,7 +116,7 @@ class PadmaBlocks {
 	public static function setup_block_actions() {
 
 		/* If cache exists then use it */
-			if ( ($block_actions_transient = get_transient('bt_block_actions_template_' . PadmaOption::$current_skin)) && !(padma_get('ve-iframe') && PadmaCapabilities::can_user_visually_edit()) ) {
+			if ( ($block_actions_transient = get_transient('pu_block_actions_template_' . PadmaOption::$current_skin)) && !(padma_get('ve-iframe') && PadmaCapabilities::can_user_visually_edit()) ) {
 
 				self::$block_actions = $block_actions_transient;
 
@@ -231,7 +231,7 @@ class PadmaBlocks {
 			self::$block_actions['dynamic-css'] = array_merge_recursive( self::$block_actions['dynamic-css'], self::get_block_actions_from_mirrored_wrappers( $mirrored_wrappers, 'dynamic-css' ) );
 
 		/* Set the cache */
-			set_transient('bt_block_actions_template_' . PadmaOption::$current_skin, self::$block_actions);
+			set_transient('pu_block_actions_template_' . PadmaOption::$current_skin, self::$block_actions);
 
 			return self::$block_actions;
 
@@ -241,7 +241,7 @@ class PadmaBlocks {
 
 		public static function clear_block_actions_cache() {
 
-			return delete_transient('bt_block_actions_template_' . PadmaOption::$current_skin);
+			return delete_transient('pu_block_actions_template_' . PadmaOption::$current_skin);
 
 		}
 

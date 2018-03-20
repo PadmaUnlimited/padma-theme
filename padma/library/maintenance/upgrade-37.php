@@ -19,14 +19,14 @@ function padma_do_upgrade_37($current_step = false) {
 	);
 
 	/* If first run of upgrade, start on first step */
-	if ( ! $current_step && ! get_option( 'bt_37_upgrade_current_step' ) ) {
+	if ( ! $current_step && ! get_option( 'pu_37_upgrade_current_step' ) ) {
 
 		$current_step = $available_steps[0];
 
 	/* If currently in middle of upgrade, set the current step to whatever the DB says */
-	} else if ( ! $current_step && get_option( 'bt_37_upgrade_current_step' ) ) {
+	} else if ( ! $current_step && get_option( 'pu_37_upgrade_current_step' ) ) {
 
-		$current_step = get_option( 'bt_37_upgrade_current_step' );
+		$current_step = get_option( 'pu_37_upgrade_current_step' );
 
 	}
 
@@ -110,7 +110,7 @@ function padma_do_upgrade_37($current_step = false) {
 
 		$next_step = $available_steps[$index_of_current_step + 1];
 
-		update_option( 'bt_37_upgrade_current_step', $next_step );
+		update_option( 'pu_37_upgrade_current_step', $next_step );
 
 		padma_do_upgrade_37($next_step);
 
@@ -255,7 +255,7 @@ function padma_upgrade_37_upgrade_wrappers() {
 	global $wpdb;
 
 	/* Make sure wrappers table is empty in case this step was interrupted */
-	$wpdb->query( "TRUNCATE TABLE $wpdb->bt_wrappers" );
+	$wpdb->query( "TRUNCATE TABLE $wpdb->pu_wrappers" );
 
 	$upgraded_wrappers = array();
 
@@ -342,9 +342,9 @@ function padma_upgrade_37_upgrade_wrappers() {
 	}
 
 
-	delete_option('bt_37_upgrade_wrappers');
+	delete_option('pu_37_upgrade_wrappers');
 
-	return add_option('bt_37_upgrade_wrappers', $upgraded_wrappers, false, 'no');
+	return add_option('pu_37_upgrade_wrappers', $upgraded_wrappers, false, 'no');
 
 }
 
@@ -354,11 +354,11 @@ function padma_upgrade_37_upgrade_blocks_and_layout_options() {
 	global $wpdb;
 
 	/* Make sure blocks and layout options tables are empty in case this step is interrupted */
-	$wpdb->query( "TRUNCATE TABLE $wpdb->bt_blocks" );
-	$wpdb->query( "TRUNCATE TABLE $wpdb->bt_layout_meta" );
+	$wpdb->query( "TRUNCATE TABLE $wpdb->pu_blocks" );
+	$wpdb->query( "TRUNCATE TABLE $wpdb->pu_layout_meta" );
 
 	$upgraded_blocks = array();
-	$upgraded_wrappers = get_option('bt_37_upgrade_wrappers');
+	$upgraded_wrappers = get_option('pu_37_upgrade_wrappers');
 
 	$all_layout_options = padma_upgrade_37_extract_layout_options();
 
@@ -370,7 +370,7 @@ function padma_upgrade_37_upgrade_blocks_and_layout_options() {
 
 		foreach ( $template_layouts as $template_layout_id => $template_layout_options ) {
 
-			/* Move blocks to bt_blocks table */
+			/* Move blocks to pu_blocks table */
 				foreach ( padma_get('blocks', padma_get('general', $template_layout_options), array()) as $block_id => $block ) {
 
 					$block['template'] = $template;
@@ -392,7 +392,7 @@ function padma_upgrade_37_upgrade_blocks_and_layout_options() {
 							'template' => $template
 						));
 
-						$upgraded_wrappers = get_option('bt_37_upgrade_wrappers', array());
+						$upgraded_wrappers = get_option('pu_37_upgrade_wrappers', array());
 
 						if ( empty($upgraded_wrappers[$template]) || !is_array($upgraded_wrappers[$template]) ) {
 							$upgraded_wrappers[$template] = array();
@@ -403,7 +403,7 @@ function padma_upgrade_37_upgrade_blocks_and_layout_options() {
 							'mirror-wrapper' => padma_get('mirror-wrapper', $default_wrapper)
 						);
 
-						update_option('bt_37_upgrade_wrappers', $upgraded_wrappers);
+						update_option('pu_37_upgrade_wrappers', $upgraded_wrappers);
 
 						$wrapper = $upgraded_wrappers[$template]['default'];
 
@@ -489,9 +489,9 @@ function padma_upgrade_37_upgrade_blocks_and_layout_options() {
 	}
 
 
-	delete_option('bt_37_upgrade_blocks');
+	delete_option('pu_37_upgrade_blocks');
 
-	return add_option('bt_37_upgrade_blocks', $upgraded_blocks, false, 'no');
+	return add_option('pu_37_upgrade_blocks', $upgraded_blocks, false, 'no');
 
 }
 
@@ -580,8 +580,8 @@ function padma_upgrade_37_extract_layout_options() {
 
 function padma_upgrade_37_setup_mirroring() {
 
-	$upgraded_blocks = get_option('bt_37_upgrade_blocks');
-	$upgraded_wrappers = get_option('bt_37_upgrade_wrappers');
+	$upgraded_blocks = get_option('pu_37_upgrade_blocks');
+	$upgraded_wrappers = get_option('pu_37_upgrade_wrappers');
 
 	foreach ( $upgraded_blocks as $template => $template_blocks ) {
 
@@ -695,8 +695,8 @@ function padma_upgrade_37_setup_options() {
 
 function padma_upgrade_37_fix_design_data() {
 
-	$upgraded_blocks = get_option('bt_37_upgrade_blocks');
-	$upgraded_wrappers = get_option('bt_37_upgrade_wrappers');
+	$upgraded_blocks = get_option('pu_37_upgrade_blocks');
+	$upgraded_wrappers = get_option('pu_37_upgrade_wrappers');
 
 	/* Sort the block and wrapper mappings by descending number that way when we do a simple recursive find and replace the small block IDs won't mess up the larger block IDs.
 	Example: Replacing block-1 before block-11 is replaced would be bad news */

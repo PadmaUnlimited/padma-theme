@@ -76,7 +76,7 @@ function padma_wc_breadcrumbs($breadcrumbs) {
 	/* Shop Tags */
 	if ( is_tax('product_tag') ) {
 
-		$breadcrumbs[] = __('Products tagged &ldquo;', 'bt_sf_wooc') . single_term_title('', false) . _x('&rdquo;', 'endquote', 'bt_sf_wooc');
+		$breadcrumbs[] = __('Products tagged &ldquo;', 'pu_sf_wooc') . single_term_title('', false) . _x('&rdquo;', 'endquote', 'pu_sf_wooc');
 
 	}
 	/* End Shop Taxonomy Archives */

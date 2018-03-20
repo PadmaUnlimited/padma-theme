@@ -49,12 +49,12 @@ class PadmaLayoutOption {
 		/* Global option */
 		if ( $global ) {
 
-			return '_bt_' . $option;
+			return '_pu_' . $option;
 
 		/* Template-specific option */
 		} else {
 
-			return '_bt_|template=' . $template . '|_' . $option;
+			return '_pu_|template=' . $template . '|_' . $option;
 
 		}
 
@@ -84,12 +84,12 @@ class PadmaLayoutOption {
 
 			$template = $global ? '' : self::$current_skin;
 
-			$cache_key = 'bt_layout_options_|template=' . $template . '|_' . $layout;
+			$cache_key = 'pu_layout_options_|template=' . $template . '|_' . $layout;
 			$layout_options = wp_cache_get($cache_key);
 
 			if ( $layout_options === false ) {
 
-				$options = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_layout_meta WHERE layout = '%s' AND template = '%s'", $layout, $template), ARRAY_A);
+				$options = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_layout_meta WHERE layout = '%s' AND template = '%s'", $layout, $template), ARRAY_A);
 
 				if ( is_wp_error($options) || !is_array($options) || !count($options) ) {
 					wp_cache_set($cache_key, array());
@@ -142,9 +142,9 @@ class PadmaLayoutOption {
 			$template = $global ? '' : $template;
 
 			/* Check if option exists.  If it does, use $wpdb->update, otherwise use $wpdb->insert */
-			if ( $meta_id = $wpdb->get_var($wpdb->prepare("SELECT meta_id FROM $wpdb->bt_layout_meta WHERE layout = '%s' AND template = '%s' AND meta_key = '%s'", $layout, $template, $option)) ) {
+			if ( $meta_id = $wpdb->get_var($wpdb->prepare("SELECT meta_id FROM $wpdb->pu_layout_meta WHERE layout = '%s' AND template = '%s' AND meta_key = '%s'", $layout, $template, $option)) ) {
 
-				return $wpdb->update($wpdb->bt_layout_meta, array(
+				return $wpdb->update($wpdb->pu_layout_meta, array(
 					'meta_value' => padma_maybe_serialize($value)
 				), array(
 					'meta_id' => $meta_id
@@ -152,7 +152,7 @@ class PadmaLayoutOption {
 
 			} else {
 
-				return $wpdb->insert($wpdb->bt_layout_meta, array(
+				return $wpdb->insert($wpdb->pu_layout_meta, array(
 					'meta_key' => $option,
 					'meta_value' => padma_maybe_serialize($value),
 					'layout' => $layout,
@@ -182,7 +182,7 @@ class PadmaLayoutOption {
 
 			$template = $global ? '' : self::$current_skin;
 
-			return $wpdb->delete($wpdb->bt_layout_meta, array(
+			return $wpdb->delete($wpdb->pu_layout_meta, array(
 				'layout' => $layout,
 				'meta_key' => $option,
 				'template' => $template
@@ -201,7 +201,7 @@ class PadmaLayoutOption {
 			$options = get_post_custom($post_id);
 			$options_deleted = array();
 
-			$key_prefix_to_check = $global ? '_bt_' : '_bt_|template=' . self::$current_skin . '|_';
+			$key_prefix_to_check = $global ? '_pu_' : '_pu_|template=' . self::$current_skin . '|_';
 
 			foreach ( $options as $meta_key => $meta_id ) {
 
@@ -221,13 +221,13 @@ class PadmaLayoutOption {
 
 			if ( $global ) {
 
-				return $wpdb->delete($wpdb->bt_layout_meta, array(
+				return $wpdb->delete($wpdb->pu_layout_meta, array(
 					'layout' => $layout
 				));
 
 			} else {
 
-				return $wpdb->delete($wpdb->bt_layout_meta, array(
+				return $wpdb->delete($wpdb->pu_layout_meta, array(
 					'layout' => $layout,
 					'template' => self::$current_skin
 				));
@@ -243,11 +243,11 @@ class PadmaLayoutOption {
 
 		global $wpdb;
 
-		$wpdb->delete($wpdb->bt_layout_meta, array(
+		$wpdb->delete($wpdb->pu_layout_meta, array(
 			'template' => $template
 		));
 
-		$wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_bt_|template=' . $template . '|_%'));
+		$wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_pu_|template=' . $template . '|_%'));
 
 	}
 

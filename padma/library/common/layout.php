@@ -14,8 +14,8 @@ class PadmaLayout {
 
 	public static function clear_status_transient() {
 
-		delete_transient('bt_customized_layouts_template_' . PadmaOption::$current_skin);
-		delete_transient('bt_layouts_with_templates_template_' . PadmaOption::$current_skin);
+		delete_transient('pu_customized_layouts_template_' . PadmaOption::$current_skin);
+		delete_transient('pu_layouts_with_templates_template_' . PadmaOption::$current_skin);
 
 	}
 
@@ -597,7 +597,7 @@ class PadmaLayout {
 		$layout_end_part = end($layout_parts);
 
 		/* Get the customized transient */
-			$transient_id_customized_layouts = 'bt_customized_layouts_template_' . PadmaOption::$current_skin;
+			$transient_id_customized_layouts = 'pu_customized_layouts_template_' . PadmaOption::$current_skin;
 			$customized_layouts = get_transient( $transient_id_customized_layouts );
 
 			if ( !is_array($customized_layouts) ) {
@@ -605,7 +605,7 @@ class PadmaLayout {
 			}
 
 		/* Get the templates status transient */
-			$transient_id_layouts_with_templates = 'bt_layouts_with_templates_template_' . PadmaOption::$current_skin;
+			$transient_id_layouts_with_templates = 'pu_layouts_with_templates_template_' . PadmaOption::$current_skin;
 			$layouts_with_templates = get_transient($transient_id_layouts_with_templates);
 
 			if ( !is_array($layouts_with_templates) ) {
@@ -660,11 +660,11 @@ class PadmaLayout {
 
 	public static function set_layout_status_customized_transient() {
 
-		$transient_id_customized_layouts = 'bt_customized_layouts_template_' . PadmaOption::$current_skin;
+		$transient_id_customized_layouts = 'pu_customized_layouts_template_' . PadmaOption::$current_skin;
 
 		global $wpdb;
 
-		$customized_layouts = array_unique( $wpdb->get_col( $wpdb->prepare( "SELECT layout FROM $wpdb->bt_blocks WHERE template = '%s'", PadmaOption::$current_skin ) ) );
+		$customized_layouts = array_unique( $wpdb->get_col( $wpdb->prepare( "SELECT layout FROM $wpdb->pu_blocks WHERE template = '%s'", PadmaOption::$current_skin ) ) );
 
 		set_transient( $transient_id_customized_layouts, $customized_layouts );
 
@@ -675,16 +675,16 @@ class PadmaLayout {
 
 	public static function set_layout_status_templates_transient() {
 
-		$transient_id_layouts_with_templates = 'bt_layouts_with_templates_template_' . PadmaOption::$current_skin;
+		$transient_id_layouts_with_templates = 'pu_layouts_with_templates_template_' . PadmaOption::$current_skin;
 
 		global $wpdb;
 
-		$templated_layouts_bt_meta = $wpdb->get_results( $wpdb->prepare( "SELECT layout, meta_value FROM $wpdb->bt_layout_meta WHERE meta_key = '%s' AND meta_value <> '' AND template = '%s'", 'template', PadmaOption::$current_skin ) );
-		$templated_layouts_wp_meta = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '%s' AND meta_value <> ''", '_bt_|template=' . PadmaOption::$current_skin . '|_template' ) );
+		$templated_layouts_pu_meta = $wpdb->get_results( $wpdb->prepare( "SELECT layout, meta_value FROM $wpdb->pu_layout_meta WHERE meta_key = '%s' AND meta_value <> '' AND template = '%s'", 'template', PadmaOption::$current_skin ) );
+		$templated_layouts_wp_meta = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '%s' AND meta_value <> ''", '_pu_|template=' . PadmaOption::$current_skin . '|_template' ) );
 
 		$layouts_with_templates = array();
 
-		foreach ( array_merge( $templated_layouts_bt_meta, $templated_layouts_wp_meta ) as $templated_layout ) {
+		foreach ( array_merge( $templated_layouts_pu_meta, $templated_layouts_wp_meta ) as $templated_layout ) {
 
 			$template_id = isset( $templated_layout->layout ) ? $templated_layout->layout : $templated_layout->post_id;
 

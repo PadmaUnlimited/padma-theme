@@ -11,13 +11,13 @@ class PadmaBlocksData {
 			return false;
 		
 		if ( !padma_get('type', $args) )
-			return new WP_Error('bt_add_block_missing_type');
+			return new WP_Error('pu_add_block_missing_type');
 
 		if ( !is_array($args['dimensions']) && !is_serialized($args['dimensions']) )
-			return new WP_Error('bt_add_block_missing_dimensions');
+			return new WP_Error('pu_add_block_missing_dimensions');
 
 		if ( !is_array($args['position']) && !is_serialized($args['position']) )
-			return new WP_Error('bt_add_block_missing_position');
+			return new WP_Error('pu_add_block_missing_position');
 
 		/* Make sure the arrays are all unserialized */
 		$args['position'] = padma_maybe_unserialize($args['position']);
@@ -54,7 +54,7 @@ class PadmaBlocksData {
 			$insert_args['legacy_id'] = $legacy_id;
 
 		//Run the query
-		$wpdb->insert($wpdb->bt_blocks, $insert_args);
+		$wpdb->insert($wpdb->pu_blocks, $insert_args);
 
 		//All done. Spit back ID of newly created block.
 		return $insert_args['id'];
@@ -95,7 +95,7 @@ class PadmaBlocksData {
 				unset($args['template']);
 
 		/* Query */
-		$query = $wpdb->update($wpdb->bt_blocks, array_map('padma_maybe_serialize', $args), array(
+		$query = $wpdb->update($wpdb->pu_blocks, array_map('padma_maybe_serialize', $args), array(
 			'template' => $template,
 			'id' => $block_id
 		));
@@ -116,13 +116,13 @@ class PadmaBlocksData {
 			return null;
 
 		/* Query for deletion */
-		$query = $wpdb->delete( $wpdb->bt_blocks, array(
+		$query = $wpdb->delete( $wpdb->pu_blocks, array(
 			'template' => PadmaOption::$current_skin,
 			'id' => $block_id
 		));
 
 		/* Unmirror the blocks mirroring this block */
-		$wpdb->update( $wpdb->bt_blocks, array(
+		$wpdb->update( $wpdb->pu_blocks, array(
 			'mirror_id' => ''
 		), array(
 			'mirror_id' => $block_id
@@ -182,7 +182,7 @@ class PadmaBlocksData {
 			self::delete_block_design_instances($block_id, $options['type']);
 
 			/* Unmirror the blocks mirroring this block */
-			$wpdb->update( $wpdb->bt_blocks, array(
+			$wpdb->update( $wpdb->pu_blocks, array(
 				'mirror_id' => ''
 			), array(
 				'mirror_id' => $block_id
@@ -191,7 +191,7 @@ class PadmaBlocksData {
 		}
 
 		//Query to delete blocks
-		$query = $wpdb->delete( $wpdb->bt_blocks, array(
+		$query = $wpdb->delete( $wpdb->pu_blocks, array(
 			'template' => PadmaOption::$current_skin,
 			'layout' => $layout_id
 		));
@@ -213,7 +213,7 @@ class PadmaBlocksData {
 			self::delete_block_design_instances($block_id, $options['type']);
 
 			/* Unmirror the blocks mirroring this block */
-			$wpdb->update( $wpdb->bt_blocks, array(
+			$wpdb->update( $wpdb->pu_blocks, array(
 				'mirror_id' => ''
 			), array(
 				'mirror_id' => $block_id
@@ -223,7 +223,7 @@ class PadmaBlocksData {
 		}
 
 		//Query to delete blocks
-		$query = $wpdb->delete( $wpdb->bt_blocks, array(
+		$query = $wpdb->delete( $wpdb->pu_blocks, array(
 			'template' => PadmaOption::$current_skin,
 			'wrapper_id' => $wrapper_id,
 			'layout' => $layout_id
@@ -238,7 +238,7 @@ class PadmaBlocksData {
 
 		global $wpdb;
 
-		return $wpdb->delete( $wpdb->bt_blocks, array(
+		return $wpdb->delete( $wpdb->pu_blocks, array(
 			'template' => $template
 		));
 
@@ -261,14 +261,14 @@ class PadmaBlocksData {
 		} elseif ( is_string( $block_id_or_obj) || is_numeric( $block_id_or_obj) ) {
 
 			/* Build cache key */
-			$cache_key = 'bt_block_' . $block_id_or_obj;
+			$cache_key = 'pu_block_' . $block_id_or_obj;
 
 			/* Check cache */
 			$block_from_cache = wp_cache_get($cache_key);
 
 			if ( $block_from_cache === false ) {
 
-				$block = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->bt_blocks WHERE template = '%s' AND id = '%s'", PadmaOption::$current_skin, $block_id_or_obj), ARRAY_A);
+				$block = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE template = '%s' AND id = '%s'", PadmaOption::$current_skin, $block_id_or_obj), ARRAY_A);
 
 				if ( is_array($block) && !is_wp_error($block) ) {
 
@@ -277,7 +277,7 @@ class PadmaBlocksData {
 				} else {
 
 					/* If no block is found, try querying the legacy_id */
-					$block_from_legacy_id = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->bt_blocks WHERE template = '%s' AND legacy_id = '%d'", PadmaOption::$current_skin, $block_id_or_obj ), ARRAY_A );
+					$block_from_legacy_id = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->pu_blocks WHERE template = '%s' AND legacy_id = '%d'", PadmaOption::$current_skin, $block_id_or_obj ), ARRAY_A );
 
 					if ( is_array($block_from_legacy_id) && ! is_wp_error( $block_from_legacy_id ) ) {
 						$block = array_map( 'padma_maybe_unserialize', $block_from_legacy_id );
@@ -316,7 +316,7 @@ class PadmaBlocksData {
 		global $wpdb;
 
 		/* Build cache key */
-		$cache_key = 'bt_blocks_by_layout_' . $layout_id;
+		$cache_key = 'pu_blocks_by_layout_' . $layout_id;
 
 		if ( $wrapper_id )
 			$cache_key = $cache_key . '_wrapper_' . $wrapper_id;
@@ -330,7 +330,7 @@ class PadmaBlocksData {
 		if ( $layout_blocks === false ) {
 
 			/* Retrieve all blocks from layout */
-				$query_string = $wpdb->prepare("SELECT * FROM $wpdb->bt_blocks WHERE layout = '%s' AND template = '%s'", $layout_id, PadmaOption::$current_skin);
+				$query_string = $wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE layout = '%s' AND template = '%s'", $layout_id, PadmaOption::$current_skin);
 
 				if ( $wrapper_id )
 					$query_string .= " AND wrapper_id = '$wrapper_id'";
@@ -472,14 +472,14 @@ class PadmaBlocksData {
 		global $wpdb;
 
 		/* Build cache key */
-		$cache_key = 'bt_blocks_by_type_' . $type;
+		$cache_key = 'pu_blocks_by_type_' . $type;
 
 		/* Check cache */
 		$blocks_from_cache = wp_cache_get($cache_key);
 
 		if ( $blocks_from_cache === false ) {
 
-			$blocks_by_type_query = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_blocks WHERE template = '%s' AND type = '%s'", PadmaOption::$current_skin, $type), ARRAY_A);
+			$blocks_by_type_query = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE template = '%s' AND type = '%s'", PadmaOption::$current_skin, $type), ARRAY_A);
 
 			/* Change results array into associative */
 			$blocks_by_type = array();
@@ -508,14 +508,14 @@ class PadmaBlocksData {
 		global $wpdb;
 
 		/* Build cache key */
-		$cache_key = 'bt_all_blocks';
+		$cache_key = 'pu_all_blocks';
 
 		/* Check cache */
 		$blocks_from_cache = wp_cache_get($cache_key);
 
 		if ( $blocks_from_cache === false ) {
 
-			$blocks_query = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->bt_blocks WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A);
+			$blocks_query = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A);
 
 			/* Change results array into associative */
 			$all_blocks = array();

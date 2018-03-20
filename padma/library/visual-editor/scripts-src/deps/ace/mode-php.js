@@ -1087,14 +1087,14 @@ var PhpLangHighlightRules = function() {
         'httpresponse_getstream|httpresponse_getthrottledelay|httpresponse_guesscontenttype|httpresponse_redirect|httpresponse_send|' +
         'httpresponse_setbuffersize|httpresponse_setcache|httpresponse_setcachecontrol|httpresponse_setcontentdisposition|' +
         'httpresponse_setcontenttype|httpresponse_setdata|httpresponse_setetag|httpresponse_setfile|httpresponse_setgzip|httpresponse_setheader|' +
-        'httpresponse_setlastmodified|httpresponse_setstream|httpresponse_setthrottledelay|httpresponse_status|bt_array2objrec|bt_changeobject|' +
-        'bt_children|bt_childrenobj|bt_close|bt_connect|bt_connection_info|bt_cp|bt_deleteobject|bt_docbyanchor|bt_docbyanchorobj|' +
-        'bt_document_attributes|bt_document_bodytag|bt_document_content|bt_document_setcontent|bt_document_size|bt_dummy|bt_edittext|bt_error|' +
-        'bt_errormsg|bt_free_document|bt_getanchors|bt_getanchorsobj|bt_getandlock|bt_getchildcoll|bt_getchildcollobj|bt_getchilddoccoll|' +
-        'bt_getchilddoccollobj|bt_getobject|bt_getobjectbyquery|bt_getobjectbyquerycoll|bt_getobjectbyquerycollobj|bt_getobjectbyqueryobj|' +
-        'bt_getparents|bt_getparentsobj|bt_getrellink|bt_getremote|bt_getremotechildren|bt_getsrcbydestobj|bt_gettext|bt_getusername|bt_identify|' +
-        'bt_incollections|bt_info|bt_inscoll|bt_insdoc|bt_insertanchors|bt_insertdocument|bt_insertobject|bt_mapid|bt_modifyobject|bt_mv|' +
-        'bt_new_document|bt_objrec2array|bt_output_document|bt_pconnect|bt_pipedocument|bt_root|bt_setlinkroot|bt_stat|bt_unlock|bt_who|' +
+        'httpresponse_setlastmodified|httpresponse_setstream|httpresponse_setthrottledelay|httpresponse_status|pu_array2objrec|pu_changeobject|' +
+        'pu_children|pu_childrenobj|pu_close|pu_connect|pu_connection_info|pu_cp|pu_deleteobject|pu_docbyanchor|pu_docbyanchorobj|' +
+        'pu_document_attributes|pu_document_bodytag|pu_document_content|pu_document_setcontent|pu_document_size|pu_dummy|pu_edittext|pu_error|' +
+        'pu_errormsg|pu_free_document|pu_getanchors|pu_getanchorsobj|pu_getandlock|pu_getchildcoll|pu_getchildcollobj|pu_getchilddoccoll|' +
+        'pu_getchilddoccollobj|pu_getobject|pu_getobjectbyquery|pu_getobjectbyquerycoll|pu_getobjectbyquerycollobj|pu_getobjectbyqueryobj|' +
+        'pu_getparents|pu_getparentsobj|pu_getrellink|pu_getremote|pu_getremotechildren|pu_getsrcbydestobj|pu_gettext|pu_getusername|pu_identify|' +
+        'pu_incollections|pu_info|pu_inscoll|pu_insdoc|pu_insertanchors|pu_insertdocument|pu_insertobject|pu_mapid|pu_modifyobject|pu_mv|' +
+        'pu_new_document|pu_objrec2array|pu_output_document|pu_pconnect|pu_pipedocument|pu_root|pu_setlinkroot|pu_stat|pu_unlock|pu_who|' +
         'btapi_attribute|btapi_attribute_key|btapi_attribute_langdepvalue|btapi_attribute_value|btapi_attribute_values|btapi_checkin|' +
         'btapi_checkout|btapi_children|btapi_content|btapi_content_mimetype|btapi_content_read|btapi_copy|btapi_dbstat|btapi_dcstat|' +
         'btapi_dstanchors|btapi_dstofsrcanchor|btapi_error_count|btapi_error_reason|btapi_find|btapi_ftstat|btapi_hgcsp|btapi_btstat|' +
@@ -1659,8 +1659,8 @@ var PhpLangHighlightRules = function() {
     var builtinFunctionsDeprecated = lang.arrayToMap(
         ('key_exists|cairo_matrix_create_scale|cairo_matrix_create_translate|call_user_method|call_user_method_array|com_addref|com_get|' +
         'com_invoke|com_isenum|com_load|com_release|com_set|connection_timeout|cubrid_load_from_glo|cubrid_new_glo|cubrid_save_to_glo|' +
-        'cubrid_send_glo|define_syslog_variables|dl|ereg|ereg_replace|eregi|eregi_replace|bt_documentattributes|bt_documentbodytag|' +
-        'bt_documentsize|bt_outputdocument|imagedashedline|maxdb_bind_param|maxdb_bind_result|maxdb_client_encoding|maxdb_close_long_data|' +
+        'cubrid_send_glo|define_syslog_variables|dl|ereg|ereg_replace|eregi|eregi_replace|pu_documentattributes|pu_documentbodytag|' +
+        'pu_documentsize|pu_outputdocument|imagedashedline|maxdb_bind_param|maxdb_bind_result|maxdb_client_encoding|maxdb_close_long_data|' +
         'maxdb_execute|maxdb_fetch|maxdb_get_metadata|maxdb_param_count|maxdb_send_long_data|mcrypt_ecb|mcrypt_generic_end|mime_content_type|' +
         'mysql_createdb|mysql_dbname|mysql_db_query|mysql_drop_db|mysql_dropdb|mysql_escape_string|mysql_fieldflags|mysql_fieldflags|' +
         'mysql_fieldname|mysql_fieldtable|mysql_fieldtype|mysql_freeresult|mysql_listdbs|mysql_list_fields|mysql_listfields|mysql_list_tables|' +

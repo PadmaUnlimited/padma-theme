@@ -52,7 +52,7 @@ class PadmaCompiler {
 		
 		$args = array_merge($defaults, $args);
 
-		if ( !$cache = get_transient('bt_compiler_template_' . PadmaOption::$current_skin) )
+		if ( !$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin) )
 			$cache = array();
 
 		if ( is_ssl() )
@@ -79,7 +79,7 @@ class PadmaCompiler {
 				$cache[$args['name']]['hash'] = null;
 
 				//Update cache option
-				if ( !set_transient('bt_compiler_template_' . PadmaOption::$current_skin, $cache) )
+				if ( !set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache) )
 					return false;
 
 			}
@@ -102,7 +102,7 @@ class PadmaCompiler {
 
 	public static function output_inline($file) {
 
-		$cache = get_transient('bt_compiler_template_' . PadmaOption::$current_skin);
+		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		if ( !isset($cache[$file]) )
 			return false;
@@ -120,7 +120,7 @@ class PadmaCompiler {
 	 **/
 	public static function enqueue_file($file, $footer_js = true) {
 				
-		$cache = get_transient('bt_compiler_template_' . PadmaOption::$current_skin);
+		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		if ( $cache[$file]['format'] == 'js' )
 			return wp_enqueue_script('padma-' . $file, self::get_url($file), false, false, false, $footer_js);
@@ -139,7 +139,7 @@ class PadmaCompiler {
 	 **/
 	public static function get_url($file) {
 				
-		$cache = get_transient('bt_compiler_template_' . PadmaOption::$current_skin);
+		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		if ( is_ssl() && strpos($file, '-https') === false )
 			$file = $file . '-https';									
@@ -207,7 +207,7 @@ class PadmaCompiler {
 	 **/
 	public static function cache_file($file) {
 				
-		$cache = get_transient('bt_compiler_template_' . PadmaOption::$current_skin);
+		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 		
 		//Get the current layout here directly and set is as GET since the output trigger can use POST, but this cannot.
 		$_GET['layout-in-use'] = PadmaLayout::get_current_in_use(); 
@@ -232,7 +232,7 @@ class PadmaCompiler {
 			
 		@fclose($file_handle);
 
-		set_transient('bt_compiler_template_' . PadmaOption::$current_skin, $cache);
+		set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache);
 
 		return true;		
 				
@@ -250,7 +250,7 @@ class PadmaCompiler {
 		if ( !$file )
 			return false;
 
-		$cache = get_transient('bt_compiler_template_' . PadmaOption::$current_skin);
+		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		//File does not exist
 		if ( !isset($cache[$file]))
@@ -459,7 +459,7 @@ class PadmaCompiler {
 		
 		if ( self::can_cache() ) {
 			
-			delete_transient('bt_compiler_template_' . PadmaOption::$current_skin);
+			delete_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 			$no_delete = array(
 				'..',

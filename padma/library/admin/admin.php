@@ -94,7 +94,7 @@ class PadmaAdmin {
 		}
 
 		/* Loop through WordPress options and delete the skin options */
-		$wpdb->query( "TRUNCATE TABLE $wpdb->bt_snapshots" );
+		$wpdb->query( "TRUNCATE TABLE $wpdb->pu_snapshots" );
 
 		do_action( 'padma_delete_all_snapshots' );
 
@@ -129,10 +129,10 @@ class PadmaAdmin {
 		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name = 'padma'" );
 		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'padma_%'" );
 
-		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_bt_%'" );
+		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_pu_%'" );
 
 		/* Remove Padma post meta */
-		$wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '_bt_%'" );
+		$wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '_pu_%'" );
 
 		/* Drop Padma tables */
 		Padma::mysql_drop_tables();

@@ -12,7 +12,7 @@ class PadmaDataSnapshots {
 
 		global $wpdb;
 
-		return $wpdb->get_results($wpdb->prepare("SELECT id, timestamp, comments FROM $wpdb->bt_snapshots WHERE template = '%s' ORDER BY timestamp DESC", PadmaOption::$current_skin));
+		return $wpdb->get_results($wpdb->prepare("SELECT id, timestamp, comments FROM $wpdb->pu_snapshots WHERE template = '%s' ORDER BY timestamp DESC", PadmaOption::$current_skin));
 
 	}
 
@@ -32,10 +32,10 @@ class PadmaDataSnapshots {
 		$wp_options_prefix = 'padma_|template=' . PadmaOption::$current_skin . '|_';
 
 		$data_wp_options = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->options WHERE option_name LIKE '%s'", $wp_options_prefix . '%' ), ARRAY_A ));
-		$data_wp_postmeta = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_bt_|template=' . PadmaOption::$current_skin . '|_%' ), ARRAY_A ));
-		$data_wp_bt_layout_meta = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->bt_layout_meta WHERE template = '%s'", PadmaOption::$current_skin ), ARRAY_A ));
-		$data_bt_wrappers = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->bt_wrappers WHERE template = '%s'", PadmaOption::$current_skin ), ARRAY_A ));
-		$data_bt_blocks = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->bt_blocks WHERE template = '%s'", PadmaOption::$current_skin ), ARRAY_A ));
+		$data_wp_postmeta = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_pu_|template=' . PadmaOption::$current_skin . '|_%' ), ARRAY_A ));
+		$data_wp_pu_layout_meta = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->pu_layout_meta WHERE template = '%s'", PadmaOption::$current_skin ), ARRAY_A ));
+		$data_pu_wrappers = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s'", PadmaOption::$current_skin ), ARRAY_A ));
+		$data_pu_blocks = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->pu_blocks WHERE template = '%s'", PadmaOption::$current_skin ), ARRAY_A ));
 
 		$insert_args = array(
 			'template' => PadmaOption::$current_skin,
@@ -43,12 +43,12 @@ class PadmaDataSnapshots {
 			'timestamp' => current_time('mysql', 1), /* GMT */
 			'data_wp_options' => padma_maybe_serialize( $data_wp_options ),
 			'data_wp_postmeta' => padma_maybe_serialize( $data_wp_postmeta ),
-			'data_bt_layout_meta' => padma_maybe_serialize( $data_wp_bt_layout_meta ),
-			'data_bt_wrappers' => padma_maybe_serialize( $data_bt_wrappers ),
-			'data_bt_blocks' => padma_maybe_serialize( $data_bt_blocks )
+			'data_pu_layout_meta' => padma_maybe_serialize( $data_wp_pu_layout_meta ),
+			'data_pu_wrappers' => padma_maybe_serialize( $data_pu_wrappers ),
+			'data_pu_blocks' => padma_maybe_serialize( $data_pu_blocks )
 		);
 
-		$snapshotquery = $wpdb->insert($wpdb->bt_snapshots, $insert_args);
+		$snapshotquery = $wpdb->insert($wpdb->pu_snapshots, $insert_args);
 
 		if ( is_wp_error($snapshotquery) ) {
 
@@ -73,7 +73,7 @@ class PadmaDataSnapshots {
 
 		global $wpdb;
 
-		if ( !$rollback = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->bt_snapshots WHERE id = %d AND template = '%s'", $rollback_id, PadmaOption::$current_skin), ARRAY_A) )
+		if ( !$rollback = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->pu_snapshots WHERE id = %d AND template = '%s'", $rollback_id, PadmaOption::$current_skin), ARRAY_A) )
 			return array('errors' => array('Snapshot does not exist.'));
 
 		$rollback_process = self::process_rollback($rollback);
@@ -93,9 +93,9 @@ class PadmaDataSnapshots {
 			$data_arrays = array(
 				'data_wp_options',
 				'data_wp_postmeta',
-				'data_bt_layout_meta',
-				'data_bt_wrappers',
-				'data_bt_blocks'
+				'data_pu_layout_meta',
+				'data_pu_wrappers',
+				'data_pu_blocks'
 			);
 
 			/* Go through data and delete and insert */
@@ -106,7 +106,7 @@ class PadmaDataSnapshots {
 				$wpdb_table_name = $wpdb->{$table_name};
 
 				/* Handle Padma tables */
-				if ( strpos($table_name, 'bt_') === 0 ) {
+				if ( strpos($table_name, 'pu_') === 0 ) {
 
 					$delete_query = $wpdb->query($wpdb->prepare("DELETE FROM $wpdb_table_name WHERE template = '%s'", $template));
 
@@ -130,7 +130,7 @@ class PadmaDataSnapshots {
 				/* Handle WP options/postmeta */
 				} else if ( $table_name == 'options' || $table_name == 'postmeta' ) {
 
-					$prefix = $table_name == 'options' ? 'padma_|template=' . $template . '|_' : '_bt_|template=' . $template . '|_';
+					$prefix = $table_name == 'options' ? 'padma_|template=' . $template . '|_' : '_pu_|template=' . $template . '|_';
 					$key_column = $table_name == 'options' ? 'option_name' : 'meta_key';
 
 					$delete_query = $wpdb->query($wpdb->prepare("DELETE FROM $wpdb_table_name WHERE $key_column LIKE '%s'", $prefix . '%'));
@@ -183,7 +183,7 @@ class PadmaDataSnapshots {
 
 		global $wpdb;
 
-		return $wpdb->delete( $wpdb->bt_snapshots, array(
+		return $wpdb->delete( $wpdb->pu_snapshots, array(
 			'id' => $id,
 			'template' => PadmaOption::$current_skin
 		) );
@@ -195,7 +195,7 @@ class PadmaDataSnapshots {
 
 		global $wpdb;
 
-		return $wpdb->delete($wpdb->bt_snapshots, array(
+		return $wpdb->delete($wpdb->pu_snapshots, array(
 			'template' => $template
 		));
 
@@ -206,7 +206,7 @@ class PadmaDataSnapshots {
 
 		global $wpdb;
 
-		$snapshots_info_query = $wpdb->get_row( $wpdb->prepare( "SHOW TABLE STATUS WHERE name = '%s'", $wpdb->bt_snapshots ), ARRAY_A );
+		$snapshots_info_query = $wpdb->get_row( $wpdb->prepare( "SHOW TABLE STATUS WHERE name = '%s'", $wpdb->pu_snapshots ), ARRAY_A );
 
 		return array(
 			'count' => $snapshots_info_query['Rows'],

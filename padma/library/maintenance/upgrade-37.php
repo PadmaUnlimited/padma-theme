@@ -663,7 +663,7 @@ function padma_upgrade_37_setup_options() {
 
 	global $wpdb;
 
-	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'padma_|template=%'" );
+	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'pu_|template=%'" );
 
 	update_option( 'padma_|skin=base|_option_group_design', get_option( 'padma_option_group_design', array() ) );
 	update_option( 'padma_|skin=base|_option_group_general', get_option( 'padma_option_group_general', array() ) );
@@ -760,7 +760,7 @@ function padma_upgrade_37_rename_and_delete_old_options() {
 	global $wpdb;
 
 	/* Change option names */
-	$wpdb->query( "UPDATE IGNORE $wpdb->options SET option_name = replace(option_name, 'padma_|skin=', 'padma_|template=') WHERE option_name LIKE 'padma_|skin=%'" );
+	$wpdb->query( "UPDATE IGNORE $wpdb->options SET option_name = replace(option_name, 'padma_|skin=', 'pu_|template=') WHERE option_name LIKE 'padma_|skin=%'" );
 
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'padma_%layout_options_%'" );
 

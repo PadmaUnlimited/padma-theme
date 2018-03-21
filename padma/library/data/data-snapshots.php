@@ -29,7 +29,7 @@ class PadmaDataSnapshots {
 
 		}
 
-		$wp_options_prefix = 'padma_|template=' . PadmaOption::$current_skin . '|_';
+		$wp_options_prefix = 'pu_|template=' . PadmaOption::$current_skin . '|_';
 
 		$data_wp_options = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->options WHERE option_name LIKE '%s'", $wp_options_prefix . '%' ), ARRAY_A ));
 		$data_wp_postmeta = padma_array_map_recursive( 'padma_maybe_unserialize', $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_pu_|template=' . PadmaOption::$current_skin . '|_%' ), ARRAY_A ));
@@ -130,7 +130,7 @@ class PadmaDataSnapshots {
 				/* Handle WP options/postmeta */
 				} else if ( $table_name == 'options' || $table_name == 'postmeta' ) {
 
-					$prefix = $table_name == 'options' ? 'padma_|template=' . $template . '|_' : '_pu_|template=' . $template . '|_';
+					$prefix = $table_name == 'options' ? 'pu_|template=' . $template . '|_' : '_pu_|template=' . $template . '|_';
 					$key_column = $table_name == 'options' ? 'option_name' : 'meta_key';
 
 					$delete_query = $wpdb->query($wpdb->prepare("DELETE FROM $wpdb_table_name WHERE $key_column LIKE '%s'", $prefix . '%'));

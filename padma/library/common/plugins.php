@@ -30,14 +30,14 @@ class PadmaPlugins{
 			/*
 			Services Will be ready soon
 			*/
-			/*
+
 			array(
 				'name'         => 'Padma Services', // The plugin name.
 				'slug'         => 'padma-services', // The plugin slug (typically the folder name).
 				'source'       => 'http://cdn.padmaunlimited.com/software/?action=download&slug=padma-services', // The plugin source.
 				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
 				'external_url' => 'http://www.padmaunlimited.com/plugins/padma-services', // If set, overrides default API URL and points to an external URL.
-			),*/
+			),
 			array(
 				'name'         => 'Padma Updater', // The plugin name.
 				'slug'         => 'padma-updater', // The plugin slug (typically the folder name).

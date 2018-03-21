@@ -46,7 +46,7 @@ class PadmaVisualEditorAJAX {
 		}
 
 		/* Loop through WordPress options and delete the skin options */
-			$wpdb->query($wpdb->prepare( "DELETE FROM $wpdb->options WHERE option_name LIKE '%s'", 'padma_|template=' . padma_post( 'skin' ) . '|%' ));
+			$wpdb->query($wpdb->prepare( "DELETE FROM $wpdb->options WHERE option_name LIKE '%s'", 'pu_|template=' . padma_post( 'skin' ) . '|%' ));
 
 			PadmaLayoutOption::delete_by_template($skin_to_delete);
 

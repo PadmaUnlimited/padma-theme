@@ -46,10 +46,10 @@ class Padma {
 		define('PADMA_DEFAULT_SKIN', 'base');
 
 		/* MySQL Table names */
-		$wpdb->pu_blocks = $wpdb->prefix . 'pu_blocks';
-		$wpdb->pu_wrappers = $wpdb->prefix . 'pu_wrappers';
-		$wpdb->pu_snapshots = $wpdb->prefix . 'pu_snapshots';
-		$wpdb->pu_layout_meta = $wpdb->prefix . 'pu_layout_meta';
+		$wpdb->pu_blocks 		= $wpdb->prefix . 'pu_blocks';
+		$wpdb->pu_wrappers 		= $wpdb->prefix . 'pu_wrappers';
+		$wpdb->pu_snapshots 	= $wpdb->prefix . 'pu_snapshots';
+		$wpdb->pu_layout_meta 	= $wpdb->prefix . 'pu_layout_meta';
 
 		/* Handle child themes */
 		if ( get_template_directory_uri() !== get_stylesheet_directory_uri() ) {
@@ -404,7 +404,7 @@ class Padma {
 		$wpdb->update( $wpdb->options, array(
 			'autoload' => 'yes'
 		), array(
-			'option_name' => 'padma_|template=' . $template . '|_option_group_general'
+			'option_name' => 'pu_|template=' . $template . '|_option_group_general'
 		) );
 
 	}

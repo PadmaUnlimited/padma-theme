@@ -18,7 +18,7 @@ function padma_do_upgrade_386() {
 
     foreach ( $query_for_template_ids as $query_for_template_ids_obj ) {
 
-        $option_name_fragments = explode('|_', str_replace('padma_|template=', '', $query_for_template_ids_obj->option_name));
+        $option_name_fragments = explode('|_', str_replace('pu_|template=', '', $query_for_template_ids_obj->option_name));
         $template_id = $option_name_fragments[0];
         
         if ( strlen($template_id) > 12 ) {
@@ -60,7 +60,7 @@ function padma_do_upgrade_386() {
         $template_unique_id_counter = 0;
 
         /* Check if template ID already exists.  If it does, change ID */
-        while ( padma_get($new_template_id, $templates) || get_option('padma_|template=' . $new_template_id . '|_option_group_general') ) {
+        while ( padma_get($new_template_id, $templates) || get_option('pu_|template=' . $new_template_id . '|_option_group_general') ) {
 
             $template_unique_id_counter++;
             $new_template_id = $shortened_template_id . '-' . $template_unique_id_counter;
@@ -68,7 +68,7 @@ function padma_do_upgrade_386() {
         }
 
         /* Update WP option names */
-        $wpdb->query( "UPDATE IGNORE $wpdb->options SET option_name = replace(option_name, 'padma_|template=$original_template_id|', 'padma_|template=$new_template_id|') WHERE option_name LIKE 'padma_|template=$original_template_id|%'" );
+        $wpdb->query( "UPDATE IGNORE $wpdb->options SET option_name = replace(option_name, 'pu_|template=$original_template_id|', 'pu_|template=$new_template_id|') WHERE option_name LIKE 'pu_|template=$original_template_id|%'" );
 
         $wpdb->query( "UPDATE $wpdb->pu_blocks SET template = '$new_template_id' WHERE template = '$original_template_id'" );
         $wpdb->query( "UPDATE $wpdb->pu_wrappers SET template = '$new_template_id' WHERE template = '$original_template_id'" );

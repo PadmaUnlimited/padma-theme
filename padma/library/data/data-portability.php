@@ -8,7 +8,7 @@ class PadmaDataPortability {
 
 		do_action('padma_before_export_skin');
 
-		$wp_options_prefix = 'padma_|template=' . PadmaOption::$current_skin . '|_';
+		$wp_options_prefix = 'pu_|template=' . PadmaOption::$current_skin . '|_';
 
 		$skin = array(
 			'pu-version' => PADMA_VERSION,
@@ -37,6 +37,7 @@ class PadmaDataPortability {
 
 	public static function install_skin(array $skin) {
 
+		
 		$skins = PadmaOption::get_group('skins');
 
 		/* Remove image definitions */
@@ -52,7 +53,7 @@ class PadmaDataPortability {
 			$skin_unique_id_counter = 0;
 
 		/* Check if skin already exists.  If it does, change ID and skin name */
-			while ( PadmaOption::get($skin_id, 'skins') || get_option('padma_|template=' . $skin_id . '|_option_group_general') ) {
+			while ( PadmaOption::get($skin_id, 'skins') || get_option('pu_|template=' . $skin_id . '|_option_group_general') ) {
 
 				$skin_unique_id_counter++;
 				$skin_id = $original_skin_id . '-' . $skin_unique_id_counter;

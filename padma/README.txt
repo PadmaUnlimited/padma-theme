@@ -40,10 +40,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.17 =
-* Released: March 20, 2018
+* Released: March 21, 2018
 
 Code fixes for PHP and Javascript
 CSS Editor improvement for Global Styling panel
+Some unused libraries were removed
+Padma Life Saver plugin compatibility
 
 
 = 0.0.16 =

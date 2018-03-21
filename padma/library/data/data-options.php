@@ -80,7 +80,7 @@ class PadmaOption {
 
 			/* Format option name */
 				if ( self::$is_skin_option )
-					$option = str_replace('padma_', 'padma_|template=' . self::$current_skin . '|_', $option);
+					$option = str_replace('padma_', 'pu_|template=' . self::$current_skin . '|_', $option);
 
 			return $option;
 

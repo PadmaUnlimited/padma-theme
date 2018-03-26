@@ -45,7 +45,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 Code fixes for PHP and Javascript
 CSS Editor improvement for Global Styling panel
 Some unused libraries were removed
-Padma Life Saver plugin compatibility
+Padma LifeSaver plugin compatibility
 
 
 = 0.0.16 =

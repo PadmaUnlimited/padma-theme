@@ -138,7 +138,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 		
 
 		$padma_location = 'https://www.padmaunlimited.com/';
-		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . __('Powered by Padma Unlimited, the ', 'padma') . ' <a href="' . $padma_location . '" title="Powered by Padma Unlimited, the drag and drop WordPress theme builder">the drag and drop WordPress theme builder</a></p>');
+		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . __('Powered by Padma Unlimited, the ', 'padma') . ' <a href="' . $padma_location . '" title="Powered by Padma Unlimited, the drag and drop WordPress theme builder">drag and drop WordPress theme builder</a></p>');
 
 	}
 

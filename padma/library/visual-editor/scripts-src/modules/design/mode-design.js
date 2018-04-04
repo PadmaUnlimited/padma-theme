@@ -2418,8 +2418,14 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 					
 					if(blockType == 'content'){
 						
-						postId = $(inspectorElement).closest('.post').attr('id').split('-')[1];
-						localStorage['visual-editor-block-post-data-' + blockID + '-0'] = postId;
+						var element = $(inspectorElement).closest('.post');
+						if(element == undefined){
+							var element = $(inspectorElement).closest('.page');
+						}
+						if(element !== undefined){
+							postId = element.attr('id').split('-')[1];
+							localStorage['visual-editor-block-post-data-' + blockID + '-0'] = postId;							
+						}
 
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
 							refreshInspector();

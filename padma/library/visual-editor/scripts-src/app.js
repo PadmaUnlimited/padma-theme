@@ -87,6 +87,7 @@ require(['jquery', 'util.loader'], function($) {
 		case 'grid':
 
 			require(['modules/grid/mode-grid', 'modules/iframe', 'modules/layout-selector'], function(modeGrid) {
+				
 				Padma.instance = modeGrid;
 
 				modeGrid.init();
@@ -95,11 +96,10 @@ require(['jquery', 'util.loader'], function($) {
 
 		break;
 
-		case 'design':
-
-			
+		case 'design':			
 
 			require(['modules/design/mode-design', 'modules/iframe', 'modules/layout-selector'], function(modeDesign) {
+				
 				Padma.instance = modeDesign;
 
 				modeDesign.init();

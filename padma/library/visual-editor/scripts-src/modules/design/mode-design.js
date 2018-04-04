@@ -2410,15 +2410,21 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 
 					openBlockOptions(getBlock($(inspectorElement)));
 
+				/* Edit content */
 				} else if ( $(this).parents('li').first().hasClass('inspector-context-menu-edit-content') ){
 
 					var blockID 	= getBlock($(inspectorElement))[0].dataset.id;
 					var blockType 	= getBlock($(inspectorElement))[0].dataset.type;
 					
 					if(blockType == 'content'){
+						
+						postId = $(inspectorElement).closest('.post').attr('id').split('-')[1];
+						localStorage['visual-editor-block-post-data-' + blockID + '-0'] = postId;
+
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
-							allowSaving();
+							refreshInspector();
 						});
+
 					}else{
 						showNotification({
 							id: 'no-supported',

@@ -114,9 +114,10 @@ class PadmaRoute {
 				Padma::load('visual-editor/code-mirror');
 				break;
 
-			case 'content-editor':
+			case 'content-editor':			
 				if ( !PadmaCapabilities::can_user_visually_edit() )
 					die();
+				
 
 				Padma::load('visual-editor/content-editor');
 				break;

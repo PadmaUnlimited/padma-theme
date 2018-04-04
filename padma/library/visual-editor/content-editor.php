@@ -70,7 +70,7 @@ wp_footer();
 			setTimeout(function () {
 				jQuery('div#ve-loading-overlay').hide();
 				jQuery('.content-editor').show();
-			}, 1000);
+			}, 2000);
 		});
 	}
 

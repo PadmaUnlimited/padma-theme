@@ -2418,12 +2418,9 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 					
 					if(blockType == 'content'){
 						
-						var element = $(inspectorElement).closest('.post');
-						if(element == undefined){
-							var element = $(inspectorElement).closest('.page');
-						}
-						if(element !== undefined){
-							postId = element.attr('id').split('-')[1];
+						var elementId = $(inspectorElement).closest('article').attr('id');
+						if(elementId !== undefined){
+							postId = elementId.split('-')[1];
 							localStorage['visual-editor-block-post-data-' + blockID + '-0'] = postId;							
 						}
 

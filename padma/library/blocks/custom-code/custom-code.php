@@ -1,16 +1,14 @@
 <?php
+
 padma_register_block('PadmaCustomCodeBlock', padma_url() . '/library/blocks/custom-code');
 
 class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'custom-code';
-	
-	public $name = 'Custom Code';
-		
-	public $options_class = 'PadmaCustomCodeBlockOptions';
-
-	public $description = 'Place in custom HTML, PHP, or even WordPress shortcodes into this block.';
+	public $id 				= 'custom-code';	
+	public $name 			= 'Custom Code';		
+	public $options_class 	= 'PadmaCustomCodeBlockOptions';
+	public $description 	= 'Place in custom HTML, PHP, or even WordPress shortcodes into this block.';
 	
 	
 	function content($block) {
@@ -37,11 +35,11 @@ class PadmaCustomCodeBlockOptions extends PadmaBlockOptionsAPI {
 	public $inputs = array(
 		'content' => array(
 			'content' => array(
-				'type' => 'code',
-				'mode' => 'html',
-				'name' => 'content',
-				'label' => 'Content',
-				'default' => null
+				'type' 		=> 'code',
+				'mode' 		=> 'html',
+				'name' 		=> 'content',
+				'label' 	=> 'Content',
+				'default' 	=> null
 			)
 		)
 	);

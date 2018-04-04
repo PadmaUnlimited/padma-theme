@@ -29,7 +29,7 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 			}
 
 			var editorConfig = {
-				width: 900,
+				width: 1200,
 				height: 780
 			};
 
@@ -65,20 +65,24 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 					themeSelected 	= 'night';
 				}
 
+
 				/* Init editor */
-				var editor = window.tinyMCE.editors[0];
+				//var editor = window.tinyMCE.editors[0];
 
 				/*	Binde Save keys	*/
+				/*
 				window.addEventListener('keydown',function(event){
 					if(String.fromCharCode(event.which).toLowerCase() == 's'){						
 						return changeCallback(editor);	
 					}
-				})				
+				})*/
 
 				/* Bind the editor */				
+				/*
 				editor.on('Change',function(e){
 					return changeCallback(editor);
 				});
+				*/
 				
 
 			});

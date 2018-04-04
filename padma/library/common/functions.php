@@ -376,7 +376,7 @@ function padma_parse_php($content) {
 
 	} else {
 
-		$error = error_get_last();
+		$error 	= error_get_last();
 		$parsed = '<p><strong>Error while parsing PHP:</strong> ' . $error['message'] . '</p>';
 
 	}

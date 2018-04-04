@@ -35,7 +35,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			return;
 		}
 
-		wp_register_script( 'jquery-hoverintent', padma_url() . '/library/design/media/js/jquery.hoverintent.js', array( 'jquery' ) );
+		wp_register_script( 'jquery-hoverintent', padma_url() . '/library/media/js/jquery.hoverintent.js', array( 'jquery' ) );
 
 	}
 

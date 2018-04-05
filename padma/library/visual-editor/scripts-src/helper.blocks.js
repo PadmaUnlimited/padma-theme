@@ -1454,5 +1454,29 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 	}
 
+	updateBlockAnimationClasses = function(block, value) {
+
+		if ( Padma.mode != 'design' )
+			return false;
+
+		if ( typeof block != 'object' ) {
+			block = getBlock($i('.block[data-id="' + block + '"]'));
+		}
+
+		if ( !block.length ) {
+			return false;
+		}
+
+		/* Remove existing custom classes on block */
+		block.removeClass(block.data('custom-classes'));
+
+		/* Add new custom classes */
+		block.data('custom-classes', value);
+		block.addClass('animated');
+		block.addClass(value);
+		return block;
+
+	}
+
 });
 

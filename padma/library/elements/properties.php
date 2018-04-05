@@ -675,9 +675,9 @@ class PadmaElementProperties {
 			),
 
 		/*	Animation	*/
-			'width' => array(
+			'animation' => array(
 				'group' => 'Animation',
-				'name' 	=> 'Animation',
+				'name' 	=> 'CSS Animation',
 				'type' 	=> 'select',
 				'options' => array(
 					// Attention Seekers
@@ -786,10 +786,9 @@ class PadmaElementProperties {
 					'rollOut' 		=> 'rollOut',
 
 				),
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"width": params.value + "px"});',
+				'js-callback' => 'propertyInputCallbackAnimation(params);',
 			),
-	);
-	
+	);	
 	
 	public static function get_property($property) {
 				

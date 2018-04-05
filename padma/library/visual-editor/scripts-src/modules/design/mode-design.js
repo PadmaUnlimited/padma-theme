@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor) {
+define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, colorpicker, blocks) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -1782,10 +1782,36 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 			
 		}
 
+
+		propertyInputCallbackAnimation = function(params) {
+
+			return updateBlockAnimationClasses(block,params.value);
+
+			/*
+			console.log(block);
+			console.log(blocks);
+			console.log(params);
+
+			Usar -> updateBlockAnimationClasses
+
+			this.blocks
+			
+			var selector 	= params.selector;
+			var value 		= params.value;
+			
+			blocks.updateBlockCustomClasses(null,selector,'animated');
+			blocks.updateBlockCustomClasses(null,selector,params.value);
+
+			$(stylesheet.document).find(selector).addClass('animated');
+			$(stylesheet.document).find(selector).addClass(params.value);
+			*/
+		}
+
+
 		propertyInputCallbackFontStyling = function(params) {
 
 			var selector = params.selector;
-			var value = params.value;
+			var value 	= params.value;
 			var element = params.element;
 			
 			if ( value === 'normal' ) {

@@ -26,6 +26,7 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 		changeTitle('Visual Editor: Saving');
 		startTitleActivityIndicator();
 
+
 		/* Do the stuff */
 		$.post(Padma.ajaxURL, {
 			security: Padma.security,

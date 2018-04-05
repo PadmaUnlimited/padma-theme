@@ -571,6 +571,7 @@ class PadmaBlocks {
 		//Get the custom CSS classes and change commas to spaces and remove double spaces and remove HTML
 		$custom_css_classes = str_replace('  ', ' ', str_replace(',', ' ', esc_attr(strip_tags(padma_get('css-classes', $block['settings'], '')))));
 
+
 		$block_classes = array_unique(array_filter(explode(' ', $custom_css_classes)));
 
 		$block_classes[] = 'block';

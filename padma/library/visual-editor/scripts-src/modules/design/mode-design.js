@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, colorpicker, blocks) {
+define(['jquery', 'underscore', 'helper.contentEditor', 'modules/design/animate' ,'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, animate) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -1785,7 +1785,14 @@ define(['jquery', 'underscore', 'helper.contentEditor','deps/colorpicker', 'help
 
 		propertyInputCallbackAnimation = function(params) {
 
-			return updateBlockAnimationClasses(block,params.value);
+			var selector 	= params.selector;
+			var value 		= params.value;
+
+			if ( value == 'bounce' ) {
+				stylesheet.update_rule(selector, {"background-image": 'none'});
+			}
+
+			//return updateBlockAnimationClasses(block,params.value);
 
 			/*
 			console.log(block);

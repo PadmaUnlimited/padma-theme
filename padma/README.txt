@@ -40,17 +40,19 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.19
-* Released: April 4, 2018
+* Released: April 5, 2018
 
 Content editor fixes
 Visual composer support for Content Editor
 PHP 7.0 or higher compatibility check
+Added size properties to Design editor options for wrappers and blocks
 
 
 = 0.0.18
 * Released: April 3, 2018
 
-Code fixes for PHP and Javascript
+Solved 2 bug for navigation block
+Solved 1 bug for footer.
 
 
 = 0.0.17 =

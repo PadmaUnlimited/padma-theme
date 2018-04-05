@@ -6,11 +6,11 @@ class PadmaElementProperties {
 
 		/* Fonts */
 			'font-family' => array(
-				'group' => 'Fonts',
-				'name' => 'Font Family',
-				'type' => 'font-family-select',
-				'js-callback' => 'propertyInputCallbackFontFamily(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_font_family'
+				'group' 			=> 'Fonts',
+				'name' 				=> 'Font Family',
+				'type' 				=> 'font-family-select',
+				'js-callback' 		=> 'propertyInputCallbackFontFamily(params);',
+				'complex-property' 	=> 'PadmaElementProperties::complex_property_font_family'
 			),
 
 			'font-size' => array(
@@ -620,16 +620,59 @@ class PadmaElementProperties {
 		/* Overflow */
 			'overflow' => array(
 				'group' => 'Overflow',
-				'name' => 'Visibility',
-				'type' => 'select',
+				'name' 	=> 'Visibility',
+				'type' 	=> 'select',
 				'options' => array(
 					'visible' => 'Visible',
 					'hidden' => 'Hidden',
 					'scroll' => 'Scroll',
 				),
 				'js-callback' => 'stylesheet.update_rule(params.selector, {"overflow": params.value});',
-			)
+			),
 
+		/*	Sizes	*/
+			'width' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Width',
+				'type' 	=> 'integer',
+				'unit' 	=> 'px',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"width": params.value + "px"});',
+			),
+			'min-width' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Min width',
+				'type' 	=> 'integer',
+				'unit' 	=> 'px',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"min-width": params.value + "px"});',
+			),
+			'max-width' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Max width',
+				'type' 	=> 'integer',
+				'unit' 	=> 'px',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-width": params.value + "px"});',
+			),
+			'height' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Height',
+				'type' 	=> 'integer',
+				'unit' 	=> 'px',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"height": params.value + "px"});',
+			),
+			'min-height' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Min-height',
+				'type' 	=> 'integer',
+				'unit' 	=> 'px',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"min-height": params.value + "px"});',
+			),
+			'max-height' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Max-height',
+				'type' 	=> 'integer',
+				'unit' 	=> 'px',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-height": params.value + "px"});',
+			),
 	);
 	
 	

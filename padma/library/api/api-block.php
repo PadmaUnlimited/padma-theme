@@ -94,11 +94,11 @@ abstract class PadmaBlockAPI {
 	public function setup_main_block_element() {
 		
 		PadmaElementAPI::register_element(array(
-			'group' => 'blocks',
-			'id' => 'block-' . $this->id,
-			'name' => $this->name,
-			'selector' => '.block-type-' . $this->id,
-			'properties' => array('background', 'borders', 'fonts', 'padding', 'corners', 'box-shadow', 'overflow'),
+			'group' 		=> 'blocks',
+			'id' 			=> 'block-' . $this->id,
+			'name' 			=> $this->name,
+			'selector' 		=> '.block-type-' . $this->id,
+			'properties' 	=> array('background', 'borders', 'fonts', 'padding', 'corners', 'box-shadow', 'overflow', 'sizes'),
 		));
 
 		if ( $this->allow_titles ) {

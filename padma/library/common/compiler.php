@@ -253,10 +253,6 @@ class PadmaCompiler {
 
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
-		if($file == 'general'){
-			debug(PadmaOption::$current_skin);
-			debug($cache[$file]);			
-		}
 
 		//File does not exist
 		if ( !isset($cache[$file]))
@@ -284,7 +280,9 @@ class PadmaCompiler {
 	 * @param string
 	 **/
 	public static function combine_fragments($file) {
-				
+		
+		debug($file);
+		
 		extract($file);		
 
 		$num_fragments = (int)count($fragments);

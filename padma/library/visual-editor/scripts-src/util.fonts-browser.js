@@ -11,6 +11,7 @@ if(typeof options.noResults==="string"&&options.noResults!=="")jq_results=jq_res
 options.delay);return this};this.cache();this.results(true);this.stripe();this.loader(false);return this.each(function(){$(this).bind(options.bind,function(){val=$(this).val();e.trigger()})})}})(jQuery,this,document);
 
 
+
 /* Fonts input object */
 	function fontBrowserObj(browser) {
 
@@ -209,12 +210,47 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 					_.each(fontsToLoad, function(fontToLoad) {
 
+						
+						// Font name
 						var fontNode = fontList.find('li[data-value="' + fontToLoad + '"]');
 						fontNode.data('loadedFont', true);
+						
 
-						googleFontsQueryString += fontToLoad.replace(' ', '+') + '|';
+						googleFontsQueryString += fontToLoad.replace(' ', '+');
+						
+						var variants = fontNode.data('variants');
+						if(variants != undefined){
+							if(variants.length > 0){
+							
+								googleFontsQueryString += ':';
+								
+								// Font variants
+								variantsQueryString = '';
+								for (var i = 0; i < variants.length; i++) {
+									
+									var variantName = variants[i];									
+										variantName = variantName.replace('100italic','100i');
+										variantName = variantName.replace('200italic','200i');
+										variantName = variantName.replace('300italic','300i');
+										variantName = variantName.replace('400italic','400i');
+										variantName = variantName.replace('500italic','500i');
+										variantName = variantName.replace('600italic','600i');
+										variantName = variantName.replace('700italic','700i');
+										variantName = variantName.replace('800italic','800i');
+										variantName = variantName.replace('900italic','900i');
+										variantName = variantName.replace('italic','400i');
+										variantName = variantName.replace('regular','400');
 
+									variantsQueryString +=  variantName + ',';
+								}
+								variantsQueryString = variantsQueryString.substr(0, variantsQueryString.length-1);
+							}
+							googleFontsQueryString += variantsQueryString + '|';
+						}else{
+							googleFontsQueryString += '|';
+						}
 					});
+					console.log(googleFontsQueryString);
 
 
 					if(googleFontsQueryString.substr(0, googleFontsQueryString.length-1) !== 'undefined'){
@@ -581,12 +617,11 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 		if ( !font.match(/\|/g) )
 			return;
 
-		var fragments = font.split('|');
-		var fontOriginal = font;
-
-		var provider = fragments[0];
-		var font = fragments[1];
-		var variants = '';
+		var fragments 		= font.split('|');
+		var fontOriginal 	= font;
+		var provider 		= fragments[0];
+		var font 			= fragments[1];
+		var variants 		= '';
 
 		if ( typeof fragments[2] != 'undefined' && fragments[2] )
 			var variants = ':' + fragments[2];

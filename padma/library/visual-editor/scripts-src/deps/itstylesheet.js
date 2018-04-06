@@ -134,7 +134,7 @@ function ITStylesheet(args, action) {
 		
 		for(property in declarations)
 			style += property + ':' + declarations[property] + '; ';
-		
+
 		return style;
 	}
 	
@@ -287,6 +287,7 @@ function ITStylesheet(args, action) {
 			return false;
 		
 		var index = this.get_rule_index(selector);
+
 		
 		if((false === index) || ('undefined' === typeof this.rules[index]))
 			return false;
@@ -299,13 +300,14 @@ function ITStylesheet(args, action) {
 	}
 	
 	this.update_rule = function(selectors_raw, declarations, split_selectors) {		
+
 		if(('undefined' === typeof this.rules) || ('undefined' === typeof selectors_raw))
 			return false;
 		if('undefined' === typeof declarations )
 			declarations = {};
 		if('undefined' === typeof split_selectors)
 			split_selectors = false;
-		
+
 		if(split_selectors){
 			var selectors = selectors_raw.split(',');
 		} else {
@@ -321,10 +323,10 @@ function ITStylesheet(args, action) {
 				continue;
 			
 			var rule = this.get_rule(selector);
-			
 			try {
 				if(false === rule) {
 					var rule_index = this.rules.length;
+
 					string_declarations = ('string' === typeof declarations) ? declarations : this._get_style_from_declarations(declarations);
 					
 					if(this.stylesheet.addRule)
@@ -347,7 +349,7 @@ function ITStylesheet(args, action) {
 			}
 			catch(error) {}
 		}
-		
+
 		return rules;
 	}
 	

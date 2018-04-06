@@ -2,9 +2,8 @@
 class PadmaElementAPI {
 	
 		
-	public static $elements = array();
-	
-	public static $groups = array();
+	public static $elements = array();	
+	public static $groups 	= array();
 		
 	
 	public static function init() {

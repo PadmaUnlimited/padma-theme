@@ -75,13 +75,13 @@ class PadmaWebFontsLoader {
 
 	public static function cache() {
 
-		$raw_webfonts = self::pluck_webfonts(PadmaElementsData::get_all_elements());
-		$sorted_webfonts = array();
+		$raw_webfonts 		= self::pluck_webfonts(PadmaElementsData::get_all_elements());
+		$sorted_webfonts 	= array();
+
 
 		foreach ( $raw_webfonts as $webfont ) {
 
 			$fragments = explode('|', $webfont);
-
 			$sorted_webfonts[$fragments[0]][] = !empty($fragments[2]) ? $fragments[1] . ':' . $fragments[2] : $fragments[1]; /* $fragments[2] are the variants */
 			$sorted_webfonts[$fragments[0]] = array_unique($sorted_webfonts[$fragments[0]]);
 

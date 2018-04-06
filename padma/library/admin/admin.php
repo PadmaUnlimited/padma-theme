@@ -38,6 +38,7 @@ class PadmaAdmin {
 
         add_action('wp_ajax_padma_dismiss_admin_notice', array(__CLASS__, 'ajax_dismiss_admin_notice'));
         add_action('wp_ajax_padma_enable_responsive_grid', array(__CLASS__, 'ajax_enable_responsive_grid'));
+        add_action('wp_ajax_padma_enqueue_animation_css', array(__CLASS__, 'ajax_enqueue_animation_css'));
 
 		add_filter('page_row_actions', array(__CLASS__, 'row_action_visual_editor'), 10, 2);
 		add_filter('post_row_actions', array(__CLASS__, 'row_action_visual_editor'), 10, 2);
@@ -631,10 +632,9 @@ class PadmaAdmin {
 
     public static function ajax_dismiss_admin_notice() {
 
-        $notice_to_dismiss = padma_post('notice-to-dismiss');
-
-        $dismissed_notices = PadmaOption::get('dismissed-notices', false, array());
-        $dismissed_notices[] = $notice_to_dismiss;
+        $notice_to_dismiss 		= padma_post('notice-to-dismiss');
+        $dismissed_notices 		= PadmaOption::get('dismissed-notices', false, array());
+        $dismissed_notices[] 	= $notice_to_dismiss;
 
         return PadmaOption::set('dismissed-notices', array_unique($dismissed_notices));
 
@@ -644,6 +644,70 @@ class PadmaAdmin {
     public static function ajax_enable_responsive_grid() {
 
         return PadmaSkinOption::set('enable-responsive-grid', true);
+
+    }
+
+
+    /*
+		CSS Animations
+    */
+    public static function ajax_enqueue_animation_css(){
+
+    	$animation = padma_post('animation');
+    	PadmaCompiler::register_file(array(
+			'name' 			=> 'animation',
+			'format' 		=> 'css',
+			'fragments' 	=> array(
+				'animationcss'	=> PADMA_LIBRARY_DIR . '/media/css/animation/animate.css'
+			),
+		));
+
+    	/*
+    	switch ($animation) {
+    		case 'bounce':
+    			$url = 
+    			break;
+    		
+    		default:
+    			# code...
+    			break;
+    	}
+    	$defaults = array(
+			'name' => null,
+			'format' => null,
+			'fragments' => array(),
+			'dependencies' => array(),
+			'footer-js' => true,
+			'enqueue' => true,
+			'iframe-cache' => false,
+			'output-inline' => false
+		);
+
+		PadmaCompiler::register_file(array(
+				'name' => $script_name,
+				'format' => 'js',
+				'fragments' => array(
+					array('PadmaBlocks', 'output_block_dynamic_js')
+				),
+				'enqueue' => false
+			));
+		*/
+		
+	/*
+		$animationCSS["animation"] = PADMA_LIBRARY_DIR . '/media/css/animation/animate.css';
+		
+    	$status = PadmaCompiler::register_file(array(
+			'name' 			=> 'animation',
+			'format' 		=> 'css',
+			'fragments' 	=> $animationCSS,
+			//'output-inline'	=> true,
+			'enqueue'		=> false,
+			//'footer-js'		=> false,
+		));
+
+		debug($status);
+		return $status;
+		*/
 
     }
 

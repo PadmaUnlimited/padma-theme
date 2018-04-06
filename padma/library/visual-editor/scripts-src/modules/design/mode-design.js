@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'helper.contentEditor', 'modules/design/animate' ,'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, animate) {
+define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -556,8 +556,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'modules/design/animate'
 							/* Font families */
 							} else if ( propertyObject['type'] == 'font-family-select' ) {
 
-								var fontFragments = propertyValue.split('|');
-								var isWebFont = (_.first(fontFragments) == 'google') ? true : false;
+								var fontFragments 	= propertyValue.split('|');
+								var isWebFont 		= (_.first(fontFragments) == 'google') ? true : false;
 
 								if ( isWebFont ) {
 									var fontName = fontFragments[1];
@@ -1785,12 +1785,44 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'modules/design/animate'
 
 		propertyInputCallbackAnimation = function(params) {
 
+			var animation 	= params.value;
+			var selector 	= params.selector;
+			
+			stylesheet.update_rule(selector, {'animation-name': animation});
+
+			return $.post(Padma.ajaxURL, {
+				security: Padma.security,
+				action: 'padma_enqueue_animation_css',
+				'animation': animation
+			});
+
+			/*
+
 			var selector 	= params.selector;
 			var value 		= params.value;
 
 			if ( value == 'bounce' ) {
-				stylesheet.update_rule(selector, {"background-image": 'none'});
+
+				var animationRules = animate.bounce();								
 			}
+
+			if(animationRules != undefined){
+
+
+
+				for (var i = animationRules.length - 1; i >= 0; i--) {
+					var rule 	= {};
+					var k 		= animationRules[i][0];
+					var v 		= animationRules[i][1];
+					rule[k] 	= v;
+					stylesheet.update_rule(selector, rule );
+				}
+				
+			}
+			*/
+
+
+			
 
 			//return updateBlockAnimationClasses(block,params.value);
 

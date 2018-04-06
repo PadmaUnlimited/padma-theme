@@ -3,22 +3,18 @@ padma_register_block('PadmaSliderBlock', padma_url() . '/library/blocks/slider')
 class PadmaSliderBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'slider';
-	
-	public $name = 'Slider';
-		
-	public $options_class = 'PadmaSliderBlockOptions';
-	
-	public $fixed_height = false;
-
-	public $description = 'Create effective responsive image slideshows.';
+	public $id 				= 'slider';	
+	public $name 			= 'Slider';		
+	public $options_class 	= 'PadmaSliderBlockOptions';	
+	public $fixed_height 	= false;
+	public $description 	= 'Create effective responsive image slideshows.';
 	
 	
 	public static function enqueue_action($block_id, $block) {
 
 		$images = parent::get_setting($block, 'images', array());
 
-		wp_enqueue_style('flexslider', padma_url() . '/library/blocks/slider/assets/flexslider.css');	
+		wp_enqueue_style('flexslider', padma_url() . '/library/blocks/slider/assets/flexslider.css');
 
 		//If there are no images or only 1 image, do not load FlexSlider JS.
 		if ( count($images) <= 1 )

@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en" style="background: #eee;">
-
 <head>
 	
 	<meta charset="<?php bloginfo('charset'); ?>" />
@@ -11,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	
 	<title>Visual Editor: Loading</title>
+	<link rel="shortcut icon" type="image/png" href="<?php echo padma_url() . "/library/visual-editor/images/logo.png"; ?>"/>
 	
 	<?php do_action('padma_visual_editor_head'); ?>
 

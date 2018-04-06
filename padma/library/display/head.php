@@ -103,6 +103,10 @@ class PadmaHead {
 					$general_css_fragments['alerts.css'] = PADMA_LIBRARY_DIR . '/media/css/alerts.css';
 					
 				}
+			/*	Animation CSS */
+				if ( current_theme_supports('padma-animation-css') ){
+					$general_css_fragments['animate.css'] = PADMA_LIBRARY_DIR . '/media/css/animation/animate.css';
+				}
 
 			/* Block heights */
 				$general_css_fragments['dynamic-block-heights'] = array('PadmaDynamicStyle', 'block_heights');
@@ -129,10 +133,10 @@ class PadmaHead {
 			if ( !PadmaRoute::is_visual_editor_iframe('design') || !current_theme_supports('padma-design-editor') ) {
 
 				PadmaCompiler::register_file(array(
-					'name' => 'general',
-					'format' => 'css',
-					'fragments' => $general_css_fragments,
-					'dependencies' => $general_css_dependencies
+					'name' 			=> 'general',
+					'format' 		=> 'css',
+					'fragments' 	=> $general_css_fragments,
+					'dependencies' 	=> $general_css_dependencies
 				));
 
 			/* Handle design editor requests by stripping out the design editor fragment and separating it for better skin importing */

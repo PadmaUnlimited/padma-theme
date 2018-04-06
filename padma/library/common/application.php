@@ -210,6 +210,7 @@ class Padma {
 		add_theme_support( 'padma-block-basics-css' );
 		add_theme_support( 'padma-dynamic-block-css' );
 		add_theme_support( 'padma-content-styling-css' );
+		add_theme_support( 'padma-animation-css' );
 
 		/* WordPress Functionality */
 		add_theme_support( 'html5', array( 'caption' ) );

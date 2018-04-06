@@ -427,10 +427,9 @@ class PadmaBlocks {
 			if ( is_admin() || PadmaRoute::is_visual_editor() )
 				return false;
 
-			$current_layout_in_use = PadmaLayout::get_current_in_use();
-			$script_name = str_replace(PadmaLayout::$sep, '-', 'block-dynamic-js-layout-' . PadmaLayout::get_current_in_use());
-			
-			$block_actions = self::get_blocks_for_dynamic_asset('js', $current_layout_in_use);
+			$current_layout_in_use 	= PadmaLayout::get_current_in_use();
+			$script_name 			= str_replace(PadmaLayout::$sep, '-', 'block-dynamic-js-layout-' . PadmaLayout::get_current_in_use());			
+			$block_actions 			= self::get_blocks_for_dynamic_asset('js', $current_layout_in_use);
 
 			if ( empty($block_actions) )
 				return;

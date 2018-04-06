@@ -675,7 +675,6 @@ class PadmaElementProperties {
 			),
 
 		/*	Animation	*/
-		/*
 			'animation' => array(
 				'group' => 'Animation',
 				'name' 	=> 'CSS Animation',
@@ -789,7 +788,6 @@ class PadmaElementProperties {
 				),
 				'js-callback' => 'propertyInputCallbackAnimation(params);',
 			),
-		*/
 	);	
 	
 	public static function get_property($property) {

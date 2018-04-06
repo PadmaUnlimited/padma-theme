@@ -58,8 +58,8 @@ class PadmaCompiler {
 		if ( is_ssl() )
 			$args['name'] = $args['name'] . '-https';
 
-		$args['fragments'] = array_map('padma_change_to_unix_path', $args['fragments']);
-		$args['dependencies'] = array_map('padma_change_to_unix_path', $args['dependencies']);
+		$args['fragments'] 		= array_map('padma_change_to_unix_path', $args['fragments']);
+		$args['dependencies'] 	= array_map('padma_change_to_unix_path', $args['dependencies']);
 
 		if ( !in_array($args['format'], self::$accepted_formats) )
 			wp_die('<strong>' . $args['format'] .'</strong> is not an accepted filetype for the PadmaCompiler class.');
@@ -73,11 +73,11 @@ class PadmaCompiler {
 		/* If file is not registered or fragments are not the same, add it to the DB. */
 			if ( $already_cached != $args ) {
 				
-				$cache[$args['name']] = $args;
+				$cache[$args['name']] 				= $args;
+				$cache[$args['name']]['filename'] 	= null;
+				$cache[$args['name']]['hash'] 		= null;
 
-				$cache[$args['name']]['filename'] = null;
-				$cache[$args['name']]['hash'] = null;
-
+				debug($cache);
 				//Update cache option
 				if ( !set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache) )
 					return false;
@@ -88,6 +88,7 @@ class PadmaCompiler {
 			if ( $args['output-inline'] && $args['format'] != 'js' ) {
 
 				return add_action('wp_print_styles', create_function('', 'return PadmaCompiler::output_inline(\'' . $args['name'] . '\');'));
+
 
 			} else if ( $args['enqueue'] ) {
 
@@ -101,7 +102,7 @@ class PadmaCompiler {
 
 
 	public static function output_inline($file) {
-
+		
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		if ( !isset($cache[$file]) )
@@ -251,6 +252,11 @@ class PadmaCompiler {
 			return false;
 
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
+
+		if($file == 'general'){
+			debug(PadmaOption::$current_skin);
+			debug($cache[$file]);			
+		}
 
 		//File does not exist
 		if ( !isset($cache[$file]))

@@ -114,10 +114,10 @@ abstract class PadmaWebFontProvider {
 
 		return array(
 			array(
-				'id' => 'font-family',
-				'name' => 'Font Family',
-				'stack' => 'font family',
-				'variants' => 'variants',
+				'id' 		=> 'font-family',
+				'name' 		=> 'Font Family',
+				'stack' 	=> 'font family',
+				'variants' 	=> 'variants',
 			)
 		);
 
@@ -129,9 +129,9 @@ abstract class PadmaWebFontProvider {
 
 		$fonts = get_transient($this->transient_id, array());
 
-		if ( !$fonts || !is_array($fonts) || empty($fonts) ) {
+		if (!$fonts || !is_array($fonts) || empty($fonts) ) {
 
-     		$fonts[$sortby] = $this->query_fonts($sortby);
+     		$fonts[$sortby] 	= $this->query_fonts($sortby);
 
 
      		/* Only set the transient if the fonts are returned properly and there's no error */
@@ -185,14 +185,19 @@ abstract class PadmaWebFontProvider {
 			$html = '<li data-value="' . $font['id'] . '" style="font-family:' . $font['stack'] . ';" data-variants="[';
 
 			if(is_array($font['variants'])){
+				
+				
+
+				$variants = '';
 				foreach ($font['variants'] as $key => $value) {
 					$variants .= '&quot;' . $value . '&quot;,';
 				}
 
-				$variants = rtrim($variants,',');				
+				$variants = rtrim($variants,',');
 			}
-			$html .= $variants;
+			
 
+			$html .= $variants;
 			$html .= ']">
 					<span class="font-family">' . $font['name'] . '</span> 
 					<span class="font-preview-text">The quick brown fox jumps over the lazy dog.</span> 
@@ -200,7 +205,7 @@ abstract class PadmaWebFontProvider {
 					<span title="Use Font" class="use-font action"></span>
 					<span title="Preview Font" class="preview-font action"></span>
 				</li>';
-
+			
 			echo $html;
 
 		}

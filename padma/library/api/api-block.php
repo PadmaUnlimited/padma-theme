@@ -98,8 +98,8 @@ abstract class PadmaBlockAPI {
 			'id' 			=> 'block-' . $this->id,
 			'name' 			=> $this->name,
 			'selector' 		=> '.block-type-' . $this->id,
-			//'properties' 	=> array('background', 'borders', 'fonts', 'padding', 'corners', 'box-shadow', 'overflow', 'sizes', 'animation'),
-			'properties' 	=> array('background', 'borders', 'fonts', 'padding', 'corners', 'box-shadow', 'overflow', 'sizes'),
+			'properties' 	=> array('background', 'borders', 'fonts', 'padding', 'corners', 'box-shadow', 'overflow', 'sizes', 'animation'),
+			//'properties' 	=> array('background', 'borders', 'fonts', 'padding', 'corners', 'box-shadow', 'overflow', 'sizes'),
 		));
 
 		if ( $this->allow_titles ) {

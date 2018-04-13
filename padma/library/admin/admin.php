@@ -38,7 +38,6 @@ class PadmaAdmin {
 
         add_action('wp_ajax_padma_dismiss_admin_notice', array(__CLASS__, 'ajax_dismiss_admin_notice'));
         add_action('wp_ajax_padma_enable_responsive_grid', array(__CLASS__, 'ajax_enable_responsive_grid'));
-        add_action('wp_ajax_padma_enqueue_animation_css', array(__CLASS__, 'ajax_enqueue_animation_css'));
 
 		add_filter('page_row_actions', array(__CLASS__, 'row_action_visual_editor'), 10, 2);
 		add_filter('post_row_actions', array(__CLASS__, 'row_action_visual_editor'), 10, 2);

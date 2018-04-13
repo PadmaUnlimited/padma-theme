@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.19
-* Released: April 6, 2018
+* Released: April 13, 2018
 
 Content editor fixes
 Visual composer support for Content Editor
@@ -49,7 +49,7 @@ PHP 7.0 or higher compatibility check
 Added size properties to Design editor options for wrappers and blocks
 Google Web Fonts Variant fixed
 Vertical navigation block, current option indicator
-
+Native CSS Animations added to Design mode
 
 
 = 0.0.18

@@ -30,21 +30,21 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 			'id' => 'copyright',
 			'name' => 'Copyright',
 			'selector' => 'p.copyright',
-			'properties' => array('fonts')
+			'properties' => array('fonts', 'animation')
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'padma-attribution',
 			'name' => 'Padma Attribution',
 			'selector' => 'p.footer-padma-link',
-			'properties' => array('fonts')
+			'properties' => array('fonts', 'animation')
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'administration-panel',
 			'name' => 'Administration Panel',
 			'selector' => 'a.footer-admin-link',
-			'properties' => array('fonts')
+			'properties' => array('fonts', 'animation')
 		));
 		
 		$this->register_block_element(array(
@@ -60,7 +60,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 			'id' => 'responsive-grid-link',
 			'name' => 'Responsive Grid Toggle Link',
 			'selector' => 'a.footer-responsive-grid-link',
-			'properties' => array('fonts')
+			'properties' => array('fonts', 'animation')
 		));
 		
 	}

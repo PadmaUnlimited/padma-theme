@@ -104,8 +104,8 @@ class PadmaHead {
 					
 				}
 			/*	Animation CSS */
-				if ( current_theme_supports('padma-animation-css') ){
-					$general_css_fragments['animate.css'] = PADMA_LIBRARY_DIR . '/media/css/animation/animate.css';
+				if ( current_theme_supports('padma-animation-css') ){					
+					$general_css_fragments['animate.css'] = PADMA_LIBRARY_DIR . '/media/css/animation/animate.min.css';
 				}
 
 			/* Block heights */

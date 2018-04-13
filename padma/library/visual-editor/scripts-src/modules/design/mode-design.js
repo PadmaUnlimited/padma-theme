@@ -1787,8 +1787,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 
 			var animation 	= params.value;
 			var selector 	= params.selector;
-			
 			stylesheet.update_rule(selector, {'animation-name': animation});
+			stylesheet.update_rule(selector, {'animation-duration': '1s'});
+			stylesheet.update_rule(selector, {'animation-fill-mode': 'both'});
 
 			return $.post(Padma.ajaxURL, {
 				security: Padma.security,

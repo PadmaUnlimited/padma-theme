@@ -140,7 +140,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'id' => 'entry-container-hentry',
 			'name' => 'Entry Container',
 			'selector' => '.hentry',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation')
 		));
 
 			$this->register_block_element(array(
@@ -190,7 +190,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'id' => 'entry-content-hyperlinks',
 			'name' => 'Body Hyperlinks',
 			'selector' => 'div.entry-content a',
-			'properties' => array('fonts'),
+			'properties' => array('fonts', 'animation'),
 			'states' => array(
 				'Hover' => 'div.entry-content a:hover', 
 				'Clicked' => 'div.entry-content a:active'
@@ -201,14 +201,14 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'id' => 'entry-content-images',
 			'name' => 'Images',
 			'selector' => 'div.entry-content img',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation')
 		));
 
 		$this->register_block_element( array(
 			'id'         => 'entry-content-image-captions',
 			'name'       => 'Image Captions',
 			'selector'   => 'div.entry-content .wp-caption',
-			'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow' )
+			'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation' )
 		) );
 
 			$this->register_block_element( array(
@@ -216,7 +216,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'parent'   => 'entry-content-image-captions',
 				'name'     => 'Images in Captions',
 				'selector' => 'div.entry-content .wp-caption img',
-				'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow' )
+				'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation' )
 			) );
 
 			$this->register_block_element( array(
@@ -255,7 +255,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => 'Meta Hyperlinks',
 				'selector' => 'div.entry-meta a, footer.entry-meta a',
 				'parent' => 'entry-meta',
-				'properties' => array('fonts'),
+				'properties' => array('fonts', 'animation'),
 				'states' => array(
 				'Hover' => 'div.entry-meta a:hover, footer.entry-meta a:hover', 
 				'Clicked' => 'div.entry-meta a:active, footer.entry-meta a:active'
@@ -330,7 +330,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'name' => 'Unordered Lists',
 			'description' => '&lt;UL&gt;',
 			'selector' => 'div.entry-content ul',
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow'),
+			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
 		));
 
 			$this->register_block_element(array(
@@ -338,7 +338,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => 'Unordered List Items',
 				'description' => '&lt;LI&gt;',
 				'selector' => 'div.entry-content ul li',
-				'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow'),
+				'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
 			));
 
 			$this->register_block_element(array(
@@ -346,7 +346,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'name' => 'Ordered Lists',
 			'description' => '&lt;OL&gt;',
 			'selector' => 'div.entry-content ol',
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow'),
+			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
 		));
 
 			$this->register_block_element(array(
@@ -354,14 +354,14 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => 'Ordered List Items',
 				'description' => '&lt;LI&gt;',
 				'selector' => 'div.entry-content ol li',
-				'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow'),
+				'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
 			));
 
 		$this->register_block_element(array(
 			'id' => 'post-thumbnail',
 			'name' => 'Featured Image',
 			'selector' => '.block-type-content a.post-thumbnail img',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation')
 		));
 		
 		$this->register_block_element(array(
@@ -409,7 +409,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'id' => 'comment-container',
 			'name' => 'Comment Container',
 			'selector' => 'li.comment',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow'),
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
 			'parent' => 'comments-wrapper'
 		));
 

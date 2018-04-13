@@ -77,7 +77,7 @@ class PadmaCompiler {
 				$cache[$args['name']]['filename'] 	= null;
 				$cache[$args['name']]['hash'] 		= null;
 
-				debug($cache);
+				//debug($cache);
 				//Update cache option
 				if ( !set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache) )
 					return false;
@@ -281,8 +281,8 @@ class PadmaCompiler {
 	 **/
 	public static function combine_fragments($file) {
 		
-		debug($file);
-		
+		//debug($file);
+
 		extract($file);		
 
 		$num_fragments = (int)count($fragments);

@@ -675,8 +675,8 @@ class PadmaElementProperties {
 			),
 
 		/*	Animation	*/
-			/*
-			'animation' => array(
+			
+			'animation-name' => array(
 				'group' => 'Animation',
 				'name' 	=> 'CSS Animation',
 				'type' 	=> 'select',
@@ -789,7 +789,33 @@ class PadmaElementProperties {
 				),
 				'js-callback' => 'propertyInputCallbackAnimation(params);',
 			),
-			*/
+
+			'animation-iteration-count' => array(
+				'group' => 'Animation',
+				'name' 	=> 'Animation loop',
+				'type' 	=> 'select',
+				'options' => array(
+					'infinite' 	=> 'Infinite loop',
+					'initial' 	=> 'Run once',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"animation-iteration-count": params.value});',
+			),
+
+			'animation-duration' => array(
+				'group' => 'Animation',
+				'name' 	=> 'Duration',
+				'type' 	=> 'select',
+				'options' => array(
+					'500ms' => '500ms',
+					'1s' 	=> '1 second',
+					'2s' 	=> '2 seconds',
+					'3s' 	=> '3 seconds',
+					'4s' 	=> '4 seconds',
+					'5s' 	=> '5 seconds',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"animation-duration": params.value});',
+			),
+			
 	);	
 	
 	public static function get_property($property) {

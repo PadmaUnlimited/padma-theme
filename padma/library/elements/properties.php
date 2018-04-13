@@ -796,7 +796,10 @@ class PadmaElementProperties {
 				'type' 	=> 'select',
 				'options' => array(
 					'infinite' 	=> 'Infinite loop',
-					'initial' 	=> 'Run once',
+					'1' 		=> 'Run once',
+					'2' 		=> 'Twice',
+					'3' 		=> '3 Times',
+					'4' 		=> '4 Times',
 				),
 				'js-callback' => 'stylesheet.update_rule(selector, {"animation-iteration-count": params.value});',
 			),

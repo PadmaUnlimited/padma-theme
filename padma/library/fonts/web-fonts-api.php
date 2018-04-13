@@ -9,19 +9,12 @@ function padma_register_web_font_provider($class) {
 abstract class PadmaWebFontProvider {
 
 
-	public $id = null;
-
-	public $name = null;
-
-
-	public $search = true;
-
-	public $sorting_options = array();
-
-
-	public $webfont_provider = false;
-
-	public $load_with_ajax = false;
+	public $id 					= null;
+	public $name 				= null;
+	public $search 				= true;
+	public $sorting_options 	= array();
+	public $webfont_provider 	= false;
+	public $load_with_ajax 		= false;
 
 
 	protected $transient_id;
@@ -54,10 +47,10 @@ abstract class PadmaWebFontProvider {
 	public function content() {
 
 		$attrs = array(
-			'search' => $this->search ? 'true' : 'false',
-			'sorting' => (is_array($this->sorting_options) && !empty($this->sorting_options)) ? 'true' : 'false',
-			'provider' => $this->webfont_provider ? $this->webfont_provider : 'false',
-			'ajax' => $this->load_with_ajax ? 'true' : 'false'
+			'search' 	=> $this->search ? 'true' : 'false',
+			'sorting' 	=> (is_array($this->sorting_options) && !empty($this->sorting_options)) ? 'true' : 'false',
+			'provider' 	=> $this->webfont_provider ? $this->webfont_provider : 'false',
+			'ajax' 		=> $this->load_with_ajax ? 'true' : 'false'
 		);
 
 		echo '<div id="' . $this->id . '-fonts" class="tab-content font-provider-tab-content" data-font-allow-search="' . $attrs['search'] . '" data-font-allow-sorting="' . $attrs['sorting'] . '" data-font-webfont-provider="' . $attrs['provider'] . '" data-font-load-with-ajax="' . $attrs['ajax'] . '">';
@@ -131,21 +124,27 @@ abstract class PadmaWebFontProvider {
 
 		if (!$fonts || !is_array($fonts) || empty($fonts) ) {
 
-     		$fonts[$sortby] 	= $this->query_fonts($sortby);
-
+     		$fonts[$sortby] 	= $this->query_fonts($sortby);     		
 
      		/* Only set the transient if the fonts are returned properly and there's no error */
-     		if ( !empty($fonts) && empty($fonts[$sortby]['error']) )
+     		if ( !empty($fonts) && empty($fonts[$sortby]['error']) ){				
 				set_transient($this->transient_id, $fonts, 60 * 60 * 24);
+     		}
 
 		}
 
 		/* If there's an error, delete the transient */
-		if ( !empty($fonts[$sortby]['error']) || empty($fonts[$sortby]) || is_wp_error($fonts[$sortby]) )
+		if ( !empty($fonts[$sortby]['error']) || empty($fonts[$sortby]) || is_wp_error($fonts[$sortby]) ){
 			$this->reset_transients();
+		}
 
 		return isset($fonts[$sortby]) ? $fonts[$sortby] : null;
 
+	}
+
+	public function retrieve_font_variant($font){
+		$fonts = get_transient($this->transient_id, array());
+		debug($fonts);
 	}
 
 

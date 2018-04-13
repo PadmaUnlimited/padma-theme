@@ -148,11 +148,11 @@ class PadmaVisualEditor {
 		if ( !$mode )
 			$mode = padma_post('mode');
 
-		$blocks = isset($options['blocks']) ? $options['blocks'] : null;
-		$wrappers = isset($options['wrappers']) ? $options['wrappers'] : null;
-		$layout_options = isset($options['layout-options']) ? $options['layout-options'] : null;
-		$options_inputs = isset($options['options']) ? $options['options'] : null;
-		$design_editor_inputs = isset($options['design-editor']) ? $options['design-editor'] : null;
+		$blocks 				= isset($options['blocks']) ? $options['blocks'] : null;
+		$wrappers 				= isset($options['wrappers']) ? $options['wrappers'] : null;
+		$layout_options 		= isset($options['layout-options']) ? $options['layout-options'] : null;
+		$options_inputs 		= isset($options['options']) ? $options['options'] : null;
+		$design_editor_inputs 	= isset($options['design-editor']) ? $options['design-editor'] : null;
 
 		try {
 
@@ -498,6 +498,8 @@ class PadmaVisualEditor {
 
 							//Set each property for the regular element
 							foreach ( $element_data_node_data as $property_id => $property_value ) {
+
+
 								PadmaElementsData::set_property( null, $element_id, $property_id, $property_value );
 
 								if ( padma_get( 'js-property', $design_editor_properties[ $property_id ] ) ) {

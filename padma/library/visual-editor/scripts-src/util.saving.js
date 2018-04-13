@@ -12,10 +12,9 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 			return false;
 		}
 	
-		currentlySaving = true;
-		
-		savedTitle = $('title').text();
-		saveButton = $('span#save-button');
+		currentlySaving = true;		
+		savedTitle 		= $('title').text();
+		saveButton 		= $('span#save-button');
 	
 		saveButton
 			.text('Saving...')

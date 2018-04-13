@@ -363,7 +363,7 @@ define(['underscore'], function(_) {
 	dataHandleDesignEditorInput = function(args) {
 
 		var hiddenInput = $(args.hiddenInput);
-		var value = args.value;
+		var value 		= args.value;
 
 		if ( !hiddenInput.length )
 			return false;
@@ -430,11 +430,11 @@ define(['underscore'], function(_) {
 	dataDesignEditorPropertyFeedback = function(args) {
 
 		/* Set up variables */
-		var element = args.element.toLowerCase();
-		var property = args.property.toLowerCase();
-		var value = args.value;
-		var specialElementType = args.specialElementType || false;
-		var specialElementMeta = args.specialElementMeta || false;
+		var element 			= args.element.toLowerCase();
+		var property 			= args.property.toLowerCase();
+		var value 				= args.value;
+		var specialElementType 	= args.specialElementType || false;
+		var specialElementMeta 	= args.specialElementMeta || false;
 		var selector;
 
 		if ( value === 'null' || value == 'DELETE' ) {

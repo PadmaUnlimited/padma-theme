@@ -27,7 +27,6 @@ class PadmaGoogleFonts extends PadmaWebFontProvider {
 		$url 			= $this->api_url . '/' . $sortby;
 		$fonts_query 	= wp_remote_get($url);
 
-
 		if ( is_wp_error($fonts_query) ) {
 			return;
 		}

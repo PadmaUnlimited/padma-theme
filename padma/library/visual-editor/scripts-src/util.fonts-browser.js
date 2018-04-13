@@ -41,23 +41,20 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 				fontsList.delegate('.use-font', 'click', function() {
 
-					var li = $(this).parents('li').first();
-
+					var li 					= $(this).parents('li').first();
 					/* Determine value to save to DB */
-					var webfontProvider = $(this).parents('.tab-content').data('font-webfont-provider');
-					var fontID = li.data('value');
-
-					var fontName = $(this).siblings('.font-family').text();
-					var fontFamily = li.css('font-family');
-					var fontVariants = li.data('variants');
-
-					var variantsStr = '';
+					var webfontProvider 	= $(this).parents('.tab-content').data('font-webfont-provider');
+					var fontID 				= li.data('value');
+					var fontName 			= $(this).siblings('.font-family').text();
+					var fontFamily 			= li.css('font-family');
+					var fontVariants 		= li.data('variants');
+					var variantsStr 		= '';
 
 					if ( fontVariants && fontVariants.indexOf('regular') === -1 )
 						variantsStr = '|' + fontVariants.join(',');
+					
 
 					var value = webfontProvider != false ? webfontProvider + '|' + fontID + variantsStr : fontID;
-
 					/* Change readout */
 					var fontNameReadout = self.propertyInput.find('.font-name');
 
@@ -73,9 +70,8 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 						data: {
 							fontBrowser: self.browser
 						}
-					});
+					});	
 
-					/* Save value */
 					dataHandleDesignEditorInput({hiddenInput: self.hiddenInput, value: value, stack: fontFamily});
 
 				});
@@ -250,7 +246,6 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 							googleFontsQueryString += '|';
 						}
 					});
-					console.log(googleFontsQueryString);
 
 
 					if(googleFontsQueryString.substr(0, googleFontsQueryString.length-1) !== 'undefined'){
@@ -263,7 +258,6 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 							.bind('load', function() {
 
 								_.each(fontsToLoad, function(fontToLoad) {
-
 									var fontNode = fontList.find('li[data-value="' + fontToLoad.split(':')[0] + '"]');
 									fontNode.find('span.font-family, span.font-preview-text').show().css('opacity', 1);
 
@@ -386,8 +380,8 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 			/* Bind the preview buttons to the preview can be opened */
 			context.find('.fonts-list ul').delegate('li .preview-font', 'click', function() {
 
-				var fontID = $(this).parents('li').data('value');
-		    	var fontFamily = $(this).parents('li').css('font-family');
+				var fontID 		= $(this).parents('li').data('value');
+		    	var fontFamily 	= $(this).parents('li').css('font-family');
 		    	var fontPreview = $(this).parents('.fonts-list').siblings('.font-preview-overlay');
 
 		    	fontPreview.data('font-value', fontID);
@@ -428,15 +422,16 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 			/* bind use font button */
 			context.find('.font-preview-overlay .use-font').on('click', function() {
 
+
+
 				/* Determine value to save to DB */
 				var webfontProvider = $(this).parents('.tab-content').data('font-webfont-provider');
-				var fontID = $(this).parents('.font-preview-overlay').data('font-value');
+				var fontID 			= $(this).parents('.font-preview-overlay').data('font-value');
+				var fontName 		= $(this).parents('.font-preview-overlay').data('font-name');
+				var fontFamily 		= $(this).parents('.font-preview-overlay').css('font-family');
+				var variants 		= $(this).parents('.font-preview-overlay').data('font-variants');
 
-				var fontName = $(this).parents('.font-preview-overlay').data('font-name');
-				var fontFamily = $(this).parents('.font-preview-overlay').css('font-family');
-
-				var variants = $(this).parents('.font-preview-overlay').data('font-variants');
-				var variantsStr = '';
+				var variantsStr 	= '';
 
 				if ( variants && variants.indexOf('regular') === -1 )
 					variantsStr = '|' + variants.join(',');

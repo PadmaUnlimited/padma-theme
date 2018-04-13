@@ -48,6 +48,7 @@ Visual Editor favicon
 PHP 7.0 or higher compatibility check
 Added size properties to Design editor options for wrappers and blocks
 Google Web Fonts Variant fixed
+Web Fonts Library Updated
 Vertical navigation block, current option indicator
 Native CSS Animations added to Design mode
 

@@ -6593,9 +6593,12 @@ div.property-image span.delete-image {
     box-shadow: none;
 
     transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
-    display: inline-block;
+    display: none;
     float: left;
     width: 35px;
+}
+body.visual-editor-mode-design .devices-wrapper .devices button {
+	display: inline-block;
 }
 .devices-wrapper .devices button:before {
     display: inline-block;

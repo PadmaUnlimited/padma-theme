@@ -4,6 +4,7 @@
 	<a class="nav-tab" href="#tab-scripts">Scripts/Analytics</a>
 	<a class="nav-tab" href="#tab-visual-editor">Visual Editor</a>
 	<a class="nav-tab" href="#tab-advanced">Advanced</a>
+	<a class="nav-tab" href="#tab-compatibility">Compatibility</a>
 </h2>
 
 <?php do_action('padma_admin_save_message'); ?>
@@ -501,6 +502,31 @@
 						)
 					),
 					'description' => 'Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>.'
+				)
+			);
+
+			PadmaAdminInputs::generate($form);
+			?>
+
+		</div>
+
+		<div class="big-tab" id="tab-compatibility-content">
+
+			<h3 class="title">Headway</h3>
+
+			<?php
+			$form = array(
+				array(
+					'type' 	=> 'checkbox',
+					'label' => 'Headway support',
+					'checkboxes' => array(
+						array(
+							'id' 		=> 'headway-support',
+							'label' 	=> 'Enable Headway classes support',
+							'checked' 	=> PadmaOption::get('headway-support', false, false)
+						)
+					),
+					'description' => 'If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental.'
 				)
 			);
 

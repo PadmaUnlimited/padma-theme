@@ -2,7 +2,7 @@
 class PadmaVisualEditorPreview {
 
 
-public static function remove_preview_options() {
+	public static function remove_preview_options() {
 
 		if ( !PadmaCapabilities::can_user_visually_edit() )
 			return;

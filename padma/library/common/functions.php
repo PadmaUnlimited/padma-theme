@@ -4,88 +4,6 @@
  **/
 
 /**
- * Returns the Padma License Key from the options or constant if define.
- **/
-
-
-/*
-function padma_get_license_key($slug = false) {
-
-	if ( !$slug )
-		return false;
-
-	if ( defined('PADMA_LICENSE_KEY') && $slug == 'padma' )
-		return apply_filters('padma_license_key', trim(PADMA_LICENSE_KEY), $slug);
-
-	return apply_filters('padma_license_key', trim(PadmaOption::get_from_main_site('license-key-' . $slug)), $slug);
-
-}
-
-
-function padma_get_license_status($slug = false) {
-
-	if ( !$slug )
-		return false;
-
-	return PadmaOption::get_from_main_site('license-status-' . $slug);
-
-}
-
-
-function padma_activate_license($item_slug, $item_name = null) {
-
-	$license = padma_get_license_key($item_slug);
-
-	$api_params = array(
-		'edd_action' => 'activate_license',
-		'license' => $license,
-		'item_name' => urlencode($item_name)
-	);
-
-	$response = wp_remote_get( add_query_arg( $api_params, PADMA_SITE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
-
-	if ( is_wp_error( $response ) ) {
-		return $response;
-	}
-
-	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-	// $license_data->license will be either "active" or "inactive"
-
-	PadmaOption::set('license-status-' . $item_slug, $license_data->license);
-
-	return $license_data->license;
-
-}
-
-
-function padma_deactivate_license($item_slug, $item_name = null) {
-
-	$license = padma_get_license_key($item_slug);
-
-	$api_params = array(
-		'edd_action' => 'deactivate_license',
-		'license' => $license,
-		'item_name' => urlencode($item_name)
-	);
-
-	$response = wp_remote_get( add_query_arg( $api_params, PADMA_SITE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
-
-	if ( is_wp_error( $response ) )
-		return false;
-
-	$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-	// $license_data->license will be either "deactivated" or "failed"
-	if( $license_data->license == 'deactivated' )
-		PadmaOption::delete('license-status-' . $item_slug);
-
-	return $license_data->license;
-
-}
-*/
-
-/**
  * Attempt to unserialize string.  If there's an error then do the preg_replace trick to correct the serialization.
  *
  * @param $string
@@ -752,4 +670,15 @@ function padma_human_bytes($size) {
 		return "n/a";
 	}
 
+}
+
+/**
+ *
+ * Debug function
+ *
+ */
+if(!function_exists('debug')){	
+	function debug($data){
+		error_log("<pre>".print_r($data,1)."</pre>");
+	}	
 }

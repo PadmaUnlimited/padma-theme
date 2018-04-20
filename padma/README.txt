@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.19
-* Released: April 13, 2018
+* Released: April 19, 2018
 
 Content editor fixes
 Visual composer support for Content Editor
@@ -51,6 +51,7 @@ Google Web Fonts Variant fixed
 Web Fonts Library Updated
 Vertical navigation block, current option indicator
 Native CSS Animations added to Design mode
+Headway Classes Compatibility
 
 
 = 0.0.18

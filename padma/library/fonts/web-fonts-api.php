@@ -144,7 +144,7 @@ abstract class PadmaWebFontProvider {
 
 	public function retrieve_font_variant($font){
 		$fonts = get_transient($this->transient_id, array());
-		debug($fonts);
+		//debug($fonts);
 	}
 
 

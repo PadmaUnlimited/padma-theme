@@ -54,7 +54,7 @@ class PadmaWebFontsLoader {
 			$webfonts_variants[$font] = self::google_fonts_get_style_variants($font);
 		}	
 
-		debug($webfonts_variants);
+		//debug($webfonts_variants);
 
 		$font = implode( '|', array_filter($webfonts_in_use['google']) );
 

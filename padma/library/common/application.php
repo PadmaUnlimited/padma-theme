@@ -3,7 +3,7 @@
  * All of the global functions to be used everywhere in Padma.
  *
  * @package Padma
- * @author Clay Griffiths
+ * @author Padma Unlimited Team
  *
  **/
 
@@ -158,9 +158,12 @@ class Padma {
 			//'updater/updater',
 
 
+
 			'blocks' 						=> true,
 			'wrappers' 						=> true,
 			'elements' 						=> true,
+
+
 
 			'fonts/web-fonts-api',
 			'fonts/web-fonts-loader' 		=> true,
@@ -171,9 +174,15 @@ class Padma {
 
 			'widgets' 						=> true,
 
-			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce'
-		);
+			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce',
 
+
+			/*		Headway Classes support	*/
+			'compatibility/headway/compatibility-headway'	=> true,
+
+
+		);
+			
 		//Child theme API
 		if ( PADMA_CHILD_THEME_ACTIVE === true )
 			$dependencies['api/api-child-theme'] = 'ChildThemeAPI';
@@ -190,7 +199,7 @@ class Padma {
 		Padma::load(apply_filters('padma_dependencies', $dependencies));
 
 		do_action('padma_setup');
-
+		
 	}
 
 

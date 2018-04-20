@@ -96,11 +96,11 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 
 		public static function modify_slidedeck_iframe_size_for_ajax(&$width, &$height, &$outer_width, &$outer_height, &$slidedeck) {
 
-			$width = $GLOBALS['slidedeck-width'];
-			$height = $GLOBALS['slidedeck-height'];
+			$width 			= $GLOBALS['slidedeck-width'];
+			$height 		= $GLOBALS['slidedeck-height'];
 
-			$outer_width = $GLOBALS['slidedeck-width'];
-			$outer_height = $GLOBALS['slidedeck-height'];
+			$outer_width 	= $GLOBALS['slidedeck-width'];
+			$outer_height 	= $GLOBALS['slidedeck-height'];
 
 			return true;
 

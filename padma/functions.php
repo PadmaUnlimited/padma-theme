@@ -23,4 +23,3 @@ require_once get_template_directory() . '/library/common/functions.php';
 require_once get_template_directory() . '/library/common/application.php';
 
 Padma::init();
-

@@ -7,8 +7,15 @@ class PadmaCompatibilityHeadway {
 
 		if(!PadmaOption::get('headway-support'))
 			return;
+		
+		self::load();
 
+	}
 
+	public static function load(){
+
+		$GLOBALS['headway_default_element_data'] = $GLOBALS['padma_default_element_data'];
+		
 		PadmaCompatibilityHeadway::padma_define_headway_constants();
 
 		Padma::load(array(
@@ -25,7 +32,6 @@ class PadmaCompatibilityHeadway {
 		PadmaCompatibilityHeadway::padma_declare_headway_classes();
 		Headway::init();
 
-		$GLOBALS['headway_default_element_data'] = $GLOBALS['padma_default_element_data'];
 	}
 
 	public static function padma_define_headway_constants(){

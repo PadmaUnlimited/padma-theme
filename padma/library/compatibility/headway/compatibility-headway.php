@@ -80,86 +80,86 @@ class PadmaCompatibilityHeadway {
 		foreach ($padmaClassArray as $padmaClass => $methods) {
 
 			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);
-			$headwayTrait 		= $headwayClassName . 'Trait';
-			
+			if(!class_alias($padmaClass,$headwayClassName)){
 
-			$definition  = "trait $headwayTrait {";
-			foreach ($methods as $key => $method) {
+				$headwayTrait 		= $headwayClassName . 'Trait';
+				$definition  = "trait $headwayTrait {";
+				foreach ($methods as $key => $method) {
 
-				// visibility
-				$methodChecker 	= new ReflectionMethod($padmaClass,$method);
-				$params 		= $methodChecker->getParameters();
+					// visibility
+					$methodChecker 	= new ReflectionMethod($padmaClass,$method);
+					$params 		= $methodChecker->getParameters();
 
-				// is public/private/protected
-				if($methodChecker->isPublic()){
-					$definition .= 'public ';
+					// is public/private/protected
+					if($methodChecker->isPublic()){
+						$definition .= 'public ';
 
-				}elseif ($methodChecker->isPrivate()) {
-					$definition .= 'private ';
+					}elseif ($methodChecker->isPrivate()) {
+						$definition .= 'private ';
 
-				}elseif ($methodChecker->isProtected()) {
-					$definition .= 'protected ';
-				}
-				
-				// is static
-				if($methodChecker->isStatic()){
-					$definition .= 'static ';
-				}
-
-				$definition .= 'function ' . $method . '(';
-				
-
-				// Arguments
-				$argumentsDefinition 	= '';
-				$argumentsUsage 		= '';
-				foreach ($params as $param) {
-
-					if($param->isArray()){
-						$argumentsDefinition .= 'array ';
+					}elseif ($methodChecker->isProtected()) {
+						$definition .= 'protected ';
 					}
-
-					if($param->isPassedByReference()){
-						$argumentsDefinition .= '&';
-					}
-
-					$argumentsDefinition 	.= '$' . $param->getName();
-					$argumentsUsage 		.= '$' . $param->getName();
 					
-					if($param->isOptional()){
-						if($param->isDefaultValueAvailable()){
-							$argumentsDefinition .= '= ' . var_export($param->getDefaultValue(),true);
-						}else{
-							$argumentsDefinition .= '= null';
-						}
+					// is static
+					if($methodChecker->isStatic()){
+						$definition .= 'static ';
 					}
 
-					$argumentsDefinition 	.= ',';
-					$argumentsUsage 		.= ',';
+					$definition .= 'function ' . $method . '(';
+					
+
+					// Arguments
+					$argumentsDefinition 	= '';
+					$argumentsUsage 		= '';
+					foreach ($params as $param) {
+
+						if($param->isArray()){
+							$argumentsDefinition .= 'array ';
+						}
+
+						if($param->isPassedByReference()){
+							$argumentsDefinition .= '&';
+						}
+
+						$argumentsDefinition 	.= '$' . $param->getName();
+						$argumentsUsage 		.= '$' . $param->getName();
+						
+						if($param->isOptional()){
+							if($param->isDefaultValueAvailable()){
+								$argumentsDefinition .= '= ' . var_export($param->getDefaultValue(),true);
+							}else{
+								$argumentsDefinition .= '= null';
+							}
+						}
+
+						$argumentsDefinition 	.= ',';
+						$argumentsUsage 		.= ',';
+					}
+
+					$argumentsDefinition 	= rtrim($argumentsDefinition,',');
+					$argumentsUsage 		= rtrim($argumentsUsage,',');
+
+					$definition .= $argumentsDefinition;
+					$definition .= '){';
+					$definition .= "parent::$method($argumentsUsage);";
+					$definition .= '}';
+
 				}
 
-				$argumentsDefinition 	= rtrim($argumentsDefinition,',');
-				$argumentsUsage 		= rtrim($argumentsUsage,',');
 
-				$definition .= $argumentsDefinition;
-				$definition .= '){';
-				$definition .= "parent::$method($argumentsUsage);";
-				$definition .= '}';
+				$definition .= "}";
+				$definition .= "class $headwayClassName extends $padmaClass {";
+				$definition .= "use $headwayTrait;";
+				$definition .= "}";
 
+				
+				try{
+					eval($definition);						
+				}catch(Exception $e){
+					debug($e->getMessage());
+				}
 			}
-
-
-			$definition .= "}";
-			$definition .= "class $headwayClassName extends $padmaClass {";
-			$definition .= "use $headwayTrait;";
-			$definition .= "}";
-
-			
-			try{
-				eval($definition);						
-			}catch(Exception $e){
-				debug($e->getMessage());
-			}
-
 		}
 	}	
 }

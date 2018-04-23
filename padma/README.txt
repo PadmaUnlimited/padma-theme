@@ -40,18 +40,19 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.19
-* Released: April 19, 2018
+* Released: April 23, 2018
 
+Added size properties to Design editor options for wrappers and blocks
 Content editor fixes
+Google Web Fonts Variant fixed
+Headway Classes Compatibility
+Native CSS Animations added to Design mode
+PHP 7.0 or higher compatibility check
+Preview devices fixes
+Vertical navigation block, current option indicator
 Visual composer support for Content Editor
 Visual Editor favicon
-PHP 7.0 or higher compatibility check
-Added size properties to Design editor options for wrappers and blocks
-Google Web Fonts Variant fixed
 Web Fonts Library Updated
-Vertical navigation block, current option indicator
-Native CSS Animations added to Design mode
-Headway Classes Compatibility
 
 
 = 0.0.18

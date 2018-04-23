@@ -480,29 +480,25 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			elements: '.block:visible',
 			title: function(event) {
 
-				var block = getBlock(event.currentTarget);
-
-				var blockID = getBlockID(block);
-				var blockType = getBlockType(block);	
-				var blockTypeNice = blockType ? getBlockTypeNice(blockType) + ' ' : '';
-
-				var blockTypeIconURL = getBlockTypeIcon(blockType, true);
-				var blockTypeIconStyle = blockTypeIconURL ? ' style="background-image:url(' + blockTypeIconURL + ');"' : null;
+				var block 				= getBlock(event.currentTarget);
+				var blockID 			= getBlockID(block);
+				var blockType 			= getBlockType(block);	
+				var blockTypeNice 		= blockType ? getBlockTypeNice(blockType) + ' ' : '';
+				var blockTypeIconURL 	= getBlockTypeIcon(blockType, true);
+				var blockTypeIconStyle 	= blockTypeIconURL ? ' style="background-image:url(' + blockTypeIconURL + ');"' : null;
 			
 				return '<span class="type type-' + blockType + '" ' + blockTypeIconStyle + '></span>' + blockTypeNice + 'Block';
 
 			},
 			contentsCallback: function(event) {
 
-				var contextMenu = $(this);
+				var contextMenu 			= $(this);
+				var block 					= getBlock(event.currentTarget);
+				var blockID 				= getBlockID(block);
+				var blockType 				= getBlockType(block);	
+				var blockTypeNice 			= getBlockTypeNice(blockType);
+				var contextMenuClickEvent 	= !Padma.touch ? 'click' : 'tap';
 
-				var block = getBlock(event.currentTarget);
-
-				var blockID = getBlockID(block);
-				var blockType = getBlockType(block);	
-				var blockTypeNice = getBlockTypeNice(blockType);
-
-				var contextMenuClickEvent = !Padma.touch ? 'click' : 'tap';
 
 				/* Block options */
 					$('<li class="context-menu-block-options"><span>Open Block Options</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function() {
@@ -518,7 +514,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 					}
 
-				/* Switch block type */
+				/* Duplicate block type */
 					if ( Padma.mode == 'grid' ) {
 
 						$('<li class="context-menu-block-duplicate"><span>Duplicate Block</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function() {
@@ -726,9 +722,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		if ( !block || block.hasClass('block-type-unknown') )
 			return false;
 
-		var blockID = getBlockID(block);		    
-		var blockType = getBlockType(block);		
-		var blockTypeName = getBlockTypeNice(blockType);
+		var blockID 		= getBlockID(block);		    
+		var blockType 		= getBlockType(block);		
+		var blockTypeName 	= getBlockTypeNice(blockType);
+
 
 		var readyTabs = function() {
 			
@@ -742,7 +739,18 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			setupTooltips();
 			
 			/* Call the open callback for the box panel */
-			var callback = eval(tab.find('ul.sub-tabs').attr('data-open-js-callback'));
+			var openJsCallback 	= tab.find('ul.sub-tabs').attr('data-open-js-callback');
+			var callback 		= null
+
+			try{
+				callback = eval(openJsCallback);				
+			}catch(e){
+				console.log(e.message);
+				callback = openJsCallback;
+			}finally{
+				callback = function(){}
+			}
+
 			if ( typeof callback == 'function' ) {
 				callback({
 					block: block,
@@ -768,10 +776,9 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			
 		}
 
-		var blockTypeIconURL = getBlockTypeIcon(blockType, true);
-		var blockTypeIconStyle = blockTypeIconURL ? 'background-image:url(' + blockTypeIconURL + ');' : null;
-
-		var blockTabName = blockTypeName + ' Block';
+		var blockTypeIconURL 	= getBlockTypeIcon(blockType, true);
+		var blockTypeIconStyle 	= blockTypeIconURL ? 'background-image:url(' + blockTypeIconURL + ');' : null;
+		var blockTabName 		= blockTypeName + ' Block';
 
 		if ( block.data('alias') && block.data('alias').length ) {
 			blockTabName = block.data('alias');
@@ -789,7 +796,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				unsaved_block_options: getUnsavedBlockOptionValues(blockID),
 				layout: Padma.viewModels.layoutSelector.currentLayout()
 			}, 
-			callback: readyTabs}, true, true, 'block-type-' + blockType);
+			callback: function(){
+				readyTabs();
+			}
+		}, true, true, 'block-type-' + blockType);
 
 		$('div#panel').tabs('option', 'active', $('#panel-top').children('li[role="tab"]').index($('[aria-controls="block-' + blockID + '-tab"]')));
 
@@ -927,10 +937,9 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		switchBlockType = function(block, blockType, loadContent) {
 			
-			var blockTypeIconURL = getBlockTypeIcon(blockType, true);
-			
-			var oldType = getBlockType(block);
-			var blockID = getBlockID(block);
+			var blockTypeIconURL 	= getBlockTypeIcon(blockType, true);			
+			var oldType 			= getBlockType(block);
+			var blockID 			= getBlockID(block);
 			
 			block.removeClass('block-type-' + oldType);
 			block.addClass('block-type-' + blockType);

@@ -641,5 +641,5 @@ body:not(.inspector-disabled) .inspector-element-selected {
 	width: 15px;
 }
 div.wrapper{
-	width: 100% !important;
+	width: auto !important;
 }

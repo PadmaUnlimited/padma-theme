@@ -40,12 +40,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.19
-* Released: April 23, 2018
+* Released: April 30, 2018
 
 Added size properties to Design editor options for wrappers and blocks
 Content editor fixes
 Google Web Fonts Variant fixed
-Headway Classes Compatibility
+Headway Blocks Compatibility
 Native CSS Animations added to Design mode
 PHP 7.0 or higher compatibility check
 Preview devices fixes

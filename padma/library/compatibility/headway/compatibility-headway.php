@@ -78,8 +78,9 @@ class PadmaCompatibilityHeadway {
 
 		//debug($padmaClassArray);
 		foreach ($padmaClassArray as $padmaClass => $methods) {
-
+			
 			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);
+
 			if(!class_alias($padmaClass,$headwayClassName)){
 
 				$headwayTrait 		= $headwayClassName . 'Trait';

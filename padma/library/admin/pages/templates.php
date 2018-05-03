@@ -38,11 +38,17 @@
 			</tbody>
 		</table>
 
-		<p class="submit"><input type="submit" name="submit" id="export-template-submit" class="button button-primary" value="Export Template"></p>
+		<p class="submit">
+			<input type="submit" name="submit" id="export-template-submit" class="button button-primary" value="Export Template">
+			<input type="submit" name="save-template-on-cloud" id="save-template-on-cloud-submit" class="button button-primary" value="Save Template on Cloud">
+		</p>
 	</form>
 </div>
 
-<h2>Padma Templates <a href="#" class="add-new-h2" id="install-template">Install Template</a> <a href="#TB_inline?width=500&height=600&inlineId=export-template" class="add-new-h2 thickbox" id="export-template">Export Current Template</a></h2>
+<h2>Padma Templates
+	<a href="#" class="add-new-h2" id="install-template">Install Template</a>
+	<a href="#TB_inline?width=500&height=600&inlineId=export-template" class="add-new-h2 thickbox" id="export-template">Export Current Template</a>
+</h2>
 
 <div id="padma-admin-notifications"></div>
 
@@ -67,7 +73,47 @@
 
 			</div>
 		<!-- /ko -->
+		
+		<?php 
+		if(class_exists('padmaServices')){
+			echo '<hr class="templates">';
+			echo "<h3>Templates available on your Padma Services Account</h3>";
+			$padmaServices 	= new padmaServices();
+			$padmaServices->setToken(get_option('padma_service_token'));
+			$data 	= $padmaServices->getDashboardData();
 
+			foreach ($data->templates as $key => $template) {
+
+					$template 	= (array)$template;
+					$id 		= $template['id'];
+					$name 		= $template['name'];
+					$screenshot = $template['image'];
+
+					?>
+
+					<div class="theme padma-template" tabindex="0">
+
+						<div class="theme-screenshot">
+							<span class="template-loading-indicator"></span>
+							<img src="<?php echo $screenshot; ?>" alt="" />
+						</div>
+
+						<h3 class="theme-name" id="padma-name"><span>Available: </span><?php echo $name; ?></h3>
+
+						<div class="theme-actions">
+							<a class="button button-primary install-cloud-template" id="template-<?php echo $id; ?>" data-token="<?php echo get_option('padma_service_token'); ?>" href="#">Install</a>
+						</div>
+
+					</div>
+
+				<?php
+				} // foreach
+
+				echo '<hr class="templates">';
+		}
+
+		?>
+		
 		<div class="theme add-new-theme" id="add-blank-template">
 			<a href="#">
 				<div class="theme-screenshot"><span></span></div>

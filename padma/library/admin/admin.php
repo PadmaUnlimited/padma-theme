@@ -341,13 +341,13 @@ class PadmaAdmin {
 			wp_enqueue_script('padma_admin_templates', padma_url() . '/library/admin/js/admin-templates.js', array('jquery'));
 
 			wp_localize_script('padma_admin_templates', 'Padma', array(
-				'ajaxURL' => admin_url('admin-ajax.php'),
-				'security' => wp_create_nonce('padma-visual-editor-ajax'),
+				'ajaxURL' 			=> admin_url('admin-ajax.php'),
+				'apiURL' 			=> PADMA_API_URL,
+				'security' 			=> wp_create_nonce('padma-visual-editor-ajax'),
+				'templates' 		=> PadmaTemplates::get_all(),
+				'templateActive' 	=> PadmaTemplates::get_active(),
 
-				'templates' => PadmaTemplates::get_all(),
-				'templateActive' => PadmaTemplates::get_active(),
-
-				'viewModels' => array()
+				'viewModels' 	=> array()
 			));
 
 			add_thickbox();

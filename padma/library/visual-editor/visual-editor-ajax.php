@@ -673,6 +673,8 @@ class PadmaVisualEditorAJAX {
 
 					public static function replace_imported_images_variables($import_array) {
 
+						debug($import_array);
+
 						/* Check for imported images */
 							if ( empty($import_array['imported-images']) || !is_array($import_array['imported-images']) )
 								return $import_array;
@@ -721,6 +723,38 @@ class PadmaVisualEditorAJAX {
 				parse_str(padma_get('skin-info'), $skin_info);
 
 				return PadmaDataPortability::export_skin($skin_info['skin-export-info']);
+				
+			}
+
+		/* Save Skin on Cloud */
+			public static function method_save_skin_on_cloud() {
+
+				if(class_exists('padmaServices')){
+
+					Padma::load('data/data-portability');
+					parse_str(padma_post('skin-info'), $skin_info);
+
+					$skin 	= PadmaDataPortability::export_skin($skin_info['skin-export-info'],true);
+					$name 	= $skin_info['skin-export-info']['name'];
+					$image 	= $skin_info['skin-export-info']['image-url'];
+
+
+					$padmaServices = new padmaServices();
+					if($padmaServices->saveTemplateOnCloud($skin,$name,$image)) {
+						return self::json_encode(array(
+							'ok' => 'Template saved.'
+						));
+					}else{
+						return self::json_encode(array(
+							'error' => 'Error saving template.'
+						));
+					}
+
+				}else{
+					return self::json_encode(array(
+						'error' => 'Padma Services is not installed.'
+					));
+				}
 
 			}
 

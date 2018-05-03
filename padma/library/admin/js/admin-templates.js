@@ -142,6 +142,84 @@ jQuery(document).ready(function($) {
 			});
 
 
+			/*		Install padma services cloud template		*/
+			$('.install-cloud-template').on('click',function(){
+
+				var id 		= this.id.split('-')[1];
+				var token 	= $(this).data('token');
+
+				$.post(Padma.apiURL + 'template/get-data', {
+					token: 		token,
+					id: 		id,
+					user_agent: 'padma',					
+				}, function(response) {
+
+					var skinFile = JSON.parse(response.skin);
+
+					if ( skinFile && typeof skinFile.name != 'undefined' && typeof skinFile['data-type'] != 'undefined' ) {
+
+					var skinReader = new FileReader();
+
+					skinReader.onload = function(e) {
+
+						var skinJSON = e.target.result;
+
+						try {
+
+							var skin = JSON.parse(skinJSON);
+
+							/* Check to be sure that the JSON file is a layout */
+							if ( skin['data-type'] != 'skin' )
+								return alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
+
+							/* Deactivate install template button */
+							$('#install-template').attr('disabled', 'true');
+
+							showNotification({
+								id: 'installing-skin',
+								message: 'Installing Template: ' + skin['name'],
+								closeTimer: false,
+								closable: false
+							});
+
+							Padma.viewModels.templates.templates.push({
+								description: null,
+								name: 'Installing ' + skin['name'] + '...',
+								installing: true,
+								id: null,
+								author: null,
+								active: false,
+								version: null
+							});
+
+							installSkin(skin);
+
+						} catch ( e ) {
+
+							return alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
+
+						}
+
+					}
+
+					$('#upload-skin input[type="file"]').val('');
+
+					var jsonse 	= JSON.stringify(response.skin);
+					var blob 	= new Blob([jsonse], {type: "application/json"});
+					var url  	= URL.createObjectURL(blob);
+					console.log(url);
+					skinReader.readAsArrayBuffer(blob);
+
+				} else {
+
+					alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
+
+				}
+
+				});
+
+			});
+
 			$('#upload-skin input[type="file"]').on('change', function(event) {
 
 				var skinFile = $(this).get(0).files[0];
@@ -206,6 +284,7 @@ jQuery(document).ready(function($) {
 
 
 				installSkin = function(skin) {
+
 
 					if ( typeof skin['image-definitions'] == 'object' && Object.keys(skin['image-definitions']).length ) {
 
@@ -311,6 +390,9 @@ jQuery(document).ready(function($) {
 								if ( typeof skin['error'] == 'undefined' )
 									skin['error'] = 'Could not install template.';
 
+								Padma.viewModels.templates.templates.pop();
+								$('#install-template').removeAttr('disabled');
+
 								return showNotification({
 									id: 'skin-not-installed',
 									message: 'Error: ' + skin['error'],
@@ -363,9 +445,60 @@ jQuery(document).ready(function($) {
 					'skin-info': $('#export-template-form').serialize()
 				}
 
-				var exportURL = Padma.ajaxURL + '?' + $.param(params);
 
+				var exportURL = Padma.ajaxURL + '?' + $.param(params);
 				return window.open(exportURL);
+
+
+			});
+
+		/* Skin Save on Cloud */
+			$('#save-template-on-cloud-submit').on('click', function(event) {
+
+				event.preventDefault();
+
+				var params = {
+					'security': Padma.security,
+					'action': 'padma_visual_editor',
+					'method': 'save_skin_on_cloud',
+					'skin-info': $('#export-template-form').serialize()
+				}
+
+				$('#TB_window .tb-close-icon').click();
+
+
+				/* Do AJAX request to save skin on cloud */
+				return $.post(Padma.ajaxURL, params).done(function(data) {
+
+					console.log(data);
+
+					if ( typeof data['ok'] !== 'undefined') {
+						return showNotification({
+							id: 'skin-saved',
+							message: 'Template successfully saved.',
+							closeTimer: 5000,
+							success: true
+						});						
+					}
+					
+					if ( typeof data['error'] !== 'undefined' || typeof data['name'] == 'undefined' ) {
+
+						if ( typeof data['error'] == 'undefined' ){
+							data['error'] = 'Could not save template.';
+						}
+
+						return showNotification({
+							id: 'skin-not-saved',
+							message: 'Error: ' + data['error'],
+							closable: true,
+							closeTimer: false,
+							error: true
+						});
+
+					}
+
+						
+				});
 
 			});
 

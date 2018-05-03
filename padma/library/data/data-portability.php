@@ -2,7 +2,7 @@
 class PadmaDataPortability {
 
 
-	public static function export_skin(array $info) {
+	public static function export_skin(array $info, $ret = false) {
 
 		global $wpdb;
 
@@ -11,16 +11,16 @@ class PadmaDataPortability {
 		$wp_options_prefix = 'pu_|template=' . PadmaOption::$current_skin . '|_';
 
 		$skin = array(
-			'pu-version' => PADMA_VERSION,
-			'name' => padma_get('name', $info, 'Unnamed'),
-			'author' => padma_get('author', $info),
-			'image-url' => padma_get('image-url', $info),
-			'version' => padma_get('version', $info),
-			'data_wp_options' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->options WHERE option_name LIKE '%s'", $wp_options_prefix . '%'), ARRAY_A),
-			'data_wp_postmeta' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_pu_|template=' . PadmaOption::$current_skin . '|_%'), ARRAY_A),
-			'data_pu_layout_meta' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_layout_meta WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
-			'data_pu_wrappers' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
-			'data_pu_blocks' => $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A)
+			'pu-version' 			=> PADMA_VERSION,
+			'name' 					=> padma_get('name', $info, 'Unnamed'),
+			'author' 				=> padma_get('author', $info),
+			'image-url' 			=> padma_get('image-url', $info),
+			'version' 				=> padma_get('version', $info),
+			'data_wp_options' 		=> $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->options WHERE option_name LIKE '%s'", $wp_options_prefix . '%'), ARRAY_A),
+			'data_wp_postmeta' 		=> $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE '%s'", '_pu_|template=' . PadmaOption::$current_skin . '|_%'), ARRAY_A),
+			'data_pu_layout_meta' 	=> $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_layout_meta WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
+			'data_pu_wrappers' 		=> $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A),
+			'data_pu_blocks' 		=> $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE template = '%s'", PadmaOption::$current_skin), ARRAY_A)
 		);
 
 		/* Spit the file out */
@@ -30,13 +30,26 @@ class PadmaDataPortability {
 			$filename .= ' ' . padma_get('version', $info);
 		}
 
-		return self::to_json($filename, 'skin', $skin);
+		return self::to_json($filename, 'skin', $skin, $ret);
 
 	}
 
 
 	public static function install_skin(array $skin) {
 
+		if(padma_get('pu-version', $skin)){
+
+			if(version_compare(padma_get('pu-version', $skin), '0.0.17', '<')){
+				return array('error' => 'This is not a valid Padma Template');
+			}
+			
+		}elseif (padma_get('hw-version', $skin)) {
+			if(version_compare(padma_get('hw-version', $skin), '3.7', '<')){
+				return array('error' => 'Headway templates from pre-3.7 versions are not supported');
+			}
+		}else{
+			return array('error' => 'This is not a valid Padma Template');
+		}
 		
 		$skins = PadmaOption::get_group('skins');
 
@@ -45,28 +58,24 @@ class PadmaDataPortability {
 				unset($skin['image-definitions']);
 
 		/* Skin ID ... Truncate the skin ID to 12 characters due to varchar limit in wp_options */
-			$original_skin_id = substr(strtolower(str_replace(' ', '-', $skin['name'])), 0, 12);
-
-			$skin_id = $original_skin_id;
-			$skin_name = $skin['name'];
-
+			$original_skin_id 		= substr(strtolower(str_replace(' ', '-', $skin['name'])), 0, 12);
+			$skin_id 				= $original_skin_id;
+			$skin_name 				= $skin['name'];
 			$skin_unique_id_counter = 0;
 
 		/* Check if skin already exists.  If it does, change ID and skin name */
 			while ( PadmaOption::get($skin_id, 'skins') || get_option('pu_|template=' . $skin_id . '|_option_group_general') ) {
 
 				$skin_unique_id_counter++;
-				$skin_id = $original_skin_id . '-' . $skin_unique_id_counter;
-
-				$skin_name = $skin['name'] . ' ' . $skin_unique_id_counter;
+				$skin_id 	= $original_skin_id . '-' . $skin_unique_id_counter;
+				$skin_name 	= $skin['name'] . ' ' . $skin_unique_id_counter;
 
 			}
 
 		/* Send skin to DB */
-			$skin['id'] = $skin_id;
-			$skin['name'] = $skin_name;
-
-			$skin_with_info_only = $skin;
+			$skin['id'] 			= $skin_id;
+			$skin['name'] 			= $skin_name;
+			$skin_with_info_only 	= $skin;
 
 			$data_to_remove_from_saved_skin = array(
 				'data_wp_options',
@@ -95,15 +104,29 @@ class PadmaDataPortability {
 			PadmaLayoutOption::$current_skin = $skin['id'];
 
 		/* Process the install */
-			if ( !padma_get('pu-version', $skin) || version_compare(padma_get('pu-version', $skin), '1.0', '<') ) {
-				$skin = self::process_install_skin_pre37($skin);
-			} else {
+
+
+			if(isset($skin['pu-version'])){
 				$skin = self::process_install_skin($skin);
+
+
+			// Headway themes support
+			}elseif (isset($skin['hw-version'])) {
+
+				$skin = self::convert_skin_hw_to_padma($skin);
+				$skin = self::process_install_skin($skin);
+
+			// Not supported old Headway < 3.7
+			}elseif (!padma_get('hw-version', $skin) || version_compare(padma_get('hw-version', $skin), '3.7', '<') ) {
+				return array('error' => 'Headway templates from pre-3.7 versions are not supported');
 			}
 
+
+		
+
 		/* Change $current_skin back just to be safe */
-			PadmaOption::$current_skin = PadmaTemplates::get_active_id();
-			PadmaLayoutOption::$current_skin = PadmaTemplates::get_active_id();
+			PadmaOption::$current_skin 			= PadmaTemplates::get_active_id();
+			PadmaLayoutOption::$current_skin 	= PadmaTemplates::get_active_id();
 
 		return $skin;
 
@@ -302,13 +325,64 @@ class PadmaDataPortability {
 
 	}
 
+	/**
+	 *
+	 * Allow convert Headway Skins to Padma
+	 *
+	 */	
+	public static function convert_skin_hw_to_padma($hwskin){
+
+		$padmaSkin 	= array();
+
+		$padmaSkin['pu-version'] 			= '0.0.17'; // First Padma version to support skins well
+		$padmaSkin['hw-version'] 			= $hwskin['hw-version']; // First Padma version to support skins well
+		$padmaSkin['name'] 					= $hwskin['name'];
+		$padmaSkin['author'] 				= $hwskin['author'];
+		$padmaSkin['image-url'] 			= $hwskin['image-url'];
+		$padmaSkin['version'] 				= $hwskin['version'];
+		$padmaSkin['data_wp_options'] 		= $hwskin['data_wp_options'];		
+		$padmaSkin['data_wp_postmeta'] 		= $hwskin['data_wp_postmeta'];
+		$padmaSkin['data_pu_layout_meta'] 	= $hwskin['data_hw_layout_meta'];
+		$padmaSkin['data_pu_wrappers'] 		= $hwskin['data_hw_wrappers'];
+		$padmaSkin['data_pu_blocks'] 		= $hwskin['data_hw_blocks'];
+		$padmaSkin['data-type'] 			= $hwskin['data-type'];
+		$padmaSkin['imported-images'] 		= $hwskin['imported-images'];
+		$padmaSkin['id'] 					= $hwskin['id'];
+
+
+		foreach ($padmaSkin['data_wp_options'] as $key => $optionArray) {
+
+			foreach ($optionArray as $optionName => $optionValue) {
+			
+				$value = str_replace('headway', 'pu', $optionValue);
+				$padmaSkin['data_wp_options'][$key][$optionName] = $value;
+			}
+
+			if(isset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-headway-attribution'])){
+				$padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-padma-attribution'] = $padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-headway-attribution'];
+				unset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-headway-attribution']);
+			}
+		}
+
+
+		foreach ($padmaSkin['data_pu_blocks'] as $key => $blockArray) {
+
+			if(isset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-headway-attribution'])){
+				$padmaSkin['data_pu_blocks'][$key]['settings']['hide-padma-attribution'] = $padmaSkin['data_pu_blocks'][$key]['settings']['hide-headway-attribution'];
+				unset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-headway-attribution']);
+			}
+
+		}
+
+		return $padmaSkin;
+	}
 
 	/**
 	 * Convert array to JSON file and force download.
 	 *
 	 * Images will be converted to base64 via PadmaDataPortability::encode_images()
 	 **/
-	public static function to_json($filename, $data_type = null, $array) {
+	public static function to_json($filename, $data_type = null, $array, $ret = false) {
 
 		if ( !$array['data-type'] = $data_type )
 			die('Missing data type for PadmaDataPortability::to_json()');
@@ -319,9 +393,13 @@ class PadmaDataPortability {
 		header('Content-Type: application/json');
 		header('Pragma: no-cache');
 
-		echo json_encode($array);
+		if($ret === false){
+			echo json_encode($array);
+			return $filename;
+		}else{
+			return json_encode($array);
+		}
 
-		return $filename;
 
 	}
 

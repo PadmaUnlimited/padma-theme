@@ -76,40 +76,44 @@
 		
 		<?php 
 		if(class_exists('padmaServices')){
-			echo '<hr class="templates">';
-			echo "<h3>Templates available on your Padma Services Account</h3>";
+
 			$padmaServices 	= new padmaServices();
 			$padmaServices->setToken(get_option('padma_service_token'));
 			$data 	= $padmaServices->getDashboardData();
 
-			foreach ($data->templates as $key => $template) {
+			if(count($data->templates) > 0){
+				echo '<hr class="templates">';
+				echo "<h3>Templates available on your Padma Services Account</h3>";
 
-					$template 	= (array)$template;
-					$id 		= $template['id'];
-					$name 		= $template['name'];
-					$screenshot = $template['image'];
+				foreach ($data->templates as $key => $template) {
 
-					?>
+						$template 	= (array)$template;
+						$id 		= $template['id'];
+						$name 		= $template['name'];
+						$screenshot = $template['image'];
 
-					<div class="theme padma-template" tabindex="0">
+						?>
 
-						<div class="theme-screenshot">
-							<span class="template-loading-indicator"></span>
-							<img src="<?php echo $screenshot; ?>" alt="" />
+						<div class="theme padma-template" tabindex="0">
+
+							<div class="theme-screenshot">
+								<span class="template-loading-indicator"></span>
+								<img src="<?php echo $screenshot; ?>" alt="" />
+							</div>
+
+							<h3 class="theme-name" id="padma-name"><span>Available: </span><?php echo $name; ?></h3>
+
+							<div class="theme-actions">
+								<a class="button button-primary install-cloud-template" id="template-<?php echo $id; ?>" data-token="<?php echo get_option('padma_service_token'); ?>" href="#">Install</a>
+							</div>
+
 						</div>
 
-						<h3 class="theme-name" id="padma-name"><span>Available: </span><?php echo $name; ?></h3>
-
-						<div class="theme-actions">
-							<a class="button button-primary install-cloud-template" id="template-<?php echo $id; ?>" data-token="<?php echo get_option('padma_service_token'); ?>" href="#">Install</a>
-						</div>
-
-					</div>
-
-				<?php
+					<?php
 				} // foreach
 
 				echo '<hr class="templates">';
+			}
 		}
 
 		?>

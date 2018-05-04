@@ -154,23 +154,15 @@ jQuery(document).ready(function($) {
 					user_agent: 'padma',					
 				}, function(response) {
 
-					var skinFile = JSON.parse(response.skin);
+					try {
+						var skin = JSON.parse(response.skin);
 
-					if ( skinFile && typeof skinFile.name != 'undefined' && typeof skinFile['data-type'] != 'undefined' ) {
-
-					var skinReader = new FileReader();
-
-					skinReader.onload = function(e) {
-
-						var skinJSON = e.target.result;
-
-						try {
-
-							var skin = JSON.parse(skinJSON);
+						if ( skin && typeof skin.name != 'undefined' && typeof skin['data-type'] != 'undefined' ) {
 
 							/* Check to be sure that the JSON file is a layout */
-							if ( skin['data-type'] != 'skin' )
+							if ( skin['data-type'] != 'skin' ){
 								return alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
+							}
 
 							/* Deactivate install template button */
 							$('#install-template').attr('disabled', 'true');
@@ -194,27 +186,13 @@ jQuery(document).ready(function($) {
 
 							installSkin(skin);
 
-						} catch ( e ) {
-
-							return alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
-
 						}
 
+					} catch ( e ) {
+
+						return alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
+
 					}
-
-					$('#upload-skin input[type="file"]').val('');
-
-					var jsonse 	= JSON.stringify(response.skin);
-					var blob 	= new Blob([jsonse], {type: "application/json"});
-					var url  	= URL.createObjectURL(blob);
-					console.log(url);
-					skinReader.readAsArrayBuffer(blob);
-
-				} else {
-
-					alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
-
-				}
 
 				});
 

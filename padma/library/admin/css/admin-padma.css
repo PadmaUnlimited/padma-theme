@@ -241,10 +241,12 @@ form#upload-skin {
 	background: url(../../visual-editor/images/logo.png) no-repeat 50% 50% !important;
 }
 
+button#template-save-on-cloud-image-button,
 button#template-export-image-button {
 	padding-left: 5px;
 }
 
+button#template-save-on-cloud-image-button span,
 button#template-export-image-button span {
 	line-height: 18px;
 	display: inline-block;
@@ -255,6 +257,7 @@ button#template-export-image-button span {
 	margin: 0 2px;
 }
 
+button#template-save-on-cloud-image-button span::after,
 button#template-export-image-button span::after {
 	font-family: "dashicons";
 	content: "\f128";
@@ -264,6 +267,7 @@ button#template-export-image-button span::after {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+img#template-save-on-cloud-image-preview,
 img#template-export-image-preview {
 	max-width: 340px;
 	margin-top: 15px;

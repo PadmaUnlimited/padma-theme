@@ -439,7 +439,7 @@ jQuery(document).ready(function($) {
 					'security': Padma.security,
 					'action': 'padma_visual_editor',
 					'method': 'save_skin_on_cloud',
-					'skin-info': $('#export-template-form').serialize()
+					'skin-info': $('#save-template-on-cloud-form').serialize()
 				}
 
 				$('#TB_window .tb-close-icon').click();
@@ -447,8 +447,6 @@ jQuery(document).ready(function($) {
 
 				/* Do AJAX request to save skin on cloud */
 				return $.post(Padma.ajaxURL, params).done(function(data) {
-
-					console.log(data);
 
 					if ( typeof data['ok'] !== 'undefined') {
 						return showNotification({
@@ -509,6 +507,45 @@ jQuery(document).ready(function($) {
 					$('input#template-export-image').val(attachment.url);
 
 					$('img#template-export-image-preview')
+						.attr('src', attachment.url)
+						.show();
+
+				});
+
+				BTTemplateExportImageFrame.open();
+			});
+
+
+
+			/* Save on cloud Template Image */
+			var BTTemplateExportImageFrame;
+
+			$('#template-save-on-cloud-image-button ').on('click', function (event) {
+
+				event.preventDefault();
+
+				// If the media frame already exists, reopen it.
+				if (BTTemplateExportImageFrame) {
+					BTTemplateExportImageFrame.open();
+					return;
+				}
+
+				// Create the media frame.
+				BTTemplateExportImageFrame = wp.media.frames.file_frame = wp.media({
+					title: 'Select Image for Template',
+					button: {
+						text: 'Select Image',
+					},
+					multiple: false
+				});
+
+				// When an image is selected, run a callback.
+				BTTemplateExportImageFrame.on('select', function () {
+					attachment = BTTemplateExportImageFrame.state().get('selection').first().toJSON();
+
+					$('input#template-save-on-cloud-image').val(attachment.url);
+
+					$('img#template-save-on-cloud-image-preview')
 						.attr('src', attachment.url)
 						.show();
 

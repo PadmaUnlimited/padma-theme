@@ -673,7 +673,7 @@ class PadmaVisualEditorAJAX {
 
 					public static function replace_imported_images_variables($import_array) {
 
-						debug($import_array);
+						//debug($import_array);
 
 						/* Check for imported images */
 							if ( empty($import_array['imported-images']) || !is_array($import_array['imported-images']) )
@@ -734,13 +734,21 @@ class PadmaVisualEditorAJAX {
 					Padma::load('data/data-portability');
 					parse_str(padma_post('skin-info'), $skin_info);
 
-					$skin 	= PadmaDataPortability::export_skin($skin_info['skin-export-info'],true);
-					$name 	= $skin_info['skin-export-info']['name'];
-					$image 	= $skin_info['skin-export-info']['image-url'];
-
+					$skin 	= PadmaDataPortability::export_skin($skin_info['skin-save-on-cloud-info'],true);
+					
+					$templateData = array(
+						'name' 			=> $skin_info['skin-save-on-cloud-info']['name'],
+						'description' 	=> $skin_info['skin-save-on-cloud-info']['description'],
+						'author' 		=> $skin_info['skin-save-on-cloud-info']['author'],
+						'version' 		=> $skin_info['skin-save-on-cloud-info']['version'],
+						'image' 		=> $skin_info['skin-save-on-cloud-info']['image-url'],
+						'visibility' 	=> $skin_info['skin-save-on-cloud-info']['visibility'],
+						'price' 		=> $skin_info['skin-save-on-cloud-info']['price'],
+						'preview' 		=> $skin_info['skin-save-on-cloud-info']['preview'],
+					);					
 
 					$padmaServices = new padmaServices();
-					if($padmaServices->saveTemplateOnCloud($skin,$name,$image)) {
+					if($padmaServices->saveTemplateOnCloud($skin,$templateData)) {
 						return self::json_encode(array(
 							'ok' => 'Template saved.'
 						));

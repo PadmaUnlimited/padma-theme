@@ -36,9 +36,18 @@ class Padma {
 		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 
 		/* Site URLs */
-		define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
-		define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
-		define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');
+		if(file_exists('config.php')){
+			include('dev-env.php');
+		}
+		if(!defined('PADMA_SITE_URL')){
+			define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
+		}
+		if(!defined('PADMA_API_URL')){
+			define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
+		}
+		if(!defined('PADMA_CDN_URL')){
+			define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');			
+		}
 		define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');
 		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
 

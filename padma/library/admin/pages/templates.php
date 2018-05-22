@@ -51,12 +51,12 @@
 		<table class="form-table">
 			<tbody>
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-name">Template Name</label></th>
+				<th scope="row"><label for="template-save-on-cloud-name">Name</label></th>
 				<td><input id="template-save-on-cloud-name" type="text" name="skin-save-on-cloud-info[name]" class="regular-text" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-description">Template Description</label></th>
+				<th scope="row"><label for="template-save-on-cloud-description">Description</label></th>
 				<td><input id="template-save-on-cloud-description" type="text" name="skin-save-on-cloud-info[description]" class="regular-text" /></td>
 			</tr>
 
@@ -65,17 +65,17 @@
 			?>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-author">Template Author</label></th>
+				<th scope="row"><label for="template-save-on-cloud-author">Author</label></th>
 				<td><input id="template-save-on-cloud-author" type="text" name="skin-save-on-cloud-info[author]" class="regular-text" value="<?php echo $current_user->display_name; ?>" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-version">Template Version</label></th>
+				<th scope="row"><label for="template-save-on-cloud-version">Version</label></th>
 				<td><input id="template-save-on-cloud-version" type="text" name="skin-save-on-cloud-info[version]" placeholder="e.g. 1.0" class="medium-text" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-image">Template Image</label></th>
+				<th scope="row"><label for="template-save-on-cloud-image">Image</label></th>
 				<td>
 					<button id="template-save-on-cloud-image-button" class="button-secondary">
 						<span class="wp-media-buttons-icon"></span>
@@ -87,7 +87,7 @@
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-visibility">Template Visibility</label><br><small> (Private: Only for me, Public: Available to sell in market)</small></th>
+				<th scope="row"><label for="template-save-on-cloud-visibility">Visibility</label><br><small> (Private: Only for me, Public: Available to sell in market)</small></th>
 				<td><select id="template-save-on-cloud-visibility" name="skin-save-on-cloud-info[visibility]" class="medium-text">
 					<option value='private'>Private</option>
 					<option value='public'>Public</option>
@@ -95,12 +95,12 @@
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-price">Template Price (USD)</label></th>
+				<th scope="row"><label for="template-save-on-cloud-price">Price (USD)</label></th>
 				<td><input id="template-save-on-cloud-price" type="text" name="skin-save-on-cloud-info[price]" placeholder="19" class="medium-text" /></td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-preview">Template Preview URL</label></th>
+				<th scope="row"><label for="template-save-on-cloud-preview">Preview URL</label></th>
 				<td><input id="template-save-on-cloud-preview" type="text" name="skin-save-on-cloud-info[preview]" placeholder="" class="medium-text" /></td>
 			</tr>
 			</tbody>

@@ -1,4 +1,4 @@
-define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader'], function($, aceHelper, chosen) {
+define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader'], function($, codeMirror, chosen) {
 
 	handleInputTogglesInContainer = function(container) {
 
@@ -253,7 +253,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 					var codeEditorTextarea = $(this).siblings('textarea');
 
-					aceHelper.showEditor(codeEditorTextarea.attr('id'), $(this).data('editor-mode'), codeEditorTextarea.val(), function(editor) {
+					codeMirror.showEditor(codeEditorTextarea.attr('id'), $(this).data('editor-mode'), codeEditorTextarea.val(), function(editor) {
 
 						codeEditorTextarea.val(editor.getValue());
 

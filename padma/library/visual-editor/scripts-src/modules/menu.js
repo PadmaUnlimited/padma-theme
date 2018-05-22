@@ -15,9 +15,8 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 				$('ul#modes li a').bind('click', function(){
 
-					var modeURL = new Url($(this).attr('href'));
-
-					modeURL.query['ve-layout'] = Padma.viewModels.layoutSelector.currentLayout();
+					var modeURL 				= new Url($(this).attr('href'));
+					modeURL.query['ve-layout'] 	= Padma.viewModels.layoutSelector.currentLayout();
 
 					$(this).attr('href', modeURL.toString());
 
@@ -27,10 +26,9 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 			/* VIEW SITE BUTTON */
 				$('#menu-link-view-site a').bind('click', function(){
 
-					var siteURL = new Url(Padma.homeURL);
-
-					siteURL.query['padma-trigger'] = 'layout-redirect';
-					siteURL.query['layout'] = Padma.viewModels.layoutSelector.currentLayout();
+					var siteURL 					= new Url(Padma.homeURL);
+					siteURL.query['padma-trigger'] 	= 'layout-redirect';
+					siteURL.query['layout'] 		= Padma.viewModels.layoutSelector.currentLayout();
 
 					$(this).attr('href', siteURL.toString());
 

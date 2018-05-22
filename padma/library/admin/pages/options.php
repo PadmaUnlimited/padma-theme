@@ -59,11 +59,11 @@
 			<?php
 			$form = array(
 				array(
-					'id' => 'menu-setup',
-					'type' => 'radio',
-					'label' => 'Default Admin Page',
-					'value' => PadmaOption::get('menu-setup', false, 'getting-started'),
-					'radios' => array(
+					'id' 		=> 'menu-setup',
+					'type' 		=> 'radio',
+					'label' 	=> 'Default Admin Page',
+					'value' 	=> PadmaOption::get('menu-setup', false, 'getting-started'),
+					'radios' 	=> array(
 						array(
 							'value' => 'getting-started',
 							'label' => 'Getting Started'
@@ -80,6 +80,18 @@
 						)
 					),
 					'description' => 'Select which admin page you would like to be directed to when you click on "Padma" in the WordPress Admin.'
+				),
+				array(
+					'type' 	=> 'checkbox',
+					'label' => 'Do not recommend plugin installation',
+					'checkboxes' => array(
+						array(
+							'id' 		=> 'do-not-recommend-plugin-installation',
+							'label' 	=> 'Hide recommended plugin notice',
+							'checked' 	=> PadmaOption::get('do-not-recommend-plugin-installation', false, false)
+						)
+					),
+					'description' => 'If on, Padma will not recommend install "Updater" and "Services" plugin'
 				)
 			);
 

@@ -4,6 +4,16 @@ class PadmaPlugins{
 
 	public static function init() {
 
+		/**
+		 *
+		 * If option "Do not recommend plugin installation" is on, Padma will not recommended installation of plugins "Updater" and "Services"
+		 *
+		 */
+		
+		if(PadmaOption::get('do-not-recommend-plugin-installation')){
+			return;
+		}
+
 		if ( PADMA_CHILD_THEME_ACTIVE === true ){
 			require_once get_stylesheet_directory() . '/library/common/lib/class-tgm-plugin-activation.php';
 		}else{

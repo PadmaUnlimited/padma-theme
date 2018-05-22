@@ -2481,7 +2481,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 
 					var blockID 	= getBlock($(inspectorElement))[0].dataset.id;
 					var blockType 	= getBlock($(inspectorElement))[0].dataset.type;
-					
+
+
 					if(blockType == 'content'){
 						
 						var elementId = $(inspectorElement).closest('article').attr('id');
@@ -2495,11 +2496,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 						});
 
 					}else{
+
 						showNotification({
 							id: 'no-supported',
 							message: 'Content editor currently supports post and pages only.',
 							closeTimer: 3000
 						});
+
+
 					}
 
 				/* DE Click */
@@ -2897,6 +2901,27 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 			/* Hide DE if cookie is set to do so */
 				if ( $.cookie('hide-design-editor') === 'true' )
 					hideDesignEditor();
+
+
+
+
+			/*
+				Change side of panel
+			*/
+			$(document).on('click','#change-side-of-panel',function(){
+
+
+				$('body').toggleClass('panel-on-left');
+
+				if($('body').hasClass('panel-on-left')){
+					$.cookie('panel-on-left', true);
+				}else{
+					$.cookie('panel-on-left', false);
+				}
+			});
+			if ( $.cookie('panel-on-left') === 'true' ){
+				$('body').addClass('panel-on-left');
+			}	
 
 		},
 

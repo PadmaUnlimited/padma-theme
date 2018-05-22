@@ -6664,3 +6664,76 @@ body.visual-editor-mode-design .devices-wrapper .devices button {
     transition: all .2s !important;	
 }
 /*	End Device Preview		*/
+#change-side-of-panel{
+	position: fixed;
+    right: 265px;
+    bottom: 0px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+#change-side-of-panel:after{
+	-webkit-border-radius: 50%;
+    border-radius: 50%;
+    content: "\f475";
+    color: #777777;
+    background: #EEEEEE;
+    font: normal 20px/1 "dashicons";
+    speak: none;
+    display: block;
+    padding: 0;
+    text-indent: 0;
+    text-align: center;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none !important;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 200ms;
+    transition: transform 200ms;
+}
+body.panel-on-left #side-panel-container{
+	left: 0;
+}
+body.panel-on-left #change-side-of-panel{
+	left: 265px;
+}
+body.panel-on-left #side-panel-collapse-arrow{
+	left: 260px;
+}
+body.panel-on-left.visual-editor-mode-design:not(.side-panel-hidden) div#iframe-container{
+	left: 290px !important;
+    right: initial;
+    max-width: calc(100% - 290px);
+}
+body.panel-on-left div#panel{
+	left: 292px;
+	right: 0 !important;
+}
+body.panel-on-left  #side-panel-container #side-panel-collapse-arrow::after{
+	-webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+}
+body.panel-on-left {}
+body.side-panel-hidden #change-side-of-panel{
+	display: none;
+}
+body.panel-on-left.visual-editor-mode-design.side-panel-hidden div#side-panel-container{
+	left: -290px;
+}
+body.panel-on-left.side-panel-hidden #side-panel-collapse-arrow{
+	left: 0;
+	-webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+body.panel-on-left.visual-editor-mode-design.side-panel-hidden div#panel{
+	left: 0;
+}
+body.panel-on-left.visual-editor-mode-design:not(.side-panel-hidden) #customize-preview:not(.preview-desktop) div#iframe-container{
+    left: 50% !important;
+}

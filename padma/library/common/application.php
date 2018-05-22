@@ -44,7 +44,6 @@ class Padma {
 			define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
 		}
 		if(!defined('PADMA_API_URL')){
-			error_log('test');
 			define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
 		}
 		if(!defined('PADMA_CDN_URL')){

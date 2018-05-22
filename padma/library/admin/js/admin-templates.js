@@ -439,7 +439,18 @@ jQuery(document).ready(function($) {
 					'security': Padma.security,
 					'action': 'padma_visual_editor',
 					'method': 'save_skin_on_cloud',
-					'skin-info': $('#save-template-on-cloud-form').serialize()
+					'skin-info': $('#save-template-on-cloud-form').serialize(),
+					beforeSend: function() {
+                		showNotification({
+							id: 'skin-saving-start',
+							message: 'Saving template on Cloud ...',
+							closeTimer: 25000,
+							success: true
+						});	
+                	},
+            		complete: function() {
+            			hideNotification('skin-saving-start');
+					},
 				}
 
 				$('#TB_window .tb-close-icon').click();

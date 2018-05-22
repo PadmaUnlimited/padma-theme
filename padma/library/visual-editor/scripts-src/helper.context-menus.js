@@ -111,10 +111,15 @@
 
 		/* Context menu positioning */
 
+
 		if ( typeof event.originalEvent != 'undefined' && typeof event.originalEvent.clientX != 'undefined' ) {
 
-			var contextMenuX = event.originalEvent.clientX;
+			var contextMenuX = event.originalEvent.clientX;			
 			var contextMenuY = event.originalEvent.clientY + 40;
+
+			if($('body').hasClass('panel-on-left')){
+				contextMenuX += 290;
+			}
 
 		} else {
 

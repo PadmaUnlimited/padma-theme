@@ -237,18 +237,14 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => 'Meta Above Content',
 				'selector' => 'div.entry-meta-above',
 				'parent' => 'entry-meta'
-			));
-
-			
+			));			
 
 			$this->register_block_element(array(
 				'id' => 'entry-meta-below',
 				'name' => 'Meta Below Content',
 				'selector' => 'footer.entry-utility-below',
 				'parent' => 'entry-meta'
-			));
-
-			
+			));			
 
 			$this->register_block_element(array(
 				'id' => 'entry-meta-links',
@@ -261,7 +257,6 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'Clicked' => 'div.entry-meta a:active, footer.entry-meta a:active'
 			)
 			));
-
 
 			$this->register_block_element(array(
 				'id' => 'entry-meta-author',

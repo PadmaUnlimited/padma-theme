@@ -493,10 +493,10 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public function setup_elements() {
 
 			$this->register_block_element(array(
-				'id' => 'pin',
-				'name' => 'Pin',
-				'selector' => '.pin-board-pin',
-				'properties' => array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow')
+				'id' 			=> 'pin',
+				'name' 			=> 'Pin',
+				'selector' 		=> '.pin-board-pin',
+				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow')
 			));
 
 			$this->register_block_element(array(
@@ -699,13 +699,13 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public $terms_list;
 
 		public $tabs = array(
-			'pin-setup' => 'Pin Setup',
-			'query-filters' => 'Query Filters',
-			'pagination' => 'Pagination/Infinite Scroll',
-			'text' => 'Text',
-			'images' => 'Images',
-			'effects' => 'Effects',
-			'social' => 'Social'
+			'pin-setup' 		=> 'Pin Setup',
+			'query-filters' 	=> 'Query Filters',
+			'pagination' 		=> 'Pagination/Infinite Scroll',
+			'text' 				=> 'Text',
+			'images' 			=> 'Images',
+			'effects' 			=> 'Effects',
+			'social' 			=> 'Social'
 		);
 
 		public $inputs = array(

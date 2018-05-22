@@ -139,7 +139,7 @@
 				do_action('padma_visual_editor_side_panel');
 	
 		echo '</div><!-- #side-panel -->
-	
+		<span id="change-side-of-panel" title=""></span>
 		</div><!-- #side-panel-container -->';
 	
 	}

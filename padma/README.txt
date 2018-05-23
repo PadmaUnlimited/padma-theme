@@ -47,7 +47,7 @@ Save templates on cloud with Padma Services
 Added an option for prevent plugins installation recommendation (Updater and Services)
 Content Editor feature improvements
 New option for change the lateral panel of side in design mode
-
+Code fixes for PHP and Javascript
 
 = 0.0.19
 * Released: April 30, 2018

@@ -40,9 +40,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.20
-* Released: May 22, 2018
+* Released: May 23, 2018
 
-Headway 3.7 templates support (not Headway 4.x)
+Headway (3.7.0 to 3.8.9 templates support (not Headway 4.x)
 Save templates on cloud with Padma Services
 Added an option for prevent plugins installation recommendation (Updater and Services)
 Content Editor feature improvements

@@ -149,11 +149,13 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				$show_titles = parent::get_setting($block, 'show-titles', true);
 
 				/* Meta */
-					$show_author = parent::get_setting($block, 'show-author', false);
-					$show_categories = parent::get_setting($block, 'show-category', false);
-					$show_datetime = parent::get_setting($block, 'show-datetime', false);
-					$datetime_verb = parent::get_setting($block, 'datetime-verb', 'Posted');
-					$relative_times = parent::get_setting($block, 'relative-times', true);
+					$show_author 		= parent::get_setting($block, 'show-author', false);
+					$show_categories 	= parent::get_setting($block, 'show-category', false);
+					$show_tags 			= parent::get_setting($block, 'show-tags', false);
+					$show_post_type		= parent::get_setting($block, 'show-post-type', false);
+					$show_datetime 		= parent::get_setting($block, 'show-datetime', false);
+					$datetime_verb 		= parent::get_setting($block, 'datetime-verb', 'Posted');
+					$relative_times 	= parent::get_setting($block, 'relative-times', true);
 
 				/* Content */
 					$show_continue = parent::get_setting($block, 'show-continue', false);
@@ -387,7 +389,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						/* End Titles below */
 
 						/* Meta */
-							if ( $show_author || $show_datetime || $show_categories ) {
+							if ( $show_author || $show_datetime || $show_categories  || $show_tags || $show_post_type) {
 
 								global $authordata;
 
@@ -406,6 +408,15 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 									if ( $show_categories ) {
 										echo '<div class="entry-categories">' . get_the_category_list(', ') . '</div>';
 									}
+
+									if ( $show_tags ) {
+										echo '<div class="entry-tags">' . get_the_tag_list('', ', ') . '</div>';
+									}
+
+									if ( $show_post_type ) {
+										echo '<div class="entry-post-type">' . get_post_type() . '</div>';
+									}
+									
 
 								echo '</div>' . "\n";
 
@@ -960,6 +971,20 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					'type' => 'checkbox',
 					'name' => 'show-category',
 					'label' => 'Meta: Show Categories',
+					'default' => false
+				),
+
+				'show-tags' => array(
+					'type' => 'checkbox',
+					'name' => 'show-tags',
+					'label' => 'Meta: Show Tags',
+					'default' => false
+				),
+
+				'show-post-type' => array(
+					'type' => 'checkbox',
+					'name' => 'show-post-type',
+					'label' => 'Meta: Show Post Type',
 					'default' => false
 				),
 

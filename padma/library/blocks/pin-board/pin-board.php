@@ -5,13 +5,10 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 	class PadmaPinBoardCoreBlock extends PadmaBlockAPI {
 
 
-		public $id = 'pin-board';
-
-		public $name = 'Pin Board';
-
-		public $description = 'Use to display your content in a masonry grid like Pinterest.';
-
-		public $options_class = 'PadmaPinBoardCoreBlockOptions';
+		public $id 				= 'pin-board';
+		public $name 			= 'Pin Board';
+		public $description 	= 'Use to display your content in a masonry grid like Pinterest.';
+		public $options_class 	= 'PadmaPinBoardCoreBlockOptions';
 
 
 		public static function init() {
@@ -87,9 +84,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				$block = PadmaBlocksData::get_block( $block_id );
 			}
 
-			$gutter_width = parent::get_setting( $block, 'gutter-width', 15 );
-
-			$columns_desktop = parent::get_setting( $block, 'columns', 3 );
+			$gutter_width 		= parent::get_setting( $block, 'gutter-width', 15 );
+			$columns_desktop 	= parent::get_setting( $block, 'columns', 3 );
 			$columns_smartphone = parent::get_setting( $block, 'columns-smartphone', 2 );
 
 			$width_calc_expression_desktop = ( 100 / $columns_desktop ) . '% - ' . ( $gutter_width * ( ( $columns_desktop - 1 ) / $columns_desktop ) ) . 'px';
@@ -135,14 +131,14 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			if ( padma_post('isAjax') ) {
 				$is_archive = padma_post( 'isArchive' );
-				$is_search = padma_post( 'isSearch' );
+				$is_search 	= padma_post( 'isSearch' );
 			} else {
 				$is_archive = is_archive();
-				$is_search = is_search();
+				$is_search 	= is_search();
 			}
 
-			$columns = parent::get_setting($block, 'columns', 3);
-			$approx_pin_width = (PadmaBlocksData::get_block_width($block) / $columns);
+			$columns 			= parent::get_setting($block, 'columns', 3);
+			$approx_pin_width 	= (PadmaBlocksData::get_block_width($block) / $columns);
 
 			/* Element Visibility */
 				$show_images = parent::get_setting($block, 'show-images', true);
@@ -156,17 +152,20 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					$show_datetime 		= parent::get_setting($block, 'show-datetime', false);
 					$datetime_verb 		= parent::get_setting($block, 'datetime-verb', 'Posted');
 					$relative_times 	= parent::get_setting($block, 'relative-times', true);
+					
+					//$entry_meta_above 	= $this->parse_meta(parent::get_setting('entry-meta-above', 'Posted on %date% by %author% &bull; %comments%'));
+
 
 				/* Content */
-					$show_continue = parent::get_setting($block, 'show-continue', false);
-					$content_to_show = parent::get_setting($block, 'content-to-show', 'excerpt');
-					$show_text_when_no_image = parent::get_setting($block, 'show-text-if-no-image', false);
-					$titles_position = parent::get_setting($block, 'titles-position', 'below');
-					$titles_link_to_post = parent::get_setting($block, 'titles-link-to-post', true);
+					$show_continue 				= parent::get_setting($block, 'show-continue', false);
+					$content_to_show 			= parent::get_setting($block, 'content-to-show', 'excerpt');
+					$show_text_when_no_image 	= parent::get_setting($block, 'show-text-if-no-image', false);
+					$titles_position 			= parent::get_setting($block, 'titles-position', 'below');
+					$titles_link_to_post 		= parent::get_setting($block, 'titles-link-to-post', true);
 
 			/* Images */
 					$crop_images_vertically = parent::get_setting($block, 'crop-vertically', false);
-					$image_click_action = parent::get_setting($block, 'image-click-action', 'post');
+					$image_click_action 	= parent::get_setting($block, 'image-click-action', 'post');
 
 					if ( $image_click_action == 'popup' ) {
 						add_thickbox();
@@ -174,17 +173,17 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			/* Social Stuff */
 				/* Pinterest */
-					$show_pinterest_button = parent::get_setting($block, 'show-pinterest-button', false);
+					$show_pinterest_button 	= parent::get_setting($block, 'show-pinterest-button', false);
 
 				/* Twitter */
-					$show_twitter_button = parent::get_setting($block, 'show-twitter-button', false);
+					$show_twitter_button 	= parent::get_setting($block, 'show-twitter-button', false);
 
-					$twitter_username = parent::get_setting($block, 'twitter-username', null);
-					$twitter_hashtag = parent::get_setting($block, 'twitter-hashtag', null);
+					$twitter_username 		= parent::get_setting($block, 'twitter-username', null);
+					$twitter_hashtag 		= parent::get_setting($block, 'twitter-hashtag', null);
 
 				/* Facebook */
-					$show_facebook_button = parent::get_setting($block, 'show-facebook-button', false);
-					$facebook_button_verb = parent::get_setting($block, 'facebook-button-verb', 'like');
+					$show_facebook_button 	= parent::get_setting($block, 'show-facebook-button', false);
+					$facebook_button_verb 	= parent::get_setting($block, 'facebook-button-verb', 'like');
 			/* End Social Stuff */
 
 			$infinite_scroll = parent::get_setting($block, 'infinite-scroll', true);
@@ -197,14 +196,13 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				}
 
 				/* Default Query Defaults */
-					$query_args['post_type'] = 'post';
-					$query_args['posts_per_page'] = get_option('posts_per_page');
+					$query_args['post_type'] 		= 'post';
+					$query_args['posts_per_page'] 	= get_option('posts_per_page');
 
 				/* Pagination */
-					$paged_var = get_query_var('paged') ? get_query_var('paged') : get_query_var('page');
-					$pin_board_ajax_paged = padma_post( 'pinBoardAjaxPaged' );
-
-					$query_args['paged'] = $pin_board_ajax_paged ? $pin_board_ajax_paged : $paged_var;
+					$paged_var 				= get_query_var('paged') ? get_query_var('paged') : get_query_var('page');
+					$pin_board_ajax_paged 	= padma_post( 'pinBoardAjaxPaged' );
+					$query_args['paged'] 	= $pin_board_ajax_paged ? $pin_board_ajax_paged : $paged_var;
 
 					if ( !$query_args['paged'] ) {
 						$query_args['paged'] = null;
@@ -236,14 +234,14 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 					/* Author Filter */
 						if ( is_array(parent::get_setting($block, 'author')) )
-							$query_args['author'] = trim(implode(',', parent::get_setting($block, 'author')), ', ');
+							$query_args['author'] 	= trim(implode(',', parent::get_setting($block, 'author')), ', ');
 
 					/* Pin limit */
-					$query_args['posts_per_page'] = parent::get_setting( $block, 'pins-per-page', 10 );
+					$query_args['posts_per_page'] 	= parent::get_setting( $block, 'pins-per-page', 10 );
 
 					/* Order */
-					$query_args['orderby'] = parent::get_setting( $block, 'order-by', 'date' );
-					$query_args['order'] = parent::get_setting( $block, 'order', 'DESC' );
+					$query_args['orderby'] 	= parent::get_setting( $block, 'order-by', 'date' );
+					$query_args['order'] 	= parent::get_setting( $block, 'order', 'DESC' );
 
 					/* Offset */
 					if ( parent::get_setting( $block, 'offset' ) !== null ) {
@@ -259,8 +257,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				}
 
 				/* Query! */
-				$original_wp_query = $wp_query;
-				$wp_query = new WP_Query($query_args);
+				$original_wp_query 	= $wp_query;
+				$wp_query 			= new WP_Query($query_args);
 				/* End Query Setup */
 
 				echo '<div class="pin-board" data-pin-board-ajax-paged="' . padma_get('paged', $query_args, 1) . '" data-pin-board-mode="' . parent::get_setting( $block, 'mode', 'default' ) . '">' . "\n";
@@ -276,10 +274,9 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					if ( !($show_images && has_post_thumbnail()) && !$content_to_show && !$show_titles && !$show_text_when_no_image )
 						continue;
 
-					$title_for_attribute = the_title_attribute(array('echo' => false));
-
-					$pin_classes = get_post_class();
-					$pin_classes[] = has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
+					$title_for_attribute 	= the_title_attribute(array('echo' => false));
+					$pin_classes 			= get_post_class();
+					$pin_classes[] 			= has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
 
 					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
 
@@ -307,17 +304,16 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 								//$crop_vertically
 								if ( $crop_images_vertically ) {
 
-									$thumbnail_height = round($approx_pin_width * 0.75);
-
-									$thumbnail_object = wp_get_attachment_image_src($thumbnail_id, 'full');
-									$thumbnail_url = padma_resize_image($thumbnail_object[0], $thumbnail_width, $thumbnail_height);
-									$full_image_url = $thumbnail_object[0];
+									$thumbnail_height 	= round($approx_pin_width * 0.75);
+									$thumbnail_object 	= wp_get_attachment_image_src($thumbnail_id, 'full');
+									$thumbnail_url 		= padma_resize_image($thumbnail_object[0], $thumbnail_width, $thumbnail_height);
+									$full_image_url 	= $thumbnail_object[0];
 
 								} else {
 
-									$thumbnail_object = wp_get_attachment_image_src($thumbnail_id, 'full');
-									$thumbnail_url = padma_resize_image($thumbnail_object[0], $thumbnail_width);
-									$full_image_url = $thumbnail_object[0];
+									$thumbnail_object 	= wp_get_attachment_image_src($thumbnail_id, 'full');
+									$thumbnail_url 		= padma_resize_image($thumbnail_object[0], $thumbnail_width);
+									$full_image_url 	= $thumbnail_object[0];
 
 								}
 
@@ -507,63 +503,88 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'id' 			=> 'pin',
 				'name' 			=> 'Pin',
 				'selector' 		=> '.pin-board-pin',
-				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow')
+				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'sizes', 'animation')
 			));
 
 			$this->register_block_element(array(
-				'id' => 'pin-title',
-				'name' => 'Pin Title',
-				'selector' => '.pin-board-pin .entry-title, .pin-board-pin .entry-title a',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow'),
-				'states' => array(
-					'Hover' => '.pin-board-pin .entry-title a:hover',
-				)
+				'id' 			=> 'pin-title',
+				'name' 			=> 'Pin Title',
+				'selector'		=> '.pin-board-pin .entry-title, .pin-board-pin .entry-title a',
+				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation'),
+				'states' 		=> array(
+						'Hover' => '.pin-board-pin .entry-title a:hover',
+					)
 			));
 
 			$this->register_block_element(array(
-				'id' => 'pin-meta',
-				'name' => 'Pin Meta',
-				'selector' => '.pin-board-pin .entry-meta',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow')
+				'id' 			=> 'pin-meta',
+				'name' 			=> 'Pin Meta',
+				'selector' 		=> '.pin-board-pin .entry-meta',
+				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+			));
+
+				$this->register_block_element(array(
+					'parent' 		=> 'pin-meta',
+					'id' 			=> 'pin-meta-author',
+					'name' 			=> 'Author',
+					'selector' 		=> '.pin-board-pin .entry-meta .author-link',
+					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+				));
+
+				$this->register_block_element(array(
+					'parent' 		=> 'pin-meta',
+					'id' 			=> 'pin-meta-categories',
+					'name' 			=> 'Categories',
+					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories',
+					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+				));
+
+				$this->register_block_element(array(
+					'parent' 		=> 'pin-meta',
+					'id' 			=> 'pin-meta-tags',
+					'name' 			=> 'Tags',
+					'selector' 		=> '.pin-board-pin .entry-meta .entry-tags',
+					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+				));
+
+				$this->register_block_element(array(
+					'parent' 		=> 'pin-meta',
+					'id' 			=> 'pin-meta-categories-link',
+					'name' 			=> 'Categories Link',
+					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories a',
+					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+				));
+
+				/*
+				$this->register_block_element(array(
+					'parent' 		=> 'pin-meta',
+					'id' 			=> 'pin-meta-entry-meta-above',
+					'name' 			=> 'Meta Above Content',
+					'selector' 		=> '.pin-board-pin div.entry-meta-above',
+				));	
+				*/
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-text',
+				'name' 			=> 'Pin Text',
+				'selector' 		=> '.pin-board-pin .entry-content',
+				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
 			));
 
 			$this->register_block_element(array(
-				'parent' => 'pin-meta',
-				'id' => 'pin-meta-categories',
-				'name' => 'Categories',
-				'selector' => '.pin-board-pin .entry-meta .entry-categories',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow')
-			));
-
-			$this->register_block_element(array(
-				'parent' => 'pin-meta',
-				'id' => 'pin-meta-categories-link',
-				'name' => 'Categories Link',
-				'selector' => '.pin-board-pin .entry-meta .entry-categories a',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow')
-			));
-
-			$this->register_block_element(array(
-				'id' => 'pin-text',
-				'name' => 'Pin Text',
-				'selector' => '.pin-board-pin .entry-content',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow')
-			));
-
-			$this->register_block_element(array(
-				'id' => 'pagination-button',
-				'name' => 'Pagination Button',
-				'selector' => '.pin-board-pagination a',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow'),
-				'states' => array(
-					'Hover' => '.pin-board-pagination a:hover',
-				)
+				'id' 			=> 'pagination-button',
+				'name' 			=> 'Pagination Button',
+				'selector' 		=> '.pin-board-pagination a',
+				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation'),
+				'states' 		=> array(
+						'Hover' => '.pin-board-pagination a:hover',
+					)
 			));
 			$this->register_block_element(array(
-				'id' => 'pagination-text',
-				'name' => 'Pagination Current Page',
-				'selector' => '.pin-board-pagination span.page-numbers.current',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow'),
+				'id' 			=> 'pagination-text',
+				'name' 			=> 'Pagination Current Page',
+				'selector' 		=> '.pin-board-pagination span.page-numbers.current',
+				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation'),
 			));
 
 		}
@@ -714,6 +735,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			'query-filters' 	=> 'Query Filters',
 			'pagination' 		=> 'Pagination/Infinite Scroll',
 			'text' 				=> 'Text',
+			'meta' 				=> 'Meta',
 			'images' 			=> 'Images',
 			'effects' 			=> 'Effects',
 			'social' 			=> 'Social'
@@ -722,158 +744,158 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public $inputs = array(
 			'pin-setup' => array(
 				'mode' => array(
-					'type' => 'select',
-					'name' => 'mode',
-					'label' => 'Mode',
-					'tooltip' => 'If you would like to modify the default behaviour, select custom query. <br/><strong>Note:</strong>On archive pages, it\'s not advisable to use a custom query if the block is displaying the archive results.<br/>On search pages, it may be necessary to limit results to only certain content types.',
-					'options' => array(
-						'default' => 'Default behaviour',
-						'custom' => 'Custom query',
-					),
-					'toggle' => array(
-						'default' => array(
-							'hide' => 'li#sub-tab-query-filters'
+					'type' 		=> 'select',
+					'name' 		=> 'mode',
+					'label' 	=> 'Mode',
+					'tooltip' 	=> 'If you would like to modify the default behaviour, select custom query. <br/><strong>Note:</strong>On archive pages, it\'s not advisable to use a custom query if the block is displaying the archive results.<br/>On search pages, it may be necessary to limit results to only certain content types.',
+					'options' 	=> array(
+							'default' 	=> 'Default behaviour',
+							'custom' 	=> 'Custom query',
 						),
+					'toggle' 	=> array(
+						'default' => array(
+								'hide' => 'li#sub-tab-query-filters'
+							),
 						'custom' => array(
 							'show' => 'li#sub-tab-query-filters'
 						)
 					)
 				),
 				'layout-heading' => array(
-					'name' => 'layout-heading',
-					'type' => 'heading',
+					'name' 	=> 'layout-heading',
+					'type' 	=> 'heading',
 					'label' => 'Layout',
 				),
 				'columns' => array(
-					'type' => 'slider',
-					'name' => 'columns',
-					'label' => 'Columns',
-					'slider-min' => 1,
-					'slider-max' => 7,
-					'slider-interval' => 1,
-					'default' => 3,
-					'tooltip' => 'Set how many pins to display horizontally'
+					'type' 				=> 'slider',
+					'name' 				=> 'columns',
+					'label' 			=> 'Columns',
+					'slider-min' 		=> 1,
+					'slider-max' 		=> 7,
+					'slider-interval'	=> 1,
+					'default' 			=> 3,
+					'tooltip' 			=> 'Set how many pins to display horizontally'
 				),
 
 				'columns-smartphone' => array(
-					'type' => 'slider',
-					'name' => 'columns-smartphone',
-					'label' => 'Columns (iPhone/Smartphone)',
-					'slider-min' => 1,
-					'slider-max' => 7,
-					'slider-interval' => 1,
-					'default' => 2,
-					'tooltip' => 'Set how many pins to display horizontally for iPhones and smartphones.  <strong>Recommended setting: 1 or 2</strong>'
+					'type' 				=> 'slider',
+					'name' 				=> 'columns-smartphone',
+					'label' 			=> 'Columns (iPhone/Smartphone)',
+					'slider-min' 		=> 1,
+					'slider-max' 		=> 7,
+					'slider-interval' 	=> 1,
+					'default' 			=> 2,
+					'tooltip' 			=> 'Set how many pins to display horizontally for iPhones and smartphones.  <strong>Recommended setting: 1 or 2</strong>'
 				),
 
 				'gutter-width' => array(
-					'type' => 'slider',
-					'name' => 'gutter-width',
-					'label' => 'Gutter Width',
-					'slider-min' => 0,
-					'slider-max' => 100,
-					'slider-interval' => 1,
-					'default' => 15,
-					'unit' => 'px',
-					'tooltip' => 'The amount in space between pins horizontally.'
+					'type' 				=> 'slider',
+					'name' 				=> 'gutter-width',
+					'label' 			=> 'Gutter Width',
+					'slider-min' 		=> 0,
+					'slider-max' 		=> 100,
+					'slider-interval' 	=> 1,
+					'default' 			=> 15,
+					'unit' 				=> 'px',
+					'tooltip' 			=> 'The amount in space between pins horizontally.'
 				),
 
 				'pin-bottom-margin' => array(
-					'type' => 'slider',
-					'name' => 'pin-bottom-margin',
-					'label' => 'Pin Bottom Margin',
-					'slider-min' => 0,
-					'slider-max' => 50,
-					'slider-interval' => 1,
-					'default' => 15,
-					'unit' => 'px',
-					'tooltip' => 'The amount of space on the bottom of each pin.'
+					'type' 				=> 'slider',
+					'name' 				=> 'pin-bottom-margin',
+					'label' 			=> 'Pin Bottom Margin',
+					'slider-min' 		=> 0,
+					'slider-max' 		=> 50,
+					'slider-interval' 	=> 1,
+					'default' 			=> 15,
+					'unit' 				=> 'px',
+					'tooltip' 			=> 'The amount of space on the bottom of each pin.'
 				)
 			),
 
 			'query-filters' => array(
 				'pins-per-page' => array(
-					'type' => 'integer',
-					'name' => 'pins-per-page',
-					'label' => 'Pins Per Page',
-					'default' => 10,
-					'tooltip' => 'Determines how many pins to load at one time before loading more via pagination or <em>infinite scrolling</em>.'
+					'type' 		=> 'integer',
+					'name' 		=> 'pins-per-page',
+					'label' 	=> 'Pins Per Page',
+					'default' 	=> 10,
+					'tooltip' 	=> 'Determines how many pins to load at one time before loading more via pagination or <em>infinite scrolling</em>.'
 				),
 
 				'offset' => array(
-					'type' => 'integer',
-					'name' => 'offset',
-					'label' => 'Offset',
-					'tooltip' => 'The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.',
-					'default' => 0
+					'type' 		=> 'integer',
+					'name' 		=> 'offset',
+					'label' 	=> 'Offset',
+					'tooltip' 	=> 'The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.',
+					'default' 	=> 0
 				),
 
 				'filters-heading' => array(
-					'name' => 'filters-heading',
-					'type' => 'heading',
+					'name' 	=> 'filters-heading',
+					'type' 	=> 'heading',
 					'label' => 'Filters',
 				),
 
 				'post-type' => array(
-					'type' => 'multi-select',
-					'name' => 'post-type',
-					'label' => 'Post Type',
-					'tooltip' => 'Choose a post type to display. If none are selected, it will automatically default to all.',
-					'default' => 'any',
-					'options' => 'get_post_types()'
+					'type' 		=> 'multi-select',
+					'name' 		=> 'post-type',
+					'label' 	=> 'Post Type',
+					'tooltip' 	=> 'Choose a post type to display. If none are selected, it will automatically default to all.',
+					'default' 	=> 'any',
+					'options' 	=> 'get_post_types()'
 				),
 				'taxonomies' => array(
-					'type' => 'select',
-					'name' => 'taxonomies',
-					'label' => 'Taxonomy',
-					'default' => 'category',
-					'options' => array( 'none' => 'No taxonomies' ),
-					'tooltip' => 'Select the taxonomy to filter pins on .',
-					'callback' => 'reloadBlockOptions()'
+					'type' 		=> 'select',
+					'name' 		=> 'taxonomies',
+					'label' 	=> 'Taxonomy',
+					'default' 	=> 'category',
+					'options' 	=> array( 'none' => 'No taxonomies' ),
+					'tooltip' 	=> 'Select the taxonomy to filter pins on .',
+					'callback' 	=> 'reloadBlockOptions()'
 				),
 				// For simplicity with migrating from categories to all taxonomies, these next two have kept the same names. In the future a function could be written to port them to a correctly named variable
 				'categories' => array(
-					'type' => 'multi-select',
-					'name' => 'categories',
-					'label' => 'Terms',
-					'default' => '',
-					'options' => array( 'none' => 'No terms' ),
-					'tooltip' => 'Filter the pins that are shown by the selected taxonomy\'s terms.'
+					'type' 		=> 'multi-select',
+					'name' 		=> 'categories',
+					'label' 	=> 'Terms',
+					'default' 	=> '',
+					'options' 	=> array( 'none' => 'No terms' ),
+					'tooltip' 	=> 'Filter the pins that are shown by the selected taxonomy\'s terms.'
 				),
 				'categories-mode' => array(
-					'type' => 'select',
-					'name' => 'categories-mode',
-					'label' => 'Terms Mode',
-					'tooltip' => '',
-					'options' => array(
+					'type' 		=> 'select',
+					'name' 		=> 'categories-mode',
+					'label' 	=> 'Terms Mode',
+					'tooltip' 	=> '',
+					'options' 	=> array(
 						'include' => 'Include',
 						'exclude' => 'Exclude'
 					),
-					'tooltip' => 'If this is set to <em>include</em>, then only the pins that match the terms filter will be shown.  If set to <em>exclude</em>, all pins that match the selected terms will not be shown.'
+					'tooltip' 	=> 'If this is set to <em>include</em>, then only the pins that match the terms filter will be shown.  If set to <em>exclude</em>, all pins that match the selected terms will not be shown.'
 				),
 				'author' => array(
-					'type' => 'multi-select',
-					'name' => 'author',
-					'label' => 'Author',
-					'tooltip' => '',
-					'options' => 'get_authors()'
+					'type' 		=> 'multi-select',
+					'name' 		=> 'author',
+					'label' 	=> 'Author',
+					'tooltip' 	=> '',
+					'options' 	=> 'get_authors()'
 				),
 
 				'order-heading' => array(
-					'name' => 'order-heading',
-					'type' => 'heading',
+					'name' 	=> 'order-heading',
+					'type' 	=> 'heading',
 					'label' => 'Order',
 				),
 				'order-by' => array(
-					'type' => 'select',
-					'name' => 'order-by',
-					'label' => 'Order By',
-					'tooltip' => '',
-					'options' => array(
-						'date' => 'Date',
+					'type' 		=> 'select',
+					'name' 		=> 'order-by',
+					'label' 	=> 'Order By',
+					'tooltip' 	=> '',
+					'options' 	=> array(
+						'date' 	=> 'Date',
 						'title' => 'Title',
-						'rand' => 'Random',
-						'ID' => 'ID'
+						'rand' 	=> 'Random',
+						'ID' 	=> 'ID'
 					)
 				),
 				'order' => array(
@@ -916,100 +938,177 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			'text' => array(
 				'show-titles' => array(
-					'type' => 'checkbox',
-					'name' => 'show-titles',
-					'label' => 'Show Titles',
-					'default' => true
-				),
+						'type' => 'checkbox',
+						'name' => 'show-titles',
+						'label' => 'Show Titles',
+						'default' => true
+					),
 
 				'titles-position' => array(
-					'type' => 'select',
-					'name' => 'titles-position',
-					'label' => 'Titles position',
-					'default' => 'below',
-					'options' => array('above' => 'Above','below' => 'Below')
-				),
+						'type' => 'select',
+						'name' => 'titles-position',
+						'label' => 'Titles position',
+						'default' => 'below',
+						'options' => array('above' => 'Above','below' => 'Below')
+					),
 
 				'titles-link-to-post' => array(
-					'type' => 'checkbox',
-					'name' => 'titles-link-to-post',
-					'label' => 'Titles link to post',
-					'default' => true,
-					'tooltip' => 'Open the post when the user clicks on the title'
-				),
+						'type' => 'checkbox',
+						'name' => 'titles-link-to-post',
+						'label' => 'Titles link to post',
+						'default' => true,
+						'tooltip' => 'Open the post when the user clicks on the title'
+					),
 
 				'content-to-show' => array(
-					'type' => 'select',
-					'name' => 'content-to-show',
-					'label' => 'Content To Show',
-					'options' => array(
-						'' => '&ndash; Do Not Show Content &ndash;',
-						'excerpt' => 'Excerpts',
-						'content' => 'Full Content'
+						'type' => 'select',
+						'name' => 'content-to-show',
+						'label' => 'Content To Show',
+						'options' => array(
+							'' => '&ndash; Do Not Show Content &ndash;',
+							'excerpt' => 'Excerpts',
+							'content' => 'Full Content'
+						),
+						'default' => 'excerpt',
+						'tooltip' => 'The content is the written text or HTML for the entry.  This is edited in the WordPress admin panel.'
 					),
-					'default' => 'excerpt',
-					'tooltip' => 'The content is the written text or HTML for the entry.  This is edited in the WordPress admin panel.'
-				),
 
 				'show-text-if-no-image' => array(
-					'type' => 'checkbox',
-					'name' => 'show-text-if-no-image',
-					'label' => 'Only show content when no featured image',
-					'default' => false,
-					'tooltip' => 'If enabled, regardless of the content chosen in <em>Content to Show</em> will only show content for pins with no featured image.'
-				),
+						'type' => 'checkbox',
+						'name' => 'show-text-if-no-image',
+						'label' => 'Only show content when no featured image',
+						'default' => false,
+						'tooltip' => 'If enabled, regardless of the content chosen in <em>Content to Show</em> will only show content for pins with no featured image.'
+					),
 
-				'show-author' => array(
-					'type' => 'checkbox',
-					'name' => 'show-author',
-					'label' => 'Meta: Show Author "byline"',
-					'default' => false,
-					'tooltip' => '<strong>Example:</strong> <em>by</em> Author Name'
-				),
+			),
+
+			'meta' => array(
+
+				'show-author' 	=> array(
+						'type' 		=> 'checkbox',
+						'name' 		=> 'show-author',
+						'label' 	=> 'Meta: Show Author "byline"',
+						'default' 	=> false,
+						'tooltip' 	=> '<strong>Example:</strong> <em>by</em> Author Name'
+					),
 
 				'show-category' => array(
-					'type' => 'checkbox',
-					'name' => 'show-category',
-					'label' => 'Meta: Show Categories',
-					'default' => false
-				),
+						'type' 		=> 'checkbox',
+						'name' 		=> 'show-category',
+						'label' 	=> 'Meta: Show Categories',
+						'default' 	=> false
+					),
 
 				'show-tags' => array(
-					'type' => 'checkbox',
-					'name' => 'show-tags',
-					'label' => 'Meta: Show Tags',
-					'default' => false
-				),
+						'type' 		=> 'checkbox',
+						'name' 		=> 'show-tags',
+						'label' 	=> 'Meta: Show Tags',
+						'default' 	=> false
+					),
 
 				'show-post-type' => array(
-					'type' => 'checkbox',
-					'name' => 'show-post-type',
-					'label' => 'Meta: Show Post Type',
-					'default' => false
-				),
+						'type' 		=> 'checkbox',
+						'name' 		=> 'show-post-type',
+						'label' 	=> 'Meta: Show Post Type',
+						'default' 	=> false
+					),
 
 				'show-datetime' => array(
-					'type' => 'checkbox',
-					'name' => 'show-datetime',
-					'label' => 'Meta: Show Date/Time',
-					'default' => false
-				),
+						'type' 		=> 'checkbox',
+						'name' 		=> 'show-datetime',
+						'label' 	=> 'Meta: Show Date/Time',
+						'default' 	=> false
+					),
 
 				'datetime-verb' => array(
-					'type' => 'text',
-					'name' => 'datetime-verb',
-					'label' => 'Meta: Posted Verb',
-					'default' => 'Posted',
-					'tooltip' => 'The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"'
-				),
+						'type' 		=> 'text',
+						'name' 		=> 'datetime-verb',
+						'label' 	=> 'Meta: Posted Verb',
+						'default' 	=> 'Posted',
+						'tooltip'	=> 'The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"'
+					),
 
 				'relative-times' => array(
-					'type' => 'checkbox',
-					'name' => 'relative-times',
-					'label' => 'Meta: Use Relative Times',
-					'default' => true,
-					'tooltip' => '<strong>Example:</strong> 8 hours ago'
-				)
+						'type' 		=> 'checkbox',
+						'name' 		=> 'relative-times',
+						'label' 	=> 'Meta: Use Relative Times',
+						'default' 	=> true,
+						'tooltip' 	=> '<strong>Example:</strong> 8 hours ago'
+					),
+				/*
+				'entry-meta-above' => array(
+						'type' 		=> 'textarea',
+						'label' 	=> 'Meta Above Content',
+						'name' 		=> 'entry-meta-above',
+						'default' 	=> 'Posted on %date% by %author% &bull; %comments%'
+					),
+
+				'entry-meta-above' => array(
+					'type' => 'textarea',
+					'label' => 'Meta Above Content',
+					'name' => 'entry-meta-above',
+					'default' => 'Posted on %date% by %author% &bull; %comments%'
+				),
+				
+				'entry-utility-below' => array(
+					'type' => 'textarea',
+					'label' => 'Meta Below Content',
+					'name' => 'entry-utility-below',
+					'default' => 'Filed Under: %categories%'
+				),
+
+				'date-format' => array(
+					'type' => 'select',
+					'name' => 'date-format',
+					'label' => 'Date Format'
+				),
+
+				'time-format' => array(
+					'type' => 'select',
+					'name' => 'time-format',
+					'label' => 'Time Format'
+				),
+
+				'comments-meta-heading' => array(
+					'name' => 'comments-meta-heading',
+					'type' => 'heading',
+					'label' => 'Comments Meta'
+				),
+
+					'comment-format' => array(
+						'type' => 'text',
+						'label' => 'Comment Format &ndash; More Than 1 Comment',
+						'name' => 'comment-format',
+						'default' => '%num% Comments',
+						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>more than 1 comment</strong> on the entry.'
+					),
+					
+					'comment-format-1' => array(
+						'type' => 'text',
+						'label' => 'Comment Format &ndash; 1 Comment',
+						'name' => 'comment-format-1',
+						'default' => '%num% Comment',
+						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>just 1 comment</strong> on the entry.'
+					),
+					
+					'comment-format-0' => array(
+						'type' => 'text',
+						'label' => 'Comment Format &ndash; 0 Comments',
+						'name' => 'comment-format-0',
+						'default' => '%num% Comments',
+						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there are <strong>0 comments</strong> on the entry.'
+
+					),
+					
+					'respond-format' => array(
+						'type' => 'text',
+						'label' => 'Respond Format',
+						'name' => 'respond-format',
+						'default' => 'Leave a comment!',
+						'tooltip' => 'Determines the %respond% variable for the entry meta.'
+					)
+					*/
 			),
 
 			'images' => array(
@@ -1273,4 +1372,106 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 	}
 
+
+
+	
+	function parse_meta($meta) {
+
+		global $post, $authordata;
+
+		$variables = array(
+			'date',
+			'time',
+			'comments',
+			'comments_no_link',
+			'respond',
+			'author',
+			'author_no_link',
+			'categories',
+			'tags',
+			'edit'
+		);
+
+		foreach ( $variables as $variable ) {
+
+			if ( strpos($meta, '%' . $variable . '%') === false )
+				continue;
+
+			switch ( $variable ) {
+
+				case 'date':
+
+					$date_format = $this->get_setting('date-format', 'wordpress-default');
+					$date = ($date_format != 'wordpress-default') ? get_the_time($date_format) : get_the_date();
+
+					$replacement['date'] = '<time class="entry-date published updated" itemprop="datePublished" datetime="' . get_the_time( 'c' ) . '">' . $date . '</time>';
+
+				break;
+
+				case 'time':
+
+					$time_format = $this->get_setting('time-format', 'wordpress-default');
+					$time = ($date_format != 'wordpress-default') ? get_the_time($time_format) : get_the_time();
+
+					$replacement['time'] = '<time class="entry-time" datetime="' . get_the_time( 'c' ) . '">' . $time . '</time>';
+
+				break;
+
+				case 'comments':
+				case 'comments_no_link':
+
+					$comments_number = (int)get_comments_number($post->ID);
+
+					if ( $comments_number === 0 ) 
+						$comments_format = stripslashes($this->get_setting('comment-format-0', '%num% Comments'));
+					elseif ( $comments_number == 1 ) 
+						$comments_format = stripslashes($this->get_setting('comment-format-1', '%num% Comment'));
+					elseif ( $comments_number > 1 ) 
+						$comments_format = stripslashes($this->get_setting('comment-format', '%num% Comments'));
+
+					$comments = str_replace('%num%', $comments_number, $comments_format);
+					
+					$replacement['comments'] = '<a href="' . get_comments_link() . '" title="' . sprintf(__('%s &ndash; Comments', 'padma'), the_title_attribute('echo=0')) . '" class="entry-comments">' . $comments . '</a>';
+					$replacement['comments_no_link'] = $comments;
+
+				break;
+
+				case 'respond':
+
+					$respond_format = stripslashes($this->get_setting('respond-format', 'Leave a comment!'));
+					
+					$replacement['respond'] = '<a href="' . get_permalink() . '#respond" title="' . sprintf(__('Respond to %s', 'padma'), the_title_attribute('echo=0')) . '" class="entry-respond">' . $respond_format . '</a>';
+
+				break;
+
+				case 'author':
+				case 'author_no_link':
+
+					$replacement['author'] = '<span class="entry-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="' . sprintf(__('View all posts by %s', 'padma'), $authordata->display_name) . '" itemprop="url"><span class="entry-author-name" itemprop="name">' . $authordata->display_name . '</span></a></span>';
+					$replacement['author_no_link'] = $authordata->display_name;
+
+				break;
+
+				case 'categories':
+					$replacement['categories'] = get_the_category_list(', ');
+				break;
+
+				case 'tags':
+					$replacement['tags'] = (get_the_tags() != NULL) ? get_the_tag_list('<span class="tag-links" itemprop="keywords">','<span class="tag-sep">, </span>','</span>') : '';
+				break;
+
+				case 'edit':
+					$replacement['edit'] = null;
+				break;
+
+
+			}
+
+			$meta = str_replace('%' . $variable . '%', $replacement[$variable], $meta);
+
+		}
+
+		return apply_filters('padma_meta', $meta);
+		
+	}
 }

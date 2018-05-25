@@ -494,10 +494,10 @@ class PadmaContentBlockDisplay {
 		if ( $this->get_setting('show-entry', true) ) {
 
 			/* Setup generic variables */
-				$post_id = get_the_id();
-				$post_class = $this->entry_class();
+				$post_id 		= get_the_id();
+				$post_class 	= $this->entry_class();
 				$post_permalink = get_permalink();
-				$post_type = get_post_type();
+				$post_type 		= get_post_type();
 			/* End generic variables */
 
 			/* Meta */

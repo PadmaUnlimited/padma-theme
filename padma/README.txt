@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 0.0.21
 * Released: May 23, 2018
 
-Added option to show post tags to Pinboard block
+Several improves to Pinboard block 
 
 = 0.0.20
 * Released: May 23, 2018

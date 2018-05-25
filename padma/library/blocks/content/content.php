@@ -4,13 +4,10 @@ padma_register_block('PadmaContentBlock', padma_url() . '/library/blocks/content
 class PadmaContentBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'content';
-	
-	public $name = 'Content';
-		
-	public $options_class = 'PadmaContentBlockOptions';
-
-	public $description = 'Main content area to show the current page\'s content or the latest posts.  This is considered the "Loop" in other themes.';
+	public $id 				= 'content';	
+	public $name 			= 'Content';		
+	public $options_class 	= 'PadmaContentBlockOptions';
+	public $description 	= 'Main content area to show the current page\'s content or the latest posts.  This is considered the "Loop" in other themes.';
 			
 	
 	function init() {
@@ -492,12 +489,12 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 	
 	
 	public $tabs = array(
-		'mode' => 'Mode',
-		'query-filters' => 'Query Filters',
-		'display' => 'Display',
-		'meta' => 'Meta',
-		'comments' => 'Comments',
-		'post-thumbnails' => 'Featured Images'
+		'mode' 				=> 'Mode',
+		'query-filters' 	=> 'Query Filters',
+		'display' 			=> 'Display',
+		'meta' 				=> 'Meta',
+		'comments' 			=> 'Comments',
+		'post-thumbnails' 	=> 'Featured Images'
 	);
 
 	

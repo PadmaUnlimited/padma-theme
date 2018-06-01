@@ -104,6 +104,11 @@ class PadmaSidePanelDesignEditor {
 					</div>
 				</div><!-- .design-editor-info -->
 
+			<div class="design-editor-options-filter">
+				<input type="text" id="options-filter" placeholder="Filter" title="Filter options">
+				<a class="options-filter-reset"><span>x</span></a>
+				<a class="options-filter-only-modified">Show only modified options <input type="checkbox" id="options-filter-only-modified"></a>
+			</div>
 			<div class="design-editor-options-container">
 			
 				<div class="design-editor-options" style="display:none;"></div><!-- .design-editor-options -->

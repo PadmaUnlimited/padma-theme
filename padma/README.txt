@@ -43,6 +43,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 * Released: May 23, 2018
 
 Several improves to Pinboard block 
+Added Undo / Redo panel options
+CSS Animation Code Fix
 
 = 0.0.20
 * Released: May 23, 2018

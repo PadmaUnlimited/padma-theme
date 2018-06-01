@@ -49,6 +49,8 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
             this.settings.onAdd(occurence);
         }
 
+        panelOptions();
+
         return this;
 	}
 
@@ -138,11 +140,25 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
         this.down = states.down || function() {};
 	}
 
+    var panelOptions = function(){
+        if(Padma.history.redos.length > 0){
+            $('.history-wrapper button.redo').addClass('active');
+        }else{
+            $('.history-wrapper button.redo').removeClass('active');
+        }
+        if(Padma.history.undos.length > 0){
+            $('.history-wrapper button.undo').addClass('active');
+        }else{
+            $('.history-wrapper button.undo').removeClass('active');
+        }
+
+        //console.log(Padma.history);
+    }
+
 	var history = {
 		init: function() {
 
 			Padma.history = new Chronology({limit: 0});
-
 			history.bind();
 
 		},
@@ -152,12 +168,16 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
 			mousetrap.bind(['ctrl+z', 'command+z'], function(event) {
 				Padma.history.undo();
 
+                panelOptions();
+
 				/* cancel browser default */
 				return false; 
 			});
 
 			mousetrap.bind(['ctrl+y', 'command+y'], function(event) {
 				Padma.history.redo();
+
+                panelOptions();
 
 				/* cancel browser default */
 				return false; 

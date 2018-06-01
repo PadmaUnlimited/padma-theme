@@ -1787,64 +1787,13 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 
 			var animation 	= params.value;
 			var selector 	= params.selector;
-			stylesheet.update_rule(selector, {'animation-name': animation});
-			stylesheet.update_rule(selector, {'animation-duration': '1s'});
-			stylesheet.update_rule(selector, {'animation-fill-mode': 'both'});
 
-			return $.post(Padma.ajaxURL, {
-				security: Padma.security,
-				action: 'padma_enqueue_animation_css',
-				'animation': animation
-			});
+			stylesheet.update_rule(selector, {
+					'animation-name': animation,
+					'animation-duration': '1s',
+					'animation-fill-mode': 'both'
+				});
 
-			/*
-
-			var selector 	= params.selector;
-			var value 		= params.value;
-
-			if ( value == 'bounce' ) {
-
-				var animationRules = animate.bounce();								
-			}
-
-			if(animationRules != undefined){
-
-
-
-				for (var i = animationRules.length - 1; i >= 0; i--) {
-					var rule 	= {};
-					var k 		= animationRules[i][0];
-					var v 		= animationRules[i][1];
-					rule[k] 	= v;
-					stylesheet.update_rule(selector, rule );
-				}
-				
-			}
-			*/
-
-
-			
-
-			//return updateBlockAnimationClasses(block,params.value);
-
-			/*
-			console.log(block);
-			console.log(blocks);
-			console.log(params);
-
-			Usar -> updateBlockAnimationClasses
-
-			this.blocks
-			
-			var selector 	= params.selector;
-			var value 		= params.value;
-			
-			blocks.updateBlockCustomClasses(null,selector,'animated');
-			blocks.updateBlockCustomClasses(null,selector,params.value);
-
-			$(stylesheet.document).find(selector).addClass('animated');
-			$(stylesheet.document).find(selector).addClass(params.value);
-			*/
 		}
 
 
@@ -2922,6 +2871,127 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 			if ( $.cookie('panel-on-left') === 'true' ){
 				$('body').addClass('panel-on-left');
 			}	
+
+
+
+			/*
+				Options filter Reset function
+			*/
+			var optionsFilterReset = function(){
+				$('.design-editor-options li').show();
+				$('#options-filter').val('');
+				$('.design-editor-box').show();
+				
+				$('.design-editor-options li').removeClass('hidden');
+				$('.design-editor-box').removeClass('filtered');
+				$('.design-editor-box').removeClass('design-editor-box-open');
+				$('.design-editor-box-content').removeClass('filtered');
+			}
+
+			/*
+				Options filter
+			*/
+			$(document).on('keyup','#options-filter',function(){
+
+				var string  = $(this).val();				
+				var options = $('.design-editor-options .design-editor-box-content, .design-editor-options .box-model-inputs').find('li');
+
+				if(string.length == 0){
+					optionsFilterReset();
+					return;
+				}
+				
+				options.each(function(index){
+
+					var property_id = $(this).data('property-id');
+					var target 		= $(this);
+
+					
+					if( typeof property_id != 'undefined' ){
+						
+						if ( property_id.indexOf(string) == -1) {
+							
+							target.addClass('hidden');
+							target.hide();
+						}else{
+							target.parent().addClass('filtered');
+							target.parent().parent().addClass('filtered');
+							target.parent().parent().addClass('design-editor-box-open');
+							target.removeClass('hidden');
+							target.show();
+						}
+					}else{
+						console.log($(this));
+					}
+
+				});
+
+				$('.design-editor-box').each(function(){
+
+					var ttlOptions 		= $(this).find('.design-editor-box-content > li').length;
+					var ttlOptionsHiden = $(this).find('.design-editor-box-content > li.hidden').length;
+					
+					if(ttlOptions == ttlOptionsHiden){						
+						$(this).hide();
+					}else{
+						$(this).show();
+					}
+				});
+
+			
+			});
+
+			/*
+				Options filter Reset
+			*/
+			$(document).on('click','.options-filter-reset',function(){
+				optionsFilterReset();
+				
+			});
+
+			/*
+				options-filter-only-modified
+			*/
+			$(document).on('click','.options-filter-only-modified',function(){
+
+				if($('.options-filter-only-modified input').is(':checked')){
+
+					var targetToHide = $('.design-editor-options li:not(.customized-property-by-user)');					
+					targetToHide.each(function(){
+						$(this).addClass('hidden');
+						$(this).hide();
+					});
+
+					var targetToShow = $('.design-editor-options li.customized-property-by-user');					
+					targetToShow.each(function(){
+						$(this).parent().addClass('filtered');
+						$(this).parent().parent().addClass('filtered');
+						$(this).parent().parent().addClass('design-editor-box-open');
+						$(this).removeClass('hidden');
+						$(this).show();
+					});
+
+					$('.design-editor-box').each(function(){
+
+						var ttlOptions 		= $(this).find('.design-editor-box-content > li').length;
+						var ttlOptionsHiden = $(this).find('.design-editor-box-content > li.hidden').length;
+						
+						if(ttlOptions == ttlOptionsHiden){						
+							$(this).hide();
+						}else{
+							$(this).show();
+						}
+					});
+
+				}else{
+
+					optionsFilterReset();
+
+				}
+			});
+
+				
+
 
 		},
 

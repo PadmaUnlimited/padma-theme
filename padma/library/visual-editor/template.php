@@ -46,6 +46,16 @@
 				</button>
 			</div>
 		</div>
+
+		<!--	Undo / Redo options	 -->
+		<div class="history-wrapper">
+			<div class="occurences">
+				<button type="button" class="undo">
+				</button>
+				<button type="button" class="redo">
+				</button>
+			</div>
+		</div>
 	
 		<div id="menu-right">
 	

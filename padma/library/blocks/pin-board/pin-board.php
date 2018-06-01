@@ -741,6 +741,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			'social' 			=> 'Social'
 		);
 
+
 		public $inputs = array(
 			'pin-setup' => array(
 				'mode' => array(
@@ -1029,6 +1030,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						'tooltip'	=> 'The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"'
 					),
 
+				/*
 				'relative-times' => array(
 						'type' 		=> 'checkbox',
 						'name' 		=> 'relative-times',
@@ -1036,7 +1038,6 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						'default' 	=> true,
 						'tooltip' 	=> '<strong>Example:</strong> 8 hours ago'
 					),
-				/*
 				'entry-meta-above' => array(
 						'type' 		=> 'textarea',
 						'label' 	=> 'Meta Above Content',
@@ -1207,25 +1208,27 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			$this->taxonomy_list 	= self::get_taxonomy_list();
 			$this->inputs['query-filters']['taxonomies']['options'] = $this->taxonomy_list;
 
-			$tax_slug = PadmaBlockAPI::get_setting($block, 'taxonomies', 'category');
-			$this->terms_list = self::get_tax_terms($tax_slug);
+			$tax_slug 			= PadmaBlockAPI::get_setting($block, 'taxonomies', 'category');
+			$this->terms_list 	= self::get_tax_terms($tax_slug);
 
 			$this->inputs['query-filters']['categories'] = array(
-				'type' => 'multi-select',
-				'name' => 'categories',
-				'label' => 'Terms',
-				'default' => '',
-				'options' => $this->terms_list[$tax_slug],
-				'tooltip' => 'Filter the pins that are shown by the selected taxonomy\'s terms.'
+				'type' 		=> 'multi-select',
+				'name' 		=> 'categories',
+				'label' 	=> 'Terms',
+				'default' 	=> '',
+				'options' 	=> $this->terms_list[$tax_slug],
+				'tooltip' 	=> 'Filter the pins that are shown by the selected taxonomy\'s terms.'
 			);
 
 			$callback = '
 					if ( !$("body").hasClass("visual-editor-mode-grid") ) {
+						var hoverFocusState 	= input.parents(".sub-tabs-content-container").find("#input-hover-focus input").val().toBool();
+						var infiniteScrollState = input.parents(".sub-tabs-content-container").find("#input-infinite-scroll").val().toBool();
 						window.frames[\'content\'].setupPinBoardBlock({
 							blockID: getBlockID(block),
 							effects: {
-								hoverFocus: input.parents(".sub-tabs-content-container").find("#input-hover-focus input[type=\'hidden\']").val().toBool(),
-								infiniteScroll: input.parents(".sub-tabs-content-container").find("#input-infinite-scroll input[type=\'hidden\']").val().toBool(),
+								hoverFocus: hoverFocusState,
+								infiniteScroll: infiniteScrollState,
 							},
 							columns: parseInt(input.parents(".sub-tabs-content-container").find("#input-columns input[type=\'hidden\']").val()),
 							columnsSmartphone: parseInt(input.parents(".sub-tabs-content-container").find("#input-columns-smartphone input[type=\'hidden\']").val()),
@@ -1235,10 +1238,13 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				';
 
 			/* Add the callback to all options */
-			foreach ( $this->inputs as $tab_id => $inputs )
-				foreach ( $this->inputs[$tab_id] as $input_id => $input_options )
-					if ( !padma_get('callback', $this->inputs[$tab_id][$input_id]) )
+			foreach ( $this->inputs as $tab_id => $inputs ){
+				foreach ( $this->inputs[$tab_id] as $input_id => $input_options ){
+					if ( !padma_get('callback', $this->inputs[$tab_id][$input_id]) ){
 						$this->inputs[$tab_id][$input_id]['callback'] = $callback;
+					}
+				}
+			}
 
 		}
 
@@ -1374,7 +1380,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 
 
-	
+	/*
 	function parse_meta($meta) {
 
 		global $post, $authordata;
@@ -1473,5 +1479,5 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 		return apply_filters('padma_meta', $meta);
 		
-	}
+	}*/
 }

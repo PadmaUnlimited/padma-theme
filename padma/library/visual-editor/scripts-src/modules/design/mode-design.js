@@ -2894,7 +2894,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 			$(document).on('keyup','#options-filter',function(){
 
 				var string  = $(this).val();				
-				var options = $('.design-editor-options .design-editor-box-content, .design-editor-options .box-model-inputs').find('li');
+				var options = $('ul.design-editor-box-content > li, div.box-model-inputs li');
 
 				if(string.length == 0){
 					optionsFilterReset();
@@ -2902,34 +2902,37 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 				}
 				
 				options.each(function(index){
-
-					var property_id = $(this).data('property-id');
-					var target 		= $(this);
-
 					
-					if( typeof property_id != 'undefined' ){
+					var property_id = $(this).data('property-id').toString();
+					var target 		= $(this);					
+
+
+					if( property_id == undefined ){
+						//console.log(options[index]);
+
+					}else{
+
 						
-						if ( property_id.indexOf(string) == -1) {
-							
-							target.addClass('hidden');
-							target.hide();
-						}else{
+						if ( property_id.indexOf(string) !== -1) {
+
 							target.parent().addClass('filtered');
-							target.parent().parent().addClass('filtered');
-							target.parent().parent().addClass('design-editor-box-open');
+							target.closest('.design-editor-box').addClass('filtered');
+							target.closest('.design-editor-box').addClass('design-editor-box-open');
 							target.removeClass('hidden');
 							target.show();
+
+						}else{
+							target.addClass('hidden');
+							target.hide();
 						}
-					}else{
-						console.log($(this));
 					}
 
 				});
 
 				$('.design-editor-box').each(function(){
 
-					var ttlOptions 		= $(this).find('.design-editor-box-content > li').length;
-					var ttlOptionsHiden = $(this).find('.design-editor-box-content > li.hidden').length;
+					var ttlOptions 		= $(this).find('ul.design-editor-box-content > li, div.box-model-inputs li').length;
+					var ttlOptionsHiden = $(this).find('ul.design-editor-box-content > li.hidden, div.box-model-inputs li.hidden').length;
 					
 					if(ttlOptions == ttlOptionsHiden){						
 						$(this).hide();

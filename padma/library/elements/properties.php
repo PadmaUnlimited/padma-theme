@@ -818,6 +818,21 @@ class PadmaElementProperties {
 				),
 				'js-callback' => 'stylesheet.update_rule(selector, {"animation-duration": params.value});',
 			),
+
+			'animation-delay' => array(
+				'group' => 'Animation',
+				'name' 	=> 'Delay',
+				'type' 	=> 'select',
+				'options' => array(
+					'500ms' => '500ms',
+					'1s' 	=> '1 second',
+					'2s' 	=> '2 seconds',
+					'3s' 	=> '3 seconds',
+					'4s' 	=> '4 seconds',
+					'5s' 	=> '5 seconds',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"animation-delay": params.value});',
+			),
 			
 	);	
 	

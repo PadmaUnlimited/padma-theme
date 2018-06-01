@@ -5907,6 +5907,7 @@ div.design-editor-options {
 	float: left;
 	position: relative;
 	margin-top: 1px;
+	margin-bottom: 50px;
 	/* For box shadow on element details to show if property group is selected in first row */
 }
 
@@ -6806,6 +6807,7 @@ body.panel-on-left.visual-editor-mode-design:not(.side-panel-hidden) #customize-
 .design-editor-box.filtered{
 	width: 100%;
 }
+.design-editor-box.filtered.design-editor-box-open > .design-editor-box-content,
 ul.design-editor-box-content.filtered{
 	margin-left: 0 !important;
 }

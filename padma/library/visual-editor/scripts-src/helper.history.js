@@ -141,6 +141,7 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
 	}
 
     var panelOptions = function(){
+
         if(Padma.history.redos.length > 0){
             $('.history-wrapper button.redo').addClass('active');
         }else{
@@ -152,7 +153,15 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
             $('.history-wrapper button.undo').removeClass('active');
         }
 
-        //console.log(Padma.history);
+        $(document).on('click','.history-wrapper button.undo', function(){
+            Padma.history.undo();
+            panelOptions();
+        });
+
+        $(document).on('click','.history-wrapper button.redo', function(){
+            Padma.history.redo();
+            panelOptions();
+        });
     }
 
 	var history = {

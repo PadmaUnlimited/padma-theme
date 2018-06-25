@@ -1,8 +1,10 @@
 <?php
 function padma_register_visual_editor_box($class) {
 
-	add_action('padma_visual_editor_display_init', create_function('', 'return padma_register_visual_editor_box_callback(\'' . $class . '\');'));
-	
+	add_action('padma_visual_editor_display_init', function() use ($class){
+		return padma_register_visual_editor_box_callback($class);
+	});
+
 }
 
 

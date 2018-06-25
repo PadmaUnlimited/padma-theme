@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 4.9.7
-Version: 0.0.21
+Version: 0.0.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -39,12 +39,23 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 0.0.22
+* Released: Jun 25, 2018
+
+PHP 7.1 and 7.2 compatibility check
+Tested on Wordpress 4.9.7
+Ckeditor updated to 4.9.2
+RequireJS updated to 2.3.5
+jQuery and SizzleJS updated to 3.3.1 and 2.3.3 respectively
+Knockout updated to v3.4.2
+
 = 0.0.21
-* Released: May 23, 2018
+* Released: Jun 11, 2018
 
 Several improves to Pinboard block 
 Added Undo / Redo panel options
-CSS Animation Code Fix
+CSS Animation Code Fix and improvements
+Added filter option for design options
 
 = 0.0.20
 * Released: May 23, 2018

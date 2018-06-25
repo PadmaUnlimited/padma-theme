@@ -87,7 +87,9 @@ class PadmaCompiler {
 		/* Output or Enqueue script */
 			if ( $args['output-inline'] && $args['format'] != 'js' ) {
 
-				return add_action('wp_print_styles', create_function('', 'return PadmaCompiler::output_inline(\'' . $args['name'] . '\');'));
+				return add_action('wp_print_styles', function(){
+					return PadmaCompiler::output_inline($args['name']);
+				});
 
 
 			} else if ( $args['enqueue'] ) {

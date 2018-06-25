@@ -26,7 +26,9 @@ function padma_meta_padma_save_post_template_bypass() {
 
 function padma_register_admin_meta_box($class) {
 
-	add_action('init', create_function('', 'return padma_register_admin_meta_padma_callback(\'' . $class . '\');'), 15);
+	add_action('init', function(){
+		return padma_register_admin_meta_padma_callback($class);
+	});
 	
 }
 

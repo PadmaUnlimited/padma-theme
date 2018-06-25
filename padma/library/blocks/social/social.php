@@ -4,20 +4,16 @@ padma_register_block('PadmaSocialBlock', padma_url() . '/library/blocks/social')
 
 class PadmaSocialBlock extends PadmaBlockAPI {
 	
-	public $id = 'social';
-	
-	public $name = 'Social';
-		
-	public $options_class = 'PadmaSocialBlockOptions';
-	
-	public $fixed_height = true;
-	
-	public $html_tag = 'section';
+	public $id 				= 'social';	
+	public $name 			= 'Social';		
+	public $options_class 	= 'PadmaSocialBlockOptions';	
+	public $fixed_height 	= true;	
+	public $html_tag 		= 'section';
+	public $description 	= 'Display a set of social icons';
 
-	public $description = 'Display a set of social icons';
-	
 	protected $show_content_in_grid = false;
 
+	
 	public function init() {
 
 		add_filter( 'upload_mimes', array($this, 'add_uploader_svg_mime' ));
@@ -141,10 +137,9 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 	
 	public function content($block) {
 
-		$icon_set = PadmaBlockAPI::get_setting($block, 'icon-set', 'peel-icons');
-
-		$use_svg = parent::get_setting($block, 'use-svg', false);
-		$svg_width = ($use_svg && parent::get_setting($block, 'svg-width')) ? 'width="' . parent::get_setting($block, 'svg-width') . '"' : '';
+		$icon_set 	= PadmaBlockAPI::get_setting($block, 'icon-set', 'peel-icons');
+		$use_svg 	= parent::get_setting($block, 'use-svg', false);
+		$svg_width 	= ($use_svg && parent::get_setting($block, 'svg-width')) ? 'width="' . parent::get_setting($block, 'svg-width') . '"' : '';
 
 		if ($icon_set == 'custom') {
 			$icons = parent::get_setting($block, 'icons' , array());
@@ -152,10 +147,9 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 			$icons = parent::get_setting($block, 'icons'.$icon_set , array());
 		}
 
-		$block_width = PadmaBlocksData::get_block_width($block);
-		$block_height = PadmaBlocksData::get_block_height($block);
-			
-		$has_icons = false;
+		$block_width 	= PadmaBlocksData::get_block_width($block);
+		$block_height 	= PadmaBlocksData::get_block_height($block);			
+		$has_icons 		= false;
 
 		foreach ( $icons as $icon ) {
 
@@ -535,10 +529,9 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 
 	public static function get_icon_sets() {
 
-		$path = PADMA_LIBRARY_DIR.'/blocks/social/icons';
-		$results = scandir($path);
-
-		$icons_options = array();
+		$path 			= PADMA_LIBRARY_DIR.'/blocks/social/icons';
+		$results 		= scandir($path);
+		$icons_options 	= array();
 
 		foreach ($results as $result) {
 

@@ -1071,7 +1071,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 
 				}
 
-				return $.post(Padma.ajaxURL, ajaxArgs).success(function(inputs) {
+				return $.post(Padma.ajaxURL, ajaxArgs).done(function(inputs) {
 				
 					var options = $('div.design-editor-options');
 

@@ -229,8 +229,8 @@ function padma_resize_image($url, $width = null, $height = null, $crop = true, $
 
 	Padma::load('common/image-resizer');
 
-	$PadmaImageResize = PadmaImageResize::getInstance();
-	$resized_image = $PadmaImageResize->process($url, $width, $height, $crop, false, $upscale);
+	$PadmaImageResize 	= PadmaImageResize::getInstance();
+	$resized_image 		= $PadmaImageResize->process($url, $width, $height, $crop, false, $upscale);
 
 	if ( is_wp_error($resized_image) )
 		return $url . '#' . $resized_image->get_error_code();

@@ -846,7 +846,11 @@ class PadmaElementProperties {
 	public static function get_properties_by_group($group) { 
 		
 		//Filter though all of the properties to make sure they are in the selected group
-		$filtered_properties = array_filter(self::$properties, create_function('$property', 'return ($property[\'group\'] === \'' . $group . '\');'));
+		$filtered_properties = array_filter(self::$properties, function($property) use ($group){
+			return ($property['group'] === "$group");
+		});
+		
+
 		
 		if ( !is_array($filtered_properties) || count($filtered_properties) === 0 )
 			return null;

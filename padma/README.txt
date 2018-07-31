@@ -40,14 +40,17 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.22
-* Released: Jun 25, 2018
+* Released: Jul 31, 2018
 
-PHP 7.1 and 7.2 compatibility check
-Tested on Wordpress 4.9.7
+PHP 7.2 compatibility fixes
+Tested on Wordpress 4.9.8-RC2
 Ckeditor updated to 4.9.2
 RequireJS updated to 2.3.5
 jQuery and SizzleJS updated to 3.3.1 and 2.3.3 respectively
 Knockout updated to v3.4.2
+Live CSS Editor Fixes
+Visual Editor Fixes
+Child themes support Fixes
 
 = 0.0.21
 * Released: Jun 11, 2018

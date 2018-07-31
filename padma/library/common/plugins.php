@@ -13,13 +13,8 @@ class PadmaPlugins{
 		if(PadmaOption::get('do-not-recommend-plugin-installation')){
 			return;
 		}
-
-		if ( PADMA_CHILD_THEME_ACTIVE === true ){
-			require_once get_stylesheet_directory() . '/library/common/lib/class-tgm-plugin-activation.php';
-		}else{
-			require_once get_template_directory() . '/library/common/lib/class-tgm-plugin-activation.php';
-		}
-
+		
+		require_once get_template_directory() . '/library/common/lib/class-tgm-plugin-activation.php';
 
 		add_action( 'tgmpa_register', array(__CLASS__,'padma_register_required_plugins'));
 		

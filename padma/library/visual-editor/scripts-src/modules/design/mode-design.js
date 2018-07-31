@@ -2443,6 +2443,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
 							refreshInspector();
 						});
+						
 
 					}else{
 
@@ -2451,9 +2452,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 							message: 'Content editor currently supports post and pages only.',
 							closeTimer: 3000
 						});
-
-
+						
 					}
+
 
 				/* DE Click */
 				} else {

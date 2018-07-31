@@ -27,7 +27,7 @@ class PadmaBlocks {
 		'listings',
 		'social',
 		'gravity-forms',
-		'slidedeck'
+		'slidedeck',
 	);
 
 

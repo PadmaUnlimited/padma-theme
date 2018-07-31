@@ -18,6 +18,12 @@ global $wpdb;
 				
 			<h3 class="title" style="margin-bottom: 10px;"><strong>System Info</strong></h3>
 
+
+<?php
+if ( apply_filters( 'replace_editor', false, $post ) === true ) {
+
+}?>
+
 			<p class="description">
 				Copy and paste this information into support/forums if requested.
 				<br /><br />

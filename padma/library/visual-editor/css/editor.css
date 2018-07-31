@@ -1295,6 +1295,7 @@ ul#panel-top li span.block-type-icon {
 	background-image: url(../images/default-block-icon.png);
 	background-repeat: no-repeat;
 	background-position: 0 50%;
+	background-size: contain;
 	margin: 0 7px 0 -3px;
 	float: left;
 }
@@ -1627,8 +1628,9 @@ div.block-type-selector div.block-type h4 {
 	line-height: 19px;
 	display: block;
 	background-repeat: no-repeat;
-	font-weight: 500;
 	background-position: 0 50%;
+	background-size: contain;
+	font-weight: 500;
 	font-size: 14px;
 }
 div.block-type-selector div.block-type .block-type-description {
@@ -2455,6 +2457,7 @@ li.inspector-context-menu-block-options span:before {
 	background-image: url(../images/default-block-icon.png);
 	background-repeat: no-repeat;
 	background-position: 0 50%;
+	background-size: contain;
 	float: left;
 	margin: -4px 3px 0 0;
 }

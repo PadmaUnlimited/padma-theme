@@ -149,7 +149,6 @@ class Padma {
 			'data/data-blocks',
 			'data/data-wrappers',
 			'data/data-snapshots',
-
 			'common/layout' 				=> true,
 			'common/capabilities' 			=> true,
 			'common/responsive-grid' 		=> true,
@@ -159,33 +158,18 @@ class Padma {
 			'common/compiler' 				=> true,
 			'common/plugins' 				=> true,
 			'common/templates',
-
 			'admin/admin-bar' 				=> true,
-
 			'api/api-panel',
-
-			//'updater/plugin-updater',
-			//'updater/updater',
-
-
-
 			'blocks' 						=> true,
 			'wrappers' 						=> true,
 			'elements' 						=> true,
-
-
-
 			'fonts/web-fonts-api',
 			'fonts/web-fonts-loader' 		=> true,
 			'fonts/traditional-fonts',
 			'fonts/google-fonts',
-
 			'display' 						=> true,
-
 			'widgets' 						=> true,
-
 			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce',
-
 
 			/*		Headway Classes support	*/
 			'compatibility/headway/compatibility-headway'	=> true,

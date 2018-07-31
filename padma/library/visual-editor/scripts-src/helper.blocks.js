@@ -412,10 +412,9 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		/* Setup throttledFunction */
 			var throttledFunction = function() {
 
-				var blockElement = $i('.block[data-id="' + blockID + '"]');
-				var newBlockSettings = GLOBALunsavedValues['blocks'][blockID]['settings'];
-
-				var blockOrigin = blockElement.data('duplicateOf') ? blockElement.data('duplicateOf') : blockID;
+				var blockElement 		= $i('.block[data-id="' + blockID + '"]');
+				var newBlockSettings 	= GLOBALunsavedValues['blocks'][blockID]['settings'];
+				var blockOrigin 		= blockElement.data('duplicateOf') ? blockElement.data('duplicateOf') : blockID;
 				
 				/* Update the block content */
 				loadBlockContent({

@@ -67,23 +67,6 @@ abstract class HeadwayBlockAPI extends PadmaBlockAPI {
 	use HeadwayBlockAPITrait;
 }
 
-/*
-trait HeadwayVisualEditorBoxAPITrait {
-	public function register(){
-		parent::register();
-	}
-	public function build_box(){
-		parent::build_box();
-	}
-	public function content(){
-		parent::content();
-	}
-}
-abstract class HeadwayVisualEditorBoxAPI extends PadmaVisualEditorBoxAPI {
-	use HeadwayVisualEditorBoxAPITrait;
-}
-*/
-
 trait HeadwayVisualEditorPanelAPITrait {
 	public function register(){
 		parent::register();

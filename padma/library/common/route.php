@@ -117,7 +117,6 @@ class PadmaRoute {
 			case 'content-editor':			
 				if ( !PadmaCapabilities::can_user_visually_edit() )
 					die();
-				
 
 				Padma::load('visual-editor/content-editor');
 				break;

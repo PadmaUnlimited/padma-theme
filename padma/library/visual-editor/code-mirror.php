@@ -6,7 +6,10 @@
 <?php
 
 	$baseURL 	= padma_url() . '/library/visual-editor/' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? 'scripts-src' : 'scripts-src');
-
+	$mode 		= $_GET['mode'];
+	if($mode == 'html'){
+		$mode = 'htmlmixed';
+	}
 	/**
 	 *
 	 * Load Styles
@@ -30,21 +33,18 @@
 	 * Load Scripts
 	 *
 	 */
-	
 	$scripts = array(
-		'/deps/code-mirror/codemirror.js',
-		'/deps/code-mirror/mode/css/css.js',
-		'/deps/code-mirror/mode/htmlmixed/htmlmixed.js',
+		'/deps/code-mirror/codemirror.js',		
 		'/deps/code-mirror/addon/hint/show-hint.js',
 		'/deps/code-mirror/addon/hint/css-hint.js',
 		'/deps/code-mirror/addon/edit/closebrackets.js',
 		'/deps/code-mirror/addon/display/placeholder.js',
-		'/deps/code-mirror/addon/selection/active-line.js',
-		
+		'/deps/code-mirror/addon/selection/active-line.js',		
 	);
-	foreach ($scripts as $key => $file) {
-		?><script type="text/javascript" src="<?php echo $baseURL . $file; ?> " charset="utf-8"></script><?php
-	}
+	//'/deps/code-mirror/mode/htmlmixed/htmlmixed.js',
+	$scripts[] = '/deps/code-mirror/mode/'.$mode.'/'.$mode.'.js';
+
+	
 
 
 ?>
@@ -63,6 +63,11 @@
 </style>
 </head>
 <body>
-	<textarea id="code" name="code" placeholder="Your awesome <?php echo $_GET['mode']; ?> goes here"></textarea>
+	<textarea id="code" name="code" class="code" placeholder="Your awesome <?php echo $mode; ?> goes here"></textarea>
+<?php
+foreach ($scripts as $key => $file) {
+	?><script type="text/javascript" src="<?php echo $baseURL . $file; ?> " charset="utf-8"></script><?php
+}
+?>
 </body>
 </html>

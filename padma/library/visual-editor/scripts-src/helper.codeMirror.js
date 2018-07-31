@@ -63,18 +63,22 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 					themeSelected 	= 'night';
 				}
 
+				if(mode == 'html'){
+					mode = 'htmlmixed';
+				}
+
 				/* Init editor */
 				var editor = window.CodeMirror.fromTextArea(window.document.getElementById("code"), {
+		    		mode:  				mode,
+					styleActiveLine: 	true,
 					extraKeys: {				
 						"Ctrl-Space": "autocomplete",
 					},
-					styleActiveLine: 	true,
 					lineNumbers: 		true,
 		    		lineWrapping: 		true,
-		    		theme: 				themeSelected,
-		    		autoCloseBrackets: 	true
+		    		autoCloseBrackets: 	true,
 				});
-
+			
 				/* Populate the editor */
 				editor.setValue(initialValue);
 

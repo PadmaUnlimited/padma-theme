@@ -456,7 +456,6 @@ class PadmaVisualEditorAJAX {
 
 	}
 
-
 	public static function method_get_design_editor_element_data() {
 
 		self::json_encode(PadmaElementsData::get_all_elements(true));
@@ -471,7 +470,6 @@ class PadmaVisualEditorAJAX {
 		self::json_encode(PadmaLayout::add_template(padma_post('template_name')));
 
 	}
-
 
 	public static function secure_method_rename_layout_template() {
 
@@ -500,7 +498,6 @@ class PadmaVisualEditorAJAX {
 		}
 
 	}
-
 
 	public static function secure_method_delete_template() {
 
@@ -533,7 +530,6 @@ class PadmaVisualEditorAJAX {
 
 	}
 
-
 	public static function secure_method_assign_template() {
 
 		$layout = padma_post('layout');
@@ -553,7 +549,6 @@ class PadmaVisualEditorAJAX {
 		echo PadmaLayout::get_name('template-' . $template);
 
 	}
-
 
 	public static function secure_method_remove_template_from_layout() {
 
@@ -597,7 +592,6 @@ class PadmaVisualEditorAJAX {
 
 	}
 
-
 	public static function method_ran_tour() {
 
 		$mode = padma_post('mode');
@@ -605,7 +599,6 @@ class PadmaVisualEditorAJAX {
 		PadmaOption::set('ran-tour-' . $mode, true);
 
 	}
-
 
 	public static function method_fonts_list() {
 
@@ -668,8 +661,7 @@ class PadmaVisualEditorAJAX {
 					/* Send import file with images replaced back to Visual Editor */
 						self::json_encode($import_file);
 
-				}
-
+			}
 
 					public static function replace_imported_images_variables($import_array) {
 
@@ -699,7 +691,6 @@ class PadmaVisualEditorAJAX {
 
 					}
 
-
 					public static function import_images_recursive_replace($variable, $replace, $array) {
 
 						if ( !is_array($array) )
@@ -725,6 +716,7 @@ class PadmaVisualEditorAJAX {
 				return PadmaDataPortability::export_skin($skin_info['skin-export-info']);
 				
 			}
+
 
 		/* Save Skin on Cloud */
 			public static function method_save_skin_on_cloud() {
@@ -765,7 +757,6 @@ class PadmaVisualEditorAJAX {
 				}
 
 			}
-
 
 			public static function method_install_skin() {
 

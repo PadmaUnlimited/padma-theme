@@ -619,7 +619,7 @@ class PadmaVisualEditor {
 
 			Please upgrade to a modern browser such as <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.<br /><br />
 
-			If this message persists after upgrading to a modern browser, please visit <a href="https://padma-unlimited.slack.com" target="_blank">Community Slack</a>.
+			If this message persists after upgrading to a modern browser, please visit our <a href="https://www.padmaunlimited.com/community/" target="_blank">Community</a>.
 		';
 
 		return wp_die($message);

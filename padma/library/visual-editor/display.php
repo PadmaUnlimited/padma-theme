@@ -407,7 +407,7 @@ class PadmaVisualEditorDisplay {
 					<li><a href="' . admin_url('admin.php?page=padma-tools')  . '" target="_blank">Padma Tools</a></li>
 					<li><a href="https://docs.padmaunlimited.com" target="_blank">Documentation</a></li>
 					<li><a href="mailto:support@padmaunlimited.com" target="_blank">Support</a></li>
-					<li><a href="https://padma-unlimited.slack.com" target="_blank">Community</a></li>
+					<li><a href="https://www.padmaunlimited.com/community/" target="_blank">Community</a></li>
 				</ul>
 
 			</li>';

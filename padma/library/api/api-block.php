@@ -22,23 +22,15 @@ function padma_register_block($class, $block_type_url = false) {
 abstract class PadmaBlockAPI {
 			
 			
-	public $id;
-	
-	public $name;
-	
-	public $block_type_url;
-	
-	public $options_class = 'PadmaBlockOptionsAPI';
-		
-	public $fixed_height = false;
-	
-	public $html_tag = 'div';
-	
-	public $attributes = array();
-
-	public $description = false;
-
-	public $allow_titles = true;
+	public $id;	
+	public $name;	
+	public $block_type_url;	
+	public $options_class 	= 'PadmaBlockOptionsAPI';		
+	public $fixed_height 	= false;	
+	public $html_tag 		= 'div';	
+	public $attributes 		= array();
+	public $description 	= false;
+	public $allow_titles 	= true;
 	
 
 	/* System Properties (DO NOT USE OR TOUCH) */	
@@ -176,10 +168,12 @@ abstract class PadmaBlockAPI {
 
 		$block_settings          = padma_get( 'settings', $block );
 		$block_title             = padma_get( 'block-title', padma_get( 'settings', $block, array() ) );
+		$block_title_tag         = padma_get( 'block-title-tag', padma_get( 'settings', $block, array() ) );
 		$block_subtitle          = padma_get( 'block-subtitle', padma_get( 'settings', $block, array() ) );
-
+		$block_subtitle_tag      = padma_get( 'block-subtitle-tag', padma_get( 'settings', $block, array() ) );
 		$block_title_link_url    = padma_get( 'block-title-link-url', padma_get( 'settings', $block, array() ) );
 		$block_title_link_target = padma_get( 'block-title-link-target', $block_settings, false, true ) ? $target = ' target="_blank"' : '';
+
 
 		if ( $block_title || $block_subtitle ) {
 
@@ -191,15 +185,27 @@ abstract class PadmaBlockAPI {
 			/* Title */
 			if ( $block_title ) {
 				if ( padma_get( 'block-title-link-check', $block_settings, false ) ) {
-					echo '<h1 class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . '><span>' . padma_fix_data_type( $block_title ) . '</span></a></h1>';
+					if($block_title_tag == ''){
+						echo '<h1 class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . '><span>' . padma_fix_data_type( $block_title ) . '</span></a></h1>';
+					}else{
+						echo '<'.$block_title_tag.' class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . '><span>' . padma_fix_data_type( $block_title ) . '</span></a></'.$block_title_tag.'>';
+					}
 				} else {
-					echo '<h1 class="block-title"><span>' . padma_fix_data_type( $block_title ) . '</span></h1>';
+					if($block_title_tag == ''){
+						echo '<h1 class="block-title"><span>' . padma_fix_data_type( $block_title ) . '</span></h1>';
+					}else{
+						echo '<'.$block_title_tag.' class="block-title"><span>' . padma_fix_data_type( $block_title ) . '</span></'.$block_title_tag.'>';
+					}
 				}
 			}
 
 			/* Subtitle */
 			if ( $block_subtitle ) {
-				echo '<h2 class="block-subtitle">' . padma_fix_data_type( $block_subtitle ) . '</h2>';
+				if($block_subtitle_tag == ''){
+					echo '<h2 class="block-subtitle">' . padma_fix_data_type( $block_subtitle ) . '</h2>';
+				}else{
+					echo '<'.$block_subtitle_tag.' class="block-subtitle">' . padma_fix_data_type( $block_subtitle ) . '</'.$block_subtitle_tag.'>';				
+				}
 			}
 
 			/* Close hgroup */
@@ -317,10 +323,8 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 	
 	
 	public $block_type_object;
-
-	public $block = false;
-
-	public $block_id = false;
+	public $block 		= false;
+	public $block_id 	= false;
 
 
 	public function __construct($block_type_object) {
@@ -437,12 +441,43 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 						'tooltip' => 'Add a custom title above the block content.'
 					);
 
+					$this->inputs['config']['block-title-tag'] = array(
+						'name' => 'block-title-tag',
+						'type' => 'select',
+						'options' => array(
+							'h1' => 'H1',
+							'h2' => 'H2',
+							'h3' => 'H3',
+							'h4' => 'H4',
+							'h5' => 'H5',
+							//'h6' => 'H6',
+						),
+						'label' => 'Block Title Tag',
+						'tooltip' => 'Custom title tag.'
+					);
+
 
 					$this->inputs['config']['block-subtitle'] = array(
 						'name' => 'block-subtitle',
 						'type' => 'text',
 						'label' => 'Block Subtitle',
 						'tooltip' => 'Add a custom sub title above the block content and below the block title.'
+					);
+
+
+					$this->inputs['config']['block-subtitle-tag'] = array(
+						'name' => 'block-subtitle-tag',
+						'type' => 'select',
+						'options' => array(
+							//'h1' => 'H1',
+							'h2' => 'H2',
+							'h3' => 'H3',
+							'h4' => 'H4',
+							'h5' => 'H5',
+							'h6' => 'H6',
+						),
+						'label' => 'Block Subtitle Tag',
+						'tooltip' => 'Custom subtitle tag.'
 					);
 
 					$this->inputs['config']['block-title-link-check'] = array(

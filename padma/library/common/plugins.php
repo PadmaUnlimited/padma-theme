@@ -32,10 +32,6 @@ class PadmaPlugins{
 		 */
 		$plugins = array(
 			
-			/*
-			Services Will be ready soon
-			*/
-
 			array(
 				'name'         => 'Padma Services', // The plugin name.
 				'slug'         => 'padma-services', // The plugin slug (typically the folder name).

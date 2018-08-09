@@ -40,12 +40,14 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.23
-* Released: August 6, 2018
+* Released: August 8, 2018
 
 Visual Editor Fixes
 Tested on Wordpress 4.9.8
 Block API improvements
-Responsive options updated
+Responsive Options updated
+CSS Transform options added to Visual Editor and API Block
+Compilator fixes
 
 
 = 0.0.22

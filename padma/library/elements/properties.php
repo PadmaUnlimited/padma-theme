@@ -860,7 +860,7 @@ class PadmaElementProperties {
 				'group' => 'Transform',
 				'name' 	=> 'Angle',
 				'type' 	=> 'integer',
-				'unit' 	=> 'deg',				
+				'default' => '45',
 				'js-callback' => 'propertyInputCallbackTransformAngle(params);',
 			),
 

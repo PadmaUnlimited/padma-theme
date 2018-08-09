@@ -283,8 +283,6 @@ class PadmaCompiler {
 	 **/
 	public static function combine_fragments($file) {
 		
-		//debug($file);
-
 		extract($file);		
 
 		$num_fragments = (int)count($fragments);

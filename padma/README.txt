@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 Visual Editor Fixes
 Tested on Wordpress 4.9.8
 Block API improvements
+Responsive options updated
 
 
 = 0.0.22

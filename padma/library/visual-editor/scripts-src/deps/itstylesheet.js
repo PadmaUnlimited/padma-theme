@@ -16,7 +16,7 @@ function ITStylesheet(args, action) {
 	this.property_standard_names = {};
 	this.converted_rgb_values = {};
 	
-	this.args = ('undefined' !== typeof args) ? args : {};
+	this.args 	= ('undefined' !== typeof args) ? args : {};
 	this.action = ('undefined' !== typeof action) ? action : 'load';
 			
 	this.init = function() {
@@ -24,8 +24,7 @@ function ITStylesheet(args, action) {
 			this._find_stylesheet();
 		else
 			this._load_stylesheet();
-	}
-	
+	}	
 	
 	this._load_stylesheet = function() {
 		args = this.args;
@@ -109,8 +108,7 @@ function ITStylesheet(args, action) {
 			if(('undefined' !== typeof args.disabled) && (args.disabled !== this.document.styleSheets[i].disabled))
 				continue;
 				
-			this.type = 'link';
-						
+			this.type 		= 'link';						
 			this.stylesheet = this.document.styleSheets[i];
 			this._find_rules();
 			break;
@@ -269,7 +267,6 @@ function ITStylesheet(args, action) {
 		if('undefined' !== typeof this.rules[selector])
 			return selector;
 
-		
 		for(var i = 0; i < this.rules.length; i++) {
 			if(typeof this.rules[i].selectorText == 'string' && this.rules[i].selectorText.toLowerCase() == selector.toLowerCase())
 				indexes.push(i);
@@ -299,7 +296,8 @@ function ITStylesheet(args, action) {
 		return this.update_rule(selector, declarations);
 	}
 	
-	this.update_rule = function(selectors_raw, declarations, split_selectors) {		
+	this.update_rule = function(selectors_raw, declarations, split_selectors) {	
+
 
 		if(('undefined' === typeof this.rules) || ('undefined' === typeof selectors_raw))
 			return false;
@@ -314,6 +312,7 @@ function ITStylesheet(args, action) {
 			var selectors = new Array(selectors_raw);
 		}
 		
+
 		var rules = [];
 		
 		for(var i = 0; i < selectors.length; i++) {
@@ -323,11 +322,14 @@ function ITStylesheet(args, action) {
 				continue;
 			
 			var rule = this.get_rule(selector);
+
+
+
 			try {
 				if(false === rule) {
 					var rule_index = this.rules.length;
-
 					string_declarations = ('string' === typeof declarations) ? declarations : this._get_style_from_declarations(declarations);
+
 					
 					if(this.stylesheet.addRule)
 						this.stylesheet.addRule(selector, string_declarations, rule_index);
@@ -337,7 +339,7 @@ function ITStylesheet(args, action) {
 					rule = this.rules[rule_index];
 				}
 				else {
-					for(property in declarations) {
+					for(property in declarations) {					
 						if(rule.style.setAttribute)
 							rule.style.setAttribute(property, declarations[property]);
 						else
@@ -349,7 +351,6 @@ function ITStylesheet(args, action) {
 			}
 			catch(error) {}
 		}
-
 		return rules;
 	}
 	
@@ -399,10 +400,10 @@ function ITStylesheet(args, action) {
 	}
 	
 	this.get_stylesheet_text = function() {
-		var rules = this._get_stylesheet_rules_object(this.stylesheet);
-		
-		var stylesheet = '';
-		var rgb_regex = /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/;
+
+		var rules 		= this._get_stylesheet_rules_object(this.stylesheet);		
+		var stylesheet 	= '';
+		var rgb_regex 	= /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/;
 		
 		for(selector in rules) {
 			var properties = '';
@@ -425,7 +426,6 @@ function ITStylesheet(args, action) {
 				stylesheet += "\n";
 			stylesheet += selector + " {\n" + properties + '}';
 		}
-		
 		return stylesheet;
 	}
 	

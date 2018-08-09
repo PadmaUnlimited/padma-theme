@@ -155,6 +155,7 @@ class PadmaVisualEditor {
 		$options_inputs 		= isset($options['options']) ? $options['options'] : null;
 		$design_editor_inputs 	= isset($options['design-editor']) ? $options['design-editor'] : null;
 
+
 		try {
 
 			/* Add wrappers */
@@ -483,6 +484,7 @@ class PadmaVisualEditor {
 
 				$design_editor_properties = PadmaElementProperties::get_properties();
 
+				
 				/* Loop through to get every element and its properties */
 				foreach ( $design_editor_inputs as $element_id => $element_data ) {
 
@@ -500,6 +502,15 @@ class PadmaVisualEditor {
 							//Set each property for the regular element
 							foreach ( $element_data_node_data as $property_id => $property_value ) {
 
+								/**
+								 *
+								 * CSS transform support
+								 *
+								 */								
+								if($property_id == 'skew'){
+									$property_id 		= 'transform';
+									$property_value 	= 'skew('.$property_value.'deg)';
+								}
 
 								PadmaElementsData::set_property( null, $element_id, $property_id, $property_value );
 
@@ -536,6 +547,17 @@ class PadmaVisualEditor {
 
 								//Set the special element properties now
 								foreach ( $special_element_properties as $special_element_property => $special_element_property_value ) {
+									
+									/**
+									 *
+									 * CSS transform support
+									 *
+									 */
+									if($special_element_property == 'skew'){
+										$special_element_property 		= 'transform';
+										$special_element_property_value = 'skew('.$special_element_property_value.'deg)';
+									}
+
 									$batch_special_element_data[] = array(
 										'element_id' => $element_id,
 										'special_element_type' => $special_element_type,
@@ -543,6 +565,7 @@ class PadmaVisualEditor {
 										'property_id' => $special_element_property,
 										'value' => $special_element_property_value
 									);
+
 
 									if ( padma_get('js-property', $design_editor_properties[$special_element_property] ) ) {
 										PadmaElementsData::set_js_property($element_id . '||' . $special_element_type . '||' . $special_element, $special_element_property, $special_element_property_value);
@@ -554,7 +577,6 @@ class PadmaVisualEditor {
 						}
 
 					}
-
 					PadmaElementsData::batch_set_special_element_properties($batch_special_element_data);
 
 				}

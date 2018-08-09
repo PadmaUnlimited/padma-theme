@@ -78,11 +78,6 @@ wp_footer();
 		start();
 	});
 
-	
-
-
-
-
 </script>
 </body>
 </html>

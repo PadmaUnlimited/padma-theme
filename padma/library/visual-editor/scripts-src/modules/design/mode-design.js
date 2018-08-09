@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor) {
+define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'deps/interact', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, gutenberg, interact) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -204,8 +204,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 
 				this.bindElementSelector = function() {
 
-					var $elementSelector = $('ul#design-editor-element-selector');
-					var $deStyles = $('ul#design-editor-styles');
+					var $elementSelector 	= $('ul#design-editor-element-selector');
+					var $deStyles 			= $('ul#design-editor-styles');
 
 					/* Bind the element clicks */
 						$elementSelector.on('click', designEditor.processNoElementClick);
@@ -1374,8 +1374,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 
 				var properties = GLOBALunsavedValues['design-editor'][element]['special-element-' + specialElementType][specialElementMeta];
 
-			}
-			
+			}			
 			return !_.isEmpty(properties) ? properties : null;
 			
 		}
@@ -1793,6 +1792,53 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 					'animation-duration': '1s',
 					'animation-fill-mode': 'both'
 				});
+
+		}
+
+
+		propertyInputCallbackTransform = function(params) {
+
+			
+
+			var angle 		= 45;
+			var keyAngle 	= 'propertyInputCallbackTransformAngle-' + params.selector.replace(' ','-');
+			var keyType 	= 'propertyInputCallbackTransformType-' + params.selector.replace(' ','-');
+
+			if(localStorage[keyAngle] !== undefined && localStorage[keyAngle] !== 'null'){
+				angle = localStorage[keyAngle];
+			}
+
+			
+			stylesheet.update_rule(params.selector, {
+				'transform': params.value + '('+angle+'deg)'
+			});
+
+			localStorage[keyType] = params.value;
+			
+		}
+
+		propertyInputCallbackTransformAngle = function(params) {
+
+			console.log(params);
+
+			var keyAngle 	= 'propertyInputCallbackTransformAngle-' + params.selector.replace(' ','-');
+			var keyType 	= 'propertyInputCallbackTransformType-' + params.selector.replace(' ','-');
+			localStorage[keyAngle] = params.value;
+
+			if(localStorage[keyType] !== undefined && localStorage[keyType] !== 'null'){
+				
+				var unit = 'deg';
+
+				if(localStorage[keyType] == 'scale' || localStorage[keyType] == 'scaleX' || localStorage[keyType] == 'scaleY'){
+					unit = '';
+				}else if(localStorage[keyType] == 'translate' || localStorage[keyType] == 'translateX' || localStorage[keyType] == 'translateY'){
+					unit = 'px';
+				}
+
+				stylesheet.update_rule(params.selector, {
+					'transform': localStorage[keyType] + '('+params.value+unit+')'
+				});
+			}
 
 		}
 
@@ -2443,7 +2489,15 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
 							refreshInspector();
 						});
-						
+
+					
+					} else if(blockType == 'gutenberg'){
+
+						var postId = localStorage['visual-editor-block-post-data-'+blockID+'-0'];
+						gutenberg.showEditor(postId, blockID, function(editor) {
+							refreshInspector();
+						});
+											
 
 					}else{
 
@@ -2455,7 +2509,60 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 						
 					}
 
+					/*
+				} else if ( $(this).parents('li').first().hasClass('transform-rotate') ){
 
+					var selector = '#' + getBlock($(inspectorElement)).attr('id');
+
+					console.log(interact(selector).resizable({inertia: true}));
+
+					// target elements with the "draggable" class
+					interact(selector)
+					  	.draggable({
+						    // enable inertial throwing
+						    inertia: true,
+						    // keep the element within the area of it's parent
+						    restrict: {
+						      restriction: "parent",
+						      endOnly: true,
+						      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+						    },
+						    // enable autoScroll
+						    autoScroll: true,
+
+						    // call this function on every dragmove event
+						    onmove: dragMoveListener,
+						    // call this function on every dragend event
+						    onend: function (event) {
+						      var textEl = event.target.querySelector('p');
+
+						      textEl && (textEl.textContent =
+						        'moved a distance of '
+						        + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+						                     Math.pow(event.pageY - event.y0, 2) | 0))
+						            .toFixed(2) + 'px');
+						    }
+						  });
+
+					  function dragMoveListener (event) {
+					    var target = event.target,
+					        // keep the dragged position in the data-x/data-y attributes
+					        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+					        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+					    // translate the element
+					    target.style.webkitTransform =
+					    target.style.transform =
+					      'translate(' + x + 'px, ' + y + 'px)';
+
+					    // update the posiion attributes
+					    target.setAttribute('data-x', x);
+					    target.setAttribute('data-y', y);
+					  }
+
+					  // this is used later in the resizing and gesture demos
+					  window.dragMoveListener = dragMoveListener;
+					*/
 				/* DE Click */
 				} else {
 
@@ -2520,7 +2627,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 							// Edit This Instance
 							contextMenu.append('<li class="inspector-context-menu-edit-instance" data-instance-id="' + inspectorElementOptions.instance + '"><span>Edit This Instance</span></li>');
 
-							
+							// Transform options
+							//contextMenu.append('<li class="inspector-context-menu-edit-transform"><span class="group-title group-title-clickable">Transform</span><ul><li class="transform-rotate"><span>Rotate</span></li></ul></li>');
+
 							/* 
 								Edit content option
 							*/
@@ -2734,9 +2843,18 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 				/* Prevent scrolling */
 				event.preventDefault();
 				return false;
-
 			}
+
 		/* END INSPECTOR NUDGING */
+
+		/*	TRANSFORM CONTEXT MENU		*/
+			transformFromContextMenu = function(event){
+				event.preventDefault();
+				console.log(event);
+			}
+		/*	END TRANSFORM CONTEXT MENU	*/
+
+
 	/* END INSPECTOR */
 
 
@@ -2827,7 +2945,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/colorpicker', 'hel
 		}
 	/* END ELEMENT INFO */
 
+
 	var modeDesign = {
+
 		init: function() {
 
 			designEditor = new designEditorTabEditor();

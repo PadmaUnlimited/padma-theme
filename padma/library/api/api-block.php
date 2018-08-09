@@ -99,7 +99,8 @@ abstract class PadmaBlockAPI {
 									'box-shadow',
 									'overflow',
 									'sizes',
-									'animation'
+									'animation',
+									'transform',
 								),
 			));
 
@@ -264,11 +265,11 @@ abstract class PadmaBlockAPI {
 		/* End Selector Modification */
 		
 		$defaults = array(
-			'group' => 'blocks',
-			'parent' => 'block-' . $this->id,
-			'id' => 'block-' . $this->id . '-' . $args['id'],
-			'name' => $args['name'],
-			'selector' => $modified_selector
+			'group' 	=> 'blocks',
+			'parent' 	=> 'block-' . $this->id,
+			'id' 		=> 'block-' . $this->id . '-' . $args['id'],
+			'name' 		=> $args['name'],
+			'selector'	=> $modified_selector
 		);
 		
 		//Unset the following so they don't overwrite the defaults
@@ -546,15 +547,21 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'label' => 'Set Breakpoint',
 					'options' => array(
 						'off' => 'Off - No Breakpoint',
-						'custom' => 'Custom Width',
-						'1824px' => '1824px - Very Large Screens',
-						'1224px' => '1224px - Desktop and Laptop',
-						'1024px' => '1024px - Popular Tablet Landscape',
-						'768px' => '768px - Popular Tablet Portrait',
-						'600px' => '600px - Popular Breakpoint in Padma',
-						'568px' => '568px - iPhone 5 Landscape',
-						'480px' => '480px - iPhone 3 & 4 Landscape',
-						'320px' => '320px - iPhone 3 & 4 & 5 & Android Portrait'
+						'custom' => 'Custom Width',						
+						'1920px' 	=> '1920px - Very Large Screens',
+						'1824px' 	=> '1824px - Large Screens',
+						'1224px' 	=> '1224px - Desktop and Laptop',
+						'1024px' 	=> '1024px - Popular Tablet Landscape',
+						'812px' 	=> '812px - iPhone X Landscape',
+						'768px' 	=> '768px - Popular Tablet Portrait',
+						'736px' 	=> '736px - iPhone 6+ & 7+ & 8+ Landscape',
+						'667px' 	=> '667px - iPhone 6 & 7 & 8 & Android Landscape',
+						'600px' 	=> '600px - Popular Breakpoint in Padma',
+						'568px' 	=> '568px - iPhone 5 Landscape',
+						'480px' 	=> '480px - iPhone 3 & 4 Landscape',
+						'414px' 	=> '414px - iPhone 6+ & 7+ & 8+ Landscape',
+						'375px' 	=> '375px - iPhone 6 & 7 & 8 & X & Android Portrait',
+						'320px' 	=> '320px - iPhone 3 & 4 & 5 & Android Portrait',
 					),
 					'toggle' => array(
 						'' => array(

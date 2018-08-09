@@ -216,6 +216,7 @@ class PadmaPropertyInputs {
 
 		public static function build_property_input($property_id, $property_options, $element_args) {
 
+
 			//Make sure the input type for the property really exists
 			if ( !is_callable(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type']))) )
 				return false;
@@ -225,15 +226,16 @@ class PadmaPropertyInputs {
 
 				if ( ($original_property_value || $original_property_value === 0) && strtolower($original_property_value) !== 'delete' ) {
 					
-					$property_options['value'] = $element_args['property_values'][$property_id];
+					$property_options['value'] 		= $element_args['property_values'][$property_id];
 					$property_options['customized'] = true;
 					
+
 				//Fall back to default
 				} else {
 																	
 					$property_default = isset($property_options['default']) ? $property_options['default'] : null;
 
-					$property_options['value'] = $property_default;
+					$property_options['value'] 		= $property_default;
 					$property_options['customized'] = false;
 																		
 				}	
@@ -242,16 +244,17 @@ class PadmaPropertyInputs {
 				$uncustomize_button = $element_args['special_element_type'] != 'default' ? '<span class="uncustomize-property tooltip" title="Delete this customization."></span>' : null;
 				$customize_button = $element_args['special_element_type'] != 'default' ? '<div class="customize-property"><span class="tooltip" title="Click to change the value for this property.  If left uncustomized, the property will automatically inherit to the default set for this element type in the defaults tab or the parent element if editing a state, instance, or layout-specific element.">Customize</span></div>' : null;
 
+
 				$hidden_input_attributes_array = array(
-					'type' => 'hidden',
-					'class' => 'property-hidden-input',
-					'value' => $property_options['value'],
-					'element' => $element_args['element']['id'],
-					'property' => $property_id,
-					'special_element_type' => $element_args['special_element_type'],
-					'special_element_meta' => $element_args['special_element_meta'],
-					'element_selector' => esc_attr(stripslashes($element_args['selector'])),
-					'callback' => esc_attr('(function(params){' . $property_options['js-callback'] . '})')
+					'type' 					=> 'hidden',
+					'class' 				=> 'property-hidden-input',
+					'value' 				=> $property_options['value'],
+					'element' 				=> $element_args['element']['id'],
+					'property' 				=> $property_id,
+					'special_element_type' 	=> $element_args['special_element_type'],
+					'special_element_meta' 	=> $element_args['special_element_meta'],
+					'element_selector' 		=> esc_attr(stripslashes($element_args['selector'])),
+					'callback' 				=> $callbackJS = esc_attr('(function(params){' . $property_options['js-callback'] . '})')
 				);
 									
 

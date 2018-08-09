@@ -203,6 +203,7 @@ class PadmaElementsData {
 
 		foreach ( $batch_data as $element_data ) {
 
+
 			/* Insure array exists for element that property is being set for */
 			if (!isset($all_properties[$element_data['element_id']]) || !is_array($all_properties[$element_data['element_id']]))
 				$all_properties[$element_data['element_id']] = array('special-element-' . $element_data['special_element_type'] => array(
@@ -212,6 +213,8 @@ class PadmaElementsData {
 			/* Set the property */
 			if ($element_data['value'] == 'null')
 				$element_data['value'] = null;
+
+			
 
 			$all_properties[$element_data['element_id']]['special-element-' . $element_data['special_element_type']][$element_data['special_element_meta']][$element_data['property_id']] = $element_data['value'];
 
@@ -280,7 +283,6 @@ class PadmaElementsData {
 				$all_js_properties[ $element_id ][ $js_property_id ] = $options;
 
 			}
-
 			/* Send it back to DB */
 			return PadmaSkinOption::set( 'js-properties', $all_js_properties, 'design' );
 

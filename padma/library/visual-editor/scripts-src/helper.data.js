@@ -13,7 +13,8 @@ define(['underscore'], function(_) {
 		if ( typeof value == 'undefined' )
 			var value = input.val();
 
-		var optionID = input.attr('name').toLowerCase();
+
+		var optionID 	= input.attr('name').toLowerCase();
 		var optionGroup = input.attr('data-group').toLowerCase();
 
 		var callback = eval(input.attr('data-callback'));
@@ -373,11 +374,11 @@ define(['underscore'], function(_) {
 			return false;
 
 		/* Get all vars */
-		var element = hiddenInput.attr('element').toLowerCase();
-		var property = hiddenInput.attr('property').toLowerCase();
-		var selector = hiddenInput.attr('element_selector') || false;
-		var specialElementType = hiddenInput.attr('special_element_type').toLowerCase() || false;
-		var specialElementMeta = hiddenInput.attr('special_element_meta').toLowerCase() || false;
+		var element 			= hiddenInput.attr('element').toLowerCase();
+		var property 			= hiddenInput.attr('property').toLowerCase();
+		var selector 			= hiddenInput.attr('element_selector') || false;
+		var specialElementType 	= hiddenInput.attr('special_element_type').toLowerCase() || false;
+		var specialElementMeta 	= hiddenInput.attr('special_element_meta').toLowerCase() || false;
 
 		/* Set the data for saving */
 		args.unit = hiddenInput.siblings('.property-unit-select').find('select').val();

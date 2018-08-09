@@ -86,11 +86,11 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 					'type' => 'slider',
 					'name' => 'column-width',
 					'label' => 'Column Width',
-					'default' => 20,
+					'default' => 26,
 					'tooltip' => 'The column width is the amount of space inside of each column.  This is represented by the grey regions on the grid.',
 					'unit' => 'px',
 					'slider-min' => 10,
-					'slider-max' => 80,
+					'slider-max' => 120,
 					'slider-interval' => 1,
 					'callback' => 'wrapperOptionCallbackColumnWidth(input, value);'
 				),
@@ -99,11 +99,11 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 					'type' => 'slider',
 					'name' => 'gutter-width',
 					'label' => 'Gutter Width',
-					'default' => 20,
+					'default' => 22,
 					'tooltip' => 'The gutter width is the amount of space between each column.  This is the space between each of the grey regions on the grid.',
 					'unit' => 'px',
 					'slider-min' => 0,
-					'slider-max' => 40,
+					'slider-max' => 60,
 					'slider-interval' => 1,
 					'callback' => 'wrapperOptionCallbackGutterWidth(input, value);'
 				),
@@ -111,7 +111,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'grid-width' => array(
 					'type' => 'integer',
 					'unit' => 'px',
-					'default' => 940,
+					'default' => 1130,
 					'name' => 'grid-width',
 					'label' => 'Grid Width',
 					'readonly' => true
@@ -237,15 +237,21 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 					'label' => 'Set Breakpoint',
 					'options' => array(
 						'' => 'Off - No Breakpoint',
-						'custom' => 'Custom Width',
-						'1824px' => '1824px - Very Large Screens',
-						'1224px' => '1224px - Desktop and Laptop',
-						'1024px' => '1024px - Popular Tablet Landscape',
-						'768px' => '768px - Popular Tablet Portrait',
-						'600px' => '600px - Popular Breakpoint in Padma',
-						'568px' => '568px - iPhone 5 Landscape',
-						'480px' => '480px - iPhone 3 & 4 Landscape',
-						'320px' => '320px - iPhone 3 & 4 & 5 & Android Portrait'
+						'custom' 	=> 'Custom Width',
+						'1920px' 	=> '1920px - Very Large Screens',
+						'1824px' 	=> '1824px - Large Screens',
+						'1224px' 	=> '1224px - Desktop and Laptop',
+						'1024px' 	=> '1024px - Popular Tablet Landscape',
+						'812px' 	=> '812px - iPhone X Landscape',
+						'768px' 	=> '768px - Popular Tablet Portrait',
+						'736px' 	=> '736px - iPhone 6+ & 7+ & 8+ Landscape',
+						'667px' 	=> '667px - iPhone 6 & 7 & 8 & Android Landscape',
+						'600px' 	=> '600px - Popular Breakpoint in Padma',
+						'568px' 	=> '568px - iPhone 5 Landscape',
+						'480px' 	=> '480px - iPhone 3 & 4 Landscape',
+						'414px' 	=> '414px - iPhone 6+ & 7+ & 8+ Landscape',
+						'375px' 	=> '375px - iPhone 6 & 7 & 8 & X & Android Portrait',
+						'320px' 	=> '320px - iPhone 3 & 4 & 5 & Android Portrait',
 					),
 					'toggle'    => array(
 						'' => array(
@@ -393,9 +399,8 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 
 	public function get_wrappers_select_options_for_mirroring() {
 							
-		$wrappers = PadmaWrappersData::get_all_wrappers();
-
-		$options = array('' => '&ndash; Do Not Mirror &ndash;');
+		$wrappers 	= PadmaWrappersData::get_all_wrappers();
+		$options 	= array('' => '&ndash; Do Not Mirror &ndash;');
 		
 		//If there are no wrappers to mirror, then just return the Do Not Mirror option.
 		if ( empty($wrappers) || !is_array($wrappers) )

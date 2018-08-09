@@ -54,8 +54,8 @@
 
 		wrapperOptionCallbackColumnWidth = function(input, value) {
 
-			var wrapperID = input.parents("[data-panel-args]").data("panel-args").wrapper.id.replace('wrapper-', '');
-			var wrapper = $i('.wrapper[data-id="' + wrapperID + '"]');
+			var wrapperID 	= input.parents("[data-panel-args]").data("panel-args").wrapper.id.replace('wrapper-', '');
+			var wrapper 	= $i('.wrapper[data-id="' + wrapperID + '"]');
 
 			if ( typeof wrapper == 'undefined' || !wrapper.length )
 				return false;

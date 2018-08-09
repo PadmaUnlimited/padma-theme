@@ -833,7 +833,37 @@ class PadmaElementProperties {
 				),
 				'js-callback' => 'stylesheet.update_rule(selector, {"animation-delay": params.value});',
 			),
-			
+
+		/*	Transform	*/
+			'transform' => array(
+				'group' => 'Transform',
+				'name' 	=> 'Transform',
+				'type' 	=> 'select',
+				'default' => 'none',
+				'options' => array(
+					'rotate' 			=> 'Rotate',
+					'rotateX' 			=> 'Rotate X',
+					'rotateY' 			=> 'Rotate Y',
+					'scale' 			=> 'Scale',
+					'scaleX' 			=> 'Scale X',
+					'scaleY' 			=> 'Scale Y',
+					'skew' 				=> 'Skew',
+					'skewX' 			=> 'Skew X',
+					'skewY' 			=> 'Skew Y',
+					'translate' 		=> 'Translate',
+					'translateX' 		=> 'Translate X',
+					'translateY' 		=> 'Translate Y',
+				),
+				'js-callback' => 'propertyInputCallbackTransform(params);',
+			),
+			'transform-angle' => array(
+				'group' => 'Transform',
+				'name' 	=> 'Angle',
+				'type' 	=> 'integer',
+				'unit' 	=> 'deg',				
+				'js-callback' => 'propertyInputCallbackTransformAngle(params);',
+			),
+
 	);	
 	
 	public static function get_property($property) {
@@ -876,9 +906,21 @@ class PadmaElementProperties {
 			return null;
 					
 		$output = '';
-	
+		
+			debug($properties);
+			
+			if($properties['transform']){
+				$transformData['type'] 	= $properties['transform'];
+				$transformData['angle'] = $properties['transform-angle'];
+				
+			}
 			//Loop through properties
 			foreach ( $properties as $property_id => $value ) {
+
+				// Dont evaluate transform angle param
+				if($property_id == 'transform-angle'){
+					continue;
+				}
 			
 				//If the value is an empty string, false, or null, don't attempt to put anything.
 				if ( (!isset($value) || $value === '' || $value === false || $value === null || $value === 'null' || $value === 'DELETE') && ($value !== '0' && $value !== 0) )
@@ -895,6 +937,7 @@ class PadmaElementProperties {
 					if ( empty($output) )
 						$output .= $selector . ' {' . "\n";
 								
+
 				//If it's a complex property, pass everything through it.
 				if ( padma_get('complex-property', $property) && is_callable(padma_get('complex-property', $property)) ) {
 					$output .= call_user_func(padma_get('complex-property', $property), array(
@@ -935,6 +978,20 @@ class PadmaElementProperties {
 				
 				if ( padma_get('type', $property) === 'image' && $value != 'none' )
 					$value = 'url(' . $value . ')';
+
+				
+				if ( padma_get('group', $property) === 'Transform' ){
+					$transformType 	= $transformData['type'];
+
+					if($transformType == 'scale' || $transformType == 'scaleX' || $transformType == 'scaleY'){
+						$unit = '';
+					}elseif($transformType == 'translate' || $transformType == 'translateX' || $transformType == 'translateY'){
+						$unit = 'px';
+					}else{
+						$unit = 'deg';						
+					}
+					$value =  $transformType . '(' . $transformData['angle'] . $unit . ')';
+				}
 			
 				$output .= $property_id . ': ' . $value . ';' . "\n";
 			

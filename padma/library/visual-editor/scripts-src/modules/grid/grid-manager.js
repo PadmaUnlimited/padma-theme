@@ -355,8 +355,8 @@ define(['deps/chosen.jquery'], function(chosen) {
 				delete addBlockArgs.mirroringOrigin;
 
 				/* Handle Mirroring */
-				var mirroringOrigin = (typeof this.mirroringOrigin != 'undefined') ? this.mirroringOrigin : this.type;
-				var mirroringSelectVal = $('div#grid-manager-presets-mirroring-select-' + mirroringOrigin + ' select').val();
+				var mirroringOrigin 	= (typeof this.mirroringOrigin != 'undefined') ? this.mirroringOrigin : this.type;
+				var mirroringSelectVal 	= $('div#grid-manager-presets-mirroring-select-' + mirroringOrigin + ' select').val();
 
 				if (mirroringSelectVal !== '') {
 

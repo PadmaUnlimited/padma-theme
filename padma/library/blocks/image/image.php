@@ -3,22 +3,16 @@ padma_register_block('PadmaImageBlock', padma_url() . '/library/blocks/image');
 
 class PadmaImageBlock extends PadmaBlockAPI {
 	
-	public $id = 'image';
-	
-	public $name = 'Image';
-		
-	public $options_class = 'PadmaImageBlockOptions';
-	
-	public $fixed_height = true;
-	
-	public $html_tag = 'figure';
-
-	public $attributes = array(
-		'itemscope' => '',
-		'itemtype' => 'http://schema.org/ImageObject'
-	);
-
-	public $description = 'Display an image';
+	public $id 				= 'image';	
+	public $name 			= 'Image';		
+	public $options_class 	= 'PadmaImageBlockOptions';	
+	public $fixed_height 	= true;	
+	public $html_tag 		= 'figure';
+	public $attributes 		= array(
+									'itemscope' => '',
+									'itemtype' => 'http://schema.org/ImageObject'
+								);
+	public $description 	= 'Display an image';
 	
 	protected $show_content_in_grid = true;
 	

@@ -11,11 +11,15 @@ class PadmaDynamicStyle {
 		
 		$return = "/* DESIGN EDITOR STYLING */\n";
 		
+
 		foreach ( $elements as $element_id => $element_options ) {
 			
-			$element = PadmaElementAPI::get_element($element_id);
-			$selector = $element['selector'];
+			$element 	= PadmaElementAPI::get_element($element_id);
+			$selector 	= $element['selector'];
 			$nudging_properties = array('top', 'left', 'position', 'z-index');
+
+			//debug('Hola');
+			//debug($element_options);
 			
 			//Continue to next element if the element/selector does not exist
 			if ( !isset($selector) || $selector == false )
@@ -93,7 +97,7 @@ class PadmaDynamicStyle {
 			}
 
 		} //End main $elements foreach
-		
+
 		return $return;
 		
 	}
@@ -241,8 +245,7 @@ class PadmaDynamicStyle {
 				if ( !PadmaRoute::is_visual_editor_iframe('grid') && !(padma_get( 'file' ) == 've-iframe-grid-dynamic') ) {
 
 					$responsive_options = padma_get( 'responsive-wrapper-options', $wrapper_settings, array() );
-
-					$options = self::get_repeater_options( $responsive_options, 'breakpoint' );
+					$options 			= self::get_repeater_options( $responsive_options, 'breakpoint' );
 
 					if ( $options ) {
 

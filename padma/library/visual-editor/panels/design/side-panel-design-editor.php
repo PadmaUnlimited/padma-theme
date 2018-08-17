@@ -16,7 +16,7 @@ class PadmaSidePanelDesignEditor {
 
 	public static function live_css_textarea() {
 
-		echo '<textarea id="live-css" name="live-css" data-group="general" style="display:none;">' . esc_textarea(PadmaSkinOption::get('live-css', false, null, false, false)) . '</textarea>';
+		echo '<textarea id="live-css-content" name="live-css" data-group="general" style="display:none;">' . esc_textarea(PadmaSkinOption::get('live-css', false, null, false, false)) . '</textarea>';
 
 	}
 

@@ -23,6 +23,24 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 		}
 
 
+		prohibitLiveCSSClose = function (w) {	
+
+			w.onbeforeunload = function(){
+				return 'You have unsaved changes.  Are you sure you wish to leave the Live CSS Editor?';
+			}
+
+		}
+
+
+		allowLiveCSSClose = function(w) {
+
+			w.onbeforeunload = function(){
+				return null;
+			}
+		
+		}
+
+
 		disableBadKeys = function() {
 
 			var disableBadKeysCallback = function(event) {

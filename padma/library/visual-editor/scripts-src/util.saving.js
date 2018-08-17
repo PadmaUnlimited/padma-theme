@@ -1,7 +1,7 @@
 define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, ko) {
 
 	save = function() {
-		
+	
 		/* If saving isn't allowed, don't try to save. */
 		if ( typeof isSavingAllowed === 'undefined' || isSavingAllowed === false ) {
 			return false;
@@ -211,6 +211,16 @@ define(['jquery', 'util.loader', 'knockout', 'deps/json2'], function($, loader, 
 
 				allowVEClose(); //Do this here in case we have some speedy folks who want to close VE ultra-early after a save.
 				
+			}
+
+		});
+
+
+		// Allow close save
+		$.each(Padma.codeMirrorEditors, function(index, editor) {
+			
+			if ( typeof editor.window != 'undefined' && !editor.window.closed ) {
+				allowLiveCSSClose(editor.window);
 			}
 
 		});

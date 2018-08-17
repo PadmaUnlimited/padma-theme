@@ -42,7 +42,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 0.0.23
 * Released: August 17, 2018
 
-Visual Editor Fixes
+Visual Editor fixes
+Live CSS editor fixes
 Tested on Wordpress 4.9.8
 Block API improvements
 Responsive Options updated on block options

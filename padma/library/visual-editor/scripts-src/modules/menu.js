@@ -67,15 +67,20 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 				$('#open-live-css').bind('click', function() {
 
-					codeMirrorHelper.showEditor('live-css', 'css', $('textarea#live-css').val(), function(editor) {
+					codeMirrorHelper.showEditor('live-css', 'css', $('textarea#live-css-content').val(), function(editor) {
 
-						var value 		= editor.getValue();
-						var textarea 	= $('textarea#live-css');
-						textarea.val(value);
+						// Data Handle for textarea
+						var textarea = $('textarea#live-css-content');
+						// Get CSS changes
+						var cssChanges = editor.getValue();
+
+						// Set CSS changes to content, holder and textarea
+						$i('style#live-css-holder').html(cssChanges);
+						textarea.text(cssChanges);
+						localStorage['padma-visual-editor-live-css-content'] = btoa(cssChanges);
 						dataHandleInput(textarea);
-						$i('style#live-css-holder').html(value);
 						allowSaving();
-						
+					
 					});
 
 				});

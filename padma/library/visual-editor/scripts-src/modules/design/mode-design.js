@@ -886,13 +886,11 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'dep
 
 				this.processElementNameLiveCSS = function() {
 
-					var elementNode = $(this).parents('li.element').first();
-					var elementSelector = elementNode.data('selector');
-
-					var liveCSSValue = ( typeof Padma.codeMirrorEditors['live-css'] == 'undefined' || !Padma.codeMirrorEditors['live-css'] ) ? $('textarea#live-css').val() : $(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).val();
-
-					var linesBefore = liveCSSValue ? "\n\n" : '';
-					$('textarea#live-css').val(liveCSSValue + linesBefore + elementSelector + " {\n\n}");
+					var elementNode 	= $(this).parents('li.element').first();
+					var elementSelector = elementNode.data('selector');					
+					var liveCSSValue 	= ( typeof Padma.codeMirrorEditors['live-css'] == 'undefined' || !Padma.codeMirrorEditors['live-css'] ) ? $('textarea#live-css-content').val() : atob(localStorage['padma-visual-editor-live-css-content']);
+					var linesBefore 	= liveCSSValue ? "\n\n" : '';
+					$('textarea#live-css-content').val(liveCSSValue + linesBefore + elementSelector + " {\n\n}");
 
 					/* Open CSS Editor */
 					$('#open-live-css').trigger('click');
@@ -900,7 +898,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'dep
 					/* Move the cursor to the new selector */
 					if ( typeof Padma.codeMirrorEditors['live-css'] != 'undefined' ) {
 
-						$(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).val($('textarea#live-css').val());						
+						$(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).val($('textarea#live-css-content').val());						
                         $(Padma.codeMirrorEditors["live-css"].window.document.getElementById("code")).focus();
 
 					}
@@ -1819,8 +1817,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'dep
 
 		propertyInputCallbackTransformAngle = function(params) {
 
-			console.log(params);
-
 			var keyAngle 	= 'propertyInputCallbackTransformAngle-' + params.selector.replace(' ','-');
 			var keyType 	= 'propertyInputCallbackTransformType-' + params.selector.replace(' ','-');
 			localStorage[keyAngle] = params.value;
@@ -2509,61 +2505,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'dep
 						
 					}
 
-					/*
-				} else if ( $(this).parents('li').first().hasClass('transform-rotate') ){
-
-					var selector = '#' + getBlock($(inspectorElement)).attr('id');
-
-					console.log(interact(selector).resizable({inertia: true}));
-
-					// target elements with the "draggable" class
-					interact(selector)
-					  	.draggable({
-						    // enable inertial throwing
-						    inertia: true,
-						    // keep the element within the area of it's parent
-						    restrict: {
-						      restriction: "parent",
-						      endOnly: true,
-						      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-						    },
-						    // enable autoScroll
-						    autoScroll: true,
-
-						    // call this function on every dragmove event
-						    onmove: dragMoveListener,
-						    // call this function on every dragend event
-						    onend: function (event) {
-						      var textEl = event.target.querySelector('p');
-
-						      textEl && (textEl.textContent =
-						        'moved a distance of '
-						        + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-						                     Math.pow(event.pageY - event.y0, 2) | 0))
-						            .toFixed(2) + 'px');
-						    }
-						  });
-
-					  function dragMoveListener (event) {
-					    var target = event.target,
-					        // keep the dragged position in the data-x/data-y attributes
-					        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-					        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-					    // translate the element
-					    target.style.webkitTransform =
-					    target.style.transform =
-					      'translate(' + x + 'px, ' + y + 'px)';
-
-					    // update the posiion attributes
-					    target.setAttribute('data-x', x);
-					    target.setAttribute('data-y', y);
-					  }
-
-					  // this is used later in the resizing and gesture demos
-					  window.dragMoveListener = dragMoveListener;
-					*/
-				/* DE Click */
 				} else {
 
 

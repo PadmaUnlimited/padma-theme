@@ -1764,7 +1764,7 @@ div.box ul.tabs li.ui-tabs-active a {
 }
 
 /* Live CSS Box */
-textarea#live-css {
+textarea#live-css-content {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;

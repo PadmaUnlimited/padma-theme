@@ -40,7 +40,7 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 				window: window.open(Padma.homeURL + '/?padma-trigger=code-mirror&mode=' + mode, id, 'width=' + editorConfig.width + ',height=' + editorConfig.height + ',top=' + editorConfig.top + ',left=' + editorConfig.left, true)
 			}
 
-			Padma.codeMirrorEditors[id].window.focus();
+			Padma.codeMirrorEditors[id].window.focus();		
 			codeMirrorHelper.bindEditor(id, mode, initialValue, changeCallback);
 
 
@@ -84,10 +84,13 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 
 				/* Focus editor */
 				editor.focus();
+				window.document.getElementById("live-css-loader").classList.add('hidden');
 
 				/* Bind the editor */
-				editor.on('change',function(e){
-					return changeCallback(editor);
+				editor.on('change',function(e){					
+					// prevent close without save
+					prohibitLiveCSSClose(window);
+					return changeCallback(editor,window);
 				});
 
 			});

@@ -665,8 +665,6 @@ class PadmaVisualEditorAJAX {
 
 					public static function replace_imported_images_variables($import_array) {
 
-						//debug($import_array);
-
 						/* Check for imported images */
 							if ( empty($import_array['imported-images']) || !is_array($import_array['imported-images']) )
 								return $import_array;

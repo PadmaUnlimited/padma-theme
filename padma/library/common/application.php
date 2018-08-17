@@ -32,7 +32,7 @@ class Padma {
 		define('PADMA_VERSION', '0.0.23');
 
 		/* Define directories */
-		define('PADMA_DIR', padma_change_to_unix_path(TEMPLATEPATH));
+		define('PADMA_DIR', get_template_directory());
 		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 
 		/* Site URLs */

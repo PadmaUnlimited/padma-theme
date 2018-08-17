@@ -16,8 +16,15 @@ function padma_maybe_unserialize($string) {
 
 		if ( !is_array($data) ) {
 
-			$data = maybe_unserialize(preg_replace( '!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", $string ));
-
+			$data = maybe_unserialize(
+						preg_replace_callback(
+							'!s:(\d+):"(.*?)";!',
+							function($matches){
+								return "'s:'" . strlen($matches) . "':\"$matches\";'";
+							},
+							$string 
+						)
+					);
 		}
 
 	} else {

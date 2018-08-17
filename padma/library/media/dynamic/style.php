@@ -17,10 +17,7 @@ class PadmaDynamicStyle {
 			$element 	= PadmaElementAPI::get_element($element_id);
 			$selector 	= $element['selector'];
 			$nudging_properties = array('top', 'left', 'position', 'z-index');
-
-			//debug('Hola');
-			//debug($element_options);
-			
+						
 			//Continue to next element if the element/selector does not exist
 			if ( !isset($selector) || $selector == false )
 				continue;

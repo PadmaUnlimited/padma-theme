@@ -76,7 +76,6 @@ class PadmaCompatibilityHeadway {
 			}
 		}
 
-		//debug($padmaClassArray);
 		foreach ($padmaClassArray as $padmaClass => $methods) {
 			
 			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);

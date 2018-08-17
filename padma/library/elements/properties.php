@@ -905,9 +905,7 @@ class PadmaElementProperties {
 		if ( !is_array($properties) || count($properties) === 0 )
 			return null;
 					
-		$output = '';
-		
-			debug($properties);
+		$output = '';		
 			
 			if($properties['transform']){
 				$transformData['type'] 	= $properties['transform'];

@@ -44,7 +44,7 @@ class PadmaGutenbergBlock extends PadmaBlockAPI {
 		require_once(ABSPATH . '/wp-admin/includes/screen.php');
 		require_once(ABSPATH . '/wp-admin/includes/class-wp-screen.php');
 		set_current_screen();
-		debug(WP_Screen::get());
+		
 		/*
 		require_once(ABSPATH . '/wp-admin/includes/template.php');
 		

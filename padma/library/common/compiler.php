@@ -76,8 +76,7 @@ class PadmaCompiler {
 				$cache[$args['name']] 				= $args;
 				$cache[$args['name']]['filename'] 	= null;
 				$cache[$args['name']]['hash'] 		= null;
-
-				//debug($cache);
+				
 				//Update cache option
 				if ( !set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache) )
 					return false;

@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'deps/interact', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, gutenberg, interact) {
+define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, interact) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -2485,15 +2485,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'helper.gutenberg', 'dep
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
 							refreshInspector();
 						});
-
-					
-					} else if(blockType == 'gutenberg'){
-
-						var postId = localStorage['visual-editor-block-post-data-'+blockID+'-0'];
-						gutenberg.showEditor(postId, blockID, function(editor) {
-							refreshInspector();
-						});
-											
+			
 
 					}else{
 

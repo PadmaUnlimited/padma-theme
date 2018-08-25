@@ -595,4 +595,165 @@ define(['underscore'], function(_) {
 	/* END DESIGN EDITOR DATA */
 	/* END DATA HANDLING FUNCTIONS */
 
+
+	/*	Remote Mapping		*/
+	remoteMapping = function(url){
+
+
+		$.post(Padma.ajaxURL, {
+			'action': 'padma_visual_editor',
+			'security': Padma.security,
+			'method': 'map_remote_layout',
+			'url': url
+
+		}, function (response) {
+			
+			var html 		= $( '<div></div>' );
+			html.html(atob(response));
+
+
+			// Delete all wrappers
+			$i('.wrapper').each(function () {
+				deleteWrapper($(this).data('id'),true);
+			});
+
+
+			$('#whitewrap',html).find('.wrapper').each(function(i, wrapper){
+
+				var wrapperSettings = {};	
+				var classes 		= $(wrapper).attr('class').split(/\s+/);
+				var grid_number 	= 24;
+				var column_width 	= 26;
+				var gutter_width 	= 22;
+				var grid_fluid		= '24-20-20';				
+
+
+				if($(wrapper).hasClass('wrapper-fluid')){
+					wrapperSettings.fluid = true;
+				}else{
+					wrapperSettings.fluid = false;						
+				}
+
+				if($(wrapper).hasClass('wrapper-fluid-grid')){
+					wrapperSettings['fluid-grid'] = true;
+				}else{
+					wrapperSettings['fluid-grid'] = false;						
+				}
+
+				if($(wrapper).hasClass('independent-grid')){
+					wrapperSettings['use-independent-grid'] = true;
+				}else{
+					wrapperSettings['use-independent-grid'] = false;						
+				}
+
+				for (var i = classes.length - 1; i >= 0; i--) {
+
+					// grid-fluid
+					parts = classes[i].split('-');
+					if(parts[0] == 'grid' && parts[1] == 'fluid'){
+						grid_fluid 		= parts[2] + '-' + parts[3] + '-' + parts[4];
+						grid_number 	= parts[2];
+						column_width 	= parts[3];
+						gutter_width 	= parts[4];
+					}
+				}
+
+
+				var wrapper = addWrapper('bottom', wrapperSettings);
+				/*
+				console.log(wrapper);
+
+				var wrapperID 		= $(wrapper).attr('id');
+				var wrapperIframe 	= $i('#' + wrapperID);
+
+				wrapperIframe.addClass('grid-fluid-' + grid_fluid);
+				*/
+				
+
+				//dataAddWrapper(wrapper, {'columns':grid_number,'column-width':column_width,'gutter-width':gutter_width}, $i('.wrapper').index(wrapper)) ;
+
+				//$i('#' + wrapperID).data('wrapper-settings','{"columns":"'+grid_number+'","column-width":"'+column_width+'","gutter-width":"'+gutter_width+'","fluid":'+wrapperSettings['fluid']+',"fluid-grid":'+wrapperSettings['fluid-grid']+',"use-independent-grid":'+wrapperSettings['use-independent-grid']+'}');
+				
+				//console.log(wrapperIframe);
+				//console.log(wrapperSettings);
+				//console.log(JSON.stringify(wrapperSettings));
+
+				/*
+				data-wrapper-settings="{"columns":"24","column-width":"21","gutter-width":"22","fluid":false,"fluid-grid":false,"use-independent-grid":true}"
+
+
+				// New wrapper start here
+				var wrapperID 		= $(wrapper).attr('id');					
+				var wrapperIframe 	= $i('#' + wrapperID);
+
+				/* Find wrapper and Padma Grid UI widget */
+					//var wrapperGridObject = wrapperIframe.data('ui-padmaGrid');
+
+					//console.log(wrapperGridObject);
+
+				/* Update wrapper object and the guides */
+					//wrapperGridObject.options.columnWidth 	= column_width;
+
+				/* Update wrapper object and the guides */
+					//wrapperGridObject.options.gutterWidth 	= gutter_width;
+
+				/* Update wrapper object and the guides */
+					//wrapperGridObject.options.columns 		= grid_number;
+					//wrapperGridObject.addColumnGuides();
+
+				/* Finalize: Update the Wrapper/Grid CSS and reset draggable/resizable, etc */
+				/*
+					wrapperGridObject.updateGridCSS();
+
+					Padma.instance.updateGridCSS()
+					*/
+
+			});
+			
+
+			/*
+			console.log(settings);
+
+			
+			$.each(settings,function(index,wrapper_settings){
+
+				console.log(index);
+				console.log(wrapper_settings);
+
+				var wrapper 	= $('#' + index);
+
+				console.log(wrapper);
+
+				var wrapperGridObject = wrapper.data('ui-padmaGrid');
+
+				/* Update wrapper object and the guides */
+				//wrapperGridObject.options.columnWidth = wrapper_settings.column_width;
+
+				/* Finalize: Update the Wrapper/Grid CSS and reset draggable/resizable, etc */
+				//wrapperGridObject.updateGridCSS();
+
+				//console.log(wrapperGridObject.options);
+				/*
+			})*/
+
+			/*
+			for (var i = 0; i <= settings.length; i++) {
+				console.log(settings[i]);
+			}
+			*/
+			/*
+			for (var i = settings.length - 1; i >= 0; i--) {
+				console.log(settings[i]);
+				$(settings[i]).each(function(index){
+					console.log(index);								
+					console.log(settings[index]);								
+				});
+			}*/
+
+
+			allowSaving();
+
+		});	
+
+	}
 });

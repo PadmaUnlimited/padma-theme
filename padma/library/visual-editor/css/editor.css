@@ -1965,6 +1965,19 @@ div#box-grid-manager div.box-content .grid-manager-import-export-group p strong 
 }
 
 /* End Import/Export */
+/*	Maping remote Layout		*/
+div#box-grid-manager div.box-content .grid-manager-mapping-remote-layout{
+	position: static;
+    padding: 15px;
+    height: auto;
+    margin: 6px 0 15px;
+}
+div#box-grid-manager div.box-content .grid-manager-mapping-remote-layout input[type='text']{
+	width: calc(100% - 15px);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+/*	End Maping remote Layout		*/
 /* Cloning */
 #grid-manager-tab-clone-page h4 {
 	clear: both;

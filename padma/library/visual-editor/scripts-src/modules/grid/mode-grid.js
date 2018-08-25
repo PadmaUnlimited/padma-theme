@@ -1,4 +1,4 @@
-define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappers', 'modules/grid/grid-manager', 'deps/jquery.pep', 'helper.blocks', 'helper.wrappers'], function($, btGrid, wrappers) {
+define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappers', 'modules/grid/grid-manager', 'deps/jquery.pep', 'helper.blocks', 'helper.wrappers'], function($, puGrid, wrappers) {
 
 	var modeGrid = {
 		init: function() {	
@@ -52,13 +52,12 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 			setupBlockContextMenu();
 			bindBlockDimensionsTooltip();
 
-		}
-
+		},
 
 	}
 
 	updateGridCSS = function(wrapperCSSSelector, columns, columnWidth, gutterWidth, gridWidthInputContext) {
-
+		
 		/* Calculate Grid Width */
 			if ( gutterWidth > 0 ) {
 				var gridWidth = (columnWidth * columns) + ((columns - 1) * gutterWidth);

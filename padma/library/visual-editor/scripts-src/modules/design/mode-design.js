@@ -2783,7 +2783,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		/*	TRANSFORM CONTEXT MENU		*/
 			transformFromContextMenu = function(event){
 				event.preventDefault();
-				console.log(event);
 			}
 		/*	END TRANSFORM CONTEXT MENU	*/
 

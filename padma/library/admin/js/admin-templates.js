@@ -459,8 +459,6 @@ jQuery(document).ready(function($) {
 				/* Do AJAX request to save skin on cloud */
 				return $.post(Padma.ajaxURL, params).done(function(data) {
 
-					console.log(data);
-
 					if ( typeof data['ok'] !== 'undefined') {
 						return showNotification({
 							id: 'skin-saved',

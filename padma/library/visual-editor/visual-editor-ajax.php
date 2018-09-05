@@ -738,10 +738,18 @@ class PadmaVisualEditorAJAX {
 					);					
 
 					$padmaServices = new padmaServices();
-					if($padmaServices->saveTemplateOnCloud($skin,$templateData)) {
-						return self::json_encode(array(
-							'ok' => 'Template saved.'
-						));
+					$response = $padmaServices->saveTemplateOnCloud($skin,$templateData);
+					if($response) {
+						$response = (array)$response;
+						if($response['error']){
+							return self::json_encode(array(
+								'error' => $response['error']
+							));
+						}else{
+							return self::json_encode(array(
+								'ok' => 'Template saved.'
+							));
+						}
 					}else{
 						return self::json_encode(array(
 							'error' => 'Error saving template.'

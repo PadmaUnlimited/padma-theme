@@ -815,3 +815,7 @@ span.green {
 hr.templates{
 	width: 100%;
 }
+
+#padma-notification-skin-not-saved{
+	border-left-color: #dc3232;
+}

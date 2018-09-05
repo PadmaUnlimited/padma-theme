@@ -399,6 +399,45 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 				});
 
+				/* Duplicate Wrapper */
+				$('<li class="context-menu-duplicate-wrapper"><span>Duplicate Wrapper</span></li>').appendTo(contextMenu).on('click', function() {
+
+					var orgWrapper = wrapper.clone();
+					if(typeof orgWrapper.data('wrapper-settings') == "undefined"){
+						showNotification({
+							id: 'wrapper-notification',
+							message: 'Please save and refresh before duplicate this wrapper.',
+							closable: true,
+							closeTimer: 5000
+						});
+					}else{
+						var newWrapper = addWrapper('bottom', orgWrapper.data('wrapper-settings'));						
+					}
+
+				});
+
+				/* Duplicate Wrapper and Blocks*/
+				$('<li class="context-menu-duplicate-wrapper-and-blocks"><span>Duplicate Wrapper and Blocks</span></li>').appendTo(contextMenu).on('click', function() {
+
+					var orgWrapper = wrapper.clone();
+					if(typeof orgWrapper.data('wrapper-settings') == "undefined"){
+						showNotification({
+							id: 'wrapper-notification',
+							message: 'Please save and refresh before duplicate this wrapper.',
+							closable: true,
+							closeTimer: 5000
+						});
+					}else{
+						var newWrapper = addWrapper('bottom', orgWrapper.data('wrapper-settings'));
+						newWrapper.data('save-first',true);
+						
+						wrapper.find('.block').each(function() {
+							duplicateBlockBetweenWrapper($(this),newWrapper);
+						});						
+					}
+
+				});
+
 				/* Delete wrapper.  Do not allow it to be deleted if it's the last one. */
 				if ( $i('.wrapper:visible').length >= 2 && Padma.mode == 'grid' ) {
 
@@ -586,9 +625,9 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 		}
 
 		deleteWrapper = function(wrapperID, force) {
-
+			
 			var wrapper = $i('.wrapper[data-id="' + wrapperID + '"]');
-
+			
 			if ( wrapper.length && (force || confirm('Are you sure you want to remove this wrapper?  All blocks inside the wrapper will be deleted as well.')) ) {
 
 				dataDeleteWrapper(wrapperID);
@@ -600,7 +639,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				return wrapper.remove();;
 
 			} else {
-
+				
 				return false;
 
 			}

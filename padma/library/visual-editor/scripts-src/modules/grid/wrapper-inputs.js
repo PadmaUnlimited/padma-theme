@@ -32,22 +32,28 @@
 			/* Throw error saying column count can't be changed if there are blocks in the grid */
 				if ( wrapper.find('.block:visible').length ) {
 
-					alert("This wrapper must be empty of blocks before you can change the number of columns.\n\nEither drag the blocks to another wrapper or delete them if they are no longer needed.");
+					showNotification({
+										id: 'wrapper-column-count-change-error-',
+										message: "This wrapper must be empty of blocks before you can change the number of columns.\n\nEither drag the blocks to another wrapper or delete them if they are no longer needed.",
+										closeTimer: 10000,
+										closable: true,
+										error: true
+									});
 
 					return false;
 
+				}else{					
+					/* Find wrapper and Padma Grid UI widget */
+						var wrapperGridObject = wrapper.data('ui-padmaGrid');
+
+					/* Update wrapper object and the guides */
+						wrapperGridObject.options.columns = value;
+
+						wrapperGridObject.addColumnGuides();
+
+					/* Finalize: Update the Wrapper/Grid CSS and reset draggable/resizable, etc */
+						wrapperGridObject.updateGridCSS();
 				}
-
-			/* Find wrapper and Padma Grid UI widget */
-				var wrapperGridObject = wrapper.data('ui-padmaGrid');
-
-			/* Update wrapper object and the guides */
-				wrapperGridObject.options.columns = value;
-
-				wrapperGridObject.addColumnGuides();
-
-			/* Finalize: Update the Wrapper/Grid CSS and reset draggable/resizable, etc */
-				wrapperGridObject.updateGridCSS();
 
 		}
 		

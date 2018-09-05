@@ -2323,7 +2323,8 @@ ul.context-menu {
 	left: -99999px;
 	z-index: 99999;
 	background: #333333;
-	width: 200px;
+	max-width: 400px;
+	width: auto;
 	font-size: 13px;
 	color: #FFFFFF;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.35);
@@ -2459,6 +2460,18 @@ li.inspector-context-menu-block-options span:before {
 #context-menu-wrapper li.context-menu-set-alias span:before {
 	font-family: "dashicons";
 	content: "\f348";
+}
+
+/* Duplicate Wrapper */
+#context-menu-wrapper li.context-menu-duplicate-wrapper span:before {
+	font-family: "dashicons";
+	content: "\f161";
+}
+
+/* Duplicate Wrapper and Blocks*/
+#context-menu-wrapper li.context-menu-duplicate-wrapper-and-blocks span:before {
+	font-family: "dashicons";
+	content: "\f233";
 }
 
 /* Block Context Menu */

@@ -408,8 +408,8 @@ define(['deps/chosen.jquery'], function(chosen) {
 						deleteWrapper(getWrapperID($(this)), true);
 					});
 
-					var wrappers = data.wrappers;
-					var blocks = data.blocks;
+					var wrappers 	= data.wrappers;
+					var blocks 		= data.blocks;
 
 					var wrapperIDTranslations = {};
 
@@ -486,9 +486,9 @@ define(['deps/chosen.jquery'], function(chosen) {
 						}
 
 						/* Add block to wrapper */
-						var newBlock = destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
-						var newBlockID = getBlockID(newBlock);
-						var oldBlockID = this.id;
+						var newBlock 	= destinationWrapper.data('ui-padmaGrid').addBlock(addBlockArgs);
+						var newBlockID 	= getBlockID(newBlock);
+						var oldBlockID 	= this.id;
 
 						/* Queue styling for saving */
 						if (typeof this.styling != 'undefined' && this.styling) {
@@ -588,9 +588,12 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			//Empty the grid out
 			$i('.block').each(function () {
-
 				deleteBlock(this);
+			});
 
+			// Remove wrappers
+			$i('.wrapper:not(:first-child)').each(function(){
+				deleteWrapper($i(this).attr('id').replace('wrapper-',''),true);
 			});
 
 			closeBox('grid-manager');
@@ -837,41 +840,6 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 		});
 		/* End Import/Export */
-
-
-
-		/*	Maping remote Layout */
-		$('div#boxes').delegate('#grid-manager-map-remote-layout-btn', 'click', function () {
-
-
-			// User confirmation
-			if(!confirm('Are you sure? This process will empty current layout before start')){
-				return;
-			}
-
-			// URL to get
-			var url = $('#grid-manager-map-remote-layout input').val();
-
-
-			// URL Confirmation
-			if(!is_url(url)){
-				showNotification({
-					id: 'layout-error-map-remote-url',
-					message: 'Invalid URL',
-					closeTimer: false,
-					closable: true,
-					success: false
-				});
-				return;
-			}else{
-				remoteMapping(url);
-			}
-
-			closeBox('grid-manager');
-			
-
-		});
-		/*	End Maping remote Layout */
 
 	}
 

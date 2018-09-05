@@ -685,6 +685,9 @@ span.green {
     padding-bottom: 25px;
     margin-bottom: 35px;
 }
+.padma-admin-container .padma-admin-tab .content > .box table{
+	width: 100%;
+}
 .padma-admin-container .padma-admin-tab .content .setting-error-tgmpa{
 	margin-top: 35px;
     margin-bottom: 35px;

@@ -804,13 +804,6 @@ class PadmaVisualEditorAJAX {
 
 			}
 
-		/* Map remote layout */
-			public static function method_map_remote_layout(){
-
-				$url = padma_post('url', false);
-				echo base64_encode(file_get_contents($url));
-			}
-
 
 
 }

@@ -71,7 +71,6 @@ class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 			}
 
 			echo '<li><a href="#grid-manager-tab-import-export">Import/Export</a></li>';
-			echo '<li><a href="#grid-manager-tab-mapping-remote-layout">Remote mapping</a></li>';
 			?>
 		</ul>
 		
@@ -296,17 +295,6 @@ class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 			</div><!-- #grid-manager-export -->
 			
 		</div><!-- #grid-manager-tab-import-export -->
-
-		<div id="grid-manager-tab-mapping-remote-layout" class="tab-content">
-		
-			<div id="grid-manager-map-remote-layout" class="grid-manager-buttons grid-manager-mapping-remote-layout">
-				<h4>Map remote layout</h4>
-				<p>This Padma function will try to map a layout of Headway or Blox. Please indicate the url you want to map.</p>
-				<input type="text" placeholder="https://example.com/" value="http://wpdev.plasmasoluciones.com/test-10/" /><?php debug('Quitar URL de ejemplo!!');?>
-				<span class="button" id="grid-manager-map-remote-layout-btn">Start</span>
-			</div>
-			
-		</div>
 
 	<?php
 	}

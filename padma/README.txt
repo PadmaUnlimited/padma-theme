@@ -42,6 +42,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 0.0.24
 * Released: September 5, 2018
 Save on cloud updates
+Visual editor upgrades 
+- Duplicate wrappers with or without blocks
+- Use empty layout fixes
 
 
 = 0.0.23

@@ -1086,6 +1086,45 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 	}
 
+
+	duplicateBlockBetweenWrapper = function(originalBlock,wrapper) {
+
+		if ( !$(originalBlock).length )
+			return false;
+
+		var blockPosition = getBlockPosition(originalBlock);
+		var blockDimensions = getBlockDimensions(originalBlock);
+
+		var duplicateAlias = originalBlock.data('alias') ? originalBlock.data('alias') + ' Copy' : '';
+
+		var duplicateOf = originalBlock.data('duplicateOf') ? originalBlock.data('duplicateOf') : getBlockID(originalBlock);
+
+		var newBlockArgs = {
+			type: getBlockType(originalBlock),
+			top: parseInt(blockPosition.top) + 20,
+			left: blockPosition.left,
+			width: blockDimensions.width,
+			height: blockDimensions.height,
+			settings: {
+				duplicateOf: duplicateOf,
+				alias: duplicateAlias
+			}
+		};
+
+		var newBlock = wrapper.data('ui-padmaGrid').addBlock(newBlockArgs);
+
+		/* Send block to top */
+		wrapper.data('ui-padmaGrid').sendBlockToTop(newBlock);
+
+		/* Show alias immediately */
+		if ( duplicateAlias ) {
+			newBlock.data('alias', duplicateAlias);
+			updateBlockContentCover(newBlock);
+		}
+
+		return newBlock;
+	}
+
 	blockIntersectCheck = function(originBlock, container) {
 
 		if ( typeof container == 'undefined' || !container )

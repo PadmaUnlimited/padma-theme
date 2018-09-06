@@ -804,6 +804,44 @@ class PadmaVisualEditorAJAX {
 
 			}
 
+	/*		Snippets		*/
+
+		public static function method_get_snippet_content() {
+			
+			$tagName 	= padma_post('tagName');
+			$snippet 	= padma_post('snippet');
+			$selector 	= padma_post('selector');
+
+			switch ($tagName) {
+				case 'IMG':
+					$path 		= PADMA_LIBRARY_DIR . '/visual-editor/snippets/img/' . $snippet . '.txt';					
+					$selector 	= preg_replace('/\ img/', '', $selector);
+					break;
+				
+				default:
+					$path = false;
+					break;
+			}
+			/*
+			debug(array(
+				$tagName,
+				$snippet,
+				$selector,
+				$path,
+			));*/
+
+			if($path !== false && file_exists($path)){				
+				$data = preg_replace("/%selector%/", $selector, file_get_contents($path));				
+				return self::json_encode($data);
+			}else{
+				return self::json_encode(array(
+					'error' => 'Snippet invalid for this content .'
+				));
+			}
+			
+
+		}
+
 
 
 }

@@ -20,7 +20,19 @@ function padma_maybe_unserialize($string) {
 						preg_replace_callback(
 							'!s:(\d+):"(.*?)";!',
 							function($matches){
-								return "'s:'" . strlen($matches) . "':\"$matches\";'";
+								if(is_array($matches)){
+									
+									$string = '';
+									foreach ($matches as $key => $value) {
+										$string .= "'s:'" . strlen($value) . "':\"$value\";'";		
+									}
+									return $string;
+									
+								}elseif (is_string($matches)) {
+									return "'s:'" . strlen($matches) . "':\"$matches\";'";
+								}else{
+									return;
+								}
 							},
 							$string 
 						)

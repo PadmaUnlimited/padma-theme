@@ -45,6 +45,7 @@ Save on cloud updates
 Visual editor upgrades 
 - Duplicate wrappers with or without blocks
 - Use empty layout fixes
+Other fixes
 
 
 = 0.0.23

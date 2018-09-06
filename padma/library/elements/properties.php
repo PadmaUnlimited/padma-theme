@@ -864,6 +864,19 @@ class PadmaElementProperties {
 				'js-callback' => 'propertyInputCallbackTransformAngle(params);',
 			),
 
+		/*		Snippets		*/
+		'snippet' => array(
+				'group' => 'Snippets',
+				'name' 	=> 'Snippets',
+				'type' 	=> 'select',
+				'default' => 'none',
+				'options' => array(
+					'' => '',
+					'image-rotate-effect-on-hover' 			=> 'Image rotate effect on hover',
+				),
+				'js-callback' => 'propertyInputCallbackSnippets(params);',
+			),
+
 	);	
 	
 	public static function get_property($property) {

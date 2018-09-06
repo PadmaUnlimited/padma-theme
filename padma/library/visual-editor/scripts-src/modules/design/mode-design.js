@@ -1437,12 +1437,32 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 				var property = $(this).parents('li').first();
 
+				
+
 				if ( property.hasClass('lockable-property') && property.parents('.box-model-inputs').hasClass('box-model-inputs-locked') )
 				    var property = $(this).parents('.box-model-inputs').find('> li.lockable-property');
 
 				property.each(function() {
 
 					var hidden = $(this).find('input.property-hidden-input');
+
+
+					if(property.data('propertyId') == 'snippet'){
+						var selector = hidden.attr('element_selector').replace(/\s/g, "-").replace(/#/g, "");
+
+						console.log(selector);
+							
+						console.log($('textarea#snippet-' + selector));
+						if($('textarea' + selector).length>0){
+							console.log("remove textarea");
+						}
+
+						console.log($i('style#snippet-' + selector));
+						if($i('style' + selector).length>0){
+							console.log("remove textarea");
+						}
+							
+					}
 
 			    	$(this).find('div.customize-property').fadeIn(150);
 			
@@ -1835,6 +1855,28 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					'transform': localStorage[keyType] + '('+params.value+unit+')'
 				});
 			}
+
+		}
+
+		propertyInputCallbackSnippets = function(params) {
+
+			var selector 	= params.selector.replace(/\s/g, "-").replace(/#/g, ""); 
+			var tagName 	= params.element[0].tagName;
+
+			return $.post(Padma.ajaxURL, {
+						security: Padma.security,
+						action: 'padma_visual_editor',
+						method: 'get_snippet_content',
+						snippet: params.value,
+						selector: selector,
+						tagName: tagName,
+
+					}, function(response) {
+
+						$('body').append('<textarea id="snippet-'+selector+'" name="snippet-'+selector+'" data-group="general" style="display:none;">'+response+'</textarea>');
+						$i('head').append('<style id="style#snippet-'+selector + '>' + response + '</style>');
+							
+					});
 
 		}
 

@@ -1,0 +1,29 @@
+.%selector% {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 8px;
+    min-width: 250px;
+    max-width: 310px;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.%selector% * {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.%selector% img {
+    max-width: 100%;
+    vertical-align: top;
+}
+.%selector%:hover img,
+.%selector%.hover img {
+    -webkit-transform: scale(1.3) rotate(5deg);
+    transform: scale(1.3) rotate(5deg);
+}

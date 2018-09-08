@@ -84,7 +84,7 @@ class PadmaElementProperties {
 				'group' => 'Fonts',
 				'name' => 'Letter Spacing',
 				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"letter-spacing": params.value + "px"});',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"letter-spacing": params.value + params.unit});',
 				'unit' => 'px',
 				'options' => array(
 					'0' => '0',
@@ -113,7 +113,7 @@ class PadmaElementProperties {
 				'group' => 'Fonts',
 				'name' => 'Shadow: Horizontal Offset',
 				'type' => 'integer',
-				'unit' => 'px',
+				'unit' => array(),
 				'js-callback' => 'propertyInputCallbackShadow(params);',
 				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
 				'default' => 0
@@ -123,7 +123,7 @@ class PadmaElementProperties {
 				'group' => 'Fonts',
 				'name' => 'Shadow: Vertical Offset',
 				'type' => 'integer',
-				'unit' => 'px',
+				'unit' => array(),
 				'js-callback' => 'propertyInputCallbackShadow(params);',
 				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
 				'default' => 0
@@ -133,7 +133,7 @@ class PadmaElementProperties {
 				'group' => 'Fonts',
 				'name' => 'Shadow: Blur',
 				'type' => 'integer',
-				'unit' => 'px',
+				'unit' => array(),
 				'js-callback' => 'propertyInputCallbackShadow(params);',
 				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
 				'default' => 0
@@ -581,8 +581,8 @@ class PadmaElementProperties {
 				'group' => 'Nudging',
 				'name' => 'Vertical Offset',
 				'type' => 'integer',
-				'unit' => 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"top": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"top": params.value + params.unit});',
 				'default' => 0
 			),
 
@@ -590,8 +590,8 @@ class PadmaElementProperties {
 				'group' => 'Nudging',
 				'name' => 'Horizontal Offset',
 				'type' => 'integer',
-				'unit' => 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"left": params.value + "px"});',
+				'unit' => array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"left": params.value + params.unit});',
 				'default' => 0
 			),
 
@@ -635,43 +635,43 @@ class PadmaElementProperties {
 				'group' => 'Sizes',
 				'name' 	=> 'Width',
 				'type' 	=> 'integer',
-				'unit' 	=> 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"width": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"width": params.value + params.unit});',
 			),
 			'min-width' => array(
 				'group' => 'Sizes',
 				'name' 	=> 'Min width',
 				'type' 	=> 'integer',
-				'unit' 	=> 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"min-width": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"min-width": params.value + params.unit});',
 			),
 			'max-width' => array(
 				'group' => 'Sizes',
 				'name' 	=> 'Max width',
 				'type' 	=> 'integer',
-				'unit' 	=> 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-width": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-width": params.value + params.unit});',
 			),
 			'height' => array(
 				'group' => 'Sizes',
 				'name' 	=> 'Height',
 				'type' 	=> 'integer',
-				'unit' 	=> 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"height": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"height": params.value + params.unit});',
 			),
 			'min-height' => array(
 				'group' => 'Sizes',
 				'name' 	=> 'Min-height',
 				'type' 	=> 'integer',
-				'unit' 	=> 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"min-height": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"min-height": params.value + params.unit});',
 			),
 			'max-height' => array(
 				'group' => 'Sizes',
 				'name' 	=> 'Max-height',
 				'type' 	=> 'integer',
-				'unit' 	=> 'px',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-height": params.value + "px"});',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-height": params.value + params.unit});',
 			),
 
 		/*	Animation	*/
@@ -1064,8 +1064,8 @@ class PadmaElementProperties {
 
 		$shadow_hoffset = isset($properties[$shadow_type . '-horizontal-offset']) ? $properties[$shadow_type . '-horizontal-offset'] : '0';
 		$shadow_voffset = isset($properties[$shadow_type . '-vertical-offset']) ? $properties[$shadow_type . '-vertical-offset'] : '0';
-		$shadow_blur = isset($properties[$shadow_type . '-blur']) ? $properties[$shadow_type . '-blur'] : '0';
-		$shadow_inset = (padma_get($shadow_type . '-position', $properties, 'outside') == 'inset') ? ' inset' : null;
+		$shadow_blur 	= isset($properties[$shadow_type . '-blur']) ? $properties[$shadow_type . '-blur'] : '0';
+		$shadow_inset 	= (padma_get($shadow_type . '-position', $properties, 'outside') == 'inset') ? ' inset' : null;
 				
 		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . 'px ' . $shadow_voffset . 'px ' . $shadow_blur . 'px' . $shadow_inset . ';';
 		

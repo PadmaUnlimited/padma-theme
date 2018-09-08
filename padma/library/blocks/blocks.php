@@ -28,6 +28,7 @@ class PadmaBlocks {
 		'social',
 		'gravity-forms',
 		'slidedeck',
+		'video',
 	);
 
 

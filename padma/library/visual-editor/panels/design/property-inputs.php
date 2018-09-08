@@ -293,12 +293,37 @@ class PadmaPropertyInputs {
 				$unit_defaults = array(
 					'default' => 'px',
 					'options' => array(
+						'Absolute Lengths' => array(
+							'cm'	=> 'cm',
+							'mm'	=> 'mm',
+							'in'	=> 'in',
+							'px'	=> 'px',
+							'pt'	=> 'pt',
+							'pc'	=> 'pc',
+						),
+						'Relative Lengths' => array(
+							'em'	=> 'em',
+							'ex'	=> 'ex',
+							'rem'	=> 'rem',
+							'vw'	=> 'vw',
+							'vh'	=> 'vh',
+							'vmin'	=> 'vmin',
+							'vmax'	=> 'vmax',
+							'%'		=> '%',
+						),
+					)
+				);
+
+				/*
+				$unit_defaults = array(
+					'default' => 'px',
+					'options' => array(
 						'px'  => 'px',
 						'%'   => '%',
 						'em'  => 'em',
 						'rem' => 'rem',
 					)
-				);
+				);*/
 
 				$property_options['unit'] = array_merge( $unit_defaults, $property_options['unit'] );
 
@@ -321,11 +346,15 @@ class PadmaPropertyInputs {
 
 						$unit_value = trim(str_replace( array_merge( range( 0, 9 ), array( '.', '-' ) ), '', $property_options['value'] ));
 
+						if(is_array($property_options['unit']['options'])){
+
+						}else{
+						}
 						self::input_select(array(
 							'options' => $property_options['unit']['options'],
 							'value' => $unit_value ? $unit_value : $property_options['unit']['default'],
 							'unit-select' => true
-						));
+						));							
 
 					}
 

@@ -1,4 +1,4 @@
-define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader'], function($, codeMirror, chosen) {
+define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader', 'util.video-uploader'], function($, codeMirror, chosen) {
 
 	handleInputTogglesInContainer = function(container) {
 
@@ -605,8 +605,24 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 								
 					$(self).siblings('input').val(url);
 					$(self).siblings('span.src').show().text(filename);
-
 					$(self).siblings('span.delete-image').show();
+
+					dataHandleInput($(self).siblings('input'), url, {action: 'add'});	
+					
+				});
+
+			});
+
+			/* Video Uploaders */
+			$(context).delegate('div.input-video span.button', 'click', function() {
+				
+				var self = this;
+				
+				openVideoUploader(function(url, filename) {
+								
+					$(self).siblings('input').val(url);
+					$(self).siblings('span.src').show().text(filename);
+					$(self).siblings('span.delete-video').show();
 
 					dataHandleInput($(self).siblings('input'), url, {action: 'add'});	
 					

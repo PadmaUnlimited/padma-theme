@@ -469,19 +469,6 @@
 
 				array(
 					'type' => 'checkbox',
-					'label' => 'Update Notices',
-					'checkboxes' => array(
-						array(
-							'id' => 'disable-update-notices',
-							'label' => 'Disable Padma Update Notices',
-							'checked' => PadmaOption::get('disable-update-notices', false, false)
-						)
-					),
-					'description' => 'If you wish to hide the notices that appear when an update is available for Padma, check this.'
-				),
-
-				array(
-					'type' => 'checkbox',
 					'label' => 'Editor Style',
 					'checkboxes' => array(
 						array(

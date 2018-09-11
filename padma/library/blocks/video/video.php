@@ -7,7 +7,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 	public $name 			= 'Video';		
 	public $options_class 	= 'PadmaVideoBlockOptions';	
 	public $fixed_height 	= true;	
-	public $html_tag 		= 'figure';
+	public $html_tag 		= 'div';
 	public $attributes 		= array(
 									'itemscope' => '',
 									'itemtype' => 'http://schema.org/VideoObject'
@@ -21,7 +21,8 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'video',
 			'name' => 'Video',
-			'selector' => 'video'
+			'selector' => 'video',
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'snippets')
 		));
 
 		$this->register_block_element(array(
@@ -70,19 +71,77 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 		return $css;
 		
 	}
+
+	public static function dynamic_js($block_id, $block = false) {
+
+		if ( !$block )
+			$block = PadmaBlocksData::get_block($block_id);
+
+
+		if(parent::get_setting($block, 'width-dynamic') || parent::get_setting($block, 'height-dynamic')){
+			
+			$js 		= "jQuery(document).ready(function() {";
+			$js_resize 	= "jQuery( window ).on( 'orientationchange resize', function( event ) {";
+			$js_load 	= "";
+			
+			if(parent::get_setting($block, 'width-dynamic')){
+				$js_resize 	.= "jQuery( 'div#block-". $block_id ." video' ).attr('width',window.innerWidth);";
+				$js_load  	.= "if(window.innerWidth < ".$block['settings']['width']."){
+					jQuery( 'div#block-". $block_id ." video' ).attr('width',window.innerWidth);
+				}";
+			}
+
+			if(parent::get_setting($block, 'height-dynamic')){
+				$js_resize .= "jQuery( 'div#block-". $block_id ." video' ).attr('height',window.innerHeight);";
+				$js_load  	.= "if(window.innerHeight < ".$block['settings']['height']."){
+					jQuery( 'div#block-". $block_id ." video' ).attr('height',window.innerHeight);
+				}";
+			}
+			$js_resize .= "});";
+
+			$js .= $js_resize;						
+			$js .= $js_load;						
+			$js .= "});";
+		}
+
+		return $js;
+
+	}
 	
 	function content($block) {
 		
 		//Display video if there is one
 		if (parent::get_setting($block, 'video-mp4')||parent::get_setting($block, 'video-ogg') ) {
 
-			$video_mp4 = parent::get_setting($block, 'video-mp4');
-			$video_ogg = parent::get_setting($block, 'video-ogg');
+			$video_mp4 	= parent::get_setting($block, 'video-mp4');
+			$video_ogg 	= parent::get_setting($block, 'video-ogg');
+			$video_webm = parent::get_setting($block, 'video-webm');
 
 			$videoHTML = '<div class="video"><video ';
 
 			if(parent::get_setting($block, 'autoplay'))
 				$videoHTML .= ' autoplay';
+
+			if(parent::get_setting($block, 'loop'))
+				$videoHTML .= ' loop';
+
+			switch (parent::get_setting($block, 'preload')) {
+				
+				case 'none':
+					$videoHTML .= ' preload="none"';
+					break;
+
+				case 'metadata':
+					$videoHTML .= ' preload="metadata"';
+					break;
+
+				case 'auto':
+					$videoHTML .= ' preload="auto"';
+					break;
+				
+				default:					
+					break;
+			}
 
 			if(parent::get_setting($block, 'controls'))
 				$videoHTML .= ' controls';
@@ -105,9 +164,11 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			if(parent::get_setting($block, 'video-mp4'))
 				$videoHTML .= '<source src="' . padma_format_url_ssl($video_mp4) . '" type="video/mp4">';
 
-
 			if(parent::get_setting($block, 'video-ogg'))
 				$videoHTML .= '<source src="' . padma_format_url_ssl($video_ogg) . '" type="video/ogg">';
+
+			if(parent::get_setting($block, 'video-webm'))
+				$videoHTML .= '<source src="' . padma_format_url_ssl($video_ogg) . '" type="video/webm">';
 
 			$videoHTML .= 'Your browser does not support the video tag.';
 			$videoHTML .= '</video></div>';
@@ -162,12 +223,40 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 				'default' => null
 			),
 
+			'video-webm' => array(
+				'type' => 'video',
+				'name' => 'video-webm',
+				'label' => 'Video WebM',
+				'default' => null
+			),
+
 			'autoplay' => array(
 				'name' => 'autoplay',
 				'label' => 'Autoplay',
 				'type' => 'checkbox',
 				'default' => true,
 				'tooltip' => 'Specifies that the video will start playing as soon as it is ready'
+			),
+
+			'loop' => array(
+				'name' => 'loop',
+				'label' => 'Loop',
+				'type' => 'checkbox',
+				'default' => true,
+				'tooltip' => 'Specifies that the video will start over again, every time it is finished'
+			),
+
+			'preload' => array(
+				'name' => 'preload',
+				'label' => 'Preload',
+				'type' => 'select',
+				'default' => 'none',
+				'options' => array(
+					''		=> 'none',
+					'auto'		=> 'Auto',
+					'metadata'	=> 'Metadata',
+				),
+				'tooltip' => 'Specifies if and how the author thinks the video should be loaded when the page loads'
 			),
 
 			'controls' => array(
@@ -200,11 +289,27 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 				'tooltip' => 'Sets the width of the video player'
 			),
 
+			'width-dynamic' => array(
+				'name' => 'width-dynamic',
+				'label' => 'Allow dynamic width',
+				'type' => 'checkbox',
+				'default' => true,
+				'tooltip' => 'Automatically change video width when window resize '
+			),
+
 			'height' => array(
 				'name' => 'height',
 				'label' => 'Height',
 				'type' => 'integer',
 				'tooltip' => 'Sets the height of the video player'
+			),
+
+			'height-dynamic' => array(
+				'name' => 'height-dynamic',
+				'label' => 'Allow dynamic height',
+				'type' => 'checkbox',
+				'default' => true,
+				'tooltip' => 'Automatically change video height when window resize '
 			),
 
 			'position-heading' => array(

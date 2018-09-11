@@ -822,13 +822,6 @@ class PadmaVisualEditorAJAX {
 					$path = false;
 					break;
 			}
-			/*
-			debug(array(
-				$tagName,
-				$snippet,
-				$selector,
-				$path,
-			));*/
 
 			if($path !== false && file_exists($path)){				
 				$data = preg_replace("/%selector%/", $selector, file_get_contents($path));				

@@ -40,11 +40,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.25
-* Released: September 7, 2018
-Snippets
-Degisn Mode updates
+* Released: September 11, 2018
+CSS Effects for images
+Design Mode updates
 - Added more CSS Units
 New video block
+New Object-fit and Object-position options on sizes
 
 
 = 0.0.24

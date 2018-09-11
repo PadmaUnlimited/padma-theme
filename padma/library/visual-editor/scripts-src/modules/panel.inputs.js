@@ -613,6 +613,23 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 
+
+			$(context).delegate('div.input-image span.delete-image', 'click', function() {
+
+				if ( !confirm('Are you sure you wish to remove this image?') ) {
+					return false;
+				}
+
+				$(this).siblings('.src').hide();
+				$(this).hide();
+
+				$(this).siblings('input').val('');
+
+				dataHandleInput($(this).siblings('input'), '', {action: 'delete'});
+
+			});
+
+
 			/* Video Uploaders */
 			$(context).delegate('div.input-video span.button', 'click', function() {
 				
@@ -630,9 +647,9 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 			
-			$(context).delegate('div.input-image span.delete-image', 'click', function() {
+			$(context).delegate('div.input-video span.delete-video', 'click', function() {
 
-				if ( !confirm('Are you sure you wish to remove this image?') ) {
+				if ( !confirm('Are you sure you wish to remove this video?') ) {
 					return false;
 				}
 

@@ -161,7 +161,8 @@ class PadmaPropertyInputs {
 				echo '<ul class="design-editor-box-content">';
 				
 					foreach ( $properties as $property_id => $property_options ) {
-						
+
+
 						//If the $selective_properties variable is set, then make sure we're only showing those properties.
 						if ( is_array($args['selective_properties']) )
 							if ( !in_array($property_id, $args['selective_properties']) )
@@ -215,7 +216,6 @@ class PadmaPropertyInputs {
 
 
 		public static function build_property_input($property_id, $property_options, $element_args) {
-
 
 			//Make sure the input type for the property really exists
 			if ( !is_callable(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type']))) )
@@ -314,17 +314,6 @@ class PadmaPropertyInputs {
 					)
 				);
 
-				/*
-				$unit_defaults = array(
-					'default' => 'px',
-					'options' => array(
-						'px'  => 'px',
-						'%'   => '%',
-						'em'  => 'em',
-						'rem' => 'rem',
-					)
-				);*/
-
 				$property_options['unit'] = array_merge( $unit_defaults, $property_options['unit'] );
 
 				/* add a unit class if necessary */
@@ -339,24 +328,32 @@ class PadmaPropertyInputs {
 												
 					echo (padma_get('lockable', $property_options)) ? $uncustomize_button : null; /* Uncustomize button needs to be in different location for box model input s*/
 
-					call_user_func(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type'])), $property_options, $property_id);
 
-					/* Unit select */
+
+
+					//Snippets
+					if($property_id === 'snippet' && isset($property_options['complex-options'])){
+						
+						$property_options['options'] = call_user_func($property_options['complex-options'], $element_args);
+						call_user_func(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type'])), $property_options, $property_id);
+
+					}else{
+						
+						call_user_func(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type'])), $property_options, $property_id);
+					}
+
+
 					if ( is_array( padma_get( 'unit', $property_options ) ) ) {
-
+					
 						$unit_value = trim(str_replace( array_merge( range( 0, 9 ), array( '.', '-' ) ), '', $property_options['value'] ));
 
-						if(is_array($property_options['unit']['options'])){
-
-						}else{
-						}
 						self::input_select(array(
-							'options' => $property_options['unit']['options'],
-							'value' => $unit_value ? $unit_value : $property_options['unit']['default'],
-							'unit-select' => true
-						));							
-
+							'options' 		=> $property_options['unit']['options'],
+							'value' 		=> $unit_value ? $unit_value : $property_options['unit']['default'],
+							'unit-select' 	=> true
+						));
 					}
+					
 
 				echo '<input ' . $hidden_input_attributes . ' />';
 					

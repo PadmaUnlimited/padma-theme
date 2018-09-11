@@ -29,7 +29,9 @@ function padma_maybe_unserialize($string) {
 									return $string;
 									
 								}elseif (is_string($matches)) {
+
 									return "'s:'" . strlen($matches) . "':\"$matches\";'";
+
 								}else{
 									return;
 								}

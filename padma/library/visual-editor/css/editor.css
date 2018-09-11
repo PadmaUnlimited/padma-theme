@@ -656,6 +656,7 @@ span.button.button-blue:active {
 }
 
 /* Image Uploader */
+.input-video span.button::before,
 .input-image span.button::before {
 	content: "\f128";
 	font-family: "dashicons";
@@ -677,6 +678,7 @@ span.src {
 }
 
 span.delete-image,
+span.delete-video,
 span.delete-file {
 	display: block;
 	float: left;
@@ -693,6 +695,7 @@ span.delete-file {
 }
 
 span.delete-image:before,
+span.delete-video:before,
 span.delete-file:before {
 	font-family: "padma-ve";
 	font-style: normal;

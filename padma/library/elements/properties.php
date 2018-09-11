@@ -673,6 +673,38 @@ class PadmaElementProperties {
 				'unit' 	=> array(),
 				'js-callback' => 'stylesheet.update_rule(params.selector, {"max-height": params.value + params.unit});',
 			),
+			'object-fit' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Object-fit',
+				'type' 	=> 'select',
+				'default' => 'static',
+				'options' => array(
+					'' 				=> 'None',
+					'fill' 			=> 'Fill',
+					'contain' 		=> 'Contain',
+					'cover' 		=> 'Cover',
+					'scale-down' 	=> 'Scale-down'
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"object-fit": params.value});',
+			),
+			'object-position' => array(
+				'group' => 'Sizes',
+				'name' 	=> 'Object-position',
+				'type' 	=> 'select',
+				'default' => 'static',
+				'options' => array(
+					'left top' => 'Left Top',
+					'left center' => 'Left Center',
+					'left bottom' => 'Left Bottom',
+					'right top' => 'Right Top',
+					'right center' => 'Right Center',
+					'right bottom' => 'Right Bottom',
+					'center top' => 'Center Top',
+					'center center' => 'Center Center',
+					'center bottom' => 'Center Bottom'
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"object-position": params.value});',
+			),
 
 		/*	Animation	*/
 			
@@ -866,18 +898,17 @@ class PadmaElementProperties {
 
 		/*		Snippets		*/
 		'snippet' => array(
-				'group' => 'Snippets',
-				'name' 	=> 'Snippets',
-				'type' 	=> 'select',
-				'default' => 'none',
-				'options' => array(
-					'' => '',
-					'image-rotate-effect-on-hover' 			=> 'Image rotate effect on hover',
-				),
-				'js-callback' => 'propertyInputCallbackSnippets(params);',
+				'group' 			=> 'Snippets',
+				'name' 				=> 'Snippets',
+				'type' 				=> 'select',
+				'default' 			=> 'none',				
+				'complex-options' 	=> 'PadmaElementProperties::get_snippets_list',
+				'js-callback' 		=> 'propertyInputCallbackSnippets(params);',
+				'complex-property' 	=> 'PadmaElementProperties::complex_property_snippet_content'
 			),
 
-	);	
+	);
+
 	
 	public static function get_property($property) {
 				
@@ -918,20 +949,18 @@ class PadmaElementProperties {
 		if ( !is_array($properties) || count($properties) === 0 )
 			return null;
 					
-		$output = '';		
+		$output 	= '';		
+		$snippets 	= array();
 			
 			if($properties['transform']){
 				$transformData['type'] 	= $properties['transform'];
-				$transformData['angle'] = $properties['transform-angle'];
-				
+				$transformData['angle'] = $properties['transform-angle'];				
 			}
+
+
 			//Loop through properties
 			foreach ( $properties as $property_id => $value ) {
 
-				// Dont evaluate transform angle param
-				if($property_id == 'transform-angle'){
-					continue;
-				}
 			
 				//If the value is an empty string, false, or null, don't attempt to put anything.
 				if ( (!isset($value) || $value === '' || $value === false || $value === null || $value === 'null' || $value === 'DELETE') && ($value !== '0' && $value !== 0) )
@@ -943,6 +972,26 @@ class PadmaElementProperties {
 				//If the property does not exist, skip it.
 				if ( !$property )
 					continue;
+
+				// Dont evaluate transform angle param
+				if($property_id == 'transform-angle'){
+					continue;
+				}
+
+
+				// If its a snippet get css and continue
+				if($property['name'] === 'Snippets'){
+
+					$snippets[] = array(
+						'selector' 		=> $selector, 
+						'property_id' 	=> $property_id, 
+						'value' 		=> $value, 
+						'properties' 	=> $properties, 
+						'property' 		=> $property
+					);
+					continue;
+
+				}
 
 				/* Everything's good, inject the selector in if it hasn't already been that way the selector isn't added when an element doesn't have any properties */
 					if ( empty($output) )
@@ -960,6 +1009,7 @@ class PadmaElementProperties {
 					));
 					
 					continue;
+
 				} else if ( padma_get('js-property', $property) ) {
 					continue;
 				}
@@ -991,6 +1041,7 @@ class PadmaElementProperties {
 					$value = 'url(' . $value . ')';
 
 				
+				// Transform support
 				if ( padma_get('group', $property) === 'Transform' ){
 					$transformType 	= $transformData['type'];
 
@@ -1011,7 +1062,32 @@ class PadmaElementProperties {
 		/* Only close if there's actual output */
 		if ( !empty($output) )
 			$output .= '}' . "\n";
-		
+
+
+
+		// Add snippets css code if have to
+		foreach ($snippets as $key => $data) {
+
+			$selector 		= $data['selector'];
+			$property_id 	= $data['property_id'];
+			$value 			= $data['value'];
+			$properties 	= $data['properties'];
+			$property 		= $data['property'];
+			
+			if(padma_get('complex-property', $property) && is_callable(padma_get('complex-property', $property))){
+
+				$output .= call_user_func(padma_get('complex-property', $property), array(
+					'selector' 		=> $selector, 
+					'property_id' 	=> $property_id, 
+					'value'		 	=> $value, 
+					'properties' 	=> $properties, 
+					'property' 		=> $property
+				));
+
+			}
+		}
+
+
 		return $output;
 		
 	}
@@ -1135,7 +1211,76 @@ class PadmaElementProperties {
 		
 		return $data;
 		
-	}		
+	}
+
+
+	public static function complex_property_snippet_content($args){
+
+		$snippet 	= $args['value'];
+		$selector 	= $args['selector'];
+
+		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/snippets/' . $snippet . '.txt';					
+		$selector 	= preg_replace('/\ img/', '', $selector);
+
+		if($path !== false && file_exists($path)){				
+			$data = preg_replace("/%selector%/", $selector, file_get_contents($path));
+			return $data;
+		}
+
+		return;
+	}
+
+
+	public static function get_snippets_list($args){
+
+		$options = array();
+
+		/*		Image snippets		*/
+		$options['img']	= array(
+			'' => '',
+			'effect-1' 		=> 'Effect 1',
+			'effect-2' 		=> 'Effect 2',
+			'effect-3' 		=> 'Effect 3',
+			'effect-4' 		=> 'Effect 4',
+			'effect-5' 		=> 'Effect 5',
+			'effect-6' 		=> 'Effect 6',
+			'effect-7' 		=> 'Effect 7',
+			'effect-8' 		=> 'Effect 8',
+			'effect-9' 		=> 'Effect 9',
+			'effect-10' 	=> 'Effect 10',
+			'effect-11' 	=> 'Effect 11',
+			'effect-12' 	=> 'Effect 12',
+			'effect-13' 	=> 'Effect 13',
+			'effect-14' 	=> 'Effect 14',
+			'effect-15' 	=> 'Effect 15',
+		);
+
+		/*		Image snippets		*/
+		/*
+		$options['pin']	= array(
+			'rotate-effect-on-hover' 			=> 'Rotate effect on hover',
+			'image-with-title-on-hover' 		=> 'Image with title on hover',
+		);
+		*/
+		
+		switch ($args['element']['name']) {
+			case 'Image':
+				$opts = $options['img'];
+				break;
+
+			case 'Pin':			
+				$opts = $options['pin'];
+				break;
+			
+			default:
+				$opts = array(
+							'none' => 'There is not snippets for this element',
+						);
+				break;
+		}
+
+		return $opts;
+	}
 
 	
 }

@@ -1,0 +1,76 @@
+%selector% {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  background: #700877;
+  background: -moz-linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
+  background: -webkit-linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
+  background: linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
+}
+
+%selector% img,
+%selector%:before,
+%selector%:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+%selector% img {
+  max-width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+}
+
+%selector%:before,
+%selector%:after {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+%selector%:before {
+  width: 60px;
+  height: 1px;
+  left: 100%;
+}
+
+%selector%:after {
+  height: 60px;
+  width: 1px;
+  top: 0%;
+}
+
+%selector% a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+%selector%:hover img,
+%selector%.hover img {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
+
+%selector%:hover:before,
+%selector%.hover:before,
+%selector%:hover:after,
+%selector%.hover:after {
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+}

@@ -503,7 +503,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'id' 			=> 'pin',
 				'name' 			=> 'Pin',
 				'selector' 		=> '.pin-board-pin',
-				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'sizes', 'animation')
+				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'sizes', 'animation', 'snippets')
 			));
 
 			$this->register_block_element(array(
@@ -554,15 +554,6 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories a',
 					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
 				));
-
-				/*
-				$this->register_block_element(array(
-					'parent' 		=> 'pin-meta',
-					'id' 			=> 'pin-meta-entry-meta-above',
-					'name' 			=> 'Meta Above Content',
-					'selector' 		=> '.pin-board-pin div.entry-meta-above',
-				));	
-				*/
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-text',

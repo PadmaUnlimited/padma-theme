@@ -282,7 +282,7 @@
 
 								array(
 									'type' => 'checkbox',
-									'label' => 'Snippets',
+									'label' => 'Effects',
 									'checkboxes' => array(
 										array(
 											'id' => 'nosnippet',

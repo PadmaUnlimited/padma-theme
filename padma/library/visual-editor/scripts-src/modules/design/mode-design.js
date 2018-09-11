@@ -1447,17 +1447,17 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					var hidden = $(this).find('input.property-hidden-input');
 
 
-					if(property.data('propertyId') == 'snippet'){
+					if(property.data('propertyId') == 'effect'){
 						var selector = hidden.attr('element_selector').replace(/\s/g, "-").replace(/#/g, "");
 
 						console.log(selector);
 							
-						console.log($('textarea#snippet-' + selector));
+						console.log($('textarea#effect-' + selector));
 						if($('textarea' + selector).length>0){
 							console.log("remove textarea");
 						}
 
-						console.log($i('style#snippet-' + selector));
+						console.log($i('style#effect-' + selector));
 						if($i('style' + selector).length>0){
 							console.log("remove textarea");
 						}
@@ -1858,23 +1858,26 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 		}
 
-		propertyInputCallbackSnippets = function(params) {
+		propertyInputCallbackEffects = function(params) {
 
+			console.log(params);
+			
 			var selector 	= params.selector.replace(/\s/g, "-").replace(/#/g, ""); 
+
 			var tagName 	= params.element[0].tagName;
 
 			return $.post(Padma.ajaxURL, {
 						security: Padma.security,
 						action: 'padma_visual_editor',
-						method: 'get_snippet_content',
-						snippet: params.value,
+						method: 'get_effect_content',
+						effect: params.value,
 						selector: selector,
 						tagName: tagName,
 
 					}, function(response) {
 
-						$('body').append('<textarea id="snippet-'+selector+'" name="snippet-'+selector+'" data-group="general" style="display:none;">'+response+'</textarea>');
-						$i('head').append('<style id="style#snippet-'+selector + '>' + response + '</style>');
+						$('body').append('<textarea id="effect-'+selector+'" name="effect-'+selector+'" data-group="general" style="display:none;">'+response+'</textarea>');
+						$i('head').append('<style id="style#effect-'+selector + '>' + response + '</style>');
 							
 					});
 

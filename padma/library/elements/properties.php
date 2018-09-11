@@ -896,15 +896,15 @@ class PadmaElementProperties {
 				'js-callback' => 'propertyInputCallbackTransformAngle(params);',
 			),
 
-		/*		Snippets		*/
-		'snippet' => array(
-				'group' 			=> 'Snippets',
-				'name' 				=> 'Snippets',
+		/*		Effects		*/
+		'effect' => array(
+				'group' 			=> 'Effects',
+				'name' 				=> 'Effects',
 				'type' 				=> 'select',
 				'default' 			=> 'none',				
-				'complex-options' 	=> 'PadmaElementProperties::get_snippets_list',
-				'js-callback' 		=> 'propertyInputCallbackSnippets(params);',
-				'complex-property' 	=> 'PadmaElementProperties::complex_property_snippet_content'
+				'complex-options' 	=> 'PadmaElementProperties::get_effects_list',
+				'js-callback' 		=> 'propertyInputCallbackEffects(params);',
+				'complex-property' 	=> 'PadmaElementProperties::complex_property_effect_content'
 			),
 
 	);
@@ -950,7 +950,7 @@ class PadmaElementProperties {
 			return null;
 					
 		$output 	= '';		
-		$snippets 	= array();
+		$effects 	= array();
 			
 			if($properties['transform']){
 				$transformData['type'] 	= $properties['transform'];
@@ -979,10 +979,10 @@ class PadmaElementProperties {
 				}
 
 
-				// If its a snippet get css and continue
-				if($property['name'] === 'Snippets'){
+				// If its a effect get css and continue
+				if($property['name'] === 'Effects'){
 
-					$snippets[] = array(
+					$effects[] = array(
 						'selector' 		=> $selector, 
 						'property_id' 	=> $property_id, 
 						'value' 		=> $value, 
@@ -1065,8 +1065,8 @@ class PadmaElementProperties {
 
 
 
-		// Add snippets css code if have to
-		foreach ($snippets as $key => $data) {
+		// Add effects css code if have to
+		foreach ($effects as $key => $data) {
 
 			$selector 		= $data['selector'];
 			$property_id 	= $data['property_id'];
@@ -1214,12 +1214,12 @@ class PadmaElementProperties {
 	}
 
 
-	public static function complex_property_snippet_content($args){
+	public static function complex_property_effect_content($args){
 
-		$snippet 	= $args['value'];
+		$effect 	= $args['value'];
 		$selector 	= $args['selector'];
 
-		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/snippets/' . $snippet . '.txt';					
+		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects/' . $effect . '.txt';					
 		$selector 	= preg_replace('/\ img/', '', $selector);
 
 		if($path !== false && file_exists($path)){				
@@ -1231,11 +1231,11 @@ class PadmaElementProperties {
 	}
 
 
-	public static function get_snippets_list($args){
+	public static function get_effects_list($args){
 
 		$options = array();
 
-		/*		Image snippets		*/
+		/*		Image effects		*/
 		$options['img']	= array(
 			'' => '',
 			'effect-1' 		=> 'Effect 1',
@@ -1255,7 +1255,7 @@ class PadmaElementProperties {
 			'effect-15' 	=> 'Effect 15',
 		);
 
-		/*		Image snippets		*/
+		/*		Image effects		*/
 		/*
 		$options['pin']	= array(
 			'rotate-effect-on-hover' 			=> 'Rotate effect on hover',
@@ -1274,7 +1274,7 @@ class PadmaElementProperties {
 			
 			default:
 				$opts = array(
-							'none' => 'There is not snippets for this element',
+							'none' => 'There is not effects for this element',
 						);
 				break;
 		}

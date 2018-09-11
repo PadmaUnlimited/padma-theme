@@ -804,17 +804,17 @@ class PadmaVisualEditorAJAX {
 
 			}
 
-	/*		Snippets		*/
+	/*		Effects		*/
 
-		public static function method_get_snippet_content() {
+		public static function method_get_effect_content() {
 			
 			$tagName 	= padma_post('tagName');
-			$snippet 	= padma_post('snippet');
+			$effect 	= padma_post('effect');
 			$selector 	= padma_post('selector');
 
 			switch ($tagName) {
 				case 'IMG':
-					$path 		= PADMA_LIBRARY_DIR . '/visual-editor/snippets/img/' . $snippet . '.txt';					
+					$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects-css/' . $effect . '.txt';					
 					$selector 	= preg_replace('/\ img/', '', $selector);
 					break;
 				
@@ -828,7 +828,7 @@ class PadmaVisualEditorAJAX {
 				return self::json_encode($data);
 			}else{
 				return self::json_encode(array(
-					'error' => 'Snippet invalid for this content .'
+					'error' => 'Invalid effect for this content .'
 				));
 			}
 			

@@ -503,7 +503,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'id' 			=> 'pin',
 				'name' 			=> 'Pin',
 				'selector' 		=> '.pin-board-pin',
-				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'sizes', 'animation', 'snippets')
+				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'sizes', 'animation', 'effects')
 			));
 
 			$this->register_block_element(array(

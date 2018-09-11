@@ -101,7 +101,7 @@ abstract class PadmaBlockAPI {
 									'sizes',
 									'animation',
 									'transform',
-									'snippets',
+									'effects',
 								),
 			));
 

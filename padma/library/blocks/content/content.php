@@ -198,7 +198,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'id' => 'entry-content-images',
 			'name' => 'Images',
 			'selector' => 'div.entry-content img',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'snippets')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'effects')
 		));
 
 		$this->register_block_element( array(

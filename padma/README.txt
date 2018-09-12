@@ -46,6 +46,10 @@ Design Mode updates
 - Added more CSS Units
 New video block
 New Object-fit and Object-position options on sizes
+JS libraries updates
+- Underscore updated to 1.9.1
+- jQuery UI Touch Punch updated to 0.2.3
+- 
 
 
 = 0.0.24

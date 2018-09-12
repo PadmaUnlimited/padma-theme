@@ -1,0 +1,10 @@
+%selector% {
+  background-image: url(%path%), url(%path%);
+  background-position: center;
+  background-size: 60%, 20%;
+  background-repeat: no-repeat, repeat;
+}
+
+%selector% img{
+  opacity: 0;
+}

@@ -335,7 +335,12 @@ class PadmaPropertyInputs {
 					if($property_id === 'effect' && isset($property_options['complex-options'])){
 						
 						$property_options['options'] = call_user_func($property_options['complex-options'], $element_args);
-						call_user_func(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type'])), $property_options, $property_id);
+
+						call_user_func(
+							array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type'])), 
+							$property_options, 
+							$property_id
+						);
 
 					}else{
 						

@@ -1,0 +1,17 @@
+%selector% {
+  background-image: url(%path%);
+  background-size: cover;
+  background-position: center;
+}
+
+@supports (filter: grayscale(1)) and (background-blend-mode: difference) {
+  %selector% {
+    background-image: url(%path%), url(%path%);
+    background-blend-mode: difference;
+    background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+    filter: brightness(1.5) grayscale(1);
+  }
+}
+%selector% img{
+  opacity: 0;
+}

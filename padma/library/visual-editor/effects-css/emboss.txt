@@ -1,0 +1,14 @@
+%selector% {
+  background-image: url(%path%);
+  background-size: cover;
+  background-position: center;
+}
+
+@supports (filter: invert(1)) and (background-blend-mode: difference, screen) {
+  %selector% {
+    background-image: url(%path%), url(%path%), url(%path%);
+    background-blend-mode: difference, screen;
+    background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px), center;
+    filter: brightness(2) invert(1) grayscale(1);
+  }
+}

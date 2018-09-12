@@ -1,0 +1,9 @@
+%selector% {
+  background-image: url(%path%), url(%path%);
+  background-size: cover, 5% 5%;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+%selector% img{
+	opacity: 0;
+}

@@ -1,0 +1,36 @@
+%selector% {
+  background-image: url(%path%);
+  background-size: cover;
+  background-position: center;
+}
+
+@supports (mix-blend-mode: multiply) {
+  %selector% {
+    position: relative;
+    overflow: hidden;
+    background-color: magenta;
+    background-blend-mode: screen;
+  }
+  %selector%:before, %selector%:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    mix-blend-mode: multiply;
+    transform: scale(1.05);
+  }
+  %selector%:before {
+    background-color: yellow;
+    background-blend-mode: screen;
+    transform-origin: top left;
+  }
+  %selector%:after {
+    background-color: cyan;
+    background-blend-mode: screen;
+    transform-origin: bottom right;
+  }
+}

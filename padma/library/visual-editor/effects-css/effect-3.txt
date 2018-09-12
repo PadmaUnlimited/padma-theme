@@ -1,0 +1,143 @@
+%selector% {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #000000;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+%selector% *,
+%selector% *:before,
+%selector% *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+%selector% img {
+  max-width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+}
+
+%selector% figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+%selector% figcaption:before,
+%selector% figcaption:after,
+%selector% figcaption div:before,
+%selector% figcaption div:after {
+  opacity: 0;
+}
+
+%selector% figcaption:before,
+%selector% figcaption:after {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  content: '';
+  background-color: #080808;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+%selector% figcaption:before {
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+%selector% figcaption:after {
+  bottom: 0;
+  right: 0;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+%selector% figcaption div:before,
+%selector% figcaption div:after {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  content: '';
+  background-color: #000000;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+%selector% figcaption div:before {
+  top: 0;
+  right: 0;
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+%selector% figcaption div:after {
+  bottom: 0;
+  left: 0;
+  -webkit-transform-origin: 100% 0;
+  -ms-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+
+%selector% i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  z-index: 1;
+  opacity: 0;
+}
+
+%selector% a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+%selector%:hover img,
+%selector%.hover img {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
+
+%selector%:hover i,
+%selector%.hover i {
+  opacity: 0.7;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+%selector%:hover figcaption:before,
+%selector%.hover figcaption:before,
+%selector%:hover figcaption:after,
+%selector%.hover figcaption:after,
+%selector%:hover figcaption div:before,
+%selector%.hover figcaption div:before,
+%selector%:hover figcaption div:after,
+%selector%.hover figcaption div:after {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+  opacity: 0.8;
+}

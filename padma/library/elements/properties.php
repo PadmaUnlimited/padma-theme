@@ -1216,14 +1216,28 @@ class PadmaElementProperties {
 
 	public static function complex_property_effect_content($args){
 
+		//debug($args);
+
+
 		$effect 	= $args['value'];
 		$selector 	= $args['selector'];
 
-		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects/' . $effect . '.txt';					
+		$id = explode('-',$selector)[1];
+		$id = explode(' ',$id)[0];
+
+		if($id)
+			$block = PadmaBlocksData::get_block($id);
+
+		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects-css/' . $effect . '.txt';					
 		$selector 	= preg_replace('/\ img/', '', $selector);
 
 		if($path !== false && file_exists($path)){				
 			$data = preg_replace("/%selector%/", $selector, file_get_contents($path));
+
+			if($block){				
+				$data = preg_replace("/%path%/", $block['settings']['image'], $data);
+			}
+
 			return $data;
 		}
 
@@ -1238,24 +1252,47 @@ class PadmaElementProperties {
 		/*		Image effects		*/
 		$options['img']	= array(
 			'' => '',
-			'effect-1' 		=> 'Effect 1',
-			'effect-2' 		=> 'Effect 2',
-			'effect-3' 		=> 'Effect 3',
-			'effect-4' 		=> 'Effect 4',
-			'effect-5' 		=> 'Effect 5',
-			'effect-6' 		=> 'Effect 6',
-			'effect-7' 		=> 'Effect 7',
-			'effect-8' 		=> 'Effect 8',
-			'effect-9' 		=> 'Effect 9',
-			'effect-10' 	=> 'Effect 10',
-			'effect-11' 	=> 'Effect 11',
-			'effect-12' 	=> 'Effect 12',
-			'effect-13' 	=> 'Effect 13',
-			'effect-14' 	=> 'Effect 14',
-			'effect-15' 	=> 'Effect 15',
+			
+			'emboss' 				=> 'Emboss',
+			'airbrush' 				=> 'Airbrush',
+			'chalkboard' 			=> 'Chalkboard',
+			'colored-chalkboard' 	=> 'Colored chalkboard',
+			'corner-on-hover' 		=> 'Corner on hover',
+			'flannel' 				=> 'Flannel',
+			'hallucination' 		=> 'Hallucination',
+			'infrared' 				=> 'Infrared',
+			'low-ink-x' 			=> 'Low-ink horizontal',
+			'low-ink-y' 			=> 'Low-ink vertical',
+			'mirror-x' 				=> 'Mirror horizontal',
+			'mirror-y' 				=> 'Mirror vertical',
+			'mosaic' 				=> 'Mosaic',
+			'night-vision' 			=> 'Night vision',
+			'pencil' 				=> 'Pencil',
+			'colored-pencil' 		=> 'Colored pencil',
+			'photo-border' 			=> 'Photo border',
+			'selective-color-red' 	=> 'Selective color Red',
+			'selective-color-blue' 	=> 'Selective color Blue',
+			'selective-color-green' => 'Selective color Green',
+			'targeting-color' 		=> 'Targeting color',
+			'targeting-white' 		=> 'Targeting white',
+			'warhol' 				=> 'Warhol',
+			'watercolor' 			=> 'Watercolor',
+			'zoom-in' 				=> 'Zoom In',
+			'zoom-in-and-rotate' 	=> 'Zoom in and rotate',			
+			
+			'effect-1' 				=> 'Effect 1',
+			'effect-2' 				=> 'Effect 2',
+			'effect-3' 				=> 'Effect 3',
+			'effect-4' 				=> 'Effect 4',
+			'effect-5' 				=> 'Effect 5',
+			'effect-6' 				=> 'Effect 6',
+			'effect-7' 				=> 'Effect 7',
+			'effect-8' 				=> 'Effect 8',
+			'effect-9' 				=> 'Effect 9',
+			'effect-10' 			=> 'Effect 10',
 		);
 
-		/*		Image effects		*/
+		/*		Pin effects		*/
 		/*
 		$options['pin']	= array(
 			'rotate-effect-on-hover' 			=> 'Rotate effect on hover',

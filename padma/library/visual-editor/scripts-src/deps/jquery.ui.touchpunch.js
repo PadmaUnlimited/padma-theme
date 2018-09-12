@@ -1,63 +1,27 @@
 /*!
- * jQuery UI Touch Punch 0.2.2 + patches
+ * jQuery UI Touch Punch 0.2.3
  *
- * Copyright 2011, Dave Furfero
+ * Copyright 2011–2014, Dave Furfero
  * Dual licensed under the MIT or GPL Version 2 licenses.
  *
  * Depends:
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
  */
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
-
-  var pointerEnabled = window.navigator.pointerEnabled
-    || window.navigator.msPointerEnabled;
+(function ($) {
 
   // Detect touch support
-  $.support.touch = $.support.touch || ((typeof Modernizr !== 'undefined') ? Modernizr.touch : ('ontouchend' in document || 'createTouch' in document || pointerEnabled));
-  
+  $.support.touch = 'ontouchend' in document;
+
   // Ignore browsers without touch support
-  if (!$.support.touch && !navigator.msPointerEnabled) {
+  if (!$.support.touch) {
     return;
   }
 
   var mouseProto = $.ui.mouse.prototype,
       _mouseInit = mouseProto._mouseInit,
+      _mouseDestroy = mouseProto._mouseDestroy,
       touchHandled;
-
-  // see http://stackoverflow.com/a/12714084/220825
-    function fixTouch(touch) {
-        var winPageX = window.pageXOffset,
-            winPageY = window.pageYOffset,
-            x = touch.clientX,
-            y = touch.clientY;
-
-        if (touch.pageY === 0 && Math.floor(y) > Math.floor(touch.pageY) || touch.pageX === 0 && Math.floor(x) > Math.floor(touch.pageX)) {
-            // iOS4 clientX/clientY have the value that should have been
-            // in pageX/pageY. While pageX/page/ have the value 0
-            x = x - winPageX;
-            y = y - winPageY;
-        } else if (y < (touch.pageY - winPageY) || x < (touch.pageX - winPageX)) {
-            // Some Android browsers have totally bogus values for clientX/Y
-            // when scrolling/zooming a page. Detectable since clientX/clientY
-            // should never be smaller than pageX/pageY minus page scroll
-            x = touch.pageX - winPageX;
-            y = touch.pageY - winPageY;
-        }
-
-        return {
-            clientX: x,
-            clientY: y
-        };
-    }
 
   /**
    * Simulate a mouse event based on a corresponding touch event
@@ -67,40 +31,32 @@
   function simulateMouseEvent (event, simulatedType) {
 
     // Ignore multi-touch events
-    if ((!pointerEnabled && event.originalEvent.touches && event.originalEvent.touches.length > 1) || (pointerEnabled && !event.isPrimary)) {
+    if (event.originalEvent.touches.length > 1) {
       return;
     }
 
     event.preventDefault();
 
-    var evt;
-    if (pointerEnabled) {
-        evt = event.originalEvent;
-    } else if (event.originalEvent.changedTouches) {
-        evt = event.originalEvent.changedTouches[0];
-    } else {
-        evt = event;
-    }
-    simulatedEvent = document.createEvent('MouseEvents');
-    coord = fixTouch(evt);
-
+    var touch = event.originalEvent.changedTouches[0],
+        simulatedEvent = document.createEvent('MouseEvents');
+    
     // Initialize the simulated mouse event using the touch event's coordinates
     simulatedEvent.initMouseEvent(
-      simulatedType,                  // type
-      true,                           // bubbles
-      true,                           // cancelable
-      window,                         // view
-      1,                              // detail
-      evt.screenX,                    // screenX
-      evt.screenY,                    // screenY
-      coord.clientX,                  // clientX
-      coord.clientY,                  // clientY
-      false,                          // ctrlKey
-      false,                          // altKey
-      false,                          // shiftKey
-      false,                          // metaKey
-      0,                              // button
-      null                            // relatedTarget
+      simulatedType,    // type
+      true,             // bubbles                    
+      true,             // cancelable                 
+      window,           // view                       
+      1,                // detail                     
+      touch.screenX,    // screenX                    
+      touch.screenY,    // screenY                    
+      touch.clientX,    // clientX                    
+      touch.clientY,    // clientY                    
+      false,            // ctrlKey                    
+      false,            // altKey                     
+      false,            // shiftKey                   
+      false,            // metaKey                    
+      0,                // button                     
+      null              // relatedTarget              
     );
 
     // Dispatch the simulated event to the target element
@@ -116,7 +72,7 @@
     var self = this;
 
     // Ignore the event if another widget is already being handled
-    if (touchHandled || (!pointerEnabled && !self._mouseCapture(event.originalEvent.changedTouches[0]))) {
+    if (touchHandled || !self._mouseCapture(event.originalEvent.changedTouches[0])) {
       return;
     }
 
@@ -192,32 +148,33 @@
     
     var self = this;
 
-    // Undelegate the global touch events in
-    self.element
-      .off( 'touchstart' )
-      .off( 'touchmove' )
-      .off( 'touchend' );
-
     // Delegate the touch handlers to the widget's element
-    if (pointerEnabled) {
-      self.element
-        .on('pointerDown', $.proxy(self, '_touchStart'))
-        .on('pointerMove', $.proxy(self, '_touchMove'))
-        .on('pointerUp', $.proxy(self, '_touchEnd'))
-        .on('MSPointerDown', $.proxy(self, '_touchStart'))
-        .on('MSPointerMove', $.proxy(self, '_touchMove'))
-        .on('MSPointerUp', $.proxy(self, '_touchEnd'));
-    } else {
-      self.element
-      .on(navigator.msPointerEnabled ? 'MSPointerDown' : 'touchstart', $.proxy(self, '_touchStart'))
-      .on(navigator.msPointerEnabled ? 'MSPointerMove' : 'touchmove', $.proxy(self, '_touchMove'))
-      .on(navigator.msPointerEnabled ? 'MSPointerUp' : 'touchend', $.proxy(self, '_touchEnd'));
-      // Add -ms-touch-action: none for touch devices on IE10
-      self.element.css({msTouchAction: 'none'});
-    }
+    self.element.bind({
+      touchstart: $.proxy(self, '_touchStart'),
+      touchmove: $.proxy(self, '_touchMove'),
+      touchend: $.proxy(self, '_touchEnd')
+    });
 
     // Call the original $.ui.mouse init method
     _mouseInit.call(self);
   };
 
-}));
+  /**
+   * Remove the touch event handlers
+   */
+  mouseProto._mouseDestroy = function () {
+    
+    var self = this;
+
+    // Delegate the touch handlers to the widget's element
+    self.element.unbind({
+      touchstart: $.proxy(self, '_touchStart'),
+      touchmove: $.proxy(self, '_touchMove'),
+      touchend: $.proxy(self, '_touchEnd')
+    });
+
+    // Call the original $.ui.mouse destroy method
+    _mouseDestroy.call(self);
+  };
+
+})(jQuery);

@@ -1,0 +1,6 @@
+%selector% {
+  background-image: url(%path%);
+  background-size: cover;
+  background-position: center;
+  filter: hue-rotate(180deg) saturate(2);
+}

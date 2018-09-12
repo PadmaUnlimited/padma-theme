@@ -1,0 +1,28 @@
+%selector% {
+  background-image: url(%path%);
+  background-size: cover;
+  background-position: center;
+}
+
+@supports (transform: scaleY(-1)) {
+  %selector% {
+    position: relative;
+  }
+  %selector%:before, %selector%:after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: inherit;
+  }
+  %selector%:before {
+    top: 0;
+    bottom: 50%;
+    transform: scaleY(-1);
+  }
+  %selector%:after {
+    top: 50%;
+    bottom: 0;
+  }
+}

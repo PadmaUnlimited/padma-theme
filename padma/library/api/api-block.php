@@ -731,7 +731,6 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		
 	}
 
-
 	public function add_standard_block_import_export() {
 
 		if ( !isset($this->tabs) )
@@ -797,7 +796,6 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			);
 		
 	}
-	
 	
 	public function get_blocks_select_options_for_mirroring() {
 			

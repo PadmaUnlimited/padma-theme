@@ -1446,20 +1446,16 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 					var hidden = $(this).find('input.property-hidden-input');
 
-
 					if(property.data('propertyId') == 'effect'){
+						
 						var selector = hidden.attr('element_selector').replace(/\s/g, "-").replace(/#/g, "");
-
-						console.log(selector);
-							
-						console.log($('textarea#effect-' + selector));
-						if($('textarea' + selector).length>0){
-							console.log("remove textarea");
+						
+						if($('textarea#effect-' + selector).length>0){
+							$('textarea#effect-' + selector).remove();
 						}
-
-						console.log($i('style#effect-' + selector));
-						if($i('style' + selector).length>0){
-							console.log("remove textarea");
+						
+						if($i('style#effect-' + selector).length>0){
+							$i('style#effect-' + selector).remove();							
 						}
 							
 					}
@@ -1860,10 +1856,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 		propertyInputCallbackEffects = function(params) {
 
-			console.log(params);
-			
-			var selector 	= params.selector.replace(/\s/g, "-").replace(/#/g, ""); 
-
+			var selector 	= params.selector.replace(/#/g, "");
+			var id 			= params.selector.replace(/\s/g, "-").replace(/#/g, "");
 			var tagName 	= params.element[0].tagName;
 
 			return $.post(Padma.ajaxURL, {
@@ -1875,9 +1869,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						tagName: tagName,
 
 					}, function(response) {
-
-						$('body').append('<textarea id="effect-'+selector+'" name="effect-'+selector+'" data-group="general" style="display:none;">'+response+'</textarea>');
-						$i('head').append('<style id="style#effect-'+selector + '>' + response + '</style>');
+						
+						$('body').append('<textarea id="effect-'+id+'" name="effect-'+id+'" data-group="general" style="display:none;">'+response+'</textarea>');
+						$i('head').append('<style type="text/css" id="effect-' + id + '>' + response + '</style>');
 							
 					});
 

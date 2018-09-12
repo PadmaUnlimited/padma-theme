@@ -1,0 +1,17 @@
+%selector% {
+  background-image: url(%path%);
+  background-size: cover;
+  background-position: center;
+}
+
+@supports (background-blend-mode: overlay) {
+  %selector% {
+    background-image: url(%path%), url(%path%), url(%path%);
+    background-position: center;
+    background-size: 100%, 100000% 100%, 100% 100000%;
+    background-blend-mode: overlay;
+  }
+}
+%selector% img{
+  opacity: 0;
+}

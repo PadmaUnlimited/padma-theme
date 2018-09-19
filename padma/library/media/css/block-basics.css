@@ -161,7 +161,7 @@
 
 
 
-/* Breadcrumbs */
+	/* Breadcrumbs */
 	.block-type-breadcrumbs p.breadcrumbs {
 		margin: 13px 10px;
 	}
@@ -647,6 +647,11 @@
 		.block-type-header img { 
 			max-width: 100%; 
 		}
+
+	/* Maps */
+	.map-block-gmap {
+		height: 100%
+	}
 /* END BLOCKS */
 
 /* WIDGETS */

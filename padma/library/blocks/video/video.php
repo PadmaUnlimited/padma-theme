@@ -111,7 +111,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 	function content($block) {
 		
 		//Display video if there is one
-		if (parent::get_setting($block, 'video-mp4')||parent::get_setting($block, 'video-ogg') ) {
+		if (parent::get_setting($block, 'video-mp4')||parent::get_setting($block, 'video-ogg')||parent::get_setting($block, 'video-webm') ) {
 
 			$video_mp4 	= parent::get_setting($block, 'video-mp4');
 			$video_ogg 	= parent::get_setting($block, 'video-ogg');

@@ -3867,6 +3867,9 @@ div.sub-tabs-content .repeater .repeater-group {
 div.sub-tabs-content .repeater .repeater-group div.input {
 	margin: 5px;
 }
+div.sub-tabs-content .repeater .repeater-group div.input.input-hidden {
+	display: none;
+}
 div.sub-tabs-content .repeater .repeater-group .sortable-handle {
 	height: 26px;
 	display: block;

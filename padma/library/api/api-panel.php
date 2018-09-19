@@ -626,7 +626,30 @@ abstract class PadmaVisualEditorPanelAPI {
 			<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 		
 	}
+
+	public function input_hidden( $input ) {
+
+		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" class="panel-input-hidden" />';
+
+	}
 	
+	public function input_audio($input) {
+		
+		$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';
+		
+		echo '<div class="input-left"><label>' . $input['label'] . '</label></div><!-- .input-left -->';
+
+		$filepath = explode('/', $input['value']);
+		$filename = end($filepath);
+				
+		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
+		<span class="delete-audio"' . $src_visibility . '>Delete</span>';
+						
+		echo '<span class="button">Choose Audio</span>
+			<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
+		
+	}
+
 	public function input_video($input) {
 		
 		$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';

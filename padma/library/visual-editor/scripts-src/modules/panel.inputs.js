@@ -1,4 +1,4 @@
-define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader', 'util.video-uploader'], function($, codeMirror, chosen) {
+define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader', 'util.video-uploader', 'util.audio-uploader'], function($, codeMirror, chosen) {
 
 	handleInputTogglesInContainer = function(container) {
 
@@ -629,6 +629,38 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 
+
+			/* Audio Uploaders */
+			$(context).delegate('div.input-audio span.button', 'click', function() {
+				
+				var self = this;
+				
+				openAudioUploader(function(url, filename) {
+								
+					$(self).siblings('input').val(url);
+					$(self).siblings('span.src').show().text(filename);
+					$(self).siblings('span.delete-audio').show();
+
+					dataHandleInput($(self).siblings('input'), url, {action: 'add'});	
+					
+				});
+
+			});
+			
+			$(context).delegate('div.input-audio span.delete-audio', 'click', function() {
+
+				if ( !confirm('Are you sure you wish to remove this audio?') ) {
+					return false;
+				}
+
+				$(this).siblings('.src').hide();
+				$(this).hide();
+
+				$(this).siblings('input').val('');
+
+				dataHandleInput($(this).siblings('input'), '', {action: 'delete'});
+
+			});
 
 			/* Video Uploaders */
 			$(context).delegate('div.input-video span.button', 'click', function() {

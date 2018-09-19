@@ -29,6 +29,8 @@ class PadmaBlocks {
 		'gravity-forms',
 		'slidedeck',
 		'video',
+		'audio',
+		'map',
 	);
 
 

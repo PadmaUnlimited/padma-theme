@@ -17,14 +17,14 @@ class PadmaMapBlock extends PadmaBlockAPI {
 
 
 	public static function init() {		
-		//wp_enqueue_script('padma-map', padma_url() . '/library/blocks/map/js/maps.js' );
-		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries='.$libraries.'&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
-		wp_enqueue_script('maplace.js', padma_url() . '/library/blocks/map/js/maplace.js', array('jquery'));		
+		//wp_enqueue_script('padma-map', padma_url() . '/library/blocks/map/js/maps.js' );	
+		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
+		wp_enqueue_script('maplace.js', padma_url() . '/library/blocks/map/js/maplace.js', array('jquery'));
 	}
 
 
 	public static function map_block_admin_js(){
-		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries='.$libraries.'&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
+		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
 	}
 	public static function dynamic_js($block_id, $block) {
 
@@ -133,11 +133,12 @@ class PadmaMapBlock extends PadmaBlockAPI {
 
 	}
 
+	
 	public function content($block) {
 
 		$libraries = 'geometry,places';
 
-		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries='.$libraries.'&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
+		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
 		wp_enqueue_script('maplace.js', padma_url() . '/library/blocks/map/js/maplace.js', array('jquery'));
 
 
@@ -254,7 +255,7 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 						new google.maps.LatLng(-33.8474, 151.2631)
 					);
 
-					var input = document.getElementById("#input-'.$this->block['id'].'-search");
+					var input = document.getElementById("input-'.$this->block['id'].'-search");
 					var options = {
 						bounds: defaultBounds,
 						types: ["address,establishment"]

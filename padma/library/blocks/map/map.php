@@ -4,7 +4,7 @@ padma_register_block('PadmaMapBlock', padma_url() . '/library/blocks/map');
 
 
 
-add_action('padma_visual_editor_scripts', array('PadmaMapBlock','map_block_admin_js'), 1);
+//add_action('padma_visual_editor_scripts', array('PadmaMapBlock','map_block_admin_js'), 1);
 
 
 class PadmaMapBlock extends PadmaBlockAPI {
@@ -18,13 +18,12 @@ class PadmaMapBlock extends PadmaBlockAPI {
 
 	public static function init() {		
 		//wp_enqueue_script('padma-map', padma_url() . '/library/blocks/map/js/maps.js' );	
-		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
-		wp_enqueue_script('maplace.js', padma_url() . '/library/blocks/map/js/maplace.js', array('jquery'));
+		
 	}
 
 
 	public static function map_block_admin_js(){
-		wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
+		//wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
 	}
 	public static function dynamic_js($block_id, $block) {
 
@@ -41,8 +40,6 @@ class PadmaMapBlock extends PadmaBlockAPI {
 
 		}
 
-		debug($markers);
-
 		$styles_option = '';
 
 		if ( $style = parent::get_setting($block, 'style', '') ) {
@@ -58,10 +55,10 @@ class PadmaMapBlock extends PadmaBlockAPI {
 				if ( $style_json ) {
 
 					$styles_option = ',
-				styles: {
-					"' . $style . '": ' . $style_json . '
-				}
-				';
+					styles: {
+						"' . $style . '": ' . $style_json . '
+					}
+					';
 
 				}
 
@@ -75,10 +72,10 @@ class PadmaMapBlock extends PadmaBlockAPI {
 			$controls_on_map = 'false';			
 		}
 
-		//debug($block);
+		debug($markers);
+
 		$js = '
-		(function() {
-			$(document).ready(function() {
+			jQuery(document).ready(function() {
 			    new Maplace({
 			    	map_div: "#block-' . $block_id . ' .map-block-gmap",
 			        locations: ' . json_encode($markers) . ',
@@ -89,52 +86,15 @@ class PadmaMapBlock extends PadmaBlockAPI {
 					}
 					' . $styles_option . '
 			    }).Load();
-			});
-
-		});';
+			});';
 
 		return $js;
-		/*
-		return '
-			(function ($){			
-				$(document).ready(function() {
-				
-					var maxTime = 10000;
-					var timeGoneBy = 0;
-
-                    var interval = setInterval(function() { 
-                                        	
-                    	timeGoneBy += 100;
-                    	                        
-                        if ( typeof google != "undefined" ) {
-                        
-                            new Maplace({
-								map_div: "#block-' . $block_id . ' .map-block-gmap",
-								locations: ' . json_encode($markers) . ',
-								controls_on_map: false,
-								generate_controls: false,
-								map_options: {
-									disableDefaultUI: true
-								}
-								' . $styles_option . '
-							}).Load();
-						
-							clearInterval(interval);
-                        
-                        } else if ( timeGoneBy >= maxTime ) {
-                            clearInterval(interval);
-                        }
-
-                    }, 100);					
-				});
-
-			})(jQuery);
-		';*/
-
 	}
 
 	
 	public function content($block) {
+
+		debug($block);
 
 		$libraries = 'geometry,places';
 
@@ -146,7 +106,12 @@ class PadmaMapBlock extends PadmaBlockAPI {
 			echo '<div id="controls"></div>';
 			
 		echo '<div class="map-block-gmap"></div>';
-		echo '<div id="gmap-dropdown"></div><div id="gmap-list"></div>';
+		echo '<div id="gmap-block-'.$block['id'].'"></div><div id="gmap-list"></div>';
+		echo '<div id="infowindow-content-block-'.$block['id'].'" style="display: none;">';
+		echo '	<img src="" width="16" height="16" id="place-icon">';
+		echo '	<span id="place-name"  class="title"></span><br>';
+		echo '	<span id="place-address"></span>';
+		echo '</div>';
 
 	}
 
@@ -244,25 +209,171 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 				'type' => 'checkbox',
 				'default' => false,
 			),
+			'search-for' => array(
+				'name' => 'search-for',
+				'label' => 'Search for',
+				'type' => 'select',
+				'default' => 'establishment',
+				'options' => array(
+					'establishment' => "Establishments",
+					'address' 		=> "Addresses",
+					'geocode' 		=> "Geocodes",
+					'(regions)' 	=> "Regions",
+					'(cities)' 		=> "Cities",
+				),
+			),
 		)
 	);
 
 	public function autocomplete(){
-//		debug($this->block['id']);
-		$js = '$(this).keyup(function(){
-					var defaultBounds = new google.maps.LatLngBounds(
-						new google.maps.LatLng(-33.8902, 151.1759),
-						new google.maps.LatLng(-33.8474, 151.2631)
-					);
+		
+		$maps_url = '//maps.google.com/maps/api/js?libraries=places,geometry&v=quarterly&key=' . $this->block['settings']['api-key'];
 
+		if(!$this->block['settings']['search-for']){
+			$searchFor = 'establishment';
+		}else{
+			$searchFor = $this->block['settings']['search-for'];
+		}
+		
+		$js = '
+				function initMap() {
+
+					var map = new google.maps.Map($i("gmap-'.$this->block['id'].'"), {
+					  center: {lat: -33.8688, lng: 151.2195},
+					  zoom: 13
+					});
+					
 					var input = document.getElementById("input-'.$this->block['id'].'-search");
-					var options = {
-						bounds: defaultBounds,
-						types: ["address,establishment"]
-					};
-					autocomplete = new google.maps.places.Autocomplete(input, options);					
-		});';
+					var types = "'.$searchFor.'"
+					var strictBounds = false;
+					var autocomplete = new google.maps.places.Autocomplete(input);
+
+					autocomplete.bindTo("bounds", map);
+
+					autocomplete.setFields(["address_components", "geometry", "icon", "name"]);
+
+					var infowindow = new google.maps.InfoWindow();
+					var infowindowContent = $i("#infowindow-content-'.$this->block['id'].'").html();
+					infowindow.setContent(infowindowContent);
+					var marker = new google.maps.Marker({
+						map: map,
+						anchorPoint: new google.maps.Point(0, -29)
+					});
+
+
+					autocomplete.addListener("place_changed", function() {
+					  
+						infowindow.close();
+						marker.setVisible(false);
+						var place = autocomplete.getPlace();
+
+						if (!place.geometry) {				    
+							window.alert("No details available for input: " + place.name);
+							return;
+						}
+
+						if (place.geometry.viewport) {
+							map.fitBounds(place.geometry.viewport);
+						} else {
+							map.setCenter(place.geometry.location);
+							map.setZoom(17);
+						}
+
+						marker.setPosition(place.geometry.location);
+						marker.setVisible(true);
+
+
+						var address = "";
+						if (place.address_components) {
+							address = [
+								(place.address_components[0] && place.address_components[0].short_name || ""),
+								(place.address_components[1] && place.address_components[1].short_name || ""),
+								(place.address_components[2] && place.address_components[2].short_name || "")
+							].join(" ");
+						}
+
+						$("#input-'.$this->block['id'].'-lat").val(place.geometry.location.lat());
+						$("#input-'.$this->block['id'].'-lon").val(place.geometry.location.lng());
+
+						infowindowContent.children["place-icon"].src = place.icon;
+						infowindowContent.children["place-name"].textContent = place.name;
+						infowindowContent.children["place-address"].textContent = address;
+						infowindow.open(map, marker);
+
+						dataHandleInput($("#input-'.$this->block['id'].'-search"), $("#input-'.$this->block['id'].'-search").val());
+
+					});
+					
+				}
+				$(this).keyup(function(){
+					if( $("#block-'.$this->block['id'].'-tab #input-'.$this->block['id'].'-api-key").val() == "" ){
+
+						showNotification({
+							id: "maps-block-no-api-key",
+							message: "Please setup your Google Maps API Key",
+							closeTimer: 5000,
+							closable: true,
+							error: true
+						});
+						return;
+
+					}else{
+
+						if(typeof window.google == "undefined"){					
+
+							var script = document.createElement("script");
+							script.src = "'.$maps_url.'";
+							document.head.appendChild(script);
+						
+						}else{
+							initMap();
+						}
+					}
+				});
+			';
+			/*
+			$(this).keyup(function(){
+				if( $("#block-'.$this->block['id'].'-tab #input-'.$this->block['id'].'-api-key").val() == "" ){
+
+					showNotification({
+						id: "maps-block-no-api-key",
+						message: "Please setup your Google Maps API Key",
+						closeTimer: 5000,
+						closable: true,
+						error: true
+					});
+					return;
+
+				}else{
+
+					if(typeof window.google == "undefined"){					
+
+						var script = document.createElement("script");
+						script.src = "'.$maps_url.'";
+						document.head.appendChild(script);
+					
+					}else{
+
+						var defaultBounds = new window.google.maps.LatLngBounds(
+							new window.google.maps.LatLng(-33.8902, 151.1759),
+							new window.google.maps.LatLng(-33.8474, 151.2631)
+						);
+
+						var input = document.getElementById("input-'.$this->block['id'].'-search");
+						var options = {
+							bounds: defaultBounds,
+							types: ["'.$searchFor.'"]
+						};
+						
+						autocomplete = new google.maps.places.Autocomplete(input, options);
+						console.log(autocomplete);
+					}
+					
+				}		
+			});';
+			*/
 		return $js;
+		
 	}
 	public $open_js_callback = array();
 
@@ -290,83 +401,7 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 
 	}
 	
-	public function modify_arguments($args) {
-		/*
-		$this->open_js_callback = '
-
-
-			var mapBlockAutocomplete = function( element ) {
-
-				this.container = $(element);
-		        this.init( this.container );
-		        this.listen();
-
-		    }
-
-		    mapBlockAutocomplete.prototype = {
-
-		        init: function( selector ) {
-
-		        	var input = $(selector).find("#input-' . $args['block']['id'] . '-search")[0];
-		        	var options = {
-					  bounds: defaultBounds,
-					  types: ["address"]
-					};
-	    	        var autocomplete = new google.maps.places.Autocomplete(input,options);
-
-	    	        console.log(input);
-	    	        console.log(autocomplete);
-
-	    	        google.maps.event.addListener(autocomplete, "place_changed", function () {
-
-	    	            var place = autocomplete.getPlace();
-
-	    	            console.log(place);
-	    	            if ( place.hasOwnProperty("geometry") ) {
-
-	    	            	console.log(place.geometry);
-	    	            	console.log(place.geometry.location);
-
-	    		            selector.find("#input-' . $args['block']['id'] . '-lat").val(place.geometry.location.lat()).trigger(\'change\');
-	    		            selector.find("#input-' . $args['block']['id'] . '-lon").val(place.geometry.location.lng()).trigger(\'change\');
-
-							$(input).trigger(\'keyup\');
-
-	    				}
-
-	    	        });
-
-	    			$(input).css( "width", "260px");
-
-		        },
-		        listen: function() {
-
-		        	var that = this;
-
-		        	this.container.on( "click", ".add-group", function() {
-
-		        		setTimeout( function(){
-
-		        			that.init( that.container.next() );
-
-		        		}, 500);
-
-		        	});
-
-		        }
-
-		    };
-
-			$("#block-' . $args['block']['id'] . '-tab .sub-tabs-content-container .repeater-group:not(.repeater-group-template)").each( function() {
-				console.log("damm");
-				console.log($.data(this, "mapBlockAutocomplete"));
-				if ( !$.data(this, "mapBlockAutocomplete") )
-					$.data(this, "mapBlockAutocomplete", new mapBlockAutocomplete(this));
-
-			});
-
-		';*/
-		
+	public function modify_arguments($args) {		
 	}
 }
 

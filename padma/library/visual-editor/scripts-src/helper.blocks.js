@@ -751,7 +751,6 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			}finally{
 				callback = function(){}
 			}
-
 			if ( typeof callback == 'function' ) {
 				callback({
 					block: block,

@@ -711,6 +711,43 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			}
 
+		currentBlockInfo = function(block){			
+
+			var blockType 	= getBlockType(block);
+			var target 		= $('.current-block-info');
+			
+			var blockTypeNice 		= getBlockTypeNice(blockType);
+			var blockTypeIconURL 	= getBlockTypeIcon(blockType, true);
+			var blockTypeIconStyle 	= blockTypeIconURL ? ' style="background-image:url(' + blockTypeIconURL + ');"' : null;
+			var mainBlockInfoClass 	= isBlockMirrored(block) ? 'main-block-info main-block-info-mirrored' : 'main-block-info';
+			var blockAlias 			= block.data('alias') ? ': ' + block.data('alias') : '';					
+			var blockInfo 			= '<span class="block-info-type" ' + blockTypeIconStyle + '></span>' +
+										'<span class="' + mainBlockInfoClass + '">' +
+											blockTypeNice + ' ' + blockAlias +
+										'</span>';
+
+			target.empty().append(blockInfo);
+		
+
+		}
+
+		deleteSelectedBlock =  function(){
+			
+			var blocks = $i('body').find('.currently-selected');
+			if(blocks.length == 1 ){
+				var block = getBlock(blocks[0]);
+				if(confirm('Are you sure you want to delete this block?')){
+					deleteBlock(block);
+				}
+			}else{
+				if(confirm('Are you sure you want to delete all these blocks?')){
+					blocks.each(function(){
+						var block = getBlock($(this))
+						deleteBlock(block);
+					});
+				}
+			}			
+		},
 
 	openBlockOptions = function(block, subTab) {
 

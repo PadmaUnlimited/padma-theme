@@ -40,10 +40,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.25
-* Released: September 14, 2018
+* Released: October 3, 2018
 CSS Effects for images
 Design Mode updates
 - Added more CSS Units
+Grid updates
+- Support to delete one or multiple blocks with the delete key
 New Audio block
 New Video block
 New Map block
@@ -52,6 +54,8 @@ JS libraries updates
 - Underscore updated to 1.9.1
 - jQuery UI Touch Punch updated to 0.2.3
 PHP 7.3 Ready
+
+
 
 
 

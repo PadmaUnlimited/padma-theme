@@ -50,6 +50,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 				//13 = Enter
 			
 				var element = $(event.target); 
+
 			
 				if ( event.which === 8 && !element.is('input') && !element.is('textarea') && !element.hasClass('allow-backspace-key') && !element.parents('.wysiwyg-container').length ) {
 					event.preventDefault();
@@ -67,6 +68,11 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 					event.preventDefault();
 					
 					return false;
+				}
+
+				if( event.which == 46){
+					deleteSelectedBlock();
+					return true;
 				}
 			
 			}

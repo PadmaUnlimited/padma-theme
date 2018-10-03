@@ -1,6 +1,7 @@
 define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 	$.widget("ui.padmaGrid", $.ui.mouse, {
+
 		options: {
 			useIndependentGrid: false,
 			columns: Padma.defaultGridColumnCount,
@@ -15,11 +16,11 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		
 		_create: function() {
 
-			this.wrapper = this.element;
-			this.container = this.wrapper.find('.grid-container');
-			this.iframe = $(Padma.iframe);
-			this.contents = $(this.iframe).contents();
-			this.document = $(this.iframe).contents();
+			this.wrapper 	= this.element;
+			this.container 	= this.wrapper.find('.grid-container');
+			this.iframe 	= $(Padma.iframe);
+			this.contents 	= $(this.iframe).contents();
+			this.document 	= $(this.iframe).contents();
 
 			/* Populate Grid Options from the Wrapper Settings.  This is primarily used for generating the CSS for the Grid so the right ratios and percentages can be made */
 			this.options.useIndependentGrid = this.wrapper.data('wrapper-settings')['use-independent-grid'];
@@ -70,6 +71,11 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					this._on($(window), {
 						resize: 'alignAllBlocksWithGuides'
 					});
+
+				/*	Detect click on blocks	*/
+					this._on(this.contents, {
+						click: 'selectBlock'
+					});
 			/* End binding */
 
 			this.initResizable(this.container.children('.' + this.options.defaultBlockClass.replace('.', '')));
@@ -87,6 +93,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					if ( $(this).hasClass('grouped-block') && grid.container.find('.grouped-block').length === 1 ) {
 						
 						$(this).removeClass('grouped-block');
+						$(this).removeClass('currently-selected');
 						grid.container.removeClass('grouping-active');
 						
 						hideNotification('mass-block-selection');
@@ -95,11 +102,14 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					} else if ( $(this).hasClass('grouped-block') ) {
 						
 						$(this).removeClass('grouped-block');
+						$(this).removeClass('currently-selected');
 					
 					//Else there's no grouping and we need to start it	
 					} else {
 					
-						$(this).addClass('grouped-block');
+						$(this).addClass('grouped-block');						
+						$(this).addClass('currently-selected');
+
 						grid.container.addClass('grouping-active');
 
 						showNotification({
@@ -111,6 +121,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 							opacity: .8,
 							closeCallback: function() {
 								$i('.grouped-block').removeClass('grouped-block');
+								$i('.grouped-block').removeClass('currently-selected');
 								grid.container.removeClass('grouping-active');
 							}
 						});
@@ -184,9 +195,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		enable: function() {
 
 			this.element.resizable('enable');
-		//	this.element.find('.ui-droppable').droppable('enable');
 			this.element.find('.ui-resizable').resizable('enable');
-		//	this.element.find('.ui-draggable').draggable('enable');
 
 		},
 
@@ -1487,6 +1496,20 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 				});
 
 			},
+
+		selectBlock: function(event){
+			var block 		= getBlock(event.target);
+			if(block){
+				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
+				if(!grid.container.hasClass('grouping-active')){
+					$(this.document).find('.currently-selected').each(function(){
+						$(this).removeClass('currently-selected')
+					});
+				}
+				block.addClass('currently-selected');
+				currentBlockInfo(block);
+			}
+		},
 
 		/**
 		 * Used to recalculate all CSS for a wrapper and its grid.  Can simply be fed column count, columnWidth, and gutterWidth and it will do the heavy lifting

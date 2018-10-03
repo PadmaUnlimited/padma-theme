@@ -3085,7 +3085,30 @@ div#layout-selector-tabs a:hover {
 div#layout-selector-tabs li.ui-tabs-active a {
 	color: #222222;
 }
-
+#menu .current-block-info{
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    font-size: 13px;
+    color: #EEEEEE;
+}
+#menu .current-block-info span{
+	display: inline-block;
+    height: 35px;
+    float: left;
+}
+#menu .current-block-info span.block-info-type{
+    width: 20px;    
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#menu .current-block-info span.main-block-info{
+    padding-left: 5px;
+}
+#menu .current-block-info span.block-info{}
 /*!
 Chosen, a Select Box Enhancer for jQuery and Prototype
 by Patrick Filler for Harvest, http://getharvest.com

@@ -56,6 +56,10 @@
 				</button>
 			</div>
 		</div>
+
+		<!--	Current Block info	 -->
+		<div class="current-block-info">
+		</div>
 	
 		<div id="menu-right">
 	

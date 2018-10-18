@@ -51,7 +51,7 @@
 	body{
 		margin: 0;
 		padding: 0;
-		height: 100vh;4
+		height: 100vh;
 	}
 	.CodeMirror{
 		height: 100vh;

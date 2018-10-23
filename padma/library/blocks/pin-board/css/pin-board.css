@@ -231,3 +231,65 @@
 		body.design-editor-disabled .pin-board-pagination a:hover {
 			background-color: #e7e7e7;
 		}
+
+/*		WooCommerce		*/
+	.block.block-type-pin-board .pin-board-pin{
+		border: none;
+	}
+	.pin-board-pin li.product .onsale {
+		min-height: 3.236em;
+		min-width: 3.236em;
+		padding: .202em;
+		font-size: 1em;
+		font-weight: 700;
+		position: absolute;
+		text-align: center;
+		line-height: 3.236;
+		top: -.5em;
+		left: -.5em;
+		margin: 0;
+		border-radius: 100%;
+		background-color: #77a464;
+		color: #fff;
+		font-size: .857em;
+		z-index: 9;
+	    top: 0;
+	    right: 0;
+	    left: auto;
+	    margin: -.5em -.5em 0 0;
+	}
+	.pin-board-pin li.product .woocommerce-loop-product__title {
+		padding: .5em 0;
+		margin: 0;
+		font-size: 1em;
+	}
+	.pin-board-pin li.product .button{
+		font-size: 100%;
+		margin: 0;
+		line-height: 1;
+		cursor: pointer;
+		position: relative;
+		text-decoration: none;
+		overflow: visible;
+		padding: .618em 1em;
+		font-weight: 700;
+		border-radius: 3px;
+		left: auto;
+		color: #515151;
+		background-color: #ebe9eb;
+		border: 0;
+		display: inline-block;
+		background-image: none;
+		box-shadow: none;
+		text-shadow: none;
+		text-decoration: none;
+		margin-top: 1em;
+		    float: left;
+	}
+	.pin-board-pin li.product .price{
+		color: #77a464;
+		display: block;
+		font-weight: 400;
+		margin-bottom: .5em;
+		font-size: .857em;
+	}

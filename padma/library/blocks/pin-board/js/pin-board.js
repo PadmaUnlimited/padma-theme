@@ -47,8 +47,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 	setupPinBoardBlock = function(args) {
 
-		var pinBoardBlock 	= $('#block-' + args.blockID);
-		var pinBoard 		= pinBoardBlock.find('.pin-board');
+		var pinBoardBlock = $('#block-' + args.blockID);
+		var pinBoard = pinBoardBlock.find('.pin-board');
 
 		if ( args.effects.hoverFocus )
 			pinBoard.addClass('pin-board-hover-focus');

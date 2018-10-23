@@ -224,7 +224,7 @@ class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'autoplay',
 				'label' => 'Autoplay',
 				'type' => 'checkbox',
-				'default' => true,
+				'default' => false,
 				'tooltip' => 'Specifies that the audio will start playing as soon as it is ready'
 			),
 
@@ -232,7 +232,7 @@ class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'controls',
 				'label' => 'Controls',
 				'type' => 'checkbox',
-				'default' => true,
+				'default' => false,
 				'tooltip' => 'Specifies that audio controls should be displayed (such as a play/pause button etc).'
 			),
 
@@ -240,7 +240,7 @@ class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'loop',
 				'label' => 'Loop',
 				'type' => 'checkbox',
-				'default' => true,
+				'default' => false,
 				'tooltip' => 'Specifies that the audio will start over again, every time it is finished'
 			),
 

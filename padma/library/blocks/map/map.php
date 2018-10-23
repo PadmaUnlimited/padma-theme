@@ -16,15 +16,9 @@ class PadmaMapBlock extends PadmaBlockAPI {
 	public $fixed_height 	= true;
 
 
-	public static function init() {		
-		//wp_enqueue_script('padma-map', padma_url() . '/library/blocks/map/js/maps.js' );	
-		
-	}
+	public static function init() {}
+	public static function map_block_admin_js(){}
 
-
-	public static function map_block_admin_js(){
-		//wp_enqueue_script('googlemap.js', '//maps.google.com/maps/api/js?libraries=geometry,places&v=quarterly&key=' . parent::get_setting($block, 'api-key'));
-	}
 	public static function dynamic_js($block_id, $block) {
 
 		$markers = parent::get_setting($block, 'markers', array());
@@ -72,7 +66,7 @@ class PadmaMapBlock extends PadmaBlockAPI {
 			$controls_on_map = 'false';			
 		}
 
-		debug($markers);
+		//debug($markers);
 
 		$js = '
 			jQuery(document).ready(function() {
@@ -94,7 +88,7 @@ class PadmaMapBlock extends PadmaBlockAPI {
 	
 	public function content($block) {
 
-		debug($block);
+		//debug($block);
 
 		$libraries = 'geometry,places';
 
@@ -139,7 +133,7 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 	public $tabs = array(
 		'locations' 	=> 'Locations',
 		'style' 		=> 'Map Style',
-		'settings' 	=> 'Settings',
+		'settings' 		=> 'Settings',
 	);
 
 
@@ -238,7 +232,7 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 		$js = '
 				function initMap() {
 
-					var map = new google.maps.Map($i("gmap-'.$this->block['id'].'"), {
+					var map = new google.maps.Map($i("gmap-block-'.$this->block['id'].'"), {
 					  center: {lat: -33.8688, lng: 151.2195},
 					  zoom: 13
 					});
@@ -326,52 +320,12 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 							document.head.appendChild(script);
 						
 						}else{
-							initMap();
+							initMap();							
+							refreshBlockContent('.$this->block['id'].');
 						}
 					}
 				});
 			';
-			/*
-			$(this).keyup(function(){
-				if( $("#block-'.$this->block['id'].'-tab #input-'.$this->block['id'].'-api-key").val() == "" ){
-
-					showNotification({
-						id: "maps-block-no-api-key",
-						message: "Please setup your Google Maps API Key",
-						closeTimer: 5000,
-						closable: true,
-						error: true
-					});
-					return;
-
-				}else{
-
-					if(typeof window.google == "undefined"){					
-
-						var script = document.createElement("script");
-						script.src = "'.$maps_url.'";
-						document.head.appendChild(script);
-					
-					}else{
-
-						var defaultBounds = new window.google.maps.LatLngBounds(
-							new window.google.maps.LatLng(-33.8902, 151.1759),
-							new window.google.maps.LatLng(-33.8474, 151.2631)
-						);
-
-						var input = document.getElementById("input-'.$this->block['id'].'-search");
-						var options = {
-							bounds: defaultBounds,
-							types: ["'.$searchFor.'"]
-						};
-						
-						autocomplete = new google.maps.places.Autocomplete(input, options);
-						console.log(autocomplete);
-					}
-					
-				}		
-			});';
-			*/
 		return $js;
 		
 	}
@@ -379,9 +333,8 @@ class PadmaMapBlockOptions extends PadmaBlockOptionsAPI {
 
 	public static function get_styles() {
 
-		$path = PADMA_LIBRARY_DIR . '/blocks/map/styles/';
-
-		$results = scandir( $path );
+		$path 		= PADMA_LIBRARY_DIR . '/blocks/map/styles/';
+		$results 	= scandir( $path );
 
 		$styles = array(
 			'' => 'Default'

@@ -163,6 +163,13 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					$titles_position 			= parent::get_setting($block, 'titles-position', 'below');
 					$titles_link_to_post 		= parent::get_setting($block, 'titles-link-to-post', true);
 
+				/* WooCommerce */
+					$woo_content_type 		= parent::get_setting($block, 'woo-content-type');
+					$woo_category 			= parent::get_setting($block, 'woo-category', '');
+					$woo_products_per_page 	= parent::get_setting($block, 'woo-products-per-page', 9);
+					$woo_order_by 			= parent::get_setting($block, 'woo-order-by', 'title');
+					$woo_order 				= parent::get_setting($block, 'woo-order', 'ASC');
+
 			/* Images */
 					$crop_images_vertically = parent::get_setting($block, 'crop-vertically', false);
 					$image_click_action 	= parent::get_setting($block, 'image-click-action', 'post');
@@ -256,193 +263,86 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 				}
 
-				/* Query! */
-				$original_wp_query 	= $wp_query;
-				$wp_query 			= new WP_Query($query_args);
-				/* End Query Setup */
+			/* End Custom query overrides */
 
-				echo '<div class="pin-board" data-pin-board-ajax-paged="' . padma_get('paged', $query_args, 1) . '" data-pin-board-mode="' . parent::get_setting( $block, 'mode', 'default' ) . '">' . "\n";
 
-					echo '<div class="pin-board-gutter-sizer"></div>' . "\n";
-					echo '<div class="pin-board-column-sizer"></div>' . "\n\n";
+			// Show WooCommerce Content
+			if(parent::get_setting($block, 'mode', 'default') == 'woocommerce'){
+				
+				$paged                  = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+				$ordering               = WC()->query->get_catalog_ordering_args();				
+				$query_products_args	= array(
+							'meta_key'    => '_price',
+							'status'      => 'publish',
+							'limit'       => $woo_products_per_page,
+							'return'      => 'ids',
+							'page'        => $paged,
+							'paginate'    => true,
+							'orderby'     => $woo_order_by,
+							'order'       => $ordering['order'],
+						);
+				
+				if($woo_content_type == 'recent_products'){
 
-				while ( $wp_query->have_posts() ) {
+				}elseif ($woo_content_type == 'featured_products') {
+					
+					$query_products_args['visibility'] = 'featured';
+				
+				}elseif ($woo_content_type == 'sale_products') {
+					
+					$query_args['meta_key'] = 'total_sales'; // @codingStandardsIgnoreLine
+					$query_args['order']    = 'DESC';
+					$query_args['orderby']  = 'meta_value_num';
+				}
 
-					$wp_query->the_post();
+				$query  = new WC_Product_Query($query_products_args);
 
-					/* If only images are being shown and there's no thumbnail, then don't show the pin. */
-					if ( !($show_images && has_post_thumbnail()) && !$content_to_show && !$show_titles && !$show_text_when_no_image )
-						continue;
+				wc_set_loop_prop('current_page', $paged);
+				wc_set_loop_prop('is_paginated', wc_string_to_bool(true));
+				wc_set_loop_prop('page_template', get_page_template_slug());
+				wc_set_loop_prop('per_page', $woo_products_per_page);
+				wc_set_loop_prop('total', $query_products->total);
+				wc_set_loop_prop('total_pages', $query_products->max_num_pages);
 
-					$title_for_attribute 	= the_title_attribute(array('echo' => false));
-					$pin_classes 			= get_post_class();
-					$pin_classes[] 			= has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
+				
+				$products = $query->get_products();
+				
+				if($products) {
+					
+					do_action('woocommerce_before_shop_loop');
+				
+					woocommerce_product_loop_start();
 
-					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
 
-						/* Titles above */
-							if ( $show_titles && $titles_position == 'above') {
+					echo '<div class="pin-board" data-pin-board-ajax-paged="' . padma_get('paged', $query_args, 1) . '" data-pin-board-mode="' . parent::get_setting( $block, 'mode', 'default' ) . '">' . "\n";
 
-								echo '<h3 class="entry-title">';
-								if ($titles_link_to_post) {
-									echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-								} else {
-									echo get_the_title();
-								}
-								echo '</h3>' . "\n";
+						echo '<div class="pin-board-gutter-sizer"></div>' . "\n";
+						echo '<div class="pin-board-column-sizer"></div>' . "\n\n";
+					
+					foreach($products->products as $featured_product) {
 
-							}
-						/* End Titles below */
 
-						/* Thumbnail */
-							if ( has_post_thumbnail() && $show_images ) {
+						$title_for_attribute 	= the_title_attribute(array('echo' => false));
+						$pin_classes 			= get_post_class();
+						$pin_classes[] 			= has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
+						$post_object = get_post($featured_product);
+						setup_postdata($GLOBALS['post'] =& $post_object);
 
-								$thumbnail_id = get_post_thumbnail_id();
 
-								$thumbnail_width = $approx_pin_width + 30; /* Add a 30px buffer to insure that image will be large enough */
+						debug($post_object);
 
-								//$crop_vertically
-								if ( $crop_images_vertically ) {
+						echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
 
-									$thumbnail_height 	= round($approx_pin_width * 0.75);
-									$thumbnail_object 	= wp_get_attachment_image_src($thumbnail_id, 'full');
-									$thumbnail_url 		= padma_resize_image($thumbnail_object[0], $thumbnail_width, $thumbnail_height);
-									$full_image_url 	= $thumbnail_object[0];
 
-								} else {
 
-									$thumbnail_object 	= wp_get_attachment_image_src($thumbnail_id, 'full');
-									$thumbnail_url 		= padma_resize_image($thumbnail_object[0], $thumbnail_width);
-									$full_image_url 	= $thumbnail_object[0];
+						/* Product */
+							do_action('padma_before_pin_content');
+							echo '<div class="pin-board-pin-text entry-content">' . "\n";
+							wc_get_template_part('content', 'product');
+							echo '</div>' . "\n";
+							do_action('padma_after_pin_content');
 
-								}
-
-								do_action('padma_before_pin_thumbnail');
-
-								echo '<div class="pin-board-pin-thumbnail">' . "\n";
-
-									if ( $image_click_action == 'post' ) {
-
-										echo '<a href="' . get_permalink() . '" class="post-thumbnail" title="' . $title_for_attribute . '">';
-											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" />';
-										echo '</a>' . "\n";
-
-									} elseif ($image_click_action == 'popup') {
-
-										echo '<a href="' . esc_url($full_image_url) . '" class="thickbox post-thumbnail" rel="pinboard-'.$block['id'].'" title="' . $title_for_attribute . '">';
-											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" />';
-										echo '</a>' . "\n";
-
-									} else {
-
-										echo '<a class="post-thumbnail"><img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" /></a>' . "\n";
-
-									}
-									if ( $show_pinterest_button || $show_twitter_button || $show_facebook_button ) {
-
-										echo '<div class="pin-board-pin-thumbnail-social">' . "\n";
-
-											if ( $show_facebook_button )
-												self::facebook_button(get_permalink(), $facebook_button_verb);
-
-											if ( $show_twitter_button )
-												self::twitter_button(get_permalink(), $title_for_attribute, $twitter_username, $twitter_hashtag);
-
-											if ( $show_pinterest_button ) {
-
-												$full_size_image = wp_get_attachment_image_src($thumbnail_id, 'full');
-												$full_size_image_url = $full_size_image[0];
-
-												self::pinterest_button(get_permalink(), $full_size_image_url);
-
-											}
-
-										echo '</div>' . "\n";
-
-									}
-
-								echo '</div>' . "\n\n";
-
-								do_action('padma_after_pin_thumbnail');
-
-							}
-						/* End Thumbnail */
-
-						echo '<div class="below-thumb">' . "\n";
-
-						/* Titles below */
-							if ( $show_titles && $titles_position == 'below') {
-
-								echo '<h3 class="entry-title">';
-								if ($titles_link_to_post) {
-									echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-								} else {
-									echo get_the_title();
-								}
-								echo '</h3>' . "\n";
-
-							}
-						/* End Titles below */
-
-						/* Meta */
-							if ( $show_author || $show_datetime || $show_categories  || $show_tags || $show_post_type) {
-
-								global $authordata;
-
-								do_action('padma_before_pin_meta');
-
-								echo '<div class="entry-meta">' . "\n";
-
-									if ( $show_datetime ) {
-										echo '<span class="entry-date published" title="' . get_the_time('c') . '">' . ($datetime_verb ? $datetime_verb . ' ' : '') . self::relative_time($relative_times) . '</span> ';
-									}
-
-									if ( $show_author ) {
-										echo '<em class="author-by">by</em> <a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="View all entries by ' . $authordata->display_name . '">' . $authordata->display_name . '</a>';
-									}
-
-									if ( $show_categories ) {
-										echo '<div class="entry-categories">' . get_the_category_list(', ') . '</div>';
-									}
-
-									if ( $show_tags ) {
-										echo '<div class="entry-tags">' . get_the_tag_list('', ', ') . '</div>';
-									}
-
-									if ( $show_post_type ) {
-										echo '<div class="entry-post-type">' . get_post_type() . '</div>';
-									}
-									
-
-								echo '</div>' . "\n";
-
-								do_action('padma_after_pin_meta');
-
-							}
-						/* End Meta */
-
-						/* Excerpts/Content */
-								do_action('padma_before_pin_content');
-
-								if ( ($show_text_when_no_image && !has_post_thumbnail()) || ($content_to_show && !$show_text_when_no_image)) {
-
-									echo '<div class="pin-board-pin-text entry-content">' . "\n";
-
-									if ($content_to_show == 'excerpt') {
-											add_filter('excerpt_more', array(__CLASS__, 'excerpt_more'));
-											the_excerpt();
-											remove_filter('excerpt_more', array(__CLASS__, 'excerpt_more'));
-									} elseif ( $content_to_show == 'content') {
-										the_content();
-									}
-
-									echo '</div>' . "\n";
-
-								}
-
-								do_action('padma_after_pin_content');
-
-						/* End Excerpts */
+						/* End Product */
 
 
 						/* Backup social buttons if no image is present */
@@ -461,12 +361,242 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 							}
 						/* End backup social buttons */
 
-						echo '</div>' . "\n";
+						
+						echo '</div>' . "\n\n";
 
-					echo '</div>' . "\n\n";
-				} // End while loop
+					}
+					echo '</div>' . "\n";
 
-				echo '</div>' . "\n";
+					wp_reset_postdata();
+					woocommerce_product_loop_end();
+					do_action('woocommerce_after_shop_loop');
+
+				} else {
+					do_action('woocommerce_no_products_found');
+				}
+
+
+			// Show Content
+			}else{
+
+				/* Query! */
+					$original_wp_query 	= $wp_query;
+					$wp_query 			= new WP_Query($query_args);
+				/* End Query Setup */
+
+					echo '<div class="pin-board" data-pin-board-ajax-paged="' . padma_get('paged', $query_args, 1) . '" data-pin-board-mode="' . parent::get_setting( $block, 'mode', 'default' ) . '">' . "\n";
+
+						echo '<div class="pin-board-gutter-sizer"></div>' . "\n";
+						echo '<div class="pin-board-column-sizer"></div>' . "\n\n";
+
+					while ( $wp_query->have_posts() ) {
+
+						$wp_query->the_post();
+
+						/* If only images are being shown and there's no thumbnail, then don't show the pin. */
+						if ( !($show_images && has_post_thumbnail()) && !$content_to_show && !$show_titles && !$show_text_when_no_image )
+							continue;
+
+						$title_for_attribute 	= the_title_attribute(array('echo' => false));
+						$pin_classes 			= get_post_class();
+						$pin_classes[] 			= has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
+
+						echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
+
+							/* Titles above */
+								if ( $show_titles && $titles_position == 'above') {
+
+									echo '<h3 class="entry-title">';
+									if ($titles_link_to_post) {
+										echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+									} else {
+										echo get_the_title();
+									}
+									echo '</h3>' . "\n";
+
+								}
+							/* End Titles above */
+
+							/* Thumbnail */
+								if ( has_post_thumbnail() && $show_images ) {
+
+									$thumbnail_id = get_post_thumbnail_id();
+
+									$thumbnail_width = $approx_pin_width + 30; /* Add a 30px buffer to insure that image will be large enough */
+
+									//$crop_vertically
+									if ( $crop_images_vertically ) {
+
+										$thumbnail_height 	= round($approx_pin_width * 0.75);
+										$thumbnail_object 	= wp_get_attachment_image_src($thumbnail_id, 'full');
+										$thumbnail_url 		= padma_resize_image($thumbnail_object[0], $thumbnail_width, $thumbnail_height);
+										$full_image_url 	= $thumbnail_object[0];
+
+									} else {
+
+										$thumbnail_object 	= wp_get_attachment_image_src($thumbnail_id, 'full');
+										$thumbnail_url 		= padma_resize_image($thumbnail_object[0], $thumbnail_width);
+										$full_image_url 	= $thumbnail_object[0];
+
+									}
+
+									do_action('padma_before_pin_thumbnail');
+
+									echo '<div class="pin-board-pin-thumbnail">' . "\n";
+
+										if ( $image_click_action == 'post' ) {
+
+											echo '<a href="' . get_permalink() . '" class="post-thumbnail" title="' . $title_for_attribute . '">';
+												echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" />';
+											echo '</a>' . "\n";
+
+										} elseif ($image_click_action == 'popup') {
+
+											echo '<a href="' . esc_url($full_image_url) . '" class="thickbox post-thumbnail" rel="pinboard-'.$block['id'].'" title="' . $title_for_attribute . '">';
+												echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" />';
+											echo '</a>' . "\n";
+
+										} else {
+
+											echo '<a class="post-thumbnail"><img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" /></a>' . "\n";
+
+										}
+										if ( $show_pinterest_button || $show_twitter_button || $show_facebook_button ) {
+
+											echo '<div class="pin-board-pin-thumbnail-social">' . "\n";
+
+												if ( $show_facebook_button )
+													self::facebook_button(get_permalink(), $facebook_button_verb);
+
+												if ( $show_twitter_button )
+													self::twitter_button(get_permalink(), $title_for_attribute, $twitter_username, $twitter_hashtag);
+
+												if ( $show_pinterest_button ) {
+
+													$full_size_image = wp_get_attachment_image_src($thumbnail_id, 'full');
+													$full_size_image_url = $full_size_image[0];
+
+													self::pinterest_button(get_permalink(), $full_size_image_url);
+
+												}
+
+											echo '</div>' . "\n";
+
+										}
+
+									echo '</div>' . "\n\n";
+
+									do_action('padma_after_pin_thumbnail');
+
+								}
+							/* End Thumbnail */
+
+							echo '<div class="below-thumb">' . "\n";
+
+							/* Titles below */
+								if ( $show_titles && $titles_position == 'below') {
+
+									echo '<h3 class="entry-title">';
+									if ($titles_link_to_post) {
+										echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+									} else {
+										echo get_the_title();
+									}
+									echo '</h3>' . "\n";
+
+								}
+							/* End Titles below */
+
+							/* Meta */
+								if ( $show_author || $show_datetime || $show_categories  || $show_tags || $show_post_type) {
+
+									global $authordata;
+
+									do_action('padma_before_pin_meta');
+
+									echo '<div class="entry-meta">' . "\n";
+
+										if ( $show_datetime ) {
+											echo '<span class="entry-date published" title="' . get_the_time('c') . '">' . ($datetime_verb ? $datetime_verb . ' ' : '') . self::relative_time($relative_times) . '</span> ';
+										}
+
+										if ( $show_author ) {
+											echo '<em class="author-by">by</em> <a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="View all entries by ' . $authordata->display_name . '">' . $authordata->display_name . '</a>';
+										}
+
+										if ( $show_categories ) {
+											echo '<div class="entry-categories">' . get_the_category_list(', ') . '</div>';
+										}
+
+										if ( $show_tags ) {
+											echo '<div class="entry-tags">' . get_the_tag_list('', ', ') . '</div>';
+										}
+
+										if ( $show_post_type ) {
+											echo '<div class="entry-post-type">' . get_post_type() . '</div>';
+										}
+										
+
+									echo '</div>' . "\n";
+
+									do_action('padma_after_pin_meta');
+
+								}
+							/* End Meta */
+
+							/* Excerpts/Content */
+									do_action('padma_before_pin_content');
+
+									if ( ($show_text_when_no_image && !has_post_thumbnail()) || ($content_to_show && !$show_text_when_no_image)) {
+
+										echo '<div class="pin-board-pin-text entry-content">' . "\n";
+
+										
+										if ($content_to_show == 'excerpt') {
+
+												add_filter('excerpt_more', array(__CLASS__, 'excerpt_more'));
+												the_excerpt();
+												remove_filter('excerpt_more', array(__CLASS__, 'excerpt_more'));
+
+										} elseif ( $content_to_show == 'content') {
+
+											the_content();
+
+										}
+
+
+										echo '</div>' . "\n";
+
+									}
+
+									do_action('padma_after_pin_content');
+
+							/* End Excerpts */
+
+
+							/* Backup social buttons if no image is present */
+								if ( (!has_post_thumbnail() || !$show_images) && ($show_twitter_button || $show_facebook_button) ) {
+
+									echo '<div class="pin-board-pin-social">' . "\n";
+
+										if ( $show_twitter_button )
+											self::twitter_button(get_permalink(), $title_for_attribute, $twitter_username, $twitter_hashtag);
+
+										if ( $show_facebook_button )
+											self::facebook_button(get_permalink(), $facebook_button_verb);
+
+									echo '</div>' . "\n";
+
+								}
+							/* End backup social buttons */
+
+							echo '</div>' . "\n";
+
+						echo '</div>' . "\n\n";
+					} // End while loop
+
+					echo '</div>' . "\n";
+			}
 
 			if ( parent::get_setting($block, 'paginate', true) || $infinite_scroll ) {
 
@@ -724,6 +854,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public $tabs = array(
 			'pin-setup' 		=> 'Pin Setup',
 			'query-filters' 	=> 'Query Filters',
+			'woocommerce' 		=> 'WooCommerce Filters',
 			'pagination' 		=> 'Pagination/Infinite Scroll',
 			'text' 				=> 'Text',
 			'meta' 				=> 'Meta',
@@ -741,15 +872,43 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					'label' 	=> 'Mode',
 					'tooltip' 	=> 'If you would like to modify the default behaviour, select custom query. <br/><strong>Note:</strong>On archive pages, it\'s not advisable to use a custom query if the block is displaying the archive results.<br/>On search pages, it may be necessary to limit results to only certain content types.',
 					'options' 	=> array(
-							'default' 	=> 'Default behaviour',
-							'custom' 	=> 'Custom query',
+							'default' 		=> 'Default behaviour',
+							'custom' 		=> 'Custom query',
+							'woocommerce' 	=> 'WooCommerce',
 						),
 					'toggle' 	=> array(
 						'default' => array(
-								'hide' => 'li#sub-tab-query-filters'
+							'hide' => array(
+								'li#sub-tab-query-filters',
+								'li#sub-tab-woocommerce',
 							),
+							'show' => array(
+								'li#sub-tab-text',
+								'li#sub-tab-meta',
+								'li#sub-tab-images',
+							)
+						),
 						'custom' => array(
-							'show' => 'li#sub-tab-query-filters'
+							'hide' => array(
+								'li#sub-tab-woocommerce',
+							),
+							'show' => array(
+								'li#sub-tab-query-filters',
+								'li#sub-tab-text',
+								'li#sub-tab-meta',
+								'li#sub-tab-images',
+							)
+						),
+						'woocommerce' => array(
+							'hide' => array(
+								'li#sub-tab-query-filters',								
+								'li#sub-tab-text',
+								'li#sub-tab-meta',
+								'li#sub-tab-images',
+							),
+							'show' => array(
+								'li#sub-tab-woocommerce',								
+							)
 						)
 					)
 				),
@@ -902,6 +1061,102 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				)
 			),
 
+			'woocommerce' => array(
+				'woo-content-type' => array(
+					'type' 		=> 'select',
+					'name' 		=> 'woo-content-type',
+					'label' 	=> 'WooCommerce Content',
+					'options' 	=> array(
+						'none'						=> 'Choose your content',
+						'recent_products' 			=> 'Recent Products',
+						'featured_products' 		=> 'Featured Products',
+						'product_category' 			=> 'Product Category',
+						'sale_products' 			=> 'Sale Products',
+						'best_selling_products' 	=> 'Best Selling Products',
+						'top_rated_products' 		=> 'Top Rated Products'
+					),
+					'toggle' => array(
+						'none' => array(
+							'hide' => '#sub-tab-woocommerce-content #input-woo-categorys',
+							'show' => array(),
+						),
+						'product_category' => array(
+							'show' => '#sub-tab-woocommerce-content #input-woo-category',
+							'hide' => array(),
+						),
+						'recent_products' => array(
+							'hide' => '#sub-tab-woocommerce-content #input-woo-category',
+							'show' => array(),
+						),
+						'featured_products' => array(
+							'hide' => '#sub-tab-woocommerce-content #input-woo-category',
+							'show' => array(),
+						),
+						'sale_products' => array(
+							'hide' => '#sub-tab-woocommerce-content #input-woo-category',
+							'show' => array(),
+						),
+						'best_selling_products' => array(
+							'hide' => '#sub-tab-woocommerce-content #input-woo-category',
+							'show' => array(),
+						),
+						'top_rated_products' => array(
+							'hide' => '#sub-tab-woocommerce-content #input-woo-category',
+							'show' => array(),
+						),
+					),
+					'default' => '',
+					'tooltip' => 'Choose your WooCommerce content to display',
+				),
+				'woo-category' => array(
+					'type' 		=> 'select',
+					'name' 		=> 'woo-category',
+					'label' 	=> 'Category Slug',
+					'default' 	=> '',
+					'tooltip' 	=> 'Choose your category to display.<br />Tip: You can find the category slug in the WooCommerce Category Admin panel',
+					'options'	=> 'get_woocommerce_categories()'
+				),
+				'woo-products-per-page' => array(
+					'type' 		=> 'integer',
+					'name' 		=> 'woo-products-per-page',
+					'label' 	=> 'Products Per Page',
+					'default' 	=> 12,
+					'tooltip' 	=> 'Determines how many products to load at one time before loading more via pagination or <em>infinite scrolling</em>.'
+				),
+				'woo-order-by' => array(
+					'type' 		=> 'select',
+					'name' 		=> 'woo-order-by',
+					'label' 	=> 'Order By',
+					'tooltip' 	=> '',
+					'options' 	=> array(
+						'date' 			=> 'Date',
+						'title' 		=> 'Title',
+						'rand' 			=> 'Random',
+						'id' 			=> 'ID',
+						'menu_order' 	=> 'Menu order',
+						'popularity' 	=> 'Popularity',
+						'rating' 		=> 'Rating',
+					),
+				),				
+				'woo-order' => array(
+					'type' 		=> 'select',
+					'name' 		=> 'woo-order',
+					'label' 	=> 'Order',
+					'tooltip' 	=> '',
+					'options' 	=> array(
+						'desc' 	=> 'Descending',
+						'asc' 	=> 'Ascending',
+					),
+				),
+				'woo-offset' => array(
+					'type' 		=> 'integer',
+					'name' 		=> 'offset',
+					'label' 	=> 'Offset',
+					'tooltip' 	=> 'The offset is the number of products or posts you would like to skip.  If the offset is 1, then the first product will be skipped.',
+					'default' 	=> 0
+				),		
+			),
+
 			'pagination' => array(
 				'paginate' => array(
 					'type' => 'checkbox',
@@ -1020,87 +1275,6 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						'default' 	=> 'Posted',
 						'tooltip'	=> 'The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"'
 					),
-
-				/*
-				'relative-times' => array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'relative-times',
-						'label' 	=> 'Meta: Use Relative Times',
-						'default' 	=> true,
-						'tooltip' 	=> '<strong>Example:</strong> 8 hours ago'
-					),
-				'entry-meta-above' => array(
-						'type' 		=> 'textarea',
-						'label' 	=> 'Meta Above Content',
-						'name' 		=> 'entry-meta-above',
-						'default' 	=> 'Posted on %date% by %author% &bull; %comments%'
-					),
-
-				'entry-meta-above' => array(
-					'type' => 'textarea',
-					'label' => 'Meta Above Content',
-					'name' => 'entry-meta-above',
-					'default' => 'Posted on %date% by %author% &bull; %comments%'
-				),
-				
-				'entry-utility-below' => array(
-					'type' => 'textarea',
-					'label' => 'Meta Below Content',
-					'name' => 'entry-utility-below',
-					'default' => 'Filed Under: %categories%'
-				),
-
-				'date-format' => array(
-					'type' => 'select',
-					'name' => 'date-format',
-					'label' => 'Date Format'
-				),
-
-				'time-format' => array(
-					'type' => 'select',
-					'name' => 'time-format',
-					'label' => 'Time Format'
-				),
-
-				'comments-meta-heading' => array(
-					'name' => 'comments-meta-heading',
-					'type' => 'heading',
-					'label' => 'Comments Meta'
-				),
-
-					'comment-format' => array(
-						'type' => 'text',
-						'label' => 'Comment Format &ndash; More Than 1 Comment',
-						'name' => 'comment-format',
-						'default' => '%num% Comments',
-						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>more than 1 comment</strong> on the entry.'
-					),
-					
-					'comment-format-1' => array(
-						'type' => 'text',
-						'label' => 'Comment Format &ndash; 1 Comment',
-						'name' => 'comment-format-1',
-						'default' => '%num% Comment',
-						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>just 1 comment</strong> on the entry.'
-					),
-					
-					'comment-format-0' => array(
-						'type' => 'text',
-						'label' => 'Comment Format &ndash; 0 Comments',
-						'name' => 'comment-format-0',
-						'default' => '%num% Comments',
-						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there are <strong>0 comments</strong> on the entry.'
-
-					),
-					
-					'respond-format' => array(
-						'type' => 'text',
-						'label' => 'Respond Format',
-						'name' => 'respond-format',
-						'default' => 'Leave a comment!',
-						'tooltip' => 'Determines the %respond% variable for the entry meta.'
-					)
-					*/
 			),
 
 			'images' => array(
@@ -1122,7 +1296,6 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 															'none'  => 'Do nothing'
 														)
 				),
-
 				'crop-vertically' => array(
 					'type' => 'checkbox',
 					'name' => 'crop-vertically',
@@ -1251,6 +1424,27 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			return $category_options;
 
+		}
+
+		public static function get_woocommerce_categories() {
+
+			$orderby 	= 'name';
+			$order 		= 'asc';
+			$hide_empty = false ;
+			$cat_args 	= array(
+				'orderby'    => $orderby,
+				'order'      => $order,
+				'hide_empty' => $hide_empty,
+			);
+
+			$product_categories = get_terms( 'product_cat', $cat_args );
+
+			$categories = array();
+			foreach ($product_categories as $key => $category) {
+				$categories[$category->term_id] = $category->name;
+			}
+
+			return $categories;
 		}
 
 

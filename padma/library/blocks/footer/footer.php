@@ -93,7 +93,8 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 		if ( parent::get_setting($block, 'show-copyright', true) == true )
 			self::show_copyright(parent::get_setting($block, 'custom-copyright'));
 		
-		if ( parent::get_setting($block, 'show-responsive-grid-link', true) == true )
+		// Show or hide "Show full site" on mobile
+		if ( parent::get_setting($block, 'show-responsive-grid-link', true) == false )
 			self::show_responsive_grid_toggle_link();
 		
 		do_action('padma_footer_close');
@@ -243,6 +244,14 @@ class PadmaFooterBlockOptions extends PadmaBlockOptionsAPI {
 				'label' => 'Custom Copyright',
 				'type' => 'text',
 				'tooltip' => 'If you would like to change the copyright in the footer to say something different, enter it here.'
+			),
+			
+			'show-responsive-grid-link' => array(
+				'name' => 'show-responsive-grid-link',
+				'label' => 'Hide a link to view the full site on mobile.',
+				'type' => 'checkbox',
+				'tooltip' => 'Shows a link to either view the full site or view the mobile site.',
+				'default' => false
 			)
 		)
 	);

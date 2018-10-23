@@ -40,7 +40,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.25
-* Released: October 3, 2018
+* Released: October 22, 2018
+
 CSS Effects for images
 Design Mode updates
 - Added more CSS Units
@@ -54,9 +55,11 @@ JS libraries updates
 - Underscore updated to 1.9.1
 - jQuery UI Touch Punch updated to 0.2.3
 PHP 7.3 Ready
-
-
-
+WooCommerce compatibility update
+Visual Editor Fixes
+Slider block updated
+Footer new option to hide "Show full site" on mobile.
+Pin Board WooCommerce Support
 
 
 = 0.0.24

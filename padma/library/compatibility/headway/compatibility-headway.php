@@ -82,8 +82,8 @@ class PadmaCompatibilityHeadway {
 
 			if(!class_alias($padmaClass,$headwayClassName)){
 
-				$headwayTrait 		= $headwayClassName . 'Trait';
-				$definition  = "trait $headwayTrait {";
+				$headwayTrait 	= $headwayClassName . 'Trait';
+				$definition  	= "trait $headwayTrait {";
 				foreach ($methods as $key => $method) {
 
 					// visibility

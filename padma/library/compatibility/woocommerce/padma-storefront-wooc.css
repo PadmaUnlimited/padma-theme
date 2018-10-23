@@ -6,13 +6,13 @@ div.product div.images img,
 	box-shadow: none;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
-
 	transition: none;
 	-moz-transition: none;
 	-webkit-transition: none;
-
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	max-width: 100%;	
+    object-fit: contain;
 }
 
 ul.products li.product .price del,

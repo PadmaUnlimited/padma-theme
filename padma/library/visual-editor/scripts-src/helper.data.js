@@ -4,6 +4,7 @@ define(['underscore'], function(_) {
 	dataHandleInput = function(input, value, additionalCallbackArgs) {
 
 		var input = $(input);
+		
 
 		/* Make sure input exists */
 		if ( !input.length )
@@ -17,7 +18,7 @@ define(['underscore'], function(_) {
 		var optionID 	= input.attr('name').toLowerCase();
 		var optionGroup = input.attr('data-group').toLowerCase();
 
-		var callback = eval(input.attr('data-callback'));
+		var callback 	= eval(input.attr('data-callback'));
 		var dataHandlerOverrideCallback = eval(input.attr('data-data-handler-callback')) || null;
 
 		/* Set up arguments */

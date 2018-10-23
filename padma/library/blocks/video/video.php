@@ -81,20 +81,20 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 		if(parent::get_setting($block, 'width-dynamic') || parent::get_setting($block, 'height-dynamic')){
 			
 			$js 		= "jQuery(document).ready(function() {";
-			$js_resize 	= "jQuery( window ).on( 'orientationchange resize', function( event ) {";
+			$js_resize 	= "jQuery( window ).on( 'orientationchange resize load', function( event ) {";
 			$js_load 	= "";
 			
 			if(parent::get_setting($block, 'width-dynamic')){
-				$js_resize 	.= "jQuery( 'div#block-". $block_id ." video' ).attr('width',window.innerWidth);";
+				$js_resize 	.= "jQuery( 'div#block-". $block_id ." video' ).attr('width', jQuery( 'div#block-". $block_id ."' ).width());";
 				$js_load  	.= "if(window.innerWidth < ".$block['settings']['width']."){
-					jQuery( 'div#block-". $block_id ." video' ).attr('width',window.innerWidth);
+					jQuery( 'div#block-". $block_id ." video' ).attr('width', window.innerWidth);
 				}";
 			}
 
 			if(parent::get_setting($block, 'height-dynamic')){
-				$js_resize .= "jQuery( 'div#block-". $block_id ." video' ).attr('height',window.innerHeight);";
+				$js_resize .= "jQuery( 'div#block-". $block_id ." video' ).attr('height', jQuery( 'div#block-". $block_id ."' ).height());";
 				$js_load  	.= "if(window.innerHeight < ".$block['settings']['height']."){
-					jQuery( 'div#block-". $block_id ." video' ).attr('height',window.innerHeight);
+					jQuery( 'div#block-". $block_id ." video' ).attr('height', window.innerHeight);
 				}";
 			}
 			$js_resize .= "});";
@@ -153,10 +153,10 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 				$videoHTML .= ' poster="' . padma_format_url_ssl(parent::get_setting($block, 'poster')) . '"';
 
 			if(parent::get_setting($block, 'width'))
-				$videoHTML .= 'width="'.parent::get_setting($block, 'width').'"';
+				$videoHTML .= ' width="'.parent::get_setting($block, 'width').'"';
 
 			if(parent::get_setting($block, 'height'))
-				$videoHTML .= 'height="'.parent::get_setting($block, 'height').'"';
+				$videoHTML .= ' height="'.parent::get_setting($block, 'height').'"';
 
 			
 			$videoHTML .= '>';
@@ -234,7 +234,7 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'autoplay',
 				'label' => 'Autoplay',
 				'type' => 'checkbox',
-				'default' => true,
+				'default' => false,
 				'tooltip' => 'Specifies that the video will start playing as soon as it is ready'
 			),
 
@@ -242,7 +242,7 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'loop',
 				'label' => 'Loop',
 				'type' => 'checkbox',
-				'default' => true,
+				'default' => false,
 				'tooltip' => 'Specifies that the video will start over again, every time it is finished'
 			),
 
@@ -263,7 +263,7 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'controls',
 				'label' => 'Controls',
 				'type' => 'checkbox',
-				'default' => true,
+				'default' => false,
 				'tooltip' => 'Specifies that video controls should be displayed (such as a play/pause button etc).'
 			),
 

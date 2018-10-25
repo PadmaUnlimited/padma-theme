@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5
-Version: 0.0.25
+Version: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -39,9 +39,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 0.0.25
+= 0.1.0
 * Released: October 25, 2018
 
+Tested with WordPress 5 Beta 1
+PHP 7.3 Ready
 Visual Editor Fixes
 Design Mode updates
 - Added more CSS Units
@@ -53,13 +55,10 @@ New Object-fit and Object-position options on sizes
 JS libraries updates
 - Underscore updated to 1.9.1
 - jQuery UI Touch Punch updated to 0.2.3
-PHP 7.3 Ready
 Slider block updated
 Footer new option to hide "Show full site" on mobile.
 WooCommerce compatibility update
 CSS Effects for images
-Pin Board WooCommerce Support
-
 
 = 0.0.24
 * Released: September 5, 2018

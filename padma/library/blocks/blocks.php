@@ -30,7 +30,6 @@ class PadmaBlocks {
 		'slidedeck',
 		'video',
 		'audio',
-		'map',
 	);
 
 

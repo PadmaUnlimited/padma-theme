@@ -1,8 +1,8 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 4.9.8
-Version: 0.0.24
+Tested up to: WordPress 5
+Version: 0.0.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,25 +40,24 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.0.25
-* Released: October 22, 2018
+* Released: October 25, 2018
 
-CSS Effects for images
+Visual Editor Fixes
 Design Mode updates
 - Added more CSS Units
 Grid updates
 - Support to delete one or multiple blocks with the delete key
 New Audio block
 New Video block
-New Map block
 New Object-fit and Object-position options on sizes
 JS libraries updates
 - Underscore updated to 1.9.1
 - jQuery UI Touch Punch updated to 0.2.3
 PHP 7.3 Ready
-WooCommerce compatibility update
-Visual Editor Fixes
 Slider block updated
 Footer new option to hide "Show full site" on mobile.
+WooCommerce compatibility update
+CSS Effects for images
 Pin Board WooCommerce Support
 
 

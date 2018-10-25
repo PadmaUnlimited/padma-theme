@@ -60,6 +60,7 @@ Footer new option to hide "Show full site" on mobile.
 WooCommerce compatibility update
 CSS Effects for images
 
+
 = 0.0.24
 * Released: September 5, 2018
 Save on cloud updates

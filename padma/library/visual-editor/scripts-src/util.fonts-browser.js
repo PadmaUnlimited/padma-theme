@@ -52,10 +52,21 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 					if ( fontVariants && fontVariants.indexOf('regular') === -1 )
 						variantsStr = '|' + fontVariants.join(',');
-					
 
-					var value = webfontProvider != false ? webfontProvider + '|' + fontID + variantsStr : fontID;
+					for (var i = fontVariants.length - 1; i >= 0; i--) {
+						var variant = fontVariants[i];
+							variant.replace('300italic','i');
+
+						variantsStr += variant;
+
+						if (i > 0){
+							variantsStr += ',';
+						}
+					}					
+
+					var value = webfontProvider != false ? webfontProvider + '|' + fontID + ':' + variantsStr : fontID;
 					/* Change readout */
+
 					var fontNameReadout = self.propertyInput.find('.font-name');
 
 					fontNameReadout.css('font-family', fontFamily);

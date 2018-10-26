@@ -182,9 +182,7 @@ abstract class PadmaWebFontProvider {
 			
 			$html = '<li data-value="' . $font['id'] . '" style="font-family:' . $font['stack'] . ';" data-variants="[';
 
-			if(is_array($font['variants'])){
-				
-				
+			if(is_array($font['variants'])){			
 
 				$variants = '';
 				foreach ($font['variants'] as $key => $value) {

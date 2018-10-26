@@ -1299,6 +1299,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			
 			/* Refresh Tooltips */
 			setupTooltips();
+
+			$('.options-filter-only-modified input').prop('checked', false);
 		
 		}
 	/* END CONTENT TOGGLING */

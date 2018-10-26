@@ -897,6 +897,7 @@ class PadmaElementProperties {
 			),
 
 		/*		Effects		*/
+		/*
 		'effect' => array(
 				'group' 			=> 'Effects',
 				'name' 				=> 'Effects',
@@ -906,6 +907,7 @@ class PadmaElementProperties {
 				'js-callback' 		=> 'propertyInputCallbackEffects(params);',
 				'complex-property' 	=> 'PadmaElementProperties::complex_property_effect_content'
 			),
+		*/
 
 	);
 

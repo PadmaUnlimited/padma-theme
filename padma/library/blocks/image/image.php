@@ -22,7 +22,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 			'id' => 'image',
 			'name' => 'Image',
 			'selector' => 'img',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'effects')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes')
 		));
 
 		$this->register_block_element(array(

@@ -1,7 +1,7 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5
+Tested up to: WordPress 5 beta 1
 Version: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,9 +40,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.1.0
-* Released: October 25, 2018
+* Released: October 26, 2018
 
 Tested with WordPress 5 Beta 1
+Tested with ClassicPress Alpha
 PHP 7.3 Ready
 Visual Editor Fixes
 Design Mode updates
@@ -58,7 +59,6 @@ JS libraries updates
 Slider block updated
 Footer new option to hide "Show full site" on mobile.
 WooCommerce compatibility update
-CSS Effects for images
 
 
 = 0.0.24

@@ -22,7 +22,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			'id' => 'video',
 			'name' => 'Video',
 			'selector' => 'video',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'effects')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes')
 		));
 
 		$this->register_block_element(array(

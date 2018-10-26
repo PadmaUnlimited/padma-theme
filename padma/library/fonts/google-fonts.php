@@ -37,7 +37,7 @@ class PadmaGoogleFonts extends PadmaWebFontProvider {
 		if ( is_wp_error( $data ) ) {
 			return;
 		}
-				
+
 		return json_decode($data, true);
 
 	}

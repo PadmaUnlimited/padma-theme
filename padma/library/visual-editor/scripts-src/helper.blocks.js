@@ -1,4 +1,4 @@
-define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history) {
+define(['modules/panel.inputs', 'helper.history', 'deps/jBox', 'deps/jBox.Confirm'], function(panelInputs, history) {
 
 	getBlockByID = function(id) {
 
@@ -558,10 +558,24 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 						$('<li class="context-menu-block-delete"><span>Delete Block</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function(event) {
 
+							/*
+							return new jBox('Confirm', {
+							    confirmButton: 'Do it!',
+							    cancelButton: 'Nope',
+							    confirm: function(){
+							    	console.log('confirm');
+							    },
+							    cancel: function(){
+							    	console.log('Cancel');
+							    }
+							});*/
+
+							
 							if ( !confirm('Are you sure you want to delete this block?') )
 								return false;
 
 							deleteBlock(block);
+							
 
 						});
 

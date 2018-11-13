@@ -1,6 +1,11 @@
-define(['jquery', 'qtip'], function($) {
+define(['jquery', 'qtip', 'deps/jBox'], function($) {
 
 	setupTooltips = function(location) {
+
+		new jBox('Tooltip', {
+			attach: '.tooltip-button',
+			theme: 'TooltipDark'
+		});
 		
 		if ( typeof location === 'undefined' )
 			location = false;

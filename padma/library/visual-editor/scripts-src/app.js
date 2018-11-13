@@ -69,6 +69,18 @@ require(['jquery', 'util.loader'], function($) {
 		history.init();
 	});
 
+
+	/**
+	 *
+	 * Offline check
+	 *
+	 */
+	require(['util.offline'], function(offline) {
+		offline.init();
+	});
+	
+	
+
 	/* Load in the appropriate modules depending on the mode */
 	switch ( Padma.mode ) {
 

@@ -576,6 +576,7 @@ define(['modules/panel.inputs', 'helper.history', 'deps/jBox', 'deps/jBox.Confir
 
 							deleteBlock(block);
 							
+							
 
 						});
 

@@ -7,7 +7,7 @@ define(['jquery', 'util.misc'], function($) {
 		
 		var append = typeof append == 'undefined' ? false : append;
 
-		var cogString = '<div class="cog-container"><div class="cog-bottom-left"></div><div class="cog-top-right"></div></div>';
+		var cogString = '<div class="lotus"><div class="lotus_leaf"></div><div class="lotus_leaf"></div><div class="lotus_leaf"></div><div class="lotus_leaf"></div><div class="lotus_leaf"></div><div class="lotus_leaf"></div><div class="lotus_leaf"></div><div class="lotus_leaf"></div></div>';
 						
 		if ( append ) {
 			

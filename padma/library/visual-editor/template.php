@@ -22,8 +22,17 @@
 	<?php do_action('padma_visual_editor_body_open'); ?>
 	
 	<div id="ve-loading-overlay">
-		<div class="cog-container"><div class="cog-bottom-left"></div><div class="cog-top-right"></div></div>
-	</div><!-- #ve-loading-overlay -->
+		<div class="lotus">
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+			<div class="lotus_leaf"></div>
+		</div>
+	</div>
 	
 	<div id="menu">
 		<span id="logo"></span>
@@ -115,7 +124,19 @@
 			?>
 			
 			<div id="iframe-overlay"></div>
-			<div id="iframe-loading-overlay"><div class="cog-container"><div class="cog-bottom-left"></div><div class="cog-top-right"></div></div></div>
+			<div id="iframe-loading-overlay">
+				<div class="lotus">
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+					<div class="lotus_leaf"></div>
+				</div>
+			</div>
+
 		</div>
 	</div>	
 	<!-- #iframe#content -->

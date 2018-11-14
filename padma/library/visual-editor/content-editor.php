@@ -38,7 +38,16 @@
 </head>
 <body>	
 <div id="ve-loading-overlay">
-	<div class="cog-container"><div class="cog-bottom-left"></div><div class="cog-top-right"></div></div>
+	<div class="lotus">
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+	</div>
 </div>
 <div class="content-editor">
 	<a target="_blank" onclick="window.close();" href="<?php echo admin_url('/post.php?post='.$post_id.'&action=edit'); ?>" class="ve-btn edit-on-wp">Open on WordPress</a>

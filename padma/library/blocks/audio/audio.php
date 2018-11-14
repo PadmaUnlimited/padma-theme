@@ -14,7 +14,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 								);
 	public $description 	= 'Display an audio';
 	
-	protected $show_content_in_grid = true;
+	protected $show_content_in_grid = false;
 	
 	function setup_elements() {
 		

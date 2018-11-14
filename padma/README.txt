@@ -39,6 +39,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+
+= 0.1.1
+* Released: November 14, 2018
+
+Visual Editor Fixes
+Offline notification
+
 = 0.1.0
 * Released: October 29, 2018
 

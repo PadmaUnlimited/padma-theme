@@ -54,7 +54,7 @@ class PadmaVisualEditor {
         
         wp_enqueue_media();
 
-				
+        
 	}
 	
 	

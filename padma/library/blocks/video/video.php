@@ -14,7 +14,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 								);
 	public $description 	= 'Display an video';
 	
-	protected $show_content_in_grid = true;
+	protected $show_content_in_grid = false;
 	
 	function setup_elements() {
 		

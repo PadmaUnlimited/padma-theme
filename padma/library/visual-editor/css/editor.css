@@ -3104,6 +3104,7 @@ div#layout-selector-tabs li.ui-tabs-active a {
     width: 20px;    
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 #menu .current-block-info span.main-block-info{
     padding-left: 5px;

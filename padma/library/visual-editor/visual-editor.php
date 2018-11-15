@@ -505,7 +505,7 @@ class PadmaVisualEditor {
 								 *
 								 * CSS transform support
 								 *
-								 */								
+								 */
 								if($property_id == 'skew'){
 									$property_id 		= 'transform';
 									$property_value 	= 'skew('.$property_value.'deg)';

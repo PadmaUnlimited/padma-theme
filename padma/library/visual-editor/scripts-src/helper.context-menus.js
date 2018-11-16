@@ -128,6 +128,10 @@
 
 		}
 
+		if( ! $('#customize-preview').hasClass('preview-desktop')){
+			contextMenuX += jQuery('iframe#content').offset().left;
+		}
+
 
 		contextMenu.css({
 			left: contextMenuX,

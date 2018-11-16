@@ -12,6 +12,24 @@ function padma_storefront_wc_register_elements() {
 
 	PadmaElementAPI::register_element(array(
 		'group' => 'blocks',
+		'id' => 'block-content-wc-result-count',
+		'parent' => 'block-content',
+		'name' => 'Result Count',
+		'description' => 'Storefront: WooCommerce',
+		'selector' => '.woocommerce .block-type-content p.woocommerce-result-count'
+	));
+
+	PadmaElementAPI::register_element(array(
+		'group' => 'blocks',
+		'id' => 'block-content-wc-ordering',
+		'parent' => 'block-content',
+		'name' => 'Ordering',
+		'description' => 'Storefront: WooCommerce',
+		'selector' => '.woocommerce .block-type-content form.woocommerce-ordering'
+	));
+
+	PadmaElementAPI::register_element(array(
+		'group' => 'blocks',
 		'id' => 'block-content-wc-breadcrumbs',
 		'parent' => 'block-content',
 		'name' => 'Breadcrumbs',
@@ -48,6 +66,14 @@ function padma_storefront_wc_register_elements() {
 		'selector' => '.woocommerce .block-type-content ul.products li.product img'
 	));
 
+	PadmaElementAPI::register_element(array(
+		'group' => 'blocks',
+		'id' => 'block-content-wc-listings-product-onsale',
+		'parent' => 'block-content-wc-listings-product-containers',
+		'name' => 'Product Listings: Onsale',
+		'description' => 'Storefront: WooCommerce',
+		'selector' => '.woocommerce .block-type-content ul.products li.product span.onsale'
+	));
 	PadmaElementAPI::register_element(array(
 		'group' => 'blocks',
 		'id' => 'block-content-wc-listings-product-prices',

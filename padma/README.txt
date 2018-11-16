@@ -48,7 +48,7 @@ Visual Editor Fixes
 Offline notification
 New loader animation
 Design Mode Updated
-- Added options to set "auto" to margin left and right
+- Added Advanced option group
 WooCommerce compatibility update
 
 

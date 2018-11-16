@@ -526,7 +526,7 @@ class PadmaVisualEditor {
 							//Loop through the special elements
 							foreach ( $element_data_node_data as $special_element => $special_element_properties ) {
 
-								/* If block ID mapping exists, make sure that none of the temporary IDs are being a saved as instances.  This is mainly to make block settimgs import work if they do it on a block that hasn't been saved yet. */
+								/* If block ID mapping exists, make sure that none of the temporary IDs are being a saved as instances.  This is mainly to make block settings import work if they do it on a block that hasn't been saved yet. */
 								if ( isset($output['block-id-mapping']) && count($output['block-id-mapping']) ) {
 
 									foreach ( $output['block-id-mapping'] as $old_block_id => $new_block_id ) {

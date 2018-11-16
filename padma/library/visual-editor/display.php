@@ -313,6 +313,11 @@ class PadmaVisualEditorDisplay {
 
 		echo "\n". '<div class="block-type-selector block-type-selector-original" style="display: none;">' . "\n";
 
+		echo '<div class="block-type-selector-filter">
+				<input type="text" id="block-type-selector-filter-text" placeholder="Filter" title="Filter blocks">
+				<a class="block-type-selector-filter-reset"><span>x</span></a>
+			</div>';
+
 				foreach ( $block_types as $block_type_id => $block_type ) {
 
 					echo '

@@ -38,6 +38,20 @@ define(['jquery'], function($) {
 
 		// set preference
 		localStorage['visual-editor-preview-mode'] = mode;
+
+		/**
+		 *
+		 * Set iframe size
+		 *
+		 */
+		 if(mode == 'tablet'){
+		 	$('#customize-preview iframe#content').attr('width',720);
+		 }else if (mode == 'mobile') {
+		 	$('#customize-preview iframe#content').attr('width',320);
+		 }else{
+		 	$('#customize-preview iframe#content').removeAttr('width');
+		 }
+		
 		 
 	}
 

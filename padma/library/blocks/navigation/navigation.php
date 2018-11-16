@@ -5,27 +5,19 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 
 	public $id = 'navigation';
-
 	public $name = 'Navigation';
-
 	public $options_class = 'PadmaNavigationBlockOptions';
-
 	public $fixed_height = false;
-
 	public $html_tag = 'nav';
-
 	public $attributes = array(
 		'itemscope' => '',
 		'itemtype' => 'http://schema.org/SiteNavigationElement'
 	);
-
 	public $description = 'The navigation is the menu that will display all of the pages in your site.';
 
 	/* Use this to pass the block from static function to static function */
 	static public $block = null;
-
 	static private $menu_sub_check_cache = array();
-
 	static private $wp_nav_menu_cache = array();
 
 
@@ -132,6 +124,8 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		echo '<div class="' . $nav_classes . '">';
 
 		echo self::get_wp_nav_menu( $block );
+
+
 
 		if ( parent::get_setting($block, 'responsive-method', 'vertical') == 'slide-out' ) {
 

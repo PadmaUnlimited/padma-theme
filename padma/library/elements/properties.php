@@ -445,29 +445,6 @@ class PadmaElementProperties {
 					'default' => 0
 				),
 
-				/*
-				'margin-left-auto' => array(
-					'group' => 'Margins',
-					'name' => 'Auto Margin Left',
-					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-left": params.value});',
-					'type' => 'select',
-					'options' => array(
-						'initial' => 'No auto',
-						'auto' => 'Auto',
-					)
-				),
-
-				'margin-right-auto' => array(
-					'group' => 'Margins',
-					'name' => 'Auto Margin Right',
-					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-right": params.value});',
-					'type' => 'select',
-					'options' => array(
-						'initial' => 'No auto',
-						'auto' => 'Auto',
-					)
-				),*/
-
 		/* Corners (Border Radius) */
 			'border-radius' => array(
 				'group' => 'Corners',

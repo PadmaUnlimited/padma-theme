@@ -43,9 +43,14 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 0.1.1
 * Released: November 14, 2018
 
+Tested with WordPress 5 Beta 5
 Visual Editor Fixes
 Offline notification
 New loader animation
+Design Mode Updated
+- Added options to set "auto" to margin left and right
+WooCommerce compatibility update
+
 
 = 0.1.0
 * Released: October 29, 2018

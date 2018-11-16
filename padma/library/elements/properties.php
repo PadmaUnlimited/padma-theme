@@ -445,6 +445,29 @@ class PadmaElementProperties {
 					'default' => 0
 				),
 
+				/*
+				'margin-left-auto' => array(
+					'group' => 'Margins',
+					'name' => 'Auto Margin Left',
+					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-left": params.value});',
+					'type' => 'select',
+					'options' => array(
+						'initial' => 'No auto',
+						'auto' => 'Auto',
+					)
+				),
+
+				'margin-right-auto' => array(
+					'group' => 'Margins',
+					'name' => 'Auto Margin Right',
+					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-right": params.value});',
+					'type' => 'select',
+					'options' => array(
+						'initial' => 'No auto',
+						'auto' => 'Auto',
+					)
+				),*/
+
 		/* Corners (Border Radius) */
 			'border-radius' => array(
 				'group' => 'Corners',
@@ -894,6 +917,92 @@ class PadmaElementProperties {
 				'type' 	=> 'integer',
 				'default' => '45',
 				'js-callback' => 'propertyInputCallbackTransformAngle(params);',
+			),
+
+
+		/* Advanced */
+			'display' => array(
+				'group' => 'Advanced',
+				'name' => 'Display',
+				'type' => 'select',
+				'options' => array(
+					"none" => "None (Hide)",
+					"initial" => "Initial",
+					"inherit" => "Inherit",
+					"inline" => "Inline",
+					"block" => "Block",
+					"contents" => "Contents",
+					"flex" => "Flex",
+					"grid" => "Grid",
+					"inline-block" => "Inline block",
+					"inline-flex" => "Inline flex",
+					"inline-grid" => "inline grid",
+					"inline-table" => "Inline table",
+					"list-item" => "List item",
+					"run-in" => "Run-in",
+					"table" => "Table",
+					"table-caption" => "Table caption",
+					"table-column-group" => "Table column group",
+					"table-header-group" => "Table header group",
+					"table-footer-group" => "Table footer group",
+					"table-row-group" => "Table row group",
+					"table-cell" => "Table cell",
+					"table-column" => "Table colums",
+					"table-row" => "Table row",
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, { "display": params.value });',
+				'default' => 'initial'
+			),
+			'float' => array(
+				'group' => 'Advanced',
+				'name' => 'Float',
+				'type' => 'select',
+				'options' => array(
+					"initial" => "Initial",
+					"inherit" => "Inherit",
+					"none" => "none",
+					"left" => "Left",
+					"right" => "Right",
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, { "float": params.value });',
+				'default' => 'initial'
+			),
+			'clear' => array(
+				'group' => 'Advanced',
+				'name' => 'Clear',
+				'type' => 'select',
+				'options' => array(
+					"initial" => "Initial",
+					"inherit" => "Inherit",
+					"none" => "None",
+					"both" => "Both",
+					"left" => "Left",
+					"right" => "Right",
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, { "clear": params.value });',
+				'default' => 'initial'
+			),
+			'visibility' => array(
+				'group' => 'Advanced',
+				'name' => 'Visibility',
+				'type' => 'select',
+				'options' => array(
+					"visible" => "Visible",
+					"initial" => "Initial",
+					"inherit" => "Inherit",
+					"hidden" => "Hidden",
+					"collapse" => "Collapse",
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, { "visibility": params.value });',
+				'default' => 'visible'
+			),
+			'opacity' => array(
+				'group' => 'Advanced',
+				'name' => 'Opacity',
+				'type' => 'integer',
+				'unit' => '%',				
+				'default' => 100,
+				'js-callback' => 'stylesheet.update_rule(params.selector, { "opacity": (params.value/100) });',
 			),
 
 		/*		Effects		*/

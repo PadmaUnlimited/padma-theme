@@ -169,6 +169,7 @@ class Padma {
 			'fonts/google-fonts',
 			'display' 						=> true,
 			'widgets' 						=> true,
+			
 			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce',
 
 			/*		Headway Classes support	*/

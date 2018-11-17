@@ -4,26 +4,19 @@ padma_register_block('PadmaHeaderBlock', padma_url() . '/library/blocks/header')
 class PadmaHeaderBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'header';
-	
-	public $name = 'Header';
-		
-	public $options_class = 'PadmaHeaderBlockOptions';
-	
-	public $fixed_height = true;
-	
-	public $html_tag = 'header';
-	
+	public $id = 'header';	
+	public $name = 'Header';		
+	public $options_class = 'PadmaHeaderBlockOptions';	
+	public $fixed_height = true;	
+	public $html_tag = 'header';	
 	public $attributes = array(
 		'itemscope' => '',
 		'itemtype' => 'http://schema.org/WPHeader'
-	);		
-
+	);
 	public $description = 'Display your banner, logo, or site title and tagline.  This typically goes at the top of your website.';
-
-	public $allow_titles = false;
-	
+	public $allow_titles = false;	
 	protected $show_content_in_grid = true;
+	public $categories = array('core','content');
 	
 	
 	function setup_elements() {

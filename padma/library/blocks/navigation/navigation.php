@@ -14,6 +14,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		'itemtype' => 'http://schema.org/SiteNavigationElement'
 	);
 	public $description = 'The navigation is the menu that will display all of the pages in your site.';
+	public $categories 	= array('core','navigation');
 
 	/* Use this to pass the block from static function to static function */
 	static public $block = null;

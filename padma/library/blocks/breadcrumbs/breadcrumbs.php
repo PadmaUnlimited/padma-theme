@@ -4,15 +4,12 @@ padma_register_block('PadmaBreadcrumbsBlock', padma_url() . '/library/blocks/bre
 class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'breadcrumbs';
-	
-	public $name = 'Breadcrumbs';
-			
+	public $id = 'breadcrumbs';	
+	public $name = 'Breadcrumbs';			
 	public $fixed_height = true;
-
-	public $description = 'Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post';
-	
+	public $description = 'Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post';	
 	public $options_class = 'PadmaBreadcrumbsBlockOptions';
+	public $categories 	= array('core','navigation');
 	
 	
 	function setup_elements() {

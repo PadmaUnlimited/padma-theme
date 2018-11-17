@@ -5,15 +5,12 @@ padma_register_block('PadmaListingsBlock', padma_url() . '/library/blocks/listin
 class PadmaListingsBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'listings';
-	
-	public $name = 'Listings';
-	
+	public $id = 'listings';	
+	public $name = 'Listings';	
 	public $options_class = 'PadmaListingsBlockOptions';
-
 	public $description = 'List out your posts, custom post types, categories, tags, custom taxonomies, authors, pages, and comments.';
-
 	static $block = null;
+	public $categories 	= array('core','content');
 
 
 	function init() {

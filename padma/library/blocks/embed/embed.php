@@ -3,15 +3,13 @@ padma_register_block('PadmaEmbedBlock', padma_url() . '/library/blocks/embed');
 class PadmaEmbedBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'embed';
-	
-	public $name = 'Embed';
-		
-	public $options_class = 'PadmaEmbedBlockOptions';
-	
+	public $id = 'embed';	
+	public $name = 'Embed';		
+	public $options_class = 'PadmaEmbedBlockOptions';	
 	public $description = 'The Embed block allows you to embed YouTube, Vimeo, or any other popular oEmbed supported service.';
+	public $categories 	= array('core','media');
 	
-	
+
 	function init() {
 		
 		add_filter('oembed_result', array(__CLASS__, 'add_embed_wmode_transparent'));

@@ -9,6 +9,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public $name 			= 'Pin Board';
 		public $description 	= 'Use to display your content in a masonry grid like Pinterest.';
 		public $options_class 	= 'PadmaPinBoardCoreBlockOptions';
+		public $categories 		= array('core','content');
 
 
 		public static function init() {

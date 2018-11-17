@@ -13,6 +13,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 									'itemtype' => 'http://schema.org/VideoObject'
 								);
 	public $description 	= 'Display an video';
+	public $categories 		= array('core','media');
 	
 	protected $show_content_in_grid = false;
 	

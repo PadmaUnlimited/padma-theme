@@ -8,6 +8,7 @@ class PadmaSliderBlock extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaSliderBlockOptions';	
 	public $fixed_height 	= false;
 	public $description 	= 'Create effective responsive image slideshows.';
+	public $categories 		= array('core','content', 'media');
 	
 	
 	public static function enqueue_action($block_id, $block) {

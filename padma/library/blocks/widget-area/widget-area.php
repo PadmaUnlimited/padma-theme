@@ -5,19 +5,15 @@ padma_register_block('PadmaWidgetAreaBlock', padma_url() . '/library/blocks/widg
 class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 	public $id = 'widget-area';
-
 	public $name = 'Widget Area';
-
 	public $options_class = 'PadmaWidgetAreaBlockOptions';
-
 	public $html_tag = 'aside';
-
 	public $attributes = array(
 		'itemscope' => '',
 		'itemtype' => 'http://schema.org/WPSideBar'
 	);
-
 	public $description = 'Used typically as a sidebar or to aid the footer.  The widget area will display WordPress widgets which are managed in the WordPress Appearance &raquo; Widgets panel.';
+	public $categories 	= array('core','content');
 
 	public static function init_action($block_id, $block) {
 

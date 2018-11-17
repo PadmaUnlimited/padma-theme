@@ -31,6 +31,7 @@ abstract class PadmaBlockAPI {
 	public $attributes 		= array();
 	public $description 	= false;
 	public $allow_titles 	= true;
+	public $categories 		= array();
 	
 
 	/* System Properties (DO NOT USE OR TOUCH) */	
@@ -58,7 +59,8 @@ abstract class PadmaBlockAPI {
 			'attributes' => $this->attributes,
 			'show-content-in-grid' => $this->show_content_in_grid,
 			'allow-titles' => $this->allow_titles,
-			'description' => $this->description
+			'description' => $this->description,
+			'categories' => $this->categories,
 		);
 		
 		//Add the element for the block itself

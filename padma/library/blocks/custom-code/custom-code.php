@@ -9,6 +9,7 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	public $name 			= 'Custom Code';		
 	public $options_class 	= 'PadmaCustomCodeBlockOptions';
 	public $description 	= 'Place in custom HTML, PHP, or even WordPress shortcodes into this block.';
+	public $categories 		= array('core','code');
 	
 	
 	function content($block) {

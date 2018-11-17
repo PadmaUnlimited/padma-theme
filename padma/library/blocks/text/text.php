@@ -4,14 +4,11 @@ padma_register_block('PadmaTextBlock', padma_url() . '/library/blocks/text');
 class PadmaTextBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'text';
-	
-	public $name = 'Text';
-		
+	public $id = 'text';	
+	public $name = 'Text';		
 	public $options_class = 'PadmaTextBlockOptions';
-
 	public $description = 'Use the built-in rich text editor to insert titles, text, and more!';
-	
+	public $categories 	= array('core','content');
 	
 	function content($block) {
 		

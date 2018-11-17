@@ -13,6 +13,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 									'itemtype' => 'http://schema.org/ImageObject'
 								);
 	public $description 	= 'Display an image';
+	public $categories 		= array('core','media');
 	
 	protected $show_content_in_grid = true;
 	

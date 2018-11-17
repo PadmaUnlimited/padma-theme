@@ -7575,11 +7575,63 @@ body.panel-on-left.visual-editor-mode-design:not(.side-panel-hidden) #customize-
 .history-wrapper .occurences button.redo.active:before{
     color: #7DD1E2;
 }
+.design-editor-options-filter{}
+.design-editor-options-filter #options-filter{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: calc(100% - 20px);
+	line-height: 35px;
+
+}
+.design-editor-options-filter .options-filter-reset{
+	display: inline-block;
+    float: right;
+    width: 20px;
+    height: 30px;
+    position: relative;
+    top: -35px;
+    font-size: 35px;
+    margin-right: 5px;
+    color: transparent;
+    cursor: pointer;
+}
+.design-editor-options-filter .options-filter-reset:before{
+	font: 400 20px/30px dashicons;	
+	display: block;
+	content: "\f335";
+	color: #777777;
+}
+.design-editor-box.filtered{
+	width: 100%;
+}
+.design-editor-box.filtered.design-editor-box-open > .design-editor-box-content,
+ul.design-editor-box-content.filtered{
+	margin-left: 0 !important;
+}
+.options-filter-only-modified{
+	display: block;
+    width: 100%;
+    text-align: right;
+    padding-top: 10px;
+    color: #777777;
+}
 .block-type-selector-filter{
-	max-width: 400px;
+	width: 100%;
     margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    display: inline-block;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 5px;
+    background-color: #fff;
+}
+.block-type-selector-filter .filter-search{
+	float: left;
+	max-width: 220px;
 }
 .block-type-selector-filter #block-type-selector-filter-text{
 	width: calc(100% - 35px);
@@ -7591,5 +7643,27 @@ body.panel-on-left.visual-editor-mode-design:not(.side-panel-hidden) #customize-
     display: block;
     line-height: 30px;
     width: 20px;
-    text-align: right;
+    text-align: center;
+}
+.block-type-selector-filter-categories{
+	width: calc(100% - 220px);
+	float: right;
+}
+.block-type-selector-filter-categories li{
+	display: inline-block;
+	width: auto;
+}
+.block-type-selector-filter-categories li a{
+	display: inline-block;
+    margin: 0 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 12px;
+    padding-bottom: 4px;
+    border-bottom: 4px solid #fff;
+    color: #666;
+    cursor: pointer;
+}
+.block-type-selector-filter-categories li a.active{
+	border-bottom: 4px solid #c62040;
 }

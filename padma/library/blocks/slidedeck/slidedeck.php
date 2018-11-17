@@ -5,13 +5,11 @@ if ( isset($GLOBALS['SlideDeckPlugin']) && is_object($GLOBALS['SlideDeckPlugin']
 class PadmaSlideDeckBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'slidedeck';
-	
-	public $name = 'SlideDeck 2';
-	
+	public $id = 'slidedeck';	
+	public $name = 'SlideDeck 2';	
 	public $options_class = 'PadmaSlideDeckBlockOptions';
-
 	public $description = 'Conveniently add SlideDecks anywhere on any layout.'; /* This will be shown in the block type selector */
+	public $categories 	= array('core','content', 'media');
 
 
 	/** 

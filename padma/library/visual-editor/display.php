@@ -311,17 +311,36 @@ class PadmaVisualEditorDisplay {
 
 		$block_types = PadmaBlocks::get_block_types();
 
+		
+
 		echo "\n". '<div class="block-type-selector block-type-selector-original" style="display: none;">' . "\n";
 
 		echo '<div class="block-type-selector-filter">
-				<input type="text" id="block-type-selector-filter-text" placeholder="Filter" title="Filter blocks">
-				<a class="block-type-selector-filter-reset"><span>x</span></a>
-			</div>';
+				<div class="filter-search">
+					<input type="text" id="block-type-selector-filter-text" placeholder="Filter" title="Filter blocks">
+					<a class="block-type-selector-filter-reset"><span>x</span></a>
+				</div>';
+
+		echo '<ul class="block-type-selector-filter-categories">';
+		echo '<li><a class="active" data-filter="all">All</a></li>';
+		
+		foreach (PadmaBlocks::get_registered_blocks_categories() as $categorie => $blocks) {
+			echo '<li><a class="" data-filter="'.$categorie.'">' . ucfirst($categorie) . '</a></li>';
+		}
+		echo '</ul>';
+		echo '</div>';
+
 
 				foreach ( $block_types as $block_type_id => $block_type ) {
 
+					$filter_categories = '';
+					foreach ($block_type['categories'] as $key => $value) {
+						$filter_categories .= 'filter-' . $value . ' '; 
+					}
+					
+
 					echo '
-						<div id="block-type-' . $block_type_id . '" class="block-type" title="' . $block_type['description'] . '">
+						<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">
 							<h4 style="background-image: url(' . $block_type['url'] . '/icon.png);">' . $block_type['name'] . '</h4>
 
 							<div class="block-type-description">

@@ -6,12 +6,10 @@ if ( class_exists('RGForms'))
 class PadmaGravityFormsBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'gravity-forms';
-	
-	public $name = 'Gravity Forms';
-	
+	public $id = 'gravity-forms';	
+	public $name = 'Gravity Forms';	
 	public $options_class = 'PadmaGravityFormsBlockOptions';
-			
+	public $categories 	= array('core','Forms');			
 
 	public static function enqueue_action($block_id) {
 								

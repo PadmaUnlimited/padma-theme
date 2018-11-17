@@ -13,6 +13,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 									'itemtype' => 'http://schema.org/AudioObject'
 								);
 	public $description 	= 'Display an audio';
+	public $categories 		= array('core','media');
 	
 	protected $show_content_in_grid = false;
 	

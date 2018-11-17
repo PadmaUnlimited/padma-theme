@@ -3,7 +3,87 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 	var modeGrid = {
 		init: function() {	
 			
-			bindGridManager();			
+			bindGridManager();
+
+
+			/**
+			 *
+			 * Filter and categories for select block type
+			 *
+			 */
+			 var blockTypeSelectorFilterReset = function(){
+				$('.block-type-selector .block-type').show();
+				$('.block-type-selector-filter-categories li a').removeClass('active');
+				$('.block-type-selector-filter-categories li:first-child a').addClass('active');
+			}
+
+			/*
+				filter Reset
+			*/
+			$(document).on('click','.block-type-selector-filter-reset',function(){
+				blockTypeSelectorFilterReset();
+			});
+
+			/**
+			 *
+			 * Filter per categorie
+			 *
+			 */
+			 $(document).on('click','.block-type-selector-filter-categories li a',function(){
+				var categorie = $(this).data('filter');
+				if(categorie == 'all'){
+					blockTypeSelectorFilterReset();
+				}else{
+					$('.block-type-selector .block-type').hide();
+					$('.block-type-selector .block-type.filter-' + categorie).show();
+				}
+				$('.block-type-selector-filter-categories li a').removeClass('active');
+				$(this).addClass('active');
+			});
+
+
+
+			/*
+				Select block type: search + filter
+			*/
+			$(document).on('keyup','#block-type-selector-filter-text',function(){
+
+				var string  = $(this).val();				
+				var options = $('.block-type-selector .block-type');
+
+				if(string.length == 0){
+					blockTypeSelectorFilterReset();
+					return;
+				}
+				
+				options.each(function(index){
+					
+					var property_id = $(this).attr('id').toString();
+					var target 		= $(this);					
+
+
+					if( property_id == undefined ){
+						//console.log(options[index]);
+
+					}else{
+						
+						if ( property_id.indexOf(string) !== -1) {
+
+							target.removeClass('hidden');
+							target.show();
+
+						}else{
+							target.addClass('hidden');
+							target.hide();
+						}
+					}
+
+				});
+
+			
+			});
+
+			
 
 		},
 

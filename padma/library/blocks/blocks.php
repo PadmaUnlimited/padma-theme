@@ -750,6 +750,24 @@ class PadmaBlocks {
 
 	}
 
+	public static function get_registered_blocks_categories(){
+
+		global $padma_block_types;
+
+		if ( !isset($padma_block_types) || empty($padma_block_types) )
+			return null;
+
+		$categories = array();
+		foreach ($padma_block_types as $block_type => $parameters) {
+			foreach ($parameters['categories'] as $param => $value) {
+				$categories[$value][] = $block_type;
+			}
+		}
+		
+		return $categories;
+
+	}
+
 
 	public static function block_type_nice($type) {
 

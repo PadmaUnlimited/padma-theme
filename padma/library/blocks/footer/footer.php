@@ -4,24 +4,18 @@ padma_register_block('PadmaFooterBlock', padma_url() . '/library/blocks/footer')
 class PadmaFooterBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'footer';
-	
-	public $name = 'Footer';
-		
-	public $options_class = 'PadmaFooterBlockOptions';
-	
-	public $html_tag = 'footer';
-	
+	public $id = 'footer';	
+	public $name = 'Footer';		
+	public $options_class = 'PadmaFooterBlockOptions';	
+	public $html_tag = 'footer';	
 	public $attributes = array(
 		'itemscope' => '',
 		'itemtype' => 'http://schema.org/WPFooter'
 	);
-
 	public $description = 'This typically goes at the bottom of your site and will display the copyright, and miscellaneous links.';
-
-	public $allow_titles = false;
-	
+	public $allow_titles = false;	
 	protected $show_content_in_grid = true;
+	public $categories 	= array('core','content');
 		
 	
 	function setup_elements() {

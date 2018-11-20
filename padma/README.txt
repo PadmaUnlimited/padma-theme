@@ -46,14 +46,15 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 Tested with WordPress 5 Beta 5
 Visual Editor Fixes
 - Fixed CSS Transform VE issue
+Code Fixes
+- Remove PHP Notice
+- Content block query fix 
 Design Mode Updated
 - Added Advanced option group
 Offline notification
 New loader animation
 WooCommerce compatibility update
 Filter options added to Select Block Type panel
-Code Fixes
-- Remove PHP Notice 
 Auto Update Support
 
 

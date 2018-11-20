@@ -47,7 +47,6 @@ class PadmaAdminInputs {
 	
 	
 	public static function input_text($input) {
-		//debug($input);
 		
 		$defaults = array(
 			'size' => 'medium',

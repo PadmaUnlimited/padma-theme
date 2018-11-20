@@ -1305,9 +1305,6 @@ class PadmaElementProperties {
 
 	public static function complex_property_effect_content($args){
 
-		//debug($args);
-
-
 		$effect 	= $args['value'];
 		$selector 	= $args['selector'];
 

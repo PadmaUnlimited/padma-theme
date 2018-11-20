@@ -63,9 +63,10 @@ class PadmaContentBlockDisplay {
 				return do_action( 'generic_content' );
 			}
 
+
 		/* Populate JS variable with wp_query global that way loading the block content with AJAX still shows the correct content */
 			if ( PadmaRoute::is_visual_editor_iframe() && $this->get_setting('mode', 'default') == 'default' ) {
-
+	
 				echo '<script type="text/javascript">';
 				echo 'PADMA_WP_Query_Vars = ' . json_encode($GLOBALS['wp_query']->query_vars) . ';';			
 
@@ -114,11 +115,12 @@ class PadmaContentBlockDisplay {
 	
 	
 	function loop($args = array()) {
+
 		
 		$defaults = array('archive' => false);
 		extract($defaults);
 		extract($args, EXTR_OVERWRITE);
-						
+		
 		if ( !dynamic_loop() ) {
 			
 			$this->setup_query();
@@ -131,24 +133,25 @@ class PadmaContentBlockDisplay {
 
 				echo '<div class="loop">';
 
-				if ( is_a( $this->query, 'SWP_Query' ) ) {
+				if ( $this->query instanceof SWP_Query ) {
 
 					$swp_engine = $this->get_setting( 'swp-engine' );
 					$swp_search  = isset( $_REQUEST[ 'swpquery_' . $swp_engine ] ) ? sanitize_text_field( $_REQUEST[ 'swpquery_' . $swp_engine ] ) : '';
 
 					$have_posts = ! empty( $swp_search ) && ! empty( $this->query->posts );
 
-				} else if ( is_a($this->query, 'WP_Query') ) {
+				} else if ( $this->query instanceof WP_Query ) {
 
 					$have_posts = $this->query->have_posts();
 
 				} else {
 
 					$have_posts = false;
-
+				
 				}
+				
 
-				if ( !$have_posts && ( is_a( $this->query, 'SWP_Query' ) || ( is_search() && $this->get_setting( 'mode', 'default' ) == 'default' ) ) ) {
+				if ( !$have_posts && ( $this->query instanceof SWP_Query ) || ( is_search() && $this->get_setting( 'mode', 'default' ) == 'default' ) ) {
 
 					echo '<div class="entry-content">';
 						echo apply_filters('padma_search_no_results', __('<p>Sorry, there was no content that matched your search.</p>', 'padma'));
@@ -156,7 +159,7 @@ class PadmaContentBlockDisplay {
 					
 				}
 
-				if ( is_a( $this->query, 'SWP_Query' ) ) {
+				if ( $this->query instanceof SWP_Query ) {
 
 					foreach ( $this->query->posts as $swp_post ) {
 
@@ -250,7 +253,7 @@ class PadmaContentBlockDisplay {
 	function show_query_title() {
 
 
-		if ( is_a( $this->query, 'SWP_Query' ) ) {
+		if ( $this->query instanceof SWP_Query ){
 
 			$searcbtp = SWP();
 
@@ -406,9 +409,16 @@ class PadmaContentBlockDisplay {
 
 			if ( padma_post( 'wpQueryVars' ) && is_array( padma_post( 'wpQueryVars' ) ) ) {
 
+				
 				$query_options = padma_post( 'wpQueryVars' );
+
+				if( ! is_array($query_options['post_type']) ){
+					$query_options['post_type'] = array('post','page');
+				}
+
 				$this->query = new WP_Query( $query_options );
 				$GLOBALS['wp_query'] = $this->query;
+
 
 			} else {
 
@@ -638,7 +648,7 @@ class PadmaContentBlockDisplay {
 				
 				$show_excerpts = true;
 			
-			} elseif ( is_a( $this->query, 'SWP_Query' ) || is_search() || $this->paged > 1 ) {
+			} elseif ( $this->query instanceof SWP_Query || is_search() || $this->paged > 1 ) {
 				
 				$show_excerpts = true;
 				
@@ -812,7 +822,7 @@ class PadmaContentBlockDisplay {
 		echo '<div id="nav-' . $position . '" class="loop-navigation loop-utility loop-utility-' . $position . '" itemscope itemtype="http://schema.org/SiteNavigationElement">';
 			
 			/* If wp_pagenavi() plugin is activated, just use it. */
-			if ( is_a($this->query, 'SWP_Query') ) {
+			if ( $this->query instanceof SWP_Query ) {
 
 				$swp_engine = $this->get_setting('swp-engine');
 

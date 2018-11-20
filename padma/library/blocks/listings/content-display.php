@@ -127,7 +127,7 @@ class PadmaListingBlockDisplay {
 	}
 	
 	function setup_query() {
-				
+
 		/* Setup Query Options */
 		$query_options = array();
 

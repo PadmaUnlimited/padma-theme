@@ -311,7 +311,7 @@ define(['modules/panel.inputs', 'helper.history', 'deps/jBox', 'deps/jBox.Confir
 
 
 	loadBlockContent = function(args) {
-
+		
 		var settings = {};
 		
 		var defaults = {
@@ -412,10 +412,11 @@ define(['modules/panel.inputs', 'helper.history', 'deps/jBox', 'deps/jBox.Confir
 		/* Setup throttledFunction */
 			var throttledFunction = function() {
 
+
 				var blockElement 		= $i('.block[data-id="' + blockID + '"]');
 				if(typeof GLOBALunsavedValues !== 'undefined'){
 					var newBlockSettings 	= GLOBALunsavedValues['blocks'][blockID]['settings'];					
-				}
+				}				
 				var blockOrigin 		= blockElement.data('duplicateOf') ? blockElement.data('duplicateOf') : blockID;
 				
 				/* Update the block content */
@@ -1330,6 +1331,27 @@ define(['modules/panel.inputs', 'helper.history', 'deps/jBox', 'deps/jBox.Confir
 		return window.open(exportURL);
 
 	}
+
+	getBlockSettings = function(blockID,callback) {
+
+		var params = {
+			'security': Padma.security,
+			'action': 'padma_visual_editor',
+			'method': 'export_block_settings',
+			'block-id': blockID
+		}
+
+		$.get(Padma.ajaxURL, params, function(block) {
+			//console.log(block)
+			if ( typeof callback == 'function' ){
+				callback(block.settings);
+			}
+
+		});
+
+	}
+
+
 
 	initiateBlockSettingsImport = function(args) {
 

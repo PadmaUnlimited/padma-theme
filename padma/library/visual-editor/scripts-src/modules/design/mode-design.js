@@ -2523,9 +2523,18 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 							localStorage['visual-editor-block-post-data-' + blockID + '-0'] = postId;							
 						}
 
+						// Update block content
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
-							refreshInspector();
+							refreshBlockContent(blockID);
+							/*
+							var blockSettings = getBlockSettings(blockID,function(settings){
+								GLOBALunsavedValues = {};
+								GLOBALunsavedValues['blocks'][blockID]['settings'] = settings;
+								allowSaving();
+							})
+							*/
 						});
+
 			
 
 					}else{
@@ -2600,9 +2609,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 							// Edit This Instance
 							contextMenu.append('<li class="inspector-context-menu-edit-instance" data-instance-id="' + inspectorElementOptions.instance + '"><span>Edit This Instance</span></li>');
-
-							// Transform options
-							//contextMenu.append('<li class="inspector-context-menu-edit-transform"><span class="group-title group-title-clickable">Transform</span><ul><li class="transform-rotate"><span>Rotate</span></li></ul></li>');
 
 							/* 
 								Edit content option

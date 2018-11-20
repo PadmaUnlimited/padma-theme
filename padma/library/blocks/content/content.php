@@ -465,8 +465,8 @@ class PadmaContentBlock extends PadmaBlockAPI {
 	
 	
 	function content($block) {
-										
-		$content_block_display = new PadmaContentBlockDisplay($block);
+
+		$content_block_display = new PadmaContentBlockDisplay($block);		
 		$content_block_display->display();
 		
 	}

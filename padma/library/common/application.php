@@ -55,6 +55,7 @@ class Padma {
 		/*	Errors	*/
 		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 		@ini_set('display_errors', 'Off');
+		debug(error_reporting());
 
 		/* Skins */
 		define('PADMA_DEFAULT_SKIN', 'base');

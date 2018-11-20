@@ -416,6 +416,40 @@
 
 		<div class="big-tab" id="tab-advanced-content">
 
+			<h3 class="title">Automatic Updates</h3>
+			<?php
+			$form = array(
+				array(
+					'type' => 'checkbox',
+					'label' => 'Disable Automatic Core Updates',
+					'checkboxes' => array(
+						array(
+							'id' => 'disable-automatic-core-updates',
+							'label' => 'Disable Automatic Core Updates',
+							'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
+						)
+					),
+					'description' => 'By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen.'
+				),
+				array(
+					'type' => 'checkbox',
+					'label' => 'Disable Automatic Plugin Updates',
+					'checkboxes' => array(
+						array(
+							'id' => 'disable-automatic-plugin-updates',
+							'label' => 'Disable Automatic Plugin Updates',
+							'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
+						)
+					),
+					'description' => 'By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen.'
+				),
+			);
+
+			PadmaAdminInputs::generate($form);
+			?>
+
+
+
 			<h3 class="title">Caching &amp; Compression</h3>
 
 			<?php

@@ -181,15 +181,17 @@ abstract class PadmaWebFontProvider {
 		foreach ( $fonts as $font ) {
 			
 			$html = '<li data-value="' . $font['id'] . '" style="font-family:' . $font['stack'] . ';" data-variants="[';
+			$variants = '';
 
-			if(is_array($font['variants'])){			
+			if(in_array('variants', $fonts)){
+				if(is_array($font['variants'])){			
 
-				$variants = '';
-				foreach ($font['variants'] as $key => $value) {
-					$variants .= '&quot;' . $value . '&quot;,';
-				}
+					foreach ($font['variants'] as $key => $value) {
+						$variants .= '&quot;' . $value . '&quot;,';
+					}
 
-				$variants = rtrim($variants,',');
+					$variants = rtrim($variants,',');
+				}				
 			}
 			
 

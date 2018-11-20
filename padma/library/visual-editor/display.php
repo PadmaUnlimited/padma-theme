@@ -269,7 +269,7 @@ class PadmaVisualEditorDisplay {
 		 * Minimize option
 		 *
 		 */
-		
+		$html = '';
 		$html .= '<li id="minimize">
 					<span title="Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;" class="tooltip-bottom-right">g</span>
 				</li>';

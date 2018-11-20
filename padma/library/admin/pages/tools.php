@@ -1,5 +1,5 @@
 <?php
-global $wpdb;
+global $wpdb, $post;
 ?>
 <h2 class="nav-tab-wrapper big-tabs-tabs">
 	<a class="nav-tab" href="#tab-system-info">System Info</a>

@@ -38,7 +38,7 @@ class Padma {
 		/* Site URLs */
 
 		if(file_exists(PADMA_LIBRARY_DIR . '/dev-env.php')){
-			require PADMA_LIBRARY_DIR . '/dev-env.php';
+			require_once PADMA_LIBRARY_DIR . '/dev-env.php';
 		}
 		if(!defined('PADMA_SITE_URL')){
 			define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
@@ -424,8 +424,30 @@ class Padma {
 			$PadmaUpdater = new PadmaUpdater();
 			$PadmaUpdater->updater('padma',PADMA_DIR,true);
 		}
-		
+
+		add_filter( 'auto_update_theme', array(__CLASS__,'auto_update_padma_theme'), 50, 2 );
+	
 	}
+
+	/**
+	 *
+	 * Auto Update Theme
+	 *
+	 */
+	public static function auto_update_padma_theme ( $update, $item ) {
+
+		if ( PadmaOption::get('disable-automatic-core-updates') )
+			return false;
+
+		if ( $item->theme == 'padma' ) {
+	        return true;
+	    } else {
+	        return $update; // Else, use the normal API response to decide whether to update or not
+	    }
+
+	}
+
+
 
 
 	/**

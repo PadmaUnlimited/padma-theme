@@ -265,6 +265,9 @@ abstract class PadmaBlockAPI {
 		
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
+
+		if(!in_array('id', $args))
+			$args['id'] = '';
 		
 		$defaults = array(
 			'group' 	=> 'blocks',

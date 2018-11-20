@@ -764,6 +764,8 @@ class PadmaBlocks {
 			}
 		}
 		
+		ksort($categories);
+		
 		return $categories;
 
 	}

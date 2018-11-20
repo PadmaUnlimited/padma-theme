@@ -190,3 +190,12 @@ body.night ul#modes li.active a{
 body.night #customize-preview {
     background-color: #192837;
 }
+body.night .block-type-selector-filter{
+    background-color: #2f4750;
+    color: #FFFFFF;
+    border-bottom: 1px solid #2f4750;
+}
+body.night .block-type-selector-filter-categories li a{
+    color: #FFFFFF;
+    border-bottom: 4px solid #72A9c3;
+}

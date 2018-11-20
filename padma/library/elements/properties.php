@@ -1040,7 +1040,7 @@ class PadmaElementProperties {
 		$output 	= '';		
 		$effects 	= array();
 			
-			if($properties['transform']){
+			if(in_array( 'transform', $properties )){
 				$transformData['type'] 	= $properties['transform'];
 				$transformData['angle'] = $properties['transform-angle'];				
 			}

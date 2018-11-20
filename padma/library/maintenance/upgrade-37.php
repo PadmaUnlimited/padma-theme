@@ -162,8 +162,8 @@ END BACKUP CONTENTS */
 
 function padma_upgrade_37_setup_mysql() {
 
-	Padma::mysql_drop_tables();
-	Padma::mysql_dbdelta();
+	Padma::db_drop_tables();
+	Padma::db_dbdelta();
 
 }
 

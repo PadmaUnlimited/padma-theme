@@ -43,7 +43,7 @@ if ( apply_filters( 'replace_editor', false, $post ) === true ) {
 
     ### Begin System Info ###
 
-	Child Theme:		<?php echo PADMA_CHILD_THEME_ACTIVE ? (function_exists('wp_get_theme') ? wp_get_theme() : get_current_theme()) . "\n" : "N/A\n" ?>
+	Child Theme:		<?php echo PADMA_CHILD_THEME_ACTIVE ? wp_get_theme() . "\n" : "N/A\n" ?>
 
     Multi-site: 		<?php echo is_multisite() ? 'Yes' . "\n" : 'No' . "\n" ?>
 	

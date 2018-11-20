@@ -91,11 +91,12 @@ class Padma {
 		/* Add support for WordPress features */
 		add_action('after_setup_theme', array(__CLASS__, 'add_theme_support'), 1);
 
+
 		/* Setup */
 		add_action('after_setup_theme', array(__CLASS__, 'child_theme_setup'), 2);
 		add_action('after_setup_theme', array(__CLASS__, 'load_dependencies'), 3);
 		add_action('after_setup_theme', array(__CLASS__, 'maybe_db_upgrade'));
-		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));
+		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));		
 
 	}
 
@@ -182,6 +183,7 @@ class Padma {
 		if ( PADMA_CHILD_THEME_ACTIVE === true )
 			$dependencies['api/api-child-theme'] = 'ChildThemeAPI';
 
+
 		//Visual editor classes
 		if ( PadmaRoute::is_visual_editor() || (defined('DOING_AJAX') && DOING_AJAX && strpos($_REQUEST['action'], 'padma') !== false ) )
 			$dependencies['visual-editor'] = true;
@@ -239,7 +241,7 @@ class Padma {
 		if ( !PADMA_CHILD_THEME_ACTIVE )
 			return false;
 
-		do_action('padma_setup_child_theme');
+		do_action('padma_setup_child_theme');		
 
 	}
 
@@ -259,7 +261,7 @@ class Padma {
 
 				PadmaElementsData::merge_core_default_design_data();
 
-				self::mysql_dbdelta();
+				self::db_dbdelta();
 
 				/* Update the version here. */
 				$padma_settings = get_option('padma', array('version' => 0));
@@ -287,7 +289,7 @@ class Padma {
 	}
 
 
-	public static function mysql_drop_tables() {
+	public static function db_drop_tables() {
 
 		global $wpdb;
 
@@ -299,7 +301,7 @@ class Padma {
 
 	}
 
-	public static function mysql_dbdelta() {
+	public static function db_dbdelta() {
 
 		global $wpdb;
 

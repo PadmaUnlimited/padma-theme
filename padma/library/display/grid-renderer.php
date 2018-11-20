@@ -675,13 +675,15 @@ class PadmaGridRenderer {
 	
 		private function uasort_columns_by_left($a, $b) {
 			
-			foreach ( $a as $block_or_sub_column_a )
+			foreach ( $a as $block_or_sub_column_a ){
 				if ( is_string($block_or_sub_column_a) && $a = $block_or_sub_column_a )
 					break;
+			}
 					
-			foreach ( $b as $block_or_sub_column_b )
+			foreach ( $b as $block_or_sub_column_b ){
 				if ( is_string($block_or_sub_column_b) && $b = $block_or_sub_column_b )
 					break;
+			}
 
 			$a = $this->blocks[$a];
 			$b = $this->blocks[$b];

@@ -616,11 +616,12 @@ class PadmaDynamicStyle {
 
 		$has_options = false;
 
-		foreach ( $options as $option )
+		foreach ( $options as $option ){
 			if ( $option[$default] ) {
 				$has_options = true;
 				break;
-			}		
+			}			
+		}
 
 		if ( $has_options )
 		  	return $options;

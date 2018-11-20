@@ -8,6 +8,6 @@ add_action( 'padma_do_upgrade_38', 'padma_do_upgrade_38' );
 function padma_do_upgrade_38() {
 
 	/* Alter MySQL schema */
-	Padma::mysql_dbdelta();
+	Padma::db_dbdelta();
 
 }

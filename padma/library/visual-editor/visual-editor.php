@@ -44,17 +44,18 @@ class PadmaVisualEditor {
 
 		$cache_rejected_uri[] = 'visual\-editor\=true';
 		$cache_rejected_uri[] = 've\-iframe\=true';
-
+		
 		//Iframe handling
 		add_action('padma_body_close', array(__CLASS__, 'iframe_load_flag'));
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_load_flag'));
 
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_tooltip_container'));
 		add_action('padma_body_close', array(__CLASS__, 'iframe_tooltip_container'));
+
+		//debug('>------------------------------------------- Here -------------------------------------------<');
         
         wp_enqueue_media();
-
-        
+		        
 	}
 	
 	
@@ -154,6 +155,7 @@ class PadmaVisualEditor {
 		$layout_options 		= isset($options['layout-options']) ? $options['layout-options'] : null;
 		$options_inputs 		= isset($options['options']) ? $options['options'] : null;
 		$design_editor_inputs 	= isset($options['design-editor']) ? $options['design-editor'] : null;
+
 
 		try {
 
@@ -449,6 +451,7 @@ class PadmaVisualEditor {
 			}
 			/* End everything else wrappers (delete and options) */
 
+			
 
 			/* Layout Options */
 			if ( $layout_options ) {

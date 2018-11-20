@@ -1037,13 +1037,15 @@ class PadmaElementProperties {
 		if ( !is_array($properties) || count($properties) === 0 )
 			return null;
 					
-		$output 	= '';		
-		$effects 	= array();
+		$output = '';		
+		$effects = array();
+		//$transformData = array();
 			
-			if(in_array( 'transform', $properties )){
+			/*	
+			if(in_array( 'transform', $properties, true ) && in_array( 'transform-angle', $properties, true ) ){
 				$transformData['type'] 	= $properties['transform'];
 				$transformData['angle'] = $properties['transform-angle'];				
-			}
+			}*/
 
 
 			//Loop through properties
@@ -1131,16 +1133,15 @@ class PadmaElementProperties {
 				
 				// Transform support
 				if ( padma_get('group', $property) === 'Transform' ){
-					$transformType 	= $transformData['type'];
-
-					if($transformType == 'scale' || $transformType == 'scaleX' || $transformType == 'scaleY'){
+					
+					if($properties['transform'] == 'scale' || $properties['transform'] == 'scaleX' || $properties['transform'] == 'scaleY'){
 						$unit = '';
-					}elseif($transformType == 'translate' || $transformType == 'translateX' || $transformType == 'translateY'){
+					}elseif($properties['transform'] == 'translate' || $properties['transform'] == 'translateX' || $properties['transform'] == 'translateY'){
 						$unit = 'px';
 					}else{
 						$unit = 'deg';						
 					}
-					$value =  $transformType . '(' . $transformData['angle'] . $unit . ')';
+					$value =  $properties['transform'] . '(' . $properties['transform-angle'] . $unit . ')';
 				}
 			
 				$output .= $property_id . ': ' . $value . ';' . "\n";

@@ -10,7 +10,7 @@ function padma_do_upgrade_371() {
 	global $wpdb;
 
 	/* Alter MySQL schema */
-	Padma::mysql_dbdelta();
+	Padma::db_dbdelta();
 
 	/* Loop through installed Templates and fix wrapper instance IDs */
 	$templates = PadmaTemplates::get_all(true, true);

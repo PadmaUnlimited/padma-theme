@@ -41,17 +41,19 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 = 0.1.1
-* Released: November 19, 2018
+* Released: November 20, 2018
 
 Tested with WordPress 5 Beta 5
 Visual Editor Fixes
-Offline notification
-New loader animation
+- Fixed CSS Transform VE issue
 Design Mode Updated
 - Added Advanced option group
+Offline notification
+New loader animation
 WooCommerce compatibility update
 Filter options added to Select Block Type panel
 Code Fixes
+- Remove PHP Notice 
 Auto Update Support
 
 

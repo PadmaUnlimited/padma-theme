@@ -135,7 +135,7 @@ class PadmaAdmin {
 		$wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '_pu_%'" );
 
 		/* Drop Padma tables */
-		Padma::mysql_drop_tables();
+		Padma::db_drop_tables();
 
 		/* Flush WP cache */
 		wp_cache_flush();

@@ -8,7 +8,7 @@ if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 	return;
 
 /* Check WordPress */
-} elseif ( version_compare($wp_version, '3.2', '<') ) {
+} elseif ( version_compare($wp_version, '3.4', '<') ) {
 
 	$message = '
 		<span style="text-align: center;font-size: 26px;width: 100%;display: block;margin-bottom: 20px;">Error</span>

@@ -61,11 +61,12 @@ jQuery(window).load(function(){
 			
 		$has_images = false;
 
-		foreach ( $images as $image )
+		foreach ( $images as $image ){
 			if ( $image['image'] ) {
 				$has_images = true;
 				break;
 			}
+		}
 
 		if ( !$has_images ) {
 

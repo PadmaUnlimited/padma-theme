@@ -151,7 +151,7 @@ class PadmaMaintenance {
 
 		} else {
 
-			Padma::mysql_dbdelta();
+			Padma::db_dbdelta();
 			PadmaElementsData::merge_core_default_design_data();
 
 			if ( current_user_can('manage_options') ) {

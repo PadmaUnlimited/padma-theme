@@ -17,7 +17,12 @@ function loadImages() {
         
         $dir = $useruploadpath;
         $files = glob("$dir*.{jpg,jpe,jpeg,png,gif,ico}", GLOB_BRACE);
-        usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
+        
+        //usort($files, create_function('$a,$b', 'return filemtime($a) - filemtime($b);'));
+        usort($files, function($a,$b){
+            return filemtime($a) - filemtime($b);
+        });
+
         for($i=count($files)-1; $i >= 0; $i--):
             $image = $files[$i];
             $image_pathinfo = pathinfo($image);

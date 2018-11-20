@@ -52,6 +52,10 @@ class Padma {
 		define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');
 		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
 
+		/*	Errors	*/
+		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+		@ini_set('display_errors', 'Off');
+
 		/* Skins */
 		define('PADMA_DEFAULT_SKIN', 'base');
 

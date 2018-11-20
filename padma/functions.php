@@ -24,3 +24,4 @@ require_once get_template_directory() . '/library/common/application.php';
 
 Padma::init();
 
+debug(error_level_tostring(error_reporting()));

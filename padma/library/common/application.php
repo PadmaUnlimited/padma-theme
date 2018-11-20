@@ -35,11 +35,16 @@ class Padma {
 		define('PADMA_DIR', get_template_directory());
 		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 
-		/* Site URLs */
-
+		/*	Errors	*/
+		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+		@ini_set('display_errors', 'Off');
+		
+		/* Dev Params	*/
 		if(file_exists(PADMA_LIBRARY_DIR . '/dev-env.php')){
 			require_once PADMA_LIBRARY_DIR . '/dev-env.php';
 		}
+
+		/* Site URLs */
 		if(!defined('PADMA_SITE_URL')){
 			define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
 		}
@@ -52,10 +57,7 @@ class Padma {
 		define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');
 		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
 
-		/*	Errors	*/
-		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
-		@ini_set('display_errors', 'Off');
-		debug(error_reporting());
+
 
 		/* Skins */
 		define('PADMA_DEFAULT_SKIN', 'base');

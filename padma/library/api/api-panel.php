@@ -212,7 +212,7 @@ abstract class PadmaVisualEditorPanelAPI {
 	
 	
 	public function render_input($input) {
-						
+
 		//Fill defaults
 		$defaults = array(
 			'tooltip' => false,
@@ -252,7 +252,7 @@ abstract class PadmaVisualEditorPanelAPI {
 				'name' => $input['name'],
 				'data-group' => $input['group']
 			);
-									
+
 			/* Set up the callback attribute */
 				$attributes_array['data-callback'] = esc_attr('(function(args){var input=args.input;var value=args.value;var block=args.block || null;' . $input['callback'] . '})');
 
@@ -309,6 +309,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 	public function repeater($input) {
 
+	
 		$repeater_sortable_class = padma_get('sortable', $input) ? ' repeater-sortable' : null;
 
 		echo '<div class="repeater' . $repeater_sortable_class . '" data-repeater-limit="' . padma_get('limit', $input, '0') . '">';
@@ -324,6 +325,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 			}
 
+
 			/* If the value is non-existent then show an empty group. */
 				if ( !isset($input['value']) || !is_array($input['value']) || empty($input['value']) ) {
 
@@ -334,13 +336,21 @@ abstract class PadmaVisualEditorPanelAPI {
 			/* Values are valid, loop them. */
 				} else {
 
+					$counter = 0;
 					foreach ( $input['value'] as $group_index => $value_group ) {
+
+						foreach ($input['inputs'] as $key => $value) {
+							if($value['type']=='wysiwyg'){
+								++$counter;
+								continue;
+							}
+						}
 
 						if ( count($input['value']) === 1 ) {
 							$input['single'] = true;
 						}
 
-						$this->repeater_group( $input, $group_index );
+						$this->repeater_group( $input, $group_index, $counter );
 
 					}
 
@@ -360,7 +370,7 @@ abstract class PadmaVisualEditorPanelAPI {
 	}
 	
 
-		public function repeater_group($input, $group_index = null) {
+		public function repeater_group($input, $group_index = null, $counter = null) {
 
 			$classes = array('repeater-group');
 
@@ -376,6 +386,10 @@ abstract class PadmaVisualEditorPanelAPI {
 					echo '<span class="sortable-handle"><span></span><span></span><span></span></span>';
 
 				foreach ( $input['inputs'] as $index => $input_options ) {
+
+					if( ! is_null($counter) && $counter !== 0 ){
+						$input_options['name'] = $input_options['name'] . '-' . $counter;
+					}
 
 					$input_value = padma_get($input_options['name'], $input['value'][$group_index], padma_get('default', $input_options));
 
@@ -467,7 +481,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 
 	public function input_wysiwyg($input) {
-               
+
 		echo '
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>

@@ -2526,13 +2526,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						// Update block content
 						contentEditor.showEditor('content-editor', blockID, function(editor) {
 							refreshBlockContent(blockID);
-							/*
-							var blockSettings = getBlockSettings(blockID,function(settings){
-								GLOBALunsavedValues = {};
-								GLOBALunsavedValues['blocks'][blockID]['settings'] = settings;
-								allowSaving();
-							})
-							*/
 						});
 
 			

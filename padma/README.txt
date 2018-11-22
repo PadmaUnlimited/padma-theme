@@ -41,9 +41,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 = 0.1.1
-* Released: November 20, 2018
+* Released: November 21, 2018
 
 Tested with WordPress 5 Beta 5
+Tested with ClassicPress Beta 1
 Visual Editor Fixes
 - Fixed CSS Transform VE issue
 Code Fixes

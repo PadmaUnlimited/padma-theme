@@ -445,6 +445,8 @@ class Padma {
 	 */
 	public static function auto_update_padma_theme ( $update, $item ) {
 
+		debug(array($update,$item,PadmaOption::get('disable-automatic-core-updates')));
+
 		if ( PadmaOption::get('disable-automatic-core-updates') )
 			return false;
 

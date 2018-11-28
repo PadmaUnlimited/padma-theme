@@ -1,9 +1,9 @@
 <?php
 function padma_register_visual_editor_panel($class) {
 
-	add_action('padma_visual_editor_display_init', function($class){
+	add_action('padma_visual_editor_display_init', function($class) use ($class){
 		return padma_register_visual_editor_panel_callback($class);
-	}, 999);
+	}, 999, 1);
 	
 }
 

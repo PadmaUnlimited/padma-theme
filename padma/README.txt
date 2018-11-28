@@ -41,12 +41,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 = 0.2.0
-* Released: November 23, 2018
+* Released: November 28, 2018
 
 Tested with WordPress 5 RC 1
 Tested with ClassicPress Beta 1
 Visual Editor Fixes
 - Fixed CSS Transform VE issue
+- Missing setup panel fixed
 Code Fixes
 - Remove PHP Notice
 - Content block query fix 
@@ -55,6 +56,7 @@ Design Mode Updated
 Offline notification
 New loader animation
 WooCommerce compatibility update
+Headway compatibility update
 Filter options added to Select Block Type panel
 Auto Update Support
 

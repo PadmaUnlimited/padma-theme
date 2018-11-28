@@ -430,33 +430,17 @@ class Padma {
 	public static function initiate_updater() {
 
 		if(class_exists('PadmaUpdater')){
+
 			$PadmaUpdater = new PadmaUpdater();
 			$PadmaUpdater->updater('padma',PADMA_DIR,true);
+
+			// Allow automatic Theme Updates
+			if ( ! PadmaOption::get('disable-automatic-core-updates') )
+				add_filter( 'auto_update_theme', '__return_true');
 		}
 
-		add_filter( 'auto_update_theme', array(__CLASS__,'auto_update_padma_theme'), 50, 2 );
 	
 	}
-
-	/**
-	 *
-	 * Auto Update Theme
-	 *
-	 */
-	public static function auto_update_padma_theme ( $update, $item ) {
-
-		if ( PadmaOption::get('disable-automatic-core-updates') )
-			return false;
-
-		if ( $item->theme == 'padma' ) {
-	        return true;
-	    } else {
-	        return $update; // Else, use the normal API response to decide whether to update or not
-	    }
-
-	}
-
-
 
 
 	/**

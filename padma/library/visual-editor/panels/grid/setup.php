@@ -33,11 +33,11 @@ class GridSetupPanel extends PadmaVisualEditorPanelAPI {
 				'type' => 'slider',
 				'name' => 'column-width',
 				'label' => 'Global Column Width',
-				'default' => 20,
+				'default' => 26,
 				'tooltip' => 'The column width is the amount of space inside of each column.  This is represented by the grey regions on the grid.',
 				'unit' => 'px',
 				'slider-min' => 10,
-				'slider-max' => 80,
+				'slider-max' => 120,
 				'slider-interval' => 1,
 				'callback' => 'Padma.globalGridColumnWidth = value.toString();$i("div.wrapper:not(.independent-grid)").each(function() { $(this).padmaGrid("updateGridCSS"); });updateGridWidthInput($(input).parents(".sub-tabs-content"));'
 			),
@@ -46,11 +46,11 @@ class GridSetupPanel extends PadmaVisualEditorPanelAPI {
 				'type' => 'slider',
 				'name' => 'gutter-width',
 				'label' => 'Global Gutter Width',
-				'default' => 20,
+				'default' => 22,
 				'tooltip' => 'The gutter width is the amount of space between each column.  This is the space between each of the grey regions on the grid.',
 				'unit' => 'px',
 				'slider-min' => 0,
-				'slider-max' => 40,
+				'slider-max' => 60,
 				'slider-interval' => 1,
 				'callback' => 'Padma.globalGridGutterWidth = value.toString();$i("div.wrapper:not(.independent-grid)").each(function() { $(this).padmaGrid("updateGridCSS"); });updateGridWidthInput($(input).parents(".sub-tabs-content"));'
 			),
@@ -58,7 +58,7 @@ class GridSetupPanel extends PadmaVisualEditorPanelAPI {
 			'grid-width' => array(
 				'type' => 'integer',
 				'unit' => 'px',
-				'default' => 940,
+				'default' => 1130,
 				'name' => 'grid-width',
 				'label' => 'Global Grid Width',
 				'readonly' => true

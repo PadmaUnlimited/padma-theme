@@ -53,11 +53,14 @@ Visual Editor Fixes
 Code Fixes
 - Remove PHP Notices
 - Content block query fix 
+- API Block fixes
+- Navigation block fixes
 Design Mode Updated
 - Added Advanced option group
 Offline notification
 New loader animation
 WooCommerce compatibility update
+Gutenberg compatibility update
 Headway compatibility update
 Filter options added to Select Block Type panel
 Auto Update Support

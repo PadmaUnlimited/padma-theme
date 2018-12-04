@@ -5,6 +5,7 @@
 	<a class="nav-tab" href="#tab-visual-editor">Visual Editor</a>
 	<a class="nav-tab" href="#tab-advanced">Advanced</a>
 	<a class="nav-tab" href="#tab-compatibility">Compatibility</a>
+	<a class="nav-tab" href="#tab-mobile">Mobile</a>
 </h2>
 
 <?php do_action('padma_admin_save_message'); ?>
@@ -560,6 +561,31 @@
 						)
 					),
 					'description' => 'If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental.'
+				)
+			);
+
+			PadmaAdminInputs::generate($form);
+			?>
+
+		</div>
+
+		<div class="big-tab" id="tab-mobile-content">
+
+			<h3 class="title">Responsive options</h3>
+
+			<?php
+			$form = array(
+				array(
+					'type' 	=> 'checkbox',
+					'label' => 'Allow mobile zooming',
+					'checkboxes' => array(
+						array(
+							'id' 		=> 'allow-mobile-zooming',
+							'label' 	=> 'Allow mobile zooming',
+							'checked' 	=> PadmaOption::get('allow-mobile-zooming', false, false)
+						)
+					),
+					'description' => 'Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers.'
 				)
 			);
 

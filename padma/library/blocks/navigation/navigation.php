@@ -538,6 +538,23 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			'selector' => '#searchform input[type="text"]'
 		) );
 
+		$this->register_block_element( array(
+			'name' => 'Horizontal SlideOut Tag',
+			'selector' => '.nav-horizontal .pushy-menu-toggle',
+			'states' => array(
+					'Hover' => '.nav-horizontal .pushy-menu-toggle:hover', 
+					'Clicked' => '.nav-horizontal .pushy-menu-toggle:active'
+				)
+		) );
+
+		$this->register_block_element( array(
+			'name' => 'Horizontal SlideOut Icon',
+			'selector' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon',
+			'states' => array(
+					'Hover' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon:hover', 
+					'Clicked' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon:active'
+				)
+		) );
 
 		$this->register_pre_4_elements();
 

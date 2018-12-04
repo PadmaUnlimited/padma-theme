@@ -63,6 +63,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 
 		$('div#panel').tabs('option', 'active', $('#panel-top').children('li[role="tab"]').index($('[aria-controls="' + wrapperID + '-tab"]')));
 
+
 	}
 
 

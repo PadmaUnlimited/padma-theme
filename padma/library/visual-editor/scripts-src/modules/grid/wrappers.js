@@ -402,8 +402,13 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				/* Duplicate Wrapper */
 				$('<li class="context-menu-duplicate-wrapper"><span>Duplicate Wrapper</span></li>').appendTo(contextMenu).on('click', function() {
 
-					var orgWrapper = wrapper.clone();
-					if(typeof orgWrapper.data('wrapper-settings') == "undefined"){
+					var orgWrapper = wrapper.clone();	
+
+					if(typeof isSavingAllowed == 'undefined'){
+						isSavingAllowed = false;
+					}
+
+					if(typeof orgWrapper.data('wrapper-settings') == "undefined" || isSavingAllowed === true ){
 						showNotification({
 							id: 'wrapper-notification',
 							message: 'Please save and refresh before duplicate this wrapper.',
@@ -411,6 +416,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							closeTimer: 5000
 						});
 					}else{
+
 						var newWrapper = addWrapper('bottom', orgWrapper.data('wrapper-settings'));						
 					}
 
@@ -420,7 +426,12 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				$('<li class="context-menu-duplicate-wrapper-and-blocks"><span>Duplicate Wrapper and Blocks</span></li>').appendTo(contextMenu).on('click', function() {
 
 					var orgWrapper = wrapper.clone();
-					if(typeof orgWrapper.data('wrapper-settings') == "undefined"){
+
+					if(typeof isSavingAllowed == 'undefined'){
+						isSavingAllowed = false;
+					}
+					
+					if(typeof orgWrapper.data('wrapper-settings') == "undefined" || isSavingAllowed === true){
 						showNotification({
 							id: 'wrapper-notification',
 							message: 'Please save and refresh before duplicate this wrapper.',

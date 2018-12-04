@@ -134,332 +134,468 @@ class PadmaContentBlock extends PadmaBlockAPI {
 	
 	function setup_elements() {
 		
-		$this->register_block_element(array(
-			'id' => 'entry-container-hentry',
-			'name' => 'Entry Container',
-			'selector' => '.hentry',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'transform')
-		));
-
+		/* Classic Editor */
 			$this->register_block_element(array(
-				'id' => 'page-container',
-				'name' => 'Page Entry Container',
-				'parent' => 'entry-container-hentry',
-				'selector' => '.type-page'
+				'id' => 'entry-container-hentry',
+				'name' => 'Entry Container',
+				'selector' => '.hentry',
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'transform')
+			));
+
+				$this->register_block_element(array(
+					'id' => 'page-container',
+					'name' => 'Page Entry Container',
+					'parent' => 'entry-container-hentry',
+					'selector' => '.type-page'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-container',
+					'name' => 'Post Entry Container',
+					'parent' => 'entry-container-hentry',
+					'selector' => '.type-post'
+				));
+
+			
+			$this->register_block_element(array(
+				'id' => 'entry-row',
+				'name' => 'Entry Row',
+				'selector' => '.entry-row'
 			));
 
 			$this->register_block_element(array(
-				'id' => 'entry-container',
-				'name' => 'Post Entry Container',
-				'parent' => 'entry-container-hentry',
-				'selector' => '.type-post'
+				'id' => 'title',
+				'name' => 'Title',
+				'selector' => '.entry-title',
+				'states' => array(
+					'Hover' => '.entry-title:hover', 
+					'Clicked' => '.entry-title:active'
+				)
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'archive-title',
+				'name' => 'Archive Title',
+				'selector' => '.archive-title'
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'entry-content',
+				'name' => 'Body Text',
+				'description' => 'All text including &lt;p&gt; elements',
+				'selector' => 'div.entry-content, div.entry-content p'
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'entry-content-hyperlinks',
+				'name' => 'Body Hyperlinks',
+				'selector' => 'div.entry-content a',
+				'properties' => array('fonts', 'animation'),
+				'states' => array(
+					'Hover' => 'div.entry-content a:hover', 
+					'Clicked' => 'div.entry-content a:active'
+				)
 			));
 
-		$this->register_block_element(array(
-			'id' => 'entry-row',
-			'name' => 'Entry Row',
-			'selector' => '.entry-row'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'title',
-			'name' => 'Title',
-			'selector' => '.entry-title',
-			'states' => array(
-				'Hover' => '.entry-title:hover', 
-				'Clicked' => '.entry-title:active'
-			)
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'archive-title',
-			'name' => 'Archive Title',
-			'selector' => '.archive-title'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'entry-content',
-			'name' => 'Body Text',
-			'description' => 'All text including &lt;p&gt; elements',
-			'selector' => 'div.entry-content, div.entry-content p'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'entry-content-hyperlinks',
-			'name' => 'Body Hyperlinks',
-			'selector' => 'div.entry-content a',
-			'properties' => array('fonts', 'animation'),
-			'states' => array(
-				'Hover' => 'div.entry-content a:hover', 
-				'Clicked' => 'div.entry-content a:active'
-			)
-		));
-
-		$this->register_block_element(array(
-			'id' => 'entry-content-images',
-			'name' => 'Images',
-			'selector' => 'div.entry-content img',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes')
-		));
-
-		$this->register_block_element( array(
-			'id'         => 'entry-content-image-captions',
-			'name'       => 'Image Captions',
-			'selector'   => 'div.entry-content .wp-caption',
-			'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation' )
-		) );
+			$this->register_block_element(array(
+				'id' => 'entry-content-images',
+				'name' => 'Images',
+				'selector' => 'div.entry-content img',
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes')
+			));
 
 			$this->register_block_element( array(
-				'id'       => 'entry-content-image-caption-image',
-				'parent'   => 'entry-content-image-captions',
-				'name'     => 'Images in Captions',
-				'selector' => 'div.entry-content .wp-caption img',
+				'id'         => 'entry-content-image-captions',
+				'name'       => 'Image Captions',
+				'selector'   => 'div.entry-content .wp-caption',
 				'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation' )
 			) );
 
-			$this->register_block_element( array(
-				'id'         => 'entry-content-image-caption-text',
-				'parent'     => 'entry-content-image-captions',
-				'name'       => 'Caption Text',
-				'selector'   => 'div.entry-content .wp-caption .wp-caption-text'
-			) );
+				$this->register_block_element( array(
+					'id'       => 'entry-content-image-caption-image',
+					'parent'   => 'entry-content-image-captions',
+					'name'     => 'Images in Captions',
+					'selector' => 'div.entry-content .wp-caption img',
+					'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation' )
+				) );
 
-		$this->register_block_element(array(
-			'id' => 'entry-meta',
-			'name' => 'Meta',
-			'selector' => 'div.entry-meta'
-		));
-
-			$this->register_block_element(array(
-				'id' => 'entry-meta-above',
-				'name' => 'Meta Above Content',
-				'selector' => 'div.entry-meta-above',
-				'parent' => 'entry-meta'
-			));			
+				$this->register_block_element( array(
+					'id'         => 'entry-content-image-caption-text',
+					'parent'     => 'entry-content-image-captions',
+					'name'       => 'Caption Text',
+					'selector'   => 'div.entry-content .wp-caption .wp-caption-text'
+				) );
 
 			$this->register_block_element(array(
-				'id' => 'entry-meta-below',
-				'name' => 'Meta Below Content',
-				'selector' => 'footer.entry-utility-below',
-				'parent' => 'entry-meta'
-			));			
+				'id' => 'entry-meta',
+				'name' => 'Meta',
+				'selector' => 'div.entry-meta'
+			));
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-above',
+					'name' => 'Meta Above Content',
+					'selector' => 'div.entry-meta-above',
+					'parent' => 'entry-meta'
+				));			
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-below',
+					'name' => 'Meta Below Content',
+					'selector' => 'footer.entry-utility-below',
+					'parent' => 'entry-meta'
+				));			
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-links',
+					'name' => 'Meta Hyperlinks',
+					'selector' => 'div.entry-meta a, footer.entry-meta a',
+					'parent' => 'entry-meta',
+					'properties' => array('fonts', 'animation'),
+					'states' => array(
+					'Hover' => 'div.entry-meta a:hover, footer.entry-meta a:hover', 
+					'Clicked' => 'div.entry-meta a:active, footer.entry-meta a:active'
+				)
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-author',
+					'name' => 'Author Avatar Image',
+					'selector' => '.avatar',
+					'parent' => 'entry-meta'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-date',
+					'name' => 'Post Entry Date',
+					'parent' => 'entry-meta',
+					'selector' => '.entry-date'
+				));
+			
+			$this->register_block_element(array(
+				'id' => 'heading',
+				'name' => 'Heading',
+				'selector' => 'div.entry-content h3, div.entry-content h2, div.entry-content h1'
+			));
+
+				$this->register_block_element(array(
+					'id' => 'heading-h1',
+					'parent' => 'heading',
+					'name' => 'H1',
+					'selector' => 'div.entry-content h1',
+					'parent' => 'heading'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'heading-h2',
+					'parent' => 'heading',
+					'name' => 'H2',
+					'selector' => 'div.entry-content h2'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'heading-h3',
+					'parent' => 'heading',
+					'name' => 'H3',
+					'selector' => 'div.entry-content h3'
+				));
+			
+			$this->register_block_element(array(
+				'id' => 'sub-heading',
+				'name' => 'Sub Heading',
+				'selector' => 'div.entry-content h4, div.entry-content h5'
+			));
+
+				$this->register_block_element(array(
+					'id' => 'sub-heading-h4',
+					'parent' => 'sub-heading',
+					'name' => 'H4',
+					'selector' => 'div.entry-content h4'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'sub-heading-h5',
+					'parent' => 'sub-heading',
+					'name' => 'H5',
+					'selector' => 'div.entry-content h5'
+				));
+
+				$this->register_block_element(array(
+				'id' => 'content-ul-lists',
+				'name' => 'Unordered Lists',
+				'description' => '&lt;UL&gt;',
+				'selector' => 'div.entry-content ul',
+				'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+			));
+
+				$this->register_block_element(array(
+					'id' => 'content-ul-list-item',
+					'name' => 'Unordered List Items',
+					'description' => '&lt;LI&gt;',
+					'selector' => 'div.entry-content ul li',
+					'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+				));
+
+				$this->register_block_element(array(
+				'id' => 'content-ol-lists',
+				'name' => 'Ordered Lists',
+				'description' => '&lt;OL&gt;',
+				'selector' => 'div.entry-content ol',
+				'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+			));
+
+				$this->register_block_element(array(
+					'id' => 'content-list-item',
+					'name' => 'Ordered List Items',
+					'description' => '&lt;LI&gt;',
+					'selector' => 'div.entry-content ol li',
+					'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+				));
 
 			$this->register_block_element(array(
-				'id' => 'entry-meta-links',
-				'name' => 'Meta Hyperlinks',
-				'selector' => 'div.entry-meta a, footer.entry-meta a',
-				'parent' => 'entry-meta',
-				'properties' => array('fonts', 'animation'),
+				'id' => 'post-thumbnail',
+				'name' => 'Featured Image',
+				'selector' => '.block-type-content a.post-thumbnail img',
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation')
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'more-link',
+				'name' => 'Continue Reading Button',
+				'selector' => 'div.entry-content a.more-link',
 				'states' => array(
-				'Hover' => 'div.entry-meta a:hover, footer.entry-meta a:hover', 
-				'Clicked' => 'div.entry-meta a:active, footer.entry-meta a:active'
-			)
+					'Hover' => 'div.entry-content a.more-link:hover',
+					'Clicked' => 'div.entry-content a.more-link:active'
+				)
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'loop-navigation-link',
+				'name' => 'Loop Navigation Button',
+				'selector' => 'div.loop-navigation div.nav-previous a, div.loop-navigation div.nav-next a',
+				'states' => array(
+					'Hover' => 'div.loop-navigation div.nav-previous a:hover, div.loop-navigation div.nav-next a:hover',
+					'Clicked' => 'div.loop-navigation div.nav-previous a:active, div.loop-navigation div.nav-next a:active'
+				)
 			));
 
 			$this->register_block_element(array(
-				'id' => 'entry-meta-author',
-				'name' => 'Author Avatar Image',
-				'selector' => '.avatar',
-				'parent' => 'entry-meta'
+				'id' => 'comments-wrapper',
+				'name' => 'Comments',
+				'selector' => 'div#comments'
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'comments-area',
+				'name' => 'Comments Area',
+				'selector' => 'ol.commentlist',
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow'),
+				'parent' => 'comments-wrapper'
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'comments-area-headings',
+				'name' => 'Comments Area Headings',
+				'selector' => 'div#comments h3',
+				'parent' => 'comments-wrapper'
 			));
 
 			$this->register_block_element(array(
-				'id' => 'entry-date',
-				'name' => 'Post Entry Date',
-				'parent' => 'entry-meta',
-				'selector' => '.entry-date'
-			));
-		
-		$this->register_block_element(array(
-			'id' => 'heading',
-			'name' => 'Heading',
-			'selector' => 'div.entry-content h3, div.entry-content h2, div.entry-content h1'
-		));
-
-			$this->register_block_element(array(
-				'id' => 'heading-h1',
-				'parent' => 'heading',
-				'name' => 'H1',
-				'selector' => 'div.entry-content h1',
-				'parent' => 'heading'
+				'id' => 'comment-container',
+				'name' => 'Comment Container',
+				'selector' => 'li.comment',
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+				'parent' => 'comments-wrapper'
 			));
 
 			$this->register_block_element(array(
-				'id' => 'heading-h2',
-				'parent' => 'heading',
-				'name' => 'H2',
-				'selector' => 'div.entry-content h2'
+				'id' => 'comments-textarea',
+				'name' => 'Add Comment Textarea',
+				'selector' => '#comment',
+				'parent' => 'comments-wrapper'
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'comment-author',
+				'name' => 'Comment Author',
+				'selector' => 'li.comment .comment-author',
+				'parent' => 'comments-wrapper'
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'comment-meta',
+				'name' => 'Comment Meta',
+				'selector' => 'li.comment .comment-meta',
+				'parent' => 'comments-wrapper'
 			));
 
 			$this->register_block_element(array(
-				'id' => 'heading-h3',
-				'parent' => 'heading',
-				'name' => 'H3',
-				'selector' => 'div.entry-content h3'
+				'id' => 'comment-meta-count',
+				'name' => 'Comment Meta Count',
+				'selector' => 'a.entry-comments',
+				'parent' => 'comments-wrapper'
 			));
-		
-		$this->register_block_element(array(
-			'id' => 'sub-heading',
-			'name' => 'Sub Heading',
-			'selector' => 'div.entry-content h4, div.entry-content h5'
-		));
-
+			
 			$this->register_block_element(array(
-				'id' => 'sub-heading-h4',
-				'parent' => 'sub-heading',
-				'name' => 'H4',
-				'selector' => 'div.entry-content h4'
+				'id' => 'comment-body',
+				'name' => 'Comment Body',
+				'selector' => 'li.comment .comment-body p',
+				'properties' => array('fonts'),
+				'parent' => 'comments-wrapper'
 			));
-
+			
 			$this->register_block_element(array(
-				'id' => 'sub-heading-h5',
-				'parent' => 'sub-heading',
-				'name' => 'H5',
-				'selector' => 'div.entry-content h5'
-			));
-
-			$this->register_block_element(array(
-			'id' => 'content-ul-lists',
-			'name' => 'Unordered Lists',
-			'description' => '&lt;UL&gt;',
-			'selector' => 'div.entry-content ul',
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
-		));
-
-			$this->register_block_element(array(
-				'id' => 'content-ul-list-item',
-				'name' => 'Unordered List Items',
-				'description' => '&lt;LI&gt;',
-				'selector' => 'div.entry-content ul li',
-				'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+				'id' => 'comment-reply-link',
+				'name' => 'Comment Reply Link',
+				'selector' => 'a.comment-reply-link',
+				'states' => array(
+					'Hover' => 'a.comment-reply-link:hover',
+					'Clicked' => 'a.comment-reply-link:active'
+				),
+				'parent' => 'comments-wrapper'
 			));
 
 			$this->register_block_element(array(
-			'id' => 'content-ol-lists',
-			'name' => 'Ordered Lists',
-			'description' => '&lt;OL&gt;',
-			'selector' => 'div.entry-content ol',
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
-		));
-
-			$this->register_block_element(array(
-				'id' => 'content-list-item',
-				'name' => 'Ordered List Items',
-				'description' => '&lt;LI&gt;',
-				'selector' => 'div.entry-content ol li',
-				'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+				'id' => 'comment-form-input-label',
+				'name' => 'Comment Form Input Label',
+				'selector' => 'div#respond label',
+				'properties' => array('fonts'),
+				'parent' => 'comments-wrapper'
 			));
 
-		$this->register_block_element(array(
-			'id' => 'post-thumbnail',
-			'name' => 'Featured Image',
-			'selector' => '.block-type-content a.post-thumbnail img',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation')
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'more-link',
-			'name' => 'Continue Reading Button',
-			'selector' => 'div.entry-content a.more-link',
-			'states' => array(
-				'Hover' => 'div.entry-content a.more-link:hover',
-				'Clicked' => 'div.entry-content a.more-link:active'
-			)
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'loop-navigation-link',
-			'name' => 'Loop Navigation Button',
-			'selector' => 'div.loop-navigation div.nav-previous a, div.loop-navigation div.nav-next a',
-			'states' => array(
-				'Hover' => 'div.loop-navigation div.nav-previous a:hover, div.loop-navigation div.nav-next a:hover',
-				'Clicked' => 'div.loop-navigation div.nav-previous a:active, div.loop-navigation div.nav-next a:active'
-			)
-		));
+		/* End Classic Container */
 
-		$this->register_block_element(array(
-			'id' => 'comments-wrapper',
-			'name' => 'Comments',
-			'selector' => 'div#comments'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'comments-area',
-			'name' => 'Comments Area',
-			'selector' => 'ol.commentlist',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow'),
-			'parent' => 'comments-wrapper'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'comments-area-headings',
-			'name' => 'Comments Area Headings',
-			'selector' => 'div#comments h3',
-			'parent' => 'comments-wrapper'
-		));
 
-		$this->register_block_element(array(
-			'id' => 'comment-container',
-			'name' => 'Comment Container',
-			'selector' => 'li.comment',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
-			'parent' => 'comments-wrapper'
-		));
+		/*	Gutenberg */
 
-		$this->register_block_element(array(
-			'id' => 'comments-textarea',
-			'name' => 'Add Comment Textarea',
-			'selector' => '#comment',
-			'parent' => 'comments-wrapper'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'comment-author',
-			'name' => 'Comment Author',
-			'selector' => 'li.comment .comment-author',
-			'parent' => 'comments-wrapper'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'comment-meta',
-			'name' => 'Comment Meta',
-			'selector' => 'li.comment .comment-meta',
-			'parent' => 'comments-wrapper'
-		));
+			$this->register_block_element(array(
+				'id' => 'gutenberg-audio-block',
+				'name' => 'Gutenberg audio block',
+				'selector' => '.wp-block-audio',
+			));
 
-		$this->register_block_element(array(
-			'id' => 'comment-meta-count',
-			'name' => 'Comment Meta Count',
-			'selector' => 'a.entry-comments',
-			'parent' => 'comments-wrapper'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'comment-body',
-			'name' => 'Comment Body',
-			'selector' => 'li.comment .comment-body p',
-			'properties' => array('fonts'),
-			'parent' => 'comments-wrapper'
-		));
-		
-		$this->register_block_element(array(
-			'id' => 'comment-reply-link',
-			'name' => 'Comment Reply Link',
-			'selector' => 'a.comment-reply-link',
-			'states' => array(
-				'Hover' => 'a.comment-reply-link:hover',
-				'Clicked' => 'a.comment-reply-link:active'
-			),
-			'parent' => 'comments-wrapper'
-		));
+			$this->register_block_element(array(
+				'id' => 'gutenberg-video-block',
+				'name' => 'Gutenberg video block',
+				'selector' => '.wp-block-video',
+			));
 
-		$this->register_block_element(array(
-			'id' => 'comment-form-input-label',
-			'name' => 'Comment Form Input Label',
-			'selector' => 'div#respond label',
-			'properties' => array('fonts'),
-			'parent' => 'comments-wrapper'
-		));
+			$this->register_block_element(array(
+				'id' => 'gutenberg-file-block',
+				'name' => 'Gutenberg file block',
+				'selector' => '.wp-block-file',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-image-block',
+				'name' => 'Gutenberg image block',
+				'selector' => '.wp-block-image',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-gallery-block',
+				'name' => 'Gutenberg gallery block',
+				'selector' => '.wp-block-gallery',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-gallery-block-item',
+				'name' => 'Gutenberg gallery item',
+				'selector' => '.wp-block-gallery-item',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-cover-block',
+				'name' => 'Gutenberg cover block',
+				'selector' => '.wp-block-cover',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-code-block',
+				'name' => 'Gutenberg code block',
+				'selector' => '.wp-block-code',
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'gutenberg-preformatted-block',
+				'name' => 'Gutenberg preformatted block',
+				'selector' => '.wp-block-preformatted',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-pullquote-block',
+				'name' => 'Gutenberg pullquote block',
+				'selector' => '.wp-block-pullquote',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-table-block',
+				'name' => 'Gutenberg table block',
+				'selector' => '.wp-block-table',
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'gutenberg-button-block',
+				'name' => 'Gutenberg button block',
+				'selector' => '.wp-block-button',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-columns-block',
+				'name' => 'Gutenberg columns block',
+				'selector' => '.wp-block-columns',
+			));
+			
+			$this->register_block_element(array(
+				'id' => 'gutenberg-media-text-block',
+				'name' => 'Gutenberg media-text block',
+				'selector' => '.wp-block-media-text',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-separator-block',
+				'name' => 'Gutenberg separator block',
+				'selector' => '.wp-block-separator',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-archives-block',
+				'name' => 'Gutenberg archives block',
+				'selector' => '.wp-block-archives',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-categories-block',
+				'name' => 'Gutenberg categories block',
+				'selector' => '.wp-block-categories',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-categories-block',
+				'name' => 'Gutenberg categories block',
+				'selector' => '.wp-block-categories .cat-item',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-latest-comments-block',
+				'name' => 'Gutenberg latest-comments block',
+				'selector' => '.wp-block-latest-comments',
+			));			
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-categories-block',
+				'name' => 'Gutenberg categories block',
+				'selector' => '.wp-block-categories',
+			));			
+
+			$this->register_block_element(array(
+				'id' => 'gutenberg-embed-block',
+				'name' => 'Gutenberg embed block',
+				'selector' => '.wp-block-embed',
+			));			
+
+		/*	End Gutenberg */
+
 		
 	}
 	

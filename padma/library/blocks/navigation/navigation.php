@@ -29,6 +29,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		}
 
 		wp_register_script( 'jquery-hoverintent', padma_url() . '/library/media/js/jquery.hoverintent.js', array( 'jquery' ) );
+		wp_enqueue_style('padma-navigation-block', padma_url() . '/library/blocks/navigation/css/navigation.css');
 
 	}
 
@@ -361,9 +362,12 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 							return false;
 
 
-						var $pushyMenu = $("' . $selector . '").find("ul.menu").first().clone().addClass("pushy pushy-'  . $slide_out_pos . '").removeClass("menu");
-						
-						$pushyMenu.attr("id", "slide-out-" + $pushyMenu.attr("id"));
+						var $pushyMenu = $("' . $selector . '").find("ul.menu").first().clone();
+							$pushyMenu.addClass("pushy pushy-'  . $slide_out_pos . '").removeClass("menu");
+
+						var id = "slide-out-" + "'  . $slide_out_pos . '";
+
+						$pushyMenu.attr("id", id);
 	
 						$pushyMenu.find("li").addClass("pushy-link");
 						$pushyMenu.find("ul").each(function() {

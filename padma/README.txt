@@ -41,15 +41,17 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 = 0.2.0
-* Released: November 28, 2018
+* Released: December 4, 2018
 
-Tested with WordPress 5 RC 1
+Tested with WordPress 5 RC 3
+Tested with Gutenberg Plugin 4.6.1
 Tested with ClassicPress Beta 1
 Visual Editor Fixes
 - Fixed CSS Transform VE issue
 - Missing setup panel fixed
+- Added tab index for inputs on panel
 Code Fixes
-- Remove PHP Notice
+- Remove PHP Notices
 - Content block query fix 
 Design Mode Updated
 - Added Advanced option group

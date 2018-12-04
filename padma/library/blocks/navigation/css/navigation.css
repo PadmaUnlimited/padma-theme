@@ -1,0 +1,8 @@
+body.pushy-open-left ul.pushy,
+body.pushy-open-right ul.pushy{
+	visibility: visible;
+}
+body.pushy-open-left  ul.pushy li.pushy-link,
+body.pushy-open-right  ul.pushy li.pushy-link{
+	visibility: visible;
+}

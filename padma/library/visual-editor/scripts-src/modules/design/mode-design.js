@@ -2045,7 +2045,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 					if ( !elementSettings['inspectable'] )
 						return;
-
+						
 					addInspectorProcessElement(elementSettings);
 
 				});

@@ -175,7 +175,7 @@ class PadmaElementAPI {
 			
 		if ( $destination['instances'] === array() )
 			unset($destination['instances']);
-		
+
 		//The element is now registered!
 		return $destination;
 		

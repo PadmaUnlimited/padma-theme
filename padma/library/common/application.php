@@ -29,7 +29,7 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.2.0');
+		define('PADMA_VERSION', '0.0.1');
 
 		/* Define directories */
 		define('PADMA_DIR', get_template_directory());
@@ -437,8 +437,8 @@ class Padma {
 			// Allow automatic Theme Updates
 			if ( ! PadmaOption::get('disable-automatic-core-updates') )
 				add_filter( 'auto_update_theme', '__return_true');
-		}
 
+		}
 	
 	}
 

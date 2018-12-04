@@ -344,12 +344,9 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
                                                                    editor.updateElement();
                                                                    dataHandleInput(textArea)
                                                                 });
-                                                                
-//                                                                wysiwygContainer.find('textarea')
-//									.bind('keyup', inputWYSIWYGTextareaChange);
 
 								wysiwygContainer.data('setupCKEditor', true);
-//
+
 								wysiwygContainer.resizable({
 									start: showIframeOverlay,
 									stop: hideIframeOverlay
@@ -1089,6 +1086,17 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 					});
 
+
+			/* Tab Index */
+				var tabindex = 1;
+			    $('input,select,textarea').each(function() {
+			        if (this.type != "hidden") {
+			            var $input = $(this);
+			            $input.attr("tabindex", tabindex);
+			            tabindex++;
+			        }
+			    });
+			/* End Tab Index */
 		}
 
 	}

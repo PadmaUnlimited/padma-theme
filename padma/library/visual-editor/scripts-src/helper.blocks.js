@@ -735,19 +735,22 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		deleteSelectedBlock =  function(){
 			
 			var blocks = $i('body').find('.currently-selected');
-			if(blocks.length == 1 ){
-				var block = getBlock(blocks[0]);
-				if(confirm('Are you sure you want to delete this block?')){
-					deleteBlock(block);
-				}
-			}else{
-				if(confirm('Are you sure you want to delete all these blocks?')){
-					blocks.each(function(){
-						var block = getBlock($(this))
+
+			if(blocks.length > 0 ){
+				if(blocks.length == 1 ){
+					var block = getBlock(blocks[0]);
+					if(confirm('Are you sure you want to delete this block?')){
 						deleteBlock(block);
-					});
-				}
-			}			
+					}
+				}else{
+					if(confirm('Are you sure you want to delete all these blocks?')){
+						blocks.each(function(){
+							var block = getBlock($(this))
+							deleteBlock(block);
+						});
+					}
+				}			
+			}
 		},
 
 	openBlockOptions = function(block, subTab) {

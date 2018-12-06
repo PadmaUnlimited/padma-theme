@@ -68,6 +68,14 @@ class PadmaAdmin {
 
 			PadmaOption::set($option, $value);
 
+			// Automatic Updates
+			if($option == 'disable-automatic-core-updates'){				
+				update_option('padma-disable-automatic-core-updates',$value);
+			}
+			if($option == 'disable-automatic-plugin-updates'){				
+				update_option('padma-disable-automatic-plugin-updates',$value);
+			}
+
 		}
 
 		global $padma_admin_save_message;

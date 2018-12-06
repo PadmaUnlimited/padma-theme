@@ -115,10 +115,7 @@ class PadmaVisualEditorDisplay {
 			'open-sans',
 			'dashicons',
 			'padma_visual_editor' => padma_url() . '/library/visual-editor/css/editor.css',
-			'padma_visual_editor_night' => padma_url() . '/library/visual-editor/css/editor-night.css',
-			'jBox-styles' => padma_url() . '/library/visual-editor/css/jBox.min.css',
-			'jBox-styles-theme-dark' => padma_url() . '/library/visual-editor/css/jBox.TooltipDark.min.css',
-			'jBox-styles-theme-dark' => padma_url() . '/library/visual-editor/css/jBox.Confirm.min.css',
+			'padma_visual_editor_night' => padma_url() . '/library/visual-editor/css/editor-night.css',			
 		);
 
 		wp_enqueue_multiple_styles($styles);

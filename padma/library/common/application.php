@@ -103,7 +103,30 @@ class Padma {
 		add_action('after_setup_theme', array(__CLASS__, 'child_theme_setup'), 2);
 		add_action('after_setup_theme', array(__CLASS__, 'load_dependencies'), 3);
 		add_action('after_setup_theme', array(__CLASS__, 'maybe_db_upgrade'));
-		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));		
+		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));
+
+
+		// Activation hook
+		add_action('after_switch_theme', array(__CLASS__, 'activate' ));
+
+		// Deactivation hook
+		add_action( 'switch_theme', array(__CLASS__, 'deactivate' ));
+
+	}
+	
+
+	public static function activate(){
+
+		// Allow automatic Theme Updates
+		add_option('padma-disable-automatic-core-updates','0','','no');
+		add_option('padma-disable-automatic-plugin-updates','0','','no');
+
+	}
+
+	public static function deactivate(){
+
+		delete_option('padma-disable-automatic-core-updates');
+		delete_option('padma-disable-automatic-plugin-updates');
 
 	}
 
@@ -233,6 +256,13 @@ class Padma {
 		add_theme_support( 'editor-style' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
+
+		/*	Gutenberg	*/
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-styles' );
+		add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'responsive-embeds' );
+		add_editor_style( 'style-editor.css' );
 
 		/* Loop Standard by PluginBuddy */
 		require_once PADMA_LIBRARY_DIR . '/resources/dynamic-loop.php';
@@ -433,10 +463,6 @@ class Padma {
 
 			$PadmaUpdater = new PadmaUpdater();
 			$PadmaUpdater->updater('padma',PADMA_DIR,true);
-
-			// Allow automatic Theme Updates
-			if ( ! PadmaOption::get('disable-automatic-core-updates') )
-				add_filter( 'auto_update_theme', '__return_true');
 
 		}
 	

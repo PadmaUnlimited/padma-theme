@@ -23,3 +23,8 @@ require_once get_template_directory() . '/library/common/functions.php';
 require_once get_template_directory() . '/library/common/application.php';
 
 Padma::init();
+
+
+if ( get_option('padma-disable-automatic-core-updates') != '1'){	
+	add_filter( 'auto_update_theme', '__return_true');
+}

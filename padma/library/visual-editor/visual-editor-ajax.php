@@ -27,7 +27,7 @@ class PadmaVisualEditorAJAX {
 			do_action('padma_switch_skin');
 
 			Padma::set_autoload( padma_post( 'skin' ) );
-
+			
 			echo 'success';
 			
 		}

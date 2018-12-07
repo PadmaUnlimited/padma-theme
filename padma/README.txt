@@ -1,7 +1,7 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5 RC 3
+Tested up to: WordPress 5
 Version: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -42,9 +42,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 = 0.2.0
-* Released: December 6, 2018
+* Released: December 7, 2018
 
-Tested with WordPress 5 RC 3
+Tested with WordPress 5
 Tested with Gutenberg Plugin 4.6.1
 Tested with ClassicPress Beta 1
 Visual Editor Fixes
@@ -66,6 +66,8 @@ Headway compatibility update
 Filter options added to Select Block Type panel
 Auto Update Support
 Allow mobile zooming
+Added Blox 1.0.X Templates support
+Improved Headway/Blox Templates support
 
 
 = 0.1.0

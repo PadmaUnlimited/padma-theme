@@ -44,9 +44,11 @@ class PadmaDataPortability {
 			}
 			
 		}elseif (padma_get('hw-version', $skin)) {
+
 			if(version_compare(padma_get('hw-version', $skin), '3.7', '<')){
 				return array('error' => 'Headway templates from pre-3.7 versions are not supported');
 			}
+
 		}else{
 			return array('error' => 'This is not a valid Padma Template');
 		}
@@ -104,8 +106,6 @@ class PadmaDataPortability {
 			PadmaLayoutOption::$current_skin = $skin['id'];
 
 		/* Process the install */
-
-
 			if(isset($skin['pu-version'])){
 				$skin = self::process_install_skin($skin);
 
@@ -113,20 +113,26 @@ class PadmaDataPortability {
 			// Headway themes support
 			}elseif (isset($skin['hw-version'])) {
 
-				$skin = self::convert_skin_hw_to_padma($skin);
+				$skin = self::convert_skin_hw_to_padma($skin);				
+				$skin = self::process_install_skin($skin);
+
+			// Headway themes support
+			}elseif (isset($skin['bt-version'])) {
+
+				$skin = self::convert_skin_blox_to_padma($skin);
 				$skin = self::process_install_skin($skin);
 
 			// Not supported old Headway < 3.7
 			}elseif (!padma_get('hw-version', $skin) || version_compare(padma_get('hw-version', $skin), '3.7', '<') ) {
 				return array('error' => 'Headway templates from pre-3.7 versions are not supported');
 			}
-
-
-		
+					
 
 		/* Change $current_skin back just to be safe */
 			PadmaOption::$current_skin 			= PadmaTemplates::get_active_id();
 			PadmaLayoutOption::$current_skin 	= PadmaTemplates::get_active_id();
+
+
 
 		return $skin;
 
@@ -334,42 +340,82 @@ class PadmaDataPortability {
 
 		$padmaSkin 	= array();
 
-		$padmaSkin['pu-version'] 			= '0.0.17'; // First Padma version to support skins well
-		$padmaSkin['hw-version'] 			= $hwskin['hw-version']; // First Padma version to support skins well
+		$padmaSkin['pu-version'] 			= PADMA_VERSION;
+		$padmaSkin['hw-version'] 			= $hwskin['hw-version'];
 		$padmaSkin['name'] 					= $hwskin['name'];
 		$padmaSkin['author'] 				= $hwskin['author'];
 		$padmaSkin['image-url'] 			= $hwskin['image-url'];
 		$padmaSkin['version'] 				= $hwskin['version'];
-		$padmaSkin['data_wp_options'] 		= $hwskin['data_wp_options'];		
-		$padmaSkin['data_wp_postmeta'] 		= $hwskin['data_wp_postmeta'];
-		$padmaSkin['data_pu_layout_meta'] 	= $hwskin['data_hw_layout_meta'];
-		$padmaSkin['data_pu_wrappers'] 		= $hwskin['data_hw_wrappers'];
-		$padmaSkin['data_pu_blocks'] 		= $hwskin['data_hw_blocks'];
+		$padmaSkin['data_wp_options'] 		= self::data_serialize($hwskin['data_wp_options']);
+		$padmaSkin['data_wp_postmeta'] 		= self::data_serialize($hwskin['data_wp_postmeta']);
+		$padmaSkin['data_pu_layout_meta'] 	= self::data_serialize($hwskin['data_hw_layout_meta']);
+		$padmaSkin['data_pu_wrappers'] 		= self::data_serialize($hwskin['data_hw_wrappers']);
+		$padmaSkin['data_pu_blocks'] 		= self::data_serialize($hwskin['data_hw_blocks']);
 		$padmaSkin['data-type'] 			= $hwskin['data-type'];
 		$padmaSkin['imported-images'] 		= $hwskin['imported-images'];
 		$padmaSkin['id'] 					= $hwskin['id'];
 
+		return $padmaSkin;
+	}
 
+
+	/**
+	 *
+	 * Allow convert Blox Skins to Padma
+	 *
+	 */	
+	public static function convert_skin_blox_to_padma($bloxSkin){
+
+		$padmaSkin 	= array();
+
+		$padmaSkin['pu-version'] 			= '0.0.17'; // First Padma version to support skins well
+		$padmaSkin['bt-version'] 			= $bloxSkin['bt-version'];
+		$padmaSkin['name'] 					= $bloxSkin['name'];
+		$padmaSkin['author'] 				= $bloxSkin['author'];
+		$padmaSkin['image-url'] 			= $bloxSkin['image-url'];
+		$padmaSkin['version'] 				= $bloxSkin['version'];
+		$padmaSkin['data_wp_options'] 		= $bloxSkin['data_wp_options'];		
+		$padmaSkin['data_wp_postmeta'] 		= $bloxSkin['data_wp_postmeta'];
+		$padmaSkin['data_pu_layout_meta'] 	= $bloxSkin['data_bt_layout_meta'];
+		$padmaSkin['data_pu_wrappers'] 		= $bloxSkin['data_bt_wrappers'];
+		$padmaSkin['data_pu_blocks'] 		= $bloxSkin['data_bt_blocks'];
+		$padmaSkin['data-type'] 			= $bloxSkin['data-type'];
+		$padmaSkin['imported-images'] 		= $bloxSkin['imported-images'];
+		$padmaSkin['id'] 					= $bloxSkin['id'];
+
+
+
+		// data_wp_options
 		foreach ($padmaSkin['data_wp_options'] as $key => $optionArray) {
 
-			foreach ($optionArray as $optionName => $optionValue) {
-			
-				$value = str_replace('headway', 'pu', $optionValue);
-				$padmaSkin['data_wp_options'][$key][$optionName] = $value;
+			foreach ($optionArray as $optionName => $optionValue) {			
+				$padmaSkin['data_wp_options'][$key][$optionName] = self::convert_skin_string_replace($optionValue);
 			}
 
-			if(isset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-headway-attribution'])){
-				$padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-padma-attribution'] = $padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-headway-attribution'];
-				unset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-headway-attribution']);
+			if(isset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-bloxtheme-attribution'])){
+				$padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-padma-attribution'] = $padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-bloxtheme-attribution'];
+				unset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-bloxtheme-attribution']);
 			}
+
 		}
 
 
+		// data_wp_postmeta
+		foreach ($padmaSkin['data_wp_postmeta'] as $key => $optionArray) {
+
+			foreach ($optionArray as $optionName => $optionValue) {			
+				$padmaSkin['data_wp_postmeta'][$key][$optionName] = self::convert_skin_string_replace($optionValue);
+			}
+
+		}
+
+
+		// data_pu_blocks
 		foreach ($padmaSkin['data_pu_blocks'] as $key => $blockArray) {
 
-			if(isset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-headway-attribution'])){
-				$padmaSkin['data_pu_blocks'][$key]['settings']['hide-padma-attribution'] = $padmaSkin['data_pu_blocks'][$key]['settings']['hide-headway-attribution'];
-				unset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-headway-attribution']);
+			if(isset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-bloxtheme-attribution'])){
+				$padmaSkin['data_pu_blocks'][$key]['settings']['hide-padma-attribution'] = $padmaSkin['data_pu_blocks'][$key]['settings']['hide-bloxtheme-attribution'];
+				unset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-bloxtheme-attribution']);
 			}
 
 		}
@@ -377,6 +423,71 @@ class PadmaDataPortability {
 		return $padmaSkin;
 	}
 
+	
+
+	/**
+	 *
+	 * String Headway/Blox replace
+	 *
+	 */	
+	private static function convert_skin_string_replace($string){
+
+        $search_for = array(
+
+        	// Headway
+            '/(hw)/',
+            '/(headway\_)/',
+            '/(\/headway\/)/',
+            '/(\-headway\-)/',
+            
+            // Bloxtheme
+            '/(bt)/',
+            '/(bloxtheme\_)/',
+            '/(\/bloxtheme\/)/',
+            '/(\-bloxtheme\-)/',
+        );
+
+        $replace_for = array(
+            
+            'pu',
+            'pu_',
+            '/padma/',
+            '-padma-',
+
+            'pu',
+            'padma_',
+            '/padma/',
+            '-padma-',
+
+        );
+
+        return preg_replace($search_for, $replace_for, $string);
+
+    }
+
+
+	private static function data_serialize($data){
+
+        if(is_object($data))
+            $data = (array)$data;
+
+        if(is_serialized($data))
+            $data = unserialize($data);
+
+        if(is_array($data)){
+
+            $new_data = array();
+            foreach ($data as $key => $value) {                
+                $new_key            = self::convert_skin_string_replace($key);
+                $new_data[$new_key] = self::data_serialize($value);
+            }
+            return $new_data;
+
+        }else{        	
+            return self::convert_skin_string_replace($data);                
+        }
+
+    }
 	/**
 	 * Convert array to JSON file and force download.
 	 *

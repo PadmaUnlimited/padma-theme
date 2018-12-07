@@ -3,11 +3,7 @@ class PadmaLayoutRenderer {
 
 
 	private $id;
-
-
 	private $blocks;
-
-
 	private $wrappers;
 
 

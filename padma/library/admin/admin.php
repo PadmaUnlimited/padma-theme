@@ -254,20 +254,16 @@ class PadmaAdmin {
 				case 'getting-started':
 					self::add_admin_submenu('Getting Started', 'padma-getting-started', array('PadmaAdminPages', 'getting_started'));
 					self::add_admin_submenu('Visual Editor', 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
-
 					self::add_admin_submenu('Templates', 'padma-templates', array('PadmaAdminPages', 'templates'));
 					self::add_admin_submenu('Options', 'padma-options', array('PadmaAdminPages', 'options'));
 					self::add_admin_submenu('Tools', 'padma-tools', array('PadmaAdminPages', 'tools'));
-					//self::add_admin_submenu('License', 'padma-license', array('PadmaAdminPages', 'license'));
 				break;
 
 				case 'visual-editor':
 					self::add_admin_submenu('Visual Editor', 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
-
 					self::add_admin_submenu('Templates', 'padma-templates', array('PadmaAdminPages', 'templates'));
 					self::add_admin_submenu('Options', 'padma-options', array('PadmaAdminPages', 'options'));
 					self::add_admin_submenu('Tools', 'padma-tools', array('PadmaAdminPages', 'tools'));
-					//self::add_admin_submenu('License', 'padma-license', array('PadmaAdminPages', 'license'));
 				break;
 
 				case 'options':
@@ -275,7 +271,6 @@ class PadmaAdmin {
 					self::add_admin_submenu('Visual Editor', 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
 					self::add_admin_submenu('Templates', 'padma-templates', array('PadmaAdminPages', 'templates'));
 					self::add_admin_submenu('Tools', 'padma-tools', array('PadmaAdminPages', 'tools'));
-					//self::add_admin_submenu('License', 'padma-license', array('PadmaAdminPages', 'license'));
 				break;
 
 			}

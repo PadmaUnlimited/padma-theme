@@ -29,8 +29,8 @@ function padma_register_admin_meta_box($class = null) {
 	if(is_null($class))
 		return;
 
-	add_action('init', function($className) use ($class){
-		return padma_register_admin_meta_padma_callback($className);
+	add_action('init', function($class) use ($class){
+		return padma_register_admin_meta_padma_callback($class);
 	});
 	
 }

@@ -1,7 +1,7 @@
 <?php
 function padma_register_visual_editor_box($class) {
 
-	add_action('padma_visual_editor_display_init', function($class) use ($class){
+	add_action('padma_visual_editor_display_init', function() use ($class){		
 		return padma_register_visual_editor_box_callback($class);
 	});
 

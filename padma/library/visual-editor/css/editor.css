@@ -5966,7 +5966,9 @@ body.visual-editor-mode-design.side-panel-hidden div#panel {
 body.visual-editor-mode-design.side-panel-hidden div#iframe-container {
 	right: 0 !important;
 }
-
+body.visual-editor-mode-design:not(.side-panel-hidden) div#iframe-container{
+	width: calc(100% - 290px);
+}
 body.visual-editor-mode-design.side-panel-hidden div#side-panel-container {
 	right: -290px;
 }
@@ -7615,7 +7617,7 @@ ul.design-editor-box-content.filtered{
     width: 100%;
     text-align: right;
     padding-top: 10px;
-    color: #777777;
+    color: #d3d4d4;
 }
 .block-type-selector-filter{
 	width: 100%;

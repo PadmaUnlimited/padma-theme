@@ -16,8 +16,6 @@ defined('ABSPATH') or die("No script kiddies please!");
 			<div class="padma-admin-title tablink">Need help?</div>
 		</a><a href="javascript:void(0)" onclick="openTabAdmin(event, 'unlimited-growth');">
 			<div class="padma-admin-title tablink">Unlimited growth</div>
-		</a><a href="javascript:void(0)" onclick="openTabAdmin(event, 'custom-services');">
-			<div class="padma-admin-title tablink">Custom services</div>
 		</a>
 	</div>
 
@@ -124,21 +122,6 @@ defined('ABSPATH') or die("No script kiddies please!");
 				<p>Shortcode block: integration & management of Woocommerce content. Contact form 7 & Gravity forms.</p>
 				<p>Services: Documentation, Life-Saver blocks, Templates on cloud, Backups (soon), WP Admin lock (soon), Site monitor (soon), Website auditing (soon), Template market (soon).</p>
 				<p>Get into Padma Services to unlock the Padma Unlimited potential.</p>
-			</div>
-		</div>
-	</div>
-
-	<div id="custom-services" class="padma-admin-tab" style="display:none">
-		<div class="content">
-			<h2 class="center">Could not find what you are looking for?</h2>
-			<h2 class="center">Custom Services will cover your business needs.</h2>			
-			<div class="separator"></div>
-			<div class="box">
-				<h3>Padma | Custom Services</h3>
-				<p>Website customization support.<br>(Adjusts our tools to your needs. Get help from our development team to customize your Padma experience)</p>
-				<p>Website infrastructure advisory and configuration.<br>(Web server, web hosting, CDN configuration & improvements)</p>
-				<p>Website design support.<br>(CSS, Templates, Shared layouts, SEO, Responsiveness)</p>			
-				<p><a href="mailto:support@padmaunlimited.com">Request a quote</a></p>
 			</div>
 		</div>
 	</div>

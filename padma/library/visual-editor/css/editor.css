@@ -5966,9 +5966,10 @@ body.visual-editor-mode-design.side-panel-hidden div#panel {
 body.visual-editor-mode-design.side-panel-hidden div#iframe-container {
 	right: 0 !important;
 }
-body.visual-editor-mode-design:not(.side-panel-hidden) div#iframe-container{
+body.visual-editor-mode-design:not(.side-panel-hidden) .preview-desktop div#iframe-container{
 	width: calc(100% - 290px);
 }
+
 body.visual-editor-mode-design.side-panel-hidden div#side-panel-container {
 	right: -290px;
 }

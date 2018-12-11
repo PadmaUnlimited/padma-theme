@@ -94,13 +94,24 @@ defined('ABSPATH') or die("No script kiddies please!");
 			<p><strong>Padma | unlimited WordPress Theme Builder</strong> provides professional support and comprehensive documentation to help you bring your projects alive.</p>			
 			<div class="separator"></div>
 			<div class="box">
+				<h3>Padma | Community</h3>
+				<p>Join to our great community, we help us each other across different channels.</p>
+				<p><a href="https://www.facebook.com/padmaunlimited/" target="_blank">Facebook Page</a></p>
+				<p><a href="https://www.facebook.com/groups/367999217036886/" target="_blank">Facebook Users Grup (English)</a></p>
+				<p><a href="https://www.facebook.com/groups/291445981578459/" target="_blank">Facebook Users Grup (Español)</a></p>
+				<p><a href="https://twitter.com/PadmaUnlimited" target="_blank">Twitter</a></p>
+				<p><a href="https://padma-unlimited.slack.com/" target="_blank">Slack</a></p>
+			</div>
+			<!--
+			<div class="box">
 				<h3>Padma | Technical Support</h3>
 				<p>24/7 professional support to help you solve any Padma | unlimited WordPress Theme Builder or Padma plugins incompatibilities or bugs.</p>
 				<p>Support to migrate your website to Padma | unlimited WordPress Theme Builder.</p>				
 			</div>
+		    -->
 			<div class="box">
 				<h3>Padma | Documentation</h3>
-				<p>Register with us and get <strong>free access</strong> to our complete and comprehensive documentation.</p>
+				<p>Register with us and get <strong>free access</strong> to our complete and comprehensive documentation. <a target="_blank" href="https://docs.padmaunlimited.com/">docs.padmaunlimited.com</a></p>
 			</div>
 		</div>
 	</div>
@@ -118,9 +129,8 @@ defined('ABSPATH') or die("No script kiddies please!");
 			<div class="box">
 				<h3>Padma | unlimited Blocks</h3>
 				<p>Extend the functionality of your Padma | unlimited WordPress Theme Builder installation by adding useful custom blocks to your Projects.</p>
-				<p>Contact block: easy & responsive tool for contact pages management.</p>
+				<p>Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, Templates on cloud, site monitor.</p>				
 				<p>Shortcode block: integration & management of Woocommerce content. Contact form 7 & Gravity forms.</p>
-				<p>Services: Documentation, Life-Saver blocks, Templates on cloud, Backups (soon), WP Admin lock (soon), Site monitor (soon), Website auditing (soon), Template market (soon).</p>
 				<p>Get into Padma Services to unlock the Padma Unlimited potential.</p>
 			</div>
 		</div>

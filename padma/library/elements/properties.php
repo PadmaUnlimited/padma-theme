@@ -1012,8 +1012,6 @@ class PadmaElementProperties {
 			return ($property['group'] === $group);
 		});
 		
-
-		
 		if ( !is_array($filtered_properties) || count($filtered_properties) === 0 )
 			return null;
 		else

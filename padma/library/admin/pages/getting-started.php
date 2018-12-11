@@ -100,7 +100,7 @@ defined('ABSPATH') or die("No script kiddies please!");
 				<p><a href="https://www.facebook.com/groups/367999217036886/" target="_blank">Facebook Users Grup (English)</a></p>
 				<p><a href="https://www.facebook.com/groups/291445981578459/" target="_blank">Facebook Users Grup (Español)</a></p>
 				<p><a href="https://twitter.com/PadmaUnlimited" target="_blank">Twitter</a></p>
-				<p><a href="https://padma-unlimited.slack.com/" target="_blank">Slack</a></p>
+				<p><a href="https://join.slack.com/t/padma-unlimited/shared_invite/enQtNTAxMzM1NjcwNTc5LTM2YzQ0ODRhYzBmZDc4N2UwOWE0MjBlMmQyZmQ2MTdjZTgyNjg1Mzk4ZjVlNGIxYjZkMjlmMTNhNmE3OWQ1YjY" target="_blank">Slack</a></p>
 			</div>
 			<!--
 			<div class="box">

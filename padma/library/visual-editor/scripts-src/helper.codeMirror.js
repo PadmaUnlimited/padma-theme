@@ -69,16 +69,32 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 
 				/* Init editor */
 				var editor = window.CodeMirror.fromTextArea(window.document.getElementById("code"), {
-		    		mode:  				mode,
-					styleActiveLine: 	true,
-					extraKeys: {				
-						"Ctrl-Space": "autocomplete",
-					},
+		    		indentUnit: 		4,
+		    		indentWithTabs: 	true,
+		    		inputStyle: 		'contenteditable',
 					lineNumbers: 		true,
 		    		lineWrapping: 		true,
+					styleActiveLine: 	true,
+					continueComments: 	true,
+		    		mode:  				mode,
+					extraKeys: {				
+						"Ctrl-Space": "autocomplete",
+						'Ctrl-/'    : 'toggleComment',
+						'Cmd-/'     : 'toggleComment',
+						'Alt-F'     : 'findPersistent',
+						'Ctrl-F'    : 'findPersistent',
+						'Cmd-F'     : 'findPersistent',
+					},
+					direction: 			'ltr',
 		    		autoCloseBrackets: 	true,
+		    		autoCloseTags: 		true,
+		    		matchTags: {
+		    			bothTags: 		true
+		    		},
+		    		gutters: 			["CodeMirror-lint-markers"],
+    				lint: 				true
 				});
-			
+							
 				/* Populate the editor */
 				editor.setValue(initialValue);
 

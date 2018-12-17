@@ -40,9 +40,17 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 0.2.1
+* Released: December 14, 2018
+
+Tested with WordPress 5.1 Alpha
+Visual Editor Fixes
+- Fixed extra padding on both Grid and Design View.
+- LiveCSS fixes
+
 
 = 0.2.0
-* Released: December 7, 2018
+* Released: December 11, 2018
 
 Tested with WordPress 5
 Tested with Gutenberg Plugin 4.6.1

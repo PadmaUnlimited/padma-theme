@@ -17,9 +17,20 @@
 	 *
 	 */	
 	$styles 	= array(
-						'/deps/code-mirror/codemirror.css',						
-						'/deps/code-mirror/addon/hint/show-hint.css',
-						);
+		'/deps/code-mirror/codemirror.css',
+
+		// Dialog
+		'/deps/code-mirror/addon/dialog/dialog.css',
+
+		// Lint
+		'/deps/code-mirror/addon/lint/lint.css',
+
+		// Hint
+		'/deps/code-mirror/addon/hint/show-hint.css',
+
+		// Search
+		'/deps/code-mirror/addon/search/matchesonscrollbar.css',
+	);
 
 	if($_COOKIE['night']=='true'){
 		$styles[] = '/deps/code-mirror/theme/night.css';
@@ -36,12 +47,42 @@
 	 *
 	 */
 	$scripts = array(
-		'/deps/code-mirror/codemirror.js',		
+		'/deps/code-mirror/codemirror.js',
+
+		// Dialog
+		'/deps/code-mirror/addon/dialog/dialog.js',
+		
+		// Lint
+		'/deps/csslint.js',
+		'/deps/code-mirror/addon/lint/lint.js',
+		'/deps/code-mirror/addon/lint/css-lint.js',
+
+		// Hint
 		'/deps/code-mirror/addon/hint/show-hint.js',
 		'/deps/code-mirror/addon/hint/css-hint.js',
+
+		// Edit
 		'/deps/code-mirror/addon/edit/closebrackets.js',
+		'/deps/code-mirror/addon/edit/closetag.js',
+		'/deps/code-mirror/addon/edit/continuelist.js',
+		//'/deps/code-mirror/addon/edit/matchtags.js',
+		'/deps/code-mirror/addon/edit/matchbrackets.js',
+		'/deps/code-mirror/addon/edit/trailingspace.js',
+
+		// Display
 		'/deps/code-mirror/addon/display/placeholder.js',
+
+		// Selection
 		'/deps/code-mirror/addon/selection/active-line.js',		
+		'/deps/code-mirror/addon/selection/mark-selection.js',		
+		'/deps/code-mirror/addon/selection/selection-pointer.js',
+
+		// Search
+		'/deps/code-mirror/addon/search/search.js',
+		'/deps/code-mirror/addon/search/searchcursor.js',
+		'/deps/code-mirror/addon/search/match-highlighter.js',
+		'/deps/code-mirror/addon/search/matchesonscrollbar.js',
+		'/deps/code-mirror/addon/search/jump-to-line.js',
 	);
 
 	$scripts[] = '/deps/code-mirror/mode/'.$mode.'/'.$mode.'.js';
@@ -104,9 +145,15 @@
 	.live-css-loading-indicator.hidden {
 		display: none;
 	}
+	a.how-to{
+	    position: fixed;
+    	right: 10px;
+    	z-index: 1000;
+	}
 </style>
 </head>
 <body>
+	<a target="_blank" href="https://docs.padmaunlimited.com/blog/basics/live-css-hotkeys/" class="how-to">How to?</a>
 	<textarea id="code" name="code" class="code" placeholder="Your awesome <?php echo $mode; ?> goes here"></textarea>
 <?php
 foreach ($scripts as $key => $file) {

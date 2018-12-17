@@ -699,7 +699,7 @@ function padma_human_bytes($size) {
  *
  */
 if(!function_exists('debug')){	
-	function debug($data){
-		error_log(__FILE__ . "<pre>".print_r($data,1)."</pre>");
+	function debug($data){		
+		error_log( __FILE__ . " : ". print_r($data,1));
 	}	
 }

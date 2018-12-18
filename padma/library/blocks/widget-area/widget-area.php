@@ -36,6 +36,12 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 	function setup_elements() {
 
 		$this->register_block_element(array(
+			'id' => 'widget-area',
+			'name' => 'Widget Area',
+			'selector' => 'ul.widget-area'
+		));
+
+		$this->register_block_element(array(
 			'id' => 'widget',
 			'name' => 'Widget',
 			'selector' => 'li.widget'
@@ -44,7 +50,7 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'widget-title',
 			'name' => 'Widget Title',
-			'selector' => 'li.widget .widget-title'
+			'selector' => 'li.widget h3.widget-title'
 		));
 
 		$this->register_block_element(array(

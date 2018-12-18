@@ -28,19 +28,3 @@ Padma::init();
 if ( get_option('padma-disable-automatic-core-updates') != '1'){	
 	add_filter( 'auto_update_theme', '__return_true');
 }
-
-
-
-/*
-add_action('after_setup_theme','test');
-function test(){
-
-	$settings = array(
-		'codeEditor' => wp_enqueue_code_editor( array( 'file' => $real_file ) ),
-	);
-	wp_enqueue_script( 'wp-theme-plugin-editor' );
-	wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'jQuery( function( $ ) { wp.themePluginEditor.init( $( "#template" ), %s ); } )', wp_json_encode( $settings ) ) );
-
-	debug($settings);
-	
-}*/

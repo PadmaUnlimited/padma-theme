@@ -86,7 +86,7 @@ abstract class PadmaBlockAPI {
 	
 	
 	public function setup_main_block_element() {
-		
+
 		PadmaElementAPI::register_element(array(
 			'group' 		=> 'blocks',
 			'id' 			=> 'block-' . $this->id,
@@ -267,9 +267,6 @@ abstract class PadmaBlockAPI {
 		
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
-
-		if(!in_array('id', $args))
-			$args['id'] = '';
 		
 		$defaults = array(
 			'group' 	=> 'blocks',
@@ -311,7 +308,7 @@ abstract class PadmaBlockAPI {
 			}
 				
 		}
-
+		
 		return PadmaElementAPI::register_element($element);
 		
 	}

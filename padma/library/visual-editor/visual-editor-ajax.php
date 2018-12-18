@@ -418,9 +418,7 @@ class PadmaVisualEditorAJAX {
 		$current_layout = padma_post('layout');
 		$all_elements = PadmaElementAPI::get_all_elements();
 		$groups = PadmaElementAPI::get_groups();
-
 		$customized_element_data = PadmaElementsData::get_all_elements();
-
 		$elements = array('groups' => $groups);
 
 		/* Assemble the arrays */

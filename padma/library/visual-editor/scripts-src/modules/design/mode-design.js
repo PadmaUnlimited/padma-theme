@@ -2041,11 +2041,11 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				if ( typeof Padma.elements == 'undefined' )
 					return $.when(designEditorRequestElements()).then(addInspector);
 
+				
 				$.each(Padma.elements, function(elementID, elementSettings) {
 
 					if ( !elementSettings['inspectable'] )
 						return;
-						
 					addInspectorProcessElement(elementSettings);
 
 				});
@@ -2108,12 +2108,12 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 				addInspectorProcessElement = function(value) {
 
+
 					if ( value['group'] == 'default-elements' )
 						return;
 
 					if ( !$i(value['selector']).length )
 						return;
-
 
 					if ( value['selector'].indexOf(':') == -1 ) {
 

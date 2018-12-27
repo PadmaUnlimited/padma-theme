@@ -254,7 +254,6 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 				break;
 		}
-
 		return $css;
 
 	}

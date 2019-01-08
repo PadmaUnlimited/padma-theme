@@ -40,6 +40,14 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+
+= 0.2.2
+* Released: January 7, 2019
+
+Tested with WordPress 5.1 Alpha
+Tested with WordPress 5.0.2
+
+
 = 0.2.1
 * Released: December 14, 2018
 

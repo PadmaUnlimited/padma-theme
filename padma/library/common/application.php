@@ -206,6 +206,9 @@ class Padma {
 			/*		Headway Classes support	*/
 			'compatibility/headway/compatibility-headway'	=> true,
 
+			/*		Compatiblity with Divi Builder */
+			//'compatibility/divi-builder/compatibility-divi-builder'	=> true,
+
 
 		);
 			

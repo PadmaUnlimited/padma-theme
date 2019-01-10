@@ -29,7 +29,7 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.2.1');
+		define('PADMA_VERSION', '0.2.2');
 
 		/* Define directories */
 		define('PADMA_DIR', get_template_directory());
@@ -201,6 +201,10 @@ class Padma {
 			'display' 						=> true,
 			'widgets' 						=> true,
 			
+
+			/*	
+				Compatiblity
+			*/
 			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce',
 
 			/*		Headway Classes support	*/

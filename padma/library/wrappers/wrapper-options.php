@@ -35,7 +35,8 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 		'setup' => 'Grid &amp; Margins',
 		'positioning' => 'Sticky Positioning',
 		'config' => 'Mirroring &amp; Config',
-		'responsive' => 'Responsive'
+		'responsive' => 'Responsive',
+		'import-export' => 'Import/Export',
 	);
 	
 	public $inputs = array(
@@ -363,8 +364,68 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'callback' => ''
 			)
 
+		),
+
+		/**
+		 *
+		 * Import / Export Wrappers
+		 *
+		 */
+		'import-export' => array(
+			'import-heading' => array(
+				'name' => 'import-heading',
+				'type' => 'heading',
+				'label' => 'Import Wrapper Settings'
+			),
+
+			'wrapper-import-settings-file' => array(
+				'type' => 'import-file',
+				'name' => 'wrapper-import-settings-file',
+				'button-label' => 'Select File to Import',
+				'no-save' => true
+			),
+
+			/*
+			'wrapper-import-include-options' => array(
+				'type' => 'checkbox',
+				'name' => 'wrapper-import-settings-include-options',
+				'label' => 'Include Wrapper Options',
+				'default' => true,
+				'no-save' => true
+			),
+			'wrapper-import-include-design' => array(
+				'type' => 'checkbox',
+				'name' => 'wrapper-import-settings-include-design',
+				'label' => 'Include Wrapper Design',
+				'default' => true,
+				'no-save' => true
+			),*/
+
+			'wrapper-import-settings' => array(
+				'type' => 'button',
+				'name' => 'wrapper-import-settings',
+				'button-label' => 'Import Wrapper Settings',
+				'no-save' => true,
+				'callback' => 'initiateWrapperSettingsImport(args);'
+			),
+
+			'export-heading' => array(
+				'name' => 'export-heading',
+				'type' => 'heading',
+				'label' => 'Export Wrapper Settings'
+			),
+
+			'wrapper-export-settings' => array(
+				'type' => 'button',
+				'name' => 'wrapper-export-settings',
+				'button-label' => 'Download Export File',
+				'no-save' => true,
+				'callback' => 'exportWrapperSettingsButtonCallback(args);'
+			)
 		)
+
 	);
+
 	
 	
 	function modify_arguments($args = false) {

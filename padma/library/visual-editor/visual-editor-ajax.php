@@ -802,6 +802,15 @@ class PadmaVisualEditorAJAX {
 
 			}
 
+		/* Wrapper Settings Portability */
+			public static function method_export_wrapper_settings() {
+
+				Padma::load('data/data-portability');
+
+				return PadmaDataPortability::export_wrapper_settings(padma_get('wrapper-id'));
+
+			}
+
 	/*		Effects		*/
 
 		public static function method_get_effect_content() {

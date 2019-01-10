@@ -314,6 +314,24 @@ class PadmaDataPortability {
 	}
 
 
+	public static function export_wrapper_settings($wrapper_id) {
+
+		/* Set up variables */
+			$wrapper = PadmaWrappersData::get_wrapper($wrapper_id);
+
+		/* Check if block exists */
+			if ( !$wrapper )
+				die('Error: Could not export wrapper settings.');
+
+		/* Spit the file out */
+			return self::to_json('Wrapper Settings - ' . $wrapper['id'], 'wrapper-settings', array(
+				'id' => $wrapper['id'],
+				'settings' => $wrapper['settings']
+			));
+
+	}
+
+
 	public static function export_layout($layout_id) {
 
 		/* Set up variables */

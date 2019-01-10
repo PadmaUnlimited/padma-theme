@@ -157,5 +157,133 @@ define(['modules/panel.inputs'], function(panelInputs) {
 
 	}
 
+	exportWrapperSettingsButtonCallback = function(args) {
+
+		var params = {
+			'security': Padma.security,
+			'action': 'padma_visual_editor',
+			'method': 'export_wrapper_settings',
+			'wrapper-id': args.wrapper.id
+		}
+
+		var exportURL = Padma.ajaxURL + '?' + $.param(params);
+
+		return window.open(exportURL);
+
+	}
+
+	initiateWrapperSettingsImport = function(args) {
+
+		var input = args.input;
+		var wrapperID = args.wrapper.id;
+		var fileInput = $(input).parents('.ui-tabs-panel').first().find('input[name="wrapper-import-settings-file"]');
+
+		//var importOptions = puBoolean($(input).parents('.ui-tabs-panel').first().find('input[name="wrapper-import-settings-include-options"]').val());
+		//var importDesign = puBoolean($(input).parents('.ui-tabs-panel').first().find('input[name="wrapper-import-settings-include-design"]').val());
+
+		if ( !fileInput.val() )
+			return alert('You must select a wrapper settings export file before importing.');
+
+		//if ( !importOptions )
+			//return alert('You must import at least the options when importing wrapper settings.');
+
+		var wrapperSettingsFile = fileInput.get(0).files[0];
+
+		if ( wrapperSettingsFile && typeof wrapperSettingsFile.name != 'undefined' && typeof wrapperSettingsFile.type != 'undefined' ) {
+
+			var wrapperSettingsReader = new FileReader();
+
+			wrapperSettingsReader.onload = function(e) { 
+
+				var contents = e.target.result;
+				var wrapperSettingsImportArray = JSON.parse(contents);
+
+
+				/* Check to be sure that the JSON file is a block settings export file */
+					if ( wrapperSettingsImportArray['data-type'] != 'wrapper-settings' )
+						return alert('Cannot load wrapper settings.  Please insure that the wrapper settings are a proper Padma wrapper settings export.');
+
+				/* Handle the fun stuff */
+					if ( typeof wrapperSettingsImportArray['image-definitions'] != 'undefined' && Object.keys(wrapperSettingsImportArray['image-definitions']).length ) {
+
+						showNotification({
+							id: 'importing-images',
+							message: 'Currently importing images.',
+							closeTimer: 10000
+						});
+
+						$.post(Padma.ajaxURL, {
+							security: Padma.security,
+							action: 'padma_visual_editor',
+							method: 'import_images',
+							importFile: wrapperSettingsImportArray
+
+						}, function(response) {
+
+								
+							var wrapperSettings = response;
+	
+
+							/* If there's an error when sideloading images, then hault import. */
+							if ( typeof blockSettings['error'] != 'undefined' )
+								return alert('Error while importing images for wrapper: ' + wrapperSettings['error']);
+								
+							importWrapperSettingsAJAXCallback(wrapperID, wrapperSettings);
+
+						});
+
+					} else {
+
+						importWrapperSettingsAJAXCallback(wrapperID, wrapperSettingsImportArray);
+
+					}
+
+			}; /* end wrapperSettingsReader.onload */
+
+			wrapperSettingsReader.readAsText(wrapperSettingsFile);
+
+		} else {
+
+			alert('Cannot load wrapper settings.  Please insure that the wrapper settings are a proper Padma wrapper settings export.');
+
+		}
+
+	}
+
+
+		importWrapperSettingsAJAXCallback = function(wrapperID, wrapperSettings) {
+
+			/* Import wrapper settings */
+				importWrapperSettings(wrapperSettings, wrapperID);
+
+			/* Reload wrapper settings */
+				removePanelTab('wrapper-' + wrapperID);
+				openWrapperOptions(wrapperID);
+
+			/* All done, allow saving */
+				allowSaving();
+
+		}
+
+		importWrapperSettings = function(importWrapperSettings, wrapperID) {
+
+			wrapper = $('#wrapper-' + wrapperID)
+
+			/* Send the wrapper settings data to the unsaved data */
+				dataPrepareWrapper(wrapperID);
+
+				GLOBALunsavedValues['wrappers'][wrapperID]['settings'] = importWrapperSettings['settings'];
+	
+
+			/* Show notification */
+				showNotification({
+					id: 'wrapper-settings-imported-' + wrapperID,
+					message: 'Wrapper settings successfully imported. Please save and refresh.',
+					closeTimer: 6000,
+					success: true
+				});
+
+		}
+
 
 });

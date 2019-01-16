@@ -40,6 +40,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 0.2.3
+* Released: On dev
+
+Visual Editor Fixes
+- Fixed: Block settings didn't save
+
 
 = 0.2.2
 * Released: January 10, 2019

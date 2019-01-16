@@ -363,18 +363,24 @@ class PadmaVisualEditor {
 								//Get the block from the layout
 								$block = PadmaBlocksData::get_block($id);
 
+								// Get block settings
+								$settings = padma_get('settings', $block);
+
+								if(!is_array($settings))
+									$settings = $blocks[$id]['settings'];
+
 								//If block doesn't exist, we can't do anything.
-								if ( !$block || !is_array(padma_get('settings', $block)) )
+								if ( !$block || !is_array($settings) )
 									continue;
 
 								//If there aren't any options, then don't do anything either
 								if ( !is_array($value) || count($value) === 0 )
 									continue;
 
-								$block['settings'] = array_merge($block['settings'], $value);
+								$block['settings'] = array_merge($settings, $value);
 
 								PadmaBlocksData::update_block($id, $block);
-
+								
 								break;
 
 						}

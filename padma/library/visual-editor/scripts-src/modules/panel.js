@@ -34,7 +34,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 		var tabLink = tab.find('a');
 		
 		$('div#panel').tabs('refresh');
-		$(tabLink).bind('click', showPanel);
+		$(tabLink).on('click', showPanel);
 		
 		showPanel();
 
@@ -318,7 +318,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 			});
 
 			/* The max height option on the resizable must be updated if the window is resized. */
-			$(window).bind('resize', function(event) {
+			$(window).on('resize', function(event) {
 
 				/* For some reason jQuery UI resizable triggers window resize so only fire if window is truly the target. */
 				if ( event.target != window )
@@ -332,7 +332,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 		/* END PANEL RESIZING */
 
 		/* PANEL TOGGLE */
-			$('div#panel-top-container').bind('dblclick', function(event) {
+			$('div#panel-top-container').on('dblclick', function(event) {
 
 				if ( event.target.id != 'panel-top-container' )
 					return false;

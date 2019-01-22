@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Visual Editor Fixes
 - Fixed: Block settings didn't save
+Tools > System info Updated
 Divi Builder Plugin compatibility update
 
 

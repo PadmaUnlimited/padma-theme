@@ -43,6 +43,9 @@ if ( apply_filters( 'replace_editor', false, $post ) === true ) {
 
     ### Begin System Info ###
 
+    Server Time: 		<?php echo date("Y-m-d H:i:s") . "\n" ?>
+    Operating system: 	<?php echo (defined('PHP_OS') ? PHP_OS : 'unknown') . "\n";?>
+
 	Child Theme:		<?php echo PADMA_CHILD_THEME_ACTIVE ? wp_get_theme() . "\n" : "N/A\n" ?>
 
     Multi-site: 		<?php echo is_multisite() ? 'Yes' . "\n" : 'No' . "\n" ?>

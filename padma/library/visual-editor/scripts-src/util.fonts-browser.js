@@ -47,26 +47,12 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 					var fontID 				= li.data('value');
 					var fontName 			= $(this).siblings('.font-family').text();
 					var fontFamily 			= li.css('font-family');
-					var fontVariants 		= li.data('variants');
-					var variantsStr 		= '';
+					var fontVariants 		= li.data('variants').replace('[','').replace(']','');
+					
 
-					if ( fontVariants && fontVariants.indexOf('regular') === -1 )
-						variantsStr = '|' + fontVariants.join(',');
+					var value = webfontProvider != false ? webfontProvider + '|' + fontID + ':' + fontVariants : fontID;					
 
-					for (var i = fontVariants.length - 1; i >= 0; i--) {
-						var variant = fontVariants[i];
-							variant.replace('300italic','i');
-
-						variantsStr += variant;
-
-						if (i > 0){
-							variantsStr += ',';
-						}
-					}					
-
-					var value = webfontProvider != false ? webfontProvider + '|' + fontID + ':' + variantsStr : fontID;
 					/* Change readout */
-
 					var fontNameReadout = self.propertyInput.find('.font-name');
 
 					fontNameReadout.css('font-family', fontFamily);
@@ -202,8 +188,11 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 					var variants = '';
 
-					if ( $(this).data('variants').indexOf('regular') === -1 )
-						variants = ':' + $(this).data('variants').join(',');
+					if ( $(this).data('variants').indexOf('regular') === -1 ){
+						if($(this).data('variants')){
+							variants = ':' + $(this).data('variants').join('');							
+						}
+					}
 
 					fontsToLoad.push($(this).data('value') + variants);
 
@@ -432,8 +421,6 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 			/* bind use font button */
 			context.find('.font-preview-overlay .use-font').on('click', function() {
-
-
 
 				/* Determine value to save to DB */
 				var webfontProvider = $(this).parents('.tab-content').data('font-webfont-provider');

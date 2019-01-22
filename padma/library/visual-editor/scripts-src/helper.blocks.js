@@ -579,7 +579,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			if ( Padma.touch )
 				return false;
 							
-			$i('body').delegate('.block', 'mouseenter', function(event) {
+			$i('body').on('mouseenter', '.block', function(event) {
 					
 				var self = this;	
 				var firstSetup = typeof $(this).data('qtip') == 'undefined' ? true : false;
@@ -604,8 +604,8 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				}
 							
 			});
-			
-			$i('body').delegate('.block', 'mouseleave', function(event) {
+						
+			$i('body').on('mouseleave', '.block',  function(event) {
 				
 				clearTimeout($(this).data('hoverWaitTimeout'));
 							

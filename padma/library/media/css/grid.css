@@ -32,10 +32,12 @@
 		div.wrapper-fluid.wrapper-fluid-grid div.grid-container {
 			width: 100%;
 		}
-		/*
-	body.iframe-loaded > #whitewrap > .wrapper{
-		max-width: calc(100% - 30px);
-	}*/
+		@media screen and (max-width: 720px) {
+			body.iframe-loaded .wrapper{
+				max-width: calc(100% - 30px);
+			}		  
+		}
+
 /* End Wrapper */
 
 /* Structural stuff */	

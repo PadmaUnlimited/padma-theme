@@ -156,7 +156,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 		/* Hover Effects */
 			if ( pinBoard.hasClass('pin-board-hover-focus') ) {
 
-				pinBoard.delegate('.pin-board-pin', 'mouseenter', function() {
+				pinBoard.on('mouseenter', '.pin-board-pin',  function() {
 
 					$(this).siblings()
 						.removeClass('pin-board-pin-hover')

@@ -322,6 +322,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 			switch ( parent::get_setting($block, 'responsive-method', 'vertical') ) {
 				case 'vertical':
+
 					switch ( parent::get_setting($block, 'responsive-menu-label-position', 'right') ) {
 						case 'right':
 							$toggle_class = ' slicknav_btn-right';
@@ -339,14 +340,20 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 							break;
 					}
 
-					$js .= 'jQuery(document).ready(function($){
-
-							$("' . $selector . ' ul.menu").slicknav({
+					$js .= 'function padmaCreateSlicknavMenu(){							
+							jQuery("' . $selector . ' ul.menu").slicknav({
 								prependTo: "' . $selector . ' .block-content",
 								label: "' . parent::get_setting($block, 'responsive-menu-label', 'Menu') . '",
 								additionalBtnClass: "' . $toggle_class . '",
 								additionalMenuClass: "' . $menu_class . '"
 							});
+
+					}';
+					$js .= 'jQuery(document).ready(function($){
+
+							window.onresize = function(){padmaCreateSlicknavMenu()};
+							padmaCreateSlicknavMenu()
+							
 		
 						});' . "\n\n";
 
@@ -390,6 +397,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					break;
 
 				default:
+					
 					$js .= 'jQuery(document).ready(function($){
 
 						if ( typeof window.selectnav != "function" )
@@ -411,7 +419,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			}
 
 		}
-
+		
 		return $js;
 
 	}

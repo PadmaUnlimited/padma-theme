@@ -249,7 +249,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 						api.step = 0;
 
 						// Bind custom custom events we can fire to step forward/back
-						tooltip.bind('next', function (event) {
+						tooltip.on('next', function (event) {
 
 							/* For some reason trigger window resizing helps tooltip positioning */
 							$(window).trigger('resize');
@@ -312,7 +312,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 								}
 
-								$(currentTourStep.nextHandler.clickElement).bind('click', nextHandlerCallback);
+								$(currentTourStep.nextHandler.clickElement).on('click', nextHandlerCallback);
 
 							}
 

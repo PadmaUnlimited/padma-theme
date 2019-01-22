@@ -47,6 +47,7 @@ Visual Editor Fixes
 - Fixed: Block settings didn't save
 Tools > System info Updated
 Divi Builder Plugin compatibility update
+jQuery compatibility update
 
 
 = 0.2.2

@@ -1098,7 +1098,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			this.bindDesignEditorInfo = function() {
 					
 				/* Customize for layout button */
-				$('span.customize-element-for-layout').bind('click', function() {
+				$('span.customize-element-for-layout').on('click', function() {
 
 					var currentElement = designEditor.getCurrentElement();
 					var currentElementID = currentElement.data('element-id');
@@ -1108,7 +1108,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				});
 			
 				/* Customize for regular element button */
-				$('span.customize-for-regular-element').bind('click', function() {
+				$('span.customize-for-regular-element').on('click', function() {
 					designEditor.getCurrentElement().find('> span.element-name').trigger('click');
 				});
 
@@ -2200,7 +2200,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				Padma.iframe.bind('keydown', inspectorNudging);
 
 				/* Focus iframe on mouseover */
-				Padma.iframe.bind('mouseover', function() {
+				Padma.iframe.on('mouseover', function() {
 					Padma.iframe.focus();
 				});
 
@@ -2674,7 +2674,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 								$('<li class="inspector-context-menu-parent" data-parent-id="' + $(this).data('inspectorElementOptions').id + '"><span>' + $(this).data('inspectorElementOptions').name + '</span></li>')
 									.appendTo(parentsMenu.find('ul'))
-									.bind('click', function() {
+									.on('click', function() {
 
 										inspectorElement = parentElement;
 

@@ -775,7 +775,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			
 			/* Ready tab, sliders, and inputs */
 			tab.tabs();
-			panelInputs.bind('div#block-' + blockID + '-tab');
+			panelInputs.on('div#block-' + blockID + '-tab');
 			
 			/* Refresh tooltips */
 			setupTooltips();
@@ -905,7 +905,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			blockTypeSelector.find('div.block-type').addClass('tooltip');
 			setupTooltips();
 
-			blockTypeSelector.find('div.block-type').bind('click', function(event) {	
+			blockTypeSelector.find('div.block-type').on('click', function(event) {	
 
 				var blockType = $(this).attr('id').replace('block-type-', '');
 
@@ -935,13 +935,13 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		/* Bind unfocus events */
 			if ( block.hasClass('blank-block') ) {
 
-				$('.wrapper').bind('mousedown', {block: block}, hideBlankBlockTypeSelector);
+				$('.wrapper').on('mousedown', {block: block}, hideBlankBlockTypeSelector);
 
-				$(document).bind('keyup.esc', {block: block}, hideBlankBlockTypeSelector);
-				$i('html').bind('keyup.esc', {block: block}, hideBlankBlockTypeSelector);
+				$(document).on('keyup.esc', {block: block}, hideBlankBlockTypeSelector);
+				$i('html').on('keyup.esc', {block: block}, hideBlankBlockTypeSelector);
 
 				/* Make sure that when closing the block type selector with the tab close button on a blank block that the blank block is also removed. */
-				$('ul#panel-top li a[href="#block-' + blockID + '-tab"]').siblings('span.close').bind('mouseup', {block: block}, hideBlankBlockTypeSelector);
+				$('ul#panel-top li a[href="#block-' + blockID + '-tab"]').siblings('span.close').on('mouseup', {block: block}, hideBlankBlockTypeSelector);
 
 			}
 		

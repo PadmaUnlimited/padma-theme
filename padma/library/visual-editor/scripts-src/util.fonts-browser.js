@@ -33,7 +33,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 					self.scrollWebFontLoader(fontsList);
 				}, 100);
 
-				fontsList.bind('scroll', scrollWebFontLoaderDebounced);
+				fontsList.on('scroll', scrollWebFontLoaderDebounced);
 
 				self.initQuickSearch($(this));
 				self.initPreview($(this));
@@ -256,7 +256,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 							.attr('rel', 'stylesheet')
 							.attr('href', '//fonts.googleapis.com/css?family=' + googleFontsQueryString.substr(0, googleFontsQueryString.length-1))
 							.appendTo('head')
-							.bind('load', function() {
+							.on('load', function() {
 
 								_.each(fontsToLoad, function(fontToLoad) {
 									var fontNode = fontList.find('li[data-value="' + fontToLoad.split(':')[0] + '"]');
@@ -465,7 +465,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 			var self = this;
 
-			context.find('.fonts-search select').bind('change', function() {
+			context.find('.fonts-search select').on('change', function() {
 
 				var sortBy = $(this).val();
 				self.retrieveRemoteFonts($(this).parents('.tab-content'), sortBy, true);

@@ -112,7 +112,7 @@ define(['jquery', 'qtip'], function($) {
 		}
 
 		Padma.iframe.contents().unbind('scroll', iframeScrollTooltipReposition);		
-		Padma.iframe.contents().bind('scroll', iframeScrollTooltipReposition);
+		Padma.iframe.contents().on('scroll', iframeScrollTooltipReposition);
 		
 	}
 	

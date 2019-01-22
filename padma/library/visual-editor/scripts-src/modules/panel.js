@@ -341,7 +341,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 
 			});
 
-			$('ul#panel-top-right li#minimize').bind('click', function(event) {
+			$('ul#panel-top-right li#minimize').on('click', function(event) {
 
 				togglePanel();
 

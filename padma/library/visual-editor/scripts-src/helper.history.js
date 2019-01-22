@@ -174,7 +174,7 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
 
 		bind: function() {
 
-			mousetrap.bind(['ctrl+z', 'command+z'], function(event) {
+			mousetrap.on(['ctrl+z', 'command+z'], function(event) {
 				Padma.history.undo();
 
                 panelOptions();
@@ -183,7 +183,7 @@ define(['jquery', 'modules/iframe', 'deps/mousetrap'], function($, iframe, mouse
 				return false; 
 			});
 
-			mousetrap.bind(['ctrl+y', 'command+y'], function(event) {
+			mousetrap.on(['ctrl+y', 'command+y'], function(event) {
 				Padma.history.redo();
 
                 panelOptions();

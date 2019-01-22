@@ -55,7 +55,7 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 
 			var window = Padma.contentEditorEditors[id].window;
 
-			return $(window).bind('load', function() {
+			return $(window).on('load', function() {
 
 				/* Add keybindings */
 				mousetrap.bindEventsTo(window.document);

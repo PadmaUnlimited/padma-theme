@@ -200,10 +200,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 						textarea.trigger('focus');
 					
 						/* Bind the document close */
-						$(document).bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
-						Padma.iframe.contents().bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
+						$(document).on('mousedown', {textareaContainer: textareaContainer}, textareaClose);
+						Padma.iframe.contents().on('mousedown', {textareaContainer: textareaContainer}, textareaClose);
 					
-						$(window).bind('resize', {textareaContainer: textareaContainer}, textareaClose);
+						$(window).on('resize', {textareaContainer: textareaContainer}, textareaClose);
 					
 					} else {
 						
@@ -364,10 +364,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 							});
 
 						/* Bind the document close */
-							$(document).bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
-							Padma.iframe.contents().bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							$(document).on('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							Padma.iframe.contents().on('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
 
-							$(window).bind('resize', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							$(window).on('resize', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
 
 					} else {
 						
@@ -545,10 +545,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					multiSelectContainer.data('visible', true);
 				
 					/* Bind the document close */
-					$(document).bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
-					Padma.iframe.contents().bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					$(document).on('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					Padma.iframe.contents().on('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
 					
-					$(window).bind('resize', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					$(window).on('resize', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
 				
 				} else {
 					

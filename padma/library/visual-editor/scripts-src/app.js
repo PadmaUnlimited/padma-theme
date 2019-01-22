@@ -125,7 +125,7 @@ require(['jquery', 'util.loader'], function($) {
 
 	});
 
-	$(window).bind('load', function() {
+	$(window).on('load', function() {
 
 		/* Remove VE loader overlay after we know page has loaded */
 		setTimeout(function () {

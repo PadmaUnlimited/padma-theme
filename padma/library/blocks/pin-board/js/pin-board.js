@@ -33,7 +33,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 		$(context).find('.facebook-share-button, .twitter-share-button, .pin-it-button img').each(function () {
 
-			$(this).bind('load', function () {
+			$(this).on('load', function () {
 				$(this).animate({opacity: 1}, 300);
 			});
 
@@ -168,7 +168,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 				});
 
-				pinBoard.bind('mouseleave', function() {
+				pinBoard.on('mouseleave', function() {
 
 					$(this).find('.pin-board-pin')
 						.removeClass('pin-board-pin-blur')

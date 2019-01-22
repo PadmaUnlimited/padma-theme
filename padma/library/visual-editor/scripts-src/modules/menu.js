@@ -13,7 +13,7 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 					$(this).addClass('active');
 				});
 
-				$('ul#modes li a').bind('click', function(){
+				$('ul#modes li a').on('click', function(){
 
 					var modeURL 				= new Url($(this).attr('href'));
 					modeURL.query['ve-layout'] 	= Padma.viewModels.layoutSelector.currentLayout();
@@ -24,7 +24,7 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 			/* END MODE SWITCHING */
 
 			/* VIEW SITE BUTTON */
-				$('#menu-link-view-site a').bind('click', function(){
+				$('#menu-link-view-site a').on('click', function(){
 
 					var siteURL 					= new Url(Padma.homeURL);
 					siteURL.query['padma-trigger'] 	= 'layout-redirect';
@@ -47,7 +47,7 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 			/* END SAVE BUTTON */
 
 			/* SNAPSHOTS */
-				$('#snapshots-button').bind('click', function(){
+				$('#snapshots-button').on('click', function(){
 
 					openBox('snapshots');
 
@@ -55,9 +55,9 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 			/* END SNAPSHOTS */
 
 			/* TOOLS */
-				$('#tools-tour').bind('click', tour.start);
+				$('#tools-tour').on('click', tour.start);
 
-				$('#tools-grid-manager').bind('click', function(){
+				$('#tools-grid-manager').on('click', function(){
 
 					hidePanel();
 
@@ -65,7 +65,7 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 				});
 
-				$('#open-live-css').bind('click', function() {
+				$('#open-live-css').on('click', function() {
 
 					codeMirrorHelper.showEditor('live-css', 'css', $('textarea#live-css-content').val(), function(editor) {
 
@@ -85,7 +85,7 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 				});
 
-				$('#tools-clear-cache').bind('click', function(){
+				$('#tools-clear-cache').on('click', function(){
 
 					/* Set up parameters */
 					var parameters = {

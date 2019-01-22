@@ -1288,7 +1288,8 @@ $.fn.colorpicker = function(options){
 			});
 
 			/* Use swatch */
-			cpDiv.swatches.delegate('.swatch', 'click', function(e) {
+			
+			cpDiv.swatches.on('click','.swatch', function(e) {
 
 				/* Proxy that way useSwatch has the right this object */
 				var useSwatch = $.proxy($.colorpicker._useSwatch, this);

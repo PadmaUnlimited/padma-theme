@@ -39,7 +39,8 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 				self.initPreview($(this));
 				self.initSorting($(this));
 
-				fontsList.delegate('.use-font', 'click', function() {
+				
+				fontsList.on('click', '.use-font', function() {
 
 					var li 					= $(this).parents('li').first();
 					/* Determine value to save to DB */
@@ -377,8 +378,8 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 			}
 
-			/* Bind the preview buttons to the preview can be opened */
-			context.find('.fonts-list ul').delegate('li .preview-font', 'click', function() {
+			/* Bind the preview buttons to the preview can be opened */			
+			context.find('.fonts-list ul').on('click','li .preview-font', function() {
 
 				var fontID 		= $(this).parents('li').data('value');
 		    	var fontFamily 	= $(this).parents('li').css('font-family');

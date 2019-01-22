@@ -1300,8 +1300,9 @@ $.fn.colorpicker = function(options){
 			});
 
 			/* Delete swatch */
+			
 
-			cpDiv.swatches.delegate('.swatch', 'contextmenu', function(e) {
+			cpDiv.swatches.on('contextmenu', '.swatch', function(e) {
 
 				if ( confirm('Are you sure you wish to delete this swatch?') )
 					$.colorpicker.deleteSwatch(this);

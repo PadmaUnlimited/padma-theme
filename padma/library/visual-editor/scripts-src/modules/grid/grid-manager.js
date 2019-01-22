@@ -238,7 +238,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		}
 
 
-		$('div#boxes').delegate('div#box-grid-manager span.layout-preset', 'mousedown', function () {
+		$('div#boxes').on('mousedown', 'div#box-grid-manager span.layout-preset', function () {
 
 			$('div#box-grid-manager span.layout-preset-selected').removeClass('layout-preset-selected');
 			$(this).addClass('layout-preset-selected');
@@ -246,7 +246,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		});
 
 
-		$('div#boxes').delegate('span#grid-manager-button-preset-next', 'click', function () {
+		$('div#boxes').on('click', 'span#grid-manager-button-preset-next', function () {
 
 			/* Populate the step 2 panel with the proper select boxes */
 			var selectedPreset = $('div#box-grid-manager span.layout-preset-selected').attr('id').replace('layout-', '');
@@ -319,7 +319,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		});
 
 
-		$('div#boxes').delegate('span#grid-manager-button-preset-previous', 'click', function () {
+		$('div#boxes').on('click', 'span#grid-manager-button-preset-previous', function () {
 
 			/* Change the buttons around */
 			$(this).hide(); //Previous button
@@ -335,7 +335,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		});
 
 
-		$('div#boxes').delegate('span#grid-manager-button-preset-use-preset', 'click', function () {
+		$('div#boxes').on('click', 'span#grid-manager-button-preset-use-preset', function () {
 
 			var selectedPreset = $('div#box-grid-manager span.layout-preset-selected').attr('id').replace('layout-', '');
 
@@ -377,7 +377,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 
 		/* Layout Cloning */
-		$('div#boxes').delegate('span#grid-manager-button-clone-page', 'click', function () {
+		$('div#boxes').on('click', 'span#grid-manager-button-clone-page', function () {
 
 			var layoutToClone = $('select#grid-manager-pages-to-clone').val();
 
@@ -527,7 +527,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 
 		/* Template Assigning */
-		$('div#boxes').delegate('span#grid-manager-button-assign-template', 'click', function () {
+		$('div#boxes').on('click', 'span#grid-manager-button-assign-template', function () {
 
 			var templateToAssign = $('select#grid-manager-assign-template').val().replace('template-', '');
 
@@ -584,7 +584,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 
 		/* Empty Grid */
-		$('div#boxes').delegate('span.grid-manager-use-empty-grid', 'click', function () {
+		$('div#boxes').on('click', 'span.grid-manager-use-empty-grid', function () {
 
 			//Empty the grid out
 			$i('.block').each(function () {
@@ -802,14 +802,14 @@ define(['deps/chosen.jquery'], function(chosen) {
 		}
 
 
-		$('div#boxes').delegate('#grid-manager-import-select-file', 'click', function () {
+		$('div#boxes').on('click', '#grid-manager-import-select-file', function () {
 
 			$(this).siblings('input[type="file"]').trigger('click');
 
 		});
 
 
-		$('div#boxes').delegate('#grid-manager-import input[type="file"]', 'change', function (event) {
+		$('div#boxes').on('change', '#grid-manager-import input[type="file"]', function (event) {
 
 			if (event.target.files[0].name.split('.').slice(-1)[0] != 'json') {
 
@@ -823,7 +823,7 @@ define(['deps/chosen.jquery'], function(chosen) {
 		});
 
 		/* Layout Export */
-		$('div#boxes').delegate('#grid-manager-export-download-file', 'click', function () {
+		$('div#boxes').on('click', '#grid-manager-export-download-file', function () {
 
 			var params = {
 				'action': 'padma_visual_editor',

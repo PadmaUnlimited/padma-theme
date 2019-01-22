@@ -1381,7 +1381,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 		designEditorBindPropertyBoxToggle = function() {
 			
-			$('div.design-editor-options').delegate('span.design-editor-box-title', 'click', function() {
+			$('div.design-editor-options').on('click', 'span.design-editor-box-title', function() {
 
 				var box = $(this).parents('div.design-editor-box');
 
@@ -1402,7 +1402,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		designEditorBindPropertyInputs = function() {
 
 			/* Customize Buttons */
-			$('.design-editor-options-container').delegate('div.customize-property', 'click', function() {
+			$('.design-editor-options-container').on('click', 'div.customize-property', function() {
 
 				var property = $(this).parents('li').first();
 
@@ -1432,7 +1432,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			});
 			
 			/* Uncustomize Button */
-			$('.design-editor-options-container').delegate('span.uncustomize-property', 'click', function() {
+			$('.design-editor-options-container').on('click', 'span.uncustomize-property', function() {
 				
 				if ( !confirm('Are you sure you wish to delete this customization?') )
 					return false;
@@ -1475,14 +1475,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			});
 
 			/* Fonts */
-			$('.design-editor-options-container').delegate('.design-editor-property-font-family span.open-font-browser', 'click', function() {
+			$('.design-editor-options-container').on('click', '.design-editor-property-font-family span.open-font-browser', function() {
 				/* Using anonymous function because fontBrowserOpen won't be defined yet since it's loaded via $.getScript() */
 				if ( typeof fontBrowserOpen == 'function' )
 					fontBrowserOpen.apply(this);
 			});
 
 			/* Lock Sides */
-			$('.design-editor-options-container').delegate('span.design-editor-lock-sides', 'click', function() {
+			$('.design-editor-options-container').on('click', 'span.design-editor-lock-sides', function() {
 
 			    if ( $(this).parent().hasClass('box-model-inputs-locked') ) {
 
@@ -1502,7 +1502,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			});
 
-			$('.design-editor-options-container').delegate('.box-model-inputs-locked li.lockable-property input[type="number"]', 'keyup blur change', function(event, preventRecurse) {
+			$('.design-editor-options-container').on('keyup blur change', '.box-model-inputs-locked li.lockable-property input[type="number"]', function(event, preventRecurse) {
 
 				if ( typeof preventRecurse != 'undefined' && preventRecurse )
 					return;
@@ -1517,7 +1517,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			});
 
-			$('.design-editor-options-container').delegate('.box-model-inputs-locked li.lockable-property select', 'change', function (event, preventRecurse) {
+			$('.design-editor-options-container').on('change', '.box-model-inputs-locked li.lockable-property select', function (event, preventRecurse) {
 
 				if ( typeof preventRecurse != 'undefined' && preventRecurse )
 					return;
@@ -1533,21 +1533,21 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			});
 			
 			/* Select */
-			$('.design-editor-options-container').delegate('div.property-select select', 'change', designEditorInputSelect);
+			$('.design-editor-options-container').on('change', 'div.property-select select', designEditorInputSelect);
 			
 			/* Integer */
-			$('.design-editor-options-container').delegate('div.property-integer input', 'focus', designEditorInputIntegerFocus);
+			$('.design-editor-options-container').on('focus', 'div.property-integer input', designEditorInputIntegerFocus);
 			
-			$('.design-editor-options-container').delegate('div.property-integer input', 'keyup blur change', designEditorInputIntegerChange);
-			$('.design-editor-options-container').delegate('div.property-integer .property-unit-select select', 'change', designEditorInputIntegerUnitChange);
+			$('.design-editor-options-container').on('keyup blur change', 'div.property-integer input', designEditorInputIntegerChange);
+			$('.design-editor-options-container').on('change', 'div.property-integer .property-unit-select select', designEditorInputIntegerUnitChange);
 
 			/* Image Uploaders */
-			$('.design-editor-options-container').delegate('div.property-image span.button', 'click', designEditorInputImageUpload);
+			$('.design-editor-options-container').on('click', 'div.property-image span.button', designEditorInputImageUpload);
 
-			$('.design-editor-options-container').delegate('div.property-image span.delete-image', 'click', designEditorInputImageUploadDelete);
+			$('.design-editor-options-container').on('click', 'div.property-image span.delete-image', designEditorInputImageUploadDelete);
 
 			/* Color Inputs */
-			$('.design-editor-options-container').delegate('div.property-color div.colorpicker-box', 'click', designEditorInputColor);
+			$('.design-editor-options-container').on('click', 'div.property-color div.colorpicker-box', designEditorInputColor);
 
 		}
 	/* END DESIGN EDITOR INPUTS */

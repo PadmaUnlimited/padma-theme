@@ -475,7 +475,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
             layoutSelectorEl.tabs();
 
 			/* Make buttons work */
-            layoutSelectorEl.delegate('span.edit', 'click', function(event){
+			
+            layoutSelectorEl.on('click', 'span.edit', function(event){
 
 				if ( typeof allowVECloseSwitch !== 'undefined' && allowVECloseSwitch === false ) {
 
@@ -498,8 +499,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
                 return $(this).parents('span.layout');
 
 			});
-
-            layoutSelectorEl.delegate('span.revert', 'click', function(event){
+         
+            layoutSelectorEl.on('click', 'span.revert', function(event){
 
 				if ( !confirm('Are you sure you wish to reset this layout?  All blocks and content will be removed from this layout.\n\nPlease note: Any block that is mirroring a block on this layout will also lose its settings.') ) {
 					return false;
@@ -571,8 +572,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				return false;
 
 			});
-
-            layoutSelectorEl.delegate('span#add-template', 'click', function(event) {
+            
+            layoutSelectorEl.on('click', 'span#add-template', function(event) {
 
 				var templateName = $('#template-name-input').val();
 
@@ -630,8 +631,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				return false;
 
 			});
-
-            layoutSelectorEl.delegate('span.delete-template', 'click', function(event){
+          
+            layoutSelectorEl.on('click', 'span.delete-template', function(event){
 
 				var templateLi = $($(this).parents('li')[0]);
 				var templateSpan = $(this).parent();
@@ -688,8 +689,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				return false;
 
 			});
-
-            layoutSelectorEl.delegate('span.assign-template', 'click', function(event){
+            
+            layoutSelectorEl.on('click', 'span.assign-template', function(event){
 
 				var templateNode = $($(this).parents('li')[0]);
 				var template = $(this).parent().attr('data-layout-id').replace('template-', '');
@@ -753,8 +754,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				return false;
 
 			});
-
-			layoutSelectorEl.delegate('span.rename-template', 'click', function (event) {
+            
+			layoutSelectorEl.on('click', 'span.rename-template', function (event) {
 
 				var layoutNode = $($(this).parents('li')[0]);
 				var layoutID = $(this).parent().attr('data-layout-id');
@@ -791,8 +792,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				return false;
 
 			});
-
-			layoutSelectorEl.delegate('span.remove-template', 'click', function(event){
+			
+			layoutSelectorEl.on('click','span.remove-template',  function(event){
 
 				var layoutNode = $($(this).parents('li')[0]);
 				var layoutID = $(this).parent().attr('data-layout-id');
@@ -804,7 +805,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			});
 
 			/* Handle Collapsing Stuff */
-            layoutSelectorEl.delegate('span.layout', 'click', function(event) {
+			
+            layoutSelectorEl.on( 'click', 'span.layout',function(event) {
 
 				var self = this;
 
@@ -826,7 +828,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			});
 
 			/* Handle Collapsing Stuff */
-			layoutSelectorEl.delegate('span.load-more-layouts', 'click', function (event) {
+			
+			layoutSelectorEl.on('click', 'span.load-more-layouts', function (event) {
 
 				var self = this;
 

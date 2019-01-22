@@ -148,7 +148,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			var context = 'div#panel';
 
 			/* Selects */	
-			$(context).delegate('div.input-select select', 'change', function() {
+			
+			$(context).on('change', 'div.input-select select', function() {
 				
 				dataHandleInput($(this));
 
@@ -161,7 +162,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Text */
-			$(context).delegate('div.input-text input', 'keyup blur', function() {
+			
+			$(context).on('keyup blur', 'div.input-text input', function() {
 				
 				dataHandleInput($(this));
 						
@@ -169,13 +171,14 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 			
 			/* Textarea */
-				$(context).delegate('div.input-textarea textarea', 'keyup blur', function() {
+			
+				$(context).on('keyup blur', 'div.input-textarea textarea', function() {
 					
 					dataHandleInput($(this));
 								
 				});
 				
-				$(context).delegate('div.input-textarea span.textarea-open', 'click', function() {
+				$(context).on('click', 'div.input-textarea span.textarea-open', function() {
 					
 					var textareaContainer = $(this).siblings('.textarea-container');
 					var textarea = textareaContainer.find('textarea');
@@ -249,7 +252,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 
 			/* Code Editor */
-				$(context).delegate('div.input-code span.code-editor-open', 'click', function() {
+			
+				$(context).on( 'click', 'div.input-code span.code-editor-open',function() {
 
 					var codeEditorTextarea = $(this).siblings('textarea');
 
@@ -277,7 +281,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					
 				}
 
-				$(context).delegate('div.input-wysiwyg span.wysiwyg-open', 'click', function() {
+				$(context).on('click', 'div.input-wysiwyg span.wysiwyg-open', function() {
 					
 					var wysiwygContainer = $(this).siblings('.wysiwyg-container');
 					
@@ -419,7 +423,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			
 			/* Integer */
-			$(context).delegate('div.input-integer input', 'focus', function() {
+		
+			$(context).on('focus', 'div.input-integer input', function() {
 				
 				if ( typeof originalValues !== 'undefined' ) {
 					delete originalValues;
@@ -430,7 +435,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				
 			});
 			
-			$(context).delegate('div.input-integer input', 'keyup blur', function(event) {
+			
+			$(context).on('keyup blur', 'div.input-integer input', function(event) {
 				
 				value = $(this).val();
 				
@@ -471,7 +477,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 			
 			/* Checkboxes */
-			$(context).delegate('div.input-checkbox input', 'change', function(event) {
+			
+			$(context).on('change', 'div.input-checkbox input', function(event) {
 				
 				var inputContainer = $(this).parents('.input-checkbox').first();
 				var input = inputContainer.find('input');
@@ -517,13 +524,14 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Multi-select */
-			$(context).delegate('div.input-multi-select select', 'click', function() {
+			
+			$(context).on('click', 'div.input-multi-select select', function() {
 
 				dataHandleInput($(this));
 									
 			});
 			
-			$(context).delegate('div.input-multi-select span.multi-select-open', 'click', function() {
+			$(context).on('click', 'div.input-multi-select span.multi-select-open', function() {
 				
 				var multiSelectContainer = $(this).siblings('.multi-select-container');
 				var multiSelect = multiSelectContainer.find('select');
@@ -594,7 +602,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 
 			/* Image Uploaders */
-			$(context).delegate('div.input-image span.button', 'click', function() {
+		
+			$(context).on('click', 'div.input-image span.button', function() {
 				
 				var self = this;
 				
@@ -610,8 +619,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 
-
-			$(context).delegate('div.input-image span.delete-image', 'click', function() {
+			
+			$(context).on('click', 'div.input-image span.delete-image', function() {
 
 				if ( !confirm('Are you sure you wish to remove this image?') ) {
 					return false;
@@ -628,7 +637,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Audio Uploaders */
-			$(context).delegate('div.input-audio span.button', 'click', function() {
+			
+			$(context).on('click', 'div.input-audio span.button', function() {
 				
 				var self = this;
 				
@@ -644,7 +654,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 			
-			$(context).delegate('div.input-audio span.delete-audio', 'click', function() {
+			$(context).on('click', 'div.input-audio span.delete-audio', function() {
 
 				if ( !confirm('Are you sure you wish to remove this audio?') ) {
 					return false;
@@ -660,7 +670,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			});
 
 			/* Video Uploaders */
-			$(context).delegate('div.input-video span.button', 'click', function() {
+			
+			$(context).on('click', 'div.input-video span.button', function() {
 				
 				var self = this;
 				
@@ -676,7 +687,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 			
-			$(context).delegate('div.input-video span.delete-video', 'click', function() {
+			$(context).on('click', 'div.input-video span.delete-video', function() {
 
 				if ( !confirm('Are you sure you wish to remove this video?') ) {
 					return false;
@@ -721,7 +732,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 				}
 
-				$(context).delegate('div.repeater .add-group', 'click', function() {
+				$(context).on('click', 'div.repeater .add-group', function() {
 					
 					var repeater = $(this).parents('div.repeater');
 					var group = $(this).parents('div.repeater-group');
@@ -748,7 +759,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					
 				});
 
-				$(context).delegate('div.repeater .remove-group', 'click', function() {
+				$(context).on('click', 'div.repeater .remove-group', function() {
 
 					if ( !confirm('Are you sure?') )
 						return;
@@ -777,7 +788,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Color Inputs */
-			$(context).delegate('div.input-colorpicker div.colorpicker-box', 'click', function() {
+			$(context).on('click', 'div.input-colorpicker div.colorpicker-box',function() {
 
 				/* Keep the sub tabs content container from scrolling */
 				$('div.sub-tabs-content-container').css('overflow-y', 'hidden');	
@@ -866,7 +877,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Buttons */
-				$(context).delegate('div.input-button span.button', 'click', function() {
+				$(context).on('click', 'div.input-button span.button', function() {
 
 					dataHandleInput($(this));
 
@@ -874,13 +885,13 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Import Files */
-				$(context).delegate('div.input-import-file span.button', 'click', function() {
+				$(context).on('click', 'div.input-import-file span.button', function() {
 					
 					$(this).siblings('input[type="file"]').trigger('click');
 					
 				});
 
-				$(context).delegate('div.input-import-file input[type="file"]', 'change', function(event) {
+				$(context).on('change', 'div.input-import-file input[type="file"]', function(event) {
 					
 					if ( event.target.files[0].name.split('.').slice(-1)[0] != 'json' ) {
 
@@ -896,7 +907,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					
 				});
 
-				$(context).delegate('div.input-import-file .delete-file', 'click', function() {
+				$(context).on('click', 'div.input-import-file .delete-file', function() {
 					
 					if ( !confirm('Are you sure?') )
 						return;

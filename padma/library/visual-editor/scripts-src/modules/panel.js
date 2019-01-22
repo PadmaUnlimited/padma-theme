@@ -192,7 +192,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 	var panel = {
 		init: function() {
 
-			panelInputs.delegate();
+			panelInputs.on();
 			panelInputs.bind();
 
 		},
@@ -240,7 +240,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 
 	/* PANEL */
 		/* Tab Functions */
-		$('ul#panel-top').delegate('span.close', 'click', function(){
+		$('ul#panel-top').on('click', 'span.close', function(){
 					
 			var tab = $(this).siblings('a').attr('href').replace('#', '').replace('-tab', '');
 					

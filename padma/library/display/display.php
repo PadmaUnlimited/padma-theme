@@ -249,11 +249,13 @@ class PadmaDisplay {
 	
 	
 	public static function body_open() {	
-			
+		
 		echo '</head>';		
 		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">';
 		do_action('padma_body_open');
-		echo '<div id="whitewrap">';		
+		
+		echo '<div id="whitewraps">';
+		
 		do_action('padma_whitewrap_open');
 		do_action('padma_page_start');
 		

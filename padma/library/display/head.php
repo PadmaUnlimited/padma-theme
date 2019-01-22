@@ -5,9 +5,11 @@ class PadmaHead {
 	 * Set up hooks for <head>
 	 **/
 	public static function init() {
-		
+
+				
 		if ( !PadmaRoute::is_display() )
 			return false;
+		
 
 		if ( function_exists('wp_get_document_title') ) {
 			add_filter('pre_get_document_title', array('PadmaSEO', 'output_title'));
@@ -15,12 +17,13 @@ class PadmaHead {
 			add_filter('wp_title', array('PadmaSEO', 'output_title'));
 		}
 
-		//Remove actions
+		//Remove actions		
 		remove_action('wp_head', 'wp_print_styles', 8);
 		remove_action('wp_head', 'wp_print_head_scripts', 9);
 		remove_action('wp_head', 'rel_canonical');
 		remove_action('wp_head', 'feed_links', 2);
 		remove_action('wp_head', 'feed_links_extra', 3);
+
 				
 		//Set Up Actions
 		if ( ! function_exists( '_wp_render_title_tag' ) ) {

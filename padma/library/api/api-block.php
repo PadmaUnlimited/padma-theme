@@ -268,10 +268,12 @@ abstract class PadmaBlockAPI {
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
 		
+		$block_id_string = (isset($args['id'])) ? 'block-' . $this->id . '-' . $args['id'] : 'block-' . $this->id;
+
 		$defaults = array(
 			'group' 	=> 'blocks',
 			'parent' 	=> 'block-' . $this->id,
-			'id' 		=> 'block-' . $this->id . '-' . $args['id'],
+			'id' 		=> $block_id_string,			
 			'name' 		=> $args['name'],
 			'selector'	=> $modified_selector
 		);

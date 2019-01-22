@@ -245,9 +245,10 @@ class PadmaCompiler {
 	 * @return void
 	 **/
 	public static function output_trigger() {
+
 		
 		$file = padma_get('file');
-		
+				
 		//No GET parameter set		
 		if ( !$file )
 			return false;

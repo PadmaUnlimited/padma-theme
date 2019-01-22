@@ -29,7 +29,7 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.2.2');
+		define('PADMA_VERSION', '0.2.3');
 
 		/* Define directories */
 		define('PADMA_DIR', get_template_directory());
@@ -211,7 +211,7 @@ class Padma {
 			'compatibility/headway/compatibility-headway'	=> true,
 
 			/*		Compatiblity with Divi Builder */
-			//'compatibility/divi-builder/compatibility-divi-builder'	=> true,
+			'compatibility/divi-builder/compatibility-divi-builder'	=> true,
 
 
 		);

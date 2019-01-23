@@ -329,9 +329,13 @@ abstract class PadmaVisualEditorPanelAPI {
 			/* If the value is non-existent then show an empty group. */
 				if ( !isset($input['value']) || !is_array($input['value']) || empty($input['value']) ) {
 
-					$this->repeater_group(array_merge($input, array(
-						'single' => true
-					)));
+					$this->repeater_group(
+						array_merge($input, array(
+							'single' => true
+						)),
+						null,
+						1
+					);
 
 			/* Values are valid, loop them. */
 				} else {

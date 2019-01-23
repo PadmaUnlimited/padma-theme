@@ -16,17 +16,17 @@ Links of interest:
 </ul>
 <br>
 <br>
-Contributors.
+Contributors.<br>
 We are looking for people eager to participate in the improvement and growth of Padma Unlimited Theme Builder. Please <a href="https://www.padmaunlimited.com/contact-us/" rel="nofollow">get in touch</a> and let us know you are here and interested in collaborate.
 <br>
 <br>
-Patrons.
+Patrons.<br><br>
 We believe in mutual cooperation to maintain, improve and keep Padma Unlimited Theme Builder free for everyone.
 If you value this philosophy and believe that our framework can bring real value to your projects, please consider to become part of the Padma Unlimited journey, support us!
 https://www.patreon.com/padmaunlimited
 <br>
 <br>
-Sponsors.
-This project is developed by the PadmaTeam with the sponsorship of plasma.cr & CasadelaPalmera.com
+Sponsors.<br>
+This project is developed by the PadmaTeam with the sponsorship of plasma.cr & CasadelaPalmera.com/.
 Support this project by becoming a sponsor. Your Logo & Link will show up on our Website.
 <br>

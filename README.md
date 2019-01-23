@@ -15,13 +15,16 @@ Links of interest:
 <li><a href="https://www.padmaunlimited.com/blog/2018/an-action-step-is-worth-a-thousand-words/" rel="nofollow">An action Step is worth a thousand words</a></li>
 </ul>
 <br>
+<br>
 Contributors.
 We are looking for people eager to participate in the improvement and growth of Padma Unlimited Theme Builder. Please <a href="https://www.padmaunlimited.com/contact-us/" rel="nofollow">get in touch</a> and let us know you are here and interested in collaborate.
+<br>
 <br>
 Patrons.
 We believe in mutual cooperation to maintain, improve and keep Padma Unlimited Theme Builder free for everyone.
 If you value this philosophy and believe that our framework can bring real value to your projects, please consider to become part of the Padma Unlimited journey, support us!
 https://www.patreon.com/padmaunlimited
+<br>
 <br>
 Sponsors.
 This project is developed by the PadmaTeam with the sponsorship of plasma.cr & CasadelaPalmera.com

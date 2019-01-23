@@ -468,7 +468,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 	bindWrapperButtons = function() {
 
 		/* Add Wrapper Buttons */
-			$i('body').on('click', '.add-wrapper-button-fixed', function() {
+			$i('body').delegate('.add-wrapper-button-fixed', 'click', function() {
 
 				return addWrapper($(this).parents('.add-wrapper-buttons').data('position'), {
 					'fluid': false
@@ -476,14 +476,14 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 			});
 
-			$i('body').on('click', '.add-wrapper-fluid-fixed-grid', function() {
+			$i('body').delegate('.add-wrapper-fluid-fixed-grid', 'click', function() {
 
 				return addWrapper($(this).parents('.add-wrapper-buttons').data('position'), {
 					'fluid': true
 				});
 			});
 
-			$i('body').on('click', '.add-wrapper-fluid-fluid-grid', function() {
+			$i('body').delegate('.add-wrapper-fluid-fluid-grid', 'click', function() {
 
 				return addWrapper($(this).parents('.add-wrapper-buttons').data('position'), {
 					'fluid': true,
@@ -493,7 +493,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			});
 
 		/* Wrapper Buttons */
-			$i('body').on('click', '.wrapper-buttons .wrapper-options', function() {
+			$i('body').delegate('.wrapper-buttons .wrapper-options', 'click', function() {
 
 				return openWrapperOptions(getWrapperID($(this).closest('.wrapper')));
 

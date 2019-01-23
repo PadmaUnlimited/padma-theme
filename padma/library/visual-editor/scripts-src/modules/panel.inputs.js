@@ -149,7 +149,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			/* Selects */	
 			
-			$(context).on('change', 'div.input-select select', function() {
+			$(context).delegate('div.input-select select', 'change', function() {
 				
 				dataHandleInput($(this));
 
@@ -163,7 +163,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			/* Text */
 			
-			$(context).on('keyup blur', 'div.input-text input', function() {
+			$(context).delegate('div.input-text input', 'keyup blur', function() {
 				
 				dataHandleInput($(this));
 						
@@ -172,13 +172,13 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 			/* Textarea */
 			
-				$(context).on('keyup blur', 'div.input-textarea textarea', function() {
+				$(context).delegate('div.input-textarea textarea', 'keyup blur', function() {
 					
 					dataHandleInput($(this));
 								
 				});
 				
-				$(context).on('click', 'div.input-textarea span.textarea-open', function() {
+				$(context).delegate('div.input-textarea span.textarea-open', 'click', function() {
 					
 					var textareaContainer = $(this).siblings('.textarea-container');
 					var textarea = textareaContainer.find('textarea');
@@ -203,10 +203,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 						textarea.trigger('focus');
 					
 						/* Bind the document close */
-						$(document).on('mousedown', {textareaContainer: textareaContainer}, textareaClose);
-						Padma.iframe.contents().on('mousedown', {textareaContainer: textareaContainer}, textareaClose);
+						$(document).bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
+						Padma.iframe.contents().bind('mousedown', {textareaContainer: textareaContainer}, textareaClose);
 					
-						$(window).on('resize', {textareaContainer: textareaContainer}, textareaClose);
+						$(window).bind('resize', {textareaContainer: textareaContainer}, textareaClose);
 					
 					} else {
 						
@@ -253,7 +253,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			/* Code Editor */
 			
-				$(context).on( 'click', 'div.input-code span.code-editor-open',function() {
+				$(context).delegate('div.input-code span.code-editor-open', 'click', function() {
 
 					var codeEditorTextarea = $(this).siblings('textarea');
 
@@ -281,7 +281,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					
 				}
 
-				$(context).on('click', 'div.input-wysiwyg span.wysiwyg-open', function() {
+				$(context).delegate('div.input-wysiwyg span.wysiwyg-open', 'click', function() {
 					
 					var wysiwygContainer = $(this).siblings('.wysiwyg-container');
 					
@@ -368,10 +368,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 							});
 
 						/* Bind the document close */
-							$(document).on('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
-							Padma.iframe.contents().on('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							$(document).bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							Padma.iframe.contents().bind('mousedown', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
 
-							$(window).on('resize', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
+							$(window).bind('resize', {wysiwygContainer: wysiwygContainer}, wysiwygClose);
 
 					} else {
 						
@@ -424,7 +424,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 			/* Integer */
 		
-			$(context).on('focus', 'div.input-integer input', function() {
+			$(context).delegate('div.input-integer input', 'focus', function() {
 				
 				if ( typeof originalValues !== 'undefined' ) {
 					delete originalValues;
@@ -436,7 +436,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			});
 			
 			
-			$(context).on('keyup blur', 'div.input-integer input', function(event) {
+			$(context).delegate('div.input-integer input', 'keyup blur', function(event) {
 				
 				value = $(this).val();
 				
@@ -477,8 +477,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 			
 			/* Checkboxes */
-			
-			$(context).on('change', 'div.input-checkbox input', function(event) {
+			$(context).delegate('div.input-checkbox input', 'change', function(event) {
 				
 				var inputContainer = $(this).parents('.input-checkbox').first();
 				var input = inputContainer.find('input');
@@ -524,14 +523,13 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Multi-select */
-			
-			$(context).on('click', 'div.input-multi-select select', function() {
+			$(context).delegate('div.input-multi-select select', 'click', function() {
 
 				dataHandleInput($(this));
 									
 			});
 			
-			$(context).on('click', 'div.input-multi-select span.multi-select-open', function() {
+			$(context).delegate('div.input-multi-select span.multi-select-open', 'click', function() {			
 				
 				var multiSelectContainer = $(this).siblings('.multi-select-container');
 				var multiSelect = multiSelectContainer.find('select');
@@ -553,10 +551,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					multiSelectContainer.data('visible', true);
 				
 					/* Bind the document close */
-					$(document).on('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
-					Padma.iframe.contents().on('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					$(document).bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					Padma.iframe.contents().bind('mousedown', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
 					
-					$(window).on('resize', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
+					$(window).bind('resize', {multiSelectContainer: multiSelectContainer}, multiSelectClose);
 				
 				} else {
 					
@@ -602,8 +600,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 
 			/* Image Uploaders */
-		
-			$(context).on('click', 'div.input-image span.button', function() {
+			$(context).delegate('div.input-image span.button', 'click', function() {
 				
 				var self = this;
 				
@@ -619,8 +616,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 
-			
-			$(context).on('click', 'div.input-image span.delete-image', function() {
+			$(context).delegate('div.input-image span.delete-image', 'click', function() {
 
 				if ( !confirm('Are you sure you wish to remove this image?') ) {
 					return false;
@@ -638,7 +634,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			/* Audio Uploaders */
 			
-			$(context).on('click', 'div.input-audio span.button', function() {
+			$(context).delegate('div.input-audio span.button', 'click', function() {
 				
 				var self = this;
 				
@@ -654,7 +650,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 			
-			$(context).on('click', 'div.input-audio span.delete-audio', function() {
+			$(context).delegate('div.input-audio span.delete-audio', 'click', function() {
 
 				if ( !confirm('Are you sure you wish to remove this audio?') ) {
 					return false;
@@ -670,8 +666,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			});
 
 			/* Video Uploaders */
-			
-			$(context).on('click', 'div.input-video span.button', function() {
+			$(context).delegate('div.input-video span.button', 'click', function() {
 				
 				var self = this;
 				
@@ -687,7 +682,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 			
-			$(context).on('click', 'div.input-video span.delete-video', function() {
+			$(context).delegate('div.input-video span.delete-video', 'click', function() {
 
 				if ( !confirm('Are you sure you wish to remove this video?') ) {
 					return false;
@@ -732,7 +727,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 				}
 
-				$(context).on('click', 'div.repeater .add-group', function() {
+				$(context).delegate('div.repeater .add-group', 'click', function() {				
 					
 					var repeater = $(this).parents('div.repeater');
 					var group = $(this).parents('div.repeater-group');
@@ -759,7 +754,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					
 				});
 
-				$(context).on('click', 'div.repeater .remove-group', function() {
+				$(context).delegate('div.repeater .remove-group', 'click', function() {
 
 					if ( !confirm('Are you sure?') )
 						return;
@@ -788,7 +783,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Color Inputs */
-			$(context).on('click', 'div.input-colorpicker div.colorpicker-box',function() {
+			$(context).delegate('div.input-colorpicker div.colorpicker-box', 'click', function() {
 
 				/* Keep the sub tabs content container from scrolling */
 				$('div.sub-tabs-content-container').css('overflow-y', 'hidden');	
@@ -875,23 +870,21 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 								
 			});
 
-
 			/* Buttons */
-				$(context).on('click', 'div.input-button span.button', function() {
+				$(context).delegate('div.input-button span.button', 'click', function() {
 
 					dataHandleInput($(this));
 
 				});
 
-
 			/* Import Files */
-				$(context).on('click', 'div.input-import-file span.button', function() {
+				$(context).delegate('div.input-import-file span.button', 'click', function() {				
 					
 					$(this).siblings('input[type="file"]').trigger('click');
 					
 				});
 
-				$(context).on('change', 'div.input-import-file input[type="file"]', function(event) {
+				$(context).delegate('div.input-import-file input[type="file"]', 'change', function(event) {
 					
 					if ( event.target.files[0].name.split('.').slice(-1)[0] != 'json' ) {
 
@@ -907,7 +900,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					
 				});
 
-				$(context).on('click', 'div.input-import-file .delete-file', function() {
+				$(context).delegate('div.input-import-file .delete-file', 'click', function() {
 					
 					if ( !confirm('Are you sure?') )
 						return;

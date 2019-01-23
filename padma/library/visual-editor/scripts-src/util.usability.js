@@ -78,12 +78,12 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 			}
 		
 			//Disable backspace for normal frame but still keep backspace functionality in inputs.  Also disable enter.
-			$(document).on('keypress', disableBadKeysCallback);
-			$(document).on('keydown', disableBadKeysCallback);
+			$(document).bind('keypress', disableBadKeysCallback);
+			$(document).bind('keydown', disableBadKeysCallback);
 		
 			//Disable backspace and enter for iframe
-			$i('html').on('keypress', disableBadKeysCallback);
-			$i('html').on('keydown', disableBadKeysCallback);
+			$i('html').bind('keypress', disableBadKeysCallback);
+			$i('html').bind('keydown', disableBadKeysCallback);
 			
 		}
 	/* END ANNOYANCE FIXER FUNCTIONS */
@@ -104,7 +104,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 
 				}
 
-				mousetrap.on('esc', keyBindingEscCloseTour);
+				mousetrap.bind('esc', keyBindingEscCloseTour);
 									
 			/* Bindings with modifier */
 				/* Save */
@@ -116,7 +116,7 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 					});
 
 				/* Panel Toggle */
-					mousetrap.on(['ctrl+p', 'command+p'], function(event) {
+					mousetrap.bind(['ctrl+p', 'command+p'], function(event) {
 						togglePanel();
 
 						/* cancel browser default */
@@ -124,23 +124,23 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 					});
 
 				/* Layout Selector Toggle */
-					mousetrap.on('ctrl+l', toggleLayoutSelector);
+					mousetrap.bind('ctrl+l', toggleLayoutSelector);
 
 				/* Design Editor Stuff */
 					if ( typeof designEditor != 'undefined' && typeof designEditor.processElementCopy == 'function' ) {
 
 						/* Copy and Paste */
-							mousetrap.on(['ctrl+c', 'command+c'], designEditor.processElementCopy);
-							mousetrap.on(['ctrl+v', 'command+v'], designEditor.processElementPaste);
+							mousetrap.bind(['ctrl+c', 'command+c'], designEditor.processElementCopy);
+							mousetrap.bind(['ctrl+v', 'command+v'], designEditor.processElementPaste);
 
 						/* Live CSS Toggle */
-							mousetrap.on('ctrl+e', function() { if ( !boxOpen('live-css') ) { $('#open-live-css').trigger('click'); } else { closeBox('live-css'); } });
+							mousetrap.bind('ctrl+e', function() { if ( !boxOpen('live-css') ) { $('#open-live-css').trigger('click'); } else { closeBox('live-css'); } });
 
 						/* Inspector Toggle */
-							mousetrap.on('ctrl+i', toggleInspector);
+							mousetrap.bind('ctrl+i', toggleInspector);
 
 						/* Design Editor Toggle */
-							mousetrap.on('tab', toggleDesignEditor);
+							mousetrap.bind('tab', toggleDesignEditor);
 
 					}
 			/* End bindings with modifier */

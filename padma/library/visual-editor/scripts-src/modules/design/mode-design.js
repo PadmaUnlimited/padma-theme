@@ -1098,7 +1098,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			this.bindDesignEditorInfo = function() {
 					
 				/* Customize for layout button */
-				$('span.customize-element-for-layout').on('click', function() {
+				$('span.customize-element-for-layout').bind('click', function() {
 
 					var currentElement = designEditor.getCurrentElement();
 					var currentElementID = currentElement.data('element-id');
@@ -1108,7 +1108,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				});
 			
 				/* Customize for regular element button */
-				$('span.customize-for-regular-element').on('click', function() {
+				$('span.customize-for-regular-element').bind('click', function() {
 					designEditor.getCurrentElement().find('> span.element-name').trigger('click');
 				});
 
@@ -1380,8 +1380,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		}
 
 		designEditorBindPropertyBoxToggle = function() {
-			
-			$('div.design-editor-options').on('click', 'span.design-editor-box-title', function() {
+						
+			$('div.design-editor-options').delegate('span.design-editor-box-title', 'click', function() {
 
 				var box = $(this).parents('div.design-editor-box');
 
@@ -1402,7 +1402,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		designEditorBindPropertyInputs = function() {
 
 			/* Customize Buttons */
-			$('.design-editor-options-container').on('click', 'div.customize-property', function() {
+			$('.design-editor-options-container').delegate('div.customize-property', 'click', function() {
 
 				var property = $(this).parents('li').first();
 
@@ -1432,7 +1432,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			});
 			
 			/* Uncustomize Button */
-			$('.design-editor-options-container').on('click', 'span.uncustomize-property', function() {
+			$('.design-editor-options-container').delegate('span.uncustomize-property', 'click', function() {			
 				
 				if ( !confirm('Are you sure you wish to delete this customization?') )
 					return false;
@@ -1475,14 +1475,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			});
 
 			/* Fonts */
-			$('.design-editor-options-container').on('click', '.design-editor-property-font-family span.open-font-browser', function() {
+			$('.design-editor-options-container').delegate('.design-editor-property-font-family span.open-font-browser', 'click', function() {			
 				/* Using anonymous function because fontBrowserOpen won't be defined yet since it's loaded via $.getScript() */
 				if ( typeof fontBrowserOpen == 'function' )
 					fontBrowserOpen.apply(this);
 			});
 
 			/* Lock Sides */
-			$('.design-editor-options-container').on('click', 'span.design-editor-lock-sides', function() {
+			$('.design-editor-options-container').delegate('span.design-editor-lock-sides', 'click', function() {
 
 			    if ( $(this).parent().hasClass('box-model-inputs-locked') ) {
 
@@ -1502,7 +1502,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			});
 
-			$('.design-editor-options-container').on('keyup blur change', '.box-model-inputs-locked li.lockable-property input[type="number"]', function(event, preventRecurse) {
+			$('.design-editor-options-container').delegate('.box-model-inputs-locked li.lockable-property input[type="number"]', 'keyup blur change', function(event, preventRecurse) {			
 
 				if ( typeof preventRecurse != 'undefined' && preventRecurse )
 					return;
@@ -1517,7 +1517,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			});
 
-			$('.design-editor-options-container').on('change', '.box-model-inputs-locked li.lockable-property select', function (event, preventRecurse) {
+			$('.design-editor-options-container').delegate('.box-model-inputs-locked li.lockable-property select', 'change', function (event, preventRecurse) {
 
 				if ( typeof preventRecurse != 'undefined' && preventRecurse )
 					return;
@@ -1533,21 +1533,21 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			});
 			
 			/* Select */
-			$('.design-editor-options-container').on('change', 'div.property-select select', designEditorInputSelect);
+			$('.design-editor-options-container').delegate('div.property-select select', 'change', designEditorInputSelect);
 			
 			/* Integer */
-			$('.design-editor-options-container').on('focus', 'div.property-integer input', designEditorInputIntegerFocus);
+			$('.design-editor-options-container').delegate('div.property-integer input', 'focus', designEditorInputIntegerFocus);
 			
-			$('.design-editor-options-container').on('keyup blur change', 'div.property-integer input', designEditorInputIntegerChange);
-			$('.design-editor-options-container').on('change', 'div.property-integer .property-unit-select select', designEditorInputIntegerUnitChange);
+			$('.design-editor-options-container').delegate('div.property-integer input', 'keyup blur change', designEditorInputIntegerChange);
+			$('.design-editor-options-container').delegate('div.property-integer .property-unit-select select', 'change', designEditorInputIntegerUnitChange);
 
 			/* Image Uploaders */
-			$('.design-editor-options-container').on('click', 'div.property-image span.button', designEditorInputImageUpload);
+			$('.design-editor-options-container').delegate('div.property-image span.button', 'click', designEditorInputImageUpload);
 
-			$('.design-editor-options-container').on('click', 'div.property-image span.delete-image', designEditorInputImageUploadDelete);
+			$('.design-editor-options-container').delegate('div.property-image span.delete-image', 'click', designEditorInputImageUploadDelete);
 
 			/* Color Inputs */
-			$('.design-editor-options-container').on('click', 'div.property-color div.colorpicker-box', designEditorInputColor);
+			$('.design-editor-options-container').delegate('div.property-color div.colorpicker-box', 'click', designEditorInputColor);
 
 		}
 	/* END DESIGN EDITOR INPUTS */
@@ -2200,7 +2200,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				Padma.iframe.bind('keydown', inspectorNudging);
 
 				/* Focus iframe on mouseover */
-				Padma.iframe.on('mouseover', function() {
+				Padma.iframe.bind('mouseover', function() {
 					Padma.iframe.focus();
 				});
 
@@ -2674,7 +2674,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 								$('<li class="inspector-context-menu-parent" data-parent-id="' + $(this).data('inspectorElementOptions').id + '"><span>' + $(this).data('inspectorElementOptions').name + '</span></li>')
 									.appendTo(parentsMenu.find('ul'))
-									.on('click', function() {
+									.bind('click', function() {
 
 										inspectorElement = parentElement;
 

@@ -85,7 +85,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			this.updateGridContainerHeight();
 
 			/* Bind Double Click */	
-				this.container.on('dblclick', '.' + this.options.defaultBlockClass.replace('.', ''), function(event) {
+				this.container.delegate('.' + this.options.defaultBlockClass.replace('.', ''), 'dblclick', function(event) {
 					
 					var grid = $(this).parents('.ui-padma-grid').data('ui-padmaGrid');
 					

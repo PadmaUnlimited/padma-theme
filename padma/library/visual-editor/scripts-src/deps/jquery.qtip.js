@@ -667,11 +667,11 @@ PROTOTYPE._createTitle = function()
 
 	// Button-specific events
 	
-	.on('mousedown keydown mouseup keyup mouseout','.qtip-close',  function(event) {
+	.delegate('.qtip-close', 'mousedown keydown mouseup keyup mouseout', function(event) {
 		$(this).toggleClass('ui-state-active ui-state-focus', event.type.substr(-4) === 'down');
 	})
 	
-	.on('mouseover mouseout', '.qtip-close', function(event){
+	.delegate('.qtip-close', 'mouseover mouseout', function(event){
 		$(this).toggleClass('ui-state-hover', event.type === 'mouseover');
 	});
 

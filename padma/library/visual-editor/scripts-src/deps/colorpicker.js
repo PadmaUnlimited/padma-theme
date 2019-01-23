@@ -1289,7 +1289,7 @@ $.fn.colorpicker = function(options){
 
 			/* Use swatch */
 			
-			cpDiv.swatches.on('click','.swatch', function(e) {
+			cpDiv.swatches.delegate('.swatch', 'click', function(e) {
 
 				/* Proxy that way useSwatch has the right this object */
 				var useSwatch = $.proxy($.colorpicker._useSwatch, this);
@@ -1302,7 +1302,7 @@ $.fn.colorpicker = function(options){
 			/* Delete swatch */
 			
 
-			cpDiv.swatches.on('contextmenu', '.swatch', function(e) {
+			cpDiv.swatches.delegate('.swatch', 'contextmenu', function(e) {
 
 				if ( confirm('Are you sure you wish to delete this swatch?') )
 					$.colorpicker.deleteSwatch(this);

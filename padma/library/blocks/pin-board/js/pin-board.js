@@ -33,7 +33,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 		$(context).find('.facebook-share-button, .twitter-share-button, .pin-it-button img').each(function () {
 
-			$(this).on('load', function () {
+			$(this).bind('load', function () {
 				$(this).animate({opacity: 1}, 300);
 			});
 

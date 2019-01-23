@@ -203,12 +203,12 @@
 				$window = $(window);
 
 			if (self.options.responsive) {
-				$window.on('load.' + this.name, function() {
+				$window.bind('load.' + this.name, function() {
 					self.refresh();
 				});
 			}
 
-			$window.on('resize.' + this.name, function() {
+			$window.bind('resize.' + this.name, function() {
 				self._detectViewport();
 
 				if (self.options.responsive) {
@@ -496,7 +496,7 @@
 
 			if (typeof this.options.horizontalOffset === 'function') {
 				this.horizontalOffset = this.options.horizontalOffset();
-				$window.on('resize.horizontal-' + this.name, function() {
+				$window.bind('resize.horizontal-' + this.name, function() {
 					self.horizontalOffset = self.options.horizontalOffset();
 				});
 			} else {
@@ -505,7 +505,7 @@
 
 			if (typeof this.options.verticalOffset === 'function') {
 				this.verticalOffset = this.options.verticalOffset();
-				$window.on('resize.vertical-' + this.name, function() {
+				$window.bind('resize.vertical-' + this.name, function() {
 					self.verticalOffset = self.options.verticalOffset();
 				});
 			} else {
@@ -611,7 +611,7 @@
 				}
 			};
 
-			this.$scrollElement.on('scroll.' + this.name, requestTick);
+			this.$scrollElement.bind('scroll.' + this.name, requestTick);
 			requestTick();
 		},
 		_startAnimationLoop: function() {

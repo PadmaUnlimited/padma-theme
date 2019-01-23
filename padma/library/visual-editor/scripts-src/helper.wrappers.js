@@ -21,7 +21,7 @@ define(['modules/panel.inputs'], function(panelInputs) {
 
 			/* Ready tab, sliders, and inputs */
 			tab.tabs();
-			panelInputs.on('div#' + wrapperID + '-tab');
+			panelInputs.bind('div#' + wrapperID + '-tab');
 
 			/* Show and hide elements based on toggle options */
 			handleInputTogglesInContainer(tab.find('div.sub-tabs-content'));

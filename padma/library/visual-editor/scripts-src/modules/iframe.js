@@ -243,17 +243,17 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			bindKeyShortcuts();
 
 			/* Funnel any keydown, keypress, keyup events to the parent window */
-				$i('html, body').on('keydown', function(event) {
+				$i('html, body').bind('keydown', function(event) {
 					$(document).trigger(event);
 					event.stopPropagation();
 				});
 
-				$i('html, body').on('keypress', function(event) {
+				$i('html, body').bind('keypress', function(event) {
 					$(document).trigger(event);
 					event.stopPropagation();
 				});
 
-				$i('html, body').on('keyup', function(event) {
+				$i('html, body').bind('keyup', function(event) {
 					$(document).trigger(event);
 					event.stopPropagation();
 				});

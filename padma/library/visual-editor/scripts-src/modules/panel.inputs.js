@@ -739,7 +739,22 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 					/* Clone repeater template */
 						var newGroup = groupTemplate.clone().hide().removeClass('repeater-group-template');
+						var nextCounter = repeater.find('.repeater-group:not(.repeater-group-template)').length + 1;
+						
+						// update input's attrs
+						newGroup.find('input,select,textarea').each(function(){
+							
+							// id
+							var input_id = $(this).attr('id') + '-' + nextCounter;
+							$(this).attr('id',input_id);
+
+							// name
+							var input_name = $(this).attr('name') + '-' + nextCounter;
+							$(this).attr('name',input_name);
+						});
+
 						newGroup.insertAfter(group).fadeIn(300);
+
 
 					/* Remove group single class since there's no longer one group */
 						repeater.find('.repeater-group-single').removeClass('repeater-group-single');

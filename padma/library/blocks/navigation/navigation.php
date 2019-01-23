@@ -906,6 +906,9 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 		)
 	);
 
+	function __construct(){
+		wp_add_inline_script(PadmaNavigationBlock::dynamic_js());
+	}
 
 	function modify_arguments( $args = false ) {
 
@@ -918,6 +921,9 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 		if ( PadmaResponsiveGrid::is_enabled() ) {
 			unset( $this->inputs['setup']['responsiveness-notice'] );
 		}
+
+
+		
 
 	}
 

@@ -492,23 +492,32 @@ class PadmaPropertyInputs {
 		/* Output input */
 			$font_fragments = explode('|', $options['value']);
 
-			/* Web Font */
-			if ( count($font_fragments) >= 2 ) {
 
-				$font_stack = $font_fragments[1];
-				$font_name = $font_fragments[1];
+
+			/* Web Font */
+			if ( count($font_fragments) >= 2 ){
+
+				if (\strpos($font_fragments[1], ':') !== false) {
+					$parts = explode(':', $font_fragments[1]);
+					$font_stack = $parts[0];
+					$font_name = $parts[0];
+				}else{
+					$font_stack = $font_fragments[1];
+					$font_name = $font_fragments[1];
+				}
 
 				$webfont_class = ' font-name-webfont';
 
-			/* Traditional Font */
-			} else {
-
+			}else{
+				/* Traditional Font */
 				$font_stack = PadmaFonts::get_stack($options['value']);
 				$font_name = ucwords($options['value']);
 
 				$webfont_class = null;
 
 			}
+
+
 
 			echo '<span class="font-name' . $webfont_class . '" style="font-family: ' . $font_stack . ';" data-webfont-value="' .  $options['value'] . '">' . $font_name . '</span>';
 

@@ -43,13 +43,23 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 				fontsList.delegate('.use-font', 'click', function() {
 
 					var li 					= $(this).parents('li').first();
+
 					/* Determine value to save to DB */
 					var webfontProvider 	= $(this).parents('.tab-content').data('font-webfont-provider');
 					var fontID 				= li.data('value');
+
 					var fontName 			= $(this).siblings('.font-family').text();
-					var fontFamily 			= li.css('font-family');
-					var fontVariants 		= li.data('variants').replace('[','').replace(']','');
-					
+					var fontFamily 			= fontID;
+					var fontVariants 		= li.data('variants')
+
+					if(fontVariants.length > 0){
+						fontVariants = fontVariants.replace('[','').replace(']','');
+						
+					}					
+					var variantsStr = '';
+
+					if ( fontVariants && fontVariants.indexOf('regular') === -1 )
+						variantsStr = '|' + fontVariants.join(',');
 
 					var value = webfontProvider != false ? webfontProvider + '|' + fontID + ':' + fontVariants : fontID;					
 
@@ -59,6 +69,13 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 					fontNameReadout.css('font-family', fontFamily);
 					fontNameReadout.text(fontName);
 
+					/*	Change iframe	*/
+					var selector = $(self.propertyInput.find('input.property-hidden-input')[0]).attr('element_selector');
+					var item = $i(selector);
+
+
+					item.css('font-family', fontFamily);
+					
 					/* Change selected font */
 					self.browser.find('.selected-font').removeClass('selected-font');
 					li.addClass('selected-font');
@@ -68,8 +85,9 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 						data: {
 							fontBrowser: self.browser
 						}
-					});	
-
+					});
+					
+					/* Save value */
 					dataHandleDesignEditorInput({hiddenInput: self.hiddenInput, value: value, stack: fontFamily});
 
 				});
@@ -190,7 +208,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 					var variants = '';
 
 					if ( $(this).data('variants').indexOf('regular') === -1 ){
-						if($(this).data('variants')){
+						if($(this).data('variants').length > 0){
 							variants = ':' + $(this).data('variants').join('');							
 						}
 					}
@@ -297,6 +315,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 			        return query.test(jQuery.trim(txt.replace('the quick brown fox jumps over the lazy dog.', '')));
 			    }
 			});
+
 
 			/* Attach quicksearch object to element that way the cache can be refreshed */
 			context.data('quicksearch', quicksearch);
@@ -467,6 +486,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 
 			context.find('.fonts-search select').bind('change', function() {
 
+				$('.fonts-noresults').hide();
 				var sortBy = $(this).val();
 				self.retrieveRemoteFonts($(this).parents('.tab-content'), sortBy, true);
 		        

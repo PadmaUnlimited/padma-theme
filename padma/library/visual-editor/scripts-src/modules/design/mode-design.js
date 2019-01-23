@@ -1135,7 +1135,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						elementNode.parents('li').addClass('children-visible');
 
 					/* Scroll to element in element selector */
-						$('div#design-editor-element-selector-container').animate({scrollTop: elementNode.offset().top - ($('div#design-editor-element-selector-container').height()/1.5 - $('div#design-editor-element-selector-container').scrollTop())}, 300);
+						if(elementNode.offset().top){
+							$('div#design-editor-element-selector-container').animate({scrollTop: elementNode.offset().top - ($('div#design-editor-element-selector-container').height()/1.5 - $('div#design-editor-element-selector-container').scrollTop())}, 300);							
+						}
 
 					/* Load styles */
 						designEditor.showElementProperties(elementNode);

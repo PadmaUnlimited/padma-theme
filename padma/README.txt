@@ -40,11 +40,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 0.2.3
+= 0.3.0
 * Released: On dev
 
 Visual Editor Fixes
 - Fixed: Block settings didn't save
+- Fixed: Font family update when changed on design panel
+- Fixed: Repeater, input for multiple contents 
 Tools > System info Updated
 Divi Builder Plugin compatibility update
 jQuery compatibility update

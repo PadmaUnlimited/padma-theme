@@ -1187,12 +1187,20 @@ class PadmaElementProperties {
 		$font_fragments = explode('|', $value);
 
 		/* Web Font */
-		if ( count($font_fragments) >= 2 )
-			$stack = $font_fragments[1];
+		if ( count($font_fragments) >= 2 ){
 
-		/* Traditional Font */
-		else
+			if (\strpos($font_fragments[1], ':') !== false) {
+				$stack = explode(':', $font_fragments[1])[0];
+			}else{
+				$stack = $font_fragments[1];
+			}
+
+
+		}else{
+			/* Traditional Font */
 			$stack = PadmaFonts::get_stack($value);
+
+		}
 
 		return 'font-family: ' . $stack . ';';
 

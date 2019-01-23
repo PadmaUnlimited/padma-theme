@@ -176,71 +176,18 @@ abstract class PadmaWebFontProvider {
 				return;
 
 			}
-
-		/*
-		    [911] => Array
-		        (
-		            [id] => Dokdo
-		            [name] => Dokdo
-		            [stack] => Dokdo
-		            [variants] => Array
-		                (
-		                    [0] => regular
-		                )
-
-		        )
-
-		    [912] => Array
-		        (
-		            [id] => Srisakdi
-		            [name] => Srisakdi
-		            [stack] => Srisakdi
-		            [variants] => Array
-		                (
-		                    [0] => regular
-		                    [1] => 700
-		                )
-
-		        )
-
-		    [913] => Array
-		        (
-		            [id] => B612 Mono
-		            [name] => B612 Mono
-		            [stack] => B612 Mono
-		            [variants] => Array
-		                (
-		                    [0] => regular
-		                    [1] => italic
-		                    [2] => 700
-		                    [3] => 700italic
-		                )
-
-		        )
-
-		    [914] => Array
-		        (
-		            [id] => B612
-		            [name] => B612
-		            [stack] => B612
-		            [variants] => Array
-		                (
-		                    [0] => regular
-		                    [1] => italic
-		                    [2] => 700
-		                    [3] => 700italic
-		                )
-
-		        )
-		        */
+		
 		/* Output the fonts */
 		foreach ( $fonts as $font ) {
 			
 			$variants = '';
-			foreach ($font['variants'] as $key => $value) {
-				$variants .= $value . ',';
+			if(isset($font['variants'])){
+				foreach ($font['variants'] as $key => $value) {
+					$variants .= $value . ',';
+				}
+				$variants = rtrim($variants,',');
+				
 			}
-			$variants = rtrim($variants,',');
 			
 			$html = '<li data-value="' . $font['id'] . '" style="font-family:' . $font['stack'] . ';" data-variants="[';			
 			$html .= $variants;

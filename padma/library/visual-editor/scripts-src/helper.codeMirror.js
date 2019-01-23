@@ -52,7 +52,7 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 
 			var window = Padma.codeMirrorEditors[id].window;
 
-			return $(window).on('load', function() {
+			return $(window).bind('load', function() {
 
 				/* Add keybindings */
 				mousetrap.bindEventsTo(window.document);

@@ -69,8 +69,8 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 					
 					return false;
 				}
-
-				if( event.which == 46 && !element.is('input') && !element.is('textarea') ){
+				
+				if( event.key == 'Delete' && !element.is('input') && !element.is('textarea') ){
 					deleteSelectedBlock();
 					return true;
 				}

@@ -41,7 +41,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.3.0
-* Released: Janyary 24, 2019
+* Released: January 24, 2019
 
 Tested with ClassicPress 1.0.0-beta2
 Visual Editor Fixes

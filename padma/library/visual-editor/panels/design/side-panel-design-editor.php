@@ -65,7 +65,8 @@ class PadmaSidePanelDesignEditor {
 				echo '<p>You <strong>have not selected an element</strong> to edit.</p>';
 				echo '<p>Use the inspector to inspect an element you want to edit.</p>';
 
-				echo '<a href="http://docs.padmaunlimited.com/article/49-the-inspector" target="_blank">Learn more about the inspector</a>';
+				// Pending update docs
+				//echo '<a href="http://docs.padmaunlimited.com/article/49-the-inspector" target="_blank">Learn more about the inspector</a>';
 
 			echo '</div><!-- #design-editor-styles-nothing-selected -->';
 

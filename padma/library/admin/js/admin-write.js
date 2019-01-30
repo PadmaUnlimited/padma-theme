@@ -123,7 +123,7 @@ $(document).ready(function() {
 				
 			});
 
-			$('div#seo-preview p#seo-preview-description').on('click', function(event) {
+			$('div#seo-preview p#seo-preview-description').bind('click', function(event) {
 				
 				$('textarea#padma-admin-meta-box-seo-description')
 					.focus()

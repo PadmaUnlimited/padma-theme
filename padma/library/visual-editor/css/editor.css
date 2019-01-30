@@ -7679,3 +7679,23 @@ ul.design-editor-box-content.filtered{
 .block-type-selector-filter-categories li a.active{
 	border-bottom: 4px solid #c62040;
 }
+.sub-tabs-content .input.input-radio{
+	height: auto;
+}
+.radio-container{}
+.radio-container .radio-item{
+	display: inline-block;
+    margin: 15px;
+    min-width: 45px;
+    min-height: 25px;
+
+}
+.radio-container .radio-item input{
+    appearance: radio;
+    -webkit-appearance: radio;
+}
+.radio-container .radio-item i{	    
+    font-size: 20px;
+    text-align: center;
+    color: #0074A2;
+}

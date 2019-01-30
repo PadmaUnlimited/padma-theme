@@ -160,6 +160,12 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 										
 			});
 
+			/* Radios */	
+			
+			$(context).delegate('div.input-radio input[type="radio"]', 'change click', function() {				
+				dataHandleInput($(this));										
+			});
+
 
 			/* Text */
 			

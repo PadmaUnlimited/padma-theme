@@ -29,7 +29,7 @@ class Padma {
 
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '0.3.0');
+		define('PADMA_VERSION', '0.3.1');
 
 		/* Define directories */
 		define('PADMA_DIR', get_template_directory());

@@ -252,7 +252,6 @@ abstract class PadmaBlockAPI {
 
 		/* Add the selector prefix to the selector and even handle commas */
 		$selector_prefix = '.block-type-' . $this->id . ' ';
-
 		
 		$selector_array = explode(',', $args['selector']);
 		
@@ -268,12 +267,10 @@ abstract class PadmaBlockAPI {
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
 		
-		$block_id_string = (isset($args['id'])) ? 'block-' . $this->id . '-' . $args['id'] : 'block-' . $this->id;
-
 		$defaults = array(
 			'group' 	=> 'blocks',
 			'parent' 	=> 'block-' . $this->id,
-			'id' 		=> $block_id_string,			
+			'id' 		=> 'block-' . $this->id . '-' . $args['id'],
 			'name' 		=> $args['name'],
 			'selector'	=> $modified_selector
 		);
@@ -308,8 +305,9 @@ abstract class PadmaBlockAPI {
 				$element['states'][$state_name] = trim(implode(',', $state_selector_array));
 				
 			}
-				
+			
 		}
+
 		
 		return PadmaElementAPI::register_element($element);
 		

@@ -579,7 +579,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			if ( Padma.touch )
 				return false;
 							
-			$i('body').on('mouseenter', '.block', function(event) {
+			$i('body').delegate('.block', 'mouseenter', function(event) {
 					
 				var self = this;	
 				var firstSetup = typeof $(this).data('qtip') == 'undefined' ? true : false;
@@ -604,8 +604,8 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				}
 							
 			});
-						
-			$i('body').on('mouseleave', '.block',  function(event) {
+			
+			$i('body').delegate('.block', 'mouseleave', function(event) {
 				
 				clearTimeout($(this).data('hoverWaitTimeout'));
 							
@@ -941,7 +941,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				$i('html').bind('keyup.esc', {block: block}, hideBlankBlockTypeSelector);
 
 				/* Make sure that when closing the block type selector with the tab close button on a blank block that the blank block is also removed. */
-				$('ul#panel-top li a[href="#block-' + blockID + '-tab"]').siblings('span.close').on('mouseup', {block: block}, hideBlankBlockTypeSelector);
+				$('ul#panel-top li a[href="#block-' + blockID + '-tab"]').siblings('span.close').bind('mouseup', {block: block}, hideBlankBlockTypeSelector);
 
 			}
 		

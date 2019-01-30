@@ -574,6 +574,31 @@ abstract class PadmaVisualEditorPanelAPI {
 	}
 	
 	
+	public function input_radio($input) {
+
+		echo '<div class="input-left">
+				<label>' . $input['label'] . '</label>
+			</div>';
+		
+		$chosen_class = ( padma_get('chosen', $input) ) ? ' select-chosen' : '';
+
+		echo '<div class="input-right' . $chosen_class . '">';
+			echo '<div class="radio-container">';
+			
+			foreach( $input['options'] as $value => $text ) {
+				echo '<div class="radio-item">';
+				echo '<input name="'.$input['name'].'" type="radio" '.$input['attributes'].' value="'.$value.'">' . $text;
+				echo '</div>';
+			}
+
+			echo '</div><!-- .radio-container -->';
+
+		echo '</div>';
+										
+	}
+
+	
+	
 	public function input_multi_select($input) {
 				
 		echo '

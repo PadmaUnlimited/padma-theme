@@ -156,7 +156,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 		/* Hover Effects */
 			if ( pinBoard.hasClass('pin-board-hover-focus') ) {
 
-				pinBoard.on('mouseenter', '.pin-board-pin',  function() {
+				pinBoard.delegate('.pin-board-pin', 'mouseenter', function() {
 
 					$(this).siblings()
 						.removeClass('pin-board-pin-hover')
@@ -168,7 +168,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 				});
 
-				pinBoard.on('mouseleave', function() {
+				pinBoard.bind('mouseleave', function() {
 
 					$(this).find('.pin-board-pin')
 						.removeClass('pin-board-pin-blur')

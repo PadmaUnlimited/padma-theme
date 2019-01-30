@@ -238,27 +238,35 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 				this.addElementToSelector = function(elementID, elementSettings) {
 
+
 					var elementDescription = elementSettings['description'] ? '<small class="description">' + elementSettings['description'] + '</small>' : '';
-					var elementNode = $('<li id="element-' + elementID + '" data-element-id="' + elementID + '" class="element" data-selector="' + elementSettings['selector'] + '">\
-												<span class="element-name">' + elementSettings['name'] + '</span>\
-												' + elementDescription + '\
-											</li>');
 					
-					/* Set Data */
-						elementNode.data({
-							group: elementSettings['group'], 
-							parent: elementSettings['parent'],
-							selector: elementSettings['selector'],
-							id: elementID
-						});
+					var nodeStr = '<li id="element-' + elementID;
+						
+						/* Set Data */
+						nodeStr += '" data-element-id="' + elementID;
+						nodeStr += '" data-selector="' + elementSettings['selector'];
+						nodeStr += '" data-group="' + elementSettings['group'];
+						nodeStr += '" data-parent="' + elementSettings['parent'];
+						
+						/* Set Class */
+						nodeStr += '" class="element"';
+						nodeStr += '>';
+						nodeStr += '<span class="element-name">' + elementSettings['name'] + '</span>';
+						nodeStr += elementDescription;
+						nodeStr += '</li>';
+
+					var elementNode = $(nodeStr);						
 
 					/* Customized flag */
 						if ( elementSettings['customized'] ) {
 							elementNode.addClass('customized-element');
 						}
 
-					/* Append element to either group or parent */
-						elementNode.appendTo($('li#element-group-' + elementSettings['group'] + ' ul.group-elements'));
+					/* Append element to either group or parent */							
+						$('li#element-group-' + elementSettings['group'] + ' ul.group-elements').append(elementNode);
+						
+						
 
 				}
 

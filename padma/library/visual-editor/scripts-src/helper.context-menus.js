@@ -106,8 +106,8 @@
 
 		};
 
-		var contextMenuClickEvent = !Padma.touch ? 'click' : 'tap';		
-		contextMenu.on(contextMenuClickEvent, 'span',  contextMenuItemClick);
+		var contextMenuClickEvent = !Padma.touch ? 'click' : 'tap';
+		contextMenu.delegate('span', contextMenuClickEvent, contextMenuItemClick);
 
 		/* Context menu positioning */
 
@@ -138,8 +138,8 @@
 			top: contextMenuY
 		});
 
-		/* Delegate hover event on context menu sub menus for the lovely window right bleeding */			
-			contextMenu.on('hover', 'li:has(ul) span', function() {
+		/* Delegate hover event on context menu sub menus for the lovely window right bleeding */
+			contextMenu.delegate('li:has(ul) span', 'hover', function() {
 
 				var childMenu = $(this).siblings('ul');
 				var childMenuOffset = childMenu.offset();

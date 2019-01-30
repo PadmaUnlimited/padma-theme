@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Visual Editor Fixes
 - Fixed Blocks Elements Grup issue
+API Panel radio input support
 
 
 = 0.3.0

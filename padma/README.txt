@@ -41,10 +41,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 0.3.1
-* Released: On Dev
+* Released: February 8, 2019
 
 Visual Editor Fixes
-- Fixed Blocks Elements Grup issue
+- Fixed Blocks Elements Group issue
+- Loading issue
+- Navigation block issue
 API Panel radio input support
 
 

@@ -448,7 +448,7 @@ class PadmaVisualEditorAJAX {
 				}
 
 		}
-		
+
 		/* Spit it all out */
 		self::json_encode($elements);
 

@@ -54,8 +54,12 @@ class Padma {
 		if(!defined('PADMA_CDN_URL')){
 			define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');			
 		}
-		define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');
-		define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
+		if(!defined('PADMA_DASHBOARD_URL')){
+			define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');			
+		}
+		if(!defined('PADMA_EXTEND_URL')){			
+			define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
+		}
 
 
 
@@ -70,11 +74,20 @@ class Padma {
 
 		/* Handle child themes */
 		if ( get_template_directory_uri() !== get_stylesheet_directory_uri() ) {
-			define('PADMA_CHILD_THEME_ACTIVE', true);
-			define('PADMA_CHILD_THEME_DIR', get_stylesheet_directory());
+
+			if(!defined('PADMA_CHILD_THEME_ACTIVE')){
+				define('PADMA_CHILD_THEME_ACTIVE', true);
+			}
+			if(!defined('PADMA_CHILD_THEME_DIR')){
+				define('PADMA_CHILD_THEME_DIR', get_stylesheet_directory());				
+			}
 		} else {
-			define('PADMA_CHILD_THEME_ACTIVE', false);
-			define('PADMA_CHILD_THEME_DIR', null);
+			if(!defined('PADMA_CHILD_THEME_ACTIVE')){
+				define('PADMA_CHILD_THEME_ACTIVE', false);				
+			}
+			if(!defined('PADMA_CHILD_THEME_DIR')){				
+				define('PADMA_CHILD_THEME_DIR', null);
+			}
 		}
 
 		/* Handle uploads directory and cache */

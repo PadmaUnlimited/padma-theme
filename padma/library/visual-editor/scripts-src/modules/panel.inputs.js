@@ -148,7 +148,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			var context = 'div#panel';
 
 			/* Selects */	
-			
 			$(context).delegate('div.input-select select', 'change', function() {
 				
 				dataHandleInput($(this));
@@ -160,15 +159,12 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 										
 			});
 
-			/* Radios */	
-			
+			/* Radios */			
 			$(context).delegate('div.input-radio input[type="radio"]', 'change click', function() {				
 				dataHandleInput($(this));										
 			});
 
-
 			/* Text */
-			
 			$(context).delegate('div.input-text input', 'keyup blur', function() {
 				
 				dataHandleInput($(this));
@@ -177,7 +173,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 			
 			/* Textarea */
-			
 				$(context).delegate('div.input-textarea textarea', 'keyup blur', function() {
 					
 					dataHandleInput($(this));
@@ -258,7 +253,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			
 
 			/* Code Editor */
-			
 				$(context).delegate('div.input-code span.code-editor-open', 'click', function() {
 
 					var codeEditorTextarea = $(this).siblings('textarea');
@@ -429,7 +423,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			
 			/* Integer */
-		
 			$(context).delegate('div.input-integer input', 'focus', function() {
 				
 				if ( typeof originalValues !== 'undefined' ) {
@@ -440,7 +433,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				originalValues[$(this).attr('name')] = $(this).val();
 				
 			});
-			
 			
 			$(context).delegate('div.input-integer input', 'keyup blur', function(event) {
 				
@@ -535,7 +527,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 									
 			});
 			
-			$(context).delegate('div.input-multi-select span.multi-select-open', 'click', function() {			
+			$(context).delegate('div.input-multi-select span.multi-select-open', 'click', function() {
 				
 				var multiSelectContainer = $(this).siblings('.multi-select-container');
 				var multiSelect = multiSelectContainer.find('select');
@@ -622,6 +614,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			});
 
+
 			$(context).delegate('div.input-image span.delete-image', 'click', function() {
 
 				if ( !confirm('Are you sure you wish to remove this image?') ) {
@@ -639,7 +632,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 
 			/* Audio Uploaders */
-			
 			$(context).delegate('div.input-audio span.button', 'click', function() {
 				
 				var self = this;
@@ -733,7 +725,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 				}
 
-				$(context).delegate('div.repeater .add-group', 'click', function() {				
+				$(context).delegate('div.repeater .add-group', 'click', function() {
 					
 					var repeater = $(this).parents('div.repeater');
 					var group = $(this).parents('div.repeater-group');
@@ -760,7 +752,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 						});
 
 						newGroup.insertAfter(group).fadeIn(300);
-
 
 					/* Remove group single class since there's no longer one group */
 						repeater.find('.repeater-group-single').removeClass('repeater-group-single');
@@ -891,6 +882,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 								
 			});
 
+
 			/* Buttons */
 				$(context).delegate('div.input-button span.button', 'click', function() {
 
@@ -898,8 +890,9 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 				});
 
+
 			/* Import Files */
-				$(context).delegate('div.input-import-file span.button', 'click', function() {				
+				$(context).delegate('div.input-import-file span.button', 'click', function() {
 					
 					$(this).siblings('input[type="file"]').trigger('click');
 					

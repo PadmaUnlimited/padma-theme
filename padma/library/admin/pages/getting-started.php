@@ -39,7 +39,7 @@ defined('ABSPATH') or die("No script kiddies please!");
 			<div class="box">
 				<h3>Padma | unlimited Editor</h3>
 				<p>Padma | unlimited Editor is a powerful tool to design & customize your layouts and edit the visual style of your WordPress website through a graphical interface.</p>
-				<p>Learn more abou it in the document <a href="https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-editor/">Introduction to the Padma | unlimited Editor.</a></p>
+				<p>Learn more abou it in the document <a rel="noopener" href="https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-editor/">Introduction to the Padma | unlimited Editor.</a></p>
 				<a href="<?php echo home_url() . '/?visual-editor=true'; ?>" class="access-to-unlimited-editor"><span class="text">Access Padma | unlimited Editor</span><span class="line -right"></span><span class="line -top"></span><span class="line -left"></span><span class="line -bottom"></span></a>
 			</div>
 			<div class="box">
@@ -111,7 +111,7 @@ defined('ABSPATH') or die("No script kiddies please!");
 		    -->
 			<div class="box">
 				<h3>Padma | Documentation</h3>
-				<p>Register with us and get <strong>free access</strong> to our complete and comprehensive documentation. <a target="_blank" href="https://docs.padmaunlimited.com/">docs.padmaunlimited.com</a></p>
+				<p>Register with us and get <strong>free access</strong> to our complete and comprehensive documentation. <a target="_blank" href="https://docs.padmaunlimited.com/" rel="noopener">docs.padmaunlimited.com</a></p>
 			</div>
 		</div>
 	</div>

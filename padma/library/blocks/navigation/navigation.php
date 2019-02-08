@@ -322,7 +322,6 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 			switch ( parent::get_setting($block, 'responsive-method', 'vertical') ) {
 				case 'vertical':
-
 					switch ( parent::get_setting($block, 'responsive-menu-label-position', 'right') ) {
 						case 'right':
 							$toggle_class = ' slicknav_btn-right';
@@ -340,20 +339,14 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 							break;
 					}
 
-					$js .= 'function padmaCreateSlicknavMenu(){							
-							jQuery("' . $selector . ' ul.menu").slicknav({
+					$js .= 'jQuery(document).ready(function($){
+
+							$("' . $selector . ' ul.menu").slicknav({
 								prependTo: "' . $selector . ' .block-content",
 								label: "' . parent::get_setting($block, 'responsive-menu-label', 'Menu') . '",
 								additionalBtnClass: "' . $toggle_class . '",
 								additionalMenuClass: "' . $menu_class . '"
 							});
-
-					}';
-					$js .= 'jQuery(document).ready(function($){
-
-							window.onresize = function(){padmaCreateSlicknavMenu()};
-							padmaCreateSlicknavMenu()
-							
 		
 						});' . "\n\n";
 
@@ -905,10 +898,7 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 			)
 		)
 	);
-
-	function __construct(){
-		wp_add_inline_script(PadmaNavigationBlock::dynamic_js());
-	}
+	
 
 	function modify_arguments( $args = false ) {
 

@@ -149,7 +149,7 @@
 			$padmaServices->setToken(get_option('padma_service_token'));
 			$data 	= $padmaServices->getDashboardData();
 
-			if(count($data->templates) > 0){
+			if(in_array('templates', $data)){
 				echo '<hr class="templates">';
 				echo "<h3>Templates available on your Padma Services Account</h3>";
 

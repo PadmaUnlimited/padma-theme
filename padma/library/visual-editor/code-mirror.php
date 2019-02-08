@@ -32,8 +32,10 @@
 		'/deps/code-mirror/addon/search/matchesonscrollbar.css',
 	);
 
-	if($_COOKIE['night']=='true'){
-		$styles[] = '/deps/code-mirror/theme/night.css';
+	if(in_array('night', $_COOKIE)){
+		if($_COOKIE['night']=='true'){
+			$styles[] = '/deps/code-mirror/theme/night.css';
+		}		
 	}
 
 	?><link rel="stylesheet" href="<?php echo padma_url() . '/library/admin/css/admin-padma.css'; ?> "><?php

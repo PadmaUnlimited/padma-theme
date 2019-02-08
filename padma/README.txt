@@ -48,6 +48,7 @@ Visual Editor Fixes
 - Loading issue
 - Navigation block issue
 API Panel radio input support
+Vertical align added to design options
 
 
 = 0.3.0

@@ -981,6 +981,23 @@ class PadmaElementProperties {
 				'default' => 100,
 				'js-callback' => 'stylesheet.update_rule(params.selector, { "opacity": (params.value/100) });',
 			),
+			'vertical-align' => array(
+				'group' => 'Advanced',
+				'name' => 'Vertical align',
+				'type' => 'select',
+				'options' => array(
+					"baseline" => "Baseline",
+					"bottom" => "Bottom",
+					"middle" => "Middle",
+					"length" => "Length",
+					"sub" => "Sub",
+					"super" => "Super",
+					"text-bottom" => "Text bottom",					
+					"text-top" => "Text top",
+					"top" => "Top",
+				),	
+				'default' => 'baseline',				
+			),
 
 		/*		Effects		*/
 		/*

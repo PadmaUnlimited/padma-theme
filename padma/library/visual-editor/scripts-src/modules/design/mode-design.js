@@ -2456,15 +2456,22 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 						tooltipText += '<small class="right-click-message">Right-click to style</small>';
 
-
-						inspectorTooltip.set('content.text', tooltipText);
+						inspectorTooltip.set({
+							content: {
+		        				text: tooltipText
+		        			}
+						});
 
 					}
 
 				}
 
 				inspectorTooltip.show();
-				inspectorTooltip.set('position.target', 'mouse');
+				inspectorTooltip.set({
+					position: {
+        				target: 'mouse'
+        			}
+				});
 
 			}
 		/* END INSPECTOR TOOLTIP */

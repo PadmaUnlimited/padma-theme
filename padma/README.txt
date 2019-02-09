@@ -40,6 +40,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= N
+* Released: On Dev
+
+qTips updated to 3.0.3
+VE ToolTip fix
+
+
 = 0.3.1
 * Released: February 8, 2019
 

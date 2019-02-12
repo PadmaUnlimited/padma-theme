@@ -21,7 +21,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			this.iframe 	= $(Padma.iframe);
 			this.contents 	= $(this.iframe).contents();
 			this.document 	= $(this.iframe).contents();
-
+			
 			/* Populate Grid Options from the Wrapper Settings.  This is primarily used for generating the CSS for the Grid so the right ratios and percentages can be made */
 			this.options.useIndependentGrid = this.wrapper.data('wrapper-settings')['use-independent-grid'];
 
@@ -152,8 +152,9 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					if ( $(this).data('plugin_pep') ) {
 						$(this).data('plugin_pep').options.grid = [self.grid.columnWidth + self.grid.gutterWidth, self.options.yGridInterval];
 					}
-
-					if ( $(this).data('ui-resizable') ) {
+					console.log($(this));
+					console.log($(this).data('ui-resizable'));
+					if ( $(this).data('ui-resizable') ) {						
 						$(this).resizable('option', 'grid', [self.grid.columnWidth + self.grid.gutterWidth, self.options.yGridInterval]);
 						$(this).resizable('option', 'maxWidth', self.grid.columns * (self.grid.columnWidth + self.grid.gutterWidth));
 					}
@@ -596,7 +597,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			resizableStop: function(event, ui) {
 
 				//this variable refers to resizable
-				var block = getBlock(ui.element);
+				var block = getBlock(ui.element);				
 				var grid = block.parents('.ui-padma-grid').data('ui-padmaGrid');
 
 				/* Setup variables for undo/redo */
@@ -706,7 +707,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					$(ui.el).trigger('stop');
 					return false;
 				}
-
+				
 				var block = ui.el;
 				var grid = getBlock(block).parents('.ui-padma-grid').data('ui-padmaGrid');
 							
@@ -761,11 +762,12 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			
 			draggableDrag: function(event, ui) {
 
+
 				if ( $(ui.startEvent.target).hasClass('ui-resizable-handle') ) {
 					return false;
 				}
 
-				var block = ui.el;
+				var block = ui.el;				
 				var $this = $(block);
 				var isOverlapping;
 
@@ -938,6 +940,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			
 			draggableStop: function(event, ui) {
 
+				
 				if ( $(ui.startEvent.target).hasClass('ui-resizable-handle') ) {
 					return false;
 				}

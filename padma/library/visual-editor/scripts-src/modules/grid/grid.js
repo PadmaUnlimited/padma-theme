@@ -305,6 +305,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 									
 			this._trigger("start", event);
 
+
 			this.helper = $(this.helperTemplate).clone().appendTo(this.container);
 				
 			//Add the minimum column width to the helper	
@@ -332,7 +333,10 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 		_mouseDrag: function(event) {
 
+
 			var $eventTarget = $(event.target);
+
+			//console.log(this.helper)
 
 			if ( 
 				!event 
@@ -364,6 +368,8 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			var containerHeight = $thisContainer.height();	
 			var containerWidth = $thisContainer.width();
 				
+			//console.log(event);
+
 			/* Handle Padding */
 				
 				/* If both start and end points of block are inside right padding, don't draw the block. */

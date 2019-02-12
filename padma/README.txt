@@ -40,10 +40,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= N
+= 1.0.0
 * Released: On Dev
 
 qTips updated to 3.0.3
+jQuery PEP updated
+jQuery UI updated to v1.12.1
 VE ToolTip fix
 
 

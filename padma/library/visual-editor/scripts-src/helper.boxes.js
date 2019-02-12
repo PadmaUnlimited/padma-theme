@@ -113,10 +113,10 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 				
 			}
 			
-			/* Make box resizable */
+			/* Make box resizable */			
 			if ( settings.resizable ) {
 				
-				/* If close button doesn't exist, create it. */
+				/* If close button doesn't exist, create it. */				
 				box.resizable({
 					start: showIframeOverlay,
 					stop: hideIframeOverlay,

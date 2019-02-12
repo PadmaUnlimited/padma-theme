@@ -53,7 +53,7 @@ abstract class PadmaVisualEditorBoxAPI {
 	
 	protected $draggable = true;
 	
-	protected $resizable = false;
+	protected $resizable = true;
 	
 	protected $min_width = 500;
 	

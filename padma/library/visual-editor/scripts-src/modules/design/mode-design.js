@@ -2379,11 +2379,13 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		/* INSPECTOR TOOLTIP */
 			inspectorMouseMove = function(event) {
 
+
 				if ( Padma.inspectorDisabled )
 					return;
 
 				var targetInspectorElement = $(event.target);
 
+				
 				if ( !targetInspectorElement.hasClass('inspector-element') )
 					targetInspectorElement = targetInspectorElement.parents('.inspector-element').first();
 
@@ -2391,12 +2393,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				if ( typeof inspectorElement == 'undefined' || !targetInspectorElement.is(inspectorElement) ) {
 
 					inspectorElement = $(event.target);
+					
 
 					if ( !inspectorElement.hasClass('inspector-element') )
 						inspectorElement = inspectorElement.parents('.inspector-element').first();
 
 					var inspectorElementOptions = inspectorElement.data('inspectorElementOptions');
 
+					//console.log(inspectorElementOptions);
 					if ( typeof inspectorElementOptions == 'object' ) {
 
 						$i('.inspector-element-hover').removeClass('inspector-element-hover');

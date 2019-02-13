@@ -148,6 +148,8 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 
 		$default_copyright = __('Copyright', 'padma') . ' &copy; ' . date('Y') . ' ' . get_bloginfo('name');
 
+		$custom_copyright = preg_replace( '/%Y%/', date('Y'), $custom_copyright );  //Change %Y% for current year
+
 		$copyright = $custom_copyright ? $custom_copyright : $default_copyright;
 
 		echo apply_filters('padma_copyright', padma_parse_php('<p class="copyright footer-copyright">' . $copyright . '</p>'));
@@ -240,7 +242,7 @@ class PadmaFooterBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'custom-copyright',
 				'label' => 'Custom Copyright',
 				'type' => 'text',
-				'tooltip' => 'If you would like to change the copyright in the footer to say something different, enter it here.'
+				'tooltip' => 'If you would like to change the copyright in the footer to say something different, enter it here. Use %Y% for current year.'
 			),
 			
 			'show-responsive-grid-link' => array(

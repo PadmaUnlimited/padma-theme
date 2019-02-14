@@ -2,6 +2,25 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 	setupWrapperSortables = function() {
 
+		/* Wrapper wrapper-drag-handle tooltips */
+
+		$i('#whitewrap div.wrapper-drag-handle, #whitewrap div.wrapper-options').qtip({				
+				style: {
+					classes: 'qtip-padma'
+				},
+				show: {
+					delay: 10,
+					event: 'mouseenter'
+				},
+				position: {
+					my: 'right center',
+					at: 'left center',
+					container: Padma.iframe.contents().find('body'),
+					viewport: $('#iframe-container'),
+					effect: false
+				}
+		});
+
 		/* Wrapper Sorting */
 		return $i('#whitewrap').sortable({
 			items: 'div.wrapper',
@@ -499,7 +518,7 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 			});
 
-			bindWrapperMarginButtons($i('.wrapper-buttons .wrapper-margin-handle'));
+			bindWrapperMarginButtons($i('.wrapper-buttons .wrapper-margin-handle'));			
 
 
 	}

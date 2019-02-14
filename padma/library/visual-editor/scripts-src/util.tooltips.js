@@ -12,8 +12,8 @@ define(['jquery', 'qtip'], function($) {
 			
 			return false;
 			
-		}
-		
+		}			
+
 		var tooltipOptions = {
 			style: {
 				classes: 'qtip-padma'
@@ -97,6 +97,7 @@ define(['jquery', 'qtip'], function($) {
 		
 		var iframeScrollTooltipReposition = function() {
 			
+
 			/* Flood Control */
 			if ( $i('.qtip:visible').length === 0 || typeof iframeScrollTooltipRepositionFloodTimeout != 'undefined' )
 				return;
@@ -108,11 +109,13 @@ define(['jquery', 'qtip'], function($) {
 				delete iframeScrollTooltipRepositionFloodTimeout;
 				
 			}, 400);
+
 						
 		}
 
 		Padma.iframe.contents().unbind('scroll', iframeScrollTooltipReposition);		
 		Padma.iframe.contents().bind('scroll', iframeScrollTooltipReposition);
+
 		
 	}
 	

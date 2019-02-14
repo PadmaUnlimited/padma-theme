@@ -43,10 +43,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 1.0.0-Alpha
 * Released: On Dev
 
+Visual Editor Fixes
+- ToolTip fix
 qTips updated to 3.0.3
-jQuery PEP updated
-jQuery UI updated to v1.12.1
-VE ToolTip fix
 Footer block update: Now Custom Copyright support %Y% to show current year.
 
 

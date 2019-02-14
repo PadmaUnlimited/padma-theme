@@ -104,11 +104,15 @@ class PadmaVisualEditorIframeGrid {
 			}
 
 		echo '<div id="wrapper-buttons-template">';
-			echo '<div class="wrapper-top-margin-handle wrapper-handle wrapper-margin-handle" title="Drag to change wrapper top margin"><span></span><span></span><span></span></div>';
-			echo '<div class="wrapper-drag-handle wrapper-handle tooltip tooltip-right" title="Drag to change wrapper order"><span></span><span></span><span></span></div>';
-			echo '<div class="wrapper-bottom-margin-handle wrapper-handle wrapper-margin-handle" title="Drag to change wrapper bottom margin"><span></span><span></span><span></span></div>';
+			
+			echo '<div class="wrapper-handle wrapper-top-margin-handle wrapper-margin-handle" title="Drag to change wrapper top margin"><span></span><span></span><span></span></div>';
+			
+			echo '<div class="wrapper-handle wrapper-drag-handle" title="Drag to change wrapper order"><span></span><span></span><span></span></div>';
+			
+			echo '<div class="wrapper-handle wrapper-bottom-margin-handle wrapper-margin-handle" title="Drag to change wrapper bottom margin"><span></span><span></span><span></span></div>';
 
-			echo '<div class="wrapper-options tooltip tooltip-right" title="Click to open wrapper options"><span></span></div>';
+			echo '<div class="wrapper-options" title="Click to open wrapper options"><span></span></div>';
+
 		echo '</div><!-- .wrapper-buttons -->';
 
 

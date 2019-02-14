@@ -11,15 +11,11 @@ require.config({
 	shim: {
 	    underscore: {
 	      exports: '_'
-		},
-		"jQueryUI": {
-            export:"$" ,
-            deps: ['jquery']
-        }
+		}
 	}
 });
 
-require(['jquery', 'jqueryUI', 'util.loader'], function($) {
+require(['jquery', 'util.loader'], function($) {
 
 	/* Start loading indidcator */
 	startTitleActivityIndicator();

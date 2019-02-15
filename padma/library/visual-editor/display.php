@@ -432,6 +432,7 @@ class PadmaVisualEditorDisplay {
 					<li><a href="https://docs.padmaunlimited.com" target="_blank" rel="noopener">Documentation</a></li>
 					<li><a href="mailto:support@padmaunlimited.com" target="_blank">Support</a></li>
 					<li><a href="https://www.padmaunlimited.com/community/" target="_blank" rel="noopener">Community</a></li>
+					<li><a href="https://www.patreon.com/bePatron?u=11838968" target="_blank" rel="noopener">Become a Patron</a></li>
 				</ul>
 
 			</li>';

@@ -12,7 +12,8 @@ define(['jquery', 'qtip'], function($) {
 			
 			return false;
 			
-		}			
+		}
+
 
 		var tooltipOptions = {
 			style: {
@@ -46,6 +47,14 @@ define(['jquery', 'qtip'], function($) {
 			var tooltipElement = $;
 			
 		}
+
+		// Tooltips for panel
+		if(location === false){
+			tooltipOptions.position.viewport = '';
+			tooltipElement('.sub-tabs-content .tooltip-button').qtip(tooltipOptions);			
+		}
+
+
 
 		tooltipElement('div.tooltip-button:not([data-hasqtip]), .tooltip:not([data-hasqtip])').qtip(tooltipOptions);
 		

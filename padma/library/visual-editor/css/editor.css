@@ -1483,14 +1483,14 @@ div#menu {
 }
 
 span#logo {
-    width: 26px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     background-image: url(../images/logo.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 70%;
     background-position: center;
     display: block;
-    margin: 8px 3px 3px 10px;
+    margin: auto;
     float: left;
     text-indent: -9999px;
 }

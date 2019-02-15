@@ -2060,12 +2060,12 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				if ( typeof refresh == 'undefined' || refresh !== true ) {
 
 					$i('body').qtip({
-						id: '',
+						id: '',						
 						style: {
 							classes: 'qtip-padma qtip-inspector-tooltip'
 						},
 						position: {
-							target: [-9999, -9999],
+							target: 'mouse',
 							my: 'bottom left',
 							at: 'top right',
 							container: $i('body'),
@@ -2084,17 +2084,18 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 							event: false,
 							ready: true
 						},
-						hide: false,
+						hide: false,						
 						events: {
+							
 							render: function(event, api) {
 								
 								delete inspectorElement;
 								delete inspectorTooltip;
 								delete inspectorElementOptions;
 
-								inspectorTooltip = api;
-
-								if ( !$('#toggle-inspector').hasClass('inspector-disabled') ) {
+								inspectorTooltip = api;								
+								
+								if ( !$('#toggle-inspector').hasClass('inspector-disabled') ) {									
 									enableInspector();
 								} else {
 									disableInspector();
@@ -2178,6 +2179,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			enableInspector = function() {
 
+
 				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
 					return false;
 
@@ -2190,11 +2192,11 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					var api = $(this).qtip('api');
 					api.destroy();
 				});
-
+				
 				inspectorTooltip.show();
 
 				var inspectorMouseMoveEvent = !Padma.touch ? 'mousemove' : 'tap';
-				$i('html').bind(inspectorMouseMoveEvent, inspectorMouseMove);
+				$i('html').bind(inspectorMouseMoveEvent, inspectorMouseMove);											
 
 				setupInspectorContextMenu();
 
@@ -2379,7 +2381,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		/* INSPECTOR TOOLTIP */
 			inspectorMouseMove = function(event) {
 
-
 				if ( Padma.inspectorDisabled )
 					return;
 
@@ -2390,27 +2391,24 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					targetInspectorElement = targetInspectorElement.parents('.inspector-element').first();
 
 				/* Only change tooltip content if the hovered element isn't the existing inspector element */
-				if ( typeof inspectorElement == 'undefined' || !targetInspectorElement.is(inspectorElement) ) {
+				if (typeof inspectorElement == 'undefined' || !targetInspectorElement.is(inspectorElement) ) {
 
-					inspectorElement = $(event.target);
-					
+					inspectorElement = $(event.target);					
 
 					if ( !inspectorElement.hasClass('inspector-element') )
 						inspectorElement = inspectorElement.parents('.inspector-element').first();
 
 					var inspectorElementOptions = inspectorElement.data('inspectorElementOptions');
 
-					//console.log(inspectorElementOptions);
+					
 					if ( typeof inspectorElementOptions == 'object' ) {
 
 						$i('.inspector-element-hover').removeClass('inspector-element-hover');
 						$i(inspectorElementOptions['selector']).addClass('inspector-element-hover');
 
 						/* Build tooltip text */
-							var elementSelectorNode = $('#design-editor-element-selector').find('li#element-' + inspectorElementOptions.id);
-
+						var elementSelectorNode = $('#design-editor-element-selector').find('li#element-' + inspectorElementOptions.id);
 						var elementName = elementSelectorNode.children('.element-name').text();
-
 						var tooltipText = '<span class="inspector-tooltip-element-path">';
 						var tooltipElementPath = [];
 
@@ -2419,6 +2417,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 							tooltipElementPath.push($(this).children('.element-group-name, .element-name').first().text());
 
 						});
+						
 
 						/* Add info to tooltip if hovered element is an instance */
 							var insideInstanceText = '';
@@ -2454,28 +2453,23 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 						}
 
+
 						tooltipText += tooltipElementPathStr;
 						tooltipText += ' &rsaquo; <strong>' + elementName + '</strong></span>';
 						tooltipText += insideInstanceText;
 
 						tooltipText += '<small class="right-click-message">Right-click to style</small>';
 
-						inspectorTooltip.set({
-							content: {
-		        				text: tooltipText
-		        			}
-						});
+						inspectorTooltip.set('content.text', tooltipText);
 
 					}
 
 				}
-
+				
+				
 				inspectorTooltip.show();
-				inspectorTooltip.set({
-					position: {
-        				target: 'mouse'
-        			}
-				});
+				inspectorTooltip.set('position.target', 'mouse');
+				
 
 			}
 		/* END INSPECTOR TOOLTIP */

@@ -45,8 +45,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Visual Editor Fixes
 - ToolTip fix
-qTips updated to 3.0.3
-Footer block update: Now Custom Copyright support %Y% to show current year.
+Footer block update: Now Custom Copyright support %Y% to show current year
 
 
 = 0.3.1

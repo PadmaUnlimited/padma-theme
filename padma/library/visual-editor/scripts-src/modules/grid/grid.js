@@ -152,8 +152,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 					if ( $(this).data('plugin_pep') ) {
 						$(this).data('plugin_pep').options.grid = [self.grid.columnWidth + self.grid.gutterWidth, self.options.yGridInterval];
 					}
-					console.log($(this));
-					console.log($(this).data('ui-resizable'));
+
 					if ( $(this).data('ui-resizable') ) {						
 						$(this).resizable('option', 'grid', [self.grid.columnWidth + self.grid.gutterWidth, self.options.yGridInterval]);
 						$(this).resizable('option', 'maxWidth', self.grid.columns * (self.grid.columnWidth + self.grid.gutterWidth));

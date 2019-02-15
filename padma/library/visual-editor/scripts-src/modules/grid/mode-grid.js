@@ -15,6 +15,8 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 				$('.block-type-selector .block-type').show();
 				$('.block-type-selector-filter-categories li a').removeClass('active');
 				$('.block-type-selector-filter-categories li:first-child a').addClass('active');
+				$('#block-type-selector-filter-text').val('');
+				$('#block-type-selector-filter-text').focus();
 			}
 
 			/*

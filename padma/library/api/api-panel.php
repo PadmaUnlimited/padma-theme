@@ -226,6 +226,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		//Fix up inputs
 		$input = $this->parse_function_args($input);
 
+
 		if ( !isset($input['name']) || !isset($input['type']) )
 			return;
 		
@@ -376,6 +377,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 		public function repeater_group($input, $group_index = null, $counter = null) {
 
+			debug($input['name']);
 			$classes = array('repeater-group');
 
 			if ( padma_get('template', $input) )
@@ -384,6 +386,7 @@ abstract class PadmaVisualEditorPanelAPI {
 			if ( padma_get('single', $input) )
 				$classes[] = 'repeater-group-single';
 
+
 			echo '<div class="' . implode(' ', $classes) . '">';
 
 				if ( padma_get('sortable', $input) )
@@ -391,7 +394,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 				foreach ( $input['inputs'] as $index => $input_options ) {
 
-					if( ! is_null($counter) && $counter !== 0 ){
+					if( ! is_null($counter) && $counter !== 0 && $input['name'] != 'responsive-options'){
 						$input_options['name'] = $input_options['name'] . '-' . $counter;
 					}
 

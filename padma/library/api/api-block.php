@@ -585,6 +585,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 								'.input'
 							)
 						),
+						/*
 						'1824px' => array(
 							'show' => array(
 								'.input:not(#input-max-width)'
@@ -648,7 +649,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 							'hide' => array(
 								'#input-max-width'
 							),
-						)
+						)*/
 					),
 					'tooltip' => 'Select a screen width for these change to take effect.',
 					'default' => ''

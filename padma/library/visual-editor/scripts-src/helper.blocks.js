@@ -943,17 +943,28 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				/* Make sure that when closing the block type selector with the tab close button on a blank block that the blank block is also removed. */
 				$('ul#panel-top li a[href="#block-' + blockID + '-tab"]').siblings('span.close').bind('mouseup', {block: block}, hideBlankBlockTypeSelector);
 
-			}
-		
+			}		
+
 		/* Select the tab */
 			$('div#panel').tabs('option', 'active', $('#panel-top').children('li[role="tab"]').index($('[aria-controls="block-' + blockID + '-tab"]')));
 
+
+		/*	Filter reset	*/
+
+			$('.block-type-selector .block-type').show();
+			$('.block-type-selector-filter-categories li a').removeClass('active');
+			$('.block-type-selector-filter-categories li:first-child a').addClass('active');
+			$('#block-type-selector-filter-text').focus();
+		
 		return;
 		
 	}
 
 
 		hideBlankBlockTypeSelector = function(event) {
+
+			if(event.type == 'keyup')
+				return;
 
 			var block = event.data.block;
 

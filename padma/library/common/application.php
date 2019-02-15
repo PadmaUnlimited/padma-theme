@@ -28,12 +28,20 @@ class Padma {
 		$GLOBALS['padma_default_element_data'] = array();
 
 		/* Define simple constants */
-		define('THEME_FRAMEWORK', 'padma');
-		define('PADMA_VERSION', '1.0.0');
+		if(!defined('THEME_FRAMEWORK')){
+			define('THEME_FRAMEWORK', 'padma');			
+		}
+		if(!defined('PADMA_VERSION')){
+			define('PADMA_VERSION', '1.0.0');			
+		}
 
 		/* Define directories */
-		define('PADMA_DIR', get_template_directory());
-		define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
+		if(!defined('PADMA_DIR')){
+			define('PADMA_DIR', get_template_directory());			
+		}
+		if(!defined('PADMA_LIBRARY_DIR')){
+			define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
+		}
 
 		/*	Errors	*/
 		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
@@ -64,7 +72,10 @@ class Padma {
 
 
 		/* Skins */
-		define('PADMA_DEFAULT_SKIN', 'base');
+		if(!defined('PADMA_DEFAULT_SKIN')){
+			define('PADMA_DEFAULT_SKIN', 'base');
+		}
+		
 
 		/* MySQL Table names */
 		$wpdb->pu_blocks 		= $wpdb->prefix . 'pu_blocks';
@@ -93,8 +104,12 @@ class Padma {
 		/* Handle uploads directory and cache */
 		$uploads = wp_upload_dir();
 
-		define('PADMA_UPLOADS_DIR', padma_change_to_unix_path($uploads['basedir'] . '/padma'));
-		define('PADMA_CACHE_DIR', padma_change_to_unix_path(PADMA_UPLOADS_DIR . '/cache'));
+		if(!defined('PADMA_UPLOADS_DIR')){
+			define('PADMA_UPLOADS_DIR', padma_change_to_unix_path($uploads['basedir'] . '/padma'));
+		}
+		if(!defined('PADMA_CACHE_DIR')){
+			define('PADMA_CACHE_DIR', padma_change_to_unix_path(PADMA_UPLOADS_DIR . '/cache'));
+		}
 
 		/* Make directories if they don't exist */
 		if ( !is_dir(PADMA_UPLOADS_DIR) )
@@ -214,6 +229,11 @@ class Padma {
 			'display' 						=> true,
 			'widgets' 						=> true,
 			
+			/*
+				Notices
+			*/
+			'common/abstract/notices' 		=> true,
+			'common/notices' 				=> true,
 
 			/*	
 				Compatiblity

@@ -44,6 +44,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 * Released: On Dev
 
 Visual Editor Fixes
+- Responsive breakpoints fix
+- Select block filter fix
 - ToolTip fix
 Footer block update: Now Custom Copyright support %Y% to show current year
 

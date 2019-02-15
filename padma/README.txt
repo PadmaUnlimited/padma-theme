@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.0.0-Alpha
+= 1.0.0-Beta
 * Released: On Dev
 
 Visual Editor Fixes
@@ -48,6 +48,7 @@ Visual Editor Fixes
 - Select block filter fix
 - ToolTip fix
 Footer block update: Now Custom Copyright support %Y% to show current year
+Admin support notice
 
 
 = 0.3.1

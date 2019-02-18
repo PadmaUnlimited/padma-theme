@@ -30,7 +30,7 @@ class PadmaNotices extends PadmaNotice{
 	}
 
 
-	public function display_notice() {
+	public static function display_notice() {
 
 		// Make sure this is the Plugins screen
 		if ( self::get_current_screen_id() !== 'plugins' ) {

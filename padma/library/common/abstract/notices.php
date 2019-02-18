@@ -104,7 +104,7 @@ abstract class PadmaNotice {
 	 *
 	 * @since  1.0.0
 	 */
-	abstract function display_notice();
+	abstract static function display_notice();
 
 	/**
 	 * Include template file.
@@ -275,7 +275,7 @@ abstract class PadmaNotice {
 	 * @access protected
 	 * @return mixed Dismissed notices.
 	 */
-	protected function get_dismissed_notices() {
+	protected static function get_dismissed_notices() {
 		return get_option( self::$option_name, array() );
 	}
 
@@ -286,7 +286,7 @@ abstract class PadmaNotice {
 	 * @access protected
 	 * @return string  The ID of the current screen.
 	 */
-	protected function get_current_screen_id() {
+	protected static function get_current_screen_id() {
 
 		$screen = get_current_screen();
 		return $screen->id;
@@ -300,7 +300,7 @@ abstract class PadmaNotice {
 	 * @access protected
 	 * @return bool       True if current user can view the notice, False otherwise.
 	 */
-	protected function current_user_can_view() {
+	protected static function current_user_can_view() {
 		return current_user_can( self::$capability );
 	}
 

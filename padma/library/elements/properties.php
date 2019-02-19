@@ -977,7 +977,7 @@ class PadmaElementProperties {
 				'group' => 'Advanced',
 				'name' => 'Opacity',
 				'type' => 'integer',
-				'unit' => '%',				
+				'unit' => '',				
 				'default' => 100,
 				'js-callback' => 'stylesheet.update_rule(params.selector, { "opacity": (params.value/100) });',
 			),

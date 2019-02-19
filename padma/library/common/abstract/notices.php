@@ -128,7 +128,7 @@ abstract class PadmaNotice {
 	 * @access protected
 	 * @param string  $status New status. Can be 'dismissed' or 'deferred'
 	 */
-	protected function update_notice_status( $status ) {
+	protected static function update_notice_status( $status ) {
 
 		$dismissed = self::get_dismissed_notices();
 		$id        = self::$notice_id;
@@ -227,7 +227,7 @@ abstract class PadmaNotice {
 	 * @access protected
 	 * @return boolean True if the notice has been dismissed, false if not.
 	 */
-	protected function is_dismissed() {
+	protected static function is_dismissed() {
 
 		$dismissed = self::get_dismissed_notices();
 		$id        = self::$notice_id;

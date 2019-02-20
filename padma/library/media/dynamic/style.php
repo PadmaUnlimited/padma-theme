@@ -38,19 +38,22 @@ class PadmaDynamicStyle {
 
 			if($element_id == 'wrapper' && isset($element_options['mirroring'])){
 
-				$target_wrapper = key($element_options['mirroring']);
-				$orginal_wrapper = $element_options['mirroring'][$target_wrapper];
+				foreach ($element_options['mirroring'] as $orginal_wrapper_id => $target_wrapper_id) {
+					
+					$target_wrapper = $orginal_wrapper_id;
+					$orginal_wrapper = $element_options['mirroring'][$orginal_wrapper_id];
 
-				$target_wrapper_data = PadmaWrappersData::get_wrapper($target_wrapper);
-				
-				$element['instances'][$target_wrapper] = array(
-					'id' => $target_wrapper,
-					'name' => 'Wrapper: '. $target_wrapper_data['settings']['alias'],
-					'selector' => '#wrapper-'.$target_wrapper_data['id'].', div#whitewrap div.wrapper-mirroring-'.$target_wrapper_data['id'].'',
-					'layout' => $target_wrapper_data['layout'],
-					'state-of' => '',
-					'layout-name' => '',
-				);					
+					$target_wrapper_data = PadmaWrappersData::get_wrapper($target_wrapper);
+					
+					$element['instances'][$target_wrapper] = array(
+						'id' => $target_wrapper,
+						'name' => 'Wrapper: '. $target_wrapper_data['settings']['alias'],
+						'selector' => '#wrapper-'.$target_wrapper_data['id'].', div#whitewrap div.wrapper-mirroring-'.$target_wrapper_data['id'].'',
+						'layout' => $target_wrapper_data['layout'],
+						'state-of' => '',
+						'layout-name' => '',
+					);
+				}	
 			}
 						
 			
@@ -107,7 +110,7 @@ class PadmaDynamicStyle {
 				foreach ( $element_options['special-element-instance'] as $instance => $instance_properties ) {
 					
 					//Make sure the instance exists
-					if ( !isset($element['instances'][$instance]))
+					if ( !isset($element['instances'][$instance]) && !isset($elements['wrapper']['mirroring'][$instance]))
 						continue;
 
 					//Get the selector for the instance

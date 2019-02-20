@@ -107,7 +107,7 @@ class PadmaDynamicStyle {
 				foreach ( $element_options['special-element-instance'] as $instance => $instance_properties ) {
 					
 					//Make sure the instance exists
-					if ( !isset($element['instances'][$instance]) && !isset($elements['wrapper']['mirroring'][$instance]))
+					if ( !isset($element['instances'][$instance]))
 						continue;
 
 					//Get the selector for the instance

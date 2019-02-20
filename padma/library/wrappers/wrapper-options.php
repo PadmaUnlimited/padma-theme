@@ -205,6 +205,15 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'options' => 'get_wrappers_select_options_for_mirroring()',
 				'callback' => 'updateWrapperMirrorStatus(args.wrapper.id, value, input);'
 			),
+			
+			'mirror-wrapper-styles' => array(
+				'type' => 'checkbox',
+				'chosen' => false,
+				'name' => 'mirror-wrapper-styles',
+				'label' => 'Mirror styles',
+				'default' => '',
+				'tooltip' => 'Use this option to mirror styles.'
+			),
 
 			'alias' => array(
 				'type' => 'text',

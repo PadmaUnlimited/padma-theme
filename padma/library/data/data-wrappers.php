@@ -158,6 +158,7 @@ class PadmaWrappersData {
 
 	public static function get_wrapper($wrapper, $use_mirrored = false) {
 
+
 		global $wpdb;
 
 		/* If $wrapper is already an array then validate it and return it */
@@ -213,8 +214,9 @@ class PadmaWrappersData {
 			return null;
 
 		/* Fetch the mirrored wrapper if $use_mirrored is true */
-		if ( $use_mirrored === true && $mirrored_wrapper = self::get_wrapper_mirror($wrapper) )
+		if ( $use_mirrored === true && $mirrored_wrapper = self::get_wrapper_mirror($wrapper) ){
 			$wrapper = $mirrored_wrapper;
+		}
 
 		wp_cache_set($cache_key, $wrapper);
 
@@ -245,7 +247,15 @@ class PadmaWrappersData {
 			$layout_wrappers = array();
 
 			foreach ( $layout_wrappers_query as $layout_wrapper ) {
+
+				$data = array_map('padma_maybe_unserialize', $layout_wrapper);
+
 				$layout_wrappers[$layout_wrapper['id']] = array_map('padma_maybe_unserialize', $layout_wrapper);
+
+
+				if(in_array('mirror-wrapper-styles', $data['settings']) && $data['mirror_id'] != ''){
+					$layout_wrappers[$layout_wrapper['id']]['styling'] = self::get_wrapper_styling($data['mirror_id']);
+				}
 			}
 
 			/* If wrapper array is empty then load the default wrapper array */
@@ -261,6 +271,7 @@ class PadmaWrappersData {
 			wp_cache_set($cache_key, $layout_wrappers);
 
 		}
+
 
 		return $layout_wrappers;
 
@@ -307,6 +318,7 @@ class PadmaWrappersData {
 
 		wp_cache_set($cache_key, $wrappers);
 
+
 		return $wrappers;
 
 	}
@@ -333,6 +345,16 @@ class PadmaWrappersData {
 		}
 
 		return $wrappers;
+
+	}
+
+	public static function get_wrapper_styling($wrapper_id) {
+
+		return PadmaElementsData::get_special_element_properties(array(
+			'element' => 'wrapper',
+			'se_type' => 'instance',
+			'se_meta' => 'wrapper-' . PadmaWrappers::format_wrapper_id($wrapper_id)
+		));
 
 	}
 

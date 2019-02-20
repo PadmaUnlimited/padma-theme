@@ -377,7 +377,6 @@ abstract class PadmaVisualEditorPanelAPI {
 
 		public function repeater_group($input, $group_index = null, $counter = null) {
 
-			debug($input['name']);
 			$classes = array('repeater-group');
 
 			if ( padma_get('template', $input) )

@@ -11,20 +11,61 @@ class PadmaDynamicStyle {
 		
 		$return = "/* DESIGN EDITOR STYLING */\n";
 		
+		$mirrored_wrappers = PadmaWrappersData::get_all_wrappers(false,true);
+		if(count($mirrored_wrappers)>0){
+
+			foreach ($mirrored_wrappers as $id => $data) {
+				if($data['settings']['mirror-wrapper-styles']){
+
+					$orginal_wrapper = 'wrapper-' . $data['id'];
+					$mirroring_wrapper = 'wrapper-' . $data['mirror_id'];
+
+
+					$elements['wrapper']['special-element-instance'][$orginal_wrapper] = $elements['wrapper']['special-element-instance'][$mirroring_wrapper];
+
+					$elements['wrapper']['mirroring'][$orginal_wrapper] = $mirroring_wrapper;
+
+				}
+			}
+
+		}
+
+
 
 		foreach ( $elements as $element_id => $element_options ) {
 			
 			$element 	= PadmaElementAPI::get_element($element_id);
+
+			if($element_id == 'wrapper' && isset($element_options['mirroring'])){
+
+				$target_wrapper = key($element_options['mirroring']);
+				$orginal_wrapper = $element_options['mirroring'][$target_wrapper];
+
+				$target_wrapper_data = PadmaWrappersData::get_wrapper($target_wrapper);
+				
+				$element['instances'][$target_wrapper] = array(
+					'id' => $target_wrapper,
+					'name' => 'Wrapper: '. $target_wrapper_data['settings']['alias'],
+					'selector' => '#wrapper-'.$target_wrapper_data['id'].', div#whitewrap div.wrapper-mirroring-'.$target_wrapper_data['id'].'',
+					'layout' => $target_wrapper_data['layout'],
+					'state-of' => '',
+					'layout-name' => '',
+				);					
+			}
+						
+			
 			$selector 	= $element['selector'];
 			$nudging_properties = array('top', 'left', 'position', 'z-index');
 						
 			//Continue to next element if the element/selector does not exist
 			if ( !isset($selector) || $selector == false )
 				continue;
+
 			
 			/* Regular Element */
 			if ( isset($element_options['properties']) ) 
 				$return .= PadmaElementProperties::output_css($selector, self::filter_nudging_properties($element_options['properties'], $element));
+
 			
 			/* Layout-specific elements */
 			if ( isset($element_options['special-element-layout']) && is_array($element_options['special-element-layout']) ) {
@@ -32,11 +73,15 @@ class PadmaDynamicStyle {
 				//Handle every layout
 				foreach ( $element_options['special-element-layout'] as $layout => $layout_properties ) {
 
+
+
 					if ( PadmaLayout::is_customized($layout) ) {
 						$selector_prefix = 'body.layout-using-' . str_replace( PadmaLayout::$sep, '-', $layout ) . ' ';
 					} else {
 						$selector_prefix = 'body.layout-' . str_replace( PadmaLayout::$sep, '-', $layout ) . ' ';
 					}
+					
+
 
 					$selector_array = explode(',', $selector);
 					
@@ -62,12 +107,12 @@ class PadmaDynamicStyle {
 				foreach ( $element_options['special-element-instance'] as $instance => $instance_properties ) {
 					
 					//Make sure the instance exists
-					if ( !isset($element['instances'][$instance]) )
+					if ( !isset($element['instances'][$instance]) && !isset($elements['wrapper']['mirroring'][$instance]))
 						continue;
-					
+
 					//Get the selector for the instance
 					$instance_selector = $element['instances'][$instance]['selector'];
-					
+
 					$return .= PadmaElementProperties::output_css($instance_selector, self::filter_nudging_properties($instance_properties, $element));
 					
 				}

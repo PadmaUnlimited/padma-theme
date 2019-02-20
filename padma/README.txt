@@ -49,6 +49,7 @@ Visual Editor Fixes
 - ToolTip fix
 Footer block update: Now Custom Copyright support %Y% to show current year
 Admin support notice
+New option to mirror Wrapper styles
 
 
 = 0.3.1

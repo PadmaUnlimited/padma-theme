@@ -48,6 +48,7 @@ Visual Editor Fixes
 - Responsive breakpoints fix
 - Select block filter fix
 - ToolTip fix
+- Mobile preview fix
 Footer block update: Now Custom Copyright support %Y% to show current year
 Admin support notice
 New option to mirror Wrapper styles

@@ -30,7 +30,7 @@ class PadmaResponsiveGrid {
 			return false;
 			
 		//If it's the visual editor or the visual editor iframe
-		if ( PadmaRoute::is_visual_editor() || PadmaRoute::is_visual_editor_iframe() || padma_get('visual-editor-open') )
+		if ( PadmaRoute::is_visual_editor() || padma_get('visual-editor-open') )
 			return false;
 			
 		return true;

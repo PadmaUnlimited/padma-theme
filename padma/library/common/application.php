@@ -302,6 +302,9 @@ class Padma {
 		add_theme_support( 'editor-styles' );
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'responsive-embeds' );
+		add_theme_support( 'dark-editor-style' );
+		add_theme_support( 'editor-font-sizes', array() );
+		add_theme_support( 'editor-color-palette', array() );
 		add_editor_style( 'style-editor.css' );
 
 		/* Loop Standard by PluginBuddy */

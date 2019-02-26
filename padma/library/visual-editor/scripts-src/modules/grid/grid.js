@@ -336,8 +336,6 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 
 			var $eventTarget = $(event.target);
 
-			//console.log(this.helper)
-
 			if ( 
 				!event 
 				|| !this.helper
@@ -367,8 +365,6 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			var containerTop = $thisContainerOffset.top;
 			var containerHeight = $thisContainer.height();	
 			var containerWidth = $thisContainer.width();
-				
-			//console.log(event);
 
 			/* Handle Padding */
 				

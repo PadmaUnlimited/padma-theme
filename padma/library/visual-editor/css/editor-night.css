@@ -199,3 +199,6 @@ body.night .block-type-selector-filter-categories li a{
     color: #FFFFFF;
     border-bottom: 4px solid #72A9c3;
 }
+body.night .options-filter-only-modified{
+    color: #d3d4d4;
+}

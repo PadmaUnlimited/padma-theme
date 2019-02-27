@@ -206,13 +206,13 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'callback' => 'updateWrapperMirrorStatus(args.wrapper.id, value, input);'
 			),
 			
-			'mirror-wrapper-styles' => array(
+			'do-not-mirror-wrapper-styles' => array(
 				'type' => 'checkbox',
 				'chosen' => false,
-				'name' => 'mirror-wrapper-styles',
-				'label' => 'Mirror styles',
+				'name' => 'do-not-mirror-wrapper-styles',
+				'label' => 'Do not mirror styles',
 				'default' => '',
-				'tooltip' => 'Use this option to mirror styles.'
+				'tooltip' => 'Use this option to prevent styles mirroring'
 			),
 
 			'alias' => array(

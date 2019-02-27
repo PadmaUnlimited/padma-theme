@@ -15,7 +15,7 @@ class PadmaDynamicStyle {
 		if(count($mirrored_wrappers)>0){
 
 			foreach ($mirrored_wrappers as $id => $data) {
-				if($data['settings']['mirror-wrapper-styles']){
+				if(!$data['settings']['do-not-mirror-wrapper-styles']){
 
 					$orginal_wrapper = 'wrapper-' . $data['id'];
 					$mirroring_wrapper = 'wrapper-' . $data['mirror_id'];

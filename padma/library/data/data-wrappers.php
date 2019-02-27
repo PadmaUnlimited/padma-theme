@@ -253,7 +253,7 @@ class PadmaWrappersData {
 				$layout_wrappers[$layout_wrapper['id']] = array_map('padma_maybe_unserialize', $layout_wrapper);
 
 
-				if(in_array('mirror-wrapper-styles', $data['settings']) && $data['mirror_id'] != ''){
+				if(!in_array('do-not-mirror-wrapper-styles', $data['settings']) && $data['mirror_id'] != ''){
 					$layout_wrappers[$layout_wrapper['id']]['styling'] = self::get_wrapper_styling($data['mirror_id']);
 				}
 			}

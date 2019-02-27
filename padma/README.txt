@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.0.0-Beta
+= 1.0.0
 * Released: On Dev
 
 Tested with WordPress 5.1

@@ -41,9 +41,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 == Changelog ==
 
 = 1.0.0
-* Released: On Dev
+* Released: February 27, 2019
 
 Tested with WordPress 5.1
+Tested with ClassicPress 1.0.0-rc1
 Visual Editor Fixes
 - Responsive breakpoints fix
 - Select block filter fix

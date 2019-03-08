@@ -228,6 +228,11 @@ class Padma {
 			'fonts/google-fonts',
 			'display' 						=> true,
 			'widgets' 						=> true,
+
+			/*
+				Query Class
+			*/
+			'common/query' 					=> true,
 			
 			/*
 				Notices

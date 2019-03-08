@@ -40,6 +40,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 1.0.1
+* Released: On Dev
+
+Fixed block hidden option on responsive
+Updated jQuery Superfish Menu Plugin to v1.7.10
+
+
 = 1.0.0
 * Released: February 28, 2019
 

@@ -66,15 +66,11 @@ class PadmaResponsiveGrid {
 			return false;
 
 		if(PadmaOption::get('allow-mobile-zooming')){
-
-			echo '<meta name="viewport" content="width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=10.0" />' . "\n";
-
+			echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes" />' . "\n";
 		}else{
-
-			echo '<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />' . "\n";
+			echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />' . "\n";
 		}
-		
-		
+	
 	}
 	
 	

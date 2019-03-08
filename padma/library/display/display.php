@@ -254,7 +254,7 @@ class PadmaDisplay {
 		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">';
 		do_action('padma_body_open');
 		
-		echo '<div id="whitewraps">';
+		echo '<div id="whitewrap">';
 		
 		do_action('padma_whitewrap_open');
 		do_action('padma_page_start');

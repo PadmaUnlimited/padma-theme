@@ -121,8 +121,8 @@ class PadmaCompiler {
 	 * @return string
 	 **/
 	public static function enqueue_file($file, $footer_js = true) {
-				
-		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
+
+		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);		
 
 		if ( $cache[$file]['format'] == 'js' )
 			return wp_enqueue_script('padma-' . $file, self::get_url($file), false, false, false, $footer_js);
@@ -140,7 +140,7 @@ class PadmaCompiler {
 	 * @return string
 	 **/
 	public static function get_url($file) {
-				
+
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		if ( is_ssl() && strpos($file, '-https') === false )
@@ -229,7 +229,7 @@ class PadmaCompiler {
 		
 		if ( !@fwrite($file_handle, $content) )
 			return false;
-	
+
 		@chmod(PADMA_CACHE_DIR . '/' . $cache[$file]['filename'], 0644);
 			
 		@fclose($file_handle);
@@ -245,10 +245,9 @@ class PadmaCompiler {
 	 * @return void
 	 **/
 	public static function output_trigger() {
-
 		
 		$file = padma_get('file');
-				
+
 		//No GET parameter set		
 		if ( !$file )
 			return false;
@@ -271,7 +270,7 @@ class PadmaCompiler {
 			header("Content-type: text/css");
 		elseif ( $format == 'js' )
 			header("content-type: application/x-javascript");
-										
+
 		echo self::combine_fragments($cache[$file]);
 		
  	}

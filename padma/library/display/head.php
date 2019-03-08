@@ -112,14 +112,14 @@ class PadmaHead {
 				}
 
 			/* Block heights */
-				$general_css_fragments['dynamic-block-heights'] = array('PadmaDynamicStyle', 'block_heights');
+				$general_css_fragments['dynamic-block-heights'] = array('PadmaDynamicStyle', 'block_heights');				
 				
 			/* Design Editor CSS */
 				if ( current_theme_supports('padma-design-editor') )
 					$general_css_fragments['dynamic-design-editor'] = array('PadmaDynamicStyle', 'design_editor');
 			
-			/* Allow filters to be applied to the general CSS fragments/dependencies before the count is made */
-				$general_css_fragments = apply_filters('padma_general_css', $general_css_fragments);
+			/* Allow filters to be applied to the general CSS fragments/dependencies before the count is made */			
+				$general_css_fragments = apply_filters('padma_general_css', $general_css_fragments);				
 
 				// There is headway support
 				if(PadmaOption::get('headway-support')){
@@ -137,20 +137,21 @@ class PadmaHead {
 					PADMA_LIBRARY_DIR . '/media/dynamic/style.php'
 				)));
 
+			
 			/* Handle regular requests. */
-			if ( !PadmaRoute::is_visual_editor_iframe('design') || !current_theme_supports('padma-design-editor') ) {
-
+			if ( !PadmaRoute::is_visual_editor_iframe('design') || !current_theme_supports('padma-design-editor') ) {				
 				PadmaCompiler::register_file(array(
 					'name' 			=> 'general',
 					'format' 		=> 'css',
 					'fragments' 	=> $general_css_fragments,
 					'dependencies' 	=> $general_css_dependencies
-				));
+				));				
+
 
 			/* Handle design editor requests by stripping out the design editor fragment and separating it for better skin importing */
 			} else {
 
-				$general_fragments_excluding_design_editor = $general_css_fragments;
+				$general_fragments_excluding_design_editor = $general_css_fragments;				
 				unset($general_fragments_excluding_design_editor['dynamic-design-editor']);
 				unset($general_fragments_excluding_design_editor['dynamic-live-css']);
 

@@ -285,7 +285,8 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					break;
 			}
 
-			$js .= 'jQuery(document).ready(function(){
+			$js .= 'jQuery(function() {
+				
 					if ( typeof jQuery().superfish != "function" )
 						return false;
 

@@ -592,7 +592,7 @@ class PadmaDynamicStyle {
 							$max_width = padma_fix_data_type(padma_get('max-width', $option, ''));
 
 							if($max_width && $breakpoint == 'custom')
-								$breakpoint = $max_width;
+								$breakpoint = $max_width . 'px';
 
 							$disable_block_height = padma_fix_data_type(padma_get( 'disable-block-height', $option, false));
 							$mobile_auto_center = padma_fix_data_type(padma_get( 'mobile-center-elements', $option, false));
@@ -605,7 +605,7 @@ class PadmaDynamicStyle {
 
 							$hide_block = padma_fix_data_type(padma_get('hide-block', $option, false));
 
-							/* Output Responsive CSS */
+							/* Output Responsive CSS */							
 							$return .= '@media screen and ('. $breakpoint_min_max .'-width: ' . $breakpoint . ' ) { ';
 							
 								$return .= '#whitewrap ' . $selector . ' {';
@@ -654,8 +654,7 @@ class PadmaDynamicStyle {
 
 					}
 
-				}
-
+				}				
 				return $return;
 
 			}

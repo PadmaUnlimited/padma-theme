@@ -46,6 +46,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 Fixed block hidden option on responsive
 Updated jQuery Superfish Menu Plugin to v1.7.10
 Responsive custom breackpoint fix
+New PadmaQuery Class
 
 
 = 1.0.0

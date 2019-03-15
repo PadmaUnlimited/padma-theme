@@ -38,8 +38,7 @@ class PadmaQuery{
 
 		if(!is_array($byid_exclude))
 			$byid_exclude = explode(',', $byid_exclude);
-
-		$posts = array();
+		
 		$args = array(
 			'category__in' 		=> $categories,
 			'posts_per_page'	=> $number_of_posts,

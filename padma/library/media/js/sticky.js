@@ -4,6 +4,13 @@
  @license Sticky-kit v1.1.2 | WTFPL | Leaf Corcoran 2014 | http://leafo.net
  */
 
+/**
+ *
+ * Modified Modified by Padma Team 
+ *
+ */
+
+
 (function () {
 	var $, win;
 
@@ -132,6 +139,7 @@
 						}
 					}
 					if ( scroll <= top ) {
+
 						fixed = false;
 						offset = offset_top;
 						if ( manual_spacer == null ) {
@@ -144,9 +152,11 @@
 							position: "",
 							width: "",
 							top: "",
-                            zIndex: ""
-						};
+                            zIndex: "",
+                            left: ""
+						};						
 						elm.css(css).removeClass(sticky_class).trigger("sticky_kit:unstick");
+						
 					}
 					if ( inner_scrolling ) {
 						win_height = win.height();
@@ -183,7 +193,7 @@
 						elm.trigger("sticky_kit:stick");
 					}
 				}
-				if ( fixed && enable_bottoming ) {
+				if ( fixed && enable_bottoming ) {						
 					if ( will_bottom == null ) {
 						will_bottom = scroll + height + offset > parent_height + parent_top;
 					}
@@ -245,7 +255,7 @@
 		return this;
 	};
 
-	if ( typeof BTStickyWrappers != 'undefined' ) {
+	if ( typeof PadmaStickyWrappers != 'undefined' ) {
 
 		$(document).ready(function() {
 
@@ -255,7 +265,7 @@
 				wpAdminBarOffset = parseInt($('#wpadminbar').outerHeight());
 			}
 
-			$.each(BTStickyWrappers, function (selector, options) {
+			$.each(PadmaStickyWrappers, function (selector, options) {
 
 				options['bottoming'] = false;
 				options['offset_top'] = typeof options['offset_top'] != 'undefined' ? wpAdminBarOffset + parseInt(options['offset_top']) : wpAdminBarOffset;

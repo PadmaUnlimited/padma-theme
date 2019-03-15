@@ -88,7 +88,7 @@ class PadmaWrappers {
 		}
 
 		wp_enqueue_script( 'padma-sticky', padma_url() . '/library/media/js/sticky.js', array( 'jquery' ) );
-		wp_localize_script( 'padma-sticky', 'BTStickyWrappers', $sticky_wrappers );
+		wp_localize_script( 'padma-sticky', 'PadmaStickyWrappers', $sticky_wrappers );
 
 
 	}

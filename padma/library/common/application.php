@@ -301,6 +301,8 @@ class Padma {
 		add_theme_support( 'editor-style' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
+		add_theme_support( 'custom-logo' );
+
 
 		/*	Gutenberg	*/
 		add_theme_support( 'align-wide' );

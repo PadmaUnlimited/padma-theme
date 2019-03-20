@@ -63,7 +63,7 @@ class PadmaJSProperties {
 		}
 
 		wp_enqueue_script( 'padma-stellar', padma_url() . '/library/media/js/jquery.stellar.js', array( 'jquery' ) );
-		wp_localize_script( 'padma-stellar', 'BTParallax', self::$enqueued_js_properties['parallax'] );
+		wp_localize_script( 'padma-stellar', 'PadmaParallax', self::$enqueued_js_properties['parallax'] );
 
 	}
 

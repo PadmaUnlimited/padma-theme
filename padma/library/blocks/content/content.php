@@ -266,6 +266,41 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				));
 
 				$this->register_block_element(array(
+					'id' => 'entry-meta-publisher',
+					'name' => 'Publisher Logo container',
+					'selector' => '.publisher-img',
+					'parent' => 'entry-meta'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-publisher-image-container',
+					'name' => 'Publisher Logo image container',
+					'selector' => '.publisher-img .logo',
+					'parent' => 'entry-meta'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-publisher-image-link',
+					'name' => 'Publisher Logo link',
+					'selector' => '.publisher-img .logo a',
+					'parent' => 'entry-meta'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-publisher-image-file',
+					'name' => 'Publisher Logo image',
+					'selector' => '.publisher-img .logo a img',
+					'parent' => 'entry-meta'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'entry-meta-publisher-meta',
+					'name' => 'Publisher Logo meta data',
+					'selector' => '.publisher-img meta',
+					'parent' => 'entry-meta'
+				));
+
+				$this->register_block_element(array(
 					'id' => 'entry-date',
 					'name' => 'Post Entry Date',
 					'parent' => 'entry-meta',
@@ -620,7 +655,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		'meta' => '
 			<p>The entry meta is the information that appears below the post title and below the post content.  By default, it will contain information about the entry author, the categories, and comments.</p>
 			<p><strong>Available Variables:</strong></p>
-			<p>%date% &bull; %time% &bull; %comments% &bull; %comments_no_link% &bull; %respond% &bull; %author% &bull; %author_no_link% &bull; %categories% &bull; %tags%</p>
+			<p>%date% &bull; %modified_date% &bull; %time% &bull; %comments% &bull; %comments_no_link% &bull; %respond% &bull; %author% &bull; %author_no_link% &bull; %categories% &bull; %tags% &bull; %publisher% &bull; %publisher_no_img%</p>
 		'
 	);
 	

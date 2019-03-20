@@ -560,6 +560,7 @@ class PadmaContentBlockDisplay {
             $schema_itemtype = $post_type == 'post' ? 'Article' : 'CreativeWork';
 			
 			echo '<article id="post-' . $post_id . '" class="' . $post_class . '" itemscope itemtype="http://schema.org/' . apply_filters('padma_entry_schema', $schema_itemtype, $post_type) . '">';
+			echo '<link itemprop="mainEntityOfPage" href="'.get_permalink($post_id).'" />';
 
 					do_action('padma_entry_open', $args);		
 
@@ -974,6 +975,7 @@ class PadmaContentBlockDisplay {
 
 		$variables = array(
 			'date',
+			'modified_date',
 			'time',
 			'comments',
 			'comments_no_link',
@@ -982,6 +984,8 @@ class PadmaContentBlockDisplay {
 			'author_no_link',
 			'categories',
 			'tags',
+			'publisher',
+			'publisher_no_img',
 			'edit'
 		);
 
@@ -998,6 +1002,13 @@ class PadmaContentBlockDisplay {
 					$date = ($date_format != 'wordpress-default') ? get_the_time($date_format) : get_the_date();
 
 					$replacement['date'] = '<time class="entry-date published updated" itemprop="datePublished" datetime="' . get_the_time( 'c' ) . '">' . $date . '</time>';
+
+				case 'modified_date':
+
+					$date_format = $this->get_setting('date-format', 'wordpress-default');
+					$date = ($date_format != 'wordpress-default') ? get_the_time($date_format) : get_the_modified_date();
+
+					$replacement['modified_date'] = '<time class="entry-date published modified" itemprop="dateModified" datetime="' . get_the_time( 'c' ) . '">' . $date . '</time>';
 
 				break;
 
@@ -1051,6 +1062,51 @@ class PadmaContentBlockDisplay {
 
 				case 'tags':
 					$replacement['tags'] = (get_the_tags() != NULL) ? get_the_tag_list('<span class="tag-links" itemprop="keywords">','<span class="tag-sep">, </span>','</span>') : '';
+				break;
+
+
+				case 'publisher':
+
+					$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
+					
+					if(!has_custom_logo($blog_id))
+						return;					
+
+					$custom_logo_id = get_theme_mod( 'custom_logo' );
+					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+					$replacement['publisher'] = '<div class="publisher-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
+					$replacement['publisher'] .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+					$replacement['publisher'] .= get_custom_logo();
+					$replacement['publisher'] .= '<meta itemprop="url" content="'.$image[0].'">';
+					$replacement['publisher'] .= '<meta itemprop="width" content="'.$image[1].'">';
+					$replacement['publisher'] .= '<meta itemprop="height" content="'.$image[2].'">';
+					$replacement['publisher'] .= '</div>';
+					$replacement['publisher'] .= '<meta itemprop="name" content="'.$authordata->display_name.'">';
+				    $replacement['publisher'] .= '</div>';					
+
+				break;
+
+				case 'publisher_no_img':
+
+					$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
+					
+					if(!has_custom_logo($blog_id))
+						return;					
+
+					$custom_logo_id = get_theme_mod( 'custom_logo' );
+					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+					$replacement['publisher_no_img'] = '<div class="publisher-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
+					$replacement['publisher_no_img'] .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+					//$replacement['publisher'] .= get_custom_logo();
+					$replacement['publisher_no_img'] .= '<meta itemprop="url" content="'.$image[0].'">';
+					$replacement['publisher_no_img'] .= '<meta itemprop="width" content="'.$image[1].'">';
+					$replacement['publisher_no_img'] .= '<meta itemprop="height" content="'.$image[2].'">';
+					$replacement['publisher_no_img'] .= '</div>';
+					$replacement['publisher_no_img'] .= '<meta itemprop="name" content="'.$authordata->display_name.'">';
+				    $replacement['publisher_no_img'] .= '</div>';					
+
 				break;
 
 				case 'edit':

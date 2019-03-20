@@ -2,9 +2,17 @@
  * Stellar.js v0.6.2
  * http://markdalgleish.com/projects/stellar.js
  *
+ * Also:
+ * https://github.com/ahkui/stellar.js
+ *
  * Copyright 2014, Mark Dalgleish
  * This content is released under the MIT license
  * http://markdalgleish.mit-license.org
+ */
+ /**
+ *
+ * Modified Modified by Padma Team 
+ *
  */
 
 ;(function($, window, document, undefined) {
@@ -92,7 +100,7 @@
 		supportsBackgroundPositionXY = $('<div />', { style: 'background:#fff' }).css('background-position-x') !== undefined,
 
 		setBackgroundPosition = (supportsBackgroundPositionXY ?
-			function($elem, x, y) {
+			function($elem, x, y) {				
 				$elem.css({
 					'background-position-x': x,
 					'background-position-y': y
@@ -588,8 +596,19 @@
 			for (i = this.backgrounds.length - 1; i >= 0; i--) {
 				background = this.backgrounds[i];
 
+
 				fixedRatioOffset = (background.isFixed ? 0 : 1);
-				bgLeft = (this.options.horizontalScrolling ? (scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft);
+
+				/*
+					Padma:
+					Because this report:
+					https://www.facebook.com/groups/padmaunlimitedEN/permalink/580506449119494/
+				*/
+				if(background.startingValueLeft != '0%'){
+					bgLeft = background.startingValueLeft;
+				}else{
+					bgLeft = (this.options.horizontalScrolling ? (scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft);
+				}
 				bgTop = (this.options.verticalScrolling ? (scrollTop + background.verticalOffset - this.viewportOffsetTop - background.startingOffsetTop + background.parentOffsetTop - background.startingBackgroundPositionTop) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueTop);
 
 				setBackgroundPosition(background.$element, bgLeft, bgTop);
@@ -658,11 +677,11 @@
 	// Expose the plugin class so it can be modified
 	window.Stellar = Plugin;
 
-	if ( typeof BTParallax != 'undefined' ) {
+	if ( typeof PadmaParallax != 'undefined' ) {
 
 		$(document).ready(function () {
 
-			$.each(BTParallax, function (selector, options) {
+			$.each(PadmaParallax, function (selector, options) {
 
 				$(selector).attr(options);
 

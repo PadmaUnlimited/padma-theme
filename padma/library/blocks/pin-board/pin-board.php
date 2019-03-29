@@ -1223,9 +1223,9 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			$callback = '
 					if ( !$("body").hasClass("visual-editor-mode-grid") ) {
-						var hoverFocusState 	= input.parents(".sub-tabs-content-container").find("#input-hover-focus input").val().toBool();
+						var hoverFocusState = input.parents(".sub-tabs-content-container").find("#input-hover-focus input").val().toBool();
 						var infiniteScrollState = input.parents(".sub-tabs-content-container").find("#input-infinite-scroll").val().toBool();
-						window.frames[\'content\'].setupPinBoardBlock({
+						window.frames[0].setupPinBoardBlock({
 							blockID: getBlockID(block),
 							effects: {
 								hoverFocus: hoverFocusState,

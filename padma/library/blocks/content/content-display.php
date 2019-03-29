@@ -150,8 +150,7 @@ class PadmaContentBlockDisplay {
 				
 				}
 				
-
-				if ( !$have_posts && ( $this->query instanceof SWP_Query ) || ( is_search() && $this->get_setting( 'mode', 'default' ) == 'default' ) ) {
+				if ( !$have_posts && ( $this->query instanceof SWP_Query || ( is_search() && $this->get_setting( 'mode', 'default' ) == 'default' ) ) ) {
 
 					echo '<div class="entry-content">';
 						echo apply_filters('padma_search_no_results', __('<p>Sorry, there was no content that matched your search.</p>', 'padma'));
@@ -985,6 +984,7 @@ class PadmaContentBlockDisplay {
 			'categories',
 			'tags',
 			'publisher',
+			'publisher_img',
 			'publisher_no_img',
 			'edit'
 		);
@@ -1048,10 +1048,29 @@ class PadmaContentBlockDisplay {
 
 				break;
 
+
 				case 'author':
+
+					$replacement['author'] = '<span class="entry-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">';
+					$replacement['author'] .= '<a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="' . sprintf(__('View all posts by %s', 'padma'), $authordata->display_name) . '" itemprop="url">';
+
+					$replacement['author'] .= '<span class="entry-author-name" itemprop="name">' . $authordata->display_name . '</span>';
+					$replacement['author'] .= '</a>';
+					$replacement['author'] .= '</span>';
+
+					/*
+					<span class="entry-author vcard" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+						<a class="author-link fn nickname url" href="http://wpdev.plasmasoluciones.com/author/super/" title="View all posts by super" itemprop="url">
+							<span class="entry-author-name" itemprop="name">super</span>
+						</a>
+					</span>
+					*/
+
+				break;
+
+
 				case 'author_no_link':
 
-					$replacement['author'] = '<span class="entry-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="' . sprintf(__('View all posts by %s', 'padma'), $authordata->display_name) . '" itemprop="url"><span class="entry-author-name" itemprop="name">' . $authordata->display_name . '</span></a></span>';
 					$replacement['author_no_link'] = $authordata->display_name;
 
 				break;
@@ -1075,17 +1094,53 @@ class PadmaContentBlockDisplay {
 					$custom_logo_id = get_theme_mod( 'custom_logo' );
 					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
-					$replacement['publisher'] = '<div class="publisher-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
-					$replacement['publisher'] .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
-					$replacement['publisher'] .= get_custom_logo();
-					$replacement['publisher'] .= '<meta itemprop="url" content="'.$image[0].'">';
-					$replacement['publisher'] .= '<meta itemprop="width" content="'.$image[1].'">';
-					$replacement['publisher'] .= '<meta itemprop="height" content="'.$image[2].'">';
-					$replacement['publisher'] .= '</div>';
-					$replacement['publisher'] .= '<meta itemprop="name" content="'.$authordata->display_name.'">';
-				    $replacement['publisher'] .= '</div>';					
+					$replacement['publisher'] = '<script type="application/ld+json">';
+					$replacement['publisher'] .= '{';					
+					$replacement['publisher'] .= '"@context": "http://schema.org/",';					
+					$replacement['publisher'] .= '"@type": "Organization",';					
+					$replacement['publisher'] .= '"url": "'.site_url().'",';					
+					$replacement['publisher'] .= '"logo": "'.$image[0].'"';					
+					$replacement['publisher'] .= '}';
+					$replacement['publisher'] .= '</script>';
 
 				break;
+
+
+
+				case 'publisher_img':
+
+					$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
+					
+					if(!has_custom_logo($blog_id))
+						return;					
+
+					$custom_logo_id = get_theme_mod( 'custom_logo' );
+					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+					 
+					add_filter( 'get_custom_logo', function($html, $blog_id){
+						return str_replace('itemprop="logo"', '', $html);
+					}, 10, 2 );
+
+					$replacement['publisher_img'] = '<div class="publisher-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
+					$replacement['publisher_img'] .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+					$replacement['publisher_img'] .= get_custom_logo();
+
+					/*
+					<img width="2500" height="1361" src="http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl.jpg" class="custom-logo" alt="Padma | Unlimited : Visual Editor" itemprop="logo" srcset="http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl.jpg 2500w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-600x327.jpg 600w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-300x163.jpg 300w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-768x418.jpg 768w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-1024x557.jpg 1024w" sizes="(max-width: 2500px) 100vw, 2500px" />
+					*/
+
+					$replacement['publisher_img'] .= '<meta itemprop="url" content="'.$image[0].'">';
+					$replacement['publisher_img'] .= '<meta itemprop="width" content="'.$image[1].'">';
+					$replacement['publisher_img'] .= '<meta itemprop="height" content="'.$image[2].'">';
+					$replacement['publisher_img'] .= '</div>';
+					$replacement['publisher_img'] .= '<meta itemprop="name" content="'.$authordata->display_name.'">';
+				    $replacement['publisher_img'] .= '</div>';	
+				    
+				break;
+
+
+
 
 				case 'publisher_no_img':
 
@@ -1097,7 +1152,7 @@ class PadmaContentBlockDisplay {
 					$custom_logo_id = get_theme_mod( 'custom_logo' );
 					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
-					$replacement['publisher_no_img'] = '<div class="publisher-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
+					$replacement['publisher_no_img'] = '<div class="publisher-no-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
 					$replacement['publisher_no_img'] .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
 					//$replacement['publisher'] .= get_custom_logo();
 					$replacement['publisher_no_img'] .= '<meta itemprop="url" content="'.$image[0].'">';

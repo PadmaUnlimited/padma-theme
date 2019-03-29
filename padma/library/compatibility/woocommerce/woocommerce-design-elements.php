@@ -151,7 +151,7 @@ function padma_storefront_wc_register_elements() {
 		'name' => 'Product Page: Product Title',
 		'indent-in-selector' => true,
 		'description' => 'Storefront: WooCommerce',
-		'selector' => '.woocommerce h2.woocommerce-loop-product__title'
+		'selector' => '.woocommerce ul.products li.product h2.woocommerce-loop-product__title'
 	));
 
 	PadmaElementAPI::register_element(array(

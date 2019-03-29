@@ -338,7 +338,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			return blockContent.html('');
 
-		}
+		}	
 			
 		createCog(blockContent, true, true, Padma.iframe.contents(), 1);
 
@@ -359,7 +359,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				wpQueryVars: typeof Padma.iframe[0].contentWindow.PADMA_WP_Query_Vars != 'undefined' ? Padma.iframe[0].contentWindow.PADMA_WP_Query_Vars : null
 			}
 		}).done(function(data) {
-
+			
 			if ( typeof settings.callback == 'function' )
 				settings.callback(settings.callbackArgs);
 

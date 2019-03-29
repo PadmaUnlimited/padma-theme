@@ -2,7 +2,7 @@
 
 <div class="notice notice-info padma-unlimited-notice-rate">
 
-	<img alt="Padma Unlimited" src="<?php echo get_stylesheet_directory_uri() . '/library/admin/images/padma-theme-logo-square-250.png'; ?>" class="avatar avatar-120 photo" height="120" width="120">
+	<img alt="Padma Unlimited" src="<?php echo get_template_directory_uri() . '/library/admin/images/padma-theme-logo-square-250.png'; ?>" class="avatar avatar-120 photo" height="120" width="120">
 
 	<div class="padma-unlimited-notice-rate-content">
 
@@ -12,7 +12,7 @@
 			<h4><?php _e( 'Aim to collaborate?', 'padma-unlimited' ); ?></h4>
 			<p><?php _e( 'Your support is vital for success…', 'padma-unlimited' ); ?></p>
 			<ul>
-				<li><?php _e( '- Become a sponsor via Patron', 'padma-unlimited' ); ?></li>
+				<li><?php _e( '- Become a sponsor via Patron or PayPal', 'padma-unlimited' ); ?></li>
 				<li><?php _e( '- Report errors in: https://www.padmaunlimited.com/bug-report/', 'padma-unlimited' ); ?></li>
 				<li><?php _e( '- Collaborate coding through GitHub', 'padma-unlimited' ); ?></li>
 				<li><?php _e( '- Suggest functionalities, blocks or plugins', 'padma-unlimited' ); ?></li>
@@ -26,8 +26,8 @@
 
 		<p class="padma-unlimited-notice-rate-actions">			
 			<a href="https://www.patreon.com/bePatron?u=11838968" class="button button-primary" target="_blank"><?php _e( 'Become a Patron', 'padma-unlimited' ); ?></a>
-			<a href="https://www.padmaunlimited.com/community" class="button button-secundary" target="_blank"><?php _e( 'Join to our community', 'padma-unlimited' ); ?></a>
-			<!--<a href="<?php ///echo self::get_dismiss_link( true ); ?>"><?php //_e( 'Remind me later', 'padma-unlimited' ); ?></a>-->
+			<a href="https://www.padmaunlimited.com/support-padma-unlimited-wordpress-template-builder/" class="button button-primary" target="_blank"><?php _e( 'Other support options', 'padma-unlimited' ); ?></a>
+			<a href="https://www.padmaunlimited.com/community" class="button button-secundary" target="_blank"><?php _e( 'Join to our community', 'padma-unlimited' ); ?></a>			
 			<a href="<?php echo self::get_dismiss_link(); ?>" class="padma-unlimited-notice-rate-dismiss"><?php _e( 'Dismiss', 'padma-unlimited' ); ?></a>
 		</p>
 

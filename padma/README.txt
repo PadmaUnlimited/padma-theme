@@ -46,6 +46,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 Fixed block hidden option on responsive
 Fixed Parallax: background images jump to the left when Parallax is activated.
 Fixed Responsive custom breackpoint
+Fixed WooCommerce product design selectors
+- Product tittle fonts size
+- Product Button
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New PadmaQuery Class
 Custom logo support added to customize options

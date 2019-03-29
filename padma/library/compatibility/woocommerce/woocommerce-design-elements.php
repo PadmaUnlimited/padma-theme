@@ -133,7 +133,17 @@ function padma_storefront_wc_register_elements() {
 		'description' => 'Storefront: WooCommerce',
 		'selector' => '.woocommerce .button a.product_type_simple.add_to_cart_button.ajax_add_to_cart'
 	));
-
+	
+	PadmaElementAPI::register_element(array(
+		'group' => 'blocks',
+		'id' => 'block-content-wc-product-page-button-item',
+		'parent' => 'block-content',
+		'name' => 'Product Page: Button',
+		'indent-in-selector' => true,
+		'description' => 'Storefront: WooCommerce Button',
+		'selector' => '.woocommerce ul.products li.product .button'
+	));
+	
 	PadmaElementAPI::register_element(array(
 		'group' => 'blocks',
 		'id' => 'block-content-wc-product-page-button-text',
@@ -151,7 +161,7 @@ function padma_storefront_wc_register_elements() {
 		'name' => 'Product Page: Product Title',
 		'indent-in-selector' => true,
 		'description' => 'Storefront: WooCommerce',
-		'selector' => '.woocommerce h2.woocommerce-loop-product__title'
+		'selector' => '.woocommerce ul.products li.product h2.woocommerce-loop-product__title'
 	));
 
 	PadmaElementAPI::register_element(array(

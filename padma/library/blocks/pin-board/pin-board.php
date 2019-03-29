@@ -73,7 +73,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				});
 			});
 			";
-			debug($js);
+			
 			return $js;
 
 		}

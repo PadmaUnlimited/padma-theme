@@ -1058,14 +1058,6 @@ class PadmaContentBlockDisplay {
 					$replacement['author'] .= '</a>';
 					$replacement['author'] .= '</span>';
 
-					/*
-					<span class="entry-author vcard" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-						<a class="author-link fn nickname url" href="http://wpdev.plasmasoluciones.com/author/super/" title="View all posts by super" itemprop="url">
-							<span class="entry-author-name" itemprop="name">super</span>
-						</a>
-					</span>
-					*/
-
 				break;
 
 
@@ -1125,11 +1117,6 @@ class PadmaContentBlockDisplay {
 					$replacement['publisher_img'] = '<div class="publisher-img" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
 					$replacement['publisher_img'] .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
 					$replacement['publisher_img'] .= get_custom_logo();
-
-					/*
-					<img width="2500" height="1361" src="http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl.jpg" class="custom-logo" alt="Padma | Unlimited : Visual Editor" itemprop="logo" srcset="http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl.jpg 2500w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-600x327.jpg 600w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-300x163.jpg 300w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-768x418.jpg 768w, http://wpdev.plasmasoluciones.com/wp-content/uploads/2018/02/Artboard-41-copy-3unl-1024x557.jpg 1024w" sizes="(max-width: 2500px) 100vw, 2500px" />
-					*/
-
 					$replacement['publisher_img'] .= '<meta itemprop="url" content="'.$image[0].'">';
 					$replacement['publisher_img'] .= '<meta itemprop="width" content="'.$image[1].'">';
 					$replacement['publisher_img'] .= '<meta itemprop="height" content="'.$image[2].'">';

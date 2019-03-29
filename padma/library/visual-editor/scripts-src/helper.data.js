@@ -17,8 +17,7 @@ define(['underscore'], function(_) {
 
 		var optionID 	= input.attr('name').toLowerCase();
 		var optionGroup = input.attr('data-group').toLowerCase();
-		
-		console.log(input.attr('data-callback'));
+				
 		var callback 	= eval(input.attr('data-callback'));
 		var dataHandlerOverrideCallback = eval(input.attr('data-data-handler-callback')) || null;
 

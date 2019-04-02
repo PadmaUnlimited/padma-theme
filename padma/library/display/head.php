@@ -57,6 +57,7 @@ class PadmaHead {
 		
 		add_filter('style_loader_src', array(__CLASS__, 'remove_dependency_query_vars'));
 		add_filter('script_loader_src', array(__CLASS__, 'remove_dependency_query_vars'));
+		add_filter('style_loader_tag', array(__CLASS__, 'compatibility_mod_pagespeed'));
 		
 	}
 	
@@ -391,9 +392,28 @@ class PadmaHead {
 		
 		if ( !PadmaOption::get('remove-dependency-query-vars', 'general', false) && !PadmaRoute::is_visual_editor_iframe() )
 			return $query;
-		
+
 		return remove_query_arg('ver', $query);
 		
+	}
+
+	public static function compatibility_mod_pagespeed($html){
+
+		if( !PadmaOption::get('compatibility-mod_pagespeed') )
+			return;
+
+		/**
+		 *
+		 * Based on plugin "Fixes for mod_pagespeed": https://wordpress.org/plugins/fixes-for-mod-pagespeed/
+		 *
+		 */
+
+ 		if (preg_match('/rel=(["\'])stylesheet\1/isS', $html)) {
+        	$html = preg_replace('/id=(["\']).*?\1/isS', '', $html);
+        	$html = preg_replace('/media=(["\']).*?\1/isS', '', $html);
+    	}
+		
+    	return $html;
 	}
 
 

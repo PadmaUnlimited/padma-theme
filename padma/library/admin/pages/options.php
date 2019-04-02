@@ -479,6 +479,19 @@
 						)
 					),
 					'description' => 'To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files.'
+				),
+
+				array(
+					'type' => 'checkbox',
+					'label' => 'Compatibility with mod_pagespeed',
+					'checkboxes' => array(
+						array(
+							'id' => 'compatibility-mod_pagespeed',
+							'label' => 'Compatibility with mod_pagespeed',
+							'checked' => PadmaOption::get('compatibility-mod_pagespeed', false, false)
+						)
+					),
+					'description' => 'Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you.'
 				)
 			);
 

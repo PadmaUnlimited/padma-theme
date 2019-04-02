@@ -43,7 +43,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 1.0.1
 * Released: On Dev
 
-Fixed: block hidden option on responsive
+Fixed: Block hidden option on responsive
 Fixed: Parallax: background images jump to the left when Parallax is activated.
 Fixed: Responsive custom breackpoint
 Fixed: WooCommerce product design selectors
@@ -54,11 +54,12 @@ Fixed: Search Results message
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New PadmaQuery Class
 Custom logo support added to customize options
-Added new meta data support to Content block
+Added new meta data support to Content Block
  - publisher
  - publisher_img
  - publisher_no_img
  - modified_date
+Added Compatibility with mod_pagespeed
 
 
 

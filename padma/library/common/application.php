@@ -610,5 +610,4 @@ class Padma {
 		return call_user_func_array('padma_post', $args);
 	}
 
-
 }

@@ -2347,6 +2347,11 @@ div.block-type-selector div.block-type {
 	-webkit-box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 0 rgba(0, 0, 0, 0.08);
 	box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 0 rgba(0, 0, 0, 0.08);
 }
+div.block-type-selector div.block-type a{
+	text-decoration: none;
+    color: #c62040;
+    display: block;
+}
 div.block-type-selector div.block-type:hover {
 	background: #FAFAFA;
 	border-color: #999999;

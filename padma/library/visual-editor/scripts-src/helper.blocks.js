@@ -905,7 +905,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			blockTypeSelector.find('div.block-type').addClass('tooltip');
 			setupTooltips();
 
-			blockTypeSelector.find('div.block-type').bind('click', function(event) {	
+			blockTypeSelector.find('div.block-type:not(#get-more-blocks)').bind('click', function(event) {	
 
 				var blockType = $(this).attr('id').replace('block-type-', '');
 

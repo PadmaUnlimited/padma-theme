@@ -350,7 +350,7 @@ class PadmaVisualEditorDisplay {
 
 				echo '
 					<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" data-hasqtip="71" oldtitle="Display an audio" title="" aria-describedby="qtip-71" style="">
-						<a href="https://www.padmaunlimited.com/how-to-get-more-blocks/">
+						<a target="_blank" href="https://www.padmaunlimited.com/how-to-get-more-blocks/">
 							<h4 style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.png);">Get more blocks</h4>
 						</a>
 						<div class="block-type-description">

@@ -211,6 +211,7 @@ class Padma {
 			'common/layout' 				=> true,
 			'common/capabilities' 			=> true,
 			'common/responsive-grid' 		=> true,
+			'common/schema' 				=> true,
 			'common/seo' 					=> true,
 			'common/social-optimization' 	=> true,
 			'common/feed' 					=> true,

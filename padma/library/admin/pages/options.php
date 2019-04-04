@@ -351,6 +351,28 @@
 				PadmaAdminInputs::generate($form);
 				?>
 
+
+				<h3 class="title title-hr">Disable Schema.org support</h3>
+
+				<?php
+				$form = array(
+					array(
+						'type' => 'checkbox',
+						'label' => 'Disable microdata markup',
+						'checkboxes' => array(
+							array(
+								'id' => 'disable-schema-support',
+								'label' => 'Do not add ld+json data',
+								'checked' => PadmaOption::get('disable-schema-support', 'general', false)
+							)
+						),
+						'description' => 'Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what\'s on a webpage.'
+					)
+				);
+
+				PadmaAdminInputs::generate($form);
+				?>
+
 			<?php
 			}
 			?>

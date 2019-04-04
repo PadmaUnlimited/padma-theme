@@ -558,7 +558,20 @@ class PadmaContentBlockDisplay {
 
             $schema_itemtype = $post_type == 'post' ? 'Article' : 'CreativeWork';
 			
-			echo '<article id="post-' . $post_id . '" class="' . $post_class . '" itemscope itemtype="http://schema.org/' . apply_filters('padma_entry_schema', $schema_itemtype, $post_type) . '">';
+			echo '<article id="post-' . $post_id . '" class="' . $post_class . '">';
+
+
+
+			/**
+			 *
+			 * Schema 
+			 *
+			 */			
+
+			PadmaSchema::article($post);
+			
+			
+
 			echo '<link itemprop="mainEntityOfPage" href="'.get_permalink($post_id).'" />';
 
 					do_action('padma_entry_open', $args);		
@@ -1051,10 +1064,10 @@ class PadmaContentBlockDisplay {
 
 				case 'author':
 
-					$replacement['author'] = '<span class="entry-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">';
-					$replacement['author'] .= '<a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="' . sprintf(__('View all posts by %s', 'padma'), $authordata->display_name) . '" itemprop="url">';
+					$replacement['author'] = '<span class="entry-author vcard">';
+					$replacement['author'] .= '<a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="' . sprintf(__('View all posts by %s', 'padma'), $authordata->display_name) . '">';
 
-					$replacement['author'] .= '<span class="entry-author-name" itemprop="name">' . $authordata->display_name . '</span>';
+					$replacement['author'] .= '<span class="entry-author-name">' . $authordata->display_name . '</span>';
 					$replacement['author'] .= '</a>';
 					$replacement['author'] .= '</span>';
 

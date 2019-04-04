@@ -52,6 +52,7 @@ Fixed: WooCommerce product design selectors
 Fixed: PinBoard refresh on design mode
 Fixed: Search Results message
 Fixed: Block type selector issue
+Fixed: Structured-data schema
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New PadmaQuery Class
 Custom logo support added to customize options

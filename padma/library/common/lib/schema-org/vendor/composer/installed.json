@@ -1,0 +1,58 @@
+[
+    {
+        "name": "spatie/schema-org",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/spatie/schema-org.git",
+            "reference": "16b51d49fe5f29db94ce153d9a0fc9d9c381b2b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/spatie/schema-org/zipball/16b51d49fe5f29db94ce153d9a0fc9d9c381b2b4",
+            "reference": "16b51d49fe5f29db94ce153d9a0fc9d9c381b2b4",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "graham-campbell/analyzer": "^1.1",
+            "larapack/dd": "^1.1",
+            "league/flysystem": "^1.0",
+            "phpunit/phpunit": "^6.0",
+            "scrutinizer/ocular": "^1.5",
+            "symfony/console": "^3.2",
+            "symfony/css-selector": "^3.2",
+            "symfony/dom-crawler": "^3.2",
+            "twig/twig": "^1.28"
+        },
+        "time": "2019-01-18 09:39:08",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Spatie\\SchemaOrg\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian De Deyne",
+                "email": "sebastian@spatie.be",
+                "homepage": "https://spatie.be",
+                "role": "Developer"
+            }
+        ],
+        "description": "A fluent builder Schema.org types and ld+json generator",
+        "homepage": "https://github.com/spatie/schema-org",
+        "keywords": [
+            "schema-org",
+            "spatie"
+        ]
+    }
+]

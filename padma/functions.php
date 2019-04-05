@@ -34,14 +34,5 @@ Padma::init();
 if ( get_option('padma-disable-automatic-core-updates') != '1'){	
 
 	add_filter( 'auto_update_theme', '__return_true');
-	/*
-	add_action( 'after_setup_theme', 'padma_core_maybe_update' );
-
-    function padma_core_maybe_update(){
-        if(class_exists('PadmaUpdater')){
-        	if(method_exists('PadmaUpdater','maybe_trigger_update')){
-        		PadmaUpdater::maybe_trigger_update();
-        	}
-		}
-    }*/
+	
 }

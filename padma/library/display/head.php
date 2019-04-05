@@ -399,21 +399,25 @@ class PadmaHead {
 
 	public static function compatibility_mod_pagespeed($html){
 
-		if( !PadmaOption::get('compatibility-mod_pagespeed') )
-			return;
 
-		/**
-		 *
-		 * Based on plugin "Fixes for mod_pagespeed": https://wordpress.org/plugins/fixes-for-mod-pagespeed/
-		 *
-		 */
+		if(PadmaOption::get('compatibility-mod_pagespeed')){
+			
+			/**
+			 *
+			 * Based on plugin "Fixes for mod_pagespeed": https://wordpress.org/plugins/fixes-for-mod-pagespeed/
+			 *
+			 */
 
- 		if (preg_match('/rel=(["\'])stylesheet\1/isS', $html)) {
-        	$html = preg_replace('/id=(["\']).*?\1/isS', '', $html);
-        	$html = preg_replace('/media=(["\']).*?\1/isS', '', $html);
-    	}
+	 		if (preg_match('/rel=(["\'])stylesheet\1/isS', $html)) {
+	        	$html = preg_replace('/id=(["\']).*?\1/isS', '', $html);
+	        	$html = preg_replace('/media=(["\']).*?\1/isS', '', $html);
+	    	}
+			
+	    	return $html;
+		}else{
+			return $html;
+		}
 		
-    	return $html;
 	}
 
 

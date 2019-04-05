@@ -568,7 +568,7 @@ class PadmaContentBlockDisplay {
 			 *
 			 */			
 
-			PadmaSchema::article($post);
+			echo PadmaSchema::article($post);
 			
 			
 

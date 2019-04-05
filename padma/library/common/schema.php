@@ -96,7 +96,7 @@ class PadmaSchema {
 			$article->image($image);
 					
 
-		echo $article->toScript();
+		return $article->toScript();
 
 	}
 }

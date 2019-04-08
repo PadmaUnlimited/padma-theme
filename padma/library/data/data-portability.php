@@ -407,8 +407,6 @@ class PadmaDataPortability {
 		$padmaSkin['imported-images'] 		= $bloxSkin['imported-images'];
 		$padmaSkin['id'] 					= $bloxSkin['id'];
 
-		debug($padmaSkin);
-		
 		return $padmaSkin;
 	}
 

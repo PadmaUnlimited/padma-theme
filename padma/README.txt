@@ -64,6 +64,7 @@ Added new meta data support to Content Block
  - modified_date
 Added Compatibility with mod_pagespeed
 Added support for Blox Theme templates (Headway already was supported)
+Added better Schema.org support
 
 
 

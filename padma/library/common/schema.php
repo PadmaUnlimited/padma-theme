@@ -59,11 +59,7 @@ class PadmaSchema {
 		 *
 		 */
 		
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
-		debug($post->ID);
-		debug($image);
-		if(!$image)
-			$image = $site_image[0];
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];			
 
 
 
@@ -74,8 +70,7 @@ class PadmaSchema {
 		 *
 		 */		
 		$article = Spatie\SchemaOrg\Schema::Article()
-					->mainEntityOfPage(get_permalink($post->ID))
-					->image($image)
+					->mainEntityOfPage(get_permalink($post->ID))					
 					->headLine($post->post_title)
 					->dateCreated(new Datetime($post->post_date))
 					->datePublished(new Datetime($post->post_date))
@@ -94,6 +89,13 @@ class PadmaSchema {
 								->url($site_image[0])
 							)
 					);
+
+		if($site_image[0] && !$image){
+			$image = $site_image[0];	
+		}
+
+		if($image)
+			$article->image($image);
 
 		return $article->toScript();
 

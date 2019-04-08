@@ -1,0 +1,8 @@
+body.am-page-login #whitewrap .grid-container{
+	border: 0;
+    box-shadow: none;	
+	height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
+}

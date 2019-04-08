@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 0.0.9
+Version: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -63,7 +63,9 @@ Added new meta data support to Content Block
  - publisher_no_img
  - modified_date
 Added Compatibility with mod_pagespeed
+Added Compatibility with aMember Pro V4 (plugin version v1.1)
 Added support for Blox Theme templates (Headway already was supported)
+Added Logo option to Customize > Site Identity > Site Logo
 Added better Schema.org support
 
 

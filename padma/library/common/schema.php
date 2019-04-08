@@ -50,8 +50,7 @@ class PadmaSchema {
 		$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$site_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-		debug($site_image);
-		
+				
 
 		/**
 		 *

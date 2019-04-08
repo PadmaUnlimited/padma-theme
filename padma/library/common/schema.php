@@ -50,8 +50,24 @@ class PadmaSchema {
 		$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$site_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+		debug($site_image);
 		
+
+		/**
+		 *
+		 * Article Image
+		 *
+		 */
 		
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+		debug($post->ID);
+		debug($image);
+		if(!$image)
+			$image = $site_image[0];
+
+
+
+
 		/**
 		 *
 		 * Schema
@@ -59,6 +75,7 @@ class PadmaSchema {
 		 */		
 		$article = Spatie\SchemaOrg\Schema::Article()
 					->mainEntityOfPage(get_permalink($post->ID))
+					->image($image)
 					->headLine($post->post_title)
 					->dateCreated(new Datetime($post->post_date))
 					->datePublished(new Datetime($post->post_date))
@@ -77,24 +94,6 @@ class PadmaSchema {
 								->url($site_image[0])
 							)
 					);
-
-		/**
-		 *
-		 * Image
-		 *
-		 */
-		
-		//$image = get_the_post_thumbnail_url($post->ID);
-
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
-
-
-		if(!$image)
-			$image = $site_image[0];
-
-		if($image)
-			$article->image($image);
-					
 
 		return $article->toScript();
 

@@ -43,6 +43,12 @@ class PadmaDataPortability {
 				return array('error' => 'This is not a valid Padma Template');
 			}
 			
+		}elseif (padma_get('bt-version', $skin)) {
+
+			if(version_compare(padma_get('bt-version', $skin), '1.0.0', '<')){
+				return array('error' => 'Blox templates before 1.0.0 versions are not supported');
+			}
+
 		}elseif (padma_get('hw-version', $skin)) {
 
 			if(version_compare(padma_get('hw-version', $skin), '3.7', '<')){
@@ -392,52 +398,17 @@ class PadmaDataPortability {
 		$padmaSkin['author'] 				= $bloxSkin['author'];
 		$padmaSkin['image-url'] 			= $bloxSkin['image-url'];
 		$padmaSkin['version'] 				= $bloxSkin['version'];
-		$padmaSkin['data_wp_options'] 		= $bloxSkin['data_wp_options'];		
-		$padmaSkin['data_wp_postmeta'] 		= $bloxSkin['data_wp_postmeta'];
-		$padmaSkin['data_pu_layout_meta'] 	= $bloxSkin['data_bt_layout_meta'];
-		$padmaSkin['data_pu_wrappers'] 		= $bloxSkin['data_bt_wrappers'];
-		$padmaSkin['data_pu_blocks'] 		= $bloxSkin['data_bt_blocks'];
+		$padmaSkin['data_wp_options'] 		= self::data_serialize($bloxSkin['data_wp_options']);
+		$padmaSkin['data_wp_postmeta'] 		= self::data_serialize($bloxSkin['data_wp_postmeta']);
+		$padmaSkin['data_pu_layout_meta'] 	= self::data_serialize($bloxSkin['data_bt_layout_meta']);
+		$padmaSkin['data_pu_wrappers'] 		= self::data_serialize($bloxSkin['data_bt_wrappers']);
+		$padmaSkin['data_pu_blocks'] 		= self::data_serialize($bloxSkin['data_bt_blocks']);
 		$padmaSkin['data-type'] 			= $bloxSkin['data-type'];
 		$padmaSkin['imported-images'] 		= $bloxSkin['imported-images'];
 		$padmaSkin['id'] 					= $bloxSkin['id'];
 
-
-
-		// data_wp_options
-		foreach ($padmaSkin['data_wp_options'] as $key => $optionArray) {
-
-			foreach ($optionArray as $optionName => $optionValue) {			
-				$padmaSkin['data_wp_options'][$key][$optionName] = self::convert_skin_string_replace($optionValue);
-			}
-
-			if(isset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-bloxtheme-attribution'])){
-				$padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-padma-attribution'] = $padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-bloxtheme-attribution'];
-				unset($padmaSkin['data_wp_options'][$key]['option_value']['properties']['block-footer-bloxtheme-attribution']);
-			}
-
-		}
-
-
-		// data_wp_postmeta
-		foreach ($padmaSkin['data_wp_postmeta'] as $key => $optionArray) {
-
-			foreach ($optionArray as $optionName => $optionValue) {			
-				$padmaSkin['data_wp_postmeta'][$key][$optionName] = self::convert_skin_string_replace($optionValue);
-			}
-
-		}
-
-
-		// data_pu_blocks
-		foreach ($padmaSkin['data_pu_blocks'] as $key => $blockArray) {
-
-			if(isset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-bloxtheme-attribution'])){
-				$padmaSkin['data_pu_blocks'][$key]['settings']['hide-padma-attribution'] = $padmaSkin['data_pu_blocks'][$key]['settings']['hide-bloxtheme-attribution'];
-				unset($padmaSkin['data_pu_blocks'][$key]['settings']['hide-bloxtheme-attribution']);
-			}
-
-		}
-
+		debug($padmaSkin);
+		
 		return $padmaSkin;
 	}
 

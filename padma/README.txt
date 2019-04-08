@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.0.1
+Version: 0.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -53,6 +53,7 @@ Fixed: PinBoard refresh on design mode
 Fixed: Search Results message
 Fixed: Block type selector issue
 Fixed: Structured-data schema
+Fixed: Issue when showing templates saved on Padma Services account
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New PadmaQuery Class
 Custom logo support added to customize options
@@ -62,6 +63,7 @@ Added new meta data support to Content Block
  - publisher_no_img
  - modified_date
 Added Compatibility with mod_pagespeed
+Added support for Blox Theme templates (Headway already was supported)
 
 
 

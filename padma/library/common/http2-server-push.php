@@ -72,9 +72,7 @@ class PadmaHTTP2ServerPush {
 
 		global $http2_header_size_accumulator;
 
-		$host = parse_url(home_url(), PHP_URL_HOST);
-
-	    if (strpos($host, $host) !== false) {
+	    if (strpos($src, site_url()) !== false) {
 
 	        $preload_src = apply_filters('http2_link_preload_src', $src);
 

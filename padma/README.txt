@@ -45,30 +45,30 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Fixed: Block hidden option on responsive
 Fixed: Parallax: background images jump to the left when Parallax is activated.
-Fixed: Responsive custom breackpoint
+Fixed: Responsive custom breackpoint issue
 Fixed: WooCommerce product design selectors
 - Product tittle fonts size
 - Product Button
 Fixed: PinBoard refresh on design mode
 Fixed: Search Results message
 Fixed: Block type selector issue
-Fixed: Structured-data schema
+Fixed: Structured-data schema on content block
 Fixed: Issue when showing templates saved on Padma Services account
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New Contact Form 7 Block
 New PadmaQuery Class
-Custom logo support added to customize options
 Added new meta data support to Content Block
  - publisher
  - publisher_img
  - publisher_no_img
  - modified_date
 Added Compatibility with mod_pagespeed
+Added HTTP/2 Server Push support
 Added Compatibility with aMember Pro V4 (plugin version v1.1)
-Added support for Blox Theme templates (Headway already was supported)
+Added Support for Blox Theme templates (Headway already was supported)
 Added Logo option to Customize > Site Identity > Site Logo
 Added better Schema.org support
-Added HTTP/2 Server Push support
+Added Blocks to Shortcode support (to use blocks anywhere)
 
 
 

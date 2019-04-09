@@ -131,10 +131,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 	public static function show_padma_link() {
 
 		$padma_location = 'https://www.padmaunlimited.com/';
-		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . ' <a href="' . $padma_location . '" title="Unlimited by Padma, the drag and drop theme builder">' . __('Unlimited by Padma, the drag and drop theme builder', 'padma') . '</a></p>' );
-
-
-
+		echo apply_filters('padma_link', '<p class="footer-left footer-padma-link footer-link">' . ' <a href="' . $padma_location . '" title="Unlimited by Padma">' . __('Unlimited by Padma', 'padma') . '</a></p>' );
 		
 	}
 

@@ -931,6 +931,12 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				openBlockOptions(getBlockByID(blockID));
 
 			});
+			/*
+			blockTypeSelector.find('div.block-type#get-more-blocks').bind('click', function(event) {
+				location.assign('https://www.padmaunlimited.com/how-to-get-more-blocks/');
+			});*/
+
+
 
 		/* Bind unfocus events */
 			if ( block.hasClass('blank-block') ) {

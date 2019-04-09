@@ -9,7 +9,7 @@ class PadmaSearchBlock extends PadmaBlockAPI {
 	public $fixed_height = false;
 	public $description = 'This will output the default search form';
 	public $options_class = 'PadmaSearchBlockOptions';
-	public $categories 	= array('core','content', 'form');
+	public $categories 	= array('core','content', 'forms');
 
 
 	function setup_elements() {

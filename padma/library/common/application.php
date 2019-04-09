@@ -219,6 +219,7 @@ class Padma {
 			'common/plugins' 				=> true,
 			'common/templates',
 			'common/http2-server-push'		=> true,
+			'common/blocks-anywhere'		=> true,
 			'admin/admin-bar' 				=> true,
 			'api/api-panel',
 			'blocks' 						=> true,

@@ -36,7 +36,7 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 				if(categorie == 'all'){
 					blockTypeSelectorFilterReset();
 				}else{
-					$('.block-type-selector .block-type').hide();
+					$('.block-type-selector .block-type:not(#get-more-blocks)').hide();
 					$('.block-type-selector .block-type.filter-' + categorie).show();
 				}
 				$('.block-type-selector-filter-categories li a').removeClass('active');
@@ -63,8 +63,7 @@ define(['jquery', 'modules/grid/grid', 'deps/itstylesheet', 'modules/grid/wrappe
 					var property_id = $(this).attr('id').toString();
 					var target 		= $(this);					
 
-
-					if( property_id == undefined ){
+					if( property_id == undefined  || property_id == 'get-more-blocks'){
 						//console.log(options[index]);
 
 					}else{

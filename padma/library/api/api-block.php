@@ -374,10 +374,25 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 
 		if ( PadmaResponsiveGrid::is_enabled() )
 			$this->add_standard_block_responsive();
+
+		$this->add_other_info_tab($args);
 		
 		//Display it
 		$this->panel_content($args);
 		
+	}
+
+	public function add_other_info_tab($args){
+
+		if ( !isset($this->tabs) )
+			$this->tabs = array();
+
+		//Add the tab
+		$this->tabs['info'] = 'Info';
+		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
+
+		$this->tab_notices['info'] = '<strong>Use this block anywhere.</strong><p>To insert this shortcode into your post or page:<p><input value="'.$shortcode_txt.'">';
+
 	}
 
 

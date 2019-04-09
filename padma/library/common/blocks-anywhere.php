@@ -123,62 +123,37 @@ class PadmaBlocksAnywhere {
 		if ( $current_layout == 'front_page' && get_option( 'show_on_front' ) == 'page' )
 			$post = get_post( get_option( 'page_on_front' ) );
 
-		/* this is a fix for the index */
-		$index_needs_assets = ($current_layout == 'index' && get_option( 'show_on_front' ) != 'page') ? true : false;
 
+		$layout_id = !empty( $post_id ) ? $post_id : butler_get_int( $block['layout'] );
 
-		//$helper_activation = butler_get_option( 'padma_blocks_anywhere_enable_helper_activation', 'hwr_toolkit' );
-		//$helper = butler_maybe_array( butler_get_option( 'padma_blocks_anywhere_enable_helper', 'hwr_toolkit' ) );
-		//$helper_ids = butler_maybe_array( butler_get_post_meta( 'hwr_shortcodes', 'hwr_shortcodes_helper', $post->ID ) );
-		$content_has_id = preg_match( '/\[padma-block id="' . $id .'"/', $post->post_content );
-		
-		/* we define the conditions */
-		$needs_assets = ( ( $index_needs_assets || !$content_has_id) && self::has_assets( $block['id'] )) ? true : false;
-		
+		if ( empty( $layout_id ) && $block['type'] == 'content' && $block['settings']['mode'] == 'default' ) {
 
-		$has_helper = $helper_activation && in_array( $post->post_type, $helper, true ) && in_array( $id, $helper_ids ) ? true : false;
-		//$disable_notice = butler_get_option( 'padma_blocks_anywhere_disable_notice', 'hwr_toolkit' );
+			echo '<div class="alert alert-red">This block does not have any post assigned. Please specify the post_id your would like to display as a shortcode parameter.</div>';
 
-		/* we display an error based on the condition set above */
-		if ( $needs_assets /*&& !$has_helper */){
+		} else {
 
-			echo '<div class="alert alert-red">This block containes assets which could not be loaded. Please make sure the Block Assets Helper option is enabled for this post type add the shortcode <strong>ID ' . $id . '</strong> in the page Shortcodes Helper Box' . (!$index_needs_assets ? ' on <strong>' . $post->post_title . '</strong>' : '') . '! <a href="https://www.youtube.com/watch?v=uRSP2r0gfH8&list=PLEoXflDQaQJbIdQklcFKImFFDvtb-6Y4M" target="_blank" title="Watch our \\"Block Assets Helper\\" video tutorial">Watch our "Block Assets Helper" video tutorial</a></div>';
-		}
-		/* we finally display the block if we are good to go */
-		else {
+			/* we modify the query if the layout has and id so that we get the appropriate content */
+			if ( $layout_id )
+				if ( get_post_status( $layout_id ) != 'draft' ) {
 
-			$layout_id = !empty( $post_id ) ? $post_id : butler_get_int( $block['layout'] );
+					global $wp_query;
 
-			if ( empty( $layout_id ) && $block['type'] == 'content' && $block['settings']['mode'] == 'default' ) {
+					$args = array(
+						'p' => $layout_id,
+						'post_type' => 'any'
+					);
 
-				echo '<div class="alert alert-red">This block does not have any post assigned. Please specify the post_id your would like to display as a shortcode parameter.</div>';
+					$wp_query = new WP_Query( $args );
 
-			} else {
+					/* we also modifiy the global $post in case blocks would be using that */
+					$post = $wp_query->post;
 
-				/* we modify the query if the layout has and id so that we get the appropriate content */
-				if ( $layout_id )
-					if ( get_post_status( $layout_id ) != 'draft' ) {
+				}
 
-						global $wp_query;
+			PadmaBlocks::display_block( $block['id'] );
 
-						$args = array(
-							'p' => $layout_id,
-							'post_type' => 'any'
-						);
-
-						$wp_query = new WP_Query( $args );
-
-						/* we also modifiy the global $post in case blocks would be using that */
-						$post = $wp_query->post;
-
-					}
-
-				PadmaBlocks::display_block( $block['id'] );
-
-				/* we reset the query again so that we can continue displaying the appropriate content */
-				wp_reset_query();
-
-			}
+			/* we reset the query again so that we can continue displaying the appropriate content */
+			wp_reset_query();
 
 		}
 

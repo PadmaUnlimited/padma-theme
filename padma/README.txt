@@ -67,6 +67,7 @@ Added Compatibility with aMember Pro V4 (plugin version v1.1)
 Added support for Blox Theme templates (Headway already was supported)
 Added Logo option to Customize > Site Identity > Site Logo
 Added better Schema.org support
+Added HTTP/2 Server Push support
 
 
 

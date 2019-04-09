@@ -514,6 +514,19 @@
 						)
 					),
 					'description' => 'Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you.'
+				),
+
+				array(
+					'type' => 'checkbox',
+					'label' => 'HTTP/2 Server Push',
+					'checkboxes' => array(
+						array(
+							'id' => 'http2-server-push',
+							'label' => 'HTTP/2 Server Push',
+							'checked' => PadmaOption::get('http2-server-push', false, false)
+						)
+					),
+					'description' => 'Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2.'
 				)
 			);
 

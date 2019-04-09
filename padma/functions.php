@@ -10,6 +10,26 @@
  *
  ***********************************************************/
 
+
+/**
+ *
+ * Automatic Updates
+ *
+ * Must go before Padma::init();
+ *
+ */
+
+if ( get_option('padma-disable-automatic-core-updates') != '1'){	
+
+	add_filter( 'auto_update_theme', '__return_true');
+	
+}
+
+/**
+ *
+ * Load Padma
+ *
+ */
  			   
 /* Prevent direct access to this file */
 if ( !defined('WP_CONTENT_DIR') )
@@ -25,14 +45,3 @@ require_once get_template_directory() . '/library/common/application.php';
 Padma::init();
 
 
-/**
- *
- * Automatic Updates
- *
- */
-
-if ( get_option('padma-disable-automatic-core-updates') != '1'){	
-
-	add_filter( 'auto_update_theme', '__return_true');
-	
-}

@@ -57,7 +57,7 @@ class PadmaHead {
 		
 		add_filter('style_loader_src', array(__CLASS__, 'remove_dependency_query_vars'));
 		add_filter('script_loader_src', array(__CLASS__, 'remove_dependency_query_vars'));
-		add_filter('style_loader_tag', array(__CLASS__, 'compatibility_mod_pagespeed'));
+		add_filter('style_loader_tag', array(__CLASS__, 'compatibility_mod_pagespeed'));		
 		
 	}
 	
@@ -397,6 +397,12 @@ class PadmaHead {
 		
 	}
 
+
+	/**
+	 *
+	 * Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly
+	 *
+	 */	
 	public static function compatibility_mod_pagespeed($html){
 
 
@@ -419,6 +425,5 @@ class PadmaHead {
 		}
 		
 	}
-
 
 }

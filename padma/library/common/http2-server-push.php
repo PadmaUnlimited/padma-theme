@@ -88,7 +88,7 @@ class PadmaHTTP2ServerPush {
 
 				// Make sure we haven't hit the header limit
 				if(($http2_header_size_accumulator + strlen($header)) < self::max_header_size()) {
-					$http2_header_size_accumulator += strlen($header);
+					$http2_header_size_accumulator += strlen($header);					
 					header( $header, false );					
 				}
 				

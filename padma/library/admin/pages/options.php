@@ -526,7 +526,7 @@
 							'checked' => PadmaOption::get('http2-server-push', false, false)
 						)
 					),
-					'description' => 'Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2.'
+					'description' => 'Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental.'
 				)
 			);
 

@@ -91,9 +91,12 @@ class PadmaQuery{
 		
 		$tag_options = array();
 		$tags_select_query = get_terms('post_tag');
+
 		foreach ($tags_select_query as $tag)
 			$tag_options[$tag->term_id] = $tag->name;
+		
 		$tag_options = (count($tag_options) == 0) ? array('text' => 'No tags available') : $tag_options;
+
 		return $tag_options;
 	}
 	

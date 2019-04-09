@@ -55,6 +55,7 @@ Fixed: Block type selector issue
 Fixed: Structured-data schema
 Fixed: Issue when showing templates saved on Padma Services account
 Updated jQuery Superfish Menu Plugin to v1.7.10
+New Contact Form 7 Block
 New PadmaQuery Class
 Custom logo support added to customize options
 Added new meta data support to Content Block

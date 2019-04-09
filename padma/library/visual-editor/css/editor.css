@@ -7712,3 +7712,7 @@ ul.design-editor-box-content.filtered{
     text-align: center;
     color: #0074A2;
 }
+input.shortcode-info{
+	width: 300px;
+    text-align: center;
+}

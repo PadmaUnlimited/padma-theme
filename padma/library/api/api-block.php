@@ -391,7 +391,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$this->tabs['info'] = 'Info';
 		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
 
-		$this->tab_notices['info'] = '<strong>Use this block anywhere.</strong><p>To insert this shortcode into your post or page:<p><input value="'.$shortcode_txt.'">';
+		$this->tab_notices['info'] = '<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p><input class="shortcode-info" value="'.$shortcode_txt.'">';
 
 	}
 

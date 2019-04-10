@@ -703,3 +703,15 @@ if(!function_exists('debug')){
 		error_log( __FILE__ . " : ". print_r($data,1));
 	}	
 }
+
+
+function padma_get_int( $string ) {
+
+	preg_match( "/([0-9]+[\.,]?)+/", $string, $matches );
+	
+	if ( !isset( $matches[0] ) ) 
+		return false;
+	
+	return $matches[0];
+	
+}

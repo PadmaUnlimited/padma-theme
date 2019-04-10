@@ -1,7 +1,7 @@
 define(['jquery', 'util.misc'], function($) {
 
 	createCog = function(element, deprecatedAnimate, append, context, opacity) {
-		
+
 		if ( $(element).length === 0 || $(element).find('.cog-container:visible').length )
 			return false;
 		

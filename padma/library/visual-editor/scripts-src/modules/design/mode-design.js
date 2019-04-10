@@ -89,8 +89,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
                 $('#side-panel').find('> .cog-container').remove();
 
 				/* Load in elements */
-					$('#design-editor-element-selector').empty();
+					$('#design-editor-element-selector').empty();					
 
+					//console.log(Padma.elementGroups);
+					
 					$.each(Padma.elementGroups, function(groupID, groupInfo) {
 
 						var groupNode = $('<li id="element-group-' + groupID + '" class="element-group has-children">\

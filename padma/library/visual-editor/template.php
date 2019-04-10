@@ -102,7 +102,7 @@
 	</div><!-- #menu -->
 
 	
-	<!-- Big Boy iframe -->
+	<!-- iframe -->
 	<div id="customize-preview" class="wp-full-overlay-main">
 		<div id="iframe-container">
 			<?php
@@ -168,9 +168,9 @@
 	if ( has_action('padma_visual_editor_side_panel') ) {
 	
 		echo '<div id="side-panel-container">
-	
+			
 			<div id="side-panel">';
-	
+
 				do_action('padma_visual_editor_side_panel');
 	
 		echo '</div><!-- #side-panel -->

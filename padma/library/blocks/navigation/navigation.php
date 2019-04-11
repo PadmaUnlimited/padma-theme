@@ -16,6 +16,8 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 	public $description = 'The navigation is the menu that will display all of the pages in your site.';
 	public $categories 	= array('core','navigation');
 
+	protected $show_content_in_grid = true;
+
 	/* Use this to pass the block from static function to static function */
 	static public $block = null;
 	static private $menu_sub_check_cache = array();
@@ -127,8 +129,6 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 		echo self::get_wp_nav_menu( $block );
 
-
-
 		if ( parent::get_setting($block, 'responsive-method', 'vertical') == 'slide-out' ) {
 
 			switch ( parent::get_setting($block, 'responsive-menu-label-position', 'right') ) {
@@ -204,6 +204,9 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				line-height: ' . $item_height . 'px;
 			}';
 
+		
+		//debug(parent::get_setting($block, 'responsive-method', 'vertical'));
+
 		$use_breakpoint = parent::get_setting($block, 'use-responsive-menu-breakpoint', true);
 		$breakpoint = parent::get_setting($block, 'responsive-menu-breakpoint', 600);
 
@@ -213,17 +216,15 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 				if ( $use_breakpoint ) {
 					$css .= '@media only screen and (max-width: ' . $breakpoint . 'px) {';
-				}
+					$css .= $selector . ' ul.menu {
+							display: none; 
+						}
+					
+						' . $selector . ' .slicknav_menu {
+							display: block;
+						}';
 
-				$css .= $selector . ' ul.menu {
-						display: none;
-					}
 				
-					' . $selector . ' .slicknav_menu {
-						display: block;
-					}';
-
-				if ( $use_breakpoint ) {
 					$css .= '}';
 				}
 
@@ -236,9 +237,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 				if ( $use_breakpoint ) {
 					$css .= '@media only screen and (max-width: ' . $breakpoint . 'px) {';
-				}
-
-				$css .= $selector . ' ul.menu {
+					$css .= $selector . ' ul.menu {
 					    display: none;
 					  }
 					
@@ -246,7 +245,6 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					    display: inline-block;
 					  }';
 
-				if ( $use_breakpoint ) {
 					$css .= '}';
 				}
 
@@ -254,6 +252,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 				break;
 		}
+		
 		return $css;
 
 	}
@@ -682,11 +681,12 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 
 	public $tabs = array(
+		'nav-menu-content' => 'Content',
 		'setup' => 'Setup',
-		'items' => 'Items',
+		'home-link' => 'Home Link',
 		'search' => 'Search',
 		'orientation' => 'Orientation',
-		'dropdowns' => 'Dropdowns'
+		'dropdowns' => 'Dropdowns',
 	);
 
 	public $inputs = array(
@@ -726,7 +726,8 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 							'#input-use-responsive-menu-breakpoint'
 						),
 						'hide' => array(
-							'#input-slide-out-menu-position'
+							'#input-slide-out-menu-position',
+							'#input-responsive-select',
 						)
 					),
 					'slide-out' => array(
@@ -735,9 +736,15 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 							'#input-responsive-menu-label-position',
 							'#input-use-responsive-menu-breakpoint',
 							'#input-slide-out-menu-position'
+						),
+						'hide' => array(
+							'#input-responsive-select',
 						)
 					),
 					'select' => array(
+						'show' => array(
+							'#input-responsive-select',
+						),
 						'hide' => array(
 							'#input-responsive-menu-label',
 							'#input-responsive-menu-label-position',
@@ -805,9 +812,23 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 				'slider-min' => 200,
 				'slider-max' => 1200
 			),
+
+			'responsiveness-notice' => array(
+				'name' => 'responsiveness-notice',
+				'type' => 'notice',
+				'notice' => 'You must have Responsive Grid enabled to take advantage of these options.  Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode.'
+			),
+
+			'responsive-select' => array(
+				'type' => 'checkbox',
+				'name' => 'responsive-select',
+				'label' => 'Responsive Select',
+				'default' => true,
+				'tooltip' => 'When enabled, your navigation will turn into a mobile-friendly select menu when your visitors are viewing your site on a mobile device (phones, not tablets).'
+			)
 		),
 
-		'items' => array(
+		'home-link' => array(
 			'hide-home-link' => array(
 				'type' => 'checkbox',
 				'name' => 'hide-home-link',
@@ -897,13 +918,13 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 				'default' => true,
 				'tooltip' => 'Hover Intent makes it so if a navigation item with a drop down is hovered then the drop down will only be shown if the visitor has their mouse over the item for more than a split second.<br /><br />This reduces drop-downs from sporatically showing if the visitor makes fast movements over the navigation.'
 			)
-		)
+		),
 	);
 	
 
 	function modify_arguments( $args = false ) {
 
-		$this->tab_notices['items'] = 'To add items to this navigation menu, go to <a href="' . admin_url( 'nav-menus.php' ) . '" target="_blank">WordPress Admin &raquo; Appearance &raquo; Menus</a>. Then, create a menu and assign it to <em>' . PadmaBlocksData::get_block_name( $args['blockID'] ) . '</em> in the <strong>Theme Locations</strong> box.';
+		$this->tab_notices['nav-menu-content'] = 'To add items to this navigation menu, go to <a href="' . admin_url( 'nav-menus.php' ) . '" target="_blank">WordPress Admin &raquo; Appearance &raquo; Menus</a>. Then, create a menu and assign it to <em>' . PadmaBlocksData::get_block_name( $args['blockID'] ) . '</em> in the <strong>Theme Locations</strong> box.';
 
 		if ( $block_height = PadmaBlocksData::get_block_height( $args['blockID'] ) ) {
 			$this->inputs['setup']['item-height']['default'] = $block_height;

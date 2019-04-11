@@ -204,8 +204,6 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				line-height: ' . $item_height . 'px;
 			}';
 
-		
-		//debug(parent::get_setting($block, 'responsive-method', 'vertical'));
 
 		$use_breakpoint = parent::get_setting($block, 'use-responsive-menu-breakpoint', true);
 		$breakpoint = parent::get_setting($block, 'responsive-menu-breakpoint', 600);

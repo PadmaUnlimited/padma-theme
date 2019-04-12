@@ -68,6 +68,27 @@ class PadmaAdminInputs {
 	}
 	
 	
+	public static function input_hidden($input) {
+		
+		$defaults = array(
+			'size' => 'medium',
+			'value' => null,
+			'unit' => null,
+			'tooltip' => null,
+			'description' => null,
+			'no-submit' => false,
+			'masked' => false
+		);
+		
+		$input = array_merge($defaults, $input);
+		
+		$name_attr = $input['no-submit'] ? null : ' name="padma-admin-input[' . $input['id'] . ']"';
+				
+		echo '<input type="hidden" class="' . $input['size'] . '-text" value="' . $input['value'] . '" id="' . $input['id'] . '"' . $name_attr . '> ' . $input['unit'];
+
+	}
+	
+	
 	public static function input_password($input) {
 		
 		$defaults = array(

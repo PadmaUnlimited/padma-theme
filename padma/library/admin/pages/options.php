@@ -452,7 +452,7 @@
 							'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
 						)
 					),
-					'description' => 'By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen.'
+					'description' => 'By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.'
 				),
 				array(
 					'type' => 'checkbox',
@@ -464,7 +464,7 @@
 							'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
 						)
 					),
-					'description' => 'By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen.'
+					'description' => 'By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.'
 				),
 			);
 

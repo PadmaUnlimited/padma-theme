@@ -78,6 +78,34 @@ class PadmaEmbedBlock extends PadmaBlockAPI {
 		
 	}
 
+	function setup_elements() {
+		
+		$this->register_block_element(array(
+			'id' => 'iframe',
+			'name' => 'iframe',
+			'selector' => '.fluid-width-video-wrapper iframe',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'object',
+			'name' => 'Object',
+			'selector' => '.fluid-width-video-wrapper object',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'embed',
+			'name' => 'embed',
+			'selector' => '.fluid-width-video-wrapper embed',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'div',
+			'name' => 'div',
+			'selector' => 'div',
+		));
+		
+	}
+
 	
 }
 

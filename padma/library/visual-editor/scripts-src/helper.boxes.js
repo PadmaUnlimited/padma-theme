@@ -88,7 +88,7 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 			var box = $('div#box-' + id);
 					
 			/* Handle draggable */
-			if ( settings.draggable ) {
+			if ( settings.draggable && typeof box != 'undefined') {
 				
 				box.draggable({
 					handle: box.find('.box-top'),

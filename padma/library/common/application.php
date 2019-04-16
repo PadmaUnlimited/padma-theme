@@ -257,6 +257,9 @@ class Padma {
 			/*		Compatiblity with aMember Plugin */
 			'compatibility/amember/compatibility-amember'	=> true,
 
+			/*		Compatiblity with  WPML Multilingual CMS Plugin */
+			'compatibility/wpml/compatibility-wpml'	=> true,
+
 
 		);
 			

@@ -26,7 +26,7 @@ class PadmaAdminBar {
 		global $wp_admin_bar;
 			
 		$default_visual_editor_mode = current_theme_supports('padma-grid') ? 'grid' : 'design';
-			
+
 
 		//Padma Root
 		$wp_admin_bar->add_menu(array(

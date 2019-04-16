@@ -54,6 +54,8 @@ Fixed: Search Results message
 Fixed: Block type selector issue
 Fixed: Structured-data schema on content block
 Fixed: Issue when showing templates saved on Padma Services account
+Fixed: Navigation block issue
+Fixed: WPML Compatibility home_url when loading VE
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New Contact Form 7 Block
 New PadmaQuery Class

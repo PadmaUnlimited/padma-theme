@@ -267,10 +267,6 @@ class PadmaDisplay {
 		do_action('padma_whitewrap_close');
 		echo '</div>';		
 		do_action('padma_body_close');
-
-		// Print Aux Blocks HTML
-		do_action('padma_body_close_aux_blocks_html');
-
 		echo '</body>';
 			
 	}

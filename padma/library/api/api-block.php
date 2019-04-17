@@ -32,9 +32,6 @@ abstract class PadmaBlockAPI {
 	public $description 	= false;
 	public $allow_titles 	= true;
 	public $categories 		= array();
-	public $floating		= false; //used to create a new aux block for other blocks
-	public static $aux_blocks = array();  // This allow to relate parent block with aux floating blocks. 
-	
 
 	/* System Properties (DO NOT USE OR TOUCH) */	
 	protected $options;
@@ -63,9 +60,7 @@ abstract class PadmaBlockAPI {
 			'show-content-in-grid' => $this->show_content_in_grid,
 			'allow-titles' => $this->allow_titles,
 			'description' => $this->description,
-			'categories' => $this->categories,
-			'floating' => $this->floating, 	// This is used for the aux block
-			'aux-blocks' => $this->aux_blocks, // This allow to relate parent block with aux floating blocks. 
+			'categories' => $this->categories,			
 		);
 
 		
@@ -327,24 +322,6 @@ abstract class PadmaBlockAPI {
 		return PadmaBlocksData::get_block_setting($block, $setting, $default);
 		
 	}
-
-
-	public static function add_aux_blocks_html($block_type, $html){
-		self::$aux_blocks[$block_type] = $html;
-	}
-
-
-	public static function get_aux_blocks(){
-		return self::$aux_blocks;
-	}
-
-	public static function padma_body_close_aux_blocks_html(){
-		foreach (self::$aux_blocks as $block_type => $html) {
-			echo $html;
-		}
-	}
-
-	
 	
 }
 

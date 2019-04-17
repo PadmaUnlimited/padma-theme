@@ -329,9 +329,6 @@ class PadmaVisualEditorDisplay {
 
 				foreach ( $block_types as $block_type_id => $block_type ) {
 
-					if($block_type['floating'])
-						continue;
-
 					$filter_categories = '';
 					foreach ($block_type['categories'] as $key => $value) {
 						$filter_categories .= 'filter-' . $value . ' '; 

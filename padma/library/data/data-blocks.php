@@ -43,7 +43,7 @@ class PadmaBlocksData {
 			'position' => padma_maybe_serialize($args['position']),
 			'dimensions' => padma_maybe_serialize($args['dimensions']),
 			'settings' => padma_maybe_serialize(padma_get('settings', $args, array())),
-			'mirror_id' => $mirror_id,			
+			'mirror_id' => $mirror_id
 		);
 
 

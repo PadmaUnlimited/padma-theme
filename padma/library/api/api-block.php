@@ -33,7 +33,7 @@ abstract class PadmaBlockAPI {
 	public $allow_titles 	= true;
 	public $categories 		= array();
 	public $floating		= false; //used to create a new aux block for other blocks
-	public static $aux_blocks = array();
+	public static $aux_blocks = array();  // This allow to relate parent block with aux floating blocks. 
 	
 
 	/* System Properties (DO NOT USE OR TOUCH) */	

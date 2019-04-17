@@ -31,7 +31,6 @@ class PadmaElementsData {
 	public static function get_all_elements() {
 				
 		$elements = self::get_raw_data();
-
 			
 		//Move default elements to the top
 		foreach ( $elements as $element_id => $element_options ) {

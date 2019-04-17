@@ -2117,7 +2117,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 				addInspectorProcessElement = function(value) {
 
-
 					if ( value['group'] == 'default-elements' )
 						return;
 
@@ -2136,6 +2135,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 					/* Instances */
 					$.each(value['instances'], function(instanceID, instanceValue) {
+
 
 						/* Do not add elements with pseudo selectors to the inspector */
 						if ( instanceValue['selector'].indexOf(':') != -1 )

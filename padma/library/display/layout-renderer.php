@@ -43,9 +43,6 @@ class PadmaLayoutRenderer {
 
 			foreach ( $this->blocks as $block_id => $block ) {
 
-				debug($block);
-				debug(PadmaBlocksData::get_block($block_id));
-
 				if ( padma_get('wrapper_id', $block, PadmaWrappers::$default_wrapper_id) == $wrapper_id_for_blocks )
 					$wrapper_blocks[$block_id] = $block;
 

@@ -154,6 +154,8 @@ class PadmaVisualEditor {
 		$options_inputs 		= isset($options['options']) ? $options['options'] : null;
 		$design_editor_inputs 	= isset($options['design-editor']) ? $options['design-editor'] : null;
 
+		debug($options_inputs);
+		debug($design_editor_inputs);
 
 		try {
 

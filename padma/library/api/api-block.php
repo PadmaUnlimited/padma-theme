@@ -32,6 +32,7 @@ abstract class PadmaBlockAPI {
 	public $description 	= false;
 	public $allow_titles 	= true;
 	public $categories 		= array();
+	public $floating		= false; //used to create a new aux block for other blocks
 	
 
 	/* System Properties (DO NOT USE OR TOUCH) */	
@@ -49,7 +50,8 @@ abstract class PadmaBlockAPI {
 		if ( !is_array($padma_block_types) )
 			$padma_block_types = array();
 				
-		//Add block to array.  This array will be used for checking if certain blocks exist, the block type selector and so on.
+		// Add block to array.  This array will be used for checking if certain blocks exist, the block type selector and so on.
+		// Floating blocks are created on the fly, it change the id so DO NOT use css or js based on the id
 		$padma_block_types[$this->id] = array(
 			'name' => $this->name,
 			'url' => $this->block_type_url,
@@ -61,7 +63,10 @@ abstract class PadmaBlockAPI {
 			'allow-titles' => $this->allow_titles,
 			'description' => $this->description,
 			'categories' => $this->categories,
+			'floating' => $this->floating, 	// This is used for the aux block
+			'aux-blocks' => $this->aux_blocks, // This allow to relate parent block with aux floating blocks. 
 		);
+
 		
 		//Add the element for the block itself
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));

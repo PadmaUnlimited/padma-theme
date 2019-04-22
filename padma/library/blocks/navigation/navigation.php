@@ -30,7 +30,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			return;
 		}
 
-		wp_register_script( 'jquery-hoverintent', padma_url() . '/library/media/js/jquery.hoverintent.js', array( 'jquery' ) );
+		wp_register_script( 'jquery-hoverintent', padma_url() . '/library/media/js/jquery.hoverintent.js', array( 'jquery' ));
 		wp_enqueue_style('padma-navigation-block', padma_url() . '/library/blocks/navigation/css/navigation.css');
 
 	}
@@ -45,6 +45,8 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$name = PadmaBlocksData::get_block_name( $block ) . ' &mdash; ' . 'Layout: ' . PadmaLayout::get_name( $block['layout'] );
 
 		register_nav_menu( 'navigation_block_' . $block_id, $name );
+
+
 
 	}
 
@@ -70,21 +72,20 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		if ( PadmaResponsiveGrid::is_active() && parent::get_setting( $block, 'responsive-select', true ) ) {
 
 			switch ( parent::get_setting($block, 'responsive-method', 'vertical') ) {
+
+
 				case 'vertical':
 					wp_enqueue_script( 'padma-slicknav', padma_url() . '/library/media/js/jquery.slicknav.js', array( 'jquery' ) );
 					wp_enqueue_style( 'padma-slicknav', padma_url() . '/library/media/css/slicknav.css' );
-
 					break;
 
 				case 'slide-out':
 					wp_enqueue_script( 'padma-pushy', padma_url() . '/library/media/js/pushy.js', array( 'jquery' ) );
 					wp_enqueue_style( 'padma-pushy', padma_url() . '/library/media/css/pushy.css' );
-
 					break;
 
 				default:
 					wp_enqueue_script( 'padma-selectnav', padma_url() . '/library/blocks/navigation/js/selectnav.js', array( 'jquery' ) );
-
 					break;
 			}
 
@@ -95,6 +96,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 	function content( $block ) {
 
+
 		self::$block = $block;
 
 		/* Variables */
@@ -104,12 +106,14 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$search = parent::get_setting( $block, 'enable-nav-search', false );
 		$search_position = parent::get_setting( $block, 'nav-search-position', 'right' );
 
+
 		/* Classes */
 		$nav_classes = array();
 
 		$nav_classes[] = $vertical ? 'nav-vertical' : 'nav-horizontal';
 		$nav_classes[] = 'nav-align-' . $alignment;
 		$nav_classes[] = 'responsive-menu-align-' . parent::get_setting($block, 'responsive-menu-label-position', 'right');
+
 
 		if ( $search && ! $vertical ) {
 
@@ -119,6 +123,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		}
 
 		$nav_classes = trim( implode( ' ', array_unique( $nav_classes ) ) );
+		
 
 		/* Use legacy ID */
 		$block['id'] = PadmaBlocksData::get_legacy_id( $block );
@@ -220,6 +225,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					
 						' . $selector . ' .slicknav_menu {
 							display: block;
+							background-color: #fff;
 						}';
 
 				

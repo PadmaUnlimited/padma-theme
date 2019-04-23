@@ -33,6 +33,13 @@
 			width: 100%;
 		}
 
+	div#wrapper-default{
+		max-width: 100%;
+	}
+	div#wrapper-default > .block-type-content{
+		max-width: calc(100% - 30px);
+	}
+
 /* End Wrapper */
 
 /* Structural stuff */	

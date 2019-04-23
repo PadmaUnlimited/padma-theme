@@ -260,6 +260,9 @@ class Padma {
 			/*		Compatiblity with  WPML Multilingual CMS Plugin */
 			'compatibility/wpml/compatibility-wpml'	=> true,
 
+			/*		Compatiblity with Mailchimp for WordPress https://wordpress.org/plugins/mailchimp-for-wp/ */
+			'compatibility/mailchimp-for-wp/compatibility-mailchimp-for-wp'	=> true,
+
 
 		);
 			

@@ -58,6 +58,7 @@ Fixed: Navigation block issue
 Fixed: WPML Compatibility home_url when loading VE
 Updated jQuery Superfish Menu Plugin to v1.7.10
 New Contact Form 7 Block
+New Mailchimp for WordPress Block
 New PadmaQuery Class
 Added new meta data support to Content Block
  - publisher

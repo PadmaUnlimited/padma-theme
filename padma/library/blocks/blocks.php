@@ -22,6 +22,7 @@ class PadmaBlocks {
 		'header',
 		'image',
 		'listings',
+		'mailchimp-for-wp',
 		'navigation',
 		'pin-board',
 		'search',

@@ -71,7 +71,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		/* SelectNav... Responsive Select */
 		if ( PadmaResponsiveGrid::is_active() && parent::get_setting( $block, 'responsive-select', true ) ) {
 
-			switch ( parent::get_setting($block, 'responsive-method', 'vertical') ) {
+			switch ( parent::get_setting($block, 'responsive-method', 'select') ) {
 
 
 				case 'vertical':
@@ -134,7 +134,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 		echo self::get_wp_nav_menu( $block );
 
-		if ( parent::get_setting($block, 'responsive-method', 'vertical') == 'slide-out' ) {
+		if ( parent::get_setting($block, 'responsive-method', 'select') == 'slide-out' ) {
 
 			switch ( parent::get_setting($block, 'responsive-menu-label-position', 'right') ) {
 				case 'right':
@@ -213,7 +213,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$use_breakpoint = parent::get_setting($block, 'use-responsive-menu-breakpoint', true);
 		$breakpoint = parent::get_setting($block, 'responsive-menu-breakpoint', 600);
 
-		switch ( parent::get_setting($block, 'responsive-method', 'vertical') ) {
+		switch ( parent::get_setting($block, 'responsive-method', 'select') ) {
 			case 'vertical':
 				$css .= "\n\n";
 
@@ -324,7 +324,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				});';
 			}
 
-			switch ( parent::get_setting($block, 'responsive-method', 'vertical') ) {
+			switch ( parent::get_setting($block, 'responsive-method', 'select') ) {
 				case 'vertical':
 					switch ( parent::get_setting($block, 'responsive-menu-label-position', 'right') ) {
 						case 'right':

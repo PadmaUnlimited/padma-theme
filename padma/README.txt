@@ -45,9 +45,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Fixed: Block hidden option on responsive
 Fixed: Parallax: background images jump to the left when Parallax is activated.
-Fixed: Responsive custom breackpoint issue
+Fixed: Responsive custom breakpoint issue
 Fixed: WooCommerce product design selectors
-- Product tittle fonts size
+- Product title fonts size
 - Product Button
 Fixed: PinBoard refresh on design mode
 Fixed: Search Results message

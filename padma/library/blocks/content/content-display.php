@@ -703,7 +703,11 @@ class PadmaContentBlockDisplay {
 
 				$this->display_thumbnail( $post, 'inside-content' );
 
-				the_excerpt();
+				if( ! $this->get_setting( 'custom-excerpts', 0 ) ){
+					the_excerpt();
+				} else {
+					echo $this->excerpt_more_link( wp_trim_words( get_the_excerpt(), $this->get_setting( 'excerpts-length', 55 ) ) );
+				}
 
 			echo '</div>';
 		}

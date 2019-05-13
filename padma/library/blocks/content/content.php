@@ -903,6 +903,32 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'excerpts' => 'Show Excerpts',
 					'hide' => 'Hide Entry Content'
 				)
+				'toggle' => array(
+					'normal' => array(
+						'show' => array(
+							'#input-custom-excerpts-heading',
+							'#input-custom-excerpts',
+						)
+					),
+					'excerpts' => array(
+						'show' => array(
+							'#input-custom-excerpts-heading',
+							'#input-custom-excerpts',
+						)
+					),
+					'full-entries' => array(
+						'hide' => array(
+							'#input-custom-excerpts-heading',
+							'#input-custom-excerpts',
+						)
+					),
+					'hide' => array(
+						'hide' => array(
+							'#input-custom-excerpts-heading',
+							'#input-custom-excerpts',
+						)
+					)
+				)
 			),
 			
 			'show-entry' => array(
@@ -995,6 +1021,36 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 				'label' => 'Show Edit Link',
 				'default' => true,
 				'tooltip' => 'The edit link is a convenient link that will be shown next to the post title.  It will take you straight to the WordPress admin to edit the entry.'
+			),
+			
+			'custom-excerpts-heading' => array(
+				'name' => 'custom-excerpts-heading',
+				'type' => 'heading',
+				'label' => 'Custom Excerpts'
+			),
+
+			'custom-excerpts' => array(
+				'type' => 'checkbox',
+				'name' => 'custom-excerpts',
+				'label' => 'Custom Excerpts Length',
+				'default' => false,
+				'tooltip' => 'By default the excerpts are set to 55 words. This can be far too many and a PHP hook will need to be set to change it. Instead you can set a custom amount here by specifically stating the number of words you want to show.',
+				'toggle' => array(
+					'true' => array(
+						'show' => '#input-excerpts-length'
+						),
+					'false' => array(
+						'hide' => '#input-excerpts-length'
+						)
+				),
+			),
+			
+			'excerpts-length' => array(
+				'type' => 'integer',
+				'name' => 'excerpts-length',
+				'label' => 'Excerpts Length',
+				'default' => '55',
+				'tooltip' => 'Control the length of the excerpt. By default they are set to display 55 words. This setting allows you to reduce or even lengthen that as you like and can be very handy to customise the look of your archive pages.'
 			),
 
 			'column-layout-heading' => array(

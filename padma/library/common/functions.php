@@ -701,6 +701,7 @@ function padma_human_bytes($size) {
 if(!function_exists('debug')){	
 	function debug($data){		
 		error_log( __FILE__ . " : ". print_r($data,1));
+		error_log(debug_backtrace());
 	}	
 }
 

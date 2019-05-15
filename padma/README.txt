@@ -40,6 +40,18 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+
+
+= 1.1.1
+* Released: On Dev
+
+Tested with WordPress 5.2
+Tested with ClassicPress 1.0.1
+New features on content block
+- Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
+- Added: Custom Archive title
+
+
 = 1.1.0
 * Released: April 24, 2019
 

@@ -882,6 +882,44 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 				'tooltip' => 'If you wish to turn off the page title on archive layouts (e.g. category, tag, etc), uncheck this'
 			),
 
+			'show-archive-title-type' => array(
+				'type' => 'select',
+				'name' => 'show-archive-title-type',
+				'default' => 'normal',
+				'options' => array(
+					'normal' => 'Normal',
+					'only-archive-name' => 'Only archive name',
+					'show-custom-archive-title' => 'Custom title',					
+				),
+				'label' => 'Archive Title type',
+				'tooltip' => 'Display normal title, only archive (category, tag, etc) or Custom Archive Title',
+				'toggle' => array(
+					'normal' => array(
+						'hide' => array(
+							'#input-custom-archive-title',							
+						)
+					),
+					'only-archive-name' => array(
+						'hide' => array(
+							'#input-custom-archive-title',
+						)
+					),
+					'show-custom-archive-title' => array(
+						'show' => array(
+							'#input-custom-archive-title',
+						)
+					),
+				)
+
+
+			),
+
+			'custom-archive-title'  => array(
+				'type' => 'text',
+				'name' => 'custom-archive-title',
+				'label' => 'Custom Archive title',
+				'tooltip' => 'Use custom title for archive. Use %archive% for category, tag, etc: example "Category Archives: %archive%"'				
+			),
 			
 			'show-readmore' => array(
 				'type' => 'checkbox',
@@ -902,7 +940,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'full-entries' => 'Show Full Entries',
 					'excerpts' => 'Show Excerpts',
 					'hide' => 'Hide Entry Content'
-				)
+				),
 				'toggle' => array(
 					'normal' => array(
 						'show' => array(

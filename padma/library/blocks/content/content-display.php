@@ -301,14 +301,34 @@ class PadmaContentBlockDisplay {
 		
 		/* Category Archives */
 		else if ( is_category() ) {
-			
+
 			$return .= '<h1 class="archive-title category-title">';
-				$return .= apply_filters('padma_category_title', sprintf(__('Category Archives: %s', 'padma'), '<span>' . single_cat_title('', false) . '</span>'));
-			$return .= '</h1>';
 			
+			if( $this->get_setting('show-archive-title-type', 'normal') == 'normal'){
+
+				$return .= apply_filters('padma_category_title', sprintf(__('Category Archives: %s', 'padma'), '<span>' . single_cat_title('', false) . '</span>'));
+
+
+			}elseif ( $this->get_setting('show-archive-title-type') == 'only-archive-name' ) {			
+		
+				$return .= apply_filters('padma_category_title', '<span>' . single_cat_title('', false) . '</span>');
+
+
+			}elseif ( $this->get_setting('show-archive-title-type') == 'show-custom-archive-title' ) {
+
+
+				$custom_title = $this->get_setting('custom-archive-title','Category Archives');
+				$custom_title = str_replace('%archive%', '<span>' . single_cat_title('', false) . '</span>', $custom_title);
+				$return .= apply_filters('padma_category_title', $custom_title);
+				
+			}
+
+			$return .= '</h1>';
 			$category_description = category_description();
-			if ( !empty($category_description) )
+				
+			if ( !empty($category_description) ){
 				$return .= apply_filters('padma_category_archive_meta', '<div class="archive-meta category-archive-meta">' . $category_description . '</div>');
+			}
 			
 		}
 		

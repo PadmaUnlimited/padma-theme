@@ -160,11 +160,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			});
 
 			/*	Sliders	*/
-			/*
-			$(context).delegate('div.input-slider div.ui-slider', 'change', function() {
-				console.log($(this));
-
-			});
 			$(context).delegate('div.input-slider input', 'change', function() {			
 
 
@@ -175,7 +170,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				
 				handleInputToggle(input, val);
 
-			});*/
+			});
 
 			/* Radios */			
 			$(context).delegate('div.input-radio input[type="radio"]', 'change click', function() {				

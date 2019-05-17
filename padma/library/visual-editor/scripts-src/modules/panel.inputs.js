@@ -159,6 +159,24 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 										
 			});
 
+			/*	Sliders	*/
+			/*
+			$(context).delegate('div.input-slider div.ui-slider', 'change', function() {
+				console.log($(this));
+
+			});
+			$(context).delegate('div.input-slider input', 'change', function() {			
+
+
+				dataHandleInput($(this));
+
+				var input = $(this);
+				var val = $(this).val();
+				
+				handleInputToggle(input, val);
+
+			});*/
+
 			/* Radios */			
 			$(context).delegate('div.input-radio input[type="radio"]', 'change click', function() {				
 				dataHandleInput($(this));										
@@ -999,6 +1017,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 							/* Handle hidden input */
 							dataHandleInput($(this).parents('.input-slider').find('input.input-slider-bar-hidden'), ui.value);
+
+							handleInputToggle($(this).parents('.input-slider').find('input.input-slider-bar-hidden'), ui.value);
 							
 						},
 						stop: function(event, ui) {

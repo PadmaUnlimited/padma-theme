@@ -567,6 +567,29 @@
 			PadmaAdminInputs::generate($form);
 			?>
 
+			<h3 class="title title-hr">Developer</h3>
+
+			<div class="alert alert-red"><p>Once active this option will allow you to upgrade your website to the latest Preview, Beta or Release candidate.</p></div>
+
+			<?php
+			$form = array(
+				array(
+					'type' => 'checkbox',
+					'label' => 'Use Padma developer version',
+					'checkboxes' => array(
+						array(
+							'id' => 'use-developer-version',
+							'label' => 'Allow install testing or preview version',
+							'checked' => PadmaOption::get('use-developer-version', false, false)
+						)
+					),
+					'description' => 'This option is for developers, use this option only if you know what are you doing. Padma will upgrade to testing version. <strong>Do NOT use on production sites.<strong>'
+				)
+			);
+
+			PadmaAdminInputs::generate($form);
+			?>
+
 			<h3 class="title title-hr">Debugging</h3>
 
 			<div class="alert alert-red"><p>The following option should only be checked if a member of the Padma Themes team asks you to do so.</p></div>

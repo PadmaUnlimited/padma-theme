@@ -6,7 +6,7 @@ add_action('edit_form_after_editor', 'padma_meta_padma_save_post_template_bypass
 function padma_meta_padma_save_post_template_bypass() {
 
 	global $post;
-
+	
 	if ( 'page' == $post->post_type && !count(wp_get_theme()->get_page_templates()) ) {
 
 		echo '

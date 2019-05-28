@@ -16,7 +16,7 @@ class PadmaElementsData_Upgrade34 {
 		//Pull out only the design editor groups.  Since padma_option_groups uses true for every value
 		//and the group is actually the key, we must pull the keys out using array_keys
 		$design_editor_groups = array_filter( array_keys( $option_groups ), function($group){
-			return (strpos($group, 'design-editor-group-') !== false););
+			return (strpos($group, 'design-editor-group-') !== false);
 		});
 
 		//Loop through all of the groups and get every element and its properties

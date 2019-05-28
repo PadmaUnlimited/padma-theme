@@ -38,7 +38,7 @@ class PadmaDisplay {
 	
 		get_header();
 		
-		self::grid();
+		self::grid();		
 						
 		get_footer();
 		
@@ -61,7 +61,7 @@ class PadmaDisplay {
 	}
 
 	/**
-	 * Plugin Templateh andling sstem.
+	 * Plugin Template handling system.
 	 * 
 	 * If the template file isn't Padma's index.php, then fetch the contents and put them into the Content Block 
 	 **/

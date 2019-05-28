@@ -32,7 +32,7 @@ class Padma {
 			define('THEME_FRAMEWORK', 'padma');			
 		}
 		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.1.3');			
+			define('PADMA_VERSION', '1.1.4');			
 		}
 
 		/* Define directories */
@@ -63,7 +63,7 @@ class Padma {
 			define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');			
 		}
 		if(!defined('PADMA_DASHBOARD_URL')){
-			define('PADMA_DASHBOARD_URL', 'http://dashboard.padmaunlimited.com/');			
+			define('PADMA_DASHBOARD_URL', 'https://dashboard.padmaunlimited.com/');			
 		}
 		if(!defined('PADMA_EXTEND_URL')){			
 			define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');

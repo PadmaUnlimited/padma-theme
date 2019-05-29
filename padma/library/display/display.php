@@ -38,24 +38,24 @@ class PadmaDisplay {
 	
 		get_header();
 		
-		self::grid();		
+		self::grid();
 						
 		get_footer();
 		
 	}
-	
+
 
 	public static function grid() {
-						
+
 		if ( current_theme_supports('padma-grid') ) {
-	
+
 			$layout = new PadmaLayoutRenderer;
 			$layout->display();
-					
+	
 		} else {
-		
+
 			echo '<div class="alert alert-yellow"><p>The Padma Grid is not supported in this Child Theme.</p></div>';
-		
+
 		}
 
 	}
@@ -66,6 +66,7 @@ class PadmaDisplay {
 	 * If the template file isn't Padma's index.php, then fetch the contents and put them into the Content Block 
 	 **/
 		public static function handle_plugin_template() {
+
 
 			if ( !self::is_plugin_template() )
 				return false;

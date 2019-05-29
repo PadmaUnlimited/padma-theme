@@ -295,7 +295,7 @@ function padma_is_ie($version_check = false) {
  * @return mixed PHP that has been parsed.
  **/
 function padma_parse_php($content) {
-	
+
 	/* If Padma PHP parsing is disabled, then return the content now. */
 	if ( defined('PADMA_DISABLE_PHP_PARSING') && PADMA_DISABLE_PHP_PARSING === true )
 		return $content;
@@ -306,12 +306,32 @@ function padma_parse_php($content) {
 		return $content;
 	
 	ob_start();
-
-	$eval = eval("?>$content<?php ");
 	
+	$parsed = '<div>';
+	$parsed .= preg_replace_callback(
+				'/\w+\(.*?\)/',
+				function($matches){
+					$parsed = '';
+					foreach ($matches as $key => $value) {
+						$parsed = eval('return ' . $value . ';');
+					}
+					return $parsed;
+				},
+				$content 
+			);
+	$parsed .= '</div>';
+
+
+	
+	/*
+
+	Original code:
+	
+	$eval = eval("?>$content<?php");
+
 	if ( $eval === null ) {
 
-		$parsed = ob_get_contents();
+		$parsed = ob_get_contents();		
 
 	} else {
 
@@ -319,7 +339,7 @@ function padma_parse_php($content) {
 		$parsed = '<p><strong>Error while parsing PHP:</strong> ' . $error['message'] . '</p>';
 
 	}
-
+	*/
 	ob_end_clean();
 
 	return $parsed;

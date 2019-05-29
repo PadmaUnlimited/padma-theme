@@ -77,6 +77,15 @@ class Padma {
 		}
 		
 
+		/**
+		 *
+		 * Parse PHP
+		 *
+		 */
+		if(!defined('PADMA_DISABLE_PHP_PARSING')){			
+			define('PADMA_DISABLE_PHP_PARSING', true);
+		}
+		
 		/* MySQL Table names */
 		$wpdb->pu_blocks 		= $wpdb->prefix . 'pu_blocks';
 		$wpdb->pu_wrappers 		= $wpdb->prefix . 'pu_wrappers';

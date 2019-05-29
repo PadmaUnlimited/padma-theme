@@ -10,6 +10,9 @@
 
 	if($mode == 'html'){
 		$mode = 'htmlmixed';
+		$mode_text = 'custom code';
+	}else{
+		$mode_text = $mode;
 	}
 	/**
 	 *
@@ -156,7 +159,7 @@
 </head>
 <body>
 	<a target="_blank" href="https://docs.padmaunlimited.com/blog/basics/live-css-hotkeys/" class="how-to">How to?</a>
-	<textarea id="code" name="code" class="code" placeholder="Your awesome <?php echo $mode; ?> goes here"></textarea>
+	<textarea id="code" name="code" class="code" placeholder="Your awesome <?php echo $mode_text; ?> goes here"></textarea>
 <?php
 foreach ($scripts as $key => $file) {
 	?><script type="text/javascript" src="<?php echo $baseURL . $file; ?>" charset="utf-8"></script><?php

@@ -47,11 +47,17 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Tested with WordPress 5.2.1
 Tested with ClassicPress 1.0.1
+Fixed: Custom code minor fix
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
-Block API: Added toggle option to slider inputs.
 New Option to upgrade and use developer/preview version
+Added toggle option to slider inputs (Block API)
+Constant PADMA_DISABLE_PHP_PARSING is true by default
+Updated Custom Code Block
+	- To execute PHP functions require PADMA_DISABLE_PHP_PARSING = false
+	- To execute PHP functions require to option "Contains PHP code" to be checked
+
 
 
 = 1.1.0

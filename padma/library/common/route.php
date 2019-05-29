@@ -40,6 +40,7 @@ class PadmaRoute {
 	 **/
 	public static function direct() {
 
+
 		//If viewing the visual editor, stop the template loading and show the visual editor.
 		if ( self::is_visual_editor() ) {
 

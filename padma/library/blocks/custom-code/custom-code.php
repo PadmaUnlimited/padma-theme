@@ -14,14 +14,92 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	
 	function content($block) {
 		
-		$content = parent::get_setting($block, 'content');	
-			
+		$content = parent::get_setting($block, 'content');
+		$php_code = parent::get_setting($block, 'php-code', false);
+
+
 		if ( $content != null )
-			echo padma_parse_php(do_shortcode(stripslashes($content)));
+			
+			if($php_code)
+				echo '<div class="custom-code-content">'.padma_parse_php(do_shortcode(stripslashes($content))).'</div>';
+
+			else
+				echo '<div class="custom-code-content">'.do_shortcode(stripslashes($content)).'</div>';
+		
 		else
 			echo '<p>There is no custom code to display.</p>';
 		
 	}
+
+
+	public function setup_elements() {
+		$this->register_block_element(array(
+			'id' => 'content',			
+			'name' => 'Content',
+			'selector' => '.custom-code-content p',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h1',
+			'name' => 'Content H1',
+			'selector' => '.custom-code-content h1',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h2',
+			'name' => 'Content H2',
+			'selector' => '.custom-code-content h2',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h3',
+			'name' => 'Content H3',
+			'selector' => '.custom-code-content h3',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h4',
+			'name' => 'Content H4',
+			'selector' => '.custom-code-content h4',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h5',
+			'name' => 'Content H5',
+			'selector' => '.custom-code-content h5',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h6',
+			'name' => 'Content H6',
+			'selector' => '.custom-code-content h6',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-p',
+			'name' => 'Content p',
+			'selector' => '.custom-code-content span',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-a',
+			'name' => 'Content a',
+			'selector' => '.custom-code-content a',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'content-ul',
+			'name' => 'Content ul',
+			'selector' => '.custom-code-content ul',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'content-ul-li',
+			'name' => 'Content ul li',
+			'selector' => '.custom-code-content ul li',
+		));
+	}
+
 	
 	
 }
@@ -40,9 +118,17 @@ class PadmaCustomCodeBlockOptions extends PadmaBlockOptionsAPI {
 				'mode' 		=> 'html',
 				'name' 		=> 'content',
 				'label' 	=> 'Content',
-				'default' 	=> null
-			)
-		)
+				'default' 	=> null,
+				'tooltip' => 'Write your custom code here. To enable PHP Execution please add define(\'PADMA_DISABLE_PHP_PARSING\', false); to your wp-config.php'
+			),
+			'php-code' => array(
+				'name' => 'php-code',
+				'label' => 'Contains PHP code',
+				'type' => 'checkbox',
+				'default' => false,
+				'tooltip' => 'If checked, Padma will try to find and execute PHP functions in the code.'
+			),
+		),
 	);
 	
 }

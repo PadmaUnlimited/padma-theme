@@ -165,6 +165,17 @@ foreach ($scripts as $key => $file) {
 	?><script type="text/javascript" src="<?php echo $baseURL . $file; ?>" charset="utf-8"></script><?php
 }
 ?>
-<span id="live-css-loader" class="live-css-loading-indicator"></span>
+<div id="ve-loading-overlay">
+	<div class="lotus">
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+		<div class="lotus_leaf"></div>
+	</div>
+</div>
 </body>
 </html>

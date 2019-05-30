@@ -307,6 +307,7 @@ function padma_parse_php($content) {
 	
 	ob_start();
 	
+	
 	$parsed = '<div>';
 	$parsed .= preg_replace_callback(
 				'/\w+\(.*?\)/',
@@ -320,7 +321,7 @@ function padma_parse_php($content) {
 				$content 
 			);
 	$parsed .= '</div>';
-
+	
 
 	
 	/*
@@ -338,8 +339,8 @@ function padma_parse_php($content) {
 		$error 	= error_get_last();
 		$parsed = '<p><strong>Error while parsing PHP:</strong> ' . $error['message'] . '</p>';
 
-	}
-	*/
+	}*/
+	
 	ob_end_clean();
 
 	return $parsed;

@@ -123,7 +123,7 @@ class PadmaCustomCodeBlockOptions extends PadmaBlockOptionsAPI {
 			),
 			'php-code' => array(
 				'name' => 'php-code',
-				'label' => 'Contains PHP code',
+				'label' => 'Contains PHP functions',
 				'type' => 'checkbox',
 				'default' => false,
 				'tooltip' => 'If checked, Padma will try to find and execute PHP functions in the code.'

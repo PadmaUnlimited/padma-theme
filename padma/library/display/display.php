@@ -47,6 +47,12 @@ class PadmaDisplay {
 
 	public static function grid() {
 
+		global $template;
+
+		if(self::is_plugin_template())
+			load_template($template);
+
+
 		if ( current_theme_supports('padma-grid') ) {
 
 			$layout = new PadmaLayoutRenderer;

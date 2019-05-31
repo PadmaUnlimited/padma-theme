@@ -100,7 +100,7 @@ define(['jquery', 'deps/mousetrap', 'switch.mode'], function($, mousetrap, switc
 
 				/* Focus editor */
 				editor.focus();
-				window.document.getElementById("live-css-loader").classList.add('hidden');
+				window.document.getElementById("ve-loading-overlay").classList.add('hidden');
 
 				/* Bind the editor */
 				editor.on('change',function(e){					

@@ -306,28 +306,7 @@ function padma_parse_php($content) {
 		return $content;
 	
 	ob_start();
-	
-	
-	$parsed = '<div>';
-	$parsed .= preg_replace_callback(
-				'/\w+\(.*?\)/',
-				function($matches){
-					$parsed = '';
-					foreach ($matches as $key => $value) {
-						$parsed = eval('return ' . $value . ';');
-					}
-					return $parsed;
-				},
-				$content 
-			);
-	$parsed .= '</div>';
-	
 
-	
-	/*
-
-	Original code:
-	
 	$eval = eval("?>$content<?php");
 
 	if ( $eval === null ) {
@@ -339,7 +318,7 @@ function padma_parse_php($content) {
 		$error 	= error_get_last();
 		$parsed = '<p><strong>Error while parsing PHP:</strong> ' . $error['message'] . '</p>';
 
-	}*/
+	}
 	
 	ob_end_clean();
 

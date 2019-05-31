@@ -47,12 +47,6 @@ class PadmaDisplay {
 
 	public static function grid() {
 
-		global $template;
-
-		if(self::is_plugin_template())
-			load_template($template);
-
-
 		if ( current_theme_supports('padma-grid') ) {
 
 			$layout = new PadmaLayoutRenderer;
@@ -121,6 +115,24 @@ class PadmaDisplay {
 					echo self::$plugin_template_generic_content;
 
 				}
+
+
+		/**
+		 *
+		 * This methond allow to load the plugin template into the content block, the template need to be related to a CPT
+		 *
+		 */		
+		public static function load_plugin_template($template){
+
+
+			add_action('padma_whitewrap_open', array(__CLASS__, 'padma_whitewrap_open_ob_start'));
+			add_action('wp_footer', array(__CLASS__, 'padma_close_ob_get_clean'), -99999);
+
+			//load_template( $template );
+
+			return $template;
+
+		}
 	/* End Plugin Template Handling System */
 
 

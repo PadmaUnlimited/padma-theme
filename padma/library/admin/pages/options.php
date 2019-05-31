@@ -617,8 +617,29 @@
 
 		<div class="big-tab" id="tab-compatibility-content">
 
-			<h3 class="title">Headway</h3>
+			<h3 class="title">Plugin templates</h3>
+			<?php
+			$form = array(
+				array(
+					'type' 	=> 'checkbox',
+					'label' => 'Plugin templates',
+					'checkboxes' => array(
+						array(
+							'id' 		=> 'allow-plugin-templates',
+							'label' 	=> 'Allow plugin templates',
+							'checked' 	=> PadmaOption::get('allow-plugin-templates', false, false)
+						)
+					),
+					'description' => 'Allow load plugin templates related to Custom Post Types instead Padma Layout'
+				)
+			);
 
+			PadmaAdminInputs::generate($form);
+			?>
+
+
+
+			<h3 class="title">Headway</h3>
 			<?php
 			$form = array(
 				array(

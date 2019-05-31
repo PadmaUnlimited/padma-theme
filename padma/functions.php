@@ -43,3 +43,24 @@ require_once get_template_directory() . '/library/common/functions.php';
 require_once get_template_directory() . '/library/common/application.php';
 
 Padma::init();
+
+
+/**
+ *
+ * Plugin templates support
+ *
+ */
+add_filter( 'template_include', function($template){
+
+	if(!PadmaOption::get('allow-plugin-templates', false))
+		return $template;
+
+	if(!PadmaDisplay::is_plugin_template())
+		return $template;
+
+	if(!file_exists($template))		
+		return $template;
+
+	return PadmaDisplay::load_plugin_template($template);
+
+}, 10 );

@@ -123,12 +123,24 @@ class PadmaCustomCodeBlockOptions extends PadmaBlockOptionsAPI {
 			),
 			'php-code' => array(
 				'name' => 'php-code',
-				'label' => 'Contains PHP functions',
+				'label' => 'Contains PHP code',
 				'type' => 'checkbox',
 				'default' => false,
-				'tooltip' => 'If checked, Padma will try to find and execute PHP functions in the code.'
+				'tooltip' => 'If checked, Padma will try to find and execute PHP code.',
 			),
 		),
 	);
+
+
+	public function modify_arguments( $args = false ) {
+
+		if ( defined('PADMA_DISABLE_PHP_PARSING') && PADMA_DISABLE_PHP_PARSING === true ){
+			
+			$this->tab_notices['content'] = 'PHP Parsing is currently disable, to enable PHP Execution please add: <br><pre>define(\'PADMA_DISABLE_PHP_PARSING\', false);</pre><br> to your wp-config.php';
+
+		}
+		
+
+	}
 	
 }

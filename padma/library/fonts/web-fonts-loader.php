@@ -57,7 +57,7 @@ class PadmaWebFontsLoader {
 		$font = implode( '|', array_filter($webfonts_in_use['google']) );
 
 		if(strlen($font) > 0 ){
-			$stylesheet_url = '//fonts.googleapis.com/css?family=' . $font ;
+			$stylesheet_url = '//fonts.googleapis.com/css?display=swap&family=' . $font ;
 			echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
 		}
 

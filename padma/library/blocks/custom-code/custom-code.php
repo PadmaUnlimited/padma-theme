@@ -15,16 +15,10 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	function content($block) {
 		
 		$content = parent::get_setting($block, 'content');
-		$php_code = parent::get_setting($block, 'php-code', false);
-
 
 		if ( $content != null )
 			
-			if($php_code)
-				echo '<div class="custom-code-content">'.padma_parse_php(do_shortcode(stripslashes($content))).'</div>';
-
-			else
-				echo '<div class="custom-code-content">'.do_shortcode(stripslashes($content)).'</div>';
+			echo '<div class="custom-code-content">'.padma_parse_php(do_shortcode(stripslashes($content))).'</div>';			
 		
 		else
 			echo '<p>There is no custom code to display.</p>';
@@ -120,13 +114,6 @@ class PadmaCustomCodeBlockOptions extends PadmaBlockOptionsAPI {
 				'label' 	=> 'Content',
 				'default' 	=> null,
 				'tooltip' => 'Write your custom code here. To enable PHP Execution please add define(\'PADMA_DISABLE_PHP_PARSING\', false); to your wp-config.php'
-			),
-			'php-code' => array(
-				'name' => 'php-code',
-				'label' => 'Contains PHP code',
-				'type' => 'checkbox',
-				'default' => false,
-				'tooltip' => 'If checked, Padma will try to find and execute PHP code.',
 			),
 		),
 	);

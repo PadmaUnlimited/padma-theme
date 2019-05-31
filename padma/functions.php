@@ -50,7 +50,33 @@ Padma::init();
  * Plugin templates support
  *
  */
+/*
 add_filter( 'template_include', function($template){
+
+	global $post;
+
+    if (!$post) {
+        return $template;
+    }
+    
+    $template_id = get_post_meta($post->ID, '_wp_page_template', true);
+
+    if(!$template_id)
+    	return $template;
+
+
+	$path = locate_template(array($template_id),true);
+
+
+	debug(array(
+		'template' => $template,
+		'template_id' => $template_id,
+		'path' => $path,
+	));
+
+	//load_template( $template );
+
+	/*
 
 	if(!PadmaOption::get('allow-plugin-templates', false))
 		return $template;
@@ -62,5 +88,7 @@ add_filter( 'template_include', function($template){
 		return $template;
 
 	return PadmaDisplay::load_plugin_template($template);
-
-}, 10 );
+	*/
+/*
+	return $template;
+});*/

@@ -54,9 +54,7 @@ New features on content block
 New Option to upgrade and use developer/preview version
 Added toggle option to slider inputs (Block API)
 Constant PADMA_DISABLE_PHP_PARSING is true by default
-Updated Custom Code Block
-	- To execute PHP functions require PADMA_DISABLE_PHP_PARSING = false
-	- To execute PHP functions require to option "Contains PHP code" to be checked
+Updated Custom Code Block, to execute PHP functions require PADMA_DISABLE_PHP_PARSING = false
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load
 
 

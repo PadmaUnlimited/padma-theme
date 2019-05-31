@@ -121,7 +121,8 @@ class PadmaDisplay {
 		 *
 		 * This methond allow to load the plugin template into the content block, the template need to be related to a CPT
 		 *
-		 */		
+		 */
+		/*
 		public static function load_plugin_template($template){
 
 
@@ -133,6 +134,7 @@ class PadmaDisplay {
 			return $template;
 
 		}
+		*/
 	/* End Plugin Template Handling System */
 
 

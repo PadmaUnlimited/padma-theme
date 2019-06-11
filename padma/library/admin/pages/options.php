@@ -583,7 +583,7 @@
 							'checked' => PadmaOption::get('use-developer-version', false, false)
 						)
 					),
-					'description' => 'This option is for developers, use this option only if you know what are you doing. Padma will upgrade to testing version. <strong>Do NOT use on production sites.<strong>'
+					'description' => 'This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong>'
 				)
 			);
 

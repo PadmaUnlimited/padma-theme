@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.1.6
+Version: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,10 +42,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.6
+= 1.1.7
 * Released: On Dev
 
-Tested with WordPress 5.2.1
+Tested with WordPress 5.2.2
 Tested with ClassicPress 1.0.1
 Fixed: Custom code minor fix
 New features on content block
@@ -54,6 +54,7 @@ New features on content block
 New Option to upgrade and use developer/preview version
 Added toggle option to slider inputs (Block API)
 Constant PADMA_DISABLE_PHP_PARSING is true by default
+Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP version
 Updated Custom Code Block, to execute PHP functions require PADMA_DISABLE_PHP_PARSING = false
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load
 

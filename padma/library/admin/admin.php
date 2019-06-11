@@ -76,6 +76,11 @@ class PadmaAdmin {
 				update_option('padma-disable-automatic-plugin-updates',$value);
 			}
 
+			// Developer version			
+			if($option == 'use-developer-version'){				
+				update_option('padma-use-developer-version',$value);
+			}
+
 		}
 
 		global $padma_admin_save_message;

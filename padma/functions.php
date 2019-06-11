@@ -50,9 +50,11 @@ Padma::init();
  * Plugin templates support
  *
  */
-/*
+
 add_filter( 'template_include', function($template){
 
+	debug($template);
+	
 	global $post;
 
     if (!$post) {
@@ -89,6 +91,6 @@ add_filter( 'template_include', function($template){
 
 	return PadmaDisplay::load_plugin_template($template);
 	*/
-/*
+
 	return $template;
-});*/
+});

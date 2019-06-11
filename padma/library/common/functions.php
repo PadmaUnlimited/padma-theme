@@ -699,8 +699,9 @@ function padma_human_bytes($size) {
  *
  */
 if(!function_exists('debug')){	
-	function debug($data){		
-		error_log( print_r($data,1) );
+	function debug($data){
+		if($data)
+			error_log( print_r($data,1) );
 	}	
 }
 

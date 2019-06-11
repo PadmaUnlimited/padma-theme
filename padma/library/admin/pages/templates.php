@@ -94,6 +94,7 @@
 				</select>
 			</tr>
 
+			<!--
 			<tr valign="top">
 				<th scope="row"><label for="template-save-on-cloud-price">Price (USD)</label></th>
 				<td><input id="template-save-on-cloud-price" type="text" name="skin-save-on-cloud-info[price]" placeholder="19" class="medium-text" /></td>
@@ -103,6 +104,7 @@
 				<th scope="row"><label for="template-save-on-cloud-preview">Preview URL</label></th>
 				<td><input id="template-save-on-cloud-preview" type="text" name="skin-save-on-cloud-info[preview]" placeholder="" class="medium-text" /></td>
 			</tr>
+			-->
 			</tbody>
 		</table>
 

@@ -2,6 +2,10 @@
 
 global $pagenow, $wp_version;
 
+
+debug(defined('PADMA_DISABLE_PHP_VERIFICATION'));
+debug(PADMA_DISABLE_PHP_VERIFICATION);
+
 /* Do not throw these errors if DOING_AJAX is true or the themes page is already being viewed. */
 if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 
@@ -17,13 +21,19 @@ if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 
 		Please deactivate Padma by going to <a href="' . admin_url('themes.php') . '">Appearance &raquo; Themes</a> and choosing a difference theme until your WordPress installation has been updated to 3.4 or higher.<br /><br />
 
-		If the issue persists, please visit <a href="http://padmaunlimited.com" target="_blank">Padma Support</a>.
+		If the issue persists, please visit <a href="https://www.padmaunlimited.com" target="_blank">Padma Support</a>.
 	';
 
 	wp_die($message);
 
+/*	Do not Check PHP Version	*/
+} elseif ( defined('PADMA_DISABLE_PHP_VERIFICATION') && PADMA_DISABLE_PHP_VERIFICATION === true) {
+	
+	return;
+
+
 /* Check PHP */
-} elseif ( version_compare(PHP_VERSION, '7.0', '<') ) {
+} elseif (  version_compare(PHP_VERSION, '7.0', '<') ) {
 
 	$message = '
 		<span style="text-align: center;font-size: 26px;width: 100%;display: block;margin-bottom: 20px;">Error</span>

@@ -529,8 +529,7 @@ class Padma {
 
 		if(class_exists('PadmaUpdater')){
 
-			$PadmaUpdater = new PadmaUpdater();
-			$PadmaUpdater->updater('padma',PADMA_DIR,true);
+			PadmaUpdater::updater('padma',PADMA_DIR,true);
 
 		}
 	

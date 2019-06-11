@@ -3,9 +3,6 @@
 global $pagenow, $wp_version;
 
 
-debug(defined('PADMA_DISABLE_PHP_VERIFICATION'));
-debug(PADMA_DISABLE_PHP_VERIFICATION);
-
 /* Do not throw these errors if DOING_AJAX is true or the themes page is already being viewed. */
 if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 

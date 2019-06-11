@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.7
+= 1.1.8
 * Released: On Dev
 
 Tested with WordPress 5.2.2

@@ -63,7 +63,7 @@ class PadmaContentBlockDisplay {
 				return do_action( 'generic_content' );
 			}
 
-
+			
 		/* Populate JS variable with wp_query global that way loading the block content with AJAX still shows the correct content */
 			if ( PadmaRoute::is_visual_editor_iframe() && $this->get_setting('mode', 'default') == 'default' ) {
 	

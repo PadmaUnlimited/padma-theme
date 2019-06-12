@@ -45,6 +45,8 @@ require_once get_template_directory() . '/library/common/application.php';
 Padma::init();
 
 
+
+
 /**
  *
  * Plugin templates support
@@ -53,44 +55,6 @@ Padma::init();
 
 add_filter( 'template_include', function($template){
 
-	debug($template);
-	
-	global $post;
-
-    if (!$post) {
-        return $template;
-    }
-    
-    $template_id = get_post_meta($post->ID, '_wp_page_template', true);
-
-    if(!$template_id)
-    	return $template;
-
-
-	$path = locate_template(array($template_id),true);
-
-
-	debug(array(
-		'template' => $template,
-		'template_id' => $template_id,
-		'path' => $path,
-	));
-
-	//load_template( $template );
-
-	/*
-
-	if(!PadmaOption::get('allow-plugin-templates', false))
-		return $template;
-
-	if(!PadmaDisplay::is_plugin_template())
-		return $template;
-
-	if(!file_exists($template))		
-		return $template;
-
 	return PadmaDisplay::load_plugin_template($template);
-	*/
-
-	return $template;
+	
 });

@@ -128,7 +128,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		 **/
 		public function content($block) {
 
-			global $wp_query;
+			global $wp_query, $post;
 
 			if ( padma_post('isAjax') ) {
 				$is_archive = padma_post( 'isArchive' );
@@ -255,6 +255,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 					}
 
+					$exclude_current_post = parent::get_setting( $block, 'exclude-current-post', false );
+
 				}
 
 				/* Query! */
@@ -267,9 +269,16 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					echo '<div class="pin-board-gutter-sizer"></div>' . "\n";
 					echo '<div class="pin-board-column-sizer"></div>' . "\n\n";
 
+
+				$current_post_id = $post->ID;
+
 				while ( $wp_query->have_posts() ) {
 
 					$wp_query->the_post();
+
+					// Exclude current post from the pinboard
+					if( $exclude_current_post && $current_post_id == get_the_ID())
+						continue;
 
 					/* If only images are being shown and there's no thumbnail, then don't show the pin. */
 					if ( !($show_images && has_post_thumbnail()) && !$content_to_show && !$show_titles && !$show_text_when_no_image )
@@ -881,6 +890,13 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					'label' 	=> 'Author',
 					'tooltip' 	=> '',
 					'options' 	=> 'get_authors()'
+				),
+				'exclude-current-post' => array(
+					'type' => 'checkbox',
+					'name' => 'exclude-current-post',
+					'label' => 'Exclude Current Post',
+					'default' => false,
+					'tooltip' => 'Enabling this option will exclude the current Post from the pinboard, usefull when are creating a "related post" block.'
 				),
 
 				'order-heading' => array(

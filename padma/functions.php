@@ -35,7 +35,7 @@ if ( get_option('padma-disable-automatic-core-updates') != '1'){
 if ( !defined('WP_CONTENT_DIR') )
 	die('Please do not access this file directly.');
 
-/* Make sure PHP 7.0 or newer is installed and WordPress 3.2 or newer is installed. */
+/* Make sure PHP 7.0 or newer is installed and WordPress 3.4 or newer is installed. */
 require_once get_template_directory() . '/library/common/compatibility-checks.php';
 
 /* Load Padma! */

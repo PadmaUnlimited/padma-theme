@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.1.9
+Version: 1.1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,12 +42,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.9
+= 1.1.10
 * Released: On Dev
 
 Tested with WordPress 5.2.2
 Tested with ClassicPress 1.0.1
 Fixed: Custom code minor fix
+Fixed: Compatibility with Updater plugin auto update
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
@@ -56,9 +57,10 @@ Added toggle option to slider inputs (Block API)
 Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP version
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load
 Added better plugin templates support
+Added option to exclude current post from PinBoard block when custom query is used
 Updated Constant PADMA_DISABLE_PHP_PARSING is true by default
 Updated Custom Code Block, to execute PHP functions require PADMA_DISABLE_PHP_PARSING = false in wp-config.php
-Auto update fix
+
 
 
 = 1.1.0

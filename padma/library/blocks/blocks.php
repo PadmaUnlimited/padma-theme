@@ -28,6 +28,7 @@ class PadmaBlocks {
 		'search',
 		'slidedeck',
 		'slider',
+		'site-logo',
 		'social',
 		'text',
 		'video',

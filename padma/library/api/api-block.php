@@ -32,6 +32,9 @@ abstract class PadmaBlockAPI {
 	public $description 	= false;
 	public $allow_titles 	= true;
 	public $categories 		= array();
+	public $inline_editable = false;
+
+	
 
 	/* System Properties (DO NOT USE OR TOUCH) */	
 	protected $options;
@@ -61,6 +64,7 @@ abstract class PadmaBlockAPI {
 			'allow-titles' => $this->allow_titles,
 			'description' => $this->description,
 			'categories' => $this->categories,			
+			'inline-editable' => $this->inline_editable,
 		);
 
 		

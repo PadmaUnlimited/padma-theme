@@ -643,7 +643,8 @@ class PadmaBlocks {
 				'data-width="' . $original_block['dimensions']['width'] . '"',
 				'data-height="' . $original_block['dimensions']['height'] . '"',
 				'data-alias="' . esc_attr(stripslashes(padma_get('alias', padma_get('settings', $block, array())))) . '"',
-				'data-custom-classes="' . trim($custom_css_classes) . '"'
+				'data-custom-classes="' . trim($custom_css_classes) . '"',
+				'data-inline-editable="' . padma_get('inline-editable', $block_type_settings) . '"'
 			));
 
 		} else {

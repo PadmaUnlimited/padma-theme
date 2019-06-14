@@ -213,8 +213,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						$elementSelector.on('click', designEditor.processNoElementClick);
 						$elementSelector.on('mouseenter', 'li span.element-name', designEditor.processElementMouseEnter);
 						$elementSelector.on('mouseleave', 'li span.element-name', designEditor.processElementMouseLeave);
-						$elementSelector.on('click', 'li span.element-name', designEditor.processElementClick);
-						$elementSelector.on('click', 'li span.element-expander', designEditor.processElementExpanderClick);
+						$elementSelector.on('click', 'li span.element-name', designEditor.processElementClick);						
+						$elementSelector.on('click', 'li span.element-expander', designEditor.processElementExpanderClick);						
 					/* End binding elements */
 
 					/* Element Name Buttons */
@@ -881,6 +881,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			}
 
+			this.processElementDoubleClick = function(event){
+				console.log(event)
+			}
+			
 				this.processElementNameLayoutSpecific = function() {
 
 					var elementNode = $(this).parents('li.element').first();
@@ -2930,7 +2934,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		}
 	/* END ELEMENT INFO */
 
-
 	var modeDesign = {
 
 		init: function() {
@@ -2956,8 +2959,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			/* Hide DE if cookie is set to do so */
 				if ( $.cookie('hide-design-editor') === 'true' )
 					hideDesignEditor();
-
-
 
 
 			/*
@@ -3108,11 +3109,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			$('#toggle-inspector').bind('click', toggleInspector);
 
+			$i('.block').on('dblclick', designEditor.processElementDoubleClick);
+
 		},
 
 		iframeCallback: function() {
 
 			bindBlockDimensionsTooltip();
+			bindBlockInlineEditor();
 			addInspector();
 
 			/* Reset editor for layout switch */

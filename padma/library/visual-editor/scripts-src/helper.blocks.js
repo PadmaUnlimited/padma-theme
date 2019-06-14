@@ -61,6 +61,84 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		return block.data('type');
 	}
 
+	getBlockInlineEditableField = function(element) {
+		
+		var block = getBlock(element);
+		
+		if ( !block ) {
+			return false;
+		}
+
+		return block.data('inline-editable');
+	}
+
+	getBlockInlineEditableFieldValue = function(element) {
+
+		var block = getBlock(element);
+		
+		if ( !block ) {
+			return false;
+		}
+
+		var blockID = getBlockID(element);
+		var content = $.ajax(Padma.ajaxURL, {
+			async: false,
+			cache: false,
+			type: 'POST',
+			dataType: 'text',
+			data:{
+				security: Padma.security,
+				action: 'padma_visual_editor',
+				method: 'load_block_editable_field_content',
+				block_id: blockID,
+			},
+			success: function(data) {
+				
+			}
+		}).done(function(data) {
+			
+			return data;
+		});
+
+		return content.responseText;
+
+	}
+
+	saveBlockInlineEditableFieldValue = function(blockID,content_to_save) {
+
+		var block = getBlockByID(blockID);
+		
+		if ( !block ) {
+			return false;
+		}
+
+		console.log(blockID);
+		console.log(content_to_save);
+
+		var content = $.ajax(Padma.ajaxURL, {
+			async: false,
+			cache: false,
+			type: 'POST',
+			dataType: 'text',
+			data:{
+				security: Padma.security,
+				action: 'padma_visual_editor',
+				method: 'save_block_editable_field_content',
+				block_id: blockID,
+				content: content_to_save,
+			},
+			success: function(data) {
+				
+			}
+		}).done(function(data) {
+			
+			return data;
+		});
+
+		return content.responseText;
+
+	}
+
 
 	getBlockTypeNice = function(type) {
 		
@@ -574,11 +652,59 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 		
+		bindBlockInlineEditor = function() {
+
+			if ( Padma.touch )
+				return false;
+
+			$i('body').delegate('.block', 'dblclick', function(event) {
+				
+				var blockID = getBlockID(this);
+				var editableField = getBlockInlineEditableField(this);
+				var editableFieldValue = getBlockInlineEditableFieldValue(this);				
+
+				if(editableField.length < 1)
+					return false;
+
+				var html = '<div class="dynamic-inline-edit">';
+					html += '<textarea id="dynamic-inline-edit-'+blockID+'" >'+editableFieldValue+'</textarea>';
+					html += '<a class="cancel-edit">Cancel</a>';
+					html += '<a class="finish-edit">Save</a>';
+					html += '</div>';
+
+				$i('#block-'+blockID +' .block-content').hide();
+				$i('#block-'+blockID +' .block-content').parent().append(html);
+				$i('#dynamic-inline-edit-'+blockID).focus();
+				
+			});
+
+			$i('body').delegate('.block .dynamic-inline-edit a.cancel-edit', 'click', function(event) {
+				var blockID = getBlockID(this);
+				$i('#block-'+blockID +' .block-content').show();
+				$i('#block-'+blockID +' .dynamic-inline-edit').remove();
+				refreshBlockContent(blockID);
+			});
+
+			$i('body').delegate('.block .dynamic-inline-edit a.finish-edit', 'click', function(event) {
+				var blockID = getBlockID(this);
+				$i('#block-'+blockID +' .block-content').show();
+
+				var content = $i('#dynamic-inline-edit-'+blockID).val();				
+				saveBlockInlineEditableFieldValue(blockID,content);
+				$i('#block-'+blockID +' .dynamic-inline-edit').remove();
+				refreshBlockContent(blockID);
+				reloadBlockOptions(blockID);
+			});
+
+
+		}
+
+
 		bindBlockDimensionsTooltip = function() {
 
 			if ( Padma.touch )
 				return false;
-							
+			
 			$i('body').delegate('.block', 'mouseenter', function(event) {
 					
 				var self = this;	
@@ -751,7 +877,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					}
 				}			
 			}
-		},
+		}
 
 	openBlockOptions = function(block, subTab) {
 
@@ -1606,4 +1732,3 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 });
-

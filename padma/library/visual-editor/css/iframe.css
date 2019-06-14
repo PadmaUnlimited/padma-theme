@@ -640,3 +640,31 @@ body:not(.inspector-disabled) .inspector-element-selected {
 	left: -5px;
 	width: 15px;
 }
+
+.dynamic-inline-edit{}
+.dynamic-inline-edit textarea{
+	width: calc(100% - 130px);
+	height: 100%;
+    padding-left: 5px;
+	display: inline-block;
+}
+.dynamic-inline-edit a{
+    display: inline-block;
+    width: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+	border-top: 1px solid transparent;
+	border-bottom: 2px solid transparent;
+	float: right;
+}
+.dynamic-inline-edit a.cancel-edit{
+	color: #fff;
+	background-color: #ff5252;
+}
+.dynamic-inline-edit a.finish-edit{
+	color: #fff;
+	background-color: #2EA2CC;
+}

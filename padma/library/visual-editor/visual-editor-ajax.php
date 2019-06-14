@@ -274,6 +274,48 @@ class PadmaVisualEditorAJAX {
 	}
 
 
+	public static function method_load_block_editable_field_content() {
+
+		/* Go */
+		$block_id = padma_post('block_id');		;
+		$block = PadmaBlocksData::get_block($block_id);
+		$block_types = PadmaBlocks::get_block_types();
+		$block_type_settings = padma_get($block['type'], $block_types, array());
+		$editable_field = padma_get('inline-editable', $block_type_settings);
+
+		echo $block['settings'][$editable_field];
+
+	}
+
+	public static function method_save_block_editable_field_content() {
+
+		/* Go */
+		$block_id = padma_post('block_id');		;
+		$content = padma_post('content');		;
+
+		// Load block data
+		$block = PadmaBlocksData::get_block($block_id);
+		$block_types = PadmaBlocks::get_block_types();
+		$block_type_settings = padma_get($block['type'], $block_types, array());
+
+		// Get which block settings is able to edit inline
+		$editable_field = padma_get('inline-editable', $block_type_settings);
+		
+		// Replace setting
+		$block['settings'][$editable_field] = $content;
+		
+		// Save new block data to database
+		PadmaBlocksData::update_block($block_id, $block);
+
+		// Reload block data
+		$block = PadmaBlocksData::get_block($block_id);
+		
+		// echo setting
+		echo $block['settings'][$editable_field];
+		
+	}
+
+
 	public static function method_load_block_options() {
 
 		$layout = padma_post('layout');

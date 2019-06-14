@@ -168,10 +168,10 @@ class PadmaVisualEditor {
 							case 'new':
 
 								if ( PadmaWrappersData::get_wrapper($id) )
-									continue;
+									continue 2;
 
 								if ( isset($wrappers[$id]['delete']) )
-									continue;
+									continue 2;
 
 								$args = array(
 									'position' => padma_get('position', $wrappers[$id], 9999),
@@ -214,10 +214,10 @@ class PadmaVisualEditor {
 							case 'new':
 
 								if ( PadmaBlocksData::get_block($id) )
-									continue;
+									continue 2;
 
 								if ( isset($blocks[$id]['delete']) )
-									continue;
+									continue 2;
 
 								$dimensions = explode(',', $blocks[$id]['dimensions']);
 								$position = explode(',', $blocks[$id]['position']);
@@ -294,7 +294,7 @@ class PadmaVisualEditor {
 							case 'delete':
 
 								if ( isset($blocks[$id]['new']) )
-									continue;
+									continue 2;
 
 								PadmaBlocksData::delete_block($id);
 
@@ -303,7 +303,7 @@ class PadmaVisualEditor {
 							case 'dimensions':
 
 								if ( isset($blocks[$id]['new']) )
-									continue;
+									continue 2;
 
 								$dimensions = explode(',', $value);
 
@@ -321,7 +321,7 @@ class PadmaVisualEditor {
 							case 'position':
 
 								if ( isset($blocks[$id]['new']) )
-									continue;
+									continue 2;
 
 								$position = explode(',', $value);
 
@@ -339,7 +339,7 @@ class PadmaVisualEditor {
 							case 'wrapper':
 
 								if ( isset($blocks[$id]['new']) )
-									continue;
+									continue 2;
 
 								/* Check if the wrapper ID for the block is temporary, if it is get the real wrapper ID */
 								if ( isset($output['wrapper-id-mapping']) && padma_get($value, $output['wrapper-id-mapping']) )
@@ -357,7 +357,7 @@ class PadmaVisualEditor {
 							case 'settings':
 
 								if ( isset($blocks[$id]['new']) )
-									continue;
+									continue 2;
 
 								//Get the block from the layout
 								$block = PadmaBlocksData::get_block($id);
@@ -370,11 +370,11 @@ class PadmaVisualEditor {
 
 								//If block doesn't exist, we can't do anything.
 								if ( !$block || !is_array($settings) )
-									continue;
+									continue 2;
 
 								//If there aren't any options, then don't do anything either
 								if ( !is_array($value) || count($value) === 0 )
-									continue;
+									continue 2;
 
 								$block['settings'] = array_merge($settings, $value);
 
@@ -404,7 +404,7 @@ class PadmaVisualEditor {
 							case 'delete':
 
 								if ( isset($wrappers[$id]['new']) )
-									continue;
+									continue 2;
 
 								PadmaWrappersData::delete_wrapper($current_layout, $id);
 
@@ -413,7 +413,7 @@ class PadmaVisualEditor {
 							case 'position':
 
 								if ( isset($wrappers[$id]['new']) )
-									continue;
+									continue 2;
 
 								$args = array(
 									'position' => $value
@@ -426,18 +426,18 @@ class PadmaVisualEditor {
 							case 'settings':
 
 								if ( isset($wrappers[$id]['new']) )
-									continue;
+									continue 2;
 
 								//Get the wrapper from the layout so we can merge settings
 								$wrapper = PadmaWrappersData::get_wrapper($id);
 
 								//If wrapper doesn't exist, we can't do anything.
 								if ( !$wrapper )
-									continue;
+									continue 2;
 
 								//If there aren't any options, then don't do anything either
 								if ( !is_array($value) || count($value) === 0 )
-									continue;
+									continue 2;
 
 								$wrapper['settings'] = array_merge($wrapper['settings'], $value);
 

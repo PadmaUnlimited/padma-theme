@@ -49,6 +49,7 @@ Tested with WordPress 5.2.2
 Tested with ClassicPress 1.0.1
 Fixed: Custom code minor fix
 Fixed: Compatibility with Updater plugin auto update
+Fixed: PHP 7.3 Compatibility
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

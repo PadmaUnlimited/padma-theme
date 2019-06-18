@@ -664,7 +664,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		'mode' 				=> 'Mode',
 		'query-filters' 	=> 'Query Filters',
 		'display' 			=> 'Display',
-		'meta' 				=> 'Meta',
+		'meta' 				=> 'Meta',		
 		'comments' 			=> 'Comments',
 		'post-thumbnails' 	=> 'Featured Images'
 	);

@@ -245,6 +245,7 @@ class Padma {
 				Query Class
 			*/
 			'common/query' 					=> true,
+			'common/custom-fields' 			=> true,
 			
 			/*
 				Notices

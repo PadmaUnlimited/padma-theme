@@ -822,3 +822,7 @@ hr.templates{
 #padma-notification-skin-not-saved{
 	border-left-color: #dc3232;
 }
+.theme.padma-template{
+	margin-left: 10px;
+    margin-right: 10px !important;
+}

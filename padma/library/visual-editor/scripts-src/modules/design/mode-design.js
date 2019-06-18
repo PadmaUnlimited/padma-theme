@@ -2531,7 +2531,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					var blockID 	= getBlock($(inspectorElement))[0].dataset.id;
 					var blockType 	= getBlock($(inspectorElement))[0].dataset.type;
 
-
 					if(blockType == 'content'){
 						
 						var elementId = $(inspectorElement).closest('article').attr('id');
@@ -2545,8 +2544,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 							refreshBlockContent(blockID);
 						});
 
-			
-
 					}else{
 
 						showNotification({
@@ -2558,7 +2555,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					}
 
 				} else {
-
 
 					var inspectorElementOptions = contextMenu.data('element-options');
 					var instanceID 				= $(this).parents('li').first().data('instance-id');

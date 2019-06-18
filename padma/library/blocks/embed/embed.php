@@ -7,8 +7,7 @@ class PadmaEmbedBlock extends PadmaBlockAPI {
 	public $name = 'Embed';		
 	public $options_class = 'PadmaEmbedBlockOptions';	
 	public $description = 'The Embed block allows you to embed YouTube, Vimeo, or any other popular oEmbed supported service.';
-	public $categories 	= array('core','media');
-	
+	public $categories 	= array('core','media');	
 
 	function init() {
 		

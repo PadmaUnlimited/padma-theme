@@ -16,6 +16,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 	public $allow_titles = false;	
 	protected $show_content_in_grid = true;
 	public $categories 	= array('core','content');
+	public $inline_editable = array('custom-copyright');
 		
 	
 	function setup_elements() {
@@ -120,7 +121,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 	
 	
 	/**
-	 * Echos the Powered By Padma link.
+	 * Echos the Unlimited by Padma.
 	 * 
 	 * @uses PadmaOption::get()
 	 *
@@ -149,7 +150,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 
 		$copyright = $custom_copyright ? $custom_copyright : $default_copyright;
 
-		echo apply_filters('padma_copyright', padma_parse_php('<p class="copyright footer-copyright">' . $copyright . '</p>'));
+		echo apply_filters('padma_copyright', padma_parse_php('<p class="copyright footer-copyright custom-copyright">' . $copyright . '</p>'));
 
 	}
 

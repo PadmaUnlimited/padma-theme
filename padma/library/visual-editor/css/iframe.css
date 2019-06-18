@@ -641,16 +641,23 @@ body:not(.inspector-disabled) .inspector-element-selected {
 	width: 15px;
 }
 
-.dynamic-inline-edit{}
+.dynamic-inline-edit{
+	width: auto;
+    display: inline-block;  
+}
 .dynamic-inline-edit textarea{
-	width: calc(100% - 130px);
+	max-width: calc(100% - 64px);
 	height: 100%;
     padding-left: 5px;
 	display: inline-block;
+	border: none;
+    overflow: hidden;
+	min-height: 27px;
+    min-width: 30px;
 }
 .dynamic-inline-edit a{
     display: inline-block;
-    width: 40px;
+    width: auto;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;

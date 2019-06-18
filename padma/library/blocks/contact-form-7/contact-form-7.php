@@ -7,7 +7,7 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 	public $name 			= 'Contact Form 7';		
 	public $options_class 	= 'PadmaContactForm7BlockOptions';
 	public $description 	= 'Display Contact Form 7';
-	public $categories 		= array('core','forms');
+	public $categories 		= array('core','forms');	
 	
 	public function init() {
 

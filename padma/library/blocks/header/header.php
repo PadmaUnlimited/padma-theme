@@ -16,7 +16,7 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 	public $description = 'Display your banner, logo, or site title and tagline.  This typically goes at the top of your website.';
 	public $allow_titles = false;	
 	protected $show_content_in_grid = true;
-	public $categories = array('core','content');
+	public $categories = array('core','content');	
 	
 	
 	function setup_elements() {

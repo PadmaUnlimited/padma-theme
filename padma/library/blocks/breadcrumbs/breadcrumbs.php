@@ -10,6 +10,8 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 	public $description = 'Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post';	
 	public $options_class = 'PadmaBreadcrumbsBlockOptions';
 	public $categories 	= array('core','navigation');
+	// To allow inline editor
+	public $inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
 	
 	
 	function setup_elements() {
@@ -141,7 +143,7 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 			echo '<p class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
 
 				if ( parent::get_setting($block, 'show-prefix', false) )
-					echo '<span class="breadcrumbs-prefix">' . parent::get_setting($block, 'prefix-text', __('You Are Here:', 'padma')) . '</span>&ensp;';
+					echo '<span class="breadcrumbs-prefix prefix-text">' . parent::get_setting($block, 'prefix-text', __('You Are Here:', 'padma')) . '</span>&ensp;';
 
 				$breadcrumbs = apply_filters('padma_breadcrumbs', $breadcrumbs);
 
@@ -152,7 +154,7 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 
 					/* Do not show separator before first item */
 						if ( $breadcrumbs_loop_counter != 0 )
-							echo ' <span class="sep">' . parent::get_setting($block, 'separator', '&raquo;') . '</span> ';
+							echo ' <span class="sep separator">' . parent::get_setting($block, 'separator', '&raquo;') . '</span> ';
 
 					echo '<span typeof="v:Breadcrumb" class="breadcrumb">';
 

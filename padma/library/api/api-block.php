@@ -32,7 +32,8 @@ abstract class PadmaBlockAPI {
 	public $description 	= false;
 	public $allow_titles 	= true;
 	public $categories 		= array();
-	public $inline_editable = false;
+	public $inline_editable = array('block-title', 'block-subtitle');
+	public $inline_editable_equivalences = array();
 
 	
 
@@ -50,6 +51,32 @@ abstract class PadmaBlockAPI {
 		//If the Padma blocks array doesn't exist, create it.
 		if ( !is_array($padma_block_types) )
 			$padma_block_types = array();
+
+		// Inline editable fields
+		// PadmaAudioBlock::inline_editable
+		// example 1:
+		// 	public $inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
+		// example 2:
+		// 	public $inline_editable = array('block-title', 'block-subtitle', array('title' => 'su-box-title'));	
+		
+		$inline_editable_fields = array();
+		
+		if(is_array($this->inline_editable)){
+			foreach ($this->inline_editable as $key => $editable_field_and_class) {
+				if(is_array($editable_field_and_class)){
+					foreach ($editable_field_and_class as $field => $css_class) {
+						$inline_editable_fields[] = $css_class;						
+					}
+				}else{
+					$inline_editable_fields[] = $editable_field_and_class;
+				}
+			}
+		}
+
+
+
+
+
 				
 		// Add block to array.  This array will be used for checking if certain blocks exist, the block type selector and so on.
 		// Floating blocks are created on the fly, it change the id so DO NOT use css or js based on the id
@@ -64,7 +91,8 @@ abstract class PadmaBlockAPI {
 			'allow-titles' => $this->allow_titles,
 			'description' => $this->description,
 			'categories' => $this->categories,			
-			'inline-editable' => $this->inline_editable,
+			'inline-editable' => implode(',', $inline_editable_fields),
+			'inline-editable-equivalences' => $this->inline_editable_equivalences
 		);
 
 		

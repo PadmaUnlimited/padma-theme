@@ -8,7 +8,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 	public $name 			= 'Content';		
 	public $options_class 	= 'PadmaContentBlockOptions';
 	public $description 	= 'Main content area to show the current page\'s content or the latest posts.  This is considered the "Loop" in other themes.';
-	public $categories 		= array('core','content');
+	public $categories 		= array('core','content');	
 			
 	
 	function init() {

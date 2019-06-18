@@ -8,17 +8,18 @@ class PadmaTextBlock extends PadmaBlockAPI {
 	public $name = 'Text';		
 	public $options_class = 'PadmaTextBlockOptions';
 	public $description = 'Use the built-in rich text editor to insert titles, text, and more!';
-	public $categories 	= array('core','content');
+	public $categories 	= array('core','content');		
+	public $inline_editable = array('block-title', 'block-subtitle', 'content');
 	
 	function content($block) {
 		
 		$content = parent::get_setting($block, 'content');	
 			
-		echo '<div class="entry-content">';
+		echo '<div class="entry-content content">';
 			if ( $content != null )
 				echo do_shortcode(stripslashes($content));
 			else
-				echo '<p>There is no content to display.</p>';
+				echo '<p class="content">There is no content to display.</p>';
 		echo '</div>';
 		
 	}

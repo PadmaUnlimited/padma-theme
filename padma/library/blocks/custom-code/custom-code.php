@@ -10,6 +10,7 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaCustomCodeBlockOptions';
 	public $description 	= 'Place in custom HTML, PHP, or even WordPress shortcodes into this block.';
 	public $categories 		= array('core','code');
+	public $inline_editable = array('block-title', 'block-subtitle', 'content');
 	
 	
 	function content($block) {
@@ -18,10 +19,10 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 
 		if ( $content != null )
 			
-			echo '<div class="custom-code-content">'.padma_parse_php(do_shortcode(stripslashes($content))).'</div>';			
+			echo '<div class="custom-code-content content">'.padma_parse_php(do_shortcode(stripslashes($content))).'</div>';			
 		
 		else
-			echo '<p>There is no custom code to display.</p>';
+			echo '<p class="content">There is no custom code to display.</p>';
 		
 	}
 
@@ -94,8 +95,6 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 		));
 	}
 
-	
-	
 }
 
 

@@ -61,7 +61,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		return block.data('type');
 	}
 
-	getBlockInlineEditableField = function(element) {
+	getBlockInlineEditableFields = function(element) {
 		
 		var block = getBlock(element);
 		
@@ -72,7 +72,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		return block.data('inline-editable');
 	}
 
-	getBlockInlineEditableFieldValue = function(element) {
+	getBlockInlineEditableFieldValue = function(field,element) {
 
 		var block = getBlock(element);
 		
@@ -90,6 +90,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				security: Padma.security,
 				action: 'padma_visual_editor',
 				method: 'load_block_editable_field_content',
+				field: field,
 				block_id: blockID,
 			},
 			success: function(data) {
@@ -104,16 +105,13 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 	}
 
-	saveBlockInlineEditableFieldValue = function(blockID,content_to_save) {
+	saveBlockInlineEditableFieldValue = function(blockID, field, content_to_save) {
 
 		var block = getBlockByID(blockID);
 		
 		if ( !block ) {
 			return false;
 		}
-
-		console.log(blockID);
-		console.log(content_to_save);
 
 		var content = $.ajax(Padma.ajaxURL, {
 			async: false,
@@ -124,6 +122,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				security: Padma.security,
 				action: 'padma_visual_editor',
 				method: 'save_block_editable_field_content',
+				field: field,
 				block_id: blockID,
 				content: content_to_save,
 			},
@@ -656,44 +655,108 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			if ( Padma.touch )
 				return false;
-
+			
+			//return false;
 			$i('body').delegate('.block', 'dblclick', function(event) {
-				
-				var blockID = getBlockID(this);
-				var editableField = getBlockInlineEditableField(this);
-				var editableFieldValue = getBlockInlineEditableFieldValue(this);				
 
-				if(editableField.length < 1)
+				// clean all editors
+				$i('.dynamic-inline-edit .cancel-edit').click();
+
+				var element = $(event.target).closest('.inspector-element');				
+				var clases = element.attr('class').split(' ');
+				var editableFields = getBlockInlineEditableFields(this.closest('.block')).split(',');
+				var should_exit = false;
+
+
+				if(editableFields.length < 1){
 					return false;
+				}				
+
+				// target contains a editable item class 
+				if( ! editableFields.some(r=> clases.includes(r)) ){
+
+					var element = $(event.target);
+					var clases = element.attr('class').split(' ');
+
+					if( ! editableFields.some(r=> clases.includes(r)) ){
+						should_exit = true;
+					}
+				}
+
+				var blockType 	= getBlock(element)[0].dataset.type;
+				if(blockType == 'content'){
+					showNotification({
+						id: 'open-content-editor',
+						message: 'To edit Pages or Post content please right click the content block and use the option "Edit Content"',
+						closeTimer: 3000
+					});
+				}
+
+
+				if(should_exit)
+					return;
+
+
+				var field = editableFields.filter(o=> clases.includes(o))[0];					
+				var blockID = getBlockID(this);
+				var editableFieldValue = getBlockInlineEditableFieldValue(field,this);				
+
+				
+				var style = 'font-size: ' + element.css('font-size') + ';';
+					style += 'color: ' + element.css('color') + ';';
+					style += 'height: ' + element.css('height') + ';';
+					style += 'width: ' + element.css('width') + ';';
+					style += 'text-align: ' + element.css('text-align') + ';';
+					style += 'background-color: ' + element.css('background-color') + ';';
+
+				window.element = element;
 
 				var html = '<div class="dynamic-inline-edit">';
-					html += '<textarea id="dynamic-inline-edit-'+blockID+'" >'+editableFieldValue+'</textarea>';
-					html += '<a class="cancel-edit">Cancel</a>';
-					html += '<a class="finish-edit">Save</a>';
+					html += '<textarea rows="1" id="dynamic-inline-edit-'+blockID+'" style="'+style+'">'+editableFieldValue+'</textarea>';
+					html += '<a class="cancel-edit" data-cancel="'+blockID+':'+field+'">❌</a>';
+					html += '<a class="finish-edit" data-save="'+blockID+':'+field+'">✔</a>';
 					html += '</div>';
 
-				$i('#block-'+blockID +' .block-content').hide();
-				$i('#block-'+blockID +' .block-content').parent().append(html);
+				element.hide();
+				element.after(html);
 				$i('#dynamic-inline-edit-'+blockID).focus();
 				
 			});
 
 			$i('body').delegate('.block .dynamic-inline-edit a.cancel-edit', 'click', function(event) {
-				var blockID = getBlockID(this);
-				$i('#block-'+blockID +' .block-content').show();
-				$i('#block-'+blockID +' .dynamic-inline-edit').remove();
+				
+				var blockID = getBlockID(this);				
+				var field = $i(this).data('cancel').split(':')[1];
+				var element = $i(this).closest('.' + blockID + ' .'+field);
+				
+				element.show();
+				$i('#dynamic-inline-edit-'+blockID).remove();
 				refreshBlockContent(blockID);
+
 			});
 
 			$i('body').delegate('.block .dynamic-inline-edit a.finish-edit', 'click', function(event) {
+								
 				var blockID = getBlockID(this);
-				$i('#block-'+blockID +' .block-content').show();
-
+				var field = $i(this).attr('data-save').split(':')[1];
 				var content = $i('#dynamic-inline-edit-'+blockID).val();				
-				saveBlockInlineEditableFieldValue(blockID,content);
-				$i('#block-'+blockID +' .dynamic-inline-edit').remove();
+				
+				saveBlockInlineEditableFieldValue( blockID, field, content );
+				$i('#dynamic-inline-edit-'+blockID).remove();
 				refreshBlockContent(blockID);
 				reloadBlockOptions(blockID);
+			});
+
+
+			$i('body').delegate('.dynamic-inline-edit textarea','keydown',function(event){				
+				var id = $i(this).attr('id').split('-')[3];
+				if (event.keyCode == 13) {
+					$i('a[data-save*="'+id+'"]').click();
+				}else{
+					if (event.keyCode == 27) {
+						$i('a[data-cancel*="'+id+'"]').click();
+					}
+				}
 			});
 
 
@@ -912,8 +975,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 			try{
 				callback = eval(openJsCallback);				
-			}catch(e){
-				console.log(e.message);
+			}catch(e){				
 				callback = openJsCallback;
 			}finally{
 				callback = function(){}
@@ -1472,12 +1534,10 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			'block-id': blockID
 		}
 
-		$.get(Padma.ajaxURL, params, function(block) {
-			//console.log(block)
+		$.get(Padma.ajaxURL, params, function(block) {			
 			if ( typeof callback == 'function' ){
 				callback(block.settings);
 			}
-
 		});
 
 	}

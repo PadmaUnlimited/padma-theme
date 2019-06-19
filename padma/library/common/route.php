@@ -122,6 +122,10 @@ class PadmaRoute {
 				Padma::load('visual-editor/content-editor');
 				break;
 
+			case 'block-js':
+				PadmaGutenbergBlocks::block_js();
+				break;
+
 		}
 
 		exit;

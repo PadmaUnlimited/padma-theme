@@ -11,23 +11,12 @@ class PadmaBlocksAnywhere {
 	private static $blocks = array();
 
 	static function init() {
-
 		
 		add_filter( 'padma_compiler_trigger_url', array( __CLASS__, 'add_current_layout' ) );
 		add_shortcode( 'padma-block', array( __CLASS__, 'create_block_shortcode' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 		add_action( 'padma_blocks_anywhere', array( __CLASS__, 'create_block_shortcode' ) );
-		
-		/**
-		 *
-		 * Feature only for WP5+
-		 *
-		 */
-		/*
-		if(!function_exists('classicpress_version_short')){
-			add_action('init', array(__CLASS__,'shortcode_as_gutenberg_blocks'), 99);
-		}*/
-			
+				
 	}
 
 
@@ -112,6 +101,7 @@ class PadmaBlocksAnywhere {
 
 
 	}
+
 
 	static function enqueue_assets() {
 
@@ -362,58 +352,4 @@ class PadmaBlocksAnywhere {
 			
 	}
 
-	/*
-	public static function shortcode_as_gutenberg_blocks(){
-
-		if(!is_admin()){
-			return;
-		}
-
-		// Skip block registration if Gutenberg is not enabled/merged.
-		if (!function_exists('register_block_type')) {
-			return;
-		}
-
-		$post_id = $_GET['post'];
-
-		debug(self::$blocks);
-		foreach (self::$blocks as $key => $block_id) {
-
-			debug(array('damm' => $block_id));
-			$block = PadmaBlocks::get_block( $block_id );
-			debug($block);
-
-		}
-
-		$dir = dirname(__FILE__);
-
-		$index_js = 'index.js';
-		
-		wp_register_script(
-			'padma-block',
-			plugins_url($index_js, __FILE__),
-			array(
-				'wp-blocks',
-				'wp-i18n',
-				'wp-element',
-				'wp-components'
-			),
-			filemtime("$dir/$index_js")
-		);
-
-		
-
-		register_block_type('caldera-learn-basic-blocks/post-title', array(
-			'editor_script' => 'caldera-learn-basic-blocks-post-title',
-			'render_callback' => 'caldera_learn_basic_blocks_post_title_block_handler',
-			'attributes' => [
-				'id' => [
-					'default' => 1
-				],
-				'heading' => [
-					'default' => 'h2'
-				]
-			]
-		));
-	}*/
 }

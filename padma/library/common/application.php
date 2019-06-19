@@ -246,6 +246,7 @@ class Padma {
 			*/
 			'common/query' 					=> true,			
 			
+
 			/*
 				Notices
 			*/
@@ -269,6 +270,8 @@ class Padma {
 			/*		Compatiblity with  WPML Multilingual CMS Plugin */
 			'compatibility/wpml/compatibility-wpml'	=> true,
 
+			/*	Gutenberg Compatibility	*/
+			'common/abstract/gutenberg-blocks'	=> true,
 
 		);
 			

@@ -56,6 +56,7 @@ New features on content block
 - Added: Custom Archive title
 New Option to upgrade and use developer/preview version
 New Block: Site Logo
+New inline editor for certain fields on Visual Editor
 Added toggle option to slider inputs (Block API)
 Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP version
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load

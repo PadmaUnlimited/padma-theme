@@ -1037,6 +1037,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		reloadBlockOptions = function(blockID, subTab) {
 
+
 			/* Make sure the block options are open to begin with */
 			if ( !$('ul#panel-top').find('[aria-controls="block-' + blockID + '-tab"]').length )
 				return;

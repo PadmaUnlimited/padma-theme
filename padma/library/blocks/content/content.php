@@ -772,7 +772,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 				'label' => 'Post Type',
 				'tooltip' => '',
 				'options' => 'get_post_types()',
-				'callback' => 'reloadBlockOptions()'
+				'callback' => 'reloadBlockOptions(block.id)'
 			),
 
 			'post-status' => array(
@@ -1493,16 +1493,9 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 
 	
 	function get_categories() {
-		
-		$category_options = array();
-		
-		$categories_select_query = get_categories();
-		
-		foreach ($categories_select_query as $category)
-			$category_options[$category->term_id] = $category->name;
 
-		return $category_options;
-		
+		return PadmaQuery::get_categories($this->block['settings']['post-type']);
+
 	}
 
 	function get_tags() {

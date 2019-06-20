@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.1.12
+Version: 1.1.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.12
+= 1.1.13
 * Released: On Dev
 
 Tested with WordPress 5.2.2
@@ -51,6 +51,7 @@ Fixed: Custom code minor fix
 Fixed: Compatibility with Updater plugin auto update
 Fixed: PHP 7.3 Compatibility
 Fixed: Templates install minor bug
+Fixed: Query Filter option for custom taxonomies on content block for custom post types
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

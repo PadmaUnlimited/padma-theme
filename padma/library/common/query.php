@@ -69,12 +69,26 @@ class PadmaQuery{
 	 * Query categories
 	 *
 	 */	
-	public static function get_categories() {
+	public static function get_categories($post_types = array('post')) {
+
+		$taxonomies = array();
+
+		if( count($post_types) > 0){
+			foreach ($post_types as $key => $post_type) {
+				foreach (get_object_taxonomies( $post_type ) as $key => $taxonomy) {					
+					$taxonomies[] = $taxonomy;
+				}
+			}
+		}else{
+			$taxonomies[] = 'category';
+		}
+
+		$terms = get_terms( array(
+		    'taxonomy' => $taxonomies,
+		    'hide_empty' => false,
+		));
 		
-		$category_options = array();		
-		$categories_select_query = get_categories();
-		
-		foreach ($categories_select_query as $category)
+		foreach ($terms as $category)
 			$category_options[$category->term_id] = $category->name;
 
 		return $category_options;

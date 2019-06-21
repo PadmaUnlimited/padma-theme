@@ -1056,6 +1056,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			this.loadElementInputs = function(element, specialElementInfo) {
 
+
+
 				var ajaxArgs = {
 					security: Padma.security,
 					action: 'padma_visual_editor',
@@ -1063,6 +1065,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					unsavedValues: designEditorGetUnsavedValues(element),
 					element: designEditorGetElementObject(element)
 				};
+
 
 				if ( typeof specialElementInfo == 'object' ) {
 
@@ -1080,9 +1083,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				}
 
 				return $.post(Padma.ajaxURL, ajaxArgs).done(function(inputs) {
-				
-					var options = $('div.design-editor-options');
+					
 
+					var options = $('div.design-editor-options');
+					
 					options.html(inputs);
 
 					/* Set the flags */
@@ -2560,6 +2564,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					var instanceID 				= $(this).parents('li').first().data('instance-id');
 					var stateID 				= $(this).parents('li').first().data('state-id');
 
+
 					/* Reactivate inspector tooltip */
 					inspectorTooltip.show();
 					Padma.inspectorDisabled = false;
@@ -2616,9 +2621,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 							// Edit This Instance
 							contextMenu.append('<li class="inspector-context-menu-edit-instance" data-instance-id="' + inspectorElementOptions.instance + '"><span>Edit This Instance</span></li>');
 
-							/* 
-								Edit content option
-							*/
+							//Edit content option							
 							contextMenu.append('<li class="inspector-context-menu-edit-content" data-instance-id="' + inspectorElementOptions.instance + '"><span>Edit Content</span></li>');
 							
 

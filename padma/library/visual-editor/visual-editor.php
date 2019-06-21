@@ -506,16 +506,41 @@ class PadmaVisualEditor {
 
 							//Set each property for the regular element
 							foreach ( $element_data_node_data as $property_id => $property_value ) {
-
+																
 								/**
 								 *
-								 * CSS transform support
+								 * Advanced CSS support
 								 *
-								 */
-								if($property_id == 'skew'){
-									$property_id 		= 'transform';
-									$property_value 	= 'skew('.$property_value.'deg)';
+								 */									
+								switch ($property_id) {
+
+								 	//CSS transform support
+									case 'skew':
+										$property_id 	= 'transform';
+										$property_value = 'skew('.$property_value.'deg)';
+										break;
+
+								 	//Margin Top Auto
+									case 'margin-top-auto':
+										$property_id 	= 'margin-top';
+										break;
+
+								 	//Margin Right Auto
+									case 'margin-right-auto':
+										$property_id 	= 'margin-right';
+										break;
+
+								 	//Margin Bottom Auto
+									case 'margin-bottom-auto':
+										$property_id 	= 'margin-bottom';
+										break;
+
+								 	//Margin Left Auto
+									case 'margin-left-auto':
+										$property_id 	= 'margin-left';
+										break;
 								}
+								
 
 								PadmaElementsData::set_property( null, $element_id, $property_id, $property_value );
 
@@ -555,13 +580,38 @@ class PadmaVisualEditor {
 									
 									/**
 									 *
-									 * CSS transform support
+									 * Advanced CSS support
 									 *
-									 */
-									if($special_element_property == 'skew'){
-										$special_element_property 		= 'transform';
-										$special_element_property_value = 'skew('.$special_element_property_value.'deg)';
+									 */									
+									switch ($special_element_property) {
+
+									 	//CSS transform support
+										case 'skew':
+											$special_element_property 		= 'transform';
+											$special_element_property_value = 'skew('.$special_element_property_value.'deg)';
+											break;
+
+									 	//Margin Top Auto
+										case 'margin-top-auto':
+											$special_element_property 		= 'margin-top';
+											break;
+
+									 	//Margin Right Auto
+										case 'margin-right-auto':
+											$special_element_property 		= 'margin-right';
+											break;
+
+									 	//Margin Bottom Auto
+										case 'margin-bottom-auto':
+											$special_element_property 		= 'margin-bottom';
+											break;
+
+									 	//Margin Left Auto
+										case 'margin-left-auto':
+											$special_element_property 		= 'margin-left';
+											break;
 									}
+
 
 									$batch_special_element_data[] = array(
 										'element_id' => $element_id,

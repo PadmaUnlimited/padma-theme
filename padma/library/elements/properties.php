@@ -445,6 +445,54 @@ class PadmaElementProperties {
 					'default' => 0
 				),
 
+				'margin-top-auto' => array(
+					'group' => 'Margins',
+					'name' => 'Margin Top Auto',
+					'type' => 'select',
+					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-top": params.value});',
+					'options' => array(
+						'none' => 'initial',
+						'auto' => 'auto',
+					),
+					'default' => 'initial'
+				),
+
+				'margin-right-auto' => array(
+					'group' => 'Margins',
+					'name' => 'Margin Right Auto',
+					'type' => 'select',
+					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-right": params.value});',
+					'options' => array(
+						'none' => 'initial',
+						'auto' => 'auto',
+					),
+					'default' => 'initial'
+				),
+
+				'margin-bottom-auto' => array(
+					'group' => 'Margins',
+					'name' => 'Margin Bottom Auto',
+					'type' => 'select',
+					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-bottom": params.value});',
+					'options' => array(
+						'none' => 'initial',
+						'auto' => 'auto',
+					),
+					'default' => 'initial'
+				),
+
+				'margin-left-auto' => array(
+					'group' => 'Margins',
+					'name' => 'Margin Left Auto',
+					'type' => 'select',
+					'js-callback' => 'stylesheet.update_rule(params.selector, {"margin-left": params.value});',
+					'options' => array(
+						'none' => 'initial',
+						'auto' => 'auto',
+					),
+					'default' => 'initial'
+				),
+
 		/* Corners (Border Radius) */
 			'border-radius' => array(
 				'group' => 'Corners',

@@ -27,6 +27,10 @@ class PadmaGutenbergBlocks {
 			return;
 		}
 
+		if(!function_exists('register_block_type')){
+			return;
+		}
+
 		// Add Gutenberg Block categories
 		add_filter( 'block_categories', array( __CLASS__, 'add_block_category' ), 10, 2 );
 

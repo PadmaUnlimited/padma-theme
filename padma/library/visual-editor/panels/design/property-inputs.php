@@ -159,7 +159,7 @@ class PadmaPropertyInputs {
 				echo '<span class="design-editor-box-title"' . $property_box_title . '><span>' . $args['group_nice'] . '</span></span>';
 					
 				echo '<ul class="design-editor-box-content">';
-				
+					
 					foreach ( $properties as $property_id => $property_options ) {
 
 
@@ -178,6 +178,32 @@ class PadmaPropertyInputs {
 							continue;
 
 						}
+
+						/**
+						 *
+						 * Margin auto support
+						 *
+						 */
+						if($args['group']=='margins'){							
+							if($args['property_values']['margin-top'] == 'auto'){
+								unset($args['property_values']['margin-top']);
+								$args['property_values']['margin-top-auto'] = 'auto';
+							}
+							if($args['property_values']['margin-right'] == 'auto'){
+								unset($args['property_values']['margin-right']);
+								$args['property_values']['margin-right-auto'] = 'auto';
+							}
+							if($args['property_values']['margin-bottom'] == 'auto'){
+								unset($args['property_values']['margin-bottom']);
+								$args['property_values']['margin-bottom-auto'] = 'auto';
+							}
+							if($args['property_values']['margin-left'] == 'auto'){
+								unset($args['property_values']['margin-left']);
+								$args['property_values']['margin-left-auto'] = 'auto';
+							}
+						}
+
+
 
 						/* Handle box model inputs differently from the rest of the property inputs */							
 							echo '<div class="box-model-inputs-container">';

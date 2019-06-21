@@ -881,10 +881,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			}
 
-			this.processElementDoubleClick = function(event){
-				console.log(event)
-			}
-			
 				this.processElementNameLayoutSpecific = function() {
 
 					var elementNode = $(this).parents('li.element').first();

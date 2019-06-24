@@ -32,7 +32,7 @@ class Padma {
 			define('THEME_FRAMEWORK', 'padma');			
 		}
 		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.1.14');			
+			define('PADMA_VERSION', '1.1.15');			
 		}
 
 		/* Define directories */
@@ -81,9 +81,12 @@ class Padma {
 		 *
 		 * Parse PHP
 		 *
+		 *	https://www.facebook.com/groups/padmaunlimitedEN/permalink/641292209707584/
+		 * 	https://www.facebook.com/groups/padmaunlimitedES/permalink/383744532348603/
+		 *
 		 */
 		if(!defined('PADMA_DISABLE_PHP_PARSING')){			
-			define('PADMA_DISABLE_PHP_PARSING', true);
+			define('PADMA_DISABLE_PHP_PARSING', false);
 		}
 		
 		/* MySQL Table names */
@@ -271,7 +274,7 @@ class Padma {
 			'compatibility/wpml/compatibility-wpml'	=> true,
 
 			/*	Gutenberg Compatibility	*/
-			'common/abstract/gutenberg-blocks'	=> true,
+			'common/gutenberg-blocks'	=> true,
 
 		);
 			

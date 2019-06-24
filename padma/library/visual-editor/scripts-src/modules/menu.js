@@ -77,7 +77,7 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 						// Set CSS changes to content, holder and textarea
 						$i('style#live-css-holder').html(cssChanges);
 						textarea.text(cssChanges);
-						localStorage['padma-visual-editor-live-css-content'] = btoa(cssChanges);
+						localStorage['padma-visual-editor-live-css-content'] = btoa(unescape(encodeURIComponent(cssChanges)));
 						dataHandleInput(textarea);
 						allowSaving();
 					

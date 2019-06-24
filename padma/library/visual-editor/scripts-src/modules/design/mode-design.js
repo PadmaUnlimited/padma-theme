@@ -894,7 +894,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 					var elementNode 	= $(this).parents('li.element').first();
 					var elementSelector = elementNode.data('selector');					
-					var liveCSSValue 	= ( typeof Padma.codeMirrorEditors['live-css'] == 'undefined' || !Padma.codeMirrorEditors['live-css'] ) ? $('textarea#live-css-content').val() : atob(localStorage['padma-visual-editor-live-css-content']);
+					var liveCSSValue 	= ( typeof Padma.codeMirrorEditors['live-css'] == 'undefined' || !Padma.codeMirrorEditors['live-css'] ) ? $('textarea#live-css-content').val() : decodeURIComponent(escape(window.atob(localStorage['padma-visual-editor-live-css-content'])));
 					var linesBefore 	= liveCSSValue ? "\n\n" : '';
 					$('textarea#live-css-content').val(liveCSSValue + linesBefore + elementSelector + " {\n\n}");
 

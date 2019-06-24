@@ -512,15 +512,46 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			$this->register_block_element(array(
 				'id' 			=> 'pin',
 				'name' 			=> 'Pin',
-				'selector' 		=> '.pin-board-pin',
-				'properties' 	=> array('background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'sizes', 'animation')
+				'selector' 		=> '.pin-board-pin',				
 			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-board-pin-thumbnail',
+				'name' 			=> 'Pin Thumbnail',
+				'selector' 		=> '.pin-board-pin-thumbnail',
+			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-board-pin-thumbnail-link',
+				'name' 			=> 'Pin Thumbnail Link',
+				'selector' 		=> '.pin-board-pin-thumbnail a',
+			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-board-pin-thumbnail-link-img',
+				'name' 			=> 'Pin Thumbnail Image',
+				'selector' 		=> '.pin-board-pin-thumbnail a img',
+			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-below-thumb',
+				'name' 			=> 'Pin Below Thumb',
+				'selector' 		=> '.pin-board-pin .below-thumb',				
+			));	
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-title',
 				'name' 			=> 'Pin Title',
-				'selector'		=> '.pin-board-pin .entry-title, .pin-board-pin .entry-title a',
-				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation'),
+				'selector'		=> '.pin-board-pin .entry-title',
+				'states' 		=> array(
+						'Hover' => '.pin-board-pin .entry-title a:hover',
+					)
+			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-title link',
+				'name' 			=> 'Pin Title Link',
+				'selector'		=> '.pin-board-pin .entry-title a',				
 				'states' 		=> array(
 						'Hover' => '.pin-board-pin .entry-title a:hover',
 					)
@@ -529,63 +560,59 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			$this->register_block_element(array(
 				'id' 			=> 'pin-meta',
 				'name' 			=> 'Pin Meta',
-				'selector' 		=> '.pin-board-pin .entry-meta',
-				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+				'selector' 		=> '.pin-board-pin .entry-meta',				
 			));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-author',
 					'name' 			=> 'Author',
-					'selector' 		=> '.pin-board-pin .entry-meta .author-link',
-					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+					'selector' 		=> '.pin-board-pin .entry-meta .author-link',					
 				));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-categories',
 					'name' 			=> 'Categories',
-					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories',
-					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories',					
 				));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-tags',
 					'name' 			=> 'Tags',
-					'selector' 		=> '.pin-board-pin .entry-meta .entry-tags',
-					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+					'selector' 		=> '.pin-board-pin .entry-meta .entry-tags',					
 				));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-categories-link',
 					'name' 			=> 'Categories Link',
-					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories a',
-					'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories a',					
 				));
-
-				/*
-				$this->register_block_element(array(
-					'parent' 		=> 'pin-meta',
-					'id' 			=> 'pin-meta-entry-meta-above',
-					'name' 			=> 'Meta Above Content',
-					'selector' 		=> '.pin-board-pin div.entry-meta-above',
-				));	
-				*/
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-text',
 				'name' 			=> 'Pin Text',
 				'selector' 		=> '.pin-board-pin .entry-content',
-				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation')
+			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-content-a',
+				'name' 			=> 'Pin Content Links',
+				'selector' 		=> '.pin-board-pin .entry-content a',
+			));
+
+			$this->register_block_element(array(
+				'id' 			=> 'pin-content-img',
+				'name' 			=> 'Pin Content Image',
+				'selector' 		=> '.pin-board-pin .entry-content img',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pagination-button',
 				'name' 			=> 'Pagination Button',
 				'selector' 		=> '.pin-board-pagination a',
-				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation'),
 				'states' 		=> array(
 						'Hover' => '.pin-board-pagination a:hover',
 					)
@@ -594,7 +621,6 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'id' 			=> 'pagination-text',
 				'name' 			=> 'Pagination Current Page',
 				'selector' 		=> '.pin-board-pagination span.page-numbers.current',
-				'properties' 	=> array('fonts', 'background', 'borders', 'padding', 'rounded-corners', 'box-shadow', 'text-shadow', 'animation'),
 			));
 
 		}

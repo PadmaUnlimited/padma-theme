@@ -12,6 +12,7 @@ class PadmaDynamicStyle {
 		$return = "/* DESIGN EDITOR STYLING */\n";
 		
 		$mirrored_wrappers = PadmaWrappersData::get_all_wrappers(false,true);
+		
 		if(count($mirrored_wrappers)>0){
 
 			foreach ($mirrored_wrappers as $id => $data) {
@@ -33,7 +34,8 @@ class PadmaDynamicStyle {
 
 
 		foreach ( $elements as $element_id => $element_options ) {
-			
+
+
 			$element 	= PadmaElementAPI::get_element($element_id);
 
 			if($element_id == 'wrapper' && isset($element_options['mirroring'])){
@@ -66,8 +68,9 @@ class PadmaDynamicStyle {
 
 			
 			/* Regular Element */
-			if ( isset($element_options['properties']) ) 
+			if ( isset($element_options['properties']) ) {
 				$return .= PadmaElementProperties::output_css($selector, self::filter_nudging_properties($element_options['properties'], $element));
+			}
 
 			
 			/* Layout-specific elements */
@@ -75,8 +78,6 @@ class PadmaDynamicStyle {
 				
 				//Handle every layout
 				foreach ( $element_options['special-element-layout'] as $layout => $layout_properties ) {
-
-
 
 					if ( PadmaLayout::is_customized($layout) ) {
 						$selector_prefix = 'body.layout-using-' . str_replace( PadmaLayout::$sep, '-', $layout ) . ' ';

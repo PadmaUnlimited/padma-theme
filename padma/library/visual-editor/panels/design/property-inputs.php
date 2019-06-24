@@ -183,7 +183,7 @@ class PadmaPropertyInputs {
 						 *
 						 * Margin auto support
 						 *
-						 */
+						 */						
 						if($args['group']=='margins'){							
 							if($args['property_values']['margin-top'] == 'auto'){
 								unset($args['property_values']['margin-top']);
@@ -202,8 +202,6 @@ class PadmaPropertyInputs {
 								$args['property_values']['margin-left-auto'] = 'auto';
 							}
 						}
-
-
 
 						/* Handle box model inputs differently from the rest of the property inputs */							
 							echo '<div class="box-model-inputs-container">';

@@ -304,7 +304,8 @@ class PadmaCompiler {
 
 		//Go through and merge the fragments
 		foreach ( $fragments as $fragment_key => $fragment ) {
-					
+			
+
 			//Determine if it's a function or file
 			if ( !is_array($fragment) && strpos($fragment, '.') !== false && strpos($fragment, '()') === false && file_exists($fragment) ) {
 				
@@ -317,7 +318,7 @@ class PadmaCompiler {
 				
 			//It's a function	
 			} else {
-				
+								
 				//Remove unneeded paratheses if is a string
 				if ( is_string($fragment) )
 					$fragment = str_replace('()', '', $fragment);

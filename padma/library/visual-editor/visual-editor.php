@@ -504,14 +504,14 @@ class PadmaVisualEditor {
 						//Handle different nodes depending on what they are
 						if ( $element_data_node == 'properties' ) {
 
-							//Set each property for the regular element
+							//Set each property for the regular element							
 							foreach ( $element_data_node_data as $property_id => $property_value ) {
 																
 								/**
 								 *
 								 * Advanced CSS support
 								 *
-								 */									
+								 */
 								switch ($property_id) {
 
 								 	//CSS transform support
@@ -554,7 +554,7 @@ class PadmaVisualEditor {
 
 							$special_element_type = str_replace('special-element-', '', $element_data_node);
 
-							//Loop through the special elements
+							//Loop through the special elements							
 							foreach ( $element_data_node_data as $special_element => $special_element_properties ) {
 
 								/* If block ID mapping exists, make sure that none of the temporary IDs are being a saved as instances.  This is mainly to make block settings import work if they do it on a block that hasn't been saved yet. */
@@ -575,7 +575,7 @@ class PadmaVisualEditor {
 
 								}
 
-								//Set the special element properties now
+								//Set the special element properties now								
 								foreach ( $special_element_properties as $special_element_property => $special_element_property_value ) {
 									
 									/**
@@ -610,6 +610,7 @@ class PadmaVisualEditor {
 										case 'margin-left-auto':
 											$special_element_property 		= 'margin-left';
 											break;
+											
 									}
 
 

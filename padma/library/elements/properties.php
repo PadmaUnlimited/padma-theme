@@ -627,7 +627,7 @@ class PadmaElementProperties {
 		/* Nudging */
 			'top' => array(
 				'group' => 'Nudging',
-				'name' => 'Vertical Offset',
+				'name' => 'Top',
 				'type' => 'integer',
 				'unit' 	=> array(),
 				'js-callback' => 'stylesheet.update_rule(params.selector, {"top": params.value + params.unit});',
@@ -636,10 +636,27 @@ class PadmaElementProperties {
 
 			'left' => array(
 				'group' => 'Nudging',
-				'name' => 'Horizontal Offset',
+				'name' => 'Left',
 				'type' => 'integer',
 				'unit' => array(),
 				'js-callback' => 'stylesheet.update_rule(params.selector, {"left": params.value + params.unit});',
+				'default' => 0
+			),
+			'right' => array(
+				'group' => 'Nudging',
+				'name' => 'Right',
+				'type' => 'integer',
+				'unit' 	=> array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"right": params.value + params.unit});',
+				'default' => 0
+			),
+
+			'bottom' => array(
+				'group' => 'Nudging',
+				'name' => 'Bottom',
+				'type' => 'integer',
+				'unit' => array(),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"bottom": params.value + params.unit});',
 				'default' => 0
 			),
 

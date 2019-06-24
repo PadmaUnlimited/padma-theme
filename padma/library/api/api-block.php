@@ -137,6 +137,7 @@ abstract class PadmaBlockAPI {
 									'animation',
 									'transform',
 									'advanced',
+									'transition',
 								),
 			));
 

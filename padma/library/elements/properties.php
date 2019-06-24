@@ -962,6 +962,65 @@ class PadmaElementProperties {
 			),
 
 
+		/*	Transition	*/
+			'transition-delay' => array(
+				'group' => 'Transition',
+				'name' 	=> 'Delay',
+				'type' 	=> 'select',
+				'options' => array(
+					'500ms' => '500ms',
+					'1s' 	=> '1 second',
+					'2s' 	=> '2 seconds',
+					'3s' 	=> '3 seconds',
+					'4s' 	=> '4 seconds',
+					'5s' 	=> '5 seconds',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"transition-delay": params.value});',
+			),
+			'transition-duration' => array(
+				'group' => 'Transition',
+				'name' 	=> 'Duration',
+				'type' 	=> 'select',
+				'options' => array(
+					'500ms' => '500ms',
+					'1s' 	=> '1 second',
+					'2s' 	=> '2 seconds',
+					'3s' 	=> '3 seconds',
+					'4s' 	=> '4 seconds',
+					'5s' 	=> '5 seconds',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"transition-duration": params.value});',
+			),
+			'transition-property' => array(
+				'group' => 'Transition',
+				'name' 	=> 'Property',
+				'type' 	=> 'select',
+				'options' => array(
+					'all' => 'All',
+					'none' 	=> 'None',
+					'initial' 	=> 'Initial',
+					'inherit' 	=> 'Inherit',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"transition-property": params.value});',
+			),
+			'transition-timing-function' => array(
+				'group' => 'Transition',
+				'name' 	=> 'Timing function',
+				'type' 	=> 'select',
+				'options' => array(
+					'initial' 	=> 'Initial',
+					'inherit' 	=> 'Inherit',
+					'ease' 		=> 'Ease',
+					'linear' 	=> 'Linear',
+					'ease-in' 	=> 'Ease-in',
+					'ease-out' 	=> 'Ease-out',
+					'ease-in-out' 	=> 'Ease-in-out',
+					'step-start' 	=> 'Step-start',
+					'step-end' 		=> 'Step-end',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"transition-timing-function": params.value});',
+			),
+
 		/* Advanced */
 			'display' => array(
 				'group' => 'Advanced',

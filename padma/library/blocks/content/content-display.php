@@ -577,8 +577,19 @@ class PadmaContentBlockDisplay {
 			do_action('padma_before_entry', $args);
 
             $schema_itemtype = $post_type == 'post' ? 'Article' : 'CreativeWork';
+
+
+			if(	$this->get_setting('featured-image-as-background', false)){
+					
+				$featured_image = apply_filters('padma_featured_image_src', wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full'));
+				$featured_image_url = apply_filters('padma_featured_image_url', $featured_image[0]);
+				
+				echo '<article id="post-' . $post_id . '" class="' . $post_class . '" style="background-image: url('.$featured_image_url.');">';
 			
-			echo '<article id="post-' . $post_id . '" class="' . $post_class . '">';
+			}else{
+
+				echo '<article id="post-' . $post_id . '" class="' . $post_class . '">';
+			}
 
 
 
@@ -893,7 +904,7 @@ class PadmaContentBlockDisplay {
 
 	function display_thumbnail($post, $area = 'above-title') {
 
-		if ( !has_post_thumbnail() || !$this->get_setting('show-post-thumbnails', true) || !apply_filters('padma_featured_image_src', wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')) )
+		if ( !has_post_thumbnail() || !$this->get_setting('show-post-thumbnails', true) || !apply_filters('padma_featured_image_src', wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')) || $this->get_setting('featured-image-as-background', false))
 			return;
 
 		$entry_thumbnail_position = $this->get_setting('use-entry-thumbnail-position', true) ? PadmaLayoutOption::get($post->ID, 'position', null, true, 'post-thumbnail') : false;

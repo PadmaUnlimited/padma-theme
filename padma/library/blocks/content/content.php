@@ -1300,11 +1300,31 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		),
 
 		'post-thumbnails' => array(
+
 			'show-post-thumbnails' => array(
 				'type' => 'checkbox',
 				'name' => 'show-post-thumbnails',
 				'label' => 'Show Featured Images',
-				'default' => true
+				'default' => true,
+				'toggle'    => array(
+					'true' => array(
+						'show' => array(
+							'#input-featured-image-as-background'
+						)
+					),
+					'false' => array(
+						'hide' => array(
+							'#input-featured-image-as-background'
+						)
+					)
+				)
+			),
+
+			'featured-image-as-background' => array(
+				'type' => 'checkbox',
+				'name' => 'featured-image-as-background',
+				'label' => 'Use featured image as background',
+				'default' => false,
 			),
 
 			'post-thumbnails-link' => array(

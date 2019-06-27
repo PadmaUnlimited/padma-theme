@@ -138,6 +138,7 @@ abstract class PadmaBlockAPI {
 									'transform',
 									'advanced',
 									'transition',
+									'outlines',
 								),
 			));
 

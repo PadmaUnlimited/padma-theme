@@ -29,7 +29,7 @@ function padma_register_structural_elements() {
 			'id' => 'wrapper',
 			'name' => 'Wrapper',
 			'selector' => 'div.wrapper',
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced')
+			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines')
 		));
 
 	//Blocks

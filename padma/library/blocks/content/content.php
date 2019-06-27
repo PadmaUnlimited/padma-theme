@@ -139,7 +139,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'id' => 'entry-container-hentry',
 				'name' => 'Entry Container',
 				'selector' => '.hentry',
-				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'transform')
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'transform', 'advanced', 'transition', 'outlines')
 			));
 
 				$this->register_block_element(array(

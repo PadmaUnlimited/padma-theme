@@ -326,6 +326,46 @@ class PadmaElementProperties {
 					'lockable' => true,
 					'default' => 0
 				),
+		
+		/* Outline */
+			'outline-color' => array(
+				'group' => 'Outlines',
+				'name' => 'Outline Color',
+				'type' => 'color',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-color": params.value});',
+				'default' => '000000'
+			),
+
+			'outline-style' => array(
+				'group' => 'Outlines',
+				'name' => 'Outline Style',
+				'type' => 'select',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-style": params.value});',
+				'options' => array(
+					'none' => 'None',
+					'hidden' => 'Hidden',
+					'solid' => 'Solid',
+					'dashed' => 'Dashed',
+					'dotted' => 'Dotted',
+					'double' => 'Double',
+					'groove' => 'Grooved',
+					'inset' => 'Inset',
+					'outset' => 'Outset',
+					'ridge' => 'Ridged',
+					'initial' => 'Initial',
+					'inherit' => 'Inherit',
+				)				 
+			),
+
+			'outline-width' => array(
+				'group' => 'Outlines',
+				'name' => 'Outline Width',
+				'type' => 'integer',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-width": params.value + params.unit});',
+				'unit' => array(),
+			),
+
+				
 
 		/* Padding */
 			'padding' => array(

@@ -75,7 +75,7 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 			'name' => 'Widget Lists',
 			'description' => '&lt;UL&gt;',
 			'selector' => 'li.widget ul',
-			'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow'),
+			'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'advanced', 'transition', 'outlines'),
 		));
 
 			$this->register_block_element(array(

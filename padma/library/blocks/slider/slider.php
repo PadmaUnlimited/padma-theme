@@ -144,7 +144,7 @@ jQuery(window).load(function(){
 			'name' => 'Slider Container',
 			'description' => 'Contains Viewport, Paging',
 			'selector' => '.flexslider',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'advanced', 'transition', 'outlines')
 		));
 
 		$this->register_block_element(array(
@@ -152,7 +152,7 @@ jQuery(window).load(function(){
 			'name' => 'Slider Viewport',
 			'description' => 'Contains Images',
 			'selector' => '.flex-viewport',
-			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'overflow')
+			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'overflow', 'advanced', 'transition', 'outlines')
 		));
 
 		$this->register_block_element(array(

@@ -274,6 +274,9 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 				while ( $wp_query->have_posts() ) {
 
+
+					do_action('padma_before_pin_board_pin_setup');
+
 					$wp_query->the_post();
 
 					// Exclude current post from the pinboard
@@ -288,7 +291,11 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					$pin_classes 			= get_post_class();
 					$pin_classes[] 			= has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
 
+					do_action('padma_before_pin_board_pin_open');
+
 					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
+
+						do_action('padma_after_pin_board_pin_open');
 
 						/* Titles above */
 							if ( $show_titles && $titles_position == 'above') {
@@ -473,7 +480,14 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 						echo '</div>' . "\n";
 
+						do_action('padma_before_pin_board_pin_close');
+
 					echo '</div>' . "\n\n";
+
+					do_action('padma_after_pin_board_pin_close');
+
+					do_action('padma_after_pin_board_pin_setup');
+
 				} // End while loop
 
 				echo '</div>' . "\n";

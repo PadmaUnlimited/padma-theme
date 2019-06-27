@@ -46,9 +46,12 @@ class PadmaGutenbergBlocks {
 	 *
 	 */
 	
-	public static function add_block_category( $categories ){
+	public static function add_block_category( $categories, $post ){
 
-		$categories = array_merge($categories, self::get_categories());
+		if ( !is_admin() )
+			return false;
+
+		$categories = array_merge($categories, self::get_categories());		
 		return $categories;
 	}
 

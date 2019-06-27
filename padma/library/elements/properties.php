@@ -788,6 +788,7 @@ class PadmaElementProperties {
 					'tada' 			=> 'tada',
 					'wobble' 		=> 'wobble',
 					'jello' 		=> 'jello',
+					'heartBeat' 	=> 'heartBeat',
 
 					// Bouncing Entrances
 					'bounceIn' 		=> 'bounceIn',

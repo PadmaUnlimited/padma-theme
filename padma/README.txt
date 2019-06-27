@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.1.18
+Version: 1.1.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.18
+= 1.1.19
 * Released: On Dev
 
 Tested with WordPress 5.2.2
@@ -56,6 +56,7 @@ Fixes: PadmaElementAPI::register_element() minor fix, default properties missing
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
+- Added Featured image as background
 New Option to upgrade and use developer/preview version
 New Block: Site Logo
 New inline editor for certain fields on Visual Editor
@@ -64,14 +65,13 @@ Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load
 Added better plugin templates support
 Added option to exclude current post from PinBoard block when custom query is used
-Added margin "auto" options
-Added Bottom and Right options to Nudging
-Added CSS transition options to Visual Editor and API Block
-Added Featured image as background of a content block
+Added Visual Editor Design options
+- Margin "auto" options- 
+- Added Bottom and Right options to Nudging
+- Added CSS transition options to Visual Editor and API Block
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
 Updated Custom Code Block, to execute PHP functions require PADMA_DISABLE_PHP_PARSING = false in wp-config.php
-
-
+Updated Animate.css to 3.7.2
 
 = 1.1.0
 * Released: April 24, 2019

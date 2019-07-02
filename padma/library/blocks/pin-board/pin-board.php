@@ -1086,87 +1086,6 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						'default' 	=> 'Posted',
 						'tooltip'	=> 'The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"'
 					),
-
-				/*
-				'relative-times' => array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'relative-times',
-						'label' 	=> 'Meta: Use Relative Times',
-						'default' 	=> true,
-						'tooltip' 	=> '<strong>Example:</strong> 8 hours ago'
-					),
-				'entry-meta-above' => array(
-						'type' 		=> 'textarea',
-						'label' 	=> 'Meta Above Content',
-						'name' 		=> 'entry-meta-above',
-						'default' 	=> 'Posted on %date% by %author% &bull; %comments%'
-					),
-
-				'entry-meta-above' => array(
-					'type' => 'textarea',
-					'label' => 'Meta Above Content',
-					'name' => 'entry-meta-above',
-					'default' => 'Posted on %date% by %author% &bull; %comments%'
-				),
-				
-				'entry-utility-below' => array(
-					'type' => 'textarea',
-					'label' => 'Meta Below Content',
-					'name' => 'entry-utility-below',
-					'default' => 'Filed Under: %categories%'
-				),
-
-				'date-format' => array(
-					'type' => 'select',
-					'name' => 'date-format',
-					'label' => 'Date Format'
-				),
-
-				'time-format' => array(
-					'type' => 'select',
-					'name' => 'time-format',
-					'label' => 'Time Format'
-				),
-
-				'comments-meta-heading' => array(
-					'name' => 'comments-meta-heading',
-					'type' => 'heading',
-					'label' => 'Comments Meta'
-				),
-
-					'comment-format' => array(
-						'type' => 'text',
-						'label' => 'Comment Format &ndash; More Than 1 Comment',
-						'name' => 'comment-format',
-						'default' => '%num% Comments',
-						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>more than 1 comment</strong> on the entry.'
-					),
-					
-					'comment-format-1' => array(
-						'type' => 'text',
-						'label' => 'Comment Format &ndash; 1 Comment',
-						'name' => 'comment-format-1',
-						'default' => '%num% Comment',
-						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>just 1 comment</strong> on the entry.'
-					),
-					
-					'comment-format-0' => array(
-						'type' => 'text',
-						'label' => 'Comment Format &ndash; 0 Comments',
-						'name' => 'comment-format-0',
-						'default' => '%num% Comments',
-						'tooltip' => 'Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there are <strong>0 comments</strong> on the entry.'
-
-					),
-					
-					'respond-format' => array(
-						'type' => 'text',
-						'label' => 'Respond Format',
-						'name' => 'respond-format',
-						'default' => 'Leave a comment!',
-						'tooltip' => 'Determines the %respond% variable for the entry meta.'
-					)
-					*/
 			),
 
 			'images' => array(
@@ -1183,10 +1102,10 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					'default' => 'link',
 					'tooltip' => 'Choose the action when user clicks on an image.',
 					'options' => array(
-															'post'  => 'Open post',
-															'popup' => 'Popup original image',
-															'none'  => 'Do nothing'
-														)
+						'post'  => 'Open post',
+						'popup' => 'Popup original image',
+						'none'  => 'Do nothing'
+					)
 				),
 
 				'crop-vertically' => array(

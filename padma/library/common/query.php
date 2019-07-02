@@ -195,4 +195,55 @@ class PadmaQuery{
 		
 	}
 	
+
+	/**
+	 *
+	 * Query Meta 
+	 *
+	 */
+	public static function get_meta($post_types = array('post')){
+
+		if(!is_array($post_type))
+			$post_type = array($post_type);
+
+		$custom_fields = array();
+
+		foreach ($post_types as $key => $post_type) {
+
+			// get post for each post types		
+			$posts = get_posts(array(
+			    'post_type'   => $post_type,
+			    'post_status' => 'publish',
+			    'posts_per_page' => -1,
+			    'fields' => 'ids'
+			    )
+			);
+
+			// get custom keys for every post
+			foreach ($posts as $key => $post_id) {
+
+				// Get all meta for each post
+				foreach ( get_post_meta($post_id) as $custom_field_name => $custom_field_values) {
+
+					//Note: the if test excludes values for WordPress internally maintained custom keys such as _edit_last and _edit_lock.
+				    if ( '_' == $custom_field_name{0} )
+				        continue;
+
+					foreach ($custom_field_values as $key => $value) {
+
+
+					    // Exclude serialized data
+					    if(is_serialized($value))
+					    	continue;
+
+					    $custom_fields[$post_type][$custom_field_name]++;
+
+					}
+				}				
+			}
+		}
+        
+        return $custom_fields;
+	}
+	
 }

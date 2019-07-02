@@ -24,7 +24,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		/* Add .comment class to all pingbacks */
 		add_filter('comment_class', array(__CLASS__, 'add_comment_class_to_all_types'));
-		
+
 	}
 
 	
@@ -133,6 +133,12 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 	
 	function setup_elements() {
+
+		$this->register_block_element(array(
+			'id' => 'article',
+			'name' => 'Article',
+			'selector' => 'article',			
+		));
 		
 		/* Classic Editor */
 			$this->register_block_element(array(
@@ -631,15 +637,128 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		/*	End Gutenberg */
 
+
+		/**
+		 *
+		 * Custom Fields
+		 *
+		 */
+		$this->register_block_element(array(
+			'id' => 'custom-fields',
+			'name' => 'Custom Fields Group',
+			'selector' => '.custom-fields',			
+		));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-div',
+				'name' => 'Custom Fields Div',
+				'selector' => '.custom-fields div',			
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-p',
+				'name' => 'Custom Fields text',
+				'selector' => '.custom-fields p',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-a',
+				'name' => 'Custom Fields Link',
+				'selector' => '.custom-fields a',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-h1',
+				'name' => 'Custom Fields H1',
+				'selector' => '.custom-fields h1',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-h2',
+				'name' => 'Custom Fields H2',
+				'selector' => '.custom-fields h2',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-h3',
+				'name' => 'Custom Fields H3',
+				'selector' => '.custom-fields h3',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-h4',
+				'name' => 'Custom Fields H4',
+				'selector' => '.custom-fields h4',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-h5',
+				'name' => 'Custom Fields H5',
+				'selector' => '.custom-fields h5',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-h6',
+				'name' => 'Custom Fields H6',
+				'selector' => '.custom-fields h6',
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-span',
+				'name' => 'Custom Fields span',
+				'selector' => '.custom-fields span',
+			));
+		
+		
 		
 	}
 	
 	
 	function content($block) {
 
+		$block['custom-fields'] = $this->get_custom_fields($block);
 		$content_block_display = new PadmaContentBlockDisplay($block);
 		$content_block_display->display();
 		
+	}
+
+	function get_custom_fields($block){
+
+		$custom_fields_show = $custom_fields_label = $custom_fields_position = array();
+
+		foreach ($block['settings'] as $name => $value) {
+			
+			$data = explode('-', $name);
+			$post_type = $data[3];
+			$custom_field = $data[4];
+			
+			if ( strpos($name, 'custom-field-show') !== false ){
+				if($value){
+					$custom_fields_show[$post_type][$custom_field] = $value;
+				}
+			}
+				
+
+			if ( strpos($name, 'custom-field-position') !== false )
+				$custom_fields_position[$post_type][$custom_field] = $value;
+			
+			if ( strpos($name, 'custom-field-label') !== false )
+				$custom_fields_label[$post_type][$custom_field] = $value;
+						
+		}
+
+		$data = array();
+
+		foreach ($custom_fields_position as $post_type => $custom_fields) {
+			foreach ($custom_fields as $field_name => $position) {
+				if($custom_fields_show[$post_type][$field_name] == 'true'){
+					$label = $custom_fields_label[$post_type][$field_name];
+					$data[$position][$post_type][$field_name] = $label;					
+				}
+			}
+		}
+
+		return $data;
 	}
 	
 	
@@ -664,6 +783,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		'mode' 				=> 'Mode',
 		'query-filters' 	=> 'Query Filters',
 		'display' 			=> 'Display',
+		'custom-fields'		=> 'Custom Fields',
 		'meta' 				=> 'Meta',		
 		'comments' 			=> 'Comments',
 		'post-thumbnails' 	=> 'Featured Images'
@@ -1146,6 +1266,8 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 				'tooltip' => 'The amount of horizontal spacing between posts.'
 			)
 		),
+
+		'custom-fields' => array(),
 		
 		'meta' => array(
 			'show-entry-meta-post-types' => array(
@@ -1494,6 +1616,92 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			'G:i' => date('G:i'),
 			'G:i T' => date('G:i T')
 		);
+
+
+		/**
+		 *
+		 * Custom Fields support
+		 *
+		 */
+		
+		$custom_fields = PadmaQuery::get_meta($this->block['settings']['post-type']);
+
+		if(count($custom_fields)==0){
+
+			$this->tab_notices['custom-fields'] = 'The selected post type does not have custom fields.';
+
+		}else{
+
+			$inputs = array();
+
+			foreach ($custom_fields as $post_type => $fields) {
+				
+				$heading = 'custom-fields-'.$post_type.'-heading';
+				
+				$inputs[$heading] = array(
+					'name' => $heading,
+					'type' => 'heading',
+					'label' => 'Custom Fields for: "' . $post_type . '".'
+				);
+				
+				foreach ($fields as $field_name => $posts_total) {
+
+					// Custom field name
+					$name = 'custom-field-show-' . $post_type . '-' . $field_name;
+
+					// Custom field position
+					$label = 'custom-field-label-' . $post_type . '-' . $field_name;					
+
+					// Custom field position
+					$position = 'custom-field-position-' . $post_type . '-' . $field_name;
+
+					// Custom field input
+					$inputs[$name] = array(
+						'type' => 'checkbox',
+						'name' => $name,
+						'label' => 'Show "' . $field_name .'"',
+						'tooltip' => 'Check this to allow show ' . $field_name,
+						'default' => false,
+						'toggle'    => array(
+							'false' => array(
+								'hide' => array(
+									'#input-' . $position,
+									'#input-' . $label
+								)
+							),
+							'true' => array(
+								'show' => array(
+									'#input-' . $position,
+									'#input-' . $label
+								)
+							)
+						)
+					);					
+					
+					// Custom field label input
+					$inputs[$label] = array(
+						'type' => 'text',
+						'name' => $label,
+						'label' => '"'.$field_name .'" label',
+						'default' => 'below',
+						'options' => array('above' => 'Above content','below' => 'Below content')
+					);
+					
+					// Custom field position input
+					$inputs[$position] = array(
+						'type' => 'select',
+						'name' => $position,
+						'label' => '"'.$field_name .'" position',
+						'default' => 'below',
+						'options' => array('above' => 'Above','below' => 'Below')
+					);
+
+				}
+			}
+
+			$this->inputs['custom-fields'] = $inputs;
+
+		}
 		
 	}
 	
@@ -1526,6 +1734,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			$tag_options[$tag->term_id] = $tag->name;
 		$tag_options = (count($tag_options) == 0) ? array('text'	 => 'No tags available') : $tag_options;
 		return $tag_options;
+	
 	}
 	
 	
@@ -1654,6 +1863,4 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		return $layouts;
 		
 	}
-	
-	
 }

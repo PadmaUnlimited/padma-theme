@@ -17,6 +17,11 @@ class PadmaGutenbergBlocks {
 
 	public static function init() {
 
+		debug(PadmaOption::get('padma-blocks-as-gutenberg-blocks'));
+
+		if(!PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
+			return;
+
 		/**
 		 *
 		 * Feature only for WP5+
@@ -87,8 +92,8 @@ class PadmaGutenbergBlocks {
 	 */	
 	public static function padma_blocks_as_gutenberg_blocks(){
 
-		if ( !is_admin() )
-			return false;
+		if ( !is_admin() || !PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
+			return;
 
 
 		Padma::load('visual-editor/layout-selector');
@@ -154,6 +159,9 @@ class PadmaGutenbergBlocks {
 
 
 	public static function block_js(){
+
+		if(!PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
+			return;
 		
 		header("Pragma: public");
 		header("Cache-Control: max-age=".$expires);

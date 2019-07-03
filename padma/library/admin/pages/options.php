@@ -659,6 +659,27 @@
 			PadmaAdminInputs::generate($form);
 			?>
 
+
+			<h3 class="title">Gutenberg</h3>
+			<?php
+			$form = array(
+				array(
+					'type' 	=> 'checkbox',
+					'label' => 'Display Padma Blocks in Gutenberg',
+					'checkboxes' => array(
+						array(
+							'id' 		=> 'padma-blocks-as-gutenberg-blocks',
+							'label' 	=> 'Show Padma Blocks as Gutenberg Blocks',
+							'checked' 	=> PadmaOption::get('padma-blocks-as-gutenberg-blocks', false, false)
+						)
+					),
+					'description' => 'If on, Padma will show Padma Blocks as Gutenberg Blocks <strong>Important:</strong> This feature is Experimental.'
+				)
+			);
+
+			PadmaAdminInputs::generate($form);
+			?>
+
 		</div>
 
 		<div class="big-tab" id="tab-mobile-content">

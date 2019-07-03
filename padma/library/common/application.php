@@ -42,15 +42,13 @@ class Padma {
 		if(!defined('PADMA_LIBRARY_DIR')){
 			define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 		}
-
-		/*	Errors	*/
-		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
-		@ini_set('display_errors', 'Off');
 		
 		/* Dev Params	*/
 		if(file_exists(PADMA_LIBRARY_DIR . '/dev-env.php')){
 			require_once PADMA_LIBRARY_DIR . '/dev-env.php';
 		}
+
+		PadmaSettings::set_enviroment();
 
 		/* Site URLs */
 		if(!defined('PADMA_SITE_URL')){
@@ -59,7 +57,7 @@ class Padma {
 		if(!defined('PADMA_API_URL')){
 			define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
 		}
-		if(!defined('PADMA_CDN_URL')){
+		if(!defined('PADMA_CDN_URL')){			
 			define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');			
 		}
 		if(!defined('PADMA_DASHBOARD_URL')){
@@ -535,7 +533,7 @@ class Padma {
 
 		if(class_exists('PadmaUpdater')){
 
-			PadmaUpdater::updater('padma',PADMA_DIR,true);
+			PadmaUpdater::updater(PadmaSettings::get('slug'),PADMA_DIR,true);
 
 		}
 	

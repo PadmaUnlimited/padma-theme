@@ -17,7 +17,7 @@ class PadmaTemplates {
 			array(
 				'id' => 'base',
 				'name' => 'Base',
-				'author' => 'Padma Theme',
+				'author' => PadmaSettings::get('menu-name'),
 				'version' => PADMA_VERSION,
 				'image-url' => padma_url() . '/screenshot.png',
 				'description' => null

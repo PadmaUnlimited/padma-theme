@@ -1,10 +1,7 @@
 <?php
 class PadmaMaintenance {
 
-	public static $available_upgrades = array(
-		'1.0.1',
-		'1.0.2'
-	);
+	public static $available_upgrades = array();
 
 	/**
 	 * Over time, there may be issues to be corrected between updates or naming conventions to be changed between updates.
@@ -91,9 +88,6 @@ class PadmaMaintenance {
 
 		$wpdb->flush();
 		$wpdb->query("SET SESSION query_cache_type=0;");
-
-		/* Attempt to raise memory limit to max */
-		@ini_set( 'memory_limit', apply_filters( 'padma_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
 	}
 

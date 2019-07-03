@@ -23,8 +23,7 @@ class PadmaVisualEditor {
 		if ( !current_theme_supports('padma-grid') )
 			self::$default_mode = 'design';
 		
-		//Attempt to raise memory limit to max
-		@ini_set('memory_limit', apply_filters('padma_memory_limit', WP_MAX_MEMORY_LIMIT));
+		PadmaSettings::set_visual_editor_settings();
 			
 		//Put in action so we can run top level functions
 		do_action('padma_visual_editor_init');

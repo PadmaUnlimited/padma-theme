@@ -80,86 +80,8 @@ class PadmaCompatibilityHeadway {
 			
 			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);
 
-			if(!class_alias($padmaClass,$headwayClassName)){
+			class_alias($padmaClass,$headwayClassName);
 
-				$headwayTrait 	= $headwayClassName . 'Trait';
-				$definition  	= "trait $headwayTrait {";
-				foreach ($methods as $key => $method) {
-
-					// visibility
-					$methodChecker 	= new ReflectionMethod($padmaClass,$method);
-					$params 		= $methodChecker->getParameters();
-
-					// is public/private/protected
-					if($methodChecker->isPublic()){
-						$definition .= 'public ';
-
-					}elseif ($methodChecker->isPrivate()) {
-						$definition .= 'private ';
-
-					}elseif ($methodChecker->isProtected()) {
-						$definition .= 'protected ';
-					}
-					
-					// is static
-					if($methodChecker->isStatic()){
-						$definition .= 'static ';
-					}
-
-					$definition .= 'function ' . $method . '(';
-					
-
-					// Arguments
-					$argumentsDefinition 	= '';
-					$argumentsUsage 		= '';
-					foreach ($params as $param) {
-
-						if($param->isArray()){
-							$argumentsDefinition .= 'array ';
-						}
-
-						if($param->isPassedByReference()){
-							$argumentsDefinition .= '&';
-						}
-
-						$argumentsDefinition 	.= '$' . $param->getName();
-						$argumentsUsage 		.= '$' . $param->getName();
-						
-						if($param->isOptional()){
-							if($param->isDefaultValueAvailable()){
-								$argumentsDefinition .= '= ' . var_export($param->getDefaultValue(),true);
-							}else{
-								$argumentsDefinition .= '= null';
-							}
-						}
-
-						$argumentsDefinition 	.= ',';
-						$argumentsUsage 		.= ',';
-					}
-
-					$argumentsDefinition 	= rtrim($argumentsDefinition,',');
-					$argumentsUsage 		= rtrim($argumentsUsage,',');
-
-					$definition .= $argumentsDefinition;
-					$definition .= '){';
-					$definition .= "parent::$method($argumentsUsage);";
-					$definition .= '}';
-
-				}
-
-
-				$definition .= "}";
-				$definition .= "class $headwayClassName extends $padmaClass {";
-				$definition .= "use $headwayTrait;";
-				$definition .= "}";
-
-				
-				try{
-					eval($definition);						
-				}catch(Exception $e){
-					debug($e->getMessage());
-				}
-			}
 		}
 	}	
 }

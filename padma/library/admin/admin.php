@@ -242,8 +242,8 @@ class PadmaAdmin {
 		//If user cannot access the admin panels, then don't bother running these functions
 		if ( !PadmaCapabilities::can_user_visually_edit() )
 			return false;
-
-		$menu_name = ( PadmaOption::get('hide-menu-version-number', false, true) == true ) ? 'Padma Theme' : 'Padma Theme ' . PADMA_VERSION;
+		//debug(PadmaSettings::get_setting('menu-name'));
+		$menu_name = ( PadmaOption::get('hide-menu-version-number', false, true) == true ) ? PadmaSettings::get('menu-name') : PadmaSettings::get('menu-name') . ' ' . PADMA_VERSION;
 
 		$icon = (version_compare($GLOBALS['wp_version'], '3.8', '>=') && get_user_option('admin_color') != 'light') ? 'padma-32-grey.png' : 'padma-16.png';
 		$icon_url = padma_url() . '/library/admin/images/' . $icon;

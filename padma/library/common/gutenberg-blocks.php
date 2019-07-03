@@ -17,8 +17,6 @@ class PadmaGutenbergBlocks {
 
 	public static function init() {
 
-		debug(PadmaOption::get('padma-blocks-as-gutenberg-blocks'));
-
 		if(!PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
 			return;
 

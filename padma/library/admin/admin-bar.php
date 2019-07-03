@@ -31,7 +31,7 @@ class PadmaAdminBar {
 		//Padma Root
 		$wp_admin_bar->add_menu(array(
 			'id' 		=> 'padma', 
-			'title' 	=> 'Padma Theme', 
+			'title' 	=> PadmaSettings::get('menu-name'), 
 			'href' 		=> 	add_query_arg(array(
 											'visual-editor' 		=> 'true',
 											'visual-editor-mode' 	=> $default_visual_editor_mode,

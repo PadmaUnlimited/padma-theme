@@ -40,7 +40,8 @@ class PadmaSiteLogoBlock extends PadmaBlockAPI {
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$site_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
-		echo '<img class="site-logo" src="'.$site_image[0].'">';
+		echo '<a href="' . home_url() . '" class="site-logo-link"><img class="site-logo" src="'.$site_image[0].'" alt="' . get_bloginfo('name') . '" /></a>';
+
 	}
 	
 }

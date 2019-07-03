@@ -419,14 +419,12 @@ abstract class PadmaVisualEditorPanelAPI {
 		
 		$checked_attribute = ( (bool)padma_fix_data_type($input['value']) === true ) ? ' checked="checked"' : null;
 
-		echo '
-			<div class="input-left">
-				<label>
-					<input ' . $input['attributes'] . ' type="checkbox" value="true"' . $checked_attribute . ' />
-					' . $input['label'] . '
-				</label>
-			</div>
-		';
+		echo '<div class="input-left">';
+		echo '<label>';
+		echo '<input ' . $input['attributes'] . ' type="checkbox" value="true"' . $checked_attribute . ' />';
+		echo $input['label'];
+		echo '</label>';
+		echo '</div>';
 		
 	}
 	

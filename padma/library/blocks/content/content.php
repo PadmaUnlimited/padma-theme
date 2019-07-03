@@ -754,6 +754,8 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				if($custom_fields_show[$post_type][$field_name] == 'true'){
 					$label = $custom_fields_label[$post_type][$field_name];
 					$data[$position][$post_type][$field_name] = $label;					
+				}else{
+					
 				}
 			}
 		}

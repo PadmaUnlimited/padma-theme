@@ -433,7 +433,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		/* Add filter to add home link */
 		self::$block = $block;
 
-		add_filter( 'wp_nav_menu_items', array( __CLASS__, 'home_link_filter' ) );
+		add_filter( 'wp_nav_menu_items', array( __CLASS__, 'home_link_filter' ), 10, 2 );
 		add_filter( 'wp_list_pages', array( __CLASS__, 'home_link_filter' ) );
 		add_filter( 'wp_page_menu', array( __CLASS__, 'fix_legacy_nav' ) );
 
@@ -635,7 +635,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 	}
 
 
-	public static function home_link_filter( $menu ) {
+	public static function home_link_filter( $menu, $args ) {
 
 		$block = self::$block;
 

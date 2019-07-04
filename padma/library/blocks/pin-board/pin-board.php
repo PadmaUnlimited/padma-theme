@@ -723,7 +723,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				global $paged;
 
 				if ( null === $label )
-					$label = __( '&laquo; Previous Page' );
+					$label = __( '&laquo; Previous Page', 'padma' );
 
 				if ( $paged > 1 ) {
 					$attr = apply_filters( 'previous_posts_link_attributes', '' );

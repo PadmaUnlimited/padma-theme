@@ -122,6 +122,7 @@ $registry = array(
 	// Wrappers
 	'PadmaWrapperOptions'	=>	'wrappers/wrapper-options',
 	'PadmaWrappers'	=>	'wrappers/wrappers',
+
 );
 
 spl_autoload_register(function ($class) use ($registry) {

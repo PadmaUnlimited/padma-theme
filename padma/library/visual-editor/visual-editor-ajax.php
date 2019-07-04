@@ -870,6 +870,9 @@ class PadmaVisualEditorAJAX {
 	/*		Effects		*/
 
 		public static function method_get_effect_content() {
+
+			global $wp_filesystem;
+			WP_Filesystem();
 			
 			$tagName 	= padma_post('tagName');
 			$effect 	= padma_post('effect');
@@ -887,7 +890,7 @@ class PadmaVisualEditorAJAX {
 			}
 
 			if($path !== false && file_exists($path)){				
-				$data = preg_replace("/%selector%/", $selector, file_get_contents($path));				
+				$data = preg_replace("/%selector%/", $selector, $wp_filesystem->get_contents($path));				
 				return self::json_encode($data);
 			}else{
 				return self::json_encode(array(

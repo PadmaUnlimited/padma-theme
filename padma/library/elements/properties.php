@@ -1493,6 +1493,9 @@ class PadmaElementProperties {
 
 	public static function complex_property_effect_content($args){
 
+		global $wp_filesystem;
+		WP_Filesystem();
+		
 		$effect 	= $args['value'];
 		$selector 	= $args['selector'];
 
@@ -1505,8 +1508,9 @@ class PadmaElementProperties {
 		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects-css/' . $effect . '.txt';					
 		$selector 	= preg_replace('/\ img/', '', $selector);
 
-		if($path !== false && file_exists($path)){				
-			$data = preg_replace("/%selector%/", $selector, file_get_contents($path));
+		if($path !== false && file_exists($path)){
+
+			$data = preg_replace("/%selector%/", $selector, $wp_filesystem->get_contents($path));
 
 			if($block){				
 				$data = preg_replace("/%path%/", $block['settings']['image'], $data);

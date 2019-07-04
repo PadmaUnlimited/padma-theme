@@ -7,7 +7,7 @@ class PadmaVisualEditorDisplay {
 		Padma::load('visual-editor/layout-selector');
 
 		//Load boxes
-		Padma::load('api/api-box');
+		Padma::load('abstract/api-box');
 
 		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/grid-manager.php';
 		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/snapshots.php';

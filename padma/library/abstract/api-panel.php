@@ -1,25 +1,4 @@
 <?php
-function padma_register_visual_editor_panel($class) {
-
-	add_action('padma_visual_editor_display_init', function() use ($class){
-		return padma_register_visual_editor_panel_callback($class);
-	}, 999, 1);
-	
-}
-
-
-function padma_register_visual_editor_panel_callback($class) {
-
-	if ( !class_exists($class) )
-		return new WP_Error('panel_class_does_not_exist', __('Error: The panel class being registered does not exist.', 'padma'), $class);
-	
-	$panel = new $class();
-	$panel->register();
-	
-	return true;
-	
-}
-
 
 abstract class PadmaVisualEditorPanelAPI {
 	

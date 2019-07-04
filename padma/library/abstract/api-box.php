@@ -1,28 +1,6 @@
 <?php
-function padma_register_visual_editor_box($class) {
-
-	add_action('padma_visual_editor_display_init', function() use ($class){		
-		return padma_register_visual_editor_box_callback($class);
-	});
-
-}
-
-
-function padma_register_visual_editor_box_callback($class) {
-		
-	if ( !class_exists($class) )
-		return new WP_Error('box_class_does_not_exist', __('Error: The box class being registered does not exist.', 'padma'), $class);
-	
-	$box = new $class();
-	$box->register();
-	
-	return true;
-	
-}
-
 
 abstract class PadmaVisualEditorBoxAPI {
-	
 	
 	/**
 	 *	Slug/ID of panel.  Will be used for HTML IDs and whatnot.

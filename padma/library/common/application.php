@@ -136,7 +136,6 @@ class Padma {
 		/* Add support for WordPress features */
 		add_action('after_setup_theme', array(__CLASS__, 'add_theme_support'), 1);
 
-
 		/* Setup */
 		add_action('after_setup_theme', array(__CLASS__, 'child_theme_setup'), 2);
 		add_action('after_setup_theme', array(__CLASS__, 'load_dependencies'), 3);
@@ -210,6 +209,11 @@ class Padma {
 		//Core loading set
 		$dependencies = array(
 
+			// abstract
+			'abstract/notice',
+			'abstract/api-panel',
+			'abstract/web-fonts-api',
+
 			'defaults/default-design-settings',
 
 			'data/data-options' 			=> 'Option',
@@ -231,11 +235,9 @@ class Padma {
 			'common/http2-server-push'		=> true,
 			'common/blocks-anywhere'		=> true,
 			'admin/admin-bar' 				=> true,
-			'api/api-panel',
 			'blocks' 						=> true,
 			'wrappers' 						=> true,
 			'elements' 						=> true,
-			'fonts/web-fonts-api',
 			'fonts/web-fonts-loader' 		=> true,
 			'fonts/traditional-fonts',
 			'fonts/google-fonts',
@@ -245,14 +247,12 @@ class Padma {
 			/*
 				Query Class
 			*/
-			'common/query' 					=> true,			
-			
+			'common/query',
 
 			/*
 				Notices
-			*/
-			'common/abstract/notices' 		=> true,
-			'common/notices' 				=> true,
+			*/			
+			'common/notices' 		=> true,
 
 			/*	
 				Compatiblity
@@ -289,9 +289,9 @@ class Padma {
 		if ( is_admin() )
 			$dependencies['admin'] = true;
 
-		//Load stuff now
+		
+		// Load stuff now
 		Padma::load(apply_filters('padma_dependencies', $dependencies));
-
 		do_action('padma_setup');
 		
 	}
@@ -558,26 +558,16 @@ class Padma {
 		foreach ( Padma::$loaded_classes as $class ) {
 			unset($load[$class]);
 		}
-
+		
 		foreach ( $load as $file => $init ) {
+
+
 
 			//Check if only value is used instead of both key and value pair
 			if ( is_numeric($file) ){
 				$file = $init;
 				$init = false;
 			}
-
-			//Handle anything with .php or a full path
-			if ( strpos($file, '.php') !== false )
-				require_once PADMA_LIBRARY_DIR . '/' . $file;
-
-			//Handle main-helpers such as admin, data, etc.
-			elseif ( strpos($file, '/') === false )
-				require_once PADMA_LIBRARY_DIR . '/' . $file . '/' . $file . '.php';
-
-			//Handle anything and automatically insert .php if need be
-			elseif ( strpos($file, '/') !== false )
-				require_once PADMA_LIBRARY_DIR . '/' . $file . '.php';
 
 			//Add the class to the main variable so we know that it has been loaded
 			Padma::$loaded_classes[] = $file;

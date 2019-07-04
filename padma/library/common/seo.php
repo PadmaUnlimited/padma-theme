@@ -1,5 +1,5 @@
 <?php
-class PadmaSEO {
+class PadmaSeo {
 	
 	
 	public static function init() {

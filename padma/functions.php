@@ -41,7 +41,7 @@ require_once get_template_directory() . '/library/common/compatibility-checks.ph
 /* Load Padma! */
 require_once get_template_directory() . '/library/common/functions.php';
 require_once get_template_directory() . '/library/common/settings.php';
-require_once get_template_directory() . '/library/common/application.php';
+require_once get_template_directory() . '/library/loader.php';
 
 Padma::init();
 

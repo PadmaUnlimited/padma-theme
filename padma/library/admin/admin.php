@@ -7,7 +7,7 @@ class PadmaAdmin {
 		self::setup_hooks();
 
 		Padma::load(array(
-			'api/api-admin-meta-box',
+			'abstract/api-admin-meta-box',
 			'admin/admin-write' => true,
 			'admin/admin-pages',
 			'admin/api-admin-inputs'

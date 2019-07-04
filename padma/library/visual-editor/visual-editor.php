@@ -52,6 +52,10 @@ class PadmaVisualEditor {
 		add_action('padma_body_close', array(__CLASS__, 'iframe_tooltip_container'));
      
         wp_enqueue_media();
+
+		padma_register_web_font_provider('PadmaTraditionalFonts');
+		padma_register_web_font_provider('PadmaGoogleFonts');
+
 		        
 	}
 	

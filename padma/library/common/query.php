@@ -73,7 +73,7 @@ class PadmaQuery{
 
 		$taxonomies = array();
 
-		if( count($post_types) > 0){
+		if( is_array($post_types) && count($post_types) > 0){
 			foreach ($post_types as $key => $post_type) {
 				foreach (get_object_taxonomies( $post_type ) as $key => $taxonomy) {					
 					$taxonomies[] = $taxonomy;
@@ -208,39 +208,43 @@ class PadmaQuery{
 
 		$custom_fields = array();
 
-		foreach ($post_types as $key => $post_type) {
+		if(is_array($post_types)){
 
-			// get post for each post types		
-			$posts = get_posts(array(
-			    'post_type'   => $post_type,
-			    'post_status' => 'publish',
-			    'posts_per_page' => -1,
-			    'fields' => 'ids'
-			    )
-			);
+			foreach ($post_types as $key => $post_type) {
 
-			// get custom keys for every post
-			foreach ($posts as $key => $post_id) {
+				// get post for each post types		
+				$posts = get_posts(array(
+				    'post_type'   => $post_type,
+				    'post_status' => 'publish',
+				    'posts_per_page' => -1,
+				    'fields' => 'ids'
+				    )
+				);
 
-				// Get all meta for each post
-				foreach ( get_post_meta($post_id) as $custom_field_name => $custom_field_values) {
+				// get custom keys for every post
+				foreach ($posts as $key => $post_id) {
 
-					//Note: the if test excludes values for WordPress internally maintained custom keys such as _edit_last and _edit_lock.
-				    if ( '_' == $custom_field_name{0} )
-				        continue;
+					// Get all meta for each post
+					foreach ( get_post_meta($post_id) as $custom_field_name => $custom_field_values) {
 
-					foreach ($custom_field_values as $key => $value) {
+						//Note: the if test excludes values for WordPress internally maintained custom keys such as _edit_last and _edit_lock.
+					    if ( '_' == $custom_field_name{0} )
+					        continue;
+
+						foreach ($custom_field_values as $key => $value) {
 
 
-					    // Exclude serialized data
-					    if(is_serialized($value))
-					    	continue;
+						    // Exclude serialized data
+						    if(is_serialized($value))
+						    	continue;
 
-					    $custom_fields[$post_type][$custom_field_name]++;
+						    $custom_fields[$post_type][$custom_field_name]++;
 
-					}
-				}				
+						}
+					}				
+				}
 			}
+
 		}
         
         return $custom_fields;

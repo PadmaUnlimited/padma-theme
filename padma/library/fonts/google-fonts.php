@@ -41,7 +41,4 @@ class PadmaGoogleFonts extends PadmaWebFontProvider {
 		return json_decode($data, true);
 
 	}
-
-
 }
-padma_register_web_font_provider('PadmaGoogleFonts');

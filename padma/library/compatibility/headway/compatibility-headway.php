@@ -20,7 +20,7 @@ class PadmaCompatibilityHeadway {
 
 		Padma::load(array(
 			'api/api-admin-meta-box',
-			'api/api-box',
+			'abstract/api-box',
 			'admin/admin-write' => true,
 			'admin/admin-pages',
 			'admin/api-admin-inputs'

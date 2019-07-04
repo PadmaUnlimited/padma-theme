@@ -39,7 +39,7 @@ class PadmaBlocks {
 	public static function init() {
 
 		Padma::load(array(
-			'api/api-block'
+			'abstract/api-block'
 		));
 
 		self::load_core_blocks();

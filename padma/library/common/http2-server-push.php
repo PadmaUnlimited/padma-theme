@@ -2,11 +2,10 @@
 /**
  *
  * Based on https://github.com/daveross/http2-server-push
- * Based on https://github.com/nlemoine/http2-server-push
  *
  */
 
-class PadmaHTTP2ServerPush {
+class PadmaHttp2ServerPush {
 	
 	private $http2_script_srcs = array();
 	private $http2_stylesheet_srcs = array();

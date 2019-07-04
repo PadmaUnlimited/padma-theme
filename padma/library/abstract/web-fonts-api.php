@@ -1,10 +1,4 @@
 <?php
-function padma_register_web_font_provider($class) {
-
-	return new $class;
-
-}
-
 
 abstract class PadmaWebFontProvider {
 

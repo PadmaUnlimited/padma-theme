@@ -693,6 +693,124 @@ function padma_human_bytes($size) {
 
 }
 
+
+/**
+ * See https://core.trac.wordpress.org/ticket/26809
+ */
+add_action('edit_form_after_editor', 'padma_meta_padma_save_post_template_bypass');
+function padma_meta_padma_save_post_template_bypass() {
+
+	global $post;
+
+	if ( 'page' == $post->post_type && !count(wp_get_theme()->get_page_templates()) ) {
+
+		echo '
+		<!--
+		Added by Padma
+		See: https://core.trac.wordpress.org/ticket/26809
+		-->
+
+		<input type="hidden" name="page_template" value="default" />
+
+		';
+
+	}
+
+}
+
+
+function padma_register_admin_meta_box($class = null) {
+
+	if(is_null($class))
+		return;
+
+	add_action('init', function() use ($class){
+		return padma_register_admin_meta_padma_callback($class);
+	});
+	
+}
+
+
+function padma_register_admin_meta_padma_callback($class) {
+		
+	if ( !class_exists($class) )
+		return new WP_Error('meta_padma_class_does_not_exist', __('Error: The meta box class being registered does not exist.', 'padma'), $class);
+	
+	$meta_box = new $class();
+	$meta_box->register();
+	
+	return true;
+	
+}
+/**
+ * Padma blocks API.
+ *
+ * @package Padma
+ * @subpackage API
+ **/
+function padma_register_block($class, $block_type_url = false) {	
+	
+	global $padma_unregistered_block_types;
+	
+	if ( !is_array($padma_unregistered_block_types) )
+		$padma_unregistered_block_types = array();
+	
+	$padma_unregistered_block_types[$class] = $block_type_url;
+	
+	return true;
+
+}
+
+function padma_register_visual_editor_box($class) {
+
+	add_action('padma_visual_editor_display_init', function() use ($class){		
+		return padma_register_visual_editor_box_callback($class);
+	});
+
+}
+
+
+function padma_register_visual_editor_box_callback($class) {
+		
+	if ( !class_exists($class) )
+		return new WP_Error('box_class_does_not_exist', __('Error: The box class being registered does not exist.', 'padma'), $class);
+	
+	$box = new $class();
+	$box->register();
+	
+	return true;
+	
+}
+
+function padma_register_visual_editor_panel($class) {
+
+	add_action('padma_visual_editor_display_init', function() use ($class){
+		return padma_register_visual_editor_panel_callback($class);
+	}, 999, 1);
+	
+}
+
+
+function padma_register_visual_editor_panel_callback($class) {
+
+	if ( !class_exists($class) )
+		return new WP_Error('panel_class_does_not_exist', __('Error: The panel class being registered does not exist.', 'padma'), $class);
+	
+	$panel = new $class();
+	$panel->register();
+	
+	return true;
+	
+}
+
+
+function padma_register_web_font_provider($class) {
+
+	return new $class;
+
+}
+
+
 /**
  *
  * Debug function
@@ -716,3 +834,5 @@ function padma_get_int( $string ) {
 	return $matches[0];
 	
 }
+
+

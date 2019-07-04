@@ -138,5 +138,3 @@ class PadmaFonts {
 
 
 }
-
-padma_register_web_font_provider('PadmaTraditionalFonts');

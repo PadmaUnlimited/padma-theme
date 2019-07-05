@@ -72,15 +72,6 @@ abstract class PadmaBlockAPI {
 			'inline-editable' => implode(',', $inline_editable_fields),
 			'inline-editable-equivalences' => $this->inline_editable_equivalences
 		);
-
-		
-		$file = $this->block_type_path . '/' . $this->id . '.php';
-		spl_autoload_register(function ($class) use ( $file ) {
-			
-			if ( file_exists( $file ) )
-				include $file;
-
-		});
 		
 		//Add the element for the block itself
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));

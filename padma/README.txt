@@ -53,7 +53,8 @@ Fixed: Compatibility with Updater plugin auto update
 Fixed: PHP 7.3 Compatibility
 Fixed: Templates install minor bug
 Fixed: Query Filter option for custom taxonomies on content block for custom post types
-Fixes: PadmaElementAPI::register_element() minor fix, default properties missing
+Fixed: PadmaElementAPI::register_element() minor fix, default properties missing
+Fixed: Media Library title when opens from Visual Editor
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

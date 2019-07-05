@@ -19,7 +19,7 @@ class PadmaCompatibilityHeadway {
 		PadmaCompatibilityHeadway::padma_define_headway_constants();
 
 		Padma::load(array(
-			'api/api-admin-meta-box',
+			'abstract/api-admin-meta-box',
 			'abstract/api-box',
 			'admin/admin-write' => true,
 			'admin/admin-pages',

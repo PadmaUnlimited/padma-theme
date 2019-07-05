@@ -1,6 +1,4 @@
 <?php
-if ( isset($GLOBALS['SlideDeckPlugin']) && is_object($GLOBALS['SlideDeckPlugin']) )
-	padma_register_block('PadmaSlideDeckBlock', padma_url() . '/library/blocks/slidedeck');
 
 class PadmaSlideDeckBlock extends PadmaBlockAPI {
 	

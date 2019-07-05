@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaAudioBlock', padma_url() . '/library/blocks/audio');
 
 class PadmaAudioBlock extends PadmaBlockAPI {
 	
@@ -183,7 +182,6 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 	}
 	
 }
-
 
 class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 	

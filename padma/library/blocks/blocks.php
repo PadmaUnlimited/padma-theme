@@ -11,7 +11,7 @@ class PadmaBlocks {
 	);
 
 	public static $core_blocks = array(
-		'audio',
+		'audio',		
 		'breadcrumbs',
 		'contact-form-7',
 		'content',
@@ -35,17 +35,18 @@ class PadmaBlocks {
 		'widget-area',
 	);
 
-
 	public static function init() {
 
 		Padma::load(array(
 			'abstract/api-block'
 		));
 
-		self::load_core_blocks();
+		//self::load_core_blocks();
+		self::register_core_blocks();
+
 
 		add_action('init', array(__CLASS__, 'register_block_types'), 8);
-
+		
 		add_action('init', array(__CLASS__, 'process_registered_blocks'), 9);
 
 		/* Handle block-specific actions */
@@ -66,27 +67,35 @@ class PadmaBlocks {
 	}
 
 
+
 	public static function register_block_types() {
 
 		global $padma_unregistered_block_types;
+		global $registry;
 
-		foreach ( $padma_unregistered_block_types as $class => $block_type_url ) {
+		foreach ( $padma_unregistered_block_types as $class => $block_type_data ) {
 
+			// Add this class and path to global class registry to be loaded in loader.php
+			$registry = array_merge($registry, array($class => $block_type_data['block_type_path']));
+			
 			if ( !class_exists($class) )
 				return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);
 
 			$block = new $class();
 
-			if ( $block_type_url )
-				$block->block_type_url = untrailingslashit($block_type_url);
+
+			if ( $block_type_data['block_type_url'] )
+				$block->block_type_url = untrailingslashit($block_type_data['block_type_url']);
+
+			if ( $block_type_data['block_type_path'] )
+				$block->block_type_path = untrailingslashit($block_type_data['block_type_path']);
+
 
 			$block->register();
 
 			unset($block);
 
 		}
-
-		unset($padma_unregistered_block_types);
 
 		return true;
 
@@ -103,16 +112,33 @@ class PadmaBlocks {
 	public static function load_core_blocks() {
 
 		foreach ( apply_filters('padma_core_block_types', self::$core_blocks) as $block ) {
-
+			
 			$block_path = '/blocks/' . $block . '/' . $block . '.php';
 
 			/* Allow blocks to be overriden by child themes */
-			if ( PADMA_CHILD_THEME_ACTIVE && file_exists( untrailingslashit(PADMA_CHILD_THEME_DIR) . $block_path ) ) {
+			if ( PADMA_CHILD_THEME_ACTIVE && file_exists( untrailingslashit(PADMA_CHILD_THEME_DIR) . $block_path ) )
 				require_once untrailingslashit( PADMA_CHILD_THEME_DIR ) . $block_path;
-			} else {
+			else
 				require_once PADMA_LIBRARY_DIR . $block_path;
-			}
 
+		}
+
+	}
+
+
+	public static function register_core_blocks(){
+		
+		foreach ( apply_filters('padma_core_block_types', self::$core_blocks) as $block ) {
+
+			$register_file = '/blocks/' . $block . '/block-register.php';
+			
+			/* Allow blocks to be overriden by child themes */
+			if ( PADMA_CHILD_THEME_ACTIVE && file_exists( untrailingslashit(PADMA_CHILD_THEME_DIR) . $register_file ) )
+				require_once untrailingslashit( PADMA_CHILD_THEME_DIR ) . $register_file;
+			else
+				require_once PADMA_LIBRARY_DIR . $register_file;
+
+			//debug($register_file);
 		}
 
 	}
@@ -564,7 +590,7 @@ class PadmaBlocks {
 		//Set the block style to null so we don't get an ugly notice down the road if it's not used.
 		$block_style_attr = null;
 
-		//Check if the block type exists
+		//Check if the block type exists		
 		if ( !$block_type_settings = padma_get($block['type'], $block_types, array()) ) {
 
 			$block['requested-type'] 	= $block['type'];

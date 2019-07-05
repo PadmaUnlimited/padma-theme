@@ -1,7 +1,5 @@
 <?php
 
-padma_register_block('PadmaListingsBlock', padma_url() . '/library/blocks/listings');
-
 class PadmaListingsBlock extends PadmaBlockAPI {
 	
 	

@@ -1,5 +1,4 @@
 <?php
-padma_register_block( 'PadmaNavigationBlock', padma_url() . '/library/blocks/navigation' );
 
 class PadmaNavigationBlock extends PadmaBlockAPI {
 

@@ -8,6 +8,7 @@
 
 
 <?php
+
 $GLOBALS['wp_media_view_strings'] = array();
 $GLOBALS['wp_media_view_settings'] = array();
 
@@ -16,14 +17,16 @@ function padma_media_view_settings_grabber( $settings ) {
 
 	$GLOBALS['wp_media_view_settings'] = $settings;
 
+
 	return $settings;
 
 }
-
 add_filter( 'media_view_settings', 'padma_media_view_settings_grabber' );
+
 
 function padma_media_view_strings_grabber($strings) {
 
+	$strings['attachmentsList'] = '';
 	$GLOBALS['wp_media_view_strings'] = $strings;
 
 	return $strings;
@@ -41,7 +44,6 @@ wp_localize_script( 'media-views', '_wpMediaViewsL10n', $GLOBALS['wp_media_view_
 
 wp_enqueue_style('open-sans');
 
-wp_print_scripts();
 wp_print_styles();
 ?>
 
@@ -66,14 +68,13 @@ wp_print_styles();
 	}
 </style>
 
-
 </head>
-
 <body>
-
 <?php
 wp_print_media_templates();
-?>
 
+
+wp_print_scripts();
+?>
 </body>
 </html>

@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaSiteLogoBlock', padma_url() . '/library/blocks/site-logo');
 
 class PadmaSiteLogoBlock extends PadmaBlockAPI {
 	

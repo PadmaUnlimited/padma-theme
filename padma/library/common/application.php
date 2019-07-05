@@ -32,7 +32,7 @@ class Padma {
 			define('THEME_FRAMEWORK', 'padma');			
 		}
 		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.1.24');			
+			define('PADMA_VERSION', '1.1.25');			
 		}
 
 		/* Define directories */
@@ -551,7 +551,7 @@ class Padma {
 		} else {
 			$load = $classes;
 		}
-
+		
 		$classes_to_init = array();
 
 		//Remove already loaded classes from the array
@@ -560,7 +560,6 @@ class Padma {
 		}
 		
 		foreach ( $load as $file => $init ) {
-
 
 
 			//Check if only value is used instead of both key and value pair
@@ -586,10 +585,17 @@ class Padma {
 
 				$classes_to_init[] = $init;
 
+			}else {
+				
+				//Handle anything and automatically insert .php if need be
+				if ( strpos($file, '/') !== false )
+					require_once PADMA_LIBRARY_DIR . '/' . $file . '.php';
+
 			}
 
 		}
-
+		//debug($classes_to_init);
+		
 		//Init everything after dependencies have been loaded
 		foreach($classes_to_init as $class){
 

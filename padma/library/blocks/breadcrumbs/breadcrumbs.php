@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaBreadcrumbsBlock', padma_url() . '/library/blocks/breadcrumbs');
 
 class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 	

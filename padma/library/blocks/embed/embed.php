@@ -1,5 +1,5 @@
 <?php
-padma_register_block('PadmaEmbedBlock', padma_url() . '/library/blocks/embed');
+
 class PadmaEmbedBlock extends PadmaBlockAPI {
 	
 	

@@ -1,7 +1,6 @@
 <?php
 if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
-	padma_register_block('PadmaPinBoardCoreBlock', padma_url() . '/library/blocks/pin-board');
 	class PadmaPinBoardCoreBlock extends PadmaBlockAPI {
 
 

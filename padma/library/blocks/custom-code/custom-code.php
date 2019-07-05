@@ -1,7 +1,5 @@
 <?php
 
-padma_register_block('PadmaCustomCodeBlock', padma_url() . '/library/blocks/custom-code');
-
 class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	
 	

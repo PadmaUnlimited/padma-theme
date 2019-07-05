@@ -958,8 +958,9 @@ class PadmaGridRenderer {
 
 							do_action('padma_block_sub_column_open', $this->wrapper);
 							
-							foreach ( $block_or_sub_column['blocks'] as $sub_block )
+							foreach ( $block_or_sub_column['blocks'] as $sub_block ){								
 								PadmaBlocks::display_block($sub_block, 'grid-renderer');
+							}
 								
 							do_action('padma_block_sub_column_column', $this->wrapper);
 							

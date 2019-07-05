@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaTextBlock', padma_url() . '/library/blocks/text');
 
 class PadmaTextBlock extends PadmaBlockAPI {
 	

@@ -1,7 +1,5 @@
 <?php
 
-padma_register_block('PadmaSocialBlock', padma_url() . '/library/blocks/social');
-
 class PadmaSocialBlock extends PadmaBlockAPI {
 	
 	public $id 				= 'social';	

@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaHeaderBlock', padma_url() . '/library/blocks/header');
 
 class PadmaHeaderBlock extends PadmaBlockAPI {
 	

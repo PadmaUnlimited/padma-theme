@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaSearchBlock', padma_url() . '/library/blocks/search');
 
 class PadmaSearchBlock extends PadmaBlockAPI {
 

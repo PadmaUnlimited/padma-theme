@@ -34,7 +34,6 @@ define(['jquery', 'underscore'], function($, _) {
 				bottom: '70px',
 				margin: 0
 			});
-
 		}
 
 		openBox('input-image');

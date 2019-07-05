@@ -708,18 +708,22 @@ function padma_register_admin_meta_padma_callback($class) {
  * @package Padma
  * @subpackage API
  **/
-function padma_register_block($class, $block_type_url = false) {	
+function padma_register_block($class, $block_type_url = false, $block_type_path = null) {
 	
 	global $padma_unregistered_block_types;
 	
 	if ( !is_array($padma_unregistered_block_types) )
 		$padma_unregistered_block_types = array();
 	
-	$padma_unregistered_block_types[$class] = $block_type_url;
-	
+	$padma_unregistered_block_types[$class] = array(
+		'block_type_url'	=>	$block_type_url,
+		'block_type_path'	=>	$block_type_path,
+	);
+
 	return true;
 
 }
+
 
 function padma_register_visual_editor_box($class) {
 

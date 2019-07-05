@@ -1,5 +1,7 @@
 <?php
 
+global $registry;
+
 $registry = array(
 
 	// Abstract
@@ -114,8 +116,6 @@ $registry = array(
 	'PadmaSidePanelDesignEditor'	=>	'visual-editor/panels/design/side-panel-design-editor',
 	'GridSetupPanel'	=>	'visual-editor/panels/grid/setup',
 
-
-
 	// Widgets
 	'PadmaWidgets'	=>	'widgets/widgets',
 
@@ -125,10 +125,18 @@ $registry = array(
 
 );
 
-spl_autoload_register(function ($class) use ($registry) {
+$registry = apply_filters('padma_class_registry', $registry);
 
-	$file = dirname( __FILE__ ) . '/' . $registry[$class] . '.php';
 
+spl_autoload_register(function ($class) {
+
+	global $registry;
+
+	$file = $registry[$class];
+
+	if(!is_file($file))
+		$file = dirname( __FILE__ ) . '/' . $registry[$class] . '.php';
+	
 	if ( file_exists( $file ) && strpos($class, 'Padma') == 0 )
 		include $file;
 

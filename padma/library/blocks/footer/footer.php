@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaFooterBlock', padma_url() . '/library/blocks/footer');
 
 class PadmaFooterBlock extends PadmaBlockAPI {
 	

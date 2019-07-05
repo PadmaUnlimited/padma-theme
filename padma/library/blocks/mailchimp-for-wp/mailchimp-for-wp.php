@@ -1,6 +1,5 @@
 <?php
 
-padma_register_block('PadmaMailchimpForWPBlock', padma_url() . '/library/blocks/contact-form-7');
 
 class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 	

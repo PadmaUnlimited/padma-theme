@@ -1,5 +1,5 @@
 <?php
-padma_register_block('PadmaSliderBlock', padma_url() . '/library/blocks/slider');
+
 class PadmaSliderBlock extends PadmaBlockAPI {
 	
 	

@@ -1,7 +1,5 @@
 <?php
 
-padma_register_block('PadmaWidgetAreaBlock', padma_url() . '/library/blocks/widget-area');
-
 class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 	public $id = 'widget-area';

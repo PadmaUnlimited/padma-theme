@@ -102,9 +102,10 @@ class PadmaRoute {
 				break;
 
 			case 'media-uploader':
+				
 				if ( !PadmaCapabilities::can_user_visually_edit() )
 					die();
-
+				
 				Padma::load('visual-editor/media-uploader');
 				break;
 

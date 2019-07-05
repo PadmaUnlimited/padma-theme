@@ -5,7 +5,8 @@ abstract class PadmaBlockAPI {
 			
 	public $id;	
 	public $name;	
-	public $block_type_url;	
+	public $block_type_url;
+	public $block_type_path;
 	public $options_class 	= 'PadmaBlockOptionsAPI';		
 	public $fixed_height 	= false;	
 	public $html_tag 		= 'div';	
@@ -28,7 +29,7 @@ abstract class PadmaBlockAPI {
 	public function register() {
 				
 		global $padma_block_types;
-		
+
 		//If the Padma blocks array doesn't exist, create it.
 		if ( !is_array($padma_block_types) )
 			$padma_block_types = array();
@@ -53,17 +54,13 @@ abstract class PadmaBlockAPI {
 				}
 			}
 		}
-
-
-
-
-
 				
 		// Add block to array.  This array will be used for checking if certain blocks exist, the block type selector and so on.
 		// Floating blocks are created on the fly, it change the id so DO NOT use css or js based on the id
 		$padma_block_types[$this->id] = array(
 			'name' => $this->name,
 			'url' => $this->block_type_url,
+			'path' => $this->block_type_path,
 			'class' => get_class($this),
 			'fixed-height' => $this->fixed_height,
 			'html-tag' => $this->html_tag,
@@ -76,6 +73,14 @@ abstract class PadmaBlockAPI {
 			'inline-editable-equivalences' => $this->inline_editable_equivalences
 		);
 
+		
+		$file = $this->block_type_path . '/' . $this->id . '.php';
+		spl_autoload_register(function ($class) use ( $file ) {
+			
+			if ( file_exists( $file ) )
+				include $file;
+
+		});
 		
 		//Add the element for the block itself
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));

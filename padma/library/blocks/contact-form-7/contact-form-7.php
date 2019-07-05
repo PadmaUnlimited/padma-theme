@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaContactForm7Block', padma_url() . '/library/blocks/contact-form-7');
 
 class PadmaContactForm7Block extends PadmaBlockAPI {
 	

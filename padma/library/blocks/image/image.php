@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaImageBlock', padma_url() . '/library/blocks/image');
 
 class PadmaImageBlock extends PadmaBlockAPI {
 	

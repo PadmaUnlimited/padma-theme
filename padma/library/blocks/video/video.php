@@ -1,5 +1,4 @@
 <?php
-padma_register_block('PadmaVideoBlock', padma_url() . '/library/blocks/video');
 
 class PadmaVideoBlock extends PadmaBlockAPI {
 	

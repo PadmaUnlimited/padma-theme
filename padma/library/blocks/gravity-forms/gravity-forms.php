@@ -1,7 +1,4 @@
 <?php
-//Check that Gravity Forms is even enabled
-if ( class_exists('RGForms'))
-	padma_register_block('PadmaGravityFormsBlock', padma_url() . '/library/blocks/gravity-forms');
 
 class PadmaGravityFormsBlock extends PadmaBlockAPI {
 	

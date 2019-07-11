@@ -172,9 +172,6 @@ class PadmaVisualEditorAJAX {
 				'post_title' => $post->post_title,
 			);
 		};
-		
-		debug($posts);
-
 		self::json_encode($posts);
 
 	}

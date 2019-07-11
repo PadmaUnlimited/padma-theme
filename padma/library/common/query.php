@@ -233,7 +233,6 @@ class PadmaQuery{
 
 						foreach ($custom_field_values as $key => $value) {
 
-
 						    // Exclude serialized data
 						    if(is_serialized($value))
 						    	continue;

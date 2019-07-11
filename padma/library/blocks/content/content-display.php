@@ -611,17 +611,22 @@ class PadmaContentBlockDisplay {
 						$group_tag = apply_filters('padma_content_custom_fields_group_tag', 'div' );
 						$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
 						$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
-						
-						// open tag
-						echo '<' . $group_tag . ' class="custom-fields-group">';
-						
-						if($label)
-							echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
-						
-						echo '<'.$field_tag.'>'. get_post_meta($post_id,$field_name,true) . '</'.$field_tag.'>';
-						
-						// close tag
-						echo '</' . $group_tag . '>';
+
+						$custom_field_content = get_post_meta($post_id,$field_name,true);
+
+						if($custom_field_content){
+							
+							// open tag
+							echo '<' . $group_tag . ' class="custom-fields-group">';
+							
+							if($label)
+								echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+							
+							echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
+							
+							// close tag
+							echo '</' . $group_tag . '>';										
+						}
 					}
 				}
 
@@ -693,16 +698,21 @@ class PadmaContentBlockDisplay {
 									$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
 									$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
 									
-									// open tag
-									echo '<' . $group_tag . ' class="custom-fields-group">';
-									
-									if($label)
-										echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
-									
-									echo '<'.$field_tag.'>'. get_post_meta($post_id,$field_name,true) . '</'.$field_tag.'>';
-									
-									// close tag
-									echo '</' . $group_tag . '>';
+									$custom_field_content = get_post_meta($post_id,$field_name,true);
+
+									if($custom_field_content){
+
+										// open tag
+										echo '<' . $group_tag . ' class="custom-fields-group">';
+										
+										if($label)
+											echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+										
+										echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
+										
+										// close tag
+										echo '</' . $group_tag . '>';										
+									}
 								}
 							}
 
@@ -743,16 +753,21 @@ class PadmaContentBlockDisplay {
 						$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
 						$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
 						
-						// open tag
-						echo '<' . $group_tag . ' class="custom-fields-group">';
-						
-						if($label)
-							echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
-						
-						echo '<'.$field_tag.'>'. get_post_meta($post_id,$field_name,true) . '</'.$field_tag.'>';
-						
-						// close tag
-						echo '</' . $group_tag . '>';
+						$custom_field_content = get_post_meta($post_id,$field_name,true);
+
+						if($custom_field_content){
+							
+							// open tag
+							echo '<' . $group_tag . ' class="custom-fields-group">';
+							
+							if($label)
+								echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+							
+							echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
+							
+							// close tag
+							echo '</' . $group_tag . '>';										
+						}
 					}
 				}
 

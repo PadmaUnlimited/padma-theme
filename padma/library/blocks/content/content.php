@@ -638,8 +638,13 @@ class PadmaContentBlock extends PadmaBlockAPI {
 		 */
 		$this->register_block_element(array(
 			'id' => 'custom-fields',
-			'name' => 'Custom Fields Group',
+			'name' => 'Custom Fields Container',
 			'selector' => '.custom-fields',			
+		));
+		$this->register_block_element(array(
+			'id' => 'custom-fields-group',
+			'name' => 'Custom Fields Group',
+			'selector' => '.custom-fields-group',
 		));
 
 			$this->register_block_element(array(
@@ -1619,12 +1624,29 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		 * Custom Fields support
 		 *
 		 */
+
+
+		$post_types = $custom_fields = array();
+
+		if( $this->block['settings']['mode'] == 'custom-query' ){
+			$post_types = $this->block['settings']['post-type'];
+
+			if(empty($post_types))
+				$post_types[] = 'post';
+
+		}else{
+			$post_types = get_post_types();
+		}
+
 		
-		$custom_fields = PadmaQuery::get_meta($this->block['settings']['post-type']);
+		$custom_fields = PadmaQuery::get_meta($post_types);		
 
 		if(count($custom_fields)==0){
 
-			$this->tab_notices['custom-fields'] = 'The selected post type does not have custom fields.';
+			if($this->block['settings']['mode'] == 'custom-query')
+				$this->tab_notices['custom-fields'] = 'The selected post type does not have custom fields.';
+			else
+				$this->tab_notices['custom-fields'] = 'There is not custom fields to show.';
 
 		}else{
 

@@ -1679,8 +1679,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'type' => 'text',
 						'name' => $label,
 						'label' => '"'.$field_name .'" label',
-						'default' => 'below',
-						'options' => array('above' => 'Above content','below' => 'Below content')
+						'default' => '',
 					);
 					
 					// Custom field position input
@@ -1689,7 +1688,11 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'name' => $position,
 						'label' => '"'.$field_name .'" position',
 						'default' => 'below',
-						'options' => array('above' => 'Above','below' => 'Below')
+						'options' => array(
+							'above' => 'Above',
+							'after-title' => 'After Title',
+							'below' => 'Below'
+						)
 					);
 
 				}

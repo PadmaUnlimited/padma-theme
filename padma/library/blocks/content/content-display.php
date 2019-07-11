@@ -606,8 +606,6 @@ class PadmaContentBlockDisplay {
 				
 				foreach ($this->block['custom-fields']['above'] as $post_type => $custom_fields) {
 
-					debug($custom_fields);
-
 					foreach ($custom_fields as $field_name => $label) {
 					
 						$group_tag = apply_filters('padma_content_custom_fields_group_tag', 'div' );
@@ -675,7 +673,41 @@ class PadmaContentBlockDisplay {
 	
 						}
 	
-						do_action('padma_after_entry_title', $args);			
+						do_action('padma_after_entry_title', $args);
+
+
+						/**
+						 *
+						 * Custom Fields "After Title"
+						 *
+						 */
+						if(is_array($this->block['custom-fields']['after-title']) && count($this->block['custom-fields']['after-title'])>0){
+
+							echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-after-title') ) )  .'">';
+							
+							foreach ($this->block['custom-fields']['after-title'] as $post_type => $custom_fields) {
+
+								foreach ($custom_fields as $field_name => $label) {
+								
+									$group_tag = apply_filters('padma_content_custom_fields_group_tag', 'div' );
+									$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
+									$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
+									
+									// open tag
+									echo '<' . $group_tag . ' class="custom-fields-group">';
+									
+									if($label)
+										echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+									
+									echo '<'.$field_tag.'>'. get_post_meta($post_id,$field_name,true) . '</'.$field_tag.'>';
+									
+									// close tag
+									echo '</' . $group_tag . '>';
+								}
+							}
+
+							echo '</div>';
+						}
 
 					echo $entry_meta_above;
 

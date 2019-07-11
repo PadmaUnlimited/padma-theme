@@ -153,6 +153,33 @@ class PadmaVisualEditorAJAX {
 	}
 
 
+	public static function method_query_posts() {
+
+		$query = new WP_Query( array( 's' => padma_post( 'query' ) ) );
+		//debug($query->posts);
+		return $query->posts;
+
+	}
+
+
+	public static function method_get_content_children() {
+
+		$query = new WP_Query( array( 'post_type' => padma_post( 'query' ) ) );
+		$posts = array();
+		foreach ($query->posts as $key => $post) {
+			$posts[] = array(
+				'id' => $post->ID,
+				'post_title' => $post->post_title,
+			);
+		};
+		
+		debug($posts);
+
+		self::json_encode($posts);
+
+	}
+
+
 	/* Block methods */
 	public static function method_get_layout_blocks_in_json() {
 

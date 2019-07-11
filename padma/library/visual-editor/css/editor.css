@@ -3297,10 +3297,15 @@ li.inspector-context-menu-block-options span:before {
 }
 
 /* Layout Selector */
+div#content-selector-select.content-selector-visible div#content-selector,
 div#layout-selector-select.layout-selector-visible div#layout-selector {
 	display: block;
 }
 
+div#content-selector-select{
+	display: none;
+}
+div#content-selector-select-content,
 div#layout-selector-select-content {
 	width: 320px;
 	float: left;
@@ -3315,16 +3320,19 @@ div#layout-selector-select-content {
 	white-space: nowrap;
 	position: relative;
 }
+div#content-selector-select-content:hover span#content-selector-select-content-arrow,
 div#layout-selector-select-content:hover span#layout-selector-select-content-arrow {
 	color: rgba(255, 255, 255, 0.95);
 }
 
+div#content-selector-select-content span#currently-editing,
 div#layout-selector-select-content span#currently-editing {
 	color: #ffffff;
 	margin: 0 5px 0 0;
 	float: left;
 }
 
+div#content-selector-select-content span#current-layout,
 div#layout-selector-select-content span#current-layout {
 	max-width: 180px;
 	text-overflow: ellipsis;
@@ -3333,6 +3341,7 @@ div#layout-selector-select-content span#current-layout {
 	display: inline-block;
 }
 
+span#content-selector-select-content-arrow,
 span#layout-selector-select-content-arrow {
 	position: absolute;
 	top: 0;
@@ -3346,6 +3355,7 @@ span#layout-selector-select-content-arrow {
 	border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+span#content-selector-select-content-arrow:after,
 span#layout-selector-select-content-arrow:after {
 	font-family: "padma-ve";
 	font-style: normal;
@@ -3363,10 +3373,12 @@ span#layout-selector-select-content-arrow:after {
 	font-size: 13px;
 }
 
+div#content-selector-select.content-selector-visible span#content-selector-select-content-arrow,
 div#layout-selector-select.layout-selector-visible span#layout-selector-select-content-arrow {
 	background: rgba(255, 255, 255, 0.3);
 }
 
+div#content-selector,
 div#layout-selector {
 	width: 330px;
 	padding: 0;
@@ -3382,6 +3394,7 @@ div#layout-selector {
 	left: 0;
 }
 
+div.content-selector-content,
 div.layout-selector-content {
 	float: left;
 	clear: both;
@@ -3398,47 +3411,64 @@ div.layout-selector-content {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
+div.content-selector-content{
+	top: 0;
+}
 
+div.content-selector-content ul li,
 div.layout-selector-content ul li {
 	display: block;
 	float: left;
 	width: 100%;
 }
 
+div.content-selector-content ul ul,
 div.layout-selector-content ul ul {
 	display: none;
 }
 
+div.content-selector-content > ul ul > li.content-item span.content,
+div.content-selector-content > ul ul > li.content-loading-children,
 div.layout-selector-content > ul ul > li.layout-item span.layout,
 div.layout-selector-content > ul ul > li.layout-loading-children {
 	padding-left: 45px;
 }
 
+div.content-selector-content > ul ul ul > li.content-item span.content,
+div.content-selector-content > ul ul ul > li.content-loading-children,
 div.layout-selector-content > ul ul ul > li.layout-item span.layout,
 div.layout-selector-content > ul ul ul > li.layout-loading-children {
 	padding-left: 70px;
 }
 
+div.content-selector-content > ul ul ul ul > li.content-item span.content,
+div.content-selector-content > ul ul ul ul > li.content-loading-children,
 div.layout-selector-content > ul ul ul ul > li.layout-item span.layout,
 div.layout-selector-content > ul ul ul ul > li.layout-loading-children {
 	padding-left: 95px;
 }
 
+div.content-selector-content > ul ul ul ul ul > li.content-item span.content,
+div.content-selector-content > ul ul ul ul ul > li.content-loading-children,
 div.layout-selector-content > ul ul ul ul ul > li.layout-item span.layout,
 div.layout-selector-content > ul ul ul ul ul > li.layout-loading-children {
 	padding-left: 120px;
 }
 
+div.content-selector-content > ul ul ul ul ul ul > li.content-item span.content,
+div.content-selector-content > ul ul ul ul ul ul > li.content-loading-children,
 div.layout-selector-content > ul ul ul ul ul ul > li.layout-item span.layout,
 div.layout-selector-content > ul ul ul ul ul ul > li.layout-loading-children {
 	padding-left: 145px;
 }
 
 /* Style big boy layout */
+div.content-selector-content ul > li:nth-child(even) > span.content,
 div.layout-selector-content ul > li:nth-child(even) > span.layout {
 	background: #F9F9F9;
 }
 
+div.content-selector-content li.content-item span.content,
 div.layout-selector-content li.layout-item span.layout {
 	padding: 10px 20px;
 	cursor: pointer;
@@ -3454,15 +3484,18 @@ div.layout-selector-content li.layout-item span.layout {
 	clear: both;
 }
 
+div.content-selector-content li.content-item span.content strong,
 div.layout-selector-content li.layout-item span.layout strong {
 	float: left;
 	color: #0074A2;
 }
 
+div.content-selector-content li.content-item span.content strong:hover,
 div.layout-selector-content li.layout-item span.layout strong:hover {
 	color: #2EA2CC;
 }
 
+div.content-selector-content li.content-item span.content span.status,
 div.layout-selector-content li.layout-item span.layout span.status {
 	color: #555555;
 	float: left;
@@ -3472,6 +3505,7 @@ div.layout-selector-content li.layout-item span.layout span.status {
 }
 
 /* Change position of buttons for pages vs templates */
+div.content-selector-content li.content-item span.content-page span.content-selector-button,
 div.layout-selector-content li.layout-item span.layout-page span.layout-selector-button {
 	right: 10px;
 }
@@ -3518,6 +3552,7 @@ div.layout-selector-content li.layout-item span.layout-template span.delete-temp
 }
 
 /* Style buttons and hide them */
+span.content-selector-button,
 span.layout-selector-button {
 	display: none;
 	position: absolute;
@@ -3530,6 +3565,7 @@ span.layout-selector-button {
 }
 
 /* Load more button */
+span.load-more-contents,
 span.load-more-layouts {
 	display: block;
 	clear: both;
@@ -3542,7 +3578,9 @@ span.load-more-layouts {
 	float: left;
 }
 
-div.layout-selector-content span.layout:not(.layout-open) ~ span.load-more-layouts,
+div.content-selector-content span.layout:not(.layout-open) ~ span.load-more-content,
+div.layout-selector-content span.content:not(.layout-open) ~ span.load-more-layouts,
+div.content-selector-content li:not(.has-children) > span.load-more-content,
 div.layout-selector-content li:not(.has-children) > span.load-more-layouts {
 	display: none !important;
 }
@@ -3554,6 +3592,7 @@ body.visual-editor-mode-design span.revert {
 
 /* Conditionals */
 /* Hierarchial indicators */
+div.content-selector-content li.has-children > span.content:before,
 div.layout-selector-content li.has-children > span.layout:before {
 	font-family: "padma-ve";
 	font-style: normal;
@@ -3574,12 +3613,19 @@ div.layout-selector-content li.has-children > span.layout:before {
 	margin: 0 0 0 -15px;
 }
 
-div.layout-selector-content li.has-children > span.layout-open:before {
+div.content-selector-content li.has-children > span.content-open:before,
+div.layout-selector-content li.has-children > span.layout-open:before{
 	content: "d";
 	margin-left: -16px;
 }
 
+div.content-selector-content li.has-children > span.content-open ~ ul,
 div.layout-selector-content li.has-children > span.layout-open ~ ul {
+	display: block;
+}
+
+/* Show this button */
+div.content-selector-content li.content-item:not(.content-item-template-used):not(.content-selected) > span.content:hover span.show-this {
 	display: block;
 }
 
@@ -3693,6 +3739,7 @@ div.layout-selector-content li.layout-item.has-customized-children {
 	clear: both;
 }
 
+div.content-selector-content li.content-item > span.content-has-customized-children,
 div.layout-selector-content li.layout-item > span.layout-has-customized-children {
 	display: none;
 	font-size: 8px;
@@ -3719,6 +3766,7 @@ div.layout-selector-content li.info-layout-item span.layout strong:hover {
 }
 
 /* End Info Layout Item */
+div.content-selector-content li.content-loading-children,
 div.layout-selector-content li.layout-loading-children {
 	min-height: 18px;
 	line-height: 19px;
@@ -3729,16 +3777,19 @@ div.layout-selector-content li.layout-loading-children {
 	width: 100%;
 	color: #888888;
 }
+div.content-selector-content li.content-loading-children span,
 div.layout-selector-content li.layout-loading-children span {
 	-webkit-animation: spin 2000ms infinite linear;
 	-moz-animation: spin 2000ms infinite linear;
 	animation: spin 2000ms infinite linear;
 }
 
+div.content-selector-content ul > li.content-loading-children:nth-child(even),
 div.layout-selector-content ul > li.layout-loading-children:nth-child(even) {
 	background: #F9F9F9;
 }
 
+div.content-selector-content > ul,
 div.layout-selector-content > ul {
 	width: 100%;
 	margin: 0;
@@ -3748,10 +3799,12 @@ div.layout-selector-content > ul {
 
 /* Layout Selector Input */
 div#layout-selector-templates,
-div#layout-selector-pages {
+div#layout-selector-pages,
+div#content-selector-pages {
 	bottom: 35px;
 }
 
+div.content-selector-bottom-input,
 div.layout-selector-bottom-input {
 	float: left;
 	position: absolute;
@@ -3765,6 +3818,7 @@ div.layout-selector-bottom-input {
 	box-sizing: border-box;
 }
 
+div.content-selector-bottom-input input,
 div.layout-selector-bottom-input input {
 	float: left;
 	padding: 3px;
@@ -3772,19 +3826,23 @@ div.layout-selector-bottom-input input {
 	width: 150px;
 }
 
+input#content-search-input,
 input#layout-search-input {
 	width: 232px;
 	box-sizing: border-box;
 }
 
+div.content-selector-bottom-input input::-webkit-input-placeholder,
 div.layout-selector-bottom-input input::-webkit-input-placeholder {
 	opacity: 0.6;
 }
 
+div.content-selector-bottom-input input::-moz-placeholder,
 div.layout-selector-bottom-input input::-moz-placeholder {
 	opacity: 0.6;
 }
 
+div.content-selector-bottom-input span.button,
 div.layout-selector-bottom-input span.button {
 	display: block;
 	position: static;

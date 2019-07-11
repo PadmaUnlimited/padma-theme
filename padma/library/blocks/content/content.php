@@ -194,8 +194,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			$this->register_block_element(array(
 				'id' => 'entry-content-hyperlinks',
 				'name' => 'Body Hyperlinks',
-				'selector' => 'div.entry-content a',
-				'properties' => array('fonts', 'animation'),
+				'selector' => 'div.entry-content a',				
 				'states' => array(
 					'Hover' => 'div.entry-content a:hover', 
 					'Clicked' => 'div.entry-content a:active'
@@ -255,8 +254,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'id' => 'entry-meta-links',
 					'name' => 'Meta Hyperlinks',
 					'selector' => 'div.entry-meta a, footer.entry-meta a',
-					'parent' => 'entry-meta',
-					'properties' => array('fonts', 'animation'),
+					'parent' => 'entry-meta',					
 					'states' => array(
 					'Hover' => 'div.entry-meta a:hover, footer.entry-meta a:hover', 
 					'Clicked' => 'div.entry-meta a:active, footer.entry-meta a:active'
@@ -361,35 +359,31 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				));
 
 				$this->register_block_element(array(
-				'id' => 'content-ul-lists',
-				'name' => 'Unordered Lists',
-				'description' => '&lt;UL&gt;',
-				'selector' => 'div.entry-content ul',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
-			));
+					'id' => 'content-ul-lists',
+					'name' => 'Unordered Lists',
+					'description' => '&lt;UL&gt;',
+					'selector' => 'div.entry-content ul',
+				));
 
 				$this->register_block_element(array(
 					'id' => 'content-ul-list-item',
 					'name' => 'Unordered List Items',
 					'description' => '&lt;LI&gt;',
-					'selector' => 'div.entry-content ul li',
-					'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+					'selector' => 'div.entry-content ul li',					
 				));
 
 				$this->register_block_element(array(
-				'id' => 'content-ol-lists',
-				'name' => 'Ordered Lists',
-				'description' => '&lt;OL&gt;',
-				'selector' => 'div.entry-content ol',
-				'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
-			));
+					'id' => 'content-ol-lists',
+					'name' => 'Ordered Lists',
+					'description' => '&lt;OL&gt;',
+					'selector' => 'div.entry-content ol',					
+				));
 
 				$this->register_block_element(array(
 					'id' => 'content-list-item',
 					'name' => 'Ordered List Items',
 					'description' => '&lt;LI&gt;',
-					'selector' => 'div.entry-content ol li',
-					'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation'),
+					'selector' => 'div.entry-content ol li',					
 				));
 
 			$this->register_block_element(array(
@@ -729,18 +723,21 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			
 			$data = explode('-', $name);
 			$post_type = $data[3];
-			$custom_field = $data[4];
+
+			$custom_field = $name;
+			$custom_field = str_replace('custom-field-show-' . $post_type . '-', '' , $custom_field);
+			$custom_field = str_replace('custom-field-position-' . $post_type . '-', '' , $custom_field);
+			$custom_field = str_replace('custom-field-label-' . $post_type . '-', '' , $custom_field);
 			
-			if ( strpos($name, 'custom-field-show') !== false ){
+			if ( strpos($name, 'custom-field-show') !== false ){				
 				if($value){
 					$custom_fields_show[$post_type][$custom_field] = $value;
-				}
+				}				
 			}
-				
-
+			
 			if ( strpos($name, 'custom-field-position') !== false )
 				$custom_fields_position[$post_type][$custom_field] = $value;
-			
+
 			if ( strpos($name, 'custom-field-label') !== false )
 				$custom_fields_label[$post_type][$custom_field] = $value;
 						
@@ -750,11 +747,9 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		foreach ($custom_fields_position as $post_type => $custom_fields) {
 			foreach ($custom_fields as $field_name => $position) {
-				if($custom_fields_show[$post_type][$field_name] == 'true'){
+				if($custom_fields_show[$post_type][$field_name]){
 					$label = $custom_fields_label[$post_type][$field_name];
 					$data[$position][$post_type][$field_name] = $label;					
-				}else{
-					
 				}
 			}
 		}

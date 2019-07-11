@@ -96,9 +96,9 @@ require(['jquery', 'util.loader'], function($) {
 
 		break;
 
-		case 'design':			
+		case 'design':
 
-			require(['modules/design/mode-design', 'util.preview', 'modules/iframe', 'modules/layout-selector'], function(modeDesign, devicePreview) {
+			require(['modules/design/mode-design', 'util.preview', 'modules/content-selector', 'modules/iframe', 'modules/layout-selector'], function(modeDesign, devicePreview, contentSelector) {
 				
 				/**
 				 *
@@ -112,6 +112,14 @@ require(['jquery', 'util.loader'], function($) {
 
 				modeDesign.init();
 				waitForIframeLoad(modeDesign.iframeCallback);
+
+				contentSelector.init();
+
+				if(Padma.viewModels.layoutSelector.currentLayout().search('template') != -1){
+					$('#content-selector-select').show();
+				}else{
+					$('#content-selector-select').hide();
+				}
 			});
 
 		break;

@@ -47,6 +47,9 @@ class PadmaVisualEditorDisplay {
 
 		//Content
 		add_action('padma_visual_editor_menu', array(__CLASS__, 'layout_selector'));
+		add_action('padma_visual_editor_menu', array(__CLASS__, 'content_selector'));
+		
+		
 		add_action('padma_visual_editor_modes', array(__CLASS__, 'mode_navigation'));
 		add_action('padma_visual_editor_menu_links', array(__CLASS__, 'menu_links'));
 		add_action('padma_visual_editor_footer', array(__CLASS__, 'block_type_selector'));
@@ -367,6 +370,15 @@ class PadmaVisualEditorDisplay {
 	public static function layout_selector() {
 
 		require_once PADMA_LIBRARY_DIR . '/visual-editor/template-layout-selector.php';
+
+	}
+
+
+	public static function content_selector() {
+
+		if(PadmaVisualEditor::is_mode('design') && strpos(PadmaLayout::get_current_in_use(), 'template') == 0){
+			require_once PADMA_LIBRARY_DIR . '/visual-editor/template-content-selector.php';
+		}
 
 	}
 

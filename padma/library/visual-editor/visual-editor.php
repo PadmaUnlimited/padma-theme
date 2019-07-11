@@ -717,12 +717,11 @@ class PadmaVisualEditor {
 	
 	public static function get_current_mode() {
 		
-		$mode = padma_get('visual-editor-mode');		
+		$mode = padma_get('visual-editor-mode');
 				
 		if ( $mode ) {
 			
-			if ( array_search(strtolower($mode), array_map('strtolower', array_keys(self::$modes))) ) {
-				
+			if ( array_search(strtolower($mode), array_map('strtolower', array_keys(self::$modes))) ) {				
 				return strtolower($mode);
 				
 			} 

@@ -65,6 +65,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		if ( typeof selectedLayout !== 'string' && layoutNode.length !== 1 ) {
 			return false;
 		}
+
+
+		
 				
 		changeTitle('Visual Editor: Loading');
 		startTitleActivityIndicator();
@@ -83,6 +86,12 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			layoutURL = Padma.homeURL;
 			layoutName = selectedLayoutName;
 
+		}
+
+		if(layoutID.search('template') != -1){
+			$('#content-selector-select').show();
+		}else{
+			$('#content-selector-select').hide();
 		}
 
 		//Set global variables, these will be used in the next function to switch the iframe
@@ -409,6 +418,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					query  : query
 				},
 				success: function (data, textStatus) {
+
+					console.log(data);
+
 
 					Padma.viewModels.layoutSelector.searching(false);
 

@@ -530,6 +530,8 @@ class PadmaContentBlockDisplay {
 				$post_type 		= get_post_type();
 			/* End generic variables */
 
+			//debug($post_id);
+
 			/* Meta */
 				$entry_meta_display_post_types = $this->get_setting('show-entry-meta-post-types', array('post'));
 
@@ -603,6 +605,8 @@ class PadmaContentBlockDisplay {
 				echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-above') ) )  .'">';
 				
 				foreach ($this->block['custom-fields']['above'] as $post_type => $custom_fields) {
+
+					debug($custom_fields);
 
 					foreach ($custom_fields as $field_name => $label) {
 					

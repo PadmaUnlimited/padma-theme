@@ -101,9 +101,10 @@ function padma_get($name, $array = false, $default = null, $fix_data_type = fals
 	
 	if ( $array === false )
 		$array = $_GET;
-	
-	if ( (is_string($name) || is_numeric($name)) && !is_float($name) ) {
 
+
+	if ( (is_string($name) || is_numeric($name)) && !is_float($name) ) {
+		
 		if ( is_array($array) && isset($array[$name]) )
 			$result = $array[$name];
 		elseif ( is_object($array) && isset($array->$name) )

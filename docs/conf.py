@@ -2,6 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath('..'))
+sys.path.append(os.path.abspath('./padma_sphinx_theme/'))
 
 
 #from padma_sphinx_theme import __version__
@@ -104,7 +105,7 @@ html_theme_options = {
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ["padma_sphinx_theme"]
+html_theme_path = ["./padma_sphinx_theme/"]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".

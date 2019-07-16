@@ -62,7 +62,7 @@ Padma Unlimited users form an very active community on many channels like facebo
 
  - Patreon: [https://www.patreon.com/padmaunlimited](https://www.patreon.com/padmaunlimited)
 - Twitter: [https://twitter.com/PadmaUnlimited](https://twitter.com/PadmaUnlimited)
-Facebook Page: [https://www.facebook.com/padmaunlimited/](https://www.facebook.com/padmaunlimited/)
+- Facebook Page: [https://www.facebook.com/padmaunlimited/](https://www.facebook.com/padmaunlimited/)
 - Slack: [padma-unlimited.slack.com](https://join.slack.com/t/padma-unlimited/shared_invite/enQtNTAxMzM1NjcwNTc5LTM2YzQ0ODRhYzBmZDc4N2UwOWE0MjBlMmQyZmQ2MTdjZTgyNjg1Mzk4ZjVlNGIxYjZkMjlmMTNhNmE3OWQ1YjY)
 - Facebook Group (EN): [https://www.facebook.com/groups/367999217036886/](https://www.facebook.com/groups/367999217036886/)
 - Facebook Group (ES): [https://www.facebook.com/groups/291445981578459/](https://www.facebook.com/groups/291445981578459/)

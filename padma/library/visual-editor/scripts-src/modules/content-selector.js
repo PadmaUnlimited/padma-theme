@@ -45,7 +45,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 	
 	switchToContent = function (selectedContent, showSwitchNotification, selectedContentName) {
 
-		var content, contentNode, contentID, contentURL, contentName;
+		console.log('Por revisar: switchToContent');
+
+		var content, contentNode, contentID, contentName;
 
 		if ( typeof selectedContent == 'object' && !selectedContent.hasClass('content') ) {
 			contentNode = selectedContent.find('> span.content');
@@ -73,15 +75,13 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		if ( contentNode.length ) {
 
 			content = contentNode;
-			contentID = content.attr('data-content-id');
-			contentURL = Padma.mode == 'grid' ? Padma.homeURL : content.attr('data-content-url');
+			contentID = content.attr('data-content-id');			
 			contentName = content.find('strong').text();
 
 		} else {
 
 			content = $();
-			contentID = selectedContent;
-			contentURL = Padma.homeURL;
+			contentID = selectedContent;			
 			contentName = selectedContentName;
 
 		}
@@ -191,84 +191,6 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		
 	}
 
-
-	unassignSharedContent = function(contentID, contentNode, contentName) {
-
-		var contentData;
-
-		if ( typeof contentNode != 'undefined' && contentNode.length ) {
-
-			contentData = ko.dataFor(contentNode.get(0));
-			contentName = contentNode.find('> span.content strong').text();
-
-		} else {
-
-			var contentNode = $('span.content[data-content-id="' + contentID + '"]');
-
-			if ( contentNode.length ) {
-				contentData = ko.dataFor(contentNode.get(0));
-			}
-
-		}
-
-		if ( !confirm('Are you sure you want to remove the shared content from ' + contentName + '?') )
-			return false;
-
-		//Do the AJAX request to assign the template
-		$.post(Padma.ajaxURL, {
-			security: Padma.security,
-			action: 'padma_visual_editor',
-			method: 'remove_template_from_content',
-			content: contentID
-		}, function (response) {
-
-			if ( typeof response === 'undefined' || response == 'failure' ) {
-				showErrorNotification({
-					id: 'error-could-not-remove-template-from-content',
-					message: 'Error: Could not remove shared content from content.'
-				});
-
-				return false;
-			}
-
-			if ( contentData ) {
-				contentData.template(false);
-				contentData.templateName(false);
-			}
-
-			//If the current content is the one with the template that we're unassigning, we need to reload the iframe.
-			if ( contentID == Padma.viewModels.contentSelector.currentContent() ) {
-
-				showIframeLoadingOverlay();
-
-				//Change title to loading
-				changeTitle('Visual Editor: Removing Shared Content From Content');
-				startTitleActivityIndicator();
-
-				Padma.viewModels.contentSelector.currentContentTemplate(false);
-
-				//Reload iframe and new content
-				padmaIframeLoadNotification = 'Shared Content removed from content successfully!';
-
-				loadIframe(Padma.instance.iframeCallback);
-
-				return true;
-
-			} else {
-				showNotification({
-					id: 'shared-content-removed-from-content',
-					message: 'Shared Content removed from content successfully!'
-				});
-			}
-
-			//We're all good!
-			return true;
-
-		});
-
-	}
-
-
 	var contentSelector = {
 
 		init: function() {
@@ -325,6 +247,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		
 		mapArrayToContentModel: function(contents) {
 
+			console.log(contents)
+
 			var normalizedData = [];
 
 			$.each(contents, function (index, data) {
@@ -344,6 +268,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			}
 
 			contentData.ajaxLoading(true);
+
 
 			var $loadingIndicator = $('<li class="content-item content-loading-children"><span class="dashicons dashicons-update"></span> Loading...</li>');
 			$loadingIndicator.insertAfter($element.parent());
@@ -371,15 +296,22 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 						return $(self).removeClass('content-open');
 					}
 
+
+					
+
 					if ( !_.isArray(contentContext.$data.children()) ) {
 						contentContext.$data.children(ko.utils.unwrapObservable(contentSelector.mapArrayToContentModel(data)));
 					} else {
-
+						
 						$.each(ko.utils.unwrapObservable(contentSelector.mapArrayToContentModel(data)), function(index, data) {
+							
+						/*
 							contentContext.$data.children.push(data);
+						*/
 						});
 
 					}
+					/*
 
 					contentContext.$data.ajaxLoaded(true);
 					contentContext.$data.ajaxLoadOffset(contentContext.$data.ajaxLoadOffset() + data.length);
@@ -388,7 +320,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 						contentContext.$data.ajaxShowMore(true);
 					} else {
 						contentContext.$data.ajaxShowMore(false);
-					}
+					}*/
 
 				}
 			});

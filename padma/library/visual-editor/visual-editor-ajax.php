@@ -148,6 +148,7 @@ class PadmaVisualEditorAJAX {
 
 		Padma::load( 'visual-editor/layout-selector' );
 
+		debug(self::json_encode( PadmaLayoutSelector::query_layouts( padma_post( 'query' ) ) ));
 		self::json_encode( PadmaLayoutSelector::query_layouts( padma_post( 'query' ) ) );
 
 	}
@@ -172,6 +173,7 @@ class PadmaVisualEditorAJAX {
 				'post_title' => $post->post_title,
 			);
 		};
+		debug ($posts);
 		self::json_encode($posts);
 
 	}

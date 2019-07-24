@@ -556,6 +556,7 @@ class PadmaContentBlockDisplay {
 
 			/* Setup Titles */
 				$hide_title = PadmaLayoutOption::get($post_id, 'hide-title', false, true, false);
+				error_log(print_r($hide_title,1));
 
 				$alternate_title = PadmaLayoutOption::get($post_id, 'alternate-title', false, true);
 
@@ -658,7 +659,8 @@ class PadmaContentBlockDisplay {
 					}
 
 						do_action('padma_before_entry_title', $args);			
-	
+
+					
 						//Show the title based on the Show Titles option
 						if (
 							$this->get_setting('show-titles', true)

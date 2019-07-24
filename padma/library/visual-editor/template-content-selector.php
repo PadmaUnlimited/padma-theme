@@ -12,21 +12,16 @@
 					'has-children': children().length || ajaxChildren,
 					'has-ajax-children': ajaxChildren,
 					'content-item-customized': customized,
-					'content-item-template-used': template,
-					'content-selected': id == $root.currentLayout(),
-					'content-item-no-edit': noEdit
+					'content-item-template-used': id == template,					
 				}">
 					<span class="content-has-customized-children tooltip" title="This content has customized children.">&bull;</span>
 
-					<span class="content content-page" data-bind="attr: {'data-content-id': id }, css: {'content-open': $('#content-selector-pages-search-results').is(':visible')}">
+					<span class="content content-page" data-bind="attr: {'data-content-id': id, 'data-layout-url': url}, css: {'content-open': $('#content-selector-pages-search-results').is(':visible')}">
 						<strong data-bind="html: name"></strong>
 
 						<span class="status status-post-status" data-bind="visible: postStatus, text: '(' + postStatus + ')'"></span>
 
 						<span class="status status-template" data-bind="attr: {'data-template-id': template},text: templateName;"></span>
-
-						<span class="status status-customized" data-bind="if: customized">Customized</span>
-						<span class="status status-currently-editing" data-bind="if: id == $root.currentLayout()">Currently Editing</span>
 						<span class="show-this button button-blue content-selector-button">Show this</span>
 					</span>
 

@@ -302,7 +302,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 			$(document).ready(function () {
 				ko.applyBindings(Padma.viewModels.layoutSelector, $('#layout-selector-pages-container').get(0));
-				ko.applyBindings(Padma.viewModels.layoutSelector, $('#layout-selector-templates-container').get(0));
+				ko.applyBindings(Padma.viewModels.layoutSelector, $('#layout-selector-templates-container').get(0));				
 			});
 
 		},
@@ -418,9 +418,6 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					query  : query
 				},
 				success: function (data, textStatus) {
-
-					console.log(data);
-
 
 					Padma.viewModels.layoutSelector.searching(false);
 

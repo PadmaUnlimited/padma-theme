@@ -147,8 +147,6 @@ class PadmaVisualEditorAJAX {
 	public static function method_query_layouts() {
 
 		Padma::load( 'visual-editor/layout-selector' );
-
-		debug(self::json_encode( PadmaLayoutSelector::query_layouts( padma_post( 'query' ) ) ));
 		self::json_encode( PadmaLayoutSelector::query_layouts( padma_post( 'query' ) ) );
 
 	}
@@ -156,8 +154,18 @@ class PadmaVisualEditorAJAX {
 
 	public static function method_query_posts() {
 
+		$post_type = explode('||', padma_post( 'content' ));
+		debug($post_type);
+
 		$query = new WP_Query( array( 's' => padma_post( 'query' ) ) );
-		//debug($query->posts);
+		$posts = array();
+		foreach ($query->posts as $key => $post) {
+			$posts[$post->ID] = array(
+				'id' => $post->ID,
+				'post_title' => $post->post_title,
+			);
+		};	
+		self::json_encode($posts);
 		return $query->posts;
 
 	}
@@ -165,15 +173,16 @@ class PadmaVisualEditorAJAX {
 
 	public static function method_get_content_children() {
 
-		$query = new WP_Query( array( 'post_type' => padma_post( 'query' ) ) );
+		$post_type = explode('||', padma_post( 'content' ))[1];		
+		$query = new WP_Query( array( 'post_type' => $post_type ) );
 		$posts = array();
 		foreach ($query->posts as $key => $post) {
-			$posts[] = array(
+			$posts[$post->ID] = array(
 				'id' => $post->ID,
-				'post_title' => $post->post_title,
+				'name' => $post->post_title,
+				'url' => get_post_permalink($post->ID),
 			);
 		};
-		debug ($posts);
 		self::json_encode($posts);
 
 	}

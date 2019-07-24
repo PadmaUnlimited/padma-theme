@@ -45,8 +45,12 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 	
 	switchToContent = function (selectedContent, showSwitchNotification, selectedContentName) {
 
+		console.log(selectedContent);
+		console.log(showSwitchNotification);
+		console.log(selectedContentName);
 		console.log('Por revisar: switchToContent');
 
+		/*
 		var content, contentNode, contentID, contentName;
 
 		if ( typeof selectedContent == 'object' && !selectedContent.hasClass('content') ) {
@@ -186,7 +190,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			padmaIframeLoadNotification = 'Switched to <em>' + Padma.viewModels.contentSelector.currentContentName() + '</em>';
 
 		loadIframe(Padma.instance.iframeCallback, contentURL);
+		*/
 
+		hideIframeOverlay();
 		return true;
 		
 	}
@@ -208,15 +214,15 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				currentContentTemplate: ko.observable(Padma.currentContentTemplate),
 				currentContentTemplateName: ko.observable(Padma.currentContentTemplateName),
 				currentContentCustomized: ko.observable(Padma.currentContentCustomized),
-				pages: contentSelector.mapArrayToContentModel(Padma.contents.pages),
-				*/	
+				*/				
+				pages: contentSelector.mapArrayToContentModel(Padma.layouts.pages),
 				search: ko.observableArray([]),				
 				searching: ko.observable(false),
 				//shared: contentSelector.mapArrayToContentModel(Padma.contents.shared)
 			};
 			
 			$(document).ready(function () {				
-				ko.applyBindings(Padma.viewModels.layoutSelector, $('#content-selector-pages-container').get(0));				
+				ko.applyBindings(Padma.viewModels.contentSelector, $('#content-selector-pages-container').get(0));				
 			});
 
 		},
@@ -224,12 +230,14 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		contentModel: function (content) {
 
 			this.id = content.id;
-			this.name = content.post_title;			
-			this.template = ko.observable(content.template);
-			this.templateName = ko.observable(content.templateName);
-			this.customized = ko.observable(content.customized);
-			this.postStatus = ko.observable(content.postStatus);
+			this.name = content.name;		
 
+			this.url = content.url;
+			this.template = ko.observable(content.id);
+			this.templateName = ko.observable(content.post_title);
+			this.postStatus = ko.observable(content.id);
+			this.customized = true;
+			
 			this.ajaxChildren = ko.observable(content.ajaxChildren);
 
 			this.ajaxLoading = ko.observable(false);
@@ -237,7 +245,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 			this.ajaxShowMore = ko.observable(false);
 			this.ajaxLoadOffset = ko.observable(0);
 
-			this.noEdit = ko.observable(typeof content.noEdit != 'undefined' ? content.noEdit : false);
+			//this.noEdit = ko.observable(typeof content.noEdit != 'undefined' ? content.noEdit : false);
 
 			this.children = contentSelector.mapArrayToContentModel(content.children);
 
@@ -246,8 +254,6 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		},
 		
 		mapArrayToContentModel: function(contents) {
-
-			console.log(contents)
 
 			var normalizedData = [];
 
@@ -285,33 +291,29 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					mode    : Padma.mode
 				},
 				success: function (data, textStatus) {
+				
 
 					$loadingIndicator.remove();
 					contentData.ajaxLoading(false);
 
-					if ( (!_.isArray(data) || !data.length) && !loadingMore ) {
+					if ( false && (!_.isArray(data) || !data.length) && !loadingMore ) {
 						contentContext.$data.ajaxChildren(false);
 						contentContext.$data.children([]);
 
 						return $(self).removeClass('content-open');
 					}
 
-
-					
-
 					if ( !_.isArray(contentContext.$data.children()) ) {
 						contentContext.$data.children(ko.utils.unwrapObservable(contentSelector.mapArrayToContentModel(data)));
 					} else {
 						
-						$.each(ko.utils.unwrapObservable(contentSelector.mapArrayToContentModel(data)), function(index, data) {
-							
-						/*
+						$.each(ko.utils.unwrapObservable(contentSelector.mapArrayToContentModel(data)), function(index, data) {							
+						
 							contentContext.$data.children.push(data);
-						*/
+						
 						});
 
 					}
-					/*
 
 					contentContext.$data.ajaxLoaded(true);
 					contentContext.$data.ajaxLoadOffset(contentContext.$data.ajaxLoadOffset() + data.length);
@@ -320,7 +322,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 						contentContext.$data.ajaxShowMore(true);
 					} else {
 						contentContext.$data.ajaxShowMore(false);
-					}*/
+					}
 
 				}
 			});
@@ -341,8 +343,6 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					query  : query
 				},
 				success: function (data, textStatus) {
-
-					console.log(data);
 
 					Padma.viewModels.contentSelector.searching(false);
 
@@ -424,6 +424,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 				// Hide content selector
 				hideContentSelector();
+
+				//Hide Overlay
+				hideIframeOverlay();
 
 				event.preventDefault();
 

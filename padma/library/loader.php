@@ -24,8 +24,7 @@ $registry = array(
 	'PadmaAdminWrite'	=> 'admin/admin-write',
 	'PadmaAdminInputs' => 'admin/api-admin-inputs',
 
-	// API
-	
+	// API	
 	'PadmaPadmaBlockOptionsAPI' => 'api/api-block',
 	'PadmaChildThemeAPI' => 'api/api-child-theme',
 	'PadmaElementAPI' => 'api/api-element',
@@ -55,7 +54,6 @@ $registry = array(
 	'PadmaSocialOptimization' => 'common/social-optimization',
 	'PadmaTemplates' => 'common/templates',
 
-
 	// Compatibility
 	'PadmaCompatibilityAmember'	=> 'compatibility/amember/compatibility-amember',
 	'PadmaCompatibilityDiviBuilder'	=> 'compatibility/divi-builder/compatibility-divi-builder',
@@ -75,7 +73,6 @@ $registry = array(
 	'PadmaSkinOption'	=>	'data/data-skin-options',
 	'PadmaDataSnapshots'	=>	'data/data-snapshots',
 	'PadmaWrappersData'	=>	'data/data-wrappers',
-
 
 	// Display
 	'PadmaDisplay'	=> 'display/display',

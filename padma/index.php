@@ -6,7 +6,7 @@
  * Author    : Original by Clay Griffiths - Headway Themes
  *             New files by Maarten Schraven - UNITED 7
  			   Padma by Plasma Soluciones
- * Copywrite : Copyright 2014-2019 Plasma Soluciones M.S.V S.A.
+ * Copywrite : Copyright 2014-2019 Padma Unlimited S.A.
  *
  ***********************************************************/
 

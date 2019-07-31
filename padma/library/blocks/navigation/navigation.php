@@ -559,6 +559,15 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				)
 		) );
 
+		$this->register_block_element( array(
+			'name' => 'Horizontal SlideOut Icon Line',
+			'selector' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar',
+			'states' => array(
+					'Hover' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:hover', 
+					'Clicked' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:active'
+				)
+		) );
+
 		$this->register_pre_4_elements();
 
 	}

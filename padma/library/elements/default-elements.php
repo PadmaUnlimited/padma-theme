@@ -121,9 +121,9 @@ function padma_register_default_elements() {
 		'name' => 'Input',
 		'description' => 'Inputs & Textareas',
 		'default-element' => true,
-		'selector' => 'input[type="text"], input[type="password"], input[type="email"], textarea, select',
+		'selector' => 'input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], input[type="month"], input[type="time"], input[type="url"], input[type="week"], textarea, select',
 		'states' => array(
-			'Focus' => 'input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus'
+			'Focus' => 'input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, textarea:focus'
 		),
 		'parent' => 'default-form'
 	));

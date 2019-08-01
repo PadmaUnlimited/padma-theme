@@ -279,7 +279,9 @@ abstract class PadmaBlockAPI {
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
 
-			
+		if(empty($args['id']))
+			$args['id'] = '';
+
 		$defaults = array(
 			'group' 	=> 'blocks',
 			'parent' 	=> 'block-' . $this->id,
@@ -287,7 +289,7 @@ abstract class PadmaBlockAPI {
 			'name' 		=> $args['name'],
 			'selector'	=> $modified_selector
 		);
-	
+
 		
 		//Unset the following so they don't overwrite the defaults
 		unset($args['id']);
@@ -386,24 +388,30 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		if ( PadmaResponsiveGrid::is_enabled() )
 			$this->add_standard_block_responsive();
 
-		$this->add_other_info_tab($args);
+		$this->add_anywhere_tab($args);
 		
 		//Display it
 		$this->panel_content($args);
 		
 	}
 
-	public function add_other_info_tab($args){
+	public function add_anywhere_tab($args){
 
 		if ( !isset($this->tabs) )
 			$this->tabs = array();
 
 		//Add the tab
-		$this->tabs['info'] = 'Info';
+		$this->tabs['anywhere'] = 'Anywhere';
 		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
 
-		$this->tab_notices['info'] = '<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p><input class="shortcode-info" value="'.$shortcode_txt.'">';
-
+		$this->tab_notices['anywhere'] = '<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p><input class="shortcode-anywhere" value="'.$shortcode_txt.'">';
+		/*
+		$this->inputs['anywhere']['show-as-gutenberg-block'] = array(
+				'name' => 'show-as-gutenberg-block',
+				'type' => 'checkbox',
+				'label' => 'Show as Gutenberg Block',
+				'default' => false
+			);*/		
 	}
 
 

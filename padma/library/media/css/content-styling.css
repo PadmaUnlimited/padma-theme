@@ -214,7 +214,7 @@ em { font-style: italic; }
 	
 	
 /* FORM STYLING */
-input[type="text"], input[type="password"], input[type="email"], textarea, select {
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], textarea, select {
 	border: 1px solid #ccc;
 	padding: 6px 4px;
 	outline: none;

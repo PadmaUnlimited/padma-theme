@@ -309,9 +309,6 @@ class PadmaBlocksAnywhere {
 	}
 
 
-	
-
-
 	static function dynamic_js() {
 
 		return self::get_assets( 'js' );
@@ -324,9 +321,6 @@ class PadmaBlocksAnywhere {
 		return self::get_assets( 'css' );
 
 	}
-
-
-	
 
 
 	public static function _get( $name, $array = false, $default = null ) {

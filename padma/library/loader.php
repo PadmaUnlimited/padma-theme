@@ -128,11 +128,13 @@ $registry = apply_filters('padma_class_registry', $registry);
 spl_autoload_register(function ($class) {
 
 	global $registry;
+	$file = '';
 
-	$file = $registry[$class];
+	if ( isset($registry[$class]) )
+		$file = $registry[$class];
 
 	if(!is_file($file))
-		$file = dirname( __FILE__ ) . '/' . $registry[$class] . '.php';
+		$file = dirname( __FILE__ ) . '/' . $file . '.php';
 	
 	if ( file_exists( $file ) && strpos($class, 'Padma') == 0 )
 		include $file;

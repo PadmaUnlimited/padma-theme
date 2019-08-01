@@ -149,6 +149,10 @@ class Padma {
 		// Deactivation hook
 		add_action( 'switch_theme', array(__CLASS__, 'deactivate' ));
 
+		add_action('wp_dashboard_setup', function(){
+			echo '<div id="padma-admin-notifications"></div>';
+		});
+
 	}
 	
 

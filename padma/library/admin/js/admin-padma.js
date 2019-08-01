@@ -14,6 +14,51 @@ function openTabAdmin(evt, option) {
 (function($) {
 $(document).ready(function() {
 
+
+	showNotification = function(args) {
+
+		console.log(args);
+
+		var notification = $('<div id="padma-notification-' + args.id + '" class="updated below-h2"><p>' + args.message + '</p></div>');
+
+		notification.appendTo('#padma-admin-notifications');
+
+		if ( typeof args.closeTimer != 'undefined' && args.closeTimer ) {
+
+			setTimeout(function() {
+				notification.fadeOut(1000, function() {
+					$(this).remove();
+				});
+			}, args.closeTimer);
+
+		}
+
+		return notification;
+
+	}
+
+	showErrorNotification = function(args) {
+
+		var notification = $('<div id="padma-notification-' + args.id + '" class="error below-h2"><p>' + args.message + '</p></div>');
+
+		notification.appendTo('#padma-admin-notifications');
+
+		return notification;
+
+	}
+
+	updateNotification = function(id, message) {
+
+		return $('#padma-notification-' + id).children('p').html(message);
+
+	}
+
+	hideNotification = function(id) {
+
+		$('#padma-notification-' + id).fadeOut(500);
+
+	}
+
     /* Notice */
     $('[data-padma-notice]').on('click', '.padma-dismiss-notice, .notice-dismiss', function() {
 
@@ -324,5 +369,42 @@ $(document).ready(function() {
 		    }
 		});
 	}
+
+	/*
+		Clear cache
+	*/
+	jQuery(document).on('click','#wp-admin-bar-padma-admin-tools-clear-cache',function(event){
+
+		event.preventDefault();
+
+		// Set up parameters
+		var parameters = {
+			security: Padma.security,
+			action: 'padma_visual_editor',
+			method: 'clear_cache'
+		};
+
+		//Do the stuff
+		$.post(ajaxurl, parameters, function(response){
+
+			if ( response === 'success' ) {
+
+				showNotification({
+					id: 'cache-cleared',
+					message: 'The cache was successfully cleared!',
+					success: true
+				});
+
+			} else {
+
+				showErrorNotification({
+					id: 'error-could-not-clear-cache',
+					message: 'Error: Could not clear cache.'
+				});
+
+			}
+
+		});
+	})
 });
 })(jQuery);

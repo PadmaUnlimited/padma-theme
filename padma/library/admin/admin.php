@@ -13,6 +13,7 @@ class PadmaAdmin {
 			'admin/api-admin-inputs'
 		));
 
+
 	}
 
 
@@ -327,7 +328,14 @@ class PadmaAdmin {
 
 		/* Global */
 		wp_enqueue_style('padma_admin_global', padma_url() . '/library/admin/css/admin-padma-global.css');
-                wp_enqueue_script('padma_admin_js', padma_url() . '/library/admin/js/admin-padma.js', array('jquery'));
+        wp_enqueue_script('padma_admin_js', padma_url() . '/library/admin/js/admin-padma.js', array('jquery'));
+
+        
+
+		wp_localize_script('padma_admin_js', 'Padma', array(
+			'ajaxURL' 			=> admin_url('admin-ajax.php'),				
+			'security' 			=> wp_create_nonce('padma-visual-editor-ajax'),				
+		));
 
         /* General Padma admin CSS/JS */
 		if ( strpos(padma_get('page'), 'padma') !== false ) {
@@ -362,6 +370,9 @@ class PadmaAdmin {
 			wp_enqueue_media();
 
 		}
+
+
+
 
 		/* Meta Boxes */
 		wp_enqueue_style('padma_admin_write', padma_url() . '/library/admin/css/admin-write.css');

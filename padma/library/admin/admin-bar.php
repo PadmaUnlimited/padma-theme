@@ -147,6 +147,13 @@ class PadmaAdminBar {
 						'title' => 'System Info',  
 						'href' => admin_url('admin.php?page=padma-tools#tab-system-info')
 					));
+
+					$wp_admin_bar->add_menu(array(
+						'parent' => 'padma-admin-tools',
+						'id' => 'padma-admin-tools-clear-cache', 
+						'title' => 'Clear cache',  
+						'href' => admin_url('admin.php?page=padma-tools')
+					));
 					
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-tools',

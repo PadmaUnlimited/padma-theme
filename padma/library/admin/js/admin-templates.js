@@ -1,48 +1,5 @@
 jQuery(document).ready(function($) {
 
-	showNotification = function(args) {
-
-		var notification = $('<div id="padma-notification-' + args.id + '" class="updated below-h2"><p>' + args.message + '</p></div>');
-
-		notification.appendTo('#padma-admin-notifications');
-
-		if ( typeof args.closeTimer != 'undefined' && args.closeTimer ) {
-
-			setTimeout(function() {
-				notification.fadeOut(1000, function() {
-					$(this).remove();
-				});
-			}, args.closeTimer);
-
-		}
-
-		return notification;
-
-	}
-
-	showErrorNotification = function(args) {
-
-		var notification = $('<div id="padma-notification-' + args.id + '" class="error below-h2"><p>' + args.message + '</p></div>');
-
-		notification.appendTo('#padma-admin-notifications');
-
-		return notification;
-
-	}
-
-	updateNotification = function(id, message) {
-
-		return $('#padma-notification-' + id).children('p').html(message);
-
-	}
-
-	hideNotification = function(id) {
-
-		$('#padma-notification-' + id).fadeOut(500);
-
-	}
-
-
 	var templates = {
 		init: function() {
 

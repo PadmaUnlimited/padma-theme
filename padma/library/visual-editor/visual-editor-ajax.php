@@ -155,8 +155,7 @@ class PadmaVisualEditorAJAX {
 	public static function method_query_posts() {
 
 		$post_type = explode('||', padma_post( 'content' ));
-		debug($post_type);
-
+		
 		$query = new WP_Query( array( 's' => padma_post( 'query' ) ) );
 		$posts = array();
 		foreach ($query->posts as $key => $post) {

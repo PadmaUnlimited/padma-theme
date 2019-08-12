@@ -288,8 +288,15 @@ class PadmaDisplay {
 	
 	public static function body_open() {	
 		
-		echo '</head>';		
-		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">';
+		$classes = '';
+
+		echo '</head>';
+		
+		if( padma_get('ve-iframe') == 'true')
+			$classes .= 'iframe-loaded';
+
+		echo '<body '; body_class($classes); echo ' itemscope itemtype="http://schema.org/WebPage">';
+
 		do_action('padma_body_open');
 		
 		echo '<div id="whitewrap">';

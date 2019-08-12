@@ -420,7 +420,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				showIframeLoadingOverlay();
 
 				//Switch contents
-				switchToContent($(this).parents('span.content'));
+				switchToContent($(this).parent().data('content-id'));
 
 				// Hide content selector
 				hideContentSelector();

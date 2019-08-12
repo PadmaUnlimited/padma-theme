@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.1.30
+Version: 1.1.31
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,10 +42,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.30
+= 1.1.31
 * Released: On Dev
 
-Tested with WordPress 5.2.3
+Tested with WordPress 5.2.2
 Tested with ClassicPress 1.0.1
 Performance improvement (spl_autoload_register implementation)
 Fixed: Custom code minor fix
@@ -68,6 +68,7 @@ Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load
 Added better plugin templates support
 Added option to exclude current post from PinBoard block when custom query is used
+Added option to clear caché from Admin Bar
 Added Visual Editor Design options
 - Added Margin "auto" options 
 - Added Bottom and Right options to Nudging

@@ -601,7 +601,7 @@ class PadmaContentBlockDisplay {
 			 * Custom Fields "Above"
 			 *
 			 */
-			if(is_array($this->block['custom-fields']['above']) && count($this->block['custom-fields']['above'])>0){
+			if(isset($this->block['custom-fields']['above']) && is_array($this->block['custom-fields']['above']) && count($this->block['custom-fields']['above'])>0){
 
 				echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-above') ) )  .'">';
 				
@@ -688,7 +688,7 @@ class PadmaContentBlockDisplay {
 						 * Custom Fields "After Title"
 						 *
 						 */
-						if(is_array($this->block['custom-fields']['after-title']) && count($this->block['custom-fields']['after-title'])>0){
+						if(isset($this->block['custom-fields']['after-title']) && is_array($this->block['custom-fields']['after-title']) && count($this->block['custom-fields']['after-title'])>0){
 
 							echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-after-title') ) )  .'">';
 							
@@ -743,7 +743,7 @@ class PadmaContentBlockDisplay {
 			 * Custom Fields "Below"
 			 *
 			 */
-			if(is_array($this->block['custom-fields']['below']) && count($this->block['custom-fields']['below'])>0){
+			if(isset($this->block['custom-fields']['below']) && is_array($this->block['custom-fields']['below']) && count($this->block['custom-fields']['below'])>0){
 
 				echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-below') ) )  .'">';
 				

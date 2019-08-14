@@ -257,6 +257,10 @@ class PadmaDisplay {
 		if ( !current_theme_supports('padma-design-editor') )
 			$c[] = 'design-editor-disabled';
 
+		/*	Iframe ve control */
+		if( padma_get('ve-iframe') == 'true')
+			$c[] = 'iframe-loaded';
+
 		$c = array_unique(array_filter($c));
 
 		return $c;
@@ -288,14 +292,8 @@ class PadmaDisplay {
 	
 	public static function body_open() {	
 		
-		$classes = '';
-
 		echo '</head>';
-		
-		if( padma_get('ve-iframe') == 'true')
-			$classes .= 'iframe-loaded';
-
-		echo '<body '; body_class($classes); echo ' itemscope itemtype="http://schema.org/WebPage">';
+		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">';
 
 		do_action('padma_body_open');
 		

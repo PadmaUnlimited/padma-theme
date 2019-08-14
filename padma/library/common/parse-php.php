@@ -18,9 +18,12 @@ function padma_parse_php($content) {
 	if ( !is_main_site() && (!defined('PADMA_ALLOW_NETWORK_PHP_PARSING') || PADMA_ALLOW_NETWORK_PHP_PARSING === false) )
 		return $content;
 	
+	if ( empty( $content ))
+		return $content;
+
 	ob_start();
 
-	$eval = eval("?>$content<?php");
+	$eval = eval("?>$content<?php ;");
 
 	if ( $eval === null ) {
 

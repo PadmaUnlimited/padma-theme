@@ -45,8 +45,8 @@ class PadmaVisualEditor {
 		$cache_rejected_uri[] = 've\-iframe\=true';
 		
 		//Iframe handling
-		//add_action('padma_body_close', array(__CLASS__, 'iframe_load_flag'));
-		//add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_load_flag'));
+		add_action('padma_body_close', array(__CLASS__, 'iframe_load_flag'));
+		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_load_flag'));
 
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_tooltip_container'));
 		add_action('padma_body_close', array(__CLASS__, 'iframe_tooltip_container'));

@@ -56,7 +56,7 @@ $registry = array(
 
 	// Compatibility
 	'PadmaCompatibilityAmember'	=> 'compatibility/amember/compatibility-amember',
-	'PadmaCompatibilityDiviBuilder'	=> 'compatibility/divi-builder/compatibility-divi-builder',
+	'PadmaCompatibilityDiviBuilder'	=> 'compatibility/divi-builder/compatibility-divi-builder',	
 	'PadmaCompatibilityHeadway'	=> 'compatibility/headway/compatibility-headway',
 	'HeadwayAdminMetaBoxAPI'	=> 'compatibility/headway/abstract',
 	'HeadwayBlockAPI'	=> 'compatibility/headway/abstract',

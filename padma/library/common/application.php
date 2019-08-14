@@ -602,7 +602,7 @@ class Padma {
 		
 		//Init everything after dependencies have been loaded
 		foreach($classes_to_init as $class){
-
+			
 			if ( method_exists('Padma' . $class, 'init') ) {
 
 				call_user_func(array('Padma' . $class, 'init'));

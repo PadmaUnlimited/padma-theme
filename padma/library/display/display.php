@@ -257,10 +257,6 @@ class PadmaDisplay {
 		if ( !current_theme_supports('padma-design-editor') )
 			$c[] = 'design-editor-disabled';
 
-		/*	Iframe ve control */
-		if( padma_get('ve-iframe') == 'true')
-			$c[] = 'iframe-loaded';
-
 		$c = array_unique(array_filter($c));
 
 		return $c;

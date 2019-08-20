@@ -148,12 +148,14 @@ class PadmaAdminBar {
 						'href' => admin_url('admin.php?page=padma-tools#tab-system-info')
 					));
 
-					$wp_admin_bar->add_menu(array(
-						'parent' => 'padma-admin-tools',
-						'id' => 'padma-admin-tools-clear-cache', 
-						'title' => 'Clear cache',  
-						'href' => admin_url('admin.php?page=padma-tools')
-					));
+					if(is_admin()){
+						$wp_admin_bar->add_menu(array(
+							'parent' => 'padma-admin-tools',
+							'id' => 'padma-admin-tools-clear-cache', 
+							'title' => 'Clear cache',  
+							'href' => 'javascript:;'
+						));						
+					}
 					
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-tools',

@@ -17,10 +17,12 @@ $(document).ready(function() {
 
 	showNotification = function(args) {
 
-		console.log(args);
-
 		var notification = $('<div id="padma-notification-' + args.id + '" class="updated below-h2"><p>' + args.message + '</p></div>');
 
+		if( $('#padma-admin-notifications').length == 0 ){
+			$('<div id="padma-admin-notifications"></div>').appendTo('body');
+		}
+		
 		notification.appendTo('#padma-admin-notifications');
 
 		if ( typeof args.closeTimer != 'undefined' && args.closeTimer ) {
@@ -376,6 +378,7 @@ $(document).ready(function() {
 	jQuery(document).on('click','#wp-admin-bar-padma-admin-tools-clear-cache',function(event){
 
 		event.preventDefault();
+		event.stopImmediatePropagation();
 
 		// Set up parameters
 		var parameters = {

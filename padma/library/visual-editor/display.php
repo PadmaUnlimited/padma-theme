@@ -47,7 +47,8 @@ class PadmaVisualEditorDisplay {
 
 		//Content
 		add_action('padma_visual_editor_menu', array(__CLASS__, 'layout_selector'));
-		add_action('padma_visual_editor_menu', array(__CLASS__, 'content_selector'));
+
+		//add_action('padma_visual_editor_menu', array(__CLASS__, 'content_selector')); // Disabled until other release
 		
 		
 		add_action('padma_visual_editor_modes', array(__CLASS__, 'mode_navigation'));

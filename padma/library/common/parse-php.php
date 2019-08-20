@@ -9,6 +9,8 @@
  **/
 function padma_parse_php($content) {
 
+	debug($content);
+
 	/* If Padma PHP parsing is disabled, then return the content now. */
 	if ( defined('PADMA_DISABLE_PHP_PARSING') && PADMA_DISABLE_PHP_PARSING === true )
 		return $content;

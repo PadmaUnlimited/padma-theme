@@ -1420,7 +1420,7 @@ class PadmaElementProperties {
 		$shadow_blur 	= isset($properties[$shadow_type . '-blur']) ? $properties[$shadow_type . '-blur'] : '0';
 		$shadow_inset 	= (padma_get($shadow_type . '-position', $properties, 'outside') == 'inset') ? ' inset' : null;
 				
-		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . 'px ' . $shadow_voffset . 'px ' . $shadow_blur . 'px' . $shadow_inset . ';';
+		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . ' ' . $shadow_voffset . ' ' . $shadow_blur . $shadow_inset . ';';
 		
 	}
 			

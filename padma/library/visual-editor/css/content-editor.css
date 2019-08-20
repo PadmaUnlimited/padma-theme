@@ -5,7 +5,7 @@ body{
 a.edit-on-wp{
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 20px;
 }
 a.ve-btn{
 	display: inline-block;

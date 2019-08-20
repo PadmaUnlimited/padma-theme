@@ -98,7 +98,8 @@ require(['jquery', 'util.loader'], function($) {
 
 		case 'design':
 
-			require(['modules/design/mode-design', 'util.preview', 'modules/content-selector', 'modules/iframe', 'modules/layout-selector'], function(modeDesign, devicePreview, contentSelector) {
+			require(['modules/design/mode-design', 'util.preview', 'modules/iframe', 'modules/layout-selector'], function(modeDesign, devicePreview) {
+			//require(['modules/design/mode-design', 'util.preview', 'modules/content-selector', 'modules/iframe', 'modules/layout-selector'], function(modeDesign, devicePreview, contentSelector) {
 				
 				/**
 				 *
@@ -113,6 +114,9 @@ require(['jquery', 'util.loader'], function($) {
 				modeDesign.init();
 				waitForIframeLoad(modeDesign.iframeCallback);
 
+				/*
+					- Disable until future release
+				
 				contentSelector.init();
 
 				if(Padma.viewModels.layoutSelector.currentLayout().search('template') != -1){
@@ -120,6 +124,7 @@ require(['jquery', 'util.loader'], function($) {
 				}else{
 					$('#content-selector-select').hide();
 				}
+				*/
 			});
 
 		break;

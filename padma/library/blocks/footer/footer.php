@@ -76,8 +76,14 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 			self::show_padma_link();
 		
 		//Go To Top Link
-		if ( parent::get_setting($block, 'show-go-to-top-link', true) == true )
-			self::show_go_to_top_link();
+		if ( parent::get_setting($block, 'show-go-to-top-link', true) == true ){
+			$go_to_top_text = parent::get_setting($block, 'custom-go-to-top-text', 'Go To Top');
+
+			if( ! $go_to_top_text )
+				$go_to_top_text = 'Go To Top';
+
+			self::show_go_to_top_link($go_to_top_text);
+		}
 		
 		//Admin Link
 		if ( parent::get_setting($block, 'show-admin-link', true) == true )
@@ -159,9 +165,9 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 	 *
 	 * @return mixed
 	 **/
-	public static function show_go_to_top_link() {
+	public static function show_go_to_top_link($text) {
 
-		echo apply_filters('padma_go_to_top_link', '<a href="#" class="footer-right footer-go-to-top-link footer-link">' . __('Go To Top', 'padma') . '</a>');
+		echo apply_filters('padma_go_to_top_link', '<a href="#" class="footer-right footer-go-to-top-link footer-link">' . __($text, 'padma') . '</a>');
 
 	}
 	
@@ -219,6 +225,13 @@ class PadmaFooterBlockOptions extends PadmaBlockOptionsAPI {
 				'label' => 'Show Go To Top Link',
 				'type' => 'checkbox',
 				'default' => true
+			),
+
+			'custom-go-to-top-text' => array(
+				'name' => 'custom-go-to-top-text',
+				'label' => 'Custom "Go to Top" text',
+				'type' => 'text',
+				'tooltip' => 'Custom "Go to Top" text'
 			),
 			
 			'hide-padma-attribution' => array(

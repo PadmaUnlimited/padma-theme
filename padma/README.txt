@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.1
-Version: 1.1.35
+Version: 1.1.36
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.35
+= 1.1.36
 * Released: On Dev
 
 Tested with WordPress 5.2.2
@@ -57,6 +57,7 @@ Fixed: PadmaElementAPI::register_element() minor fix, default properties missing
 Fixed: Media Library title when opens from Visual Editor
 Fixed: Elementor 2.6.8+ Compatibility
 Fixed: text-shadow not rendering
+Fixed: animation-duration default 1s when not set.
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

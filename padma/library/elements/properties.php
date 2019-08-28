@@ -1228,6 +1228,12 @@ class PadmaElementProperties {
 			}*/
 
 
+			
+			// Animation fix
+			if( isset($properties['animation-name']) && empty($properties['animation-duration']) ){
+				$properties['animation-duration'] = '1s';
+			}
+			
 			//Loop through properties
 			foreach ( $properties as $property_id => $value ) {
 
@@ -1355,7 +1361,6 @@ class PadmaElementProperties {
 
 			}
 		}
-
 
 		return $output;
 		

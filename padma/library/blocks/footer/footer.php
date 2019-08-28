@@ -224,7 +224,19 @@ class PadmaFooterBlockOptions extends PadmaBlockOptionsAPI {
 				'name' => 'show-go-to-top-link',
 				'label' => 'Show Go To Top Link',
 				'type' => 'checkbox',
-				'default' => true
+				'default' => true,
+				'toggle'    => array(
+					'true' => array(
+						'show' => array(
+							'#input-custom-go-to-top-text'
+						)
+					),
+					'false' => array(
+						'hide' => array(
+							'#input-custom-go-to-top-text'
+						)
+					)
+				)
 			),
 
 			'custom-go-to-top-text' => array(

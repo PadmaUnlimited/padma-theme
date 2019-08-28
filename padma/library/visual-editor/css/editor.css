@@ -516,11 +516,11 @@ body.show-ve div#ve-loading-overlay .lotus > .lotus_leaf{
 	-moz-transform-origin: top right;
 	-o-transform-origin: top right;
 	-ms-transform-origin: top right;
-	background-image: -webkit-linear-gradient(45deg, #211e1f 0%, #c62040 50%, #211e1f 100%);
-	background-image: -moz-linear-gradient(45deg, #211e1f 0%, #c62040 50%, #211e1f 100%);
-	background-image: -o-linear-gradient(45deg, #211e1f 0%, #c62040 50%, #211e1f 100%);
-	background-image: -ms-linear-gradient(45deg, #211e1f 0%, #c62040 50%, #211e1f 100%);
-	background-image: linear-gradient(45deg, #211e1f 0%, #c62040 50%, #211e1f 100%);
+	background-image: -webkit-linear-gradient(45deg, #211e1f 0%, #c61f40 50%, #fdba19 100%);
+	background-image: -moz-linear-gradient(45deg, #211e1f 0%, #c61f40 50%, #fdba19 100%);
+	background-image: -o-linear-gradient(45deg, #211e1f 0%, #c61f40 50%, #fdba19 100%);
+	background-image: -ms-linear-gradient(45deg, #211e1f 0%, #c61f40 50%, #fdba19 100%);
+	background-image: linear-gradient(45deg, #211e1f 0%, #c61f40 50%, #fdba19 100%);
 	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);

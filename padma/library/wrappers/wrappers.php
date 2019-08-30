@@ -51,6 +51,7 @@ class PadmaWrappers {
 		add_action('padma_wrapper_options', array(__CLASS__, 'options_panel'), 10, 2);
 
 		add_action('wp_head', array(__CLASS__, 'sticky_wrapper_js'));
+		add_action('wp_head', array(__CLASS__, 'shrink_wrapper_js'));
 
 	}
 
@@ -89,6 +90,45 @@ class PadmaWrappers {
 
 		wp_enqueue_script( 'padma-sticky', padma_url() . '/library/media/js/sticky.js', array( 'jquery' ) );
 		wp_localize_script( 'padma-sticky', 'PadmaStickyWrappers', $sticky_wrappers );
+
+
+	}
+
+	public static function shrink_wrapper_js() {
+
+		$layout_wrappers = PadmaWrappersData::get_wrappers_by_layout( PadmaLayout::get_current_in_use() );
+		$shrink_wrappers = array();
+
+		foreach ( $layout_wrappers as $wrapper ) {
+
+            if ( $mirrored_wrapper = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
+                $original_wrapper = $wrapper;
+
+                $wrapper = $mirrored_wrapper;
+                $wrapper['id'] = padma_get('id', $original_wrapper);
+                $wrapper['legacy_id'] = padma_get('legacy_id', $original_wrapper);
+            }
+
+			$wrapper_settings = padma_get('settings', $wrapper, array());
+
+			if ( padma_get('enable-shrink-on-scroll', $wrapper_settings) ) {
+
+				$shrink_wrappers['#wrapper-' . PadmaWrappersData::get_legacy_id( $wrapper )] = array(
+					'shrink_ratio' => padma_get( 'shrink-on-scroll-ratio', $wrapper_settings, 50 ),
+					'shrink_elements' => padma_get( 'shrink-contained-elements', $wrapper_settings, false ),
+				);
+
+			}
+
+
+		}
+
+		if ( !$shrink_wrappers ) {
+			return false;
+		}
+
+		wp_enqueue_script( 'padma-shrink-on-scroll', padma_url() . '/library/media/js/shrink-on-scroll.js', array( 'jquery' ) );
+		wp_localize_script( 'padma-shrink-on-scroll', 'PadmaShrinkWrappers', $shrink_wrappers );
 
 
 	}

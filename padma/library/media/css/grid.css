@@ -36,6 +36,13 @@
 	div#wrapper-default{
 		max-width: calc(100% - 30px);		
 	}
+
+	div.wrapper.shrink *{		
+		transition:  all 0.4s ease;
+	}
+	div.wrapper.is_shrinked {
+		overflow: hidden;
+	}
 	
 
 /* End Wrapper */

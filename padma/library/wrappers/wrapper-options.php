@@ -191,7 +191,49 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'slider-interval' => 1,
 				'unit' => 'px',
 				'default' => '0'
-			)
+			),
+
+
+			'enable-shrink-on-scroll' => array(
+				'type' => 'checkbox',
+				'name' => 'enable-shrink-on-scroll',
+				'label' => 'Enable Shrink on Scroll',
+				'default' => false,
+				'tooltip' => '',
+				'toggle' => array(
+					'true' => array(
+						'show' => array(
+							'#input-shrink-on-scroll-ratio',
+							'#input-shrink-contained-elements'
+						),
+					),
+					'false' => array(
+						'hide' => array(
+							'#input-shrink-on-scroll-ratio',
+							'#input-shrink-contained-elements'
+						),
+					)
+				)
+			),
+
+			'shrink-on-scroll-ratio' => array(
+				'type' => 'slider',
+				'name' => 'shrink-on-scroll-ratio',
+				'label' => 'Shrink ratio',
+				'slider-min' => 0,
+				'slider-max' => 100,
+				'slider-interval' => 1,
+				'unit' => '%',
+				'default' => '50'
+			),
+
+			'shrink-contained-elements' => array(
+				'type' => 'checkbox',
+				'name' => 'shrink-contained-elements',
+				'label' => 'Attempt with child elements',
+				'tooltip' => 'Attempt to shrink contained elements',
+				'default' => false,
+			),
 		),
 
 		'config' => array(

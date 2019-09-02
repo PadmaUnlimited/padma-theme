@@ -174,10 +174,16 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'tooltip' => '',
 				'toggle' => array(
 					'true' => array(
-						'show' => '#input-sticky-position-top-offset'
+						'show' => array(
+							'#input-sticky-position-top-offset',
+							'#input-enable-shrink-on-scroll'
+						)
 					),
 					'false' => array(
-						'hide' => '#input-sticky-position-top-offset'
+						'hide' => array(
+							'#input-sticky-position-top-offset',
+							'#input-enable-shrink-on-scroll'
+						)
 					)
 				)
 			),

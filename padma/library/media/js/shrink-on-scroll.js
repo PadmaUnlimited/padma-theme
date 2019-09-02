@@ -47,6 +47,9 @@
 					// If shrink-contained-elements is on
 					if(elements){
 
+						padding = parseFloat($(selector).css('padding-top').replace('px',''));
+						padding = padding + parseFloat($(selector).css('padding-bottom').replace('px',''));						
+
 						// Text
 						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').each(function(){
 							var font_size = $(this).attr('data-org-fontsize');
@@ -64,6 +67,7 @@
 								img_height = $(this).css('height').replace('px','');
 								$(this).attr('data-org-imgheight',img_height);					
 							}
+							img_height = img_height - padding;
 							$(this).css('height', (img_height * ( ratio / 100)) + 'px' )	;						
 						});
 
@@ -74,6 +78,7 @@
 								nav_height = $(this).css('height').replace('px','');
 								$(this).attr('data-org-navheight',nav_height);					
 							}
+							nav_height = nav_height - padding;
 							$(this).css('max-height', (nav_height * ( ratio / 100)) + 'px' )	;						
 						});
 

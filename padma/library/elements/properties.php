@@ -1424,8 +1424,20 @@ class PadmaElementProperties {
 		$shadow_voffset = isset($properties[$shadow_type . '-vertical-offset']) ? $properties[$shadow_type . '-vertical-offset'] : '0';
 		$shadow_blur 	= isset($properties[$shadow_type . '-blur']) ? $properties[$shadow_type . '-blur'] : '0';
 		$shadow_inset 	= (padma_get($shadow_type . '-position', $properties, 'outside') == 'inset') ? ' inset' : null;
-				
-		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . ' ' . $shadow_voffset . ' ' . $shadow_blur . $shadow_inset . ';';
+		
+		$shadow_hoffset_unit = '';
+		if(is_numeric($shadow_hoffset))
+			$shadow_hoffset_unit = 'px';
+		
+		$shadow_hoffset_unit = '';
+		if(is_numeric($shadow_voffset))
+			$shadow_voffset_unit = 'px';
+		
+		$shadow_blur_unit = '';
+		if(is_numeric($shadow_blur))
+			$shadow_blur_unit = 'px';
+
+		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . $shadow_hoffset_unit . ' ' . $shadow_voffset . $shadow_voffset_unit . ' ' . $shadow_blur . $shadow_blur_unit . $shadow_inset . ';';
 		
 	}
 			

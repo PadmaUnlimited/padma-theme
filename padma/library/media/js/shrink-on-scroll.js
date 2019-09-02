@@ -10,30 +10,34 @@
 			
 			$.each(PadmaShrinkWrappers, function (selector, options) {
 
+				var offset = $(selector).offset().top - $(window).scrollTop();
+				var ratio = options.shrink_ratio;
+				var shrink_images = options.shrink_images;
+				var shrink_elements = options.shrink_elements;
+				var total = (height * ( ratio / 100));
+
 				if( ! $(selector).hasClass('is_stuck') ){
+
 					$(selector).css('height','');
 					$('#spacer-'+selector.replace('#','')).css('height','');
-					if(elements){
-						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
+					if(shrink_images){
 						$(selector).find('img').css('height','');
+					}
+					if(shrink_elements){
+						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');						
 						$(selector).find('nav').css('max-height','');
 					}
 					$(selector).removeClass('is_shrinked');
 					return;
+
 				}
 				
-				var height = $(selector).attr('data-org-height');
 				
+				var height = $(selector).attr('data-org-height');				
 				if( typeof height == 'undefined' ){
 					height = $(selector).height();
 					$(selector).attr('data-org-height',height);					
 				}
-
-				var offset = $(selector).offset().top - $(window).scrollTop();
-				var ratio = options.shrink_ratio;
-				var elements = options.shrink_elements;
-				var total = (height * ( ratio / 100));
-
 
 				if( $('#wpadminbar').length > 0  ){
 					offset = offset - 32;
@@ -44,21 +48,11 @@
 					$(selector).css('height',total);
 					$('#spacer-'+selector.replace('#','')).css('height',total);
 				
-					// If shrink-contained-elements is on
-					if(elements){
+					padding = parseFloat($(selector).css('padding-top').replace('px',''));
+					padding = padding + parseFloat($(selector).css('padding-bottom').replace('px',''));
 
-						padding = parseFloat($(selector).css('padding-top').replace('px',''));
-						padding = padding + parseFloat($(selector).css('padding-bottom').replace('px',''));						
-
-						// Text
-						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').each(function(){
-							var font_size = $(this).attr('data-org-fontsize');
-							if( typeof font_size == 'undefined' ){
-								font_size = $(this).css('font-size').replace('px','');
-								$(this).attr('data-org-fontsize',font_size);					
-							}
-							$(this).css('font-size', (font_size * ( ratio / 100)) + 'px' )	;						
-						});
+					// If shrink-contained-images is on
+					if(shrink_images){
 
 						// images
 						$(selector).find('img').each(function(){
@@ -69,6 +63,21 @@
 							}
 							img_height = img_height - padding;
 							$(this).css('height', (img_height * ( ratio / 100)) + 'px' )	;						
+						});
+
+					}
+
+					// If shrink-contained-elements is on
+					if(shrink_elements){
+
+						// Text
+						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').each(function(){
+							var font_size = $(this).attr('data-org-fontsize');
+							if( typeof font_size == 'undefined' ){
+								font_size = $(this).css('font-size').replace('px','');
+								$(this).attr('data-org-fontsize',font_size);					
+							}
+							$(this).css('font-size', (font_size * ( ratio / 100)) + 'px' )	;						
 						});
 
 						// Navs
@@ -90,9 +99,12 @@
 
 					$(selector).css('height','');
 					$('#spacer-'+selector.replace('#','')).css('height','');
-					if(elements){
-						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
+					if(shrink_images){
 						$(selector).find('img').css('height','');
+					}
+
+					if(shrink_elements){
+						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
 						$(selector).find('nav').css('max-height','');
 					}
 					$(selector).removeClass('is_shrinked');

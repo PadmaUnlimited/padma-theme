@@ -115,6 +115,7 @@ class PadmaWrappers {
 
 				$shrink_wrappers['#wrapper-' . PadmaWrappersData::get_legacy_id( $wrapper )] = array(
 					'shrink_ratio' => padma_get( 'shrink-on-scroll-ratio', $wrapper_settings, 50 ),
+					'shrink_images' => padma_get( 'shrink-contained-images', $wrapper_settings, false ),
 					'shrink_elements' => padma_get( 'shrink-contained-elements', $wrapper_settings, false ),
 				);
 

@@ -210,13 +210,15 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 					'true' => array(
 						'show' => array(
 							'#input-shrink-on-scroll-ratio',
-							'#input-shrink-contained-elements'
+							'#input-shrink-contained-elements',
+							'#input-shrink-contained-images'
 						),
 					),
 					'false' => array(
 						'hide' => array(
 							'#input-shrink-on-scroll-ratio',
-							'#input-shrink-contained-elements'
+							'#input-shrink-contained-elements',
+							'#input-shrink-contained-images',
 						),
 					)
 				)
@@ -231,6 +233,14 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 				'slider-interval' => 1,
 				'unit' => '%',
 				'default' => '50'
+			),
+
+			'shrink-contained-images' => array(
+				'type' => 'checkbox',
+				'name' => 'shrink-contained-images',
+				'label' => 'Shrink images',
+				'tooltip' => 'Attempt to shrink contained images',
+				'default' => true,
 			),
 
 			'shrink-contained-elements' => array(

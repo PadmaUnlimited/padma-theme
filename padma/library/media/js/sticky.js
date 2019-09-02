@@ -53,8 +53,8 @@
 				throw "failed to find stick parent";
 			}
 			fixed = false;
-			bottomed = false;
-			spacer = manual_spacer != null ? manual_spacer && elm.closest(manual_spacer) : $("<div />");
+			bottomed = false;			
+			spacer = manual_spacer != null ? manual_spacer && elm.closest(manual_spacer) : $("<div id='spacer-"+$(elm).attr('id')+"' />");
 			if ( spacer ) {
 				spacer.css('position', elm.css('position'));
 			}

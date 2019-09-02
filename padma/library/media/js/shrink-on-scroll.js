@@ -32,6 +32,7 @@
 					if( $(window).scrollTop() > 0 ){
 					
 						$(selector).css('height',total);
+						$('#spacer-'+selector.replace('#','')).css('height',total);
 					
 						// If shrink-contained-elements is on
 						if(elements){
@@ -71,7 +72,9 @@
 						$(selector).addClass('is_shrinked');
 
 					}else{
-						$(selector).css('height',$(selector).attr('data-org-height'));
+						console.log(selector);
+						$(selector).css('height','');
+						$('#spacer-'+selector.replace('#','')).css('height','');
 						if(elements){
 							$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
 							$(selector).find('img').css('height','');
@@ -121,7 +124,7 @@
 						$(selector).addClass('is_shrinked');
 
 					}else{
-						$(selector).css('height',$(selector).attr('data-org-height'));
+						$(selector).css('height','');
 						if(elements){
 							$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
 							$(selector).find('img').css('height','');

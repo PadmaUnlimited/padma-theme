@@ -121,6 +121,47 @@ function padma_get($name, $array = false, $default = null, $fix_data_type = fals
 
 
 /**
+ *
+ * Function to search and retrieve a key/value pair from the $_GET array or any other user-specified array. This will automatically return false if the key is not set.
+ *
+ */
+function padma_get_search($name, $array = false, $default = null, $fix_data_type = false){
+
+	if ( $array === false )
+		$array = $_GET;
+
+	if ( (is_string($name) || is_numeric($name)) && !is_float($name) ) {
+		
+		if ( is_array($array) ){			
+			foreach ($array as $key => $value) {
+				
+				$fixed_key = preg_replace('/([a-z0-9\-])\-([0-9]+$)/i', '$1', $key);
+
+				if( $fixed_key == $name)
+					$result = $array[$key];
+
+			}
+
+		}elseif( is_object($array) ){
+			foreach ($array as $key => $value) {
+
+				$fixed_key = preg_replace('/([a-z0-9\-])\-([0-9]+$)/i', '$1', $array->$key);
+
+				if( $fixed_key == $name)
+					$result = $array->$key;
+			}
+		}
+
+	}
+	if ( !isset($result) )
+		$result = $default;
+		
+	return !$fix_data_type ? $result : padma_fix_data_type($result);	
+	
+
+}
+
+/**
  * Extension of padma_get().  Use this to fetch a key/value pair from the $_POST array.
  * 
  * @uses padma_get()

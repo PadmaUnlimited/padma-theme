@@ -43,6 +43,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 		
 		/* Add the panel class to the panel */
 		panel.addClass('panel');
+
 		
 		/* If the content is static, just throw it in.  Otherwise get the content with AJAX */
 		if ( typeof content == 'string' ) {

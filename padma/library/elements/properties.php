@@ -1429,7 +1429,7 @@ class PadmaElementProperties {
 		if(is_numeric($shadow_hoffset))
 			$shadow_hoffset_unit = 'px';
 		
-		$shadow_hoffset_unit = '';
+		$shadow_voffset_unit = '';
 		if(is_numeric($shadow_voffset))
 			$shadow_voffset_unit = 'px';
 		

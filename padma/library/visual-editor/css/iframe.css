@@ -654,6 +654,7 @@ body:not(.inspector-disabled) .inspector-element-selected {
     overflow: hidden;
 	min-height: 27px;
     min-width: 30px;
+	font-size: 16px !important;
 }
 .dynamic-inline-edit a{
     display: inline-block;
@@ -666,6 +667,7 @@ body:not(.inspector-disabled) .inspector-element-selected {
 	border-top: 1px solid transparent;
 	border-bottom: 2px solid transparent;
 	float: right;
+	font-size: 16px !important;
 }
 .dynamic-inline-edit a.cancel-edit{
 	color: #fff;

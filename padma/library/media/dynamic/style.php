@@ -16,21 +16,23 @@ class PadmaDynamicStyle {
 		if(count($mirrored_wrappers)>0){
 
 			foreach ($mirrored_wrappers as $id => $data) {
-				if(!$data['settings']['do-not-mirror-wrapper-styles']){
+
+				$mirror_wrapper_styles = true;
+				if( isset($data['settings']['do-not-mirror-wrapper-styles']) && $data['settings']['do-not-mirror-wrapper-styles'] == true){
+					$mirror_wrapper_styles = false;
+				}
+				
+				if( $mirror_wrapper_styles ){
 
 					$orginal_wrapper = 'wrapper-' . $data['id'];
 					$mirroring_wrapper = 'wrapper-' . $data['mirror_id'];
 
-
 					$elements['wrapper']['special-element-instance'][$orginal_wrapper] = $elements['wrapper']['special-element-instance'][$mirroring_wrapper];
-
 					$elements['wrapper']['mirroring'][$orginal_wrapper] = $mirroring_wrapper;
 
 				}
 			}
-
 		}
-
 
 
 		foreach ( $elements as $element_id => $element_options ) {
@@ -46,10 +48,14 @@ class PadmaDynamicStyle {
 					$orginal_wrapper = $element_options['mirroring'][$orginal_wrapper_id];
 
 					$target_wrapper_data = PadmaWrappersData::get_wrapper($target_wrapper);
+
+					$alias = '';
+					if(! empty($target_wrapper_data['settings']['alias']) )
+						$alias = $target_wrapper_data['settings']['alias'];
 					
 					$element['instances'][$target_wrapper] = array(
 						'id' => $target_wrapper,
-						'name' => 'Wrapper: '. $target_wrapper_data['settings']['alias'],
+						'name' => 'Wrapper: '. $alias,
 						'selector' => '#wrapper-'.$target_wrapper_data['id'].', div#whitewrap div.wrapper-mirroring-'.$target_wrapper_data['id'].'',
 						'layout' => $target_wrapper_data['layout'],
 						'state-of' => '',
@@ -298,17 +304,17 @@ class PadmaDynamicStyle {
 						foreach ( $options as $option ) {
 
 							/* Responsive CSS - some magic to make the columns work with the smartphone setting */
-							$breakpoint = padma_fix_data_type( padma_get( 'breakpoint', $option, 'off' ) );
-							$max_width  = padma_fix_data_type( padma_get( 'max-width', $option, '' ) );
-
+							$breakpoint = padma_fix_data_type( padma_get_search( 'breakpoint', $option, 'off' ) );
+							$max_width  = padma_fix_data_type( padma_get_search( 'max-width', $option, '' ) );
+							
 
 							if ( $max_width && $breakpoint == 'custom' )
 								$breakpoint = $max_width;
 
-							$breakpoint_min_max = padma_fix_data_type( padma_get( 'breakpoint-min-or-max', $option, 'max' ) );
-							$stretch            = padma_fix_data_type( padma_get( 'stretch', $option, false ) );
-							$auto_center        = padma_fix_data_type( padma_get( 'auto-center', $option, false ) );
-							$hide_wrapper       = padma_fix_data_type( padma_get( 'hide-wrapper', $option, false ) );
+							$breakpoint_min_max = padma_fix_data_type( padma_get_search( 'breakpoint-min-or-max', $option, 'max' ) );
+							$stretch            = padma_fix_data_type( padma_get_search( 'stretch', $option, false ) );
+							$auto_center        = padma_fix_data_type( padma_get_search( 'auto-center', $option, false ) );
+							$hide_wrapper       = padma_fix_data_type( padma_get_search( 'hide-wrapper', $option, false ) );
 
 							/* Output Responsive CSS */
 							$return .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
@@ -332,7 +338,6 @@ class PadmaDynamicStyle {
 
 
 							$return .= '}'; //close media query
-
 
 						}
 
@@ -664,11 +669,34 @@ class PadmaDynamicStyle {
 
 		$has_options = false;
 
-		foreach ( $options as $option ){
-			if ( $option[$default] ) {
-				$has_options = true;
-				break;
-			}			
+		foreach ( $options as $option => $value ){
+
+			if(is_array($value)){
+
+				if ( isset($value[$default]) ){
+					$has_options = true;
+					break;
+				
+				}else{
+
+					foreach ($value as $opt => $val) {
+
+						if( (stripos($opt, $default) !== false) ) {
+							$has_options = true;
+							break;
+
+						}
+					}
+				}
+
+			}else{
+				if ( $option[$default] || (stripos($option, $default) !== false)) {
+					$has_options = true;
+					break;
+				}
+			}
+			
+						
 		}
 
 		if ( $has_options )

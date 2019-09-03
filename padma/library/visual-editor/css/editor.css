@@ -7720,6 +7720,7 @@ body.visual-editor-mode-design .devices-wrapper .devices button {
     width: 20px;
     height: 20px;
     display: block;
+	z-index: 1000;
 }
 #change-side-of-panel:after{
 	-webkit-border-radius: 50%;

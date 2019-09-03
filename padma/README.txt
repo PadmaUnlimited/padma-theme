@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.2.3
-Version: 1.1.42
+Version: 1.1.43
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,13 +42,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.42
+= 1.1.43
 * Released: On Dev
 
 Tested with WordPress 5.2.3
 Tested with ClassicPress 1.0.1
 Performance improvement (spl_autoload_register implementation)
-Fixed: Custom code minor fix
+Fixed: Custom code block minor fix
 Fixed: Compatibility with Updater plugin auto update
 Fixed: PHP 7.3 Compatibility minor fix
 Fixed: Templates install minor bug
@@ -59,6 +59,7 @@ Fixed: Elementor 2.6.8+ Compatibility
 Fixed: text-shadow not rendering
 Fixed: animation-duration default 1s when not set.
 Fixed: pinboard block width issue
+Fixed: breakpoint issues with wrappers
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
@@ -69,7 +70,7 @@ New features on content block
 -- padma_content_custom_fields_field_tag
 -- padma_content_custom_fields_field_content
 -- padma_content_custom_fields_class
-New Option to upgrade and use developer/preview version
+New Option to upgrade and use Padma Edge version
 New Block: Site Logo
 New inline editor for certain fields on Visual Editor
 Added toggle option to slider inputs (Block API)
@@ -79,14 +80,13 @@ Added better plugin templates support
 Added option to exclude current post from PinBoard block when custom query is used
 Added option to clear caché from Admin Bar
 Added Visual Editor Design options
-- Added Margin "auto" options 
+- Added Margin "auto" options
 - Added Bottom and Right options to Nudging
 - Added Transition options to Visual Editor and API Block
 - Added Outline options
 Added Custom "Go to Top" text on footer block
 Added Shrink on scroll to wrappers options.
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
-Updated Custom Code Block, to execute PHP functions require PADMA_DISABLE_PHP_PARSING = false in wp-config.php
 Updated Animate.css to 3.7.2
 
 

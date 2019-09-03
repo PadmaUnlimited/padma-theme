@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.41
+= 1.1.42
 * Released: On Dev
 
 Tested with WordPress 5.2.2
@@ -58,11 +58,17 @@ Fixed: Media Library title when opens from Visual Editor
 Fixed: Elementor 2.6.8+ Compatibility
 Fixed: text-shadow not rendering
 Fixed: animation-duration default 1s when not set.
+Fixed: pinboard block width issue
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
 - Added: Featured image as background
-- Added: Custom Fields support
+- Added: Custom Fields support, includes new filters:
+-- padma_content_custom_fields_group_tag
+-- padma_content_custom_fields_label_tag
+-- padma_content_custom_fields_field_tag
+-- padma_content_custom_fields_field_content
+-- padma_content_custom_fields_class
 New Option to upgrade and use developer/preview version
 New Block: Site Logo
 New inline editor for certain fields on Visual Editor

@@ -94,7 +94,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			return '
 			#block-' . $block_id . ' .pin-board-pin,
 			#block-' . $block_id . ' .pin-board-column-sizer {
-				width: ' . ( 100 / $columns_desktop ) . ' %;
+				width: ' . ( 100 / $columns_desktop ) . '%;
 				width: -webkit-calc(' . $width_calc_expression_desktop . ');
 				width: -moz-calc(' . $width_calc_expression_desktop . ');
 				width: -o-calc(' . $width_calc_expression_desktop . ');

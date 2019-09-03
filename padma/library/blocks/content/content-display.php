@@ -614,6 +614,7 @@ class PadmaContentBlockDisplay {
 						$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
 
 						$custom_field_content = get_post_meta($post_id,$field_name,true);
+						$custom_field_content = apply_filters('padma_content_custom_fields_field_content', $custom_field_content );
 
 						if($custom_field_content){
 							
@@ -701,6 +702,7 @@ class PadmaContentBlockDisplay {
 									$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
 									
 									$custom_field_content = get_post_meta($post_id,$field_name,true);
+									$custom_field_content = apply_filters('padma_content_custom_fields_field_content', $custom_field_content );
 
 									if($custom_field_content){
 
@@ -756,6 +758,7 @@ class PadmaContentBlockDisplay {
 						$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
 						
 						$custom_field_content = get_post_meta($post_id,$field_name,true);
+						$custom_field_content = apply_filters('padma_content_custom_fields_field_content', $custom_field_content );
 
 						if($custom_field_content){
 							

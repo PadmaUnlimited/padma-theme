@@ -37,16 +37,14 @@
 		max-width: calc(100% - 30px);		
 	}
 
-	div.wrapper.shrink{
-		overflow: hidden;
+	div.wrapper.shrink{		
 		-webkit-transition: all 0.4s ease;
 		-moz-transition: all 0.4s ease;
 		-o-transition: all 0.4s ease;
 		transition: all 0.4s ease;
 	}
 	div.wrapper.shrink .grid-container{
-	    max-height: 100%;
-    	overflow: hidden
+	    max-height: 100%;    	
 	}
 	div.wrapper.shrink *{		
 		-webkit-transition: all 0.4s ease;
@@ -55,8 +53,7 @@
 		transition: all 0.4s ease;
 		max-height: max-content;
 	}
-	div.wrapper.is_shrinked {
-		overflow: hidden;
+	div.wrapper.is_shrinked {		
 	}
 	
 

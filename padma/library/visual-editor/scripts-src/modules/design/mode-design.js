@@ -1824,9 +1824,19 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		}
 
 
-		propertyInputCallbackTransform = function(params) {
+		propertyInputCallbackWhenAnimate = function(params) {
 
+			var when = params.value;
+			var selector = params.selector;
 			
+			if(when == 'when-visible'){
+				params.element.addClass('animate-when-visible');				
+			}
+
+		}
+
+
+		propertyInputCallbackTransform = function(params) {
 
 			var angle 		= 45;
 			var keyAngle 	= 'propertyInputCallbackTransformAngle-' + params.selector.replace(' ','-');
@@ -1844,6 +1854,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			localStorage[keyType] = params.value;
 			
 		}
+
 
 		propertyInputCallbackTransformAngle = function(params) {
 

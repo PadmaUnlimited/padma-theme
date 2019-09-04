@@ -365,8 +365,6 @@ class PadmaElementProperties {
 				'unit' => array(),
 			),
 
-				
-
 		/* Padding */
 			'padding' => array(
 				'group' => 'Padding',
@@ -971,6 +969,32 @@ class PadmaElementProperties {
 				),
 				'js-callback' => 'stylesheet.update_rule(selector, {"animation-delay": params.value});',
 			),
+
+			'animation-fill-mode' => array(
+				'group' => 'Animation',
+				'name' 	=> 'Fill Mode',
+				'type' 	=> 'select',
+				'options' => array(
+					'none' => 'None',
+					'forwards' => 'Forwards',
+					'backwards' => 'Backwards',
+					'both' => 'Both',
+					'initial' => 'Initial',
+				),
+				'js-callback' => 'stylesheet.update_rule(selector, {"animation-fill-mode": params.value});',
+			),
+
+			/*
+			'when-animate' => array(
+				'group' => 'Animation',
+				'name' 	=> 'When animate',
+				'type' 	=> 'select',
+				'options' => array(
+					'always' => 'Always',
+					'when-visible' => 'When visible',					
+				),
+				'js-callback' => 'propertyInputCallbackWhenAnimate(params);',
+			),*/
 
 		/*	Transform	*/
 			'transform' => array(

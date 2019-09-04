@@ -984,17 +984,16 @@ class PadmaElementProperties {
 				'js-callback' => 'stylesheet.update_rule(selector, {"animation-fill-mode": params.value});',
 			),
 
-			/*
-			'when-animate' => array(
+			'animation-play-state' => array(
 				'group' => 'Animation',
-				'name' 	=> 'When animate',
+				'name' 	=> 'Play state',
 				'type' 	=> 'select',
 				'options' => array(
-					'always' => 'Always',
-					'when-visible' => 'When visible',					
+					'running' => 'Running',
+					'paused' => 'Paused',
 				),
-				'js-callback' => 'propertyInputCallbackWhenAnimate(params);',
-			),*/
+				'js-callback' => 'stylesheet.update_rule(selector, {"animation-play-state": params.value});',				
+			),
 
 		/*	Transform	*/
 			'transform' => array(
@@ -1390,6 +1389,11 @@ class PadmaElementProperties {
 		
 	}
 	
+	/*
+	public static function complex_property_when_animate($args) {
+		return 'animation-play-state: ' . $args['value'];
+	}*/
+
 
 	public static function complex_property_font_family($args) {
 

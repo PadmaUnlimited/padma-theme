@@ -1824,18 +1824,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		}
 
 
-		propertyInputCallbackWhenAnimate = function(params) {
-
-			var when = params.value;
-			var selector = params.selector;
-			
-			if(when == 'when-visible'){
-				params.element.addClass('animate-when-visible');				
-			}
-
-		}
-
-
 		propertyInputCallbackTransform = function(params) {
 
 			var angle 		= 45;

@@ -25,6 +25,8 @@ class PadmaSchema {
 		if(is_null($post))
 			return;
 
+		debug($post);
+
 		/**
 		 *
 		 * Author
@@ -70,10 +72,7 @@ class PadmaSchema {
 		 */		
 		$article = Spatie\SchemaOrg\Schema::Article()
 					->mainEntityOfPage(get_permalink($post->ID))					
-					->headLine($post->post_title)
-					->dateCreated(new Datetime($post->post_date))
-					->datePublished(new Datetime($post->post_date))
-					->dateModified(new Datetime($post->post_modified))
+					->headLine($post->post_title)					
 					->author(
 						Spatie\SchemaOrg\Schema::Person()
 							->name($author)
@@ -95,6 +94,23 @@ class PadmaSchema {
 
 		if($image)
 			$article->image($image);
+
+
+		/**
+		 *
+		 * Check dates
+		 * https://www.facebook.com/groups/padmaunlimitedEN/permalink/688903958279742/
+		 */
+
+		if( validateDate($post->post_date) )
+			$article->dateCreated( new Datetime($post->post_date) );
+
+		if( validateDate($post->post_date) )
+			$article->datePublished( new Datetime($post->post_date) );
+
+		if( validateDate($post->post_date) )
+			$article->dateModified( new Datetime($post->post_modified) );
+
 
 		return $article->toScript();
 

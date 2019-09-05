@@ -673,7 +673,7 @@
 							'checked' 	=> PadmaOption::get('padma-blocks-as-gutenberg-blocks', false, false)
 						)
 					),
-					'description' => 'If on, Padma will show Padma Blocks as Gutenberg Blocks <strong>Important:</strong> This feature is Experimental.'
+					'description' => 'If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to "Block Options > Anywhere" to enable it. <strong>Important:</strong> This feature is Experimental.'
 				)
 			);
 

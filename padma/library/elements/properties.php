@@ -4,7 +4,7 @@ class PadmaElementProperties {
 	
 	protected static $properties = array(
 
-		/* Fonts */
+		/* 	Fonts */
 			'font-family' => array(
 				'group' 			=> 'Fonts',
 				'name' 				=> 'Font Family',
@@ -108,7 +108,7 @@ class PadmaElementProperties {
 				)
 			),
 
-		/* Fonts/Text Shadow */
+		/* 	Fonts/Text Shadow */
 			'text-shadow-horizontal-offset' => array(
 				'group' => 'Fonts',
 				'name' => 'Shadow: Horizontal Offset',
@@ -148,7 +148,7 @@ class PadmaElementProperties {
 				'default' => '000000'
 			),
 
-		/* Background */
+		/* 	Background */
 			'background-color' => array(
 				'group' => 'Background',
 				'name' => 'Color',
@@ -241,7 +241,7 @@ class PadmaElementProperties {
 				'default' => '0.5'
 			),
 
-		/* Borders */
+		/* 	Borders */
 			'border-color' => array(
 				'group' => 'Borders',
 				'name' => 'Border Color',
@@ -327,7 +327,7 @@ class PadmaElementProperties {
 					'default' => 0
 				),
 		
-		/* Outline */
+		/* 	Outline */
 			'outline-color' => array(
 				'group' => 'Outlines',
 				'name' => 'Outline Color',
@@ -365,7 +365,7 @@ class PadmaElementProperties {
 				'unit' => array(),
 			),
 
-		/* Padding */
+		/* 	Padding */
 			'padding' => array(
 				'group' => 'Padding',
 				'type' => 'box-model',
@@ -424,7 +424,7 @@ class PadmaElementProperties {
 					'default' => 0
 				),
 
-		/* Margin */
+		/* 	Margin */
 			'margins' => array(
 				'group' => 'Margins',
 				'type' => 'box-model',
@@ -531,7 +531,7 @@ class PadmaElementProperties {
 					'default' => 'initial'
 				),
 
-		/* Corners (Border Radius) */
+		/* 	Corners (Border Radius) */
 			'border-radius' => array(
 				'group' => 'Corners',
 				'type' => 'box-model',
@@ -590,7 +590,7 @@ class PadmaElementProperties {
 					'default' => 0
 				),
 
-		/* Box Shadow */
+		/* 	Box Shadow */
 			'box-shadow-horizontal-offset' => array(
 				'group' => 'Box Shadow',
 				'name' => 'Horizontal Offset',
@@ -642,7 +642,7 @@ class PadmaElementProperties {
 				)
 			),
 
-		/* List Styling */
+		/* 	List Styling */
 			'list-style' => array(
 				'group' => 'Lists',
 				'name' => 'List Style',
@@ -662,7 +662,7 @@ class PadmaElementProperties {
 				'default' => 'disc'
 			),
 
-		/* Nudging */
+		/* 	Nudging */
 			'top' => array(
 				'group' => 'Nudging',
 				'name' => 'Top',
@@ -720,7 +720,7 @@ class PadmaElementProperties {
 				'default' => 1
 			),
 
-		/* Overflow */
+		/* 	Overflow */
 			'overflow' => array(
 				'group' => 'Overflow',
 				'name' 	=> 'Visibility',
@@ -1025,7 +1025,6 @@ class PadmaElementProperties {
 				'js-callback' => 'propertyInputCallbackTransformAngle(params);',
 			),
 
-
 		/*	Transition	*/
 			'transition-delay' => array(
 				'group' => 'Transition',
@@ -1085,7 +1084,7 @@ class PadmaElementProperties {
 				'js-callback' => 'stylesheet.update_rule(selector, {"transition-timing-function": params.value});',
 			),
 
-		/* Advanced */
+		/* 	Advanced */
 			'display' => array(
 				'group' => 'Advanced',
 				'name' => 'Display',
@@ -1186,6 +1185,35 @@ class PadmaElementProperties {
 				),	
 				'default' => 'baseline',				
 			),
+
+		/*	Filter		*/
+		'filter' => array(
+			'group' => 'Filter',
+			'name' 	=> 'Filter',
+			'type' 	=> 'select',
+			'options' => array(
+				'none' 	=> 'none',				
+				'blur' 	=> 'Blur',				
+				'brightness' => 'Brightness',				
+				'contrast' => 'Contrast',				
+				'grayscale' => 'Grayscale',				
+				'hue-rotate' => 'Hue-Rotate',				
+				'invert' => 'Invert',				
+				'opacity' => 'Opacity',				
+				'saturate' => 'Saturate',				
+				'sepia' => 'Sepia',
+			),
+			//'callback' => 'reloadBlockOptions(block.id)',
+			'js-callback' 		=> 'propertyInputCallbackFilter(params);',
+			'complex-property' 	=> 'PadmaElementProperties::complex_property_filter'			
+		),
+
+		'filter-value' => array(
+			'group' => 'Filter',
+			'name' 	=> 'Value',
+			'type' 	=> 'integer',
+		),
+
 
 		/*		Effects		*/
 		/*
@@ -1352,6 +1380,12 @@ class PadmaElementProperties {
 					}
 					$value =  $properties['transform'] . '(' . $properties['transform-angle'] . $unit . ')';
 				}
+
+				// Filter fix
+				if(	$property_id == 'filter-value'){
+					continue;
+				}
+				
 			
 				$output .= $property_id . ': ' . $value . ';' . "\n";
 			
@@ -1389,10 +1423,22 @@ class PadmaElementProperties {
 		
 	}
 	
-	/*
-	public static function complex_property_when_animate($args) {
-		return 'animation-play-state: ' . $args['value'];
-	}*/
+	
+	public static function complex_property_filter($args) {
+
+		$filter = $args['properties']['filter'];
+		$value 	= $args['properties']['filter-value'];
+		$unit 	= '%';
+
+		if($filter  == 'blur'){
+			$unit 	= 'px';
+
+		}elseif($filter  == 'hue-rotate'){
+			$unit 	= 'deg';
+		}
+
+		return 'filter: ' . $filter . '('.$value . $unit.');';
+	}
 
 
 	public static function complex_property_font_family($args) {

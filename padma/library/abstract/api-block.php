@@ -116,6 +116,7 @@ abstract class PadmaBlockAPI {
 									'advanced',
 									'transition',
 									'outlines',
+									'filter'
 								),
 			));
 
@@ -405,13 +406,16 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
 
 		$this->tab_notices['anywhere'] = '<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p><input class="shortcode-anywhere" value="'.$shortcode_txt.'">';
-		/*
-		$this->inputs['anywhere']['show-as-gutenberg-block'] = array(
-				'name' => 'show-as-gutenberg-block',
-				'type' => 'checkbox',
-				'label' => 'Show as Gutenberg Block',
-				'default' => false
-			);*/		
+		
+		if(PadmaOption::get('padma-blocks-as-gutenberg-blocks')){
+			$this->inputs['anywhere']['show-as-gutenberg-block'] = array(
+					'name' => 'show-as-gutenberg-block',
+					'type' => 'checkbox',
+					'label' => 'Show as Gutenberg Block',
+					'default' => false
+				);
+		}
+			
 	}
 
 

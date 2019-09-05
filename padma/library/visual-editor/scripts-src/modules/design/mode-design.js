@@ -1795,6 +1795,28 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			
 		}
 
+		propertyInputCallbackFilter = function(params){
+
+			console.log(params);
+
+			var selector = params.selector;
+			var filter = params.value;
+			var value = 50;
+			var unit = '%';
+
+			if( filter == 'blur' ){
+				unit = 'px';
+
+			}else{
+				if( filter == 'hue-rotate' ){
+					unit = 'deg';
+				}
+			}
+
+			stylesheet.update_rule(selector, {"filter": filter + '(' + value + unit + ')'});
+			
+		}
+
 		propertyInputCallbackBackgroundImage = function(params) {
 
 			var selector = params.selector;

@@ -93,6 +93,10 @@ class PadmaGutenbergBlocks {
 		if ( !is_admin() || !PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
 			return;
 
+		global $pagenow;
+		if ( $pagenow != 'post.php' && $pagenow != 'post-new.php' )
+			return;
+		
 
 		Padma::load('visual-editor/layout-selector');
 		$layouts = $blocks = array();
@@ -129,9 +133,13 @@ class PadmaGutenbergBlocks {
 			
 			foreach ($blocks as $block_id => $args) {
 
+				$block = PadmaBlocksData::get_block($block_id);				
+				if( empty($block['settings']['show-as-gutenberg-block']) )
+					continue;
+
 				$block_name = ucfirst($args['type']) . ' > ';
 
-				if($args['settings']['alias'])			
+				if( !empty($args['settings']['alias']) )
 					$block_name .= $args['settings']['alias'];
 				else
 					$block_name .= $block_id;
@@ -145,7 +153,7 @@ class PadmaGutenbergBlocks {
 				    true
 			  	);
 				
-				register_block_type('padma/' . $args['type']);
+				register_block_type('padma/' . $block['type']);
 
 				self::$blocks_categories[$block_id] = $params['name'];
 
@@ -161,6 +169,8 @@ class PadmaGutenbergBlocks {
 		if(!PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
 			return;
 		
+		$expires = 60 * 60 * 24 * 30;
+
 		header("Pragma: public");
 		header("Cache-Control: max-age=".$expires);
 		header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$expires) . ' GMT');
@@ -178,7 +188,7 @@ class PadmaGutenbergBlocks {
 
 		$block_name = ucfirst($block['type']) . ' > ';
 
-		if($block['settings']['alias'])			
+		if( !empty($block['settings']['alias']) )
 			$block_name .= $block['settings']['alias'];
 		else
 			$block_name .= $block['id'];
@@ -186,14 +196,14 @@ class PadmaGutenbergBlocks {
 
 		$category = 'padma-' . $block['layout'];
 
-		$js = "( function( blocks, element ) {
+		$js = "( function( blocks, element) {				
 				var el = element.createElement;
 				var blockStyle = {
 			        backgroundColor: '#900',
 			        color: '#fff',
 			        padding: '20px',
 			    };			 
-			    blocks.registerBlockType( 'padma/padma-" . $block['id'] . "', {
+			    blocks.registerBlockType( 'padma/" . $block['type'] . "', {
 			        title: '".$block['type'].': ' . $block_name ."',
 			        icon: 'universal-access-alt',
 			        category: '".$category."',

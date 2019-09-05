@@ -144,7 +144,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'id' => 'entry-container-hentry',
 				'name' => 'Entry Container',
 				'selector' => '.hentry',
-				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'transform', 'advanced', 'transition', 'outlines')
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'transform', 'advanced', 'transition', 'outlines', 'filter')
 			));
 
 				$this->register_block_element(array(
@@ -205,7 +205,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'id' => 'entry-content-images',
 				'name' => 'Images',
 				'selector' => 'div.entry-content img',
-				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes')
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'filter')
 			));
 
 			$this->register_block_element( array(
@@ -220,7 +220,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'parent'   => 'entry-content-image-captions',
 					'name'     => 'Images in Captions',
 					'selector' => 'div.entry-content .wp-caption img',
-					'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation' )
+					'properties' => array( 'background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'filter' )
 				) );
 
 				$this->register_block_element( array(
@@ -390,7 +390,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'id' => 'post-thumbnail',
 				'name' => 'Featured Image',
 				'selector' => '.block-type-content a.post-thumbnail img',
-				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation')
+				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'filter')
 			));
 			
 			$this->register_block_element(array(

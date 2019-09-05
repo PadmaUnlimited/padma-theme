@@ -4,27 +4,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Padma Unlimited 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
-"Last-Translator: manfred <manfred@plasma.cr>\n"
+"Last-Translator: Paola González <castellanitadeshuesada@gmail.com>\n"
 "Language-Team: Spanish (Costa Rica)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-04-04T12:03:04-05:00\n"
-"PO-Revision-Date: 2019-08-29 15:14+0000\n"
+"PO-Revision-Date: 2019-09-05 18:07+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es_CR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.0; wp-5.2.3-RC1-45880"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
 
 #. Theme Name of the theme
 msgid "Padma Unlimited"
-msgstr ""
+msgstr "Padma Unlimited"
 
 #. Theme URI of the theme
 #. Author URI of the theme
 msgid "https://www.padmaunlimited.com/"
-msgstr ""
+msgstr "https://www.padmaunlimited.com/"
 
 #. Description of the theme
 msgid ""
@@ -37,186 +37,206 @@ msgid ""
 "and <a target=\"_blank\" href=\"https://www.casadelapalmera.com/\">Casa de "
 "la Palmera</a>."
 msgstr ""
+"Padma es un tema de creación de plantillas con edición de arrastrar y soltar,"
+" capacidades de diseño de apuntar y hacer clic, potente optimización de "
+"motores de búsqueda y mucho más. Para obtener más información, visite "
+"nuestro <a href=\"http://www.padmaunlimited.com/\" target=\"_blank\"> Padma "
+"</a> sitio web. Original escrito por Clay Griffith de Headway Themes y "
+"Monomo de BloxTheme. El tema Padma es un esfuerzo entre <a target=\"_blank\" "
+"href=\"https://www.plasma.cr/\"> Plasma Soluciones </a> y <a target = \"_ "
+"blank\" href = \"https: // www .casadelapalmera.com / \"> Casa de la Palmera "
+"</a>."
 
 #. Author of the theme
 msgid "Padma Unlimited Team"
-msgstr ""
+msgstr "Padma Unlimited Team"
 
 #: library/display/layout-renderer.php:127
 msgid "No Content to Display"
-msgstr ""
+msgstr "No hay contenido para mostrar"
 
 #: library/display/layout-renderer.php:133
 msgid ""
 "<p>There are no blocks to display.  Add some by going to the <a href=\"%s\">"
 "Padma Grid</a>!</p>"
 msgstr ""
+"<p> No hay bloques para mostrar. Agregue algunos yendo al <a href=\"%s\"> "
+"Padma Grid </a>! </p>"
 
 #: library/display/layout-renderer.php:137
 msgid ""
 "<p>There is no content to display.  Please notify the site administrator or "
 "<a href=\"%s\">login</a>.</p>"
 msgstr ""
+"<p> No hay contenido para mostrar. Por favor notifique al administrador del "
+"sitio o <a href=\"%s\"> inicie sesión </a>. </p>"
 
 #: library/api/api-box.php:14
 msgid "Error: The box class being registered does not exist."
-msgstr ""
+msgstr "Error: La clase de cuadro que se está registrando no existe."
 
 #: library/api/api-panel.php:14
 msgid "Error: The panel class being registered does not exist."
-msgstr ""
+msgstr "Error: La clase de panel que se está registrando no existe."
 
 #: library/api/api-element.php:109
 msgid "Error: Arguments must be an array for this element."
-msgstr ""
+msgstr "Error: Los argumentos deben ser una matriz para este elemento."
 
 #: library/api/api-element.php:133
 msgid "Error: An ID is required for this element."
-msgstr ""
+msgstr "Error: Se requiere una ID para este elemento."
 
 #: library/api/api-element.php:136
 msgid "Error: A name is required for this element."
-msgstr ""
+msgstr "Error: Se requiere un nombre para este elemento."
 
 #: library/api/api-element.php:139
 msgid "Error: A group is required for this element."
-msgstr ""
+msgstr "Error: Se requiere un grupo para este elemento."
 
 #: library/api/api-element.php:142
 msgid "Error: A CSS selector is required for this element."
-msgstr ""
+msgstr "Error: Se requiere un selector CSS para este elemento."
 
 #: library/api/api-element.php:145
 msgid "Error: Properties are required for this element."
-msgstr ""
+msgstr "Error: Se requieren propiedades para este elemento."
 
 #: library/api/api-element.php:188
 msgid "Error: Arguments must be an array for this element instance."
 msgstr ""
+"Error: Los argumentos deben ser una matriz para esta instancia de elemento."
 
 #: library/api/api-element.php:204
 msgid "Error: An ID is required for this element instance."
-msgstr ""
+msgstr "Error: Se requiere una ID para esta instancia de elemento."
 
 #: library/api/api-element.php:207
 msgid "Error: A name is required for this element instance."
-msgstr ""
+msgstr "Error: Se requiere un nombre para esta instancia de elemento."
 
 #: library/api/api-element.php:210
 msgid "Error: A group is required for this element instance."
-msgstr ""
+msgstr "Error: Se requiere un grupo para esta instancia de elemento."
 
 #: library/api/api-element.php:213
 msgid "Error: A parent element is required for this element instance."
 msgstr ""
+"Error: Se requiere un elemento primario para esta instancia de elemento."
 
 #: library/api/api-element.php:216
 msgid "Error: A CSS selector is required for this element instance."
-msgstr ""
+msgstr "Error: se requiere un selector CSS para esta instancia de elemento."
 
 #: library/api/api-element.php:251
 msgid "Error: The group being registered already exists."
-msgstr ""
+msgstr "Error: El grupo que se está registrando ya existe."
 
 #: library/api/api-admin-meta-box.php:42
 msgid "Error: The meta box class being registered does not exist."
-msgstr ""
+msgstr "Error: La clase de cuadro meta que se está registrando no existe."
 
 #: library/api/api-block.php:149
 msgid "Error: The block options class being registered does not exist."
 msgstr ""
+"Error: La clase de opciones de bloqueo que se está registrando no existe."
 
 #: library/visual-editor/panels/design/property-inputs.php:151
 msgid "You have customized a property in this property group."
-msgstr ""
+msgstr "Ha personalizado una propiedad en este grupo de propiedades."
 
 #: library/visual-editor/panels/design/property-inputs.php:278
 msgid "You have customized this property."
-msgstr ""
+msgstr "Ha personalizado esta propiedad."
 
 #: library/common/functions.php:643
 msgid "Type to search, then press enter"
-msgstr ""
+msgstr "Escriba para buscar, luego presione enter"
 
 #: library/common/functions.php:671 library/common/functions.php:673
 msgid "Search"
-msgstr ""
+msgstr "Búsqueda"
 
 #: library/common/image-resizer.php:58
 msgid "Error: Invalid image URL or size inputs"
-msgstr ""
+msgstr "Error: URL de imagen o entradas de tamaño no válidas"
 
 #: library/common/image-resizer.php:82
 msgid "Error: Image not local"
-msgstr ""
+msgstr "Error: Imagen no local"
 
 #: library/common/image-resizer.php:89
 msgid "Error: Image does not exist or not accessible"
-msgstr ""
+msgstr "Error: La imagen no existe o no es accesible"
 
 #: library/common/image-resizer.php:114
 msgid "Error: Cannot resize, check if $upscale is enabled"
 msgstr ""
+"Error: No se puede cambiar el tamaño, verifique si $ upscale está habilitado"
 
 #: library/common/image-resizer.php:126
 msgid "Error: Cannot resize image with WP_Image_Editor class"
 msgstr ""
+"Error: No se puede cambiar el tamaño de la imagen con la clase "
+"WP_Image_Editor"
 
 #: library/common/image-resizer.php:134
 msgid "Error: Unable to save image with WP_Image_Editor class"
-msgstr ""
+msgstr "Error: No se puede guardar la imagen con la clase WP_Image_Editor"
 
 #: library/blocks/navigation/navigation.php:401
 msgid "Navigation"
-msgstr ""
+msgstr "Navegación"
 
 #: library/blocks/blocks.php:73
 msgid "The block class being registered does not exist."
-msgstr ""
+msgstr "La clase de bloque que se está registrando no existe."
 
 #: library/blocks/blocks.php:789
 msgid "The Padma blocks array does not exist."
-msgstr ""
+msgstr "La matriz de bloques Padma no existe."
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:63
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:106
 msgid "Search Results For:"
-msgstr ""
+msgstr "Resultados de búsqueda para:"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:115
 msgid "Author Archives:"
 msgstr ""
+"Archivo del Autor:\n"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:122
 msgid "Tag Archives:"
-msgstr ""
+msgstr "Archivo de etiquetas:"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:129
 msgid "Archives:"
-msgstr ""
+msgstr "Archivo:"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:136
 msgid "Whoops! Page Not Found..."
-msgstr ""
+msgstr "Opa! Página no encontrada..."
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:144
 msgid "You Are Here:"
-msgstr ""
+msgstr "Usted está aquí:"
 
 #: library/blocks/footer/footer.php:115
 msgid "Administration Panel"
-msgstr ""
+msgstr "Panel de Administracion"
 
 #: library/blocks/footer/footer.php:117
 msgid "Administration Login"
-msgstr ""
+msgstr "Inicio de sesión de administración"
 
 #: library/blocks/footer/footer.php:134
 msgid "Unlimited by Padma, the drag and drop theme builder"
-msgstr ""
+msgstr "Ilimitado por Padma, el creador de temas de arrastrar y soltar"
 
 #: library/blocks/footer/footer.php:149
 msgid "Copyright"
@@ -224,53 +244,55 @@ msgstr "Copyright"
 
 #: library/blocks/footer/footer.php:167
 msgid "Go To Top"
-msgstr ""
+msgstr "Ve arriba"
 
 #: library/blocks/footer/footer.php:189
 msgid "View Full Site"
-msgstr ""
+msgstr "Ver sitio completo"
 
 #: library/blocks/footer/footer.php:196
 msgid "View Mobile Site"
-msgstr ""
+msgstr "Ver sitio móvil"
 
 #: library/blocks/content/content-display.php:156
 #: library/blocks/listings/content-display.php:69
 msgid "<p>Sorry, there was no content that matched your search.</p>"
-msgstr ""
+msgstr "<p> Lo sentimos, no hubo contenido que coincida con su búsqueda. </p>"
 
 #: library/blocks/content/content-display.php:287
 msgid "Daily Archives: %s"
 msgstr ""
+"Archivos diarios:% s\n"
 
 #: library/blocks/content/content-display.php:290
 msgid "Monthly Archives: %s"
-msgstr ""
+msgstr "Archivos mensuales :% s"
 
 #: library/blocks/content/content-display.php:293
 msgid "Yearly Archives: %s"
-msgstr ""
+msgstr "Archivos anuales: % s"
 
 #: library/blocks/content/content-display.php:296
 msgid "Blog Archives"
 msgstr ""
+"Archivos del Blog\n"
 
 #: library/blocks/content/content-display.php:306
 msgid "Category Archives: %s"
-msgstr ""
+msgstr "Archivos de categoría:% s"
 
 #: library/blocks/content/content-display.php:324
 #: library/blocks/content/content-display.php:327
 msgid "Author Archives: %s"
-msgstr ""
+msgstr "Archivos del autor:% s"
 
 #: library/blocks/content/content-display.php:337
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Resultados de Búsqueda para: %s"
 
 #: library/blocks/content/content-display.php:346
 msgid "Tag Archives: %s"
-msgstr ""
+msgstr "Archivo de etiquetas: % s"
 
 #: library/blocks/content/content-display.php:540
 #: library/blocks/listings/content-display.php:200
@@ -279,35 +301,39 @@ msgstr "%s"
 
 #: library/blocks/content/content-display.php:698
 msgid "Pages:"
-msgstr ""
+msgstr "Páginas:"
 
 #: library/blocks/content/content-display.php:735
 msgid "Whoops!  Page Not Found"
-msgstr ""
+msgstr "Opa! Página no encontrada"
 
 #: library/blocks/content/content-display.php:743
 msgid ""
 "<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
 "are looking for does not exist or has been moved elsewhere.</p>"
 msgstr ""
+"<p> No se preocupe, no hiciste nada malo. Parece que la página que está "
+"buscando no existe o se ha movido a otro lugar. </p>"
 
 #: library/blocks/content/content-display.php:745
 msgid ""
 "<p>If you keep ending up here, please head back to our <a href=\"%s\">"
 "homepage</a> or try the search form below.</p>"
 msgstr ""
+"<p> Si continúa terminando aquí, regrese a nuestra <a href=\"%s\"> página de "
+"inicio </a> o pruebe el formulario de búsqueda a continuación. </p>"
 
 #: library/blocks/content/content-display.php:820
 msgid "Discard Reply"
-msgstr ""
+msgstr "Descartar respuesta"
 
 #: library/blocks/content/content-display.php:858
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr ""
+msgstr "<span class = \"meta-nav\"> & larr; </span> Publicaciones anteriores"
 
 #: library/blocks/content/content-display.php:859
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "Nuevas publicaciones <span class = \"meta-nav\"> & rarr; </span>"
 
 #: library/blocks/content/content-display.php:1053
 msgid "%s &ndash; Comments"
@@ -315,21 +341,23 @@ msgstr "%s &ndash; Comentarios"
 
 #: library/blocks/content/content-display.php:1062
 msgid "Respond to %s"
-msgstr ""
+msgstr "Responda a % s"
 
 #: library/blocks/content/content-display.php:1070
 msgid "View all posts by %s"
-msgstr ""
+msgstr "Ver todas las publicaciones por % s"
 
 #: library/blocks/content/comments-template.php:54
 msgid "Sorry, comments are closed for this post."
-msgstr ""
+msgstr "Lo sentimos, los comentarios están cerrados para esta publicación."
 
 #: library/blocks/content/comments-template.php:68
 msgid ""
 "This post is password protected.  Please enter the password to view the "
 "comments."
 msgstr ""
+"Esta publicación está protegida por contraseña. Por favor, introduzca la "
+"contraseña para ver los comentarios."
 
 #: library/maintenance/legacy-classes.php:66
 #: library/maintenance/legacy-classes.php:96
@@ -338,10 +366,12 @@ msgstr ""
 #: library/maintenance/legacy-classes.php:245
 #: library/maintenance/legacy-classes.php:271
 msgid "The element ID is not registered."
-msgstr ""
+msgstr "La ID del elemento no está registrada."
 
 #: library/fonts/traditional-fonts.php:127
 msgid ""
 "To register a font, the argument array must include an \"id\", \"stack\", "
 "and \"name\"."
 msgstr ""
+"Para registrar una fuente, la matriz de argumentos debe incluir un \"id\", "
+"\"stack\" y \"name\"."

@@ -667,8 +667,8 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-audio"' . $src_visibility . '>Delete</span>';
 						
-		echo '<span class="button">Choose Audio</span>
-			<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
+		echo __('<span class="button">Choose Audio</span>','padma');
+		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 		
 	}
 
@@ -684,8 +684,8 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-video"' . $src_visibility . '>Delete</span>';
 						
-		echo '<span class="button">Choose Video</span>
-			<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
+		echo __('<span class="button">Choose Video</span>','padma');
+		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 		
 	}
 

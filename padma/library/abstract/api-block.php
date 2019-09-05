@@ -438,7 +438,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			'label' => 'Mirror Block',
 			'chosen' => true,
 			'default' => '',
-			'tooltip' => 'By using this option, you can tell a block to "mirror" another block and its content.  This option is useful if you are wanting to share a block&mdash;such as a header&mdash;across layouts on your site.  Select the block you wish to mirror the content from in the select box to the right.',
+			'tooltip' => __('By using this option, you can tell a block to "mirror" another block and its content.  This option is useful if you are wanting to share a block&mdash;such as a header&mdash;across layouts on your site.  Select the block you wish to mirror the content from in the select box to the right.','padma'),
 			'options' => 'get_blocks_select_options_for_mirroring()',
 			'callback' => 'updateBlockMirrorStatus(input, block.id, value);',
 			'value' => PadmaBlocksData::is_block_mirrored($this->block)
@@ -450,7 +450,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			'label' => 'Block Alias',
 			'default' => '',
 			'callback' => 'var $block = $i("#block-" + block.id); $block.data("alias", value); updateBlockContentCover($block);',
-			'tooltip' => 'Enter an easily recognizable name for the block alias and it will be used throughout your site admin.  For instance, if you add an alias to a widget area block, that alias will be used in the Widgets panel.',
+			'tooltip' => __('Enter an easily recognizable name for the block alias and it will be used throughout your site admin.  For instance, if you add an alias to a widget area block, that alias will be used in the Widgets panel.','padma'),
 		);
 
 		$this->inputs['config']['css-classes'] = array(
@@ -459,7 +459,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			'callback' => 'updateBlockCustomClasses(input, block.id, value);',
 			'label' => 'Custom CSS Class(es)',
 			'default' => '',
-			'tooltip' => 'Need more finite control?  Enter the custom CSS class selectors here and they will be added to the block\'s class attribute. <strong>DO NOT</strong> put regular CSS in here.  Use the Live CSS editor for that.',
+			'tooltip' => __('Need more finite control?  Enter the custom CSS class selectors here and they will be added to the block\'s class attribute. <strong>DO NOT</strong> put regular CSS in here.  Use the Live CSS editor for that.','padma'),
 		);
 
 		$this->inputs['config']['css-classes-bubble'] = array(
@@ -467,7 +467,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			'name' => 'css-classes-bubble',
 			'label' => '<em style="color: #666; font-style: italic;">Advanced:</em> Add Custom CSS Class(es) to Row/Column',
 			'default' => '',
-			'tooltip' => 'Copy any custom CSS classes added to this block and add them to the parent row and column &lt;section&gt;\'s',
+			'tooltip' => __('Copy any custom CSS classes added to this block and add them to the parent row and column &lt;section&gt;\'s','padma'),
 		);
 
 		/* Titles */
@@ -483,7 +483,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 						'name' => 'block-title',
 						'type' => 'text',
 						'label' => 'Block Title',
-						'tooltip' => 'Add a custom title above the block content.'
+						'tooltip' => __('Add a custom title above the block content.','padma')
 					);
 
 					$this->inputs['config']['block-title-tag'] = array(
@@ -498,7 +498,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 							//'h6' => 'H6',
 						),
 						'label' => 'Block Title Tag',
-						'tooltip' => 'Custom title tag.'
+						'tooltip' => __('Custom title tag.','padma')
 					);
 
 
@@ -506,7 +506,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 						'name' => 'block-subtitle',
 						'type' => 'text',
 						'label' => 'Block Subtitle',
-						'tooltip' => 'Add a custom sub title above the block content and below the block title.'
+						'tooltip' => __('Add a custom sub title above the block content and below the block title.','padma')
 					);
 
 
@@ -522,14 +522,14 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 							'h6' => 'H6',
 						),
 						'label' => 'Block Subtitle Tag',
-						'tooltip' => 'Custom subtitle tag.'
+						'tooltip' => __('Custom subtitle tag.','padma')
 					);
 
 					$this->inputs['config']['block-title-link-check'] = array(
 						'name' => 'block-title-link-check',
 						'type' => 'checkbox',
 						'label' => 'Link Block Title?',
-						'tooltip' => 'Choose whether the block title should be a link or not',
+						'tooltip' => __('Choose whether the block title should be a link or not','padma'),
 						'default' => false,
 						'toggle' => array(
 							'true' => array(
@@ -551,14 +551,14 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 						'name' => 'block-title-link-url',
 						'type' => 'text',
 						'label' => 'Block Title Link URL',
-						'tooltip' => 'Add a url for the block title'
+						'tooltip' => __('Add a url for the block title','padma')
 					);
 
 					$this->inputs['config']['block-title-link-target'] = array(
 						'name' => 'block-title-link-target',
 						'type' => 'checkbox',
 						'label' => 'Open in a new window?',
-						'tooltip' => 'If you would like to open the link in a new window check this option',
+						'tooltip' => __('If you would like to open the link in a new window check this option','padma'),
 						'default' => false
 					);
 
@@ -688,7 +688,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 							),
 						)
 					),
-					'tooltip' => 'Select a screen width for these change to take effect.',
+					'tooltip' => __('Select a screen width for these change to take effect.','padma'),
 					'default' => ''
 				),
 
@@ -720,7 +720,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'type' => 'checkbox',
 					'name' => 'disable-block-height',
 					'label' => 'Disable blocks height',
-					'tooltip'=> 'Disable the height for smaller screens if the block displays too high for smaller screens',
+					'tooltip'=> __('Disable the height for smaller screens if the block displays too high for smaller screens','padma'),
 					'default' => false
 				),
 
@@ -736,7 +736,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'name' => 'griddify-lists',
 					'label' => 'Griddify Lists',
 					'default' => false,
-					'tooltip' => 'Any kind of list, such as categories, latest posts, even menus etc work fine on large screens in the sidebar. But on smaller screens where the sidebar drops below the content. The lists can look empty due to mass of whitespace. This will put the list items into 2 columns side by side.'
+					'tooltip' => __('Any kind of list, such as categories, latest posts, even menus etc work fine on large screens in the sidebar. But on smaller screens where the sidebar drops below the content. The lists can look empty due to mass of whitespace. This will put the list items into 2 columns side by side.','padma')
 				),
 
 				array(
@@ -744,7 +744,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'name' => 'hide-block',
 					'label' => 'Hide this block',
 					'default' => false,
-					'tooltip' => 'This will hide this block for the set breakpoint.'
+					'tooltip' => __('This will hide this block for the set breakpoint.','padma')
 				)
 
 			),
@@ -761,7 +761,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 				'name' => 'responsive-block-hiding',
 				'label' => 'Legacy Responsive Grid Block Hiding',
 				'default' => '',
-				'tooltip' => 'If you have the responsive grid enabled and the user views your website on an iPhone (or equivalent device), the grid may be cluttered do to so many blocks being in a small area.  If you wish to limit the blocks that are shown on mobile devices, you can use this setting to hide certain blocks for the devices you choose.  <strong>If no options are selected, then responsive block hiding will not be active for this block.</strong>',
+				'tooltip' => __('If you have the responsive grid enabled and the user views your website on an iPhone (or equivalent device), the grid may be cluttered do to so many blocks being in a small area.  If you wish to limit the blocks that are shown on mobile devices, you can use this setting to hide certain blocks for the devices you choose.  <strong>If no options are selected, then responsive block hiding will not be active for this block.</strong>','padma'),
 				'options' => array(
 					'smartphones' => 'iPhone/Smartphones',
 					'tablets-landscape' => 'iPad/Tablets (Landscape)',

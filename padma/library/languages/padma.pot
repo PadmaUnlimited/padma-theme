@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Padma Unlimited 1.0.1\n"
+"Project-Id-Version: Padma Unlimited 1.1.45\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-04-04T12:03:04-05:00\n"
+"POT-Creation-Date: 2019-09-05T14:25:04-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.1.0\n"
+"X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
 
 #. Theme Name of the theme
@@ -31,24 +31,84 @@ msgstr ""
 msgid "Padma Unlimited Team"
 msgstr ""
 
-#: library/display/layout-renderer.php:127
-msgid "No Content to Display"
+#: library/abstract/api-block.php:162
+msgid "Error: The block options class being registered does not exist."
 msgstr ""
 
-#: library/display/layout-renderer.php:133
-msgid "<p>There are no blocks to display.  Add some by going to the <a href=\"%s\">Padma Grid</a>!</p>"
+#: library/abstract/api-block.php:441
+msgid "By using this option, you can tell a block to \"mirror\" another block and its content.  This option is useful if you are wanting to share a block&mdash;such as a header&mdash;across layouts on your site.  Select the block you wish to mirror the content from in the select box to the right."
 msgstr ""
 
-#: library/display/layout-renderer.php:137
-msgid "<p>There is no content to display.  Please notify the site administrator or <a href=\"%s\">login</a>.</p>"
+#: library/abstract/api-block.php:453
+msgid "Enter an easily recognizable name for the block alias and it will be used throughout your site admin.  For instance, if you add an alias to a widget area block, that alias will be used in the Widgets panel."
 msgstr ""
 
-#: library/api/api-box.php:14
-msgid "Error: The box class being registered does not exist."
+#: library/abstract/api-block.php:462
+msgid "Need more finite control?  Enter the custom CSS class selectors here and they will be added to the block's class attribute. <strong>DO NOT</strong> put regular CSS in here.  Use the Live CSS editor for that."
 msgstr ""
 
-#: library/api/api-panel.php:14
-msgid "Error: The panel class being registered does not exist."
+#: library/abstract/api-block.php:470
+msgid "Copy any custom CSS classes added to this block and add them to the parent row and column &lt;section&gt;'s"
+msgstr ""
+
+#: library/abstract/api-block.php:486
+msgid "Add a custom title above the block content."
+msgstr ""
+
+#: library/abstract/api-block.php:501
+msgid "Custom title tag."
+msgstr ""
+
+#: library/abstract/api-block.php:509
+msgid "Add a custom sub title above the block content and below the block title."
+msgstr ""
+
+#: library/abstract/api-block.php:525
+msgid "Custom subtitle tag."
+msgstr ""
+
+#: library/abstract/api-block.php:532
+msgid "Choose whether the block title should be a link or not"
+msgstr ""
+
+#: library/abstract/api-block.php:554
+msgid "Add a url for the block title"
+msgstr ""
+
+#: library/abstract/api-block.php:561
+msgid "If you would like to open the link in a new window check this option"
+msgstr ""
+
+#: library/abstract/api-block.php:691
+msgid "Select a screen width for these change to take effect."
+msgstr ""
+
+#: library/abstract/api-block.php:723
+msgid "Disable the height for smaller screens if the block displays too high for smaller screens"
+msgstr ""
+
+#: library/abstract/api-block.php:739
+msgid "Any kind of list, such as categories, latest posts, even menus etc work fine on large screens in the sidebar. But on smaller screens where the sidebar drops below the content. The lists can look empty due to mass of whitespace. This will put the list items into 2 columns side by side."
+msgstr ""
+
+#: library/abstract/api-block.php:747
+msgid "This will hide this block for the set breakpoint."
+msgstr ""
+
+#: library/abstract/api-block.php:764
+msgid "If you have the responsive grid enabled and the user views your website on an iPhone (or equivalent device), the grid may be cluttered do to so many blocks being in a small area.  If you wish to limit the blocks that are shown on mobile devices, you can use this setting to hide certain blocks for the devices you choose.  <strong>If no options are selected, then responsive block hiding will not be active for this block.</strong>"
+msgstr ""
+
+#: library/abstract/api-panel.php:670
+msgid "<span class=\"button\">Choose Audio</span>"
+msgstr ""
+
+#: library/abstract/api-panel.php:687
+msgid "<span class=\"button\">Choose Video</span>"
+msgstr ""
+
+#: library/abstract/web-fonts-api.php:161
+msgid "<p class=\"error\">Unable to retrieve fonts at this time.</p>"
 msgstr ""
 
 #: library/api/api-element.php:109
@@ -103,29 +163,184 @@ msgstr ""
 msgid "Error: The group being registered already exists."
 msgstr ""
 
-#: library/api/api-admin-meta-box.php:42
-msgid "Error: The meta box class being registered does not exist."
+#: library/blocks/blocks.php:82
+msgid "The block class being registered does not exist."
 msgstr ""
 
-#: library/api/api-block.php:149
-msgid "Error: The block options class being registered does not exist."
+#: library/blocks/blocks.php:819
+msgid "The Padma blocks array does not exist."
 msgstr ""
 
-#: library/visual-editor/panels/design/property-inputs.php:151
-msgid "You have customized a property in this property group."
+#: library/blocks/breadcrumbs/breadcrumbs.php:64
+msgid "Home"
 msgstr ""
 
-#: library/visual-editor/panels/design/property-inputs.php:278
-msgid "You have customized this property."
+#: library/blocks/breadcrumbs/breadcrumbs.php:107
+msgid "Search Results For:"
 msgstr ""
 
-#: library/common/functions.php:643
+#: library/blocks/breadcrumbs/breadcrumbs.php:116
+msgid "Author Archives:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:123
+msgid "Tag Archives:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:130
+msgid "Archives:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:137
+msgid "Whoops! Page Not Found..."
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:145
+msgid "You Are Here:"
+msgstr ""
+
+#: library/blocks/content/comments-template.php:54
+msgid "Sorry, comments are closed for this post."
+msgstr ""
+
+#: library/blocks/content/comments-template.php:68
+msgid "This post is password protected.  Please enter the password to view the comments."
+msgstr ""
+
+#: library/blocks/content/content-display.php:157
+#: library/blocks/listings/content-display.php:69
+msgid "<p>Sorry, there was no content that matched your search.</p>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:288
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:291
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:294
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:297
+msgid "Blog Archives"
+msgstr ""
+
+#: library/blocks/content/content-display.php:310
+msgid "Category Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:345
+#: library/blocks/content/content-display.php:348
+msgid "Author Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:358
+msgid "Search Results for: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:367
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:564
+#: library/blocks/listings/content-display.php:200
+msgid "%s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:852
+msgid "Pages:"
+msgstr ""
+
+#: library/blocks/content/content-display.php:893
+msgid "Whoops!  Page Not Found"
+msgstr ""
+
+#: library/blocks/content/content-display.php:901
+msgid "<p>Don't fret, you didn't do anything wrong.  It appears that the page you are looking for does not exist or has been moved elsewhere.</p>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:903
+msgid "<p>If you keep ending up here, please head back to our <a href=\"%s\">homepage</a> or try the search form below.</p>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:978
+msgid "Discard Reply"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1016
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1017
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1211
+msgid "%s &ndash; Comments"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1220
+msgid "Respond to %s"
+msgstr ""
+
+#: library/blocks/content/content-display.php:1228
+msgid "View all posts by %s"
+msgstr ""
+
+#: library/blocks/footer/footer.php:121
+msgid "Administration Panel"
+msgstr ""
+
+#: library/blocks/footer/footer.php:123
+msgid "Administration Login"
+msgstr ""
+
+#: library/blocks/footer/footer.php:140
+msgid "Unlimited by Padma"
+msgstr ""
+
+#: library/blocks/footer/footer.php:152
+msgid "Copyright"
+msgstr ""
+
+#: library/blocks/footer/footer.php:192
+msgid "View Full Site"
+msgstr ""
+
+#: library/blocks/footer/footer.php:199
+msgid "View Mobile Site"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:403
+msgid "Navigation"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:725
+msgid "&laquo; Previous Page"
+msgstr ""
+
+#: library/common/functions.php:645
 msgid "Type to search, then press enter"
 msgstr ""
 
-#: library/common/functions.php:671
 #: library/common/functions.php:673
+#: library/common/functions.php:675
 msgid "Search"
+msgstr ""
+
+#: library/common/functions.php:739
+msgid "Error: The meta box class being registered does not exist."
+msgstr ""
+
+#: library/common/functions.php:782
+msgid "Error: The box class being registered does not exist."
+msgstr ""
+
+#: library/common/functions.php:803
+msgid "Error: The panel class being registered does not exist."
 msgstr ""
 
 #: library/common/image-resizer.php:58
@@ -152,163 +367,20 @@ msgstr ""
 msgid "Error: Unable to save image with WP_Image_Editor class"
 msgstr ""
 
-#: library/blocks/navigation/navigation.php:401
-msgid "Navigation"
+#: library/display/layout-renderer.php:127
+msgid "No Content to Display"
 msgstr ""
 
-#: library/blocks/blocks.php:73
-msgid "The block class being registered does not exist."
+#: library/display/layout-renderer.php:133
+msgid "<p>There are no blocks to display.  Add some by going to the <a href=\"%s\">Padma Grid</a>!</p>"
 msgstr ""
 
-#: library/blocks/blocks.php:789
-msgid "The Padma blocks array does not exist."
+#: library/display/layout-renderer.php:137
+msgid "<p>There is no content to display.  Please notify the site administrator or <a href=\"%s\">login</a>.</p>"
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:63
-msgid "Home"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:106
-msgid "Search Results For:"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:115
-msgid "Author Archives:"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:122
-msgid "Tag Archives:"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:129
-msgid "Archives:"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:136
-msgid "Whoops! Page Not Found..."
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:144
-msgid "You Are Here:"
-msgstr ""
-
-#: library/blocks/footer/footer.php:115
-msgid "Administration Panel"
-msgstr ""
-
-#: library/blocks/footer/footer.php:117
-msgid "Administration Login"
-msgstr ""
-
-#: library/blocks/footer/footer.php:134
-msgid "Unlimited by Padma, the drag and drop theme builder"
-msgstr ""
-
-#: library/blocks/footer/footer.php:149
-msgid "Copyright"
-msgstr ""
-
-#: library/blocks/footer/footer.php:167
-msgid "Go To Top"
-msgstr ""
-
-#: library/blocks/footer/footer.php:189
-msgid "View Full Site"
-msgstr ""
-
-#: library/blocks/footer/footer.php:196
-msgid "View Mobile Site"
-msgstr ""
-
-#: library/blocks/content/content-display.php:156
-#: library/blocks/listings/content-display.php:69
-msgid "<p>Sorry, there was no content that matched your search.</p>"
-msgstr ""
-
-#: library/blocks/content/content-display.php:287
-msgid "Daily Archives: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:290
-msgid "Monthly Archives: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:293
-msgid "Yearly Archives: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:296
-msgid "Blog Archives"
-msgstr ""
-
-#: library/blocks/content/content-display.php:306
-msgid "Category Archives: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:324
-#: library/blocks/content/content-display.php:327
-msgid "Author Archives: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:337
-msgid "Search Results for: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:346
-msgid "Tag Archives: %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:540
-#: library/blocks/listings/content-display.php:200
-msgid "%s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:698
-msgid "Pages:"
-msgstr ""
-
-#: library/blocks/content/content-display.php:735
-msgid "Whoops!  Page Not Found"
-msgstr ""
-
-#: library/blocks/content/content-display.php:743
-msgid "<p>Don't fret, you didn't do anything wrong.  It appears that the page you are looking for does not exist or has been moved elsewhere.</p>"
-msgstr ""
-
-#: library/blocks/content/content-display.php:745
-msgid "<p>If you keep ending up here, please head back to our <a href=\"%s\">homepage</a> or try the search form below.</p>"
-msgstr ""
-
-#: library/blocks/content/content-display.php:820
-msgid "Discard Reply"
-msgstr ""
-
-#: library/blocks/content/content-display.php:858
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr ""
-
-#: library/blocks/content/content-display.php:859
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: library/blocks/content/content-display.php:1053
-msgid "%s &ndash; Comments"
-msgstr ""
-
-#: library/blocks/content/content-display.php:1062
-msgid "Respond to %s"
-msgstr ""
-
-#: library/blocks/content/content-display.php:1070
-msgid "View all posts by %s"
-msgstr ""
-
-#: library/blocks/content/comments-template.php:54
-msgid "Sorry, comments are closed for this post."
-msgstr ""
-
-#: library/blocks/content/comments-template.php:68
-msgid "This post is password protected.  Please enter the password to view the comments."
+#: library/fonts/traditional-fonts.php:127
+msgid "To register a font, the argument array must include an \"id\", \"stack\", and \"name\"."
 msgstr ""
 
 #: library/maintenance/legacy-classes.php:66
@@ -320,6 +392,10 @@ msgstr ""
 msgid "The element ID is not registered."
 msgstr ""
 
-#: library/fonts/traditional-fonts.php:127
-msgid "To register a font, the argument array must include an \"id\", \"stack\", and \"name\"."
+#: library/visual-editor/panels/design/property-inputs.php:151
+msgid "You have customized a property in this property group."
+msgstr ""
+
+#: library/visual-editor/panels/design/property-inputs.php:302
+msgid "You have customized this property."
 msgstr ""

@@ -158,7 +158,7 @@ abstract class PadmaWebFontProvider {
 		$fonts = $this->retrieve_fonts($sortby);
 
 		if ( !$fonts ) {
-			echo '<p class="error">Unable to retrieve fonts at this time.</p>';
+			echo __('<p class="error">Unable to retrieve fonts at this time.</p>','padma');
 			return;
 		}
 

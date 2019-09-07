@@ -325,11 +325,16 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 				if ( event.target != window )
 					return;
 
-				$('div#panel').resizable('option', {maxHeight: panel.getPanelMaxHeight()});
+				$('div#panel').resizable(
+					'disabled',
+					'option', {
+					maxHeight: panel.getPanelMaxHeight()
+				});
 
 				panel.resizePanel(false, true);
 
 			});
+
 		/* END PANEL RESIZING */
 
 		/* PANEL TOGGLE */

@@ -850,7 +850,7 @@ function padma_get_int( $string ) {
  * https://stackoverflow.com/questions/12322824/php-preg-match-with-working-regex/12323025#12323025
  *
  */
-function validateDate($date, $format = 'Y-m-d H:i:s'){	
+function padma_validateDate($date, $format = 'Y-m-d H:i:s'){	
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) == $date;
 }

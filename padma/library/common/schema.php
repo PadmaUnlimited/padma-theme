@@ -102,13 +102,13 @@ class PadmaSchema {
 		 * https://www.facebook.com/groups/padmaunlimitedEN/permalink/688903958279742/
 		 */
 
-		if( validateDate($post->post_date) )
+		if( padma_validateDate($post->post_date) )
 			$article->dateCreated( new Datetime($post->post_date) );
 
-		if( validateDate($post->post_date) )
+		if( padma_validateDate($post->post_date) )
 			$article->datePublished( new Datetime($post->post_date) );
 
-		if( validateDate($post->post_date) )
+		if( padma_validateDate($post->post_date) )
 			$article->dateModified( new Datetime($post->post_modified) );
 
 

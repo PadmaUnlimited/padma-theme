@@ -326,7 +326,6 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 					return;
 
 				$('div#panel').resizable(
-					'disabled',
 					'option', {
 					maxHeight: panel.getPanelMaxHeight()
 				});

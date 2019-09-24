@@ -258,25 +258,25 @@ class PadmaAdmin {
 			switch ( $parent_menu['id'] ) {
 
 				case 'getting-started':
-					self::add_admin_submenu('Getting Started', 'padma-getting-started', array('PadmaAdminPages', 'getting_started'));
-					self::add_admin_submenu('Visual Editor', 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
-					self::add_admin_submenu('Templates', 'padma-templates', array('PadmaAdminPages', 'templates'));
-					self::add_admin_submenu('Options', 'padma-options', array('PadmaAdminPages', 'options'));
-					self::add_admin_submenu('Tools', 'padma-tools', array('PadmaAdminPages', 'tools'));
+					self::add_admin_submenu( __('Getting Started','padma'), 'padma-getting-started', array('PadmaAdminPages', 'getting_started'));
+					self::add_admin_submenu( __('Visual Editor','padma'), 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
+					self::add_admin_submenu( __('Templates','padma'), 'padma-templates', array('PadmaAdminPages', 'templates'));
+					self::add_admin_submenu( __('Options','padma'), 'padma-options', array('PadmaAdminPages', 'options'));
+					self::add_admin_submenu( __('Tools','padma'), 'padma-tools', array('PadmaAdminPages', 'tools'));
 				break;
 
 				case 'visual-editor':
-					self::add_admin_submenu('Visual Editor', 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
-					self::add_admin_submenu('Templates', 'padma-templates', array('PadmaAdminPages', 'templates'));
-					self::add_admin_submenu('Options', 'padma-options', array('PadmaAdminPages', 'options'));
-					self::add_admin_submenu('Tools', 'padma-tools', array('PadmaAdminPages', 'tools'));
+					self::add_admin_submenu( __('Visual Editor','padma'), 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
+					self::add_admin_submenu( __('Templates','padma'), 'padma-templates', array('PadmaAdminPages', 'templates'));
+					self::add_admin_submenu( __('Options','padma'), 'padma-options', array('PadmaAdminPages', 'options'));
+					self::add_admin_submenu( __('Tools','padma'), 'padma-tools', array('PadmaAdminPages', 'tools'));
 				break;
 
 				case 'options':
-					self::add_admin_submenu('Options', 'padma-options', array('PadmaAdminPages', 'options'));
-					self::add_admin_submenu('Visual Editor', 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
-					self::add_admin_submenu('Templates', 'padma-templates', array('PadmaAdminPages', 'templates'));
-					self::add_admin_submenu('Tools', 'padma-tools', array('PadmaAdminPages', 'tools'));
+					self::add_admin_submenu( __('Options','padma'), 'padma-options', array('PadmaAdminPages', 'options'));
+					self::add_admin_submenu( __('Visual Editor','padma'), 'padma-visual-editor', array('PadmaAdminPages', 'visual_editor'));
+					self::add_admin_submenu( __('Templates','padma'), 'padma-templates', array('PadmaAdminPages', 'templates'));
+					self::add_admin_submenu( __('Tools','padma'), 'padma-tools', array('PadmaAdminPages', 'tools'));
 				break;
 
 			}
@@ -357,21 +357,19 @@ class PadmaAdmin {
 			wp_enqueue_script('padma_admin_templates', padma_url() . '/library/admin/js/admin-templates.js', array('jquery'));
 
 			wp_localize_script('padma_admin_templates', 'Padma', array(
+
 				'ajaxURL' 			=> admin_url('admin-ajax.php'),
 				'apiURL' 			=> PADMA_API_URL,
 				'security' 			=> wp_create_nonce('padma-visual-editor-ajax'),
 				'templates' 		=> PadmaTemplates::get_all(),
 				'templateActive' 	=> PadmaTemplates::get_active(),
-
-				'viewModels' 	=> array()
+				'viewModels' 		=> array()
 			));
 
 			add_thickbox();
 			wp_enqueue_media();
 
 		}
-
-
 
 
 		/* Meta Boxes */
@@ -461,7 +459,7 @@ class PadmaAdmin {
 				return;
 
 			echo '<div class="updated">
-			       <p>Padma has detected that you have no Navigation blocks.  If you wish to use the WordPress menus system with Padma, please add a Navigation block in the <a href="' . $grid_mode_url . '" target="_blank">Visual Editor: Grid</a>.</p>
+			       <p>' . sprintf( __('Padma has detected that you have no Navigation blocks. If you wish to use the WordPress menus system with Padma, please add a Navigation block in the <a href="%s" target="_blank">Visual Editor: Grid</a>.', 'padma'), $grid_mode_url ) . '</p>
 			    </div>';
 
 		}
@@ -477,8 +475,8 @@ class PadmaAdmin {
 			return false;
 
 		echo '<div class="error">
-				<h3>Are you trying to install a Padma Template?</h3>
-			  	 <p>Please go to <a href="' . admin_url('admin.php?page=padma-templates') . '">Padma &rsaquo; Templates</a> to install Templates.</p>
+				<h3>' . __('Are you trying to install a Padma Template?','padma') . '</h3>
+			  	 <p>' . sprintf( __('Please go to <a href="%s">Padma &rsaquo; Templates</a> to install Templates.','padma'), admin_url('admin.php?page=padma-templates') ) . '</p>
 			</div>';
 
 
@@ -494,10 +492,10 @@ class PadmaAdmin {
         }
 
         echo '<div id="padma-responsive-grid-notice" data-padma-notice="responsive-grid" class="notice notice-warning is-dismissible" style="padding-top: 0.5em;padding-bottom: 0.5em;">
-				<h3 style="margin: 0.5em 0">Important! Your site is currently not mobile-friendly.</h3>
-                <p>Google now penalizes websites that are not mobile-friendly. Enabling the Responsive Grid will make your website mobile-friendly in most cases.</p>
-                <p><strong>Please note:</strong> Enabling the responsive grid can cause styling and layout changes for some websites. You can always disable Responsive Grid under the Grid mode in the Visual Editor.</p>
-                <p><button class="button-primary">Enable Responsive Grid</button>&emsp;&emsp;<button class="button-secondary padma-dismiss-notice">Dismiss</button></p>
+				<h3 style="margin: 0.5em 0">' . __('Important! Your site is currently not mobile-friendly.','padma') . '</h3>
+                <p>' . __('Google now penalizes websites that are not mobile-friendly. Enabling the Responsive Grid will make your website mobile-friendly in most cases.','padma') . '</p>
+                <p>' . __('<strong>Please note:</strong> Enabling the responsive grid can cause styling and layout changes for some websites. You can always disable Responsive Grid under the Grid mode in the Visual Editor.','padma') . '</p>
+                <p><button class="button-primary">' . __('Enable Responsive Grid','padma') . '</button>&emsp;&emsp;<button class="button-secondary padma-dismiss-notice">' . __('Dismiss','padma') . '</button></p>
 			</div>';
 
     }
@@ -567,7 +565,7 @@ class PadmaAdmin {
 
 		$visual_editor_url = home_url('/?visual-editor=true&ve-layout=' . urlencode($layout_id));
 
-		$actions['pu-visual-editor'] = '<a href="' . $visual_editor_url . '" title="Open in Padma Visual Editor" rel="permalink" target="_blank">Open in Visual Editor</a>';
+		$actions['pu-visual-editor'] = '<a href="' . $visual_editor_url . '" title="' . __('Open in Padma Visual Editor','padma') . '" rel="permalink" target="_blank">' . __('Open in Padma Visual Editor','padma') . '</a>';
 
 		return $actions;
 

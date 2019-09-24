@@ -52,7 +52,7 @@ class PadmaAdminWrite {
 
 		$visual_editor_url = home_url('/?visual-editor=true&ve-layout=' . urlencode($layout_id));
 
-		$return .= '<span id="padma-open-in-ve-btn" style="margin-right: 3px;"><a href="' . $visual_editor_url . '" class="button button-primary button-small" target="_blank">Open in Visual Editor</a></span>';
+		$return .= '<span id="padma-open-in-ve-btn" style="margin-right: 3px;"><a href="' . $visual_editor_url . '" class="button button-primary button-small" target="_blank">' . __('Open in Visual Editor','padma') . '</a></span>';
 
 		return $return;
 

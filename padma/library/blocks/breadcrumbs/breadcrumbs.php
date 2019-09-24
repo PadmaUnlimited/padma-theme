@@ -3,15 +3,26 @@
 class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'breadcrumbs';	
-	public $name = 'Breadcrumbs';			
-	public $fixed_height = true;
-	public $description = 'Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post';	
-	public $options_class = 'PadmaBreadcrumbsBlockOptions';
-	public $categories 	= array('core','navigation');
+	public $id;
+	public $name;
+	public $fixed_height;
+	public $description;
+	public $options_class;
+	public $categories;
 	// To allow inline editor
-	public $inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
+	public $inline_editable;
 	
+	
+	function __construct(){
+
+		$this->id = 'breadcrumbs';
+		$this->name = __('Breadcrumbs','padma');
+		$this->fixed_height = true;
+		$this->description = __('Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post','padma');	
+		$this->options_class = 'PadmaBreadcrumbsBlockOptions';
+		$this->categories 	= array('core','navigation');		
+		$this->inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
+	}
 	
 	function setup_elements() {
 		
@@ -183,36 +194,42 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 
 class PadmaBreadcrumbsBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' => 'General'
-	);
-
-	public $inputs = array(
-		'general' => array(
-			'show-prefix' => array(
-				'name' => 'show-prefix',
-				'label' => 'Show "You Are Here" prefix',
-				'type' => 'checkbox',
-				'tooltip' => 'If you would like the breadcrumbs to show "You Are Here:" or anything similar in front of the breadcrumb trail, then check this.',
-				'default' => false
-			),
-			
-			'prefix-text' => array(
-				'name' => 'prefix-text',
-				'label' => 'Prefix Text',
-				'type' => 'text',
-				'tooltip' => 'If the previous checkbox is checked, then you may customize the prefix text.',
-				'default' => 'You Are Here:'
-			),
-
-			'separator' => array(
-				'name' => 'separator',
-				'label' => 'Separator',
-				'type' => 'text',
-				'tooltip' => 'This will be shown between each breadcrumb.  e.g. If the separator is "&raquo;" then it will be shown as Home &raquo; Page Name.',
-				'default' => '&raquo;'
-			)
-		)
-	);
+	public $tabs;
+	public $inputs;
 	
+	function __construct(){
+
+		$this->tabs = array(
+			'general' => 'General'
+		);
+
+		$this->inputs = array(
+			'general' => array(
+				'show-prefix' => array(
+					'name' => 'show-prefix',
+					'label' => __('Show "You Are Here" prefix','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('If you would like the breadcrumbs to show "You Are Here:" or anything similar in front of the breadcrumb trail, then check this.','padma'),
+					'default' => false
+				),
+				
+				'prefix-text' => array(
+					'name' => 'prefix-text',
+					'label' => __('Prefix Text','padma'),
+					'type' => 'text',
+					'tooltip' => __('If the previous checkbox is checked, then you may customize the prefix text.','padma'),
+					'default' => __('You Are Here:','padma')
+				),
+
+				'separator' => array(
+					'name' => 'separator',
+					'label' => __('Separator','padma'),
+					'type' => 'text',
+					'tooltip' => __('This will be shown between each breadcrumb.  e.g. If the separator is "&raquo;" then it will be shown as Home &raquo; Page Name.','padma'),
+					'default' => '&raquo;'
+				)
+			)
+		);
+
+	}
 }

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-23T20:30:29-05:00\n"
+"POT-Creation-Date: 2019-09-24T15:58:07-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -223,6 +223,9 @@ msgstr ""
 
 #: library/admin/admin-bar.php:47
 #: library/admin/admin-bar.php:125
+#: library/admin/admin.php:262
+#: library/admin/admin.php:269
+#: library/admin/admin.php:277
 #: library/admin/pages/options.php:5
 #: library/admin/pages/options.php:75
 msgid "Visual Editor"
@@ -237,10 +240,16 @@ msgid "Design"
 msgstr ""
 
 #: library/admin/admin-bar.php:89
+#: library/admin/admin.php:263
+#: library/admin/admin.php:270
+#: library/admin/admin.php:278
 msgid "Templates"
 msgstr ""
 
 #: library/admin/admin-bar.php:97
+#: library/admin/admin.php:264
+#: library/admin/admin.php:271
+#: library/admin/admin.php:276
 #: library/admin/pages/getting-started.php:14
 #: library/admin/pages/options.php:80
 msgid "Options"
@@ -269,6 +278,9 @@ msgid "Advanced"
 msgstr ""
 
 #: library/admin/admin-bar.php:140
+#: library/admin/admin.php:265
+#: library/admin/admin.php:272
+#: library/admin/admin.php:279
 msgid "Tools"
 msgstr ""
 
@@ -288,186 +300,236 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:13
+#: library/admin/admin-meta-boxes.php:14
 msgid "Shared Layout"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:20
+#: library/admin/admin-meta-boxes.php:21
 msgid "Assign a shared layout to this entry.  Shared layouts can be added and modified in the Padma Visual Editor."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:21
+#: library/admin/admin-meta-boxes.php:22
 msgid "&ndash; Do Not Use Shared Layout &ndash;"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:55
+#: library/admin/admin-meta-boxes.php:56
 msgid "Hide Title"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:57
+#: library/admin/admin-meta-boxes.php:58
 msgid "&ndash; Do Not Hide Title &ndash;"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:59
+#: library/admin/admin-meta-boxes.php:60
 msgid "Hide on Single View"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:60
+#: library/admin/admin-meta-boxes.php:61
 msgid "Hide in Index and Archives"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:61
+#: library/admin/admin-meta-boxes.php:62
 msgid "Hide on Single View, Index, and Archives"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:63
+#: library/admin/admin-meta-boxes.php:64
 msgid "Choose whether or not you would like to hide the title for this entry.  This can be useful if you have advanced formatting in this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:68
+#: library/admin/admin-meta-boxes.php:69
 msgid "Alternate Title"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:70
+#: library/admin/admin-meta-boxes.php:71
 msgid "Using the alternate page title, you can override the title that's displayed in the Content Block of the page.  Doing this, you can have a shorter page title in the navigation menu and <code>&lt;title&gt;</code>, but have a longer and more descriptive title in the actual page content."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:89
+#: library/admin/admin-meta-boxes.php:90
 msgid "Display"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:93
+#: library/admin/admin-meta-boxes.php:94
 msgid "Custom CSS Class(es)"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:95
+#: library/admin/admin-meta-boxes.php:96
 msgid "If you are familiar with <a href=\"http://www.w3schools.com/css/\" target=\"_blank\">CSS</a> and would like to style this entry by targeting a certain CSS class (or classes), then you may enter them in here.  The class will be added to the <strong>entry container's class</strong> along with the <strong>body class</strong> if only this entry is being viewed (e.g. single post or page view). Classes can be separated with spaces and/or commas."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:115
-#: library/admin/admin-meta-boxes.php:121
+#: library/admin/admin-meta-boxes.php:116
+#: library/admin/admin-meta-boxes.php:122
 msgid "Featured Image Position"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:124
+#: library/admin/admin-meta-boxes.php:125
 msgid "Use Block Default"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:125
+#: library/admin/admin-meta-boxes.php:126
 msgid "Left of Title"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:126
+#: library/admin/admin-meta-boxes.php:127
 msgid "Right of Title"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:127
+#: library/admin/admin-meta-boxes.php:128
 msgid "Left of Content"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:128
+#: library/admin/admin-meta-boxes.php:129
 msgid "Right of Content"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:129
+#: library/admin/admin-meta-boxes.php:130
 msgid "Above Title"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:130
+#: library/admin/admin-meta-boxes.php:131
 msgid "Above Content"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:131
+#: library/admin/admin-meta-boxes.php:132
 msgid "Below Content"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:133
+#: library/admin/admin-meta-boxes.php:134
 msgid "Set the position of the featured image for this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:171
+#: library/admin/admin-meta-boxes.php:172
 #: library/admin/pages/options.php:210
 msgid "Title"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:173
+#: library/admin/admin-meta-boxes.php:174
 msgid "Custom <code>&lt;title&gt;</code> tag"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:179
+#: library/admin/admin-meta-boxes.php:180
 #: library/admin/pages/options.php:220
 #: library/admin/pages/templates.php:59
 msgid "Description"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:181
+#: library/admin/admin-meta-boxes.php:182
 msgid "Custom <code>&lt;meta&gt;</code> description"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:187
+#: library/admin/admin-meta-boxes.php:188
 msgid "<code>noindex</code> this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:189
+#: library/admin/admin-meta-boxes.php:190
 msgid "Index/NoIndex tells the engines whether the entry should be crawled and kept in the engines' index for retrieval. If you check this box to opt for <code>noindex</code>, the entry will be excluded from the engines.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:195
+#: library/admin/admin-meta-boxes.php:196
 msgid "<code>nofollow</code> links in this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:197
+#: library/admin/admin-meta-boxes.php:198
 msgid "Follow/NoFollow tells the engines whether links on the entry should be crawled. If you check this box to employ \"nofollow,\" the engines will disregard the links on the entry both for discovery and ranking purposes.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:203
+#: library/admin/admin-meta-boxes.php:204
 msgid "<code>noarchive</code> links in this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:205
+#: library/admin/admin-meta-boxes.php:206
 msgid "Noarchive is used to restrict search engines from saving a cached copy of the entry. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the \"cached\" link in the search results.  Check this box to restrict search engines from storing cached copies of this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:211
+#: library/admin/admin-meta-boxes.php:212
 msgid "<code>nosnippet</code> links in this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:213
+#: library/admin/admin-meta-boxes.php:214
 msgid "Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the entry's title and URL in the search results."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:219
+#: library/admin/admin-meta-boxes.php:220
 msgid "<code>noodp</code> links in this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:221
+#: library/admin/admin-meta-boxes.php:222
 #: library/admin/pages/options.php:309
 msgid "NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:227
+#: library/admin/admin-meta-boxes.php:228
 msgid "<code>noydir</code> links in this entry."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:229
+#: library/admin/admin-meta-boxes.php:230
 #: library/admin/pages/options.php:322
 msgid "NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:235
+#: library/admin/admin-meta-boxes.php:236
 msgid "301 Permanent Redirect"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:237
+#: library/admin/admin-meta-boxes.php:238
 msgid "The 301 Permanent Redirect can be used to forward an old post or page to a new or different location.  If you ever move a page or change a page's permalink, use this to forward your visitors to the new location.<br /><br /><em>Want more information?  Read more about <a href=\"http://support.google.com/webmasters/bin/answer.py?hl=en&answer=93633\" target=\"_blank\">301 Redirects</a>.</em>"
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:262
+#: library/admin/admin-meta-boxes.php:263
 msgid "Remember, this is only a predicted search engine result preview.  There is no guarantee that it will look exactly this way.  However, it will look similar."
 msgstr ""
 
-#: library/admin/admin-meta-boxes.php:297
+#: library/admin/admin-meta-boxes.php:298
 msgid "<strong>Configure the SEO settings for this page (Front Page) in the Padma Search Engine Optimization settings tab in <a href=\"%\" target=\"_blank\">Padma &raquo; Configuration</a>.</strong>"
+msgstr ""
+
+#: library/admin/admin-pages.php:15
+msgid "<p>You are now being redirected. If you are not redirected within 3 seconds, click <a href=\"%s/?visual-editor=true\"><strong>here</strong></a>.</p>"
+msgstr ""
+
+#: library/admin/admin-write.php:55
+msgid "Open in Visual Editor"
+msgstr ""
+
+#: library/admin/admin.php:261
+#: library/admin/pages/options.php:70
+msgid "Getting Started"
+msgstr ""
+
+#: library/admin/admin.php:462
+msgid "Padma has detected that you have no Navigation blocks. If you wish to use the WordPress menus system with Padma, please add a Navigation block in the <a href=\"%s\" target=\"_blank\">Visual Editor: Grid</a>."
+msgstr ""
+
+#: library/admin/admin.php:478
+msgid "Are you trying to install a Padma Template?"
+msgstr ""
+
+#: library/admin/admin.php:479
+msgid "Please go to <a href=\"%s\">Padma &rsaquo; Templates</a> to install Templates."
+msgstr ""
+
+#: library/admin/admin.php:495
+msgid "Important! Your site is currently not mobile-friendly."
+msgstr ""
+
+#: library/admin/admin.php:496
+msgid "Google now penalizes websites that are not mobile-friendly. Enabling the Responsive Grid will make your website mobile-friendly in most cases."
+msgstr ""
+
+#: library/admin/admin.php:497
+msgid "<strong>Please note:</strong> Enabling the responsive grid can cause styling and layout changes for some websites. You can always disable Responsive Grid under the Grid mode in the Visual Editor."
+msgstr ""
+
+#: library/admin/admin.php:498
+msgid "Enable Responsive Grid"
+msgstr ""
+
+#: library/admin/admin.php:498
+#: library/admin/partials/notices/support-us.php:31
+msgid "Dismiss"
+msgstr ""
+
+#: library/admin/admin.php:568
+msgid "Open in Padma Visual Editor"
 msgstr ""
 
 #: library/admin/pages/getting-started.php:12
@@ -671,10 +733,6 @@ msgstr ""
 
 #: library/admin/pages/options.php:65
 msgid "Default Admin Page"
-msgstr ""
-
-#: library/admin/pages/options.php:70
-msgid "Getting Started"
 msgstr ""
 
 #: library/admin/pages/options.php:83
@@ -1301,10 +1359,6 @@ msgstr ""
 
 #: library/admin/partials/notices/support-us.php:30
 msgid "Join to our community"
-msgstr ""
-
-#: library/admin/partials/notices/support-us.php:31
-msgid "Dismiss"
 msgstr ""
 
 #: library/api/api-element.php:109

@@ -1,4 +1,5 @@
 <?php
+
 class PadmaAdminPages {
 
 
@@ -10,8 +11,11 @@ class PadmaAdminPages {
 	public static function visual_editor() {
 
 		PadmaAdmin::show_header('Padma Visual Editor');
-			echo '<p>You are now being redirected.  If you are not redirected within 3 seconds, click <a href="' . home_url() . '/?visual-editor=true"><strong>here</strong></a>.</p>';
+
+			echo sprintf( __('<p>You are now being redirected. If you are not redirected within 3 seconds, click <a href="%s/?visual-editor=true"><strong>here</strong></a>.</p>','padma'), home_url() );
+
 			echo '<meta http-equiv="refresh" content="3;URL=' . home_url() . '/?visual-editor=true">';
+		
 		PadmaAdmin::show_footer();
 
 	}

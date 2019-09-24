@@ -15,9 +15,9 @@ echo '<div id="comments">';
 					$comments_number = (int)get_comments_number($post->ID);
 
 					if ( $comments_number == 1  ) 
-						$comments_heading_responses_format = stripslashes(padma_get('comments-area-heading-responses-number-1', $padma_comments_template_args, 'One Response'));
+						$comments_heading_responses_format = stripslashes(padma_get('comments-area-heading-responses-number-1', $padma_comments_template_args, __('One Response','padma') ));
 					else
-						$comments_heading_responses_format = stripslashes(padma_get('comments-area-heading-responses-number', $padma_comments_template_args, '%num% Responses'));
+						$comments_heading_responses_format = stripslashes(padma_get('comments-area-heading-responses-number', $padma_comments_template_args, '%num% ' . __('Responses','padma') ));
 
 					$comments_heading_replacements = array(
 						'responses' => str_replace('%num%', $comments_number, $comments_heading_responses_format),

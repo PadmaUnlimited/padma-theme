@@ -2,19 +2,34 @@
 
 class PadmaAudioBlock extends PadmaBlockAPI {
 	
-	public $id 				= 'audio';	
-	public $name 			= 'Audio';		
-	public $options_class 	= 'PadmaAudioBlockOptions';	
-	public $fixed_height 	= true;	
-	public $html_tag 		= 'div';
-	public $attributes 		= array(
-									'itemscope' => '',
-									'itemtype' => 'http://schema.org/AudioObject'
-								);
-	public $description 	= 'Display an audio';
-	public $categories 		= array('core','media');
-	
-	protected $show_content_in_grid = false;
+	public $id;
+	public $name;
+	public $options_class;
+	public $fixed_height;
+	public $html_tag;
+	public $attributes;
+	public $description;
+	public $categories;	
+	protected $show_content_in_grid;
+
+
+	public function __construct(){
+
+		$this->id 				= 'audio';	
+		$this->name 			= 'Audio';		
+		$this->options_class 	= 'PadmaAudioBlockOptions';	
+		$this->fixed_height 	= true;	
+		$this->html_tag 		= 'div';
+		$this->attributes 		= array(
+										'itemscope' => '',
+										'itemtype' => 'http://schema.org/AudioObject'
+									);
+		$this->description 	= 'Display an audio';
+		$this->categories 	= array('core','media');
+		
+		$this->show_content_in_grid = false;
+
+	}
 	
 	function setup_elements() {
 		
@@ -160,7 +175,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 			if(parent::get_setting($block, 'audio-wav'))
 				$audioHTML .= '<source src="' . padma_format_url_ssl($audio_ogg) . '" type="audio/wav">';
 
-			$audioHTML .= 'Your browser does not support the audio tag.';
+			$audioHTML .= __('Your browser does not support the audio tag.','padma');
 			$audioHTML .= '</audio></div>';
 
 			echo $audioHTML;
@@ -168,7 +183,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 
 		} else {
 
-			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>You have not added an audio yet. Please upload and apply an audio.</p></div>';
+			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>' . __('You have not added an audio yet. Please upload and apply an audio.','padma') . '</p></div>';
 		}
 		
 		/* Output position styling for Grid mode */
@@ -185,113 +200,121 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 
 class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' => 'General'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'general' => array(
+	function __construct(){
 
-			'audio-heading' => array(
-				'name' => 'audio-heading',
-				'type' => 'heading',
-				'label' => 'Add an Audio'
-			),
+		$this->tabs = array(
+			'general' => 'General'
+		);
 
-			'audio-mp3' => array(
-				'type' => 'audio',
-				'name' => 'audio-mp3',
-				'label' => 'Audio MP3',
-				'default' => null
-			),
+		$this->inputs = array(
+			
+			'general' => array(
 
-			'audio-ogg' => array(
-				'type' => 'audio',
-				'name' => 'audio-ogg',
-				'label' => 'Audio OGG',
-				'default' => null
-			),
-
-			'audio-wav' => array(
-				'type' => 'audio',
-				'name' => 'audio-wav',
-				'label' => 'Audio WAV',
-				'default' => null
-			),
-
-			'autoplay' => array(
-				'name' => 'autoplay',
-				'label' => 'Autoplay',
-				'type' => 'checkbox',
-				'default' => false,
-				'tooltip' => 'Specifies that the audio will start playing as soon as it is ready'
-			),
-
-			'controls' => array(
-				'name' => 'controls',
-				'label' => 'Controls',
-				'type' => 'checkbox',
-				'default' => false,
-				'tooltip' => 'Specifies that audio controls should be displayed (such as a play/pause button etc).'
-			),
-
-			'loop' => array(
-				'name' => 'loop',
-				'label' => 'Loop',
-				'type' => 'checkbox',
-				'default' => false,
-				'tooltip' => 'Specifies that the audio will start over again, every time it is finished'
-			),
-
-			'muted' => array(
-				'name' => 'muted',
-				'label' => 'Muted',
-				'type' => 'checkbox',
-				'default' => false,
-				'tooltip' => 'Specifies that the audio output of the audio should be muted'
-			),
-
-			'preload' => array(
-				'name' => 'preload',
-				'label' => 'Preload',
-				'type' => 'select',
-				'default' => 'none',
-				'options' => array(
-					''		=> 'none',
-					'auto'		=> 'Auto',
-					'metadata'	=> 'Metadata',
+				'audio-heading' => array(
+					'name' => 'audio-heading',
+					'type' => 'heading',
+					'label' => __('Add an Audio','padma')
 				),
-				'tooltip' => 'Specifies if and how the author thinks the audio should be loaded when the page loads'
-			),
+
+				'audio-mp3' => array(
+					'type' => 'audio',
+					'name' => 'audio-mp3',
+					'label' => 'Audio MP3',
+					'default' => null
+				),
+
+				'audio-ogg' => array(
+					'type' => 'audio',
+					'name' => 'audio-ogg',
+					'label' => 'Audio OGG',
+					'default' => null
+				),
+
+				'audio-wav' => array(
+					'type' => 'audio',
+					'name' => 'audio-wav',
+					'label' => 'Audio WAV',
+					'default' => null
+				),
+
+				'autoplay' => array(
+					'name' => 'autoplay',
+					'label' => 'Autoplay',
+					'type' => 'checkbox',
+					'default' => false,
+					'tooltip' => __('Specifies that the audio will start playing as soon as it is ready','padma')
+				),
+
+				'controls' => array(
+					'name' => 'controls',
+					'label' =>  __('Controls','padma'),
+					'type' => 'checkbox',
+					'default' => false,
+					'tooltip' => __('Specifies that audio controls should be displayed (such as a play/pause button etc).','padma')
+				),
+
+				'loop' => array(
+					'name' => 'loop',
+					'label' => __('Loop','padma'),
+					'type' => 'checkbox',
+					'default' => false,
+					'tooltip' => __('Specifies that the audio will start over again, every time it is finished','padma')
+				),
+
+				'muted' => array(
+					'name' => 'muted',
+					'label' => __('Muted','padma'),
+					'type' => 'checkbox',
+					'default' => false,
+					'tooltip' => __('Specifies that the audio output of the audio should be muted','padma')
+				),
+
+				'preload' => array(
+					'name' => 'preload',
+					'label' => __('Preload','padma'),
+					'type' => 'select',
+					'default' => 'none',
+					'options' => array(
+						''		=> 'none',
+						'auto'		=> 'Auto',
+						'metadata'	=> 'Metadata',
+					),
+					'tooltip' => __('Specifies if and how the author thinks the audio should be loaded when the page loads','padma')
+				),
 
 
-			'position-heading' => array(
-				'name' => 'position-heading',
-				'type' => 'heading',
-				'label' => 'Position Audio'
-			),
+				'position-heading' => array(
+					'name' => 'position-heading',
+					'type' => 'heading',
+					'label' => __('Position Audio','padma')
+				),
 
-			'audio-position' => array(
-				'name' => 'audio-position',
-				'label' => 'Position audio inside container',
-				'type' => 'select',
-				'tooltip' => 'You can position this audio in relation to the block using the positions provided',
-				'default' => 'none',
-				'options' => array(
-					'' => 'None',
-					'top_left' => 'Top Left',
-					'top_center' => 'Top Center',
-					'top_right' => 'Top Right',
-					'center_left' => 'Center Left',
-					'center_center' => 'Center Center',
-					'center_right' => 'Center Right',
-					'bottom_left' => 'Bottom Left',
-					'bottom_center' => 'Bottom Center',
-					'bottom_right' => 'Bottom Right'
+				'audio-position' => array(
+					'name' => 'audio-position',
+					'label' => __('Position audio inside container','padma'),
+					'type' => 'select',
+					'tooltip' => __('You can position this audio in relation to the block using the positions provided','padma'),
+					'default' => 'none',
+					'options' => array(
+						'' => 'None',
+						'top_left' => __('Top Left','padma'),
+						'top_center' => __('Top Center','padma'),
+						'top_right' => __('Top Right','padma'),
+						'center_left' => __('Center Left','padma'),
+						'center_center' => __('Center Center','padma'),
+						'center_right' => __('Center Right','padma'),
+						'bottom_left' => __('Bottom Left','padma'),
+						'bottom_center' => __('Bottom Center','padma'),
+						'bottom_right' => __('Bottom Right','padma')
+					)
 				)
-			)
 
-		)
-	);
+			)
+		);
+
+	}
 	
 }

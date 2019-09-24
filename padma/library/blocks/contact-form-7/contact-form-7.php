@@ -2,12 +2,23 @@
 
 class PadmaContactForm7Block extends PadmaBlockAPI {
 	
-	public $id 				= 'contact-form-7';	
-	public $name 			= 'Contact Form 7';		
-	public $options_class 	= 'PadmaContactForm7BlockOptions';
-	public $description 	= 'Display Contact Form 7';
-	public $categories 		= array('core','forms');	
+	public $id;
+	public $name;
+	public $options_class;
+	public $description;
+	public $categories;
 	
+
+	function __construct(){
+
+		$this->id = 'contact-form-7';	
+		$this->name = 'Contact Form 7';		
+		$this->options_class = 'PadmaContactForm7BlockOptions';
+		$this->description = __('Display Contact Form 7','padma');
+		$this->categories = array('core','forms');
+
+	}
+
 	public function init() {
 
 		if(!class_exists('WPCF7'))
@@ -19,91 +30,91 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'wpcf7',
-			'name' => 'Form Container',
+			'name' => __('Form Container','padma'),
 			'selector' => '.wpcf7',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-paragraph',
-			'name' => 'Form paragraph',
+			'name' => __('Form paragraph','padma'),
 			'selector' => '.wpcf7 form p',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-h1',
-			'name' => 'Form H1',
+			'name' => __('Form H1','padma'),
 			'selector' => '.wpcf7 form h1',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-h2',
-			'name' => 'Form H2',
+			'name' => __('Form H2','padma'),
 			'selector' => '.wpcf7 form h2',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-h3',
-			'name' => 'Form H3',
+			'name' => __('Form H3','padma'),
 			'selector' => '.wpcf7 form h3',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-h4',
-			'name' => 'Form H4',
+			'name' => __('Form H4','padma'),
 			'selector' => '.wpcf7 form h4',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-h5',
-			'name' => 'Form H5',
+			'name' => __('Form H5','padma'),
 			'selector' => '.wpcf7 form h5',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-h6',
-			'name' => 'Form H6',
+			'name' => __('Form H6','padma'),
 			'selector' => '.wpcf7 form h6',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-new-line',
-			'name' => 'Form new line',
+			'name' => __('Form new line','padma'),
 			'selector' => '.wpcf7 form br',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-label',
-			'name' => 'Form label',
+			'name' => __('Form label','padma'),
 			'selector' => '.wpcf7 form label',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-span',
-			'name' => 'Form span',
+			'name' => __('Form span','padma'),
 			'selector' => '.wpcf7 form span',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-input',
-			'name' => 'Form input',
+			'name' => __('Form input','padma'),
 			'selector' => '.wpcf7 form input',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-select',
-			'name' => 'Form select',
+			'name' => __('Form select','padma'),
 			'selector' => '.wpcf7 form select',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-textarea',
-			'name' => 'Form textarea',
+			'name' => __('Form textarea','padma'),
 			'selector' => '.wpcf7 form textarea',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form-submit',
-			'name' => 'Form submit',
+			'name' => __('Form submit','padma'),
 			'selector' => '.wpcf7 form input[type="submit"]',
 		));
 	}
@@ -141,25 +152,32 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 
 class PadmaContactForm7BlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' => 'General'
-	);
-	
-	public $sets = array(
-		
-	);
+	public $tabs;	
+	public $sets;
+	public $inputs;
 
-	public $inputs = array(
-		'general' => array(
-			'form-id' => array(
-				'type' => 'select',
-				'name' => 'form-id',
-				'label' => 'Select form',
-				'options' => 'get_forms()',
-				'tooltip' => '',
-			),
-		)
-	);
+	function __construct(){
+
+		$this->tabs = array(
+			'general' => 'General'
+		);
+		
+		$this->sets = array(
+			
+		);
+
+		$this->inputs = array(
+			'general' => array(
+				'form-id' => array(
+					'type' => 'select',
+					'name' => 'form-id',
+					'label' => __('Select form','padma'),
+					'options' => 'get_forms()',
+					'tooltip' => '',
+				),
+			)
+		);
+	}
 
 	public function modify_arguments($args = false) {
 	}
@@ -169,7 +187,7 @@ class PadmaContactForm7BlockOptions extends PadmaBlockOptionsAPI {
 
 		$args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
 		$forms = array(
-			'0' => 'Select a form'
+			'0' => __('Select a form','padma')
 		);
 		
 		if( $data = get_posts($args)){

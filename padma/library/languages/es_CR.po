@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-05T14:25:04-05:00\n"
-"PO-Revision-Date: 2019-09-23 22:52+0000\n"
+"POT-Creation-Date: 2019-09-23T20:30:29-05:00\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es-CR\n"
@@ -55,6 +55,14 @@ msgstr "Padma Unlimited Team"
 msgid "Error: The block options class being registered does not exist."
 msgstr ""
 "Error: La clase de opciones de bloqueo que se está registrando no existe."
+
+#: library/abstract/api-block.php:408
+msgid ""
+"<strong>Use this block anywhere.</strong><p>To insert this block into your "
+"post or page use this shortcode:<p>"
+msgstr ""
+"<strong> Use este bloque en cualquier lugar. </strong> <p> Para insertar "
+"este bloque en su publicación o página, use este código corto: <p>"
 
 #: library/abstract/api-block.php:441
 msgid ""
@@ -137,6 +145,23 @@ msgid "Select a screen width for these change to take effect."
 msgstr ""
 "Seleccione un ancho de pantalla para que este cambio surta efecto.\n"
 
+#: library/abstract/api-block.php:707
+msgid "Min Width (applies to screens that are wider than breakpoint)"
+msgstr ""
+"Ancho mínimo (se aplica a pantallas que son más anchas que el punto de "
+"interrupción)"
+
+#: library/abstract/api-block.php:708
+msgid "Max Width (applies to screens that are narrower than breakpoint)"
+msgstr ""
+"Ancho máximo (se aplica a pantallas que son más estrechas que el punto de "
+"interrupción)"
+
+#: library/abstract/api-block.php:716
+msgid "Adaptive Options"
+msgstr ""
+"Opciones adaptativas\n"
+
 #: library/abstract/api-block.php:723
 msgid ""
 "Disable the height for smaller screens if the block displays too high for "
@@ -144,6 +169,14 @@ msgid ""
 msgstr ""
 "Deshabilite la altura para pantallas más pequeñas si el bloque se muestra "
 "demasiado alto para pantallas más pequeñas"
+
+#: library/abstract/api-block.php:730
+msgid "Attempt to center block elements"
+msgstr "Intento de centrar elementos de bloque"
+
+#: library/abstract/api-block.php:737
+msgid "Griddify Lists"
+msgstr "Listas de cuadrícula"
 
 #: library/abstract/api-block.php:739
 msgid ""
@@ -157,9 +190,17 @@ msgstr ""
 "evitando una apariencia vacía, especialmente cuando la lista está en una "
 "barra lateral que se mueve hacia abajo en los dispositivos móviles.\n"
 
+#: library/abstract/api-block.php:745
+msgid "Hide this block"
+msgstr "Ocultar este bloque"
+
 #: library/abstract/api-block.php:747
 msgid "This will hide this block for the set breakpoint."
 msgstr "Esto ocultará este bloque para el punto de interrupción establecido."
+
+#: library/abstract/api-block.php:762
+msgid "Legacy Responsive Grid Block Hiding"
+msgstr "Ocultación de bloque de cuadrícula resposiva heredada"
 
 #: library/abstract/api-block.php:764
 msgid ""
@@ -178,19 +219,1580 @@ msgstr ""
 "la ocultación de bloque sensible no estará activa para este bloque. </strong>"
 "\n"
 
+#: library/abstract/api-block.php:786
+msgid "Import/Export"
+msgstr "Importado/ Exportado"
+
+#: library/abstract/api-block.php:793 library/abstract/api-block.php:822
+msgid "Import Block Settings"
+msgstr "Importar configuración de Bloque"
+
+#: library/abstract/api-block.php:799
+msgid "Select File to Import"
+msgstr "Seleccionar Archivo para Importar"
+
+#: library/abstract/api-block.php:806
+msgid "Include Block Options"
+msgstr "Incluir Opciones de Bloque"
+
+#: library/abstract/api-block.php:814
+msgid "Include Block Design"
+msgstr "Incluir Diseño de Bloque"
+
+#: library/abstract/api-block.php:830
+msgid "Export Block Settings"
+msgstr "Exportar Configuración de Bloque"
+
+#: library/abstract/api-block.php:836
+msgid "Download Export File"
+msgstr "Descargar Archivo Exportado"
+
+#: library/abstract/api-block.php:849
+msgid "Do Not Mirror"
+msgstr "No Reflejar"
+
+#: library/abstract/api-panel.php:440
+msgid "View Textarea"
+msgstr ""
+"Ver Textarea\n"
+
+#: library/abstract/api-panel.php:458
+msgid "View Code Editor"
+msgstr ""
+"Ver Editor de Código\n"
+
+#: library/abstract/api-panel.php:474
+msgid "View Editor"
+msgstr "Ver Editor"
+
+#: library/abstract/api-panel.php:594
+msgid "Hold Ctrl (Windows) or Command (Mac) to select multiple options."
+msgstr ""
+"Mantenga presionada la tecla Ctrl (Windows) o Comando (Mac) para seleccionar "
+"varias opciones."
+
+#: library/abstract/api-panel.php:647
+msgid "Choose Image"
+msgstr "Elegir Imagen"
+
 #: library/abstract/api-panel.php:670
-msgid "<span class=\"button\">Choose Audio</span>"
-msgstr "<span class = \"button\"> Elegir audio </span>"
+msgid "Choose Audio"
+msgstr "Elegir Audio"
 
 #: library/abstract/api-panel.php:687
-msgid "<span class=\"button\">Choose Video</span>"
-msgstr "<span class = \"button\"> Elegir video </span>"
+msgid "Choose Video"
+msgstr "Elegir Vídeo"
+
+#: library/abstract/api-panel.php:779 library/admin/pages/templates.php:140
+msgid "Delete"
+msgstr "Eliminar"
+
+#: library/abstract/web-fonts-api.php:66
+msgid "Search "
+msgstr "Buscar"
+
+#: library/abstract/web-fonts-api.php:71
+msgid "Sort By "
+msgstr "Ordenar por"
+
+#: library/abstract/web-fonts-api.php:91
+msgid "Loading Fonts..."
+msgstr "Cargando Fuentes ..."
+
+#: library/abstract/web-fonts-api.php:92
+msgid "No Results"
+msgstr "No hay Resultados"
 
 #: library/abstract/web-fonts-api.php:161
 msgid "<p class=\"error\">Unable to retrieve fonts at this time.</p>"
 msgstr ""
 "<p class = \"error\"> No se pueden recuperar las fuentes en este momento. "
 "</p>"
+
+#: library/abstract/web-fonts-api.php:190
+msgid "The quick brown fox jumps over the lazy dog."
+msgstr "Jovencillo emponzoñado de whisky, ¡qué figurota exhibe!"
+
+#: library/admin/admin-bar.php:47 library/admin/admin-bar.php:125 
+#: library/admin/pages/options.php:5 library/admin/pages/options.php:75
+msgid "Visual Editor"
+msgstr "Editor Visual"
+
+#: library/admin/admin-bar.php:62
+msgid "Grid"
+msgstr "Cuadrícula"
+
+#: library/admin/admin-bar.php:77
+msgid "Design"
+msgstr "Diseño"
+
+#: library/admin/admin-bar.php:89
+msgid "Templates"
+msgstr "Plantillas"
+
+#: library/admin/admin-bar.php:97 library/admin/pages/getting-started.php:14 
+#: library/admin/pages/options.php:80
+msgid "Options"
+msgstr "Opciones"
+
+#: library/admin/admin-bar.php:104 library/admin/pages/options.php:2 
+#: library/admin/pages/options.php:26 library/admin/pages/options.php:31
+msgid "General"
+msgstr "General"
+
+#: library/admin/admin-bar.php:111 library/admin/pages/options.php:3
+msgid "Search Engine Optimization"
+msgstr "Optimización para Mototres de Búsqueda"
+
+#: library/admin/admin-bar.php:118 library/admin/pages/options.php:4
+msgid "Scripts/Analytics"
+msgstr "Scrypts/Analytics"
+
+#: library/admin/admin-bar.php:132 library/admin/pages/options.php:6
+msgid "Advanced"
+msgstr ""
+"Avanzado\n"
+
+#: library/admin/admin-bar.php:140
+msgid "Tools"
+msgstr "Herramientas"
+
+#: library/admin/admin-bar.php:147 library/admin/pages/tools.php:5 
+#: library/admin/pages/tools.php:19
+msgid "System Info"
+msgstr "Información del Sistema"
+
+#: library/admin/admin-bar.php:155
+msgid "Clear cache"
+msgstr ""
+"Limpiar cache\n"
+
+#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:85 
+#: library/admin/pages/tools.php:7
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: library/admin/admin-meta-boxes.php:13
+msgid "Shared Layout"
+msgstr ""
+"Diseño Compartido\n"
+
+#: library/admin/admin-meta-boxes.php:20
+msgid ""
+"Assign a shared layout to this entry.  Shared layouts can be added and "
+"modified in the Padma Visual Editor."
+msgstr ""
+"Asigne un diseño compartido a esta entrada. Los Diseños Compartidos se "
+"pueden agregar y modificar en el Editor visual de Padma."
+
+#: library/admin/admin-meta-boxes.php:21
+msgid "&ndash; Do Not Use Shared Layout &ndash;"
+msgstr "& ndash; No utilice diseño compartido & ndash;"
+
+#: library/admin/admin-meta-boxes.php:55
+msgid "Hide Title"
+msgstr "Ocultar Título"
+
+#: library/admin/admin-meta-boxes.php:57
+msgid "&ndash; Do Not Hide Title &ndash;"
+msgstr "& ndash; No Esconda el Título  &ndash;"
+
+#: library/admin/admin-meta-boxes.php:59
+msgid "Hide on Single View"
+msgstr ""
+"Ocultar en Vista Única\n"
+
+#: library/admin/admin-meta-boxes.php:60
+msgid "Hide in Index and Archives"
+msgstr "Ocultar en Índice y Archivos"
+
+#: library/admin/admin-meta-boxes.php:61
+msgid "Hide on Single View, Index, and Archives"
+msgstr "Ocultar en Vista Única, Índice y Archivos"
+
+#: library/admin/admin-meta-boxes.php:63
+msgid ""
+"Choose whether or not you would like to hide the title for this entry.  This "
+"can be useful if you have advanced formatting in this entry."
+msgstr ""
+"Elija si desea o no ocultar el título de esta entrada. Esto puede ser útil "
+"si tiene un formato avanzado en esta entrada."
+
+#: library/admin/admin-meta-boxes.php:68
+msgid "Alternate Title"
+msgstr "Título Alternativo"
+
+#: library/admin/admin-meta-boxes.php:70
+msgid ""
+"Using the alternate page title, you can override the title that's displayed "
+"in the Content Block of the page.  Doing this, you can have a shorter page "
+"title in the navigation menu and <code>&lt;title&gt;</code>, but have a "
+"longer and more descriptive title in the actual page content."
+msgstr ""
+"Usando el título de página alternativo, puede anular el título que se "
+"muestra en el Bloque de contenido de la página. Al hacer esto, puede tener "
+"un título de página más corto en el menú de navegación y <code> & lt; title "
+"& gt; </code>, pero puede tener un título más largo y más descriptivo en el "
+"contenido real de la página."
+
+#: library/admin/admin-meta-boxes.php:89
+msgid "Display"
+msgstr "Mostrar"
+
+#: library/admin/admin-meta-boxes.php:93
+msgid "Custom CSS Class(es)"
+msgstr "Clases de CSS Personalizadas"
+
+#: library/admin/admin-meta-boxes.php:95
+msgid ""
+"If you are familiar with <a href=\"http://www.w3schools.com/css/\" "
+"target=\"_blank\">CSS</a> and would like to style this entry by targeting a "
+"certain CSS class (or classes), then you may enter them in here.  The class "
+"will be added to the <strong>entry container's class</strong> along with the "
+"<strong>body class</strong> if only this entry is being viewed (e.g. single "
+"post or page view). Classes can be separated with spaces and/or commas."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:115 
+#: library/admin/admin-meta-boxes.php:121
+msgid "Featured Image Position"
+msgstr "Posición de Imagen Destacada"
+
+#: library/admin/admin-meta-boxes.php:124
+msgid "Use Block Default"
+msgstr "Usar Bloque Predeterminado"
+
+#: library/admin/admin-meta-boxes.php:125
+msgid "Left of Title"
+msgstr "A la Izquierda del Título"
+
+#: library/admin/admin-meta-boxes.php:126
+msgid "Right of Title"
+msgstr "A la Derecha del Título"
+
+#: library/admin/admin-meta-boxes.php:127
+msgid "Left of Content"
+msgstr "A la Izquierda del Contenido"
+
+#: library/admin/admin-meta-boxes.php:128
+msgid "Right of Content"
+msgstr "A la Derecha del Contenido"
+
+#: library/admin/admin-meta-boxes.php:129
+msgid "Above Title"
+msgstr "Por encima del Título"
+
+#: library/admin/admin-meta-boxes.php:130
+msgid "Above Content"
+msgstr "Por encima del Contenido"
+
+#: library/admin/admin-meta-boxes.php:131
+msgid "Below Content"
+msgstr "Debajo del Contenido"
+
+#: library/admin/admin-meta-boxes.php:133
+msgid "Set the position of the featured image for this entry."
+msgstr "Establezca la posición de la imagen destacada para esta entrada."
+
+#: library/admin/admin-meta-boxes.php:171 library/admin/pages/options.php:210
+msgid "Title"
+msgstr "Título"
+
+#: library/admin/admin-meta-boxes.php:173
+msgid "Custom <code>&lt;title&gt;</code> tag"
+msgstr "Etiqueta <code> & lt; title & gt; </code> personalizada"
+
+#: library/admin/admin-meta-boxes.php:179 library/admin/pages/options.php:220 
+#: library/admin/pages/templates.php:59
+msgid "Description"
+msgstr "Descripción"
+
+#: library/admin/admin-meta-boxes.php:181
+msgid "Custom <code>&lt;meta&gt;</code> description"
+msgstr "Descripción  <code> & lt; meta & gt; </code> personalizada "
+
+#: library/admin/admin-meta-boxes.php:187
+msgid "<code>noindex</code> this entry."
+msgstr "<code> noindex </code> esta entrada."
+
+#: library/admin/admin-meta-boxes.php:189
+msgid ""
+"Index/NoIndex tells the engines whether the entry should be crawled and kept "
+"in the engines' index for retrieval. If you check this box to opt for <code>"
+"noindex</code>, the entry will be excluded from the engines.  <strong>Note:"
+"</strong> if you're not sure what this does, do not check this box."
+msgstr ""
+"Index / NoIndex le dice a los motores si la entrada debe rastrearse y "
+"mantenerse en el índice de los motores para su recuperación. Si marca esta "
+"casilla para optar por <code> noindex </code>, la entrada se excluirá de los "
+"motores. <strong> Nota: </strong> si no está seguro de lo que hace, no "
+"marque esta casilla."
+
+#: library/admin/admin-meta-boxes.php:195
+msgid "<code>nofollow</code> links in this entry."
+msgstr "<code> nofollow </code> enlaces en esta entrada."
+
+#: library/admin/admin-meta-boxes.php:197
+msgid ""
+"Follow/NoFollow tells the engines whether links on the entry should be "
+"crawled. If you check this box to employ \"nofollow,\" the engines will "
+"disregard the links on the entry both for discovery and ranking purposes.  "
+"<strong>Note:</strong> if you're not sure what this does, do not check this "
+"box."
+msgstr ""
+"Follow / NoFollow le dice a los motores si los enlaces en la entrada deben "
+"rastrearse. Si marca esta casilla para emplear \"nofollow\", los motores "
+"ignorarán los enlaces en la entrada tanto para fines de descubrimiento como "
+"de clasificación. <strong> Nota: </strong> si no está seguro de lo que hace, "
+"no marque esta casilla."
+
+#: library/admin/admin-meta-boxes.php:203
+msgid "<code>noarchive</code> links in this entry."
+msgstr " <code> noarchive </code> enlaces en esta entrada."
+
+#: library/admin/admin-meta-boxes.php:205
+msgid ""
+"Noarchive is used to restrict search engines from saving a cached copy of "
+"the entry. By default, the engines will maintain visible copies of all pages "
+"they indexed, accessible to searchers through the \"cached\" link in the "
+"search results.  Check this box to restrict search engines from storing "
+"cached copies of this entry."
+msgstr ""
+"Noarchive se usa para restringir que los motores de búsqueda guarden una "
+"copia en caché de la entrada. Por defecto, los motores mantendrán copias "
+"visibles de todas las páginas que indexaron, accesibles para los buscadores "
+"a través del enlace \"en caché\" en los resultados de búsqueda. Marque esta "
+"casilla para restringir que los motores de búsqueda almacenen copias en "
+"caché de esta entrada."
+
+#: library/admin/admin-meta-boxes.php:211
+msgid "<code>nosnippet</code> links in this entry."
+msgstr "<code> nosnippet </code> enlaces en esta entrada."
+
+#: library/admin/admin-meta-boxes.php:213
+msgid ""
+"Nosnippet informs the engines that they should refrain from displaying a "
+"descriptive block of text next to the entry's title and URL in the search "
+"results."
+msgstr ""
+"Nosnippet informa a los motores que deben abstenerse de mostrar un bloque de "
+"texto descriptivo junto al título y la URL de la entrada en los resultados "
+"de búsqueda."
+
+#: library/admin/admin-meta-boxes.php:219
+msgid "<code>noodp</code> links in this entry."
+msgstr "<code> noodp </code> enlaces en esta entrada."
+
+#: library/admin/admin-meta-boxes.php:221 library/admin/pages/options.php:309
+msgid ""
+"NoODP is a specialized tag telling the engines not to grab a descriptive "
+"snippet about a page from the Open Directory Project (DMOZ) for display in "
+"the search results."
+msgstr ""
+"NoODP es una etiqueta especializada que le dice a los motores que no tomen "
+"un fragmento descriptivo sobre una página del Open Directory Project (DMOZ) "
+"para mostrarla en los resultados de búsqueda.\n"
+
+#: library/admin/admin-meta-boxes.php:227
+msgid "<code>noydir</code> links in this entry."
+msgstr "<code> noydir </code> enlaces en esta entrada."
+
+#: library/admin/admin-meta-boxes.php:229 library/admin/pages/options.php:322
+msgid ""
+"NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use "
+"the Yahoo! Directory description of a page/site in the search results."
+msgstr ""
+"NoYDir, como NoODP, es específico de Yahoo!, informando a ese motor que no "
+"debe usar Yahoo! Descripción del directorio de una página / sitio en los "
+"resultados de búsqueda."
+
+#: library/admin/admin-meta-boxes.php:235
+msgid "301 Permanent Redirect"
+msgstr " 301 Redirección Permanente"
+
+#: library/admin/admin-meta-boxes.php:237
+msgid ""
+"The 301 Permanent Redirect can be used to forward an old post or page to a "
+"new or different location.  If you ever move a page or change a page's "
+"permalink, use this to forward your visitors to the new location.<br /><br />"
+"<em>Want more information?  Read more about <a href=\"http://support.google."
+"com/webmasters/bin/answer.py?hl=en&answer=93633\" target=\"_blank\">301 "
+"Redirects</a>.</em>"
+msgstr ""
+"El 301 Redireccionamiento Permanente se puede utilizar para reenviar una "
+"publicación o página anterior a una ubicación nueva o diferente. Si alguna "
+"vez mueve una página o cambia el enlace permanente de una página, úsela para "
+"reenviar a sus visitantes a la nueva ubicación. <br /> <br /> <em> ¿Desea "
+"más información? Más información sobre <a href=\"http://support.google."
+"com/webmasters/bin/answer.py?hl=en&answer=93633\" target=\"_blank\"> 301 "
+"Redirects </a>. </em>"
+
+#: library/admin/admin-meta-boxes.php:262
+msgid ""
+"Remember, this is only a predicted search engine result preview.  There is "
+"no guarantee that it will look exactly this way.  However, it will look "
+"similar."
+msgstr ""
+"Recuerde, esta es solo una vista previa del resultado del motor de búsqueda "
+"previsto. No hay garantía de que se vea exactamente de esta manera. Sin "
+"embargo, se verá similar."
+
+#: library/admin/admin-meta-boxes.php:297
+msgid ""
+"<strong>Configure the SEO settings for this page (Front Page) in the Padma "
+"Search Engine Optimization settings tab in <a href=\"%\" target=\"_blank\">"
+"Padma &raquo; Configuration</a>.</strong>"
+msgstr ""
+"<strong> Configure los ajustes de SEO para esta página (Página de Inicio) en "
+"la pestaña de configuración de Optimización del Motor de Búsqueda de Padma "
+"en <a href=\"%\" target=\"_blank\"> Padma & raquo; Configuración </a>. "
+"</strong>"
+
+#: library/admin/pages/getting-started.php:12
+msgid "Welcome"
+msgstr "Bienvenidos"
+
+#: library/admin/pages/getting-started.php:16 
+#: library/admin/pages/getting-started.php:93
+msgid "Need help?"
+msgstr "¿Necesita ayuda?"
+
+#: library/admin/pages/getting-started.php:18
+msgid "Unlimited growth"
+msgstr "Crecimiento Ilimitado"
+
+#: library/admin/pages/getting-started.php:24
+msgid "Welcome!"
+msgstr "Bienvenido!"
+
+#: library/admin/pages/getting-started.php:25
+msgid "Your <strong>Padma Theme Builder</strong> installation is ready."
+msgstr "Su instalación de <strong> Padma Theme Builder </strong> está lista."
+
+#: library/admin/pages/getting-started.php:26
+msgid "You can start creating now!"
+msgstr "¡Puede comenzar a crear ahora!"
+
+#: library/admin/pages/getting-started.php:28
+msgid ""
+"If you want to hide this page just change the Default Admin Page in <a "
+"href=\"?page=padma-options\">Padma » Options</a>."
+msgstr ""
+"Si desea ocultar esta página, simplemente cambie la Página de Administración "
+"Predeterminada en <a href=\"?page=padma-options\"> Padma » Opciones </a>."
+
+#: library/admin/pages/getting-started.php:30
+msgid ""
+"Padma | unlimited - Core features in the WordPress dashboard / admin menu."
+msgstr ""
+"Padma | Unlimited - funciones Principales en el panel de control de "
+"WordPress / menú de administración."
+
+#: library/admin/pages/getting-started.php:32
+msgid "Padma | unlimited - Welcome!"
+msgstr "Padma | Unlimited - Bienvenido!"
+
+#: library/admin/pages/getting-started.php:33
+msgid "(This page)"
+msgstr "(Esta página)"
+
+#: library/admin/pages/getting-started.php:34
+msgid ""
+"Get access to General Information, Documentation & Support for Padma | "
+"unlimited - WordPress Theme Builder."
+msgstr ""
+"Obtenga acceso a Información General, Documentación y Soporte para Padma | "
+"Unlimited - WordPress Constructor de Temas."
+
+#: library/admin/pages/getting-started.php:35
+msgid ""
+"Get access to blocks and templates to improve your Padma | unlimited Theme "
+"Builder."
+msgstr ""
+"Obtenga acceso a bloques y plantillas para mejorar su Constructor de Temas "
+"Padma | Unlimited."
+
+#: library/admin/pages/getting-started.php:37
+msgid ""
+"If you are new to Padma | unlimited, please read our <a href=\"https://docs."
+"padmaunlimited.com/\">Free WordPress Theme Builder Documentation</a>"
+msgstr ""
+"Si eres nuevo en Padma | Unlimted, por favor lea nuestra <a href=\"https:"
+"//docs.padmaunlimited.com/\"> Documentación gratuita de WordPress "
+"Constructor de Temas </a>"
+
+#: library/admin/pages/getting-started.php:40
+msgid "Padma | unlimited Editor"
+msgstr "Editor Padma | Unlimited"
+
+#: library/admin/pages/getting-started.php:41
+msgid ""
+"Padma | unlimited Editor is a powerful tool to design & customize your "
+"layouts and edit the visual style of your WordPress website through a "
+"graphical interface."
+msgstr ""
+"Padma | Unlimited Editor es una herramienta poderosa para diseñar y "
+"personalizar sus diseños y editar el estilo visual de su sitio web de "
+"WordPress a través de una interfaz gráfica."
+
+#: library/admin/pages/getting-started.php:42
+msgid ""
+"Learn more abou it in the document <a rel=\"noopener\" href=\"https://docs."
+"padmaunlimited.com/blog/basics/before-using-the-visual-editor/\">"
+"Introduction to the Padma | unlimited Editor.</a>"
+msgstr ""
+"Obtenga más información al respecto en el documento <a rel=\"noopener\" "
+"href=\"https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-"
+"editor/\"> Introducción al Editor de Padma | Unlimited. </a>"
+
+#: library/admin/pages/getting-started.php:43
+msgid "Access Padma | Unlimited Editor"
+msgstr "Acceda al Editor Padma | Unlimited"
+
+#: library/admin/pages/getting-started.php:46
+msgid "If you like Padma | Unlimited"
+msgstr "Si le gusta Padma | Unlimited"
+
+#: library/admin/pages/getting-started.php:47
+msgid "Please consider to donate to our project"
+msgstr "Por favor considere donar a nuestro proyecto"
+
+#: library/admin/pages/getting-started.php:72
+msgid "Padma | Options"
+msgstr "Padma | Opciones"
+
+#: library/admin/pages/getting-started.php:73
+msgid ""
+"Setup your Google Analytics, SEO, favicons and other more advanced settings."
+msgstr ""
+"Configure su Google Analytics, SEO, favicons y otras configuraciones más "
+"avanzadas."
+
+#: library/admin/pages/getting-started.php:75
+msgid "Padma | Tools"
+msgstr "Padma | Herramientas"
+
+#: library/admin/pages/getting-started.php:77
+msgid "System info."
+msgstr "Información del Sistema."
+
+#: library/admin/pages/getting-started.php:78
+msgid ""
+"You should provide this system information If you want to open a ticket or "
+"if you log a help request on the forums"
+msgstr ""
+"Debe proporcionar esta información del sistema si desea abrir un ticket o si "
+"registra una solicitud de ayuda en los foros"
+
+#: library/admin/pages/getting-started.php:81 library/admin/pages/tools.php:6 
+#: library/admin/pages/tools.php:153
+msgid "Snapshots"
+msgstr "Instantáneas"
+
+#: library/admin/pages/getting-started.php:82
+msgid ""
+"Here you can delete the snapshots of Padma Theme Builder to free up some "
+"disk space."
+msgstr ""
+"Aquí puede eliminar las instantáneas de Padma Theme Builder para liberar "
+"espacio en el disco."
+
+#: library/admin/pages/getting-started.php:86
+msgid ""
+"Instructions to reset your <strong>Padma | Unlimited</strong> WordPress "
+"Theme Builder installation."
+msgstr ""
+"Instrucciones para restablecer su <strong> Padma |  Unlimited</strong> "
+"WordPress Theme Builder  instalación."
+
+#: library/admin/pages/getting-started.php:94
+msgid ""
+"Padma | unlimited WordPress Theme Builder</strong> provides professional "
+"support and comprehensive documentation to help you bring your projects "
+"alive."
+msgstr ""
+"Padma | Unlimited  Constructor de Temas para WordPress  </strong> "
+"proporciona soporte profesional y documentación completa para ayudarlo a dar "
+"vida a sus proyectos."
+
+#: library/admin/pages/getting-started.php:97
+msgid "Padma | Community"
+msgstr "Padma | Comunidad"
+
+#: library/admin/pages/getting-started.php:98
+msgid ""
+"Join to our great community, we help us each other across different channels."
+msgstr ""
+"Únase a nuestra gran comunidad, nos ayudamos mutuamente a través de "
+"diferentes canales."
+
+#: library/admin/pages/getting-started.php:99
+msgid "Facebook Page"
+msgstr "Página de Facebook"
+
+#: library/admin/pages/getting-started.php:100
+msgid "Facebook Users Group (English)"
+msgstr "Grupo de Usuarios de Facebook (Inglés)"
+
+#: library/admin/pages/getting-started.php:101
+msgid "Facebook Users Group (Español)"
+msgstr "Grupo de Usuarios de Facebook (Español)"
+
+#: library/admin/pages/getting-started.php:106
+msgid "Padma | Documentation"
+msgstr "Padma | Documentación"
+
+#: library/admin/pages/getting-started.php:107
+msgid ""
+"Register with us and get <strong>free access</strong> to our complete and "
+"comprehensive documentation. <a target=\"_blank\" href=\"https://docs."
+"padmaunlimited.com/\" rel=\"noopener\">docs.padmaunlimited.com</a>"
+msgstr ""
+"Regístrese con nosotros y obtenga <strong> acceso gratuito </strong> a "
+"nuestra documentación completa. <a target=\"_blank\" href=\"https://docs."
+"padmaunlimited.com/\" rel=\"noopener\"> docs.padmaunlimited.com </a>"
+
+#: library/admin/pages/getting-started.php:114
+msgid "Padma | Unlimited Growth"
+msgstr "Padma | Unlimited Crecimiento"
+
+#: library/admin/pages/getting-started.php:115
+msgid ""
+"Develop, share and sale Templates & Custom Blocks. Working together will "
+"increase community growth possibilities. Design faster & Customize your "
+"Workflow with useful tools. Don´t hesitate to invest in other strategic "
+"areas to your business."
+msgstr ""
+"Desarrolle, comparta y venda Plantillas y Bloques Personalizados. Trabajar "
+"juntos aumentará las posibilidades de crecimiento de la comunidad. Diseñe "
+"más rápido y Personalice su flujo de trabajo con herramientas útiles. No "
+"dude en invertir en otras áreas estratégicas para su negocio."
+
+#: library/admin/pages/getting-started.php:118
+msgid "Padma | Unlimited Templates"
+msgstr "Padma | Unlimited Plantillas"
+
+#: library/admin/pages/getting-started.php:119
+msgid ""
+"<strong>Padma | unlimited Templates</strong> minimize your project "
+"development process, streamlining the design stage leading a faster content "
+"creation and upload."
+msgstr ""
+"<strong> Padma |  Unlimited Plantillas </strong> minimizan el proceso de "
+"desarrollo de su proyecto, agilizando la etapa de diseño que conduce a una "
+"creación y carga de contenido más rápidas."
+
+#: library/admin/pages/getting-started.php:122
+msgid "Padma | Unlimited Blocks"
+msgstr "Padma | Unlimited Bloques"
+
+#: library/admin/pages/getting-started.php:123
+msgid ""
+"Extend the functionality of your Padma | unlimited WordPress Theme Builder "
+"installation by adding useful custom blocks to your Projects."
+msgstr ""
+"Amplíe la funcionalidad de la instalación del Constructor de Temas   Padma | "
+" Unlimited para WordPress al agregar útiles bloques personalizados a sus "
+"proyectos."
+
+#: library/admin/pages/getting-started.php:124
+msgid ""
+"Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, "
+"Templates on cloud, site monitor."
+msgstr ""
+"Servicios: Documentación, Lifesaver (migrar desde HTW / Blox), Child Theme, "
+"Plantillas en la nube, monitor del sitio."
+
+#: library/admin/pages/getting-started.php:125
+msgid ""
+"Shortcode block: integration & management of Woocommerce content. Contact "
+"form 7 & Gravity forms."
+msgstr ""
+"Bloque Shortcode: integración y gestión de contenido de Woocommerce. "
+"Formulario de contacto 7 y Gravity Forms."
+
+#: library/admin/pages/getting-started.php:126
+msgid "Get into Padma Services to unlock the Padma Unlimited potential."
+msgstr ""
+"Ingrese a losPadma Services para desbloquear el potencial de Padma Unlimited"
+
+#: library/admin/pages/options.php:7
+msgid "Compatibility"
+msgstr "Compatibilidad"
+
+#: library/admin/pages/options.php:8
+msgid "Mobile"
+msgstr "Móvil"
+
+#: library/admin/pages/options.php:42
+msgid ""
+"A favicon is the little image that sits next to your address in the "
+"favorites menu and on tabs.  If you do not know how to save an image as an "
+"icon you can go to <a href=\"http://www.favicon.cc/\" target=\"_blank\">"
+"favicon.cc</a> and draw or import an image."
+msgstr ""
+"Un favicon es la pequeña imagen que se encuentra junto a su dirección en el "
+"menú de favoritos y en las pestañas. Si no sabe cómo guardar una imagen como "
+"icono, puede ir a <a href=\"http://www.favicon.cc/\" target=\"_blank\"> "
+"favicon.cc </a> y dibujar o importar una imagen."
+
+#: library/admin/pages/options.php:50
+msgid ""
+"If you use any service like <a href=\"http://feedburner.google.com/\" "
+"target=\"_blank\">FeedBurner</a>, type the feed URL here."
+msgstr ""
+"Si utiliza algún servicio como <a href=\"http://feedburner.google.com/\" "
+"target=\"_blank\"> FeedBurner </a>, escriba la URL del feed aquí."
+
+#: library/admin/pages/options.php:58
+msgid "Admin Preferences"
+msgstr "Preferencias de Administrador"
+
+#: library/admin/pages/options.php:65
+msgid "Default Admin Page"
+msgstr "Página de Administrador Predeterminada"
+
+#: library/admin/pages/options.php:70
+msgid "Getting Started"
+msgstr "Empezar"
+
+#: library/admin/pages/options.php:83
+msgid ""
+"Select which admin page you would like to be directed to when you click on "
+"\"Padma\" in the WordPress Admin."
+msgstr ""
+"Seleccione a qué página de administración le gustaría ser dirigido cuando "
+"haga clic en \"Padma\" en el Administrador de WordPress."
+
+#: library/admin/pages/options.php:87
+msgid "Do not recommend plugin installation"
+msgstr "No recomendar la instalación de plugin"
+
+#: library/admin/pages/options.php:91
+msgid "Hide recommended plugin notice"
+msgstr "Ocultar aviso de plugin recomendado"
+
+#: library/admin/pages/options.php:95
+msgid ""
+"If on, Padma will not recommend install \"Updater\" and \"Services\" plugin"
+msgstr ""
+"Si está activado, Padma no recomendará instalar el plugin \"Updater\" y "
+"\"Services\""
+
+#: library/admin/pages/options.php:113
+msgid ""
+"Padma has detected that you are using the All In One SEO pack plugin.  In "
+"order to reduce conflicts and save resources, Padma's SEO functionality has "
+"been disabled."
+msgstr ""
+"Padma ha detectado que está utilizando el All In One SEO pack plugin. Para "
+"reducir conflictos y ahorrar recursos, la funcionalidad SEO de Padma se ha "
+"deshabilitado."
+
+#: library/admin/pages/options.php:117
+msgid ""
+"Padma has detected that you are using Yoast's WordPress SEO plugin.  In "
+"order to reduce conflicts and save resources, Padma's SEO functionality has "
+"been disabled."
+msgstr ""
+"Padma ha detectado que está utilizando Yoast's WordPress SEO plugin. Para "
+"reducir conflictos y ahorrar recursos, la funcionalidad SEO de Padma se ha "
+"deshabilitado."
+
+#: library/admin/pages/options.php:121
+msgid "Padma's SEO functionality is disabled."
+msgstr ""
+"La funcionalidad SEO de Padma está deshabilitada.\n"
+
+#: library/admin/pages/options.php:129
+msgid "SEO Templates"
+msgstr "Plantillas SEO"
+
+#: library/admin/pages/options.php:169
+msgid "Select a Template:"
+msgstr "Seleccione una Plantilla"
+
+#: library/admin/pages/options.php:171
+msgid "Blog Index"
+msgstr "Blog Index"
+
+#: library/admin/pages/options.php:175
+msgid "Front Page"
+msgstr "Portada"
+
+#: library/admin/pages/options.php:188
+msgid "Category"
+msgstr "Categoría"
+
+#: library/admin/pages/options.php:189 library/common/functions.php:673 
+#: library/common/functions.php:675
+msgid "Search"
+msgstr "Búsqueda"
+
+#: library/admin/pages/options.php:190
+msgid "Date"
+msgstr "Fecha"
+
+#: library/admin/pages/options.php:191 library/admin/pages/templates.php:68
+msgid "Author"
+msgstr "Autor"
+
+#: library/admin/pages/options.php:192
+msgid "Post Tag"
+msgstr "Publicar etiqueta"
+
+#: library/admin/pages/options.php:193
+msgid "Post Type"
+msgstr "Tipo de Publicación"
+
+#: library/admin/pages/options.php:194
+msgid "Taxonomy"
+msgstr "Taxonomía"
+
+#: library/admin/pages/options.php:211
+msgid ""
+"The title is the main text that describes the page. It is the single most "
+"important on-page SEO element (behind overall content).  The title appears "
+"at the top of the web browser when viewing the page, in browser tabs, search "
+"engine results, and external websites.  <strong>Tip:</strong> it is best "
+"that the title stays below 70 characters.<br /><br /><a href=\"http://www."
+"seomoz.org/learn-seo/title-tag\" target=\"_blank\">Learn more about Titles "
+"&raquo;</a>"
+msgstr ""
+"El título es el texto principal que describe la página. Es el elemento SEO "
+"más importante en la página (detrás del contenido general). El título "
+"aparece en la parte superior del navegador web cuando se visualiza la página,"
+" en las pestañas del navegador, los resultados del motor de búsqueda y los "
+"sitios web externos. <strong> Sugerencia: </strong> es mejor que el título "
+"se mantenga por debajo de 70 caracteres. <br /> <br /> <a href = \"http:"
+"//www.seomoz.org/learn-seo/title-tag \"target =\" _ blank \"> Obtenga más "
+"información acerca de los títulos &raquo; </a>"
+
+#: library/admin/pages/options.php:221
+msgid ""
+"Meta description tags, while not important to search engine rankings, are "
+"extremely important in gaining user click-through from search engine result "
+"pages (SERPs). These short paragraphs are your opportunity to advertise "
+"content to searchers and let them know exactly what the given page has with "
+"regard to what they’re looking for. <strong>Tip:</strong> a good description "
+"is around 150 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-"
+"seo/meta-description\" target=\"_blank\">Learn more about &lt;meta&gt; "
+"Descriptions &raquo;</a>"
+msgstr ""
+"\n"
+"Las etiquetas de meta descripción, aunque no son importantes para el ranking "
+"de los motores de búsqueda, son extremadamente importantes para obtener el "
+"clic de los usuarios en las páginas de resultados de los motores de búsqueda "
+"(SERP). Estos breves párrafos son su oportunidad de anunciar contenido a los "
+"buscadores y hacerles saber exactamente qué tiene la página dada con "
+"respecto a lo que están buscando. <strong> Consejo: </strong> una buena "
+"descripción tiene alrededor de 150 caracteres. <br /> <br /> <a href = "
+"\"http://www.seomoz.org/learn-seo/meta-description\" target = \"_blank\"> "
+"Obtenga más información sobre &lt; meta & gt; Descripciones y raquo;</a>"
+
+#: library/admin/pages/options.php:231
+msgid ""
+"You may use the following variables in the Title and Description inputs "
+"above:"
+msgstr ""
+"Puede usar las siguientes variables en las entradas de Título y Descripción "
+"anteriores:"
+
+#: library/admin/pages/options.php:234
+msgid ""
+"Will retrieve the title of whatever post, archive, or page is being "
+"displayed."
+msgstr ""
+"Recuperará el título de cualquier publicación, archivo o página que se "
+"muestre."
+
+#: library/admin/pages/options.php:235
+msgid ""
+"Will retrieve the name of the site. This can be set in <a href=\"%s\" "
+"target=\"_blank\">Settings &raquo; General</a>."
+msgstr ""
+"Recuperará el nombre del sitio. Esto se puede configurar en <a href=\"%s\" "
+"target=\"_blank\"> Configuración &raquo; General </a>."
+
+#: library/admin/pages/options.php:237
+msgid ""
+"Will retrieve the tagline/description of the site.  This can be set in <a "
+"href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
+msgstr ""
+"Recuperará el tagline/description del sitio. Esto se puede configurar en <a "
+"href=\"%s\" target=\"_blank\"> Configuración &raquo; General </a>."
+
+#: library/admin/pages/options.php:239
+msgid "Used only on taxonomy archives to display the term name."
+msgstr ""
+"Se usa solo en los archivos de taxonomía para mostrar el nombre del término."
+
+#: library/admin/pages/options.php:242
+msgid "Advanced Options <span>Show &darr;</span>"
+msgstr "Opciones avanzadas <span> Mostrar &darr; </span>"
+
+#: library/admin/pages/options.php:249
+msgid "Page Indexing"
+msgstr "Indexación de Página"
+
+#: library/admin/pages/options.php:257
+msgid ""
+"Index/NoIndex tells the engines whether the page should be crawled and kept "
+"in the engines' index for retrieval. If you check this box to opt for <code>"
+"noindex</code>, the page will be excluded from the engines.  <strong>Note:"
+"</strong> if you're not sure what this does, do not check this box."
+msgstr ""
+"Index / NoIndex les dice a los motores si la página debe rastrearse y "
+"mantenerse en el índice de los motores para su recuperación. Si marca esta "
+"casilla para optar por <code> noindex </code>, la página se excluirá de los "
+"motores. <strong> Nota: </strong> si no está seguro de lo que hace, no "
+"marque esta casilla."
+
+#: library/admin/pages/options.php:262
+msgid "Link Following"
+msgstr "Enlace Siguiente"
+
+#: library/admin/pages/options.php:270
+msgid ""
+"Follow/NoFollow tells the engines whether links on the page should be "
+"crawled. If you check this box to employ \"nofollow,\" the engines will "
+"disregard the links on the page both for discovery and ranking purposes.  "
+"<strong>Note:</strong> if you're not sure what this does, do not check this "
+"box."
+msgstr ""
+"Follow / NoFollow le dice a los motores si los enlaces en la página deben "
+"rastrearse. Si marca esta casilla para emplear \"nofollow\", los motores "
+"ignorarán los enlaces en la página tanto para fines de descubrimiento como "
+"de ranking. <strong> Nota: </strong> si no está seguro de lo que hace, no "
+"marque esta casilla."
+
+#: library/admin/pages/options.php:275
+msgid "Page Archiving"
+msgstr "Archivado de Página"
+
+#: library/admin/pages/options.php:279
+msgid "Enable <code>noarchive</code>"
+msgstr "Habilite <code> noarchive </code>"
+
+#: library/admin/pages/options.php:283
+msgid ""
+"Noarchive is used to restrict search engines from saving a cached copy of "
+"the page. By default, the engines will maintain visible copies of all pages "
+"they indexed, accessible to searchers through the \"cached\" link in the "
+"search results.  Check this box to restrict search engines from storing "
+"cached copies of this page."
+msgstr ""
+"Noarchive se utiliza para restringir que los motores de búsqueda guarden una "
+"copia en caché de la página. Por defecto, los motores mantendrán copias "
+"visibles de todas las páginas que indexaron, accesibles para los buscadores "
+"a través del enlace \"en caché\" en los resultados de búsqueda. Marque esta "
+"casilla para restringir que los motores de búsqueda almacenen copias en "
+"caché de esta página."
+
+#: library/admin/pages/options.php:288
+msgid "Effects"
+msgstr "Efectos"
+
+#: library/admin/pages/options.php:292
+msgid "Enable <code>nosnippet</code>"
+msgstr "Habilite <code> nosnippet </code>"
+
+#: library/admin/pages/options.php:296
+msgid ""
+"Nosnippet informs the engines that they should refrain from displaying a "
+"descriptive block of text next to the page's title and URL in the search "
+"results."
+msgstr ""
+"Nosnippet informa a los motores que deben abstenerse de mostrar un bloque "
+"descriptivo de texto junto al título de la página y la URL en los resultados "
+"de búsqueda."
+
+#: library/admin/pages/options.php:301
+msgid "Open Directory Project"
+msgstr ""
+"Proyecto de Directorio Abierto\n"
+
+#: library/admin/pages/options.php:305
+msgid "Enable <code>NoODP</code>"
+msgstr "Habilite <code>NoODP</code>"
+
+#: library/admin/pages/options.php:314
+msgid "Yahoo! Directory"
+msgstr " Directorio Yahoo!"
+
+#: library/admin/pages/options.php:318
+msgid "Enable <code>NoYDir</code>"
+msgstr "Habilite <code>NoYDir</code>"
+
+#: library/admin/pages/options.php:333
+msgid "Unfamiliar with <em>Search Engine Optimization</em>?"
+msgstr ""
+"¿No está familiarizado con <em> Optimización de Motores de Búsqueda </em>?"
+
+#: library/admin/pages/options.php:333
+msgid "Learn More"
+msgstr "Conocer más"
+
+#: library/admin/pages/options.php:335
+msgid "Content <code>nofollow</code> Links"
+msgstr "Contenido <code> nofollow </code> Enlaces"
+
+#: library/admin/pages/options.php:345
+msgid "Add nofollow To Comment Authors' URL"
+msgstr "Agregar nofollow a la URL de los Comment Authors"
+
+#: library/admin/pages/options.php:349
+msgid ""
+"Adding nofollow to the comment authors' URLs will tell search engines to not "
+"visit their website and to stay on yours. Many bloggers frown upon this, "
+"which can sometimes discourage comments. Only enable this if you are 100% "
+"sure you know you want to."
+msgstr ""
+"Agregar nofollow a las URL de los comment authors le indicará a los motores "
+"de búsqueda que no visiten su sitio web y que permanezcan en el suyo. Muchos "
+"bloggers desaprueban esto, lo que a veces puede desalentar los comentarios. "
+"Solo habilítelo si está 100% seguro de saber que quiere hacerlo."
+
+#: library/admin/pages/options.php:363
+msgid "Disable microdata markup"
+msgstr "Deshabilitar marcado de microdatos"
+
+#: library/admin/pages/options.php:367
+msgid "Do not add ld+json data"
+msgstr "No agregue datos ld + json"
+
+#: library/admin/pages/options.php:371
+msgid ""
+"Schema.org is a vocabulary of microdata markup that aims to make it easer "
+"for search crawlers to understand what's on a webpage."
+msgstr ""
+"Schema.org es un vocabulario de marcado de microdatos que tiene como "
+"objetivo facilitar que los rastreadores de búsqueda entiendan lo que hay en "
+"una página web."
+
+#: library/admin/pages/options.php:394
+msgid "Header Scripts"
+msgstr "Scripts de encabezado"
+
+#: library/admin/pages/options.php:405
+msgid "Footer Scripts"
+msgstr "Scripts de Pie de Página"
+
+#: library/admin/pages/options.php:406
+msgid ""
+"Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of "
+"the website. <strong>Do not place plain text in this!</strong>"
+msgstr ""
+"Cualquier cosa aquí se insertará antes de <code> & lt; / body & gt; </code> "
+"la etiquetadel sitio web. <strong> ¡No coloque texto plano en esto! </strong>"
+
+#: library/admin/pages/options.php:424
+msgid "Tooltips"
+msgstr "Información sobre herramientas"
+
+#: library/admin/pages/options.php:428
+msgid "Disable Tooltips in the Visual Editor"
+msgstr "Deshabilitar la Información sobre Herramientas en el Editor Visual"
+
+#: library/admin/pages/options.php:432
+msgid ""
+"If you ever feel that the tooltips are too invasive in the visual editor, "
+"you can disable them here.  Tooltips are the black speech bubbles that "
+"appear to assist you when you are not sure what an option is or how it works."
+msgstr ""
+"Si alguna vez siente que la información sobre herramientas es demasiado "
+"invasiva en el Editor Visual, puede desactivarla aquí. La Información sobre "
+"Herramientas son las burbujas de texto negras que parecen ayudarlo cuando no "
+"está seguro de qué es una opción o cómo funciona."
+
+#: library/admin/pages/options.php:444
+msgid "Automatic Updates"
+msgstr "Actualizaciones Automáticas"
+
+#: library/admin/pages/options.php:449 library/admin/pages/options.php:453
+msgid "Disable Automatic Core Updates"
+msgstr "Deshabilitar Actualizaciones Automáticas del Núcleo"
+
+#: library/admin/pages/options.php:457
+msgid ""
+"By default, Padma will attempt to update automatically, but if this option "
+"is checked automatic updates will not happen. This option requires Padma "
+"Updater plugin."
+msgstr ""
+"De forma predeterminada, Padma intentará actualizarse automáticamente, pero "
+"si se marca esta opción, no se realizarán actualizaciones automáticas. Esta "
+"opción requiere el plugin Padma Updater."
+
+#: library/admin/pages/options.php:461 library/admin/pages/options.php:465
+msgid "Disable Automatic Plugin Updates"
+msgstr "Deshabilitar el plugin Automático de Actualizaciones"
+
+#: library/admin/pages/options.php:469
+msgid ""
+"By default, Updater plugin will attempt to update Padma Plugins "
+"automatically, but if this option is checked automatic updates for plugins "
+"will not happen. This option requires Padma Updater plugin."
+msgstr ""
+"De manera predeterminada, el plugin Updater intentará actualizar Padma "
+"Plugins automáticamente, pero si esta opción está marcada, no se realizarán "
+"actualizaciones automáticas para los plugins. Esta opción requiere el plugin "
+"Padma Updater."
+
+#: library/admin/pages/options.php:478
+msgid "Caching &amp; Compression"
+msgstr "Almacenamiento en caché &amp; Compresión"
+
+#: library/admin/pages/options.php:484
+msgid "Asset Caching"
+msgstr "Almacenamiento en caché de Activos"
+
+#: library/admin/pages/options.php:488
+msgid "Disable Padma Caching"
+msgstr "Deshabilitar el almacenamiento en caché de Padma"
+
+#: library/admin/pages/options.php:492
+msgid ""
+"By default, Padma will attempt to cache all CSS and JavaScript that it "
+"generates.  However, there may be rare circumstances where disabling the "
+"cache will help with certain issues.<br /><br /><em><strong>Important:"
+"</strong> Disabling the Padma cache will cause an <strong>increase in page "
+"load times</strong> and <strong>increase the strain your web server</strong> "
+"will undergo on every page load."
+msgstr ""
+"Por defecto, Padma intentará almacenar en caché todos los CSS y JavaScript "
+"que genera. Sin embargo, puede haber circunstancias excepcionales en las que "
+"deshabilitar la memoria caché ayudará con ciertos problemas. <br /> <br /> "
+"<em> <strong> Importante: </strong> Deshabilitar la memoria caché de Padma "
+"causará un <strong> aumento en los tiempos de carga de la página </strong> y "
+"<strong> aumentan la tensión que sufrirá su servidor web </strong> en cada "
+"carga de página."
+
+#: library/admin/pages/options.php:497
+msgid "Dependency Query Variables"
+msgstr "Variables de Consulta de Dependencia"
+
+#: library/admin/pages/options.php:501
+msgid "Remove Query Variables from Dependency URLs"
+msgstr "Eliminar las Variables de Consulta de las URL de Dependencia"
+
+#: library/admin/pages/options.php:505
+msgid ""
+"To leverage browser caching, Padma can tell WordPress to not put query "
+"variables on static assets such as CSS and JavaScript files."
+msgstr ""
+"Para aprovechar el almacenamiento en caché del navegador, Padma puede "
+"decirle a WordPress que no coloque variables de consulta en activos "
+"estáticos como archivos CSS y JavaScript."
+
+#: library/admin/pages/options.php:510 library/admin/pages/options.php:514
+msgid "Compatibility with mod_pagespeed"
+msgstr "Compatibilidad con mod_pagespeed"
+
+#: library/admin/pages/options.php:518
+msgid ""
+"Strips id and media attributes from stylesheet tags, allowing pagespeed to "
+"combine them properly. If you are not using mod_pagespeed on your server, "
+"this feature will not do anything for you."
+msgstr ""
+"Strps id y medios de las etiquetas de la hoja de estilo, lo que permite que "
+"la velocidad de página los combine correctamente. Si no está utilizando "
+"mod_pagespeed en su servidor, esta función no hará nada por usted."
+
+#: library/admin/pages/options.php:523 library/admin/pages/options.php:527
+msgid "HTTP/2 Server Push"
+msgstr "HTTP/2 Server Push"
+
+#: library/admin/pages/options.php:531
+msgid ""
+"Enables WordPress to send a Link:<...> rel=\"prefetch\" header for every "
+"enqueued script and style as WordPress outputs them into the page source. "
+"Requires a web server that supports HTTP/2. <strong>Important:</strong> This "
+"feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:538
+msgid "Admin"
+msgstr ""
+
+#: library/admin/pages/options.php:544
+msgid "Version Number"
+msgstr ""
+
+#: library/admin/pages/options.php:548
+msgid "Hide Padma Version Number From Menu"
+msgstr ""
+
+#: library/admin/pages/options.php:552
+msgid ""
+"Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
+msgstr ""
+
+#: library/admin/pages/options.php:557
+msgid "Editor Style"
+msgstr ""
+
+#: library/admin/pages/options.php:561
+msgid "Disable Editor Style"
+msgstr ""
+
+#: library/admin/pages/options.php:565
+msgid ""
+"By default, Padma will take any settings in the Design Editor and add them "
+"to <a href=\"http://codex.wordpress.org/TinyMCE\" target=\"_blank\">"
+"WordPress' TinyMCE editor</a> style.  Use this option to prevent that."
+msgstr ""
+
+#: library/admin/pages/options.php:572
+msgid "Developer"
+msgstr ""
+
+#: library/admin/pages/options.php:574
+msgid ""
+"Once active this option will allow you to upgrade your website to the latest "
+"Preview, Beta or Release candidate."
+msgstr ""
+
+#: library/admin/pages/options.php:580
+msgid "Use Padma developer version"
+msgstr ""
+
+#: library/admin/pages/options.php:584
+msgid "Allow install testing or preview version"
+msgstr ""
+
+#: library/admin/pages/options.php:588
+msgid ""
+"This option is for developers, use this option only if you know what are you "
+"doing. Padma Theme and plugins will upgrade to testing version. <strong>Do "
+"NOT use on production sites.<strong>"
+msgstr ""
+
+#: library/admin/pages/options.php:595
+msgid "Debugging"
+msgstr ""
+
+#: library/admin/pages/options.php:597
+msgid ""
+"The following option should only be checked if a member of the Padma Themes "
+"team asks you to do so."
+msgstr ""
+
+#: library/admin/pages/options.php:603
+msgid "Debug Mode"
+msgstr ""
+
+#: library/admin/pages/options.php:607
+msgid "Enable Debug Mode"
+msgstr ""
+
+#: library/admin/pages/options.php:611
+msgid ""
+"Having Debug Mode enabled will allow the Padma Themes team to access the "
+"Visual Editor for support purposes, but <strong>will not allow changes to be "
+"saved<strong>."
+msgstr ""
+
+#: library/admin/pages/options.php:622 library/admin/pages/options.php:627
+msgid "Plugin templates"
+msgstr ""
+
+#: library/admin/pages/options.php:631
+msgid "Allow plugin templates"
+msgstr ""
+
+#: library/admin/pages/options.php:635
+msgid ""
+"Allow load plugin templates related to Custom Post Types instead Padma Layout"
+msgstr ""
+
+#: library/admin/pages/options.php:644
+msgid "Headway"
+msgstr ""
+
+#: library/admin/pages/options.php:649
+msgid "Headway support"
+msgstr ""
+
+#: library/admin/pages/options.php:653
+msgid "Enable Headway classes support"
+msgstr ""
+
+#: library/admin/pages/options.php:657
+msgid ""
+"If on, Padma will attempt support all PHP classes related to Headway. This "
+"allows to you use blocks like Headway Rocket and similar. <strong>Important:"
+"</strong> This feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:665
+msgid "Gutenberg"
+msgstr ""
+
+#: library/admin/pages/options.php:670
+msgid "Display Padma Blocks in Gutenberg"
+msgstr ""
+
+#: library/admin/pages/options.php:674
+msgid "Show Padma Blocks as Gutenberg Blocks"
+msgstr ""
+
+#: library/admin/pages/options.php:678
+msgid ""
+"If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to "
+"\"Block Options > Anywhere\" to enable it. <strong>Important:</strong> This "
+"feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:689
+msgid "Responsive options"
+msgstr ""
+
+#: library/admin/pages/options.php:695 library/admin/pages/options.php:699
+msgid "Allow mobile zooming"
+msgstr ""
+
+#: library/admin/pages/options.php:703
+msgid ""
+"Adds the viewport meta tag with zooming permission to give your users the "
+"ability to zoom in your website with mobile browsers."
+msgstr ""
+
+#: library/admin/pages/options.php:718
+msgid "Save Changes"
+msgstr ""
+
+#: library/admin/pages/templates.php:2 library/admin/pages/templates.php:42
+msgid "Export Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:3 library/admin/pages/templates.php:48
+msgid ""
+"Fill out the information below to export all design settings, layouts, and "
+"blocks as a Padma Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:9
+msgid "Template Name"
+msgstr ""
+
+#: library/admin/pages/templates.php:18
+msgid "Template Author"
+msgstr ""
+
+#: library/admin/pages/templates.php:23
+msgid "Template Version"
+msgstr ""
+
+#: library/admin/pages/templates.php:28
+msgid "Template Image"
+msgstr ""
+
+#: library/admin/pages/templates.php:32 library/admin/pages/templates.php:82
+msgid "Select Image"
+msgstr ""
+
+#: library/admin/pages/templates.php:47 library/admin/pages/templates.php:112 
+#: library/admin/pages/templates.php:120
+msgid "Save Template on Cloud"
+msgstr ""
+
+#: library/admin/pages/templates.php:54
+msgid "Name"
+msgstr ""
+
+#: library/admin/pages/templates.php:73
+msgid "Version"
+msgstr ""
+
+#: library/admin/pages/templates.php:78
+msgid "Image"
+msgstr ""
+
+#: library/admin/pages/templates.php:90
+msgid "Visibility"
+msgstr ""
+
+#: library/admin/pages/templates.php:90
+msgid "(Private: Only for me, Public: Available to sell in market)"
+msgstr ""
+
+#: library/admin/pages/templates.php:92
+msgid "Private"
+msgstr ""
+
+#: library/admin/pages/templates.php:93
+msgid "Public"
+msgstr ""
+
+#: library/admin/pages/templates.php:117
+msgid "Padma Templates"
+msgstr ""
+
+#: library/admin/pages/templates.php:118
+msgid "Install Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:119
+msgid "Export Current Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:137
+msgid "Active: "
+msgstr ""
+
+#: library/admin/pages/templates.php:141
+msgid "Activate"
+msgstr ""
+
+#: library/admin/pages/templates.php:156
+msgid "Templates available on your Padma Services Account"
+msgstr ""
+
+#: library/admin/pages/templates.php:174
+msgid "Available: "
+msgstr ""
+
+#: library/admin/pages/templates.php:177
+msgid "Install"
+msgstr ""
+
+#: library/admin/pages/templates.php:194
+msgid "Add Blank Template"
+msgstr ""
+
+#: library/admin/pages/tools.php:28
+msgid "Copy and paste this information into support/forums if requested."
+msgstr ""
+
+#: library/admin/pages/tools.php:30
+msgid ""
+"Please copy all of the content in the text area below and paste it as-is in "
+"the requested forum discussion."
+msgstr ""
+
+#: library/admin/pages/tools.php:42
+msgid ""
+"To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
+"(Mac)."
+msgstr ""
+
+#: library/admin/pages/tools.php:158
+msgid "There are currently %s snapshots taking up %s of disk space."
+msgstr ""
+
+#: library/admin/pages/tools.php:163
+msgid ""
+"You can delete individual snapshots in the Visual Editor under Snapshots if "
+"you do not wish to delete all snapshots."
+msgstr ""
+
+#: library/admin/pages/tools.php:171
+msgid ""
+"'Caution! This will delete ALL snapshots. This means you will not be able to "
+"rollback your site until you create new snapshots. OK to delete, Cancel to "
+"stop'"
+msgstr ""
+
+#: library/admin/pages/tools.php:185
+msgid "Warning"
+msgstr ""
+
+#: library/admin/pages/tools.php:187
+msgid ""
+"Clicking the <em>Reset</em> button below will delete <strong>ALL</strong> "
+"existing Padma data including, but not limited to: Blocks, Design Settings, "
+"and Padma Search Engine Optimization settings."
+msgstr ""
+
+#: library/admin/pages/tools.php:198
+msgid "Padma Theme Reset Disabled"
+msgstr ""
+
+#: library/admin/pages/tools.php:200
+msgid "For your security, resetting Padma Theme is disabled."
+msgstr ""
+
+#: library/admin/pages/tools.php:202
+msgid ""
+"If you wish to reset your Padma installation, please <span style=\"font-"
+"weight: 600;color: #fff;background: #2f2f2f; padding: 2px 4px;\">add the "
+"code below to your wp-config.php file</span>. <p>Please make sure to add the "
+"code above this line in your wp.config.php file:  <code> /* That's all, stop "
+"editing! Happy blogging. */</code><br />Not sure how to edit your wp-config."
+"php file?  Please see <a href=\"http://codex.wordpress.org/Editing_wp-config."
+"php\" target=\"_blank\">Editing wp-config.php</a> in the official WordPress "
+"documentation."
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:10
+msgid "Hello"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:11
+msgid ""
+"Our team has been working really hard to bring this powerful tool to you. We "
+"hope you like it."
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:12
+msgid "Aim to collaborate?"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:13
+msgid "Your support is vital for success…"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:15
+msgid "- Become a sponsor via Patron or PayPal"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:16
+msgid "- Report errors in: https://www.padmaunlimited.com/bug-report/"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:17
+msgid "- Collaborate coding through GitHub"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:18
+msgid "- Suggest functionalities, blocks or plugins"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:19
+msgid "- Join our social networks"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:20
+msgid "- Share Padma Unlimited Builder with colleagues and friends"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:21
+msgid "- Spread the word!"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:23
+msgid "Let's build together!"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:24
+msgid "@PadmaTeam"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:28
+msgid "Become a Patron"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:29
+msgid "Other support options"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:30
+msgid "Join to our community"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:31
+msgid "Dismiss"
+msgstr ""
 
 #: library/api/api-element.php:109
 msgid "Error: Arguments must be an array for this element."
@@ -424,10 +2026,6 @@ msgstr ""
 #: library/common/functions.php:645
 msgid "Type to search, then press enter"
 msgstr "Escriba para buscar, luego presione enter"
-
-#: library/common/functions.php:673 library/common/functions.php:675
-msgid "Search"
-msgstr "Búsqueda"
 
 #: library/common/functions.php:739
 msgid "Error: The meta box class being registered does not exist."

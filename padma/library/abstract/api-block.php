@@ -405,7 +405,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$this->tabs['anywhere'] = 'Anywhere';
 		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
 
-		$this->tab_notices['anywhere'] = '<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p><input class="shortcode-anywhere" value="'.$shortcode_txt.'">';
+		$this->tab_notices['anywhere'] = __('<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p>','padma').'<input class="shortcode-anywhere" value="'.$shortcode_txt.'">';
 		
 		if(PadmaOption::get('padma-blocks-as-gutenberg-blocks')){
 			$this->inputs['anywhere']['show-as-gutenberg-block'] = array(
@@ -704,8 +704,8 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'name' => 'breakpoint-min-or-max',
 					'label' => 'Min or Max width',
 					'options' => array(
-						'min' => 'Min Width (applies to screens that are wider than breakpoint)',
-						'max' => 'Max Width (applies to screens that are narrower than breakpoint)'
+						'min' => __('Min Width (applies to screens that are wider than breakpoint)','padma'),
+						'max' => __('Max Width (applies to screens that are narrower than breakpoint)','padma')
 					),
 					'default' => 'max'
 				),
@@ -713,7 +713,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 				array(
 					'name' => 'adaptive-heading',
 					'type' => 'heading',
-					'label' => 'Adaptive Options'
+					'label' => __('Adaptive Options','padma')
 				),
 
 				array(
@@ -727,14 +727,14 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 				array(
 					'type' => 'checkbox',
 					'name' => 'mobile-center-elements',
-					'label' => 'Attempt to center block elements',
+					'label' => __('Attempt to center block elements','padma'),
 					'default' => false
 				),
 
 				array(
 					'type' => 'checkbox',
 					'name' => 'griddify-lists',
-					'label' => 'Griddify Lists',
+					'label' => __('Griddify Lists','padma'),
 					'default' => false,
 					'tooltip' => __('Any kind of list, such as categories, latest posts, even menus etc work fine on large screens in the sidebar. But on smaller screens where the sidebar drops below the content. The lists can look empty due to mass of whitespace. This will put the list items into 2 columns side by side.','padma')
 				),
@@ -742,7 +742,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 				array(
 					'type' => 'checkbox',
 					'name' => 'hide-block',
-					'label' => 'Hide this block',
+					'label' => __('Hide this block','padma'),
 					'default' => false,
 					'tooltip' => __('This will hide this block for the set breakpoint.','padma')
 				)
@@ -759,7 +759,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			$this->inputs['responsive']['responsive-block-hiding'] = array(
 				'type' => 'multi-select',
 				'name' => 'responsive-block-hiding',
-				'label' => 'Legacy Responsive Grid Block Hiding',
+				'label' => __('Legacy Responsive Grid Block Hiding','padma'),
 				'default' => '',
 				'tooltip' => __('If you have the responsive grid enabled and the user views your website on an iPhone (or equivalent device), the grid may be cluttered do to so many blocks being in a small area.  If you wish to limit the blocks that are shown on mobile devices, you can use this setting to hide certain blocks for the devices you choose.  <strong>If no options are selected, then responsive block hiding will not be active for this block.</strong>','padma'),
 				'options' => array(
@@ -783,27 +783,27 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			$this->inputs = array();
 		
 		//Add the tab
-		$this->tabs['import-export'] = 'Import/Export';
+		$this->tabs['import-export'] = __('Import/Export','padma');
 		
 		/* Add the inputs */
 
 		$this->inputs['import-export']['import-heading'] = array(
 			'name' => 'import-heading',
 			'type' => 'heading',
-			'label' => 'Import Block Settings'
+			'label' => __('Import Block Settings','padma')
 		);
 
 			$this->inputs['import-export']['block-import-settings-file'] = array(
 				'type' => 'import-file',
 				'name' => 'block-import-settings-file',
-				'button-label' => 'Select File to Import',
+				'button-label' => __('Select File to Import','padma'),
 				'no-save' => true
 			);
 
 			$this->inputs['import-export']['block-import-include-options'] = array(
 				'type' => 'checkbox',
 				'name' => 'block-import-settings-include-options',
-				'label' => 'Include Block Options',
+				'label' => __('Include Block Options','padma'),
 				'default' => true,
 				'no-save' => true
 			);
@@ -811,7 +811,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			$this->inputs['import-export']['block-import-include-design'] = array(
 				'type' => 'checkbox',
 				'name' => 'block-import-settings-include-design',
-				'label' => 'Include Block Design',
+				'label' => __('Include Block Design','padma'),
 				'default' => true,
 				'no-save' => true
 			);
@@ -819,7 +819,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			$this->inputs['import-export']['block-import-settings'] = array(
 				'type' => 'button',
 				'name' => 'block-import-settings',
-				'button-label' => 'Import Block Settings',
+				'button-label' => __('Import Block Settings','padma'),
 				'no-save' => true,
 				'callback' => 'initiateBlockSettingsImport(args);'
 			);
@@ -827,13 +827,13 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$this->inputs['import-export']['export-heading'] = array(
 			'name' => 'export-heading',
 			'type' => 'heading',
-			'label' => 'Export Block Settings'
+			'label' => __('Export Block Settings','padma')
 		);
 
 			$this->inputs['import-export']['block-export-settings'] = array(
 				'type' => 'button',
 				'name' => 'block-export-settings',
-				'button-label' => 'Download Export File',
+				'button-label' => __('Download Export File','padma'),
 				'no-save' => true,
 				'callback' => 'exportBlockSettingsButtonCallback(args);'
 			);
@@ -846,7 +846,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 				
 		$blocks = PadmaBlocksData::get_blocks_by_type($block_type);
 		
-		$options = array('' => '&ndash; Do Not Mirror &ndash;');
+		$options = array('' => '&ndash; '. __('Do Not Mirror','padma') . ' &ndash;');
 		
 		//If there are no blocks, then just return the Do Not Mirror option.
 		if ( !isset($blocks) || !is_array($blocks) )

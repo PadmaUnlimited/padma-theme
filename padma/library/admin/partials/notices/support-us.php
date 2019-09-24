@@ -7,28 +7,28 @@
 	<div class="padma-unlimited-notice-rate-content">
 
 		<div class="padma-unlimited-notice-rate-content-text">
-			<p><?php _e( 'Hello', 'padma-unlimited' ); ?>,</p>
-			<p><?php _e( 'Our team has been working really hard to bring this powerful tool to you. We hope you like it.', 'padma-unlimited' ); ?></p>
-			<h4><?php _e( 'Aim to collaborate?', 'padma-unlimited' ); ?></h4>
-			<p><?php _e( 'Your support is vital for success…', 'padma-unlimited' ); ?></p>
+			<p><?php _e( 'Hello', 'padma' ); ?>,</p>
+			<p><?php _e( 'Our team has been working really hard to bring this powerful tool to you. We hope you like it.', 'padma' ); ?></p>
+			<h4><?php _e( 'Aim to collaborate?', 'padma' ); ?></h4>
+			<p><?php _e( 'Your support is vital for success…', 'padma' ); ?></p>
 			<ul>
-				<li><?php _e( '- Become a sponsor via Patron or PayPal', 'padma-unlimited' ); ?></li>
-				<li><?php _e( '- Report errors in: https://www.padmaunlimited.com/bug-report/', 'padma-unlimited' ); ?></li>
-				<li><?php _e( '- Collaborate coding through GitHub', 'padma-unlimited' ); ?></li>
-				<li><?php _e( '- Suggest functionalities, blocks or plugins', 'padma-unlimited' ); ?></li>
-				<li><?php _e( '- Join our social networks', 'padma-unlimited' ); ?></li>
-				<li><?php _e( '- Share Padma Unlimited Builder with colleagues and friends', 'padma-unlimited' ); ?></li>
-				<li><?php _e( '- Spread the word!', 'padma-unlimited' ); ?></li>
+				<li><?php _e( '- Become a sponsor via Patron or PayPal', 'padma' ); ?></li>
+				<li><?php _e( '- Report errors in: https://www.padmaunlimited.com/bug-report/', 'padma' ); ?></li>
+				<li><?php _e( '- Collaborate coding through GitHub', 'padma' ); ?></li>
+				<li><?php _e( '- Suggest functionalities, blocks or plugins', 'padma' ); ?></li>
+				<li><?php _e( '- Join our social networks', 'padma' ); ?></li>
+				<li><?php _e( '- Share Padma Unlimited Builder with colleagues and friends', 'padma' ); ?></li>
+				<li><?php _e( '- Spread the word!', 'padma' ); ?></li>
 			</ul>			
-			<p><?php _e( 'Let\'s build together!', 'padma-unlimited' ); ?></p>
-			<p><?php _e( '@PadmaTeam', 'padma-unlimited' ); ?></p>
+			<p><?php _e( 'Let\'s build together!', 'padma' ); ?></p>
+			<p><?php _e( '@PadmaTeam', 'padma' ); ?></p>
 		</div>
 
 		<p class="padma-unlimited-notice-rate-actions">			
-			<a href="https://www.patreon.com/bePatron?u=11838968" class="button button-primary" target="_blank"><?php _e( 'Become a Patron', 'padma-unlimited' ); ?></a>
-			<a href="https://www.padmaunlimited.com/support-padma-unlimited-wordpress-template-builder/" class="button button-primary" target="_blank"><?php _e( 'Other support options', 'padma-unlimited' ); ?></a>
-			<a href="https://www.padmaunlimited.com/community" class="button button-secundary" target="_blank"><?php _e( 'Join to our community', 'padma-unlimited' ); ?></a>			
-			<a href="<?php echo self::get_dismiss_link(); ?>" class="padma-unlimited-notice-rate-dismiss"><?php _e( 'Dismiss', 'padma-unlimited' ); ?></a>
+			<a href="https://www.patreon.com/bePatron?u=11838968" class="button button-primary" target="_blank"><?php _e( 'Become a Patron', 'padma' ); ?></a>
+			<a href="https://www.padmaunlimited.com/support-padma-unlimited-wordpress-template-builder/" class="button button-primary" target="_blank"><?php _e( 'Other support options', 'padma' ); ?></a>
+			<a href="https://www.padmaunlimited.com/community" class="button button-secundary" target="_blank"><?php _e( 'Join to our community', 'padma' ); ?></a>			
+			<a href="<?php echo self::get_dismiss_link(); ?>" class="padma-unlimited-notice-rate-dismiss"><?php _e( 'Dismiss', 'padma' ); ?></a>
 		</p>
 
 	</div>

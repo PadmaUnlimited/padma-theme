@@ -437,7 +437,7 @@ abstract class PadmaVisualEditorPanelAPI {
 			</div>
 			
 			<div class="input-right">
-				<span class="textarea-open pencil-icon tooltip" title="View Textarea"></span>
+				<span class="textarea-open pencil-icon tooltip" title="' . __('View Textarea','padma') . '"></span>
 				<div class="textarea-container">
 					<textarea ' . $input['attributes'] . '>' . stripslashes(esc_textarea($input['value'])) . '</textarea>
 				</div>
@@ -455,7 +455,7 @@ abstract class PadmaVisualEditorPanelAPI {
 				</div>
 
 				<div class="input-right">
-					<span class="code-editor-open pencil-icon tooltip" title="View Code Editor" data-editor-mode="' . padma_get('mode', $input, 'php') . '"></span>
+					<span class="code-editor-open pencil-icon tooltip" title="' . __('View Code Editor','padma') . '" data-editor-mode="' . padma_get('mode', $input, 'php') . '"></span>
 					<textarea ' . $input['attributes'] . '>' . stripslashes(esc_textarea($input['value'])) . '</textarea>
 				</div>
 			';
@@ -471,7 +471,7 @@ abstract class PadmaVisualEditorPanelAPI {
 			</div>
 			
 			<div class="input-right">
-				<span class="wysiwyg-open pencil-icon tooltip" title="View Editor"></span>
+				<span class="wysiwyg-open pencil-icon tooltip" title="' . __('View Editor','padma') . '"></span>
 				<div class="wysiwyg-container">
 					<textarea ' . $input['attributes'] . '>' . stripslashes(esc_textarea($input['value'])) . '</textarea>
 				</div>
@@ -591,7 +591,7 @@ abstract class PadmaVisualEditorPanelAPI {
 			echo '<span class="multi-select-open pencil-icon tooltip" title="View Options"></span>';
 			echo '<div class="multi-select-container">';
 						
-				echo '<select ' . $input['attributes'] . ' multiple="multiple" class="tooltip" title="Hold Ctrl (Windows) or Command (Mac) to select multiple options.">';
+				echo '<select ' . $input['attributes'] . ' multiple="multiple" class="tooltip" title="' . __('Hold Ctrl (Windows) or Command (Mac) to select multiple options.','padma') . '">';
 
 				foreach ( $input['options'] as $value => $text ) {
 					
@@ -644,7 +644,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-image"' . $src_visibility . '>Delete</span>';
 						
-		echo '<span class="button">Choose Image</span>
+		echo '<span class="button">' . __('Choose Image','padma') . '</span>
 			<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 		
 	}
@@ -667,7 +667,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-audio"' . $src_visibility . '>Delete</span>';
 						
-		echo __('<span class="button">Choose Audio</span>','padma');
+		echo '<span class="button">' . __('Choose Audio','padma') . '</span>';
 		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 		
 	}
@@ -684,7 +684,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-video"' . $src_visibility . '>Delete</span>';
 						
-		echo __('<span class="button">Choose Video</span>','padma');
+		echo '<span class="button">' . __('Choose Video','padma') . '</span>';
 		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 		
 	}
@@ -776,7 +776,7 @@ abstract class PadmaVisualEditorPanelAPI {
 			$filename = end($file_fragments);
 
 			echo '<span class="src"' . $src_visibility . '>' . $filename . '</span>
-			<span class="delete-file"' . $src_visibility . '>Delete</span>';
+			<span class="delete-file"' . $src_visibility . '>' . __('Delete','padma') . '</span>';
 
 		echo '</div><!-- .input-right -->';
 

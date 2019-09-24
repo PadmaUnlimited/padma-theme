@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Padma Unlimited 1.1.45\n"
+"Project-Id-Version: Padma Unlimited 1.1.48\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-05T14:25:04-05:00\n"
+"POT-Creation-Date: 2019-09-23T20:30:29-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -33,6 +33,10 @@ msgstr ""
 
 #: library/abstract/api-block.php:162
 msgid "Error: The block options class being registered does not exist."
+msgstr ""
+
+#: library/abstract/api-block.php:408
+msgid "<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p>"
 msgstr ""
 
 #: library/abstract/api-block.php:441
@@ -83,32 +87,1224 @@ msgstr ""
 msgid "Select a screen width for these change to take effect."
 msgstr ""
 
+#: library/abstract/api-block.php:707
+msgid "Min Width (applies to screens that are wider than breakpoint)"
+msgstr ""
+
+#: library/abstract/api-block.php:708
+msgid "Max Width (applies to screens that are narrower than breakpoint)"
+msgstr ""
+
+#: library/abstract/api-block.php:716
+msgid "Adaptive Options"
+msgstr ""
+
 #: library/abstract/api-block.php:723
 msgid "Disable the height for smaller screens if the block displays too high for smaller screens"
+msgstr ""
+
+#: library/abstract/api-block.php:730
+msgid "Attempt to center block elements"
+msgstr ""
+
+#: library/abstract/api-block.php:737
+msgid "Griddify Lists"
 msgstr ""
 
 #: library/abstract/api-block.php:739
 msgid "Any kind of list, such as categories, latest posts, even menus etc work fine on large screens in the sidebar. But on smaller screens where the sidebar drops below the content. The lists can look empty due to mass of whitespace. This will put the list items into 2 columns side by side."
 msgstr ""
 
+#: library/abstract/api-block.php:745
+msgid "Hide this block"
+msgstr ""
+
 #: library/abstract/api-block.php:747
 msgid "This will hide this block for the set breakpoint."
+msgstr ""
+
+#: library/abstract/api-block.php:762
+msgid "Legacy Responsive Grid Block Hiding"
 msgstr ""
 
 #: library/abstract/api-block.php:764
 msgid "If you have the responsive grid enabled and the user views your website on an iPhone (or equivalent device), the grid may be cluttered do to so many blocks being in a small area.  If you wish to limit the blocks that are shown on mobile devices, you can use this setting to hide certain blocks for the devices you choose.  <strong>If no options are selected, then responsive block hiding will not be active for this block.</strong>"
 msgstr ""
 
+#: library/abstract/api-block.php:786
+msgid "Import/Export"
+msgstr ""
+
+#: library/abstract/api-block.php:793
+#: library/abstract/api-block.php:822
+msgid "Import Block Settings"
+msgstr ""
+
+#: library/abstract/api-block.php:799
+msgid "Select File to Import"
+msgstr ""
+
+#: library/abstract/api-block.php:806
+msgid "Include Block Options"
+msgstr ""
+
+#: library/abstract/api-block.php:814
+msgid "Include Block Design"
+msgstr ""
+
+#: library/abstract/api-block.php:830
+msgid "Export Block Settings"
+msgstr ""
+
+#: library/abstract/api-block.php:836
+msgid "Download Export File"
+msgstr ""
+
+#: library/abstract/api-block.php:849
+msgid "Do Not Mirror"
+msgstr ""
+
+#: library/abstract/api-panel.php:440
+msgid "View Textarea"
+msgstr ""
+
+#: library/abstract/api-panel.php:458
+msgid "View Code Editor"
+msgstr ""
+
+#: library/abstract/api-panel.php:474
+msgid "View Editor"
+msgstr ""
+
+#: library/abstract/api-panel.php:594
+msgid "Hold Ctrl (Windows) or Command (Mac) to select multiple options."
+msgstr ""
+
+#: library/abstract/api-panel.php:647
+msgid "Choose Image"
+msgstr ""
+
 #: library/abstract/api-panel.php:670
-msgid "<span class=\"button\">Choose Audio</span>"
+msgid "Choose Audio"
 msgstr ""
 
 #: library/abstract/api-panel.php:687
-msgid "<span class=\"button\">Choose Video</span>"
+msgid "Choose Video"
+msgstr ""
+
+#: library/abstract/api-panel.php:779
+#: library/admin/pages/templates.php:140
+msgid "Delete"
+msgstr ""
+
+#: library/abstract/web-fonts-api.php:66
+msgid "Search "
+msgstr ""
+
+#: library/abstract/web-fonts-api.php:71
+msgid "Sort By "
+msgstr ""
+
+#: library/abstract/web-fonts-api.php:91
+msgid "Loading Fonts..."
+msgstr ""
+
+#: library/abstract/web-fonts-api.php:92
+msgid "No Results"
 msgstr ""
 
 #: library/abstract/web-fonts-api.php:161
 msgid "<p class=\"error\">Unable to retrieve fonts at this time.</p>"
+msgstr ""
+
+#: library/abstract/web-fonts-api.php:190
+msgid "The quick brown fox jumps over the lazy dog."
+msgstr ""
+
+#: library/admin/admin-bar.php:47
+#: library/admin/admin-bar.php:125
+#: library/admin/pages/options.php:5
+#: library/admin/pages/options.php:75
+msgid "Visual Editor"
+msgstr ""
+
+#: library/admin/admin-bar.php:62
+msgid "Grid"
+msgstr ""
+
+#: library/admin/admin-bar.php:77
+msgid "Design"
+msgstr ""
+
+#: library/admin/admin-bar.php:89
+msgid "Templates"
+msgstr ""
+
+#: library/admin/admin-bar.php:97
+#: library/admin/pages/getting-started.php:14
+#: library/admin/pages/options.php:80
+msgid "Options"
+msgstr ""
+
+#: library/admin/admin-bar.php:104
+#: library/admin/pages/options.php:2
+#: library/admin/pages/options.php:26
+#: library/admin/pages/options.php:31
+msgid "General"
+msgstr ""
+
+#: library/admin/admin-bar.php:111
+#: library/admin/pages/options.php:3
+msgid "Search Engine Optimization"
+msgstr ""
+
+#: library/admin/admin-bar.php:118
+#: library/admin/pages/options.php:4
+msgid "Scripts/Analytics"
+msgstr ""
+
+#: library/admin/admin-bar.php:132
+#: library/admin/pages/options.php:6
+msgid "Advanced"
+msgstr ""
+
+#: library/admin/admin-bar.php:140
+msgid "Tools"
+msgstr ""
+
+#: library/admin/admin-bar.php:147
+#: library/admin/pages/tools.php:5
+#: library/admin/pages/tools.php:19
+msgid "System Info"
+msgstr ""
+
+#: library/admin/admin-bar.php:155
+msgid "Clear cache"
+msgstr ""
+
+#: library/admin/admin-bar.php:163
+#: library/admin/pages/getting-started.php:85
+#: library/admin/pages/tools.php:7
+msgid "Reset"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:13
+msgid "Shared Layout"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:20
+msgid "Assign a shared layout to this entry.  Shared layouts can be added and modified in the Padma Visual Editor."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:21
+msgid "&ndash; Do Not Use Shared Layout &ndash;"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:55
+msgid "Hide Title"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:57
+msgid "&ndash; Do Not Hide Title &ndash;"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:59
+msgid "Hide on Single View"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:60
+msgid "Hide in Index and Archives"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:61
+msgid "Hide on Single View, Index, and Archives"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:63
+msgid "Choose whether or not you would like to hide the title for this entry.  This can be useful if you have advanced formatting in this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:68
+msgid "Alternate Title"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:70
+msgid "Using the alternate page title, you can override the title that's displayed in the Content Block of the page.  Doing this, you can have a shorter page title in the navigation menu and <code>&lt;title&gt;</code>, but have a longer and more descriptive title in the actual page content."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:89
+msgid "Display"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:93
+msgid "Custom CSS Class(es)"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:95
+msgid "If you are familiar with <a href=\"http://www.w3schools.com/css/\" target=\"_blank\">CSS</a> and would like to style this entry by targeting a certain CSS class (or classes), then you may enter them in here.  The class will be added to the <strong>entry container's class</strong> along with the <strong>body class</strong> if only this entry is being viewed (e.g. single post or page view). Classes can be separated with spaces and/or commas."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:115
+#: library/admin/admin-meta-boxes.php:121
+msgid "Featured Image Position"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:124
+msgid "Use Block Default"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:125
+msgid "Left of Title"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:126
+msgid "Right of Title"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:127
+msgid "Left of Content"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:128
+msgid "Right of Content"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:129
+msgid "Above Title"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:130
+msgid "Above Content"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:131
+msgid "Below Content"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:133
+msgid "Set the position of the featured image for this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:171
+#: library/admin/pages/options.php:210
+msgid "Title"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:173
+msgid "Custom <code>&lt;title&gt;</code> tag"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:179
+#: library/admin/pages/options.php:220
+#: library/admin/pages/templates.php:59
+msgid "Description"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:181
+msgid "Custom <code>&lt;meta&gt;</code> description"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:187
+msgid "<code>noindex</code> this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:189
+msgid "Index/NoIndex tells the engines whether the entry should be crawled and kept in the engines' index for retrieval. If you check this box to opt for <code>noindex</code>, the entry will be excluded from the engines.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:195
+msgid "<code>nofollow</code> links in this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:197
+msgid "Follow/NoFollow tells the engines whether links on the entry should be crawled. If you check this box to employ \"nofollow,\" the engines will disregard the links on the entry both for discovery and ranking purposes.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:203
+msgid "<code>noarchive</code> links in this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:205
+msgid "Noarchive is used to restrict search engines from saving a cached copy of the entry. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the \"cached\" link in the search results.  Check this box to restrict search engines from storing cached copies of this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:211
+msgid "<code>nosnippet</code> links in this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:213
+msgid "Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the entry's title and URL in the search results."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:219
+msgid "<code>noodp</code> links in this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:221
+#: library/admin/pages/options.php:309
+msgid "NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:227
+msgid "<code>noydir</code> links in this entry."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:229
+#: library/admin/pages/options.php:322
+msgid "NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:235
+msgid "301 Permanent Redirect"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:237
+msgid "The 301 Permanent Redirect can be used to forward an old post or page to a new or different location.  If you ever move a page or change a page's permalink, use this to forward your visitors to the new location.<br /><br /><em>Want more information?  Read more about <a href=\"http://support.google.com/webmasters/bin/answer.py?hl=en&answer=93633\" target=\"_blank\">301 Redirects</a>.</em>"
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:262
+msgid "Remember, this is only a predicted search engine result preview.  There is no guarantee that it will look exactly this way.  However, it will look similar."
+msgstr ""
+
+#: library/admin/admin-meta-boxes.php:297
+msgid "<strong>Configure the SEO settings for this page (Front Page) in the Padma Search Engine Optimization settings tab in <a href=\"%\" target=\"_blank\">Padma &raquo; Configuration</a>.</strong>"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:12
+msgid "Welcome"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:16
+#: library/admin/pages/getting-started.php:93
+msgid "Need help?"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:18
+msgid "Unlimited growth"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:24
+msgid "Welcome!"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:25
+msgid "Your <strong>Padma Theme Builder</strong> installation is ready."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:26
+msgid "You can start creating now!"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:28
+msgid "If you want to hide this page just change the Default Admin Page in <a href=\"?page=padma-options\">Padma » Options</a>."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:30
+msgid "Padma | unlimited - Core features in the WordPress dashboard / admin menu."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:32
+msgid "Padma | unlimited - Welcome!"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:33
+msgid "(This page)"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:34
+msgid "Get access to General Information, Documentation & Support for Padma | unlimited - WordPress Theme Builder."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:35
+msgid "Get access to blocks and templates to improve your Padma | unlimited Theme Builder."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:37
+msgid "If you are new to Padma | unlimited, please read our <a href=\"https://docs.padmaunlimited.com/\">Free WordPress Theme Builder Documentation</a>"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:40
+msgid "Padma | unlimited Editor"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:41
+msgid "Padma | unlimited Editor is a powerful tool to design & customize your layouts and edit the visual style of your WordPress website through a graphical interface."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:42
+msgid "Learn more abou it in the document <a rel=\"noopener\" href=\"https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-editor/\">Introduction to the Padma | unlimited Editor.</a>"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:43
+msgid "Access Padma | Unlimited Editor"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:46
+msgid "If you like Padma | Unlimited"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:47
+msgid "Please consider to donate to our project"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:72
+msgid "Padma | Options"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:73
+msgid "Setup your Google Analytics, SEO, favicons and other more advanced settings."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:75
+msgid "Padma | Tools"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:77
+msgid "System info."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:78
+msgid "You should provide this system information If you want to open a ticket or if you log a help request on the forums"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:81
+#: library/admin/pages/tools.php:6
+#: library/admin/pages/tools.php:153
+msgid "Snapshots"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:82
+msgid "Here you can delete the snapshots of Padma Theme Builder to free up some disk space."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:86
+msgid "Instructions to reset your <strong>Padma | Unlimited</strong> WordPress Theme Builder installation."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:94
+msgid "Padma | unlimited WordPress Theme Builder</strong> provides professional support and comprehensive documentation to help you bring your projects alive."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:97
+msgid "Padma | Community"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:98
+msgid "Join to our great community, we help us each other across different channels."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:99
+msgid "Facebook Page"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:100
+msgid "Facebook Users Group (English)"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:101
+msgid "Facebook Users Group (Español)"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:106
+msgid "Padma | Documentation"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:107
+msgid "Register with us and get <strong>free access</strong> to our complete and comprehensive documentation. <a target=\"_blank\" href=\"https://docs.padmaunlimited.com/\" rel=\"noopener\">docs.padmaunlimited.com</a>"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:114
+msgid "Padma | Unlimited Growth"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:115
+msgid "Develop, share and sale Templates & Custom Blocks. Working together will increase community growth possibilities. Design faster & Customize your Workflow with useful tools. Don´t hesitate to invest in other strategic areas to your business."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:118
+msgid "Padma | Unlimited Templates"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:119
+msgid "<strong>Padma | unlimited Templates</strong> minimize your project development process, streamlining the design stage leading a faster content creation and upload."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:122
+msgid "Padma | Unlimited Blocks"
+msgstr ""
+
+#: library/admin/pages/getting-started.php:123
+msgid "Extend the functionality of your Padma | unlimited WordPress Theme Builder installation by adding useful custom blocks to your Projects."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:124
+msgid "Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, Templates on cloud, site monitor."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:125
+msgid "Shortcode block: integration & management of Woocommerce content. Contact form 7 & Gravity forms."
+msgstr ""
+
+#: library/admin/pages/getting-started.php:126
+msgid "Get into Padma Services to unlock the Padma Unlimited potential."
+msgstr ""
+
+#: library/admin/pages/options.php:7
+msgid "Compatibility"
+msgstr ""
+
+#: library/admin/pages/options.php:8
+msgid "Mobile"
+msgstr ""
+
+#: library/admin/pages/options.php:42
+msgid "A favicon is the little image that sits next to your address in the favorites menu and on tabs.  If you do not know how to save an image as an icon you can go to <a href=\"http://www.favicon.cc/\" target=\"_blank\">favicon.cc</a> and draw or import an image."
+msgstr ""
+
+#: library/admin/pages/options.php:50
+msgid "If you use any service like <a href=\"http://feedburner.google.com/\" target=\"_blank\">FeedBurner</a>, type the feed URL here."
+msgstr ""
+
+#: library/admin/pages/options.php:58
+msgid "Admin Preferences"
+msgstr ""
+
+#: library/admin/pages/options.php:65
+msgid "Default Admin Page"
+msgstr ""
+
+#: library/admin/pages/options.php:70
+msgid "Getting Started"
+msgstr ""
+
+#: library/admin/pages/options.php:83
+msgid "Select which admin page you would like to be directed to when you click on \"Padma\" in the WordPress Admin."
+msgstr ""
+
+#: library/admin/pages/options.php:87
+msgid "Do not recommend plugin installation"
+msgstr ""
+
+#: library/admin/pages/options.php:91
+msgid "Hide recommended plugin notice"
+msgstr ""
+
+#: library/admin/pages/options.php:95
+msgid "If on, Padma will not recommend install \"Updater\" and \"Services\" plugin"
+msgstr ""
+
+#: library/admin/pages/options.php:113
+msgid "Padma has detected that you are using the All In One SEO pack plugin.  In order to reduce conflicts and save resources, Padma's SEO functionality has been disabled."
+msgstr ""
+
+#: library/admin/pages/options.php:117
+msgid "Padma has detected that you are using Yoast's WordPress SEO plugin.  In order to reduce conflicts and save resources, Padma's SEO functionality has been disabled."
+msgstr ""
+
+#: library/admin/pages/options.php:121
+msgid "Padma's SEO functionality is disabled."
+msgstr ""
+
+#: library/admin/pages/options.php:129
+msgid "SEO Templates"
+msgstr ""
+
+#: library/admin/pages/options.php:169
+msgid "Select a Template:"
+msgstr ""
+
+#: library/admin/pages/options.php:171
+msgid "Blog Index"
+msgstr ""
+
+#: library/admin/pages/options.php:175
+msgid "Front Page"
+msgstr ""
+
+#: library/admin/pages/options.php:188
+msgid "Category"
+msgstr ""
+
+#: library/admin/pages/options.php:189
+#: library/common/functions.php:673
+#: library/common/functions.php:675
+msgid "Search"
+msgstr ""
+
+#: library/admin/pages/options.php:190
+msgid "Date"
+msgstr ""
+
+#: library/admin/pages/options.php:191
+#: library/admin/pages/templates.php:68
+msgid "Author"
+msgstr ""
+
+#: library/admin/pages/options.php:192
+msgid "Post Tag"
+msgstr ""
+
+#: library/admin/pages/options.php:193
+msgid "Post Type"
+msgstr ""
+
+#: library/admin/pages/options.php:194
+msgid "Taxonomy"
+msgstr ""
+
+#: library/admin/pages/options.php:211
+msgid "The title is the main text that describes the page. It is the single most important on-page SEO element (behind overall content).  The title appears at the top of the web browser when viewing the page, in browser tabs, search engine results, and external websites.  <strong>Tip:</strong> it is best that the title stays below 70 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-seo/title-tag\" target=\"_blank\">Learn more about Titles &raquo;</a>"
+msgstr ""
+
+#: library/admin/pages/options.php:221
+msgid "Meta description tags, while not important to search engine rankings, are extremely important in gaining user click-through from search engine result pages (SERPs). These short paragraphs are your opportunity to advertise content to searchers and let them know exactly what the given page has with regard to what they’re looking for. <strong>Tip:</strong> a good description is around 150 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-seo/meta-description\" target=\"_blank\">Learn more about &lt;meta&gt; Descriptions &raquo;</a>"
+msgstr ""
+
+#: library/admin/pages/options.php:231
+msgid "You may use the following variables in the Title and Description inputs above:"
+msgstr ""
+
+#: library/admin/pages/options.php:234
+msgid "Will retrieve the title of whatever post, archive, or page is being displayed."
+msgstr ""
+
+#: library/admin/pages/options.php:235
+msgid "Will retrieve the name of the site. This can be set in <a href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
+msgstr ""
+
+#: library/admin/pages/options.php:237
+msgid "Will retrieve the tagline/description of the site.  This can be set in <a href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
+msgstr ""
+
+#: library/admin/pages/options.php:239
+msgid "Used only on taxonomy archives to display the term name."
+msgstr ""
+
+#: library/admin/pages/options.php:242
+msgid "Advanced Options <span>Show &darr;</span>"
+msgstr ""
+
+#: library/admin/pages/options.php:249
+msgid "Page Indexing"
+msgstr ""
+
+#: library/admin/pages/options.php:257
+msgid "Index/NoIndex tells the engines whether the page should be crawled and kept in the engines' index for retrieval. If you check this box to opt for <code>noindex</code>, the page will be excluded from the engines.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
+msgstr ""
+
+#: library/admin/pages/options.php:262
+msgid "Link Following"
+msgstr ""
+
+#: library/admin/pages/options.php:270
+msgid "Follow/NoFollow tells the engines whether links on the page should be crawled. If you check this box to employ \"nofollow,\" the engines will disregard the links on the page both for discovery and ranking purposes.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
+msgstr ""
+
+#: library/admin/pages/options.php:275
+msgid "Page Archiving"
+msgstr ""
+
+#: library/admin/pages/options.php:279
+msgid "Enable <code>noarchive</code>"
+msgstr ""
+
+#: library/admin/pages/options.php:283
+msgid "Noarchive is used to restrict search engines from saving a cached copy of the page. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the \"cached\" link in the search results.  Check this box to restrict search engines from storing cached copies of this page."
+msgstr ""
+
+#: library/admin/pages/options.php:288
+msgid "Effects"
+msgstr ""
+
+#: library/admin/pages/options.php:292
+msgid "Enable <code>nosnippet</code>"
+msgstr ""
+
+#: library/admin/pages/options.php:296
+msgid "Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the page's title and URL in the search results."
+msgstr ""
+
+#: library/admin/pages/options.php:301
+msgid "Open Directory Project"
+msgstr ""
+
+#: library/admin/pages/options.php:305
+msgid "Enable <code>NoODP</code>"
+msgstr ""
+
+#: library/admin/pages/options.php:314
+msgid "Yahoo! Directory"
+msgstr ""
+
+#: library/admin/pages/options.php:318
+msgid "Enable <code>NoYDir</code>"
+msgstr ""
+
+#: library/admin/pages/options.php:333
+msgid "Unfamiliar with <em>Search Engine Optimization</em>?"
+msgstr ""
+
+#: library/admin/pages/options.php:333
+msgid "Learn More"
+msgstr ""
+
+#: library/admin/pages/options.php:335
+msgid "Content <code>nofollow</code> Links"
+msgstr ""
+
+#: library/admin/pages/options.php:345
+msgid "Add nofollow To Comment Authors' URL"
+msgstr ""
+
+#: library/admin/pages/options.php:349
+msgid "Adding nofollow to the comment authors' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to."
+msgstr ""
+
+#: library/admin/pages/options.php:363
+msgid "Disable microdata markup"
+msgstr ""
+
+#: library/admin/pages/options.php:367
+msgid "Do not add ld+json data"
+msgstr ""
+
+#: library/admin/pages/options.php:371
+msgid "Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what's on a webpage."
+msgstr ""
+
+#: library/admin/pages/options.php:394
+msgid "Header Scripts"
+msgstr ""
+
+#: library/admin/pages/options.php:405
+msgid "Footer Scripts"
+msgstr ""
+
+#: library/admin/pages/options.php:406
+msgid "Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>"
+msgstr ""
+
+#: library/admin/pages/options.php:424
+msgid "Tooltips"
+msgstr ""
+
+#: library/admin/pages/options.php:428
+msgid "Disable Tooltips in the Visual Editor"
+msgstr ""
+
+#: library/admin/pages/options.php:432
+msgid "If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works."
+msgstr ""
+
+#: library/admin/pages/options.php:444
+msgid "Automatic Updates"
+msgstr ""
+
+#: library/admin/pages/options.php:449
+#: library/admin/pages/options.php:453
+msgid "Disable Automatic Core Updates"
+msgstr ""
+
+#: library/admin/pages/options.php:457
+msgid "By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin."
+msgstr ""
+
+#: library/admin/pages/options.php:461
+#: library/admin/pages/options.php:465
+msgid "Disable Automatic Plugin Updates"
+msgstr ""
+
+#: library/admin/pages/options.php:469
+msgid "By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin."
+msgstr ""
+
+#: library/admin/pages/options.php:478
+msgid "Caching &amp; Compression"
+msgstr ""
+
+#: library/admin/pages/options.php:484
+msgid "Asset Caching"
+msgstr ""
+
+#: library/admin/pages/options.php:488
+msgid "Disable Padma Caching"
+msgstr ""
+
+#: library/admin/pages/options.php:492
+msgid "By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load."
+msgstr ""
+
+#: library/admin/pages/options.php:497
+msgid "Dependency Query Variables"
+msgstr ""
+
+#: library/admin/pages/options.php:501
+msgid "Remove Query Variables from Dependency URLs"
+msgstr ""
+
+#: library/admin/pages/options.php:505
+msgid "To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files."
+msgstr ""
+
+#: library/admin/pages/options.php:510
+#: library/admin/pages/options.php:514
+msgid "Compatibility with mod_pagespeed"
+msgstr ""
+
+#: library/admin/pages/options.php:518
+msgid "Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you."
+msgstr ""
+
+#: library/admin/pages/options.php:523
+#: library/admin/pages/options.php:527
+msgid "HTTP/2 Server Push"
+msgstr ""
+
+#: library/admin/pages/options.php:531
+msgid "Enables WordPress to send a Link:<...> rel=\"prefetch\" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:538
+msgid "Admin"
+msgstr ""
+
+#: library/admin/pages/options.php:544
+msgid "Version Number"
+msgstr ""
+
+#: library/admin/pages/options.php:548
+msgid "Hide Padma Version Number From Menu"
+msgstr ""
+
+#: library/admin/pages/options.php:552
+msgid "Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
+msgstr ""
+
+#: library/admin/pages/options.php:557
+msgid "Editor Style"
+msgstr ""
+
+#: library/admin/pages/options.php:561
+msgid "Disable Editor Style"
+msgstr ""
+
+#: library/admin/pages/options.php:565
+msgid "By default, Padma will take any settings in the Design Editor and add them to <a href=\"http://codex.wordpress.org/TinyMCE\" target=\"_blank\">WordPress' TinyMCE editor</a> style.  Use this option to prevent that."
+msgstr ""
+
+#: library/admin/pages/options.php:572
+msgid "Developer"
+msgstr ""
+
+#: library/admin/pages/options.php:574
+msgid "Once active this option will allow you to upgrade your website to the latest Preview, Beta or Release candidate."
+msgstr ""
+
+#: library/admin/pages/options.php:580
+msgid "Use Padma developer version"
+msgstr ""
+
+#: library/admin/pages/options.php:584
+msgid "Allow install testing or preview version"
+msgstr ""
+
+#: library/admin/pages/options.php:588
+msgid "This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong>"
+msgstr ""
+
+#: library/admin/pages/options.php:595
+msgid "Debugging"
+msgstr ""
+
+#: library/admin/pages/options.php:597
+msgid "The following option should only be checked if a member of the Padma Themes team asks you to do so."
+msgstr ""
+
+#: library/admin/pages/options.php:603
+msgid "Debug Mode"
+msgstr ""
+
+#: library/admin/pages/options.php:607
+msgid "Enable Debug Mode"
+msgstr ""
+
+#: library/admin/pages/options.php:611
+msgid "Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>."
+msgstr ""
+
+#: library/admin/pages/options.php:622
+#: library/admin/pages/options.php:627
+msgid "Plugin templates"
+msgstr ""
+
+#: library/admin/pages/options.php:631
+msgid "Allow plugin templates"
+msgstr ""
+
+#: library/admin/pages/options.php:635
+msgid "Allow load plugin templates related to Custom Post Types instead Padma Layout"
+msgstr ""
+
+#: library/admin/pages/options.php:644
+msgid "Headway"
+msgstr ""
+
+#: library/admin/pages/options.php:649
+msgid "Headway support"
+msgstr ""
+
+#: library/admin/pages/options.php:653
+msgid "Enable Headway classes support"
+msgstr ""
+
+#: library/admin/pages/options.php:657
+msgid "If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:665
+msgid "Gutenberg"
+msgstr ""
+
+#: library/admin/pages/options.php:670
+msgid "Display Padma Blocks in Gutenberg"
+msgstr ""
+
+#: library/admin/pages/options.php:674
+msgid "Show Padma Blocks as Gutenberg Blocks"
+msgstr ""
+
+#: library/admin/pages/options.php:678
+msgid "If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to \"Block Options > Anywhere\" to enable it. <strong>Important:</strong> This feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:689
+msgid "Responsive options"
+msgstr ""
+
+#: library/admin/pages/options.php:695
+#: library/admin/pages/options.php:699
+msgid "Allow mobile zooming"
+msgstr ""
+
+#: library/admin/pages/options.php:703
+msgid "Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers."
+msgstr ""
+
+#: library/admin/pages/options.php:718
+msgid "Save Changes"
+msgstr ""
+
+#: library/admin/pages/templates.php:2
+#: library/admin/pages/templates.php:42
+msgid "Export Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:3
+#: library/admin/pages/templates.php:48
+msgid "Fill out the information below to export all design settings, layouts, and blocks as a Padma Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:9
+msgid "Template Name"
+msgstr ""
+
+#: library/admin/pages/templates.php:18
+msgid "Template Author"
+msgstr ""
+
+#: library/admin/pages/templates.php:23
+msgid "Template Version"
+msgstr ""
+
+#: library/admin/pages/templates.php:28
+msgid "Template Image"
+msgstr ""
+
+#: library/admin/pages/templates.php:32
+#: library/admin/pages/templates.php:82
+msgid "Select Image"
+msgstr ""
+
+#: library/admin/pages/templates.php:47
+#: library/admin/pages/templates.php:112
+#: library/admin/pages/templates.php:120
+msgid "Save Template on Cloud"
+msgstr ""
+
+#: library/admin/pages/templates.php:54
+msgid "Name"
+msgstr ""
+
+#: library/admin/pages/templates.php:73
+msgid "Version"
+msgstr ""
+
+#: library/admin/pages/templates.php:78
+msgid "Image"
+msgstr ""
+
+#: library/admin/pages/templates.php:90
+msgid "Visibility"
+msgstr ""
+
+#: library/admin/pages/templates.php:90
+msgid "(Private: Only for me, Public: Available to sell in market)"
+msgstr ""
+
+#: library/admin/pages/templates.php:92
+msgid "Private"
+msgstr ""
+
+#: library/admin/pages/templates.php:93
+msgid "Public"
+msgstr ""
+
+#: library/admin/pages/templates.php:117
+msgid "Padma Templates"
+msgstr ""
+
+#: library/admin/pages/templates.php:118
+msgid "Install Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:119
+msgid "Export Current Template"
+msgstr ""
+
+#: library/admin/pages/templates.php:137
+msgid "Active: "
+msgstr ""
+
+#: library/admin/pages/templates.php:141
+msgid "Activate"
+msgstr ""
+
+#: library/admin/pages/templates.php:156
+msgid "Templates available on your Padma Services Account"
+msgstr ""
+
+#: library/admin/pages/templates.php:174
+msgid "Available: "
+msgstr ""
+
+#: library/admin/pages/templates.php:177
+msgid "Install"
+msgstr ""
+
+#: library/admin/pages/templates.php:194
+msgid "Add Blank Template"
+msgstr ""
+
+#: library/admin/pages/tools.php:28
+msgid "Copy and paste this information into support/forums if requested."
+msgstr ""
+
+#: library/admin/pages/tools.php:30
+msgid "Please copy all of the content in the text area below and paste it as-is in the requested forum discussion."
+msgstr ""
+
+#: library/admin/pages/tools.php:42
+msgid "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac)."
+msgstr ""
+
+#: library/admin/pages/tools.php:158
+msgid "There are currently %s snapshots taking up %s of disk space."
+msgstr ""
+
+#: library/admin/pages/tools.php:163
+msgid "You can delete individual snapshots in the Visual Editor under Snapshots if you do not wish to delete all snapshots."
+msgstr ""
+
+#: library/admin/pages/tools.php:171
+msgid "'Caution! This will delete ALL snapshots. This means you will not be able to rollback your site until you create new snapshots. OK to delete, Cancel to stop'"
+msgstr ""
+
+#: library/admin/pages/tools.php:185
+msgid "Warning"
+msgstr ""
+
+#: library/admin/pages/tools.php:187
+msgid "Clicking the <em>Reset</em> button below will delete <strong>ALL</strong> existing Padma data including, but not limited to: Blocks, Design Settings, and Padma Search Engine Optimization settings."
+msgstr ""
+
+#: library/admin/pages/tools.php:198
+msgid "Padma Theme Reset Disabled"
+msgstr ""
+
+#: library/admin/pages/tools.php:200
+msgid "For your security, resetting Padma Theme is disabled."
+msgstr ""
+
+#: library/admin/pages/tools.php:202
+msgid "If you wish to reset your Padma installation, please <span style=\"font-weight: 600;color: #fff;background: #2f2f2f; padding: 2px 4px;\">add the code below to your wp-config.php file</span>. <p>Please make sure to add the code above this line in your wp.config.php file:  <code> /* That's all, stop editing! Happy blogging. */</code><br />Not sure how to edit your wp-config.php file?  Please see <a href=\"http://codex.wordpress.org/Editing_wp-config.php\" target=\"_blank\">Editing wp-config.php</a> in the official WordPress documentation."
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:10
+msgid "Hello"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:11
+msgid "Our team has been working really hard to bring this powerful tool to you. We hope you like it."
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:12
+msgid "Aim to collaborate?"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:13
+msgid "Your support is vital for success…"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:15
+msgid "- Become a sponsor via Patron or PayPal"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:16
+msgid "- Report errors in: https://www.padmaunlimited.com/bug-report/"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:17
+msgid "- Collaborate coding through GitHub"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:18
+msgid "- Suggest functionalities, blocks or plugins"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:19
+msgid "- Join our social networks"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:20
+msgid "- Share Padma Unlimited Builder with colleagues and friends"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:21
+msgid "- Spread the word!"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:23
+msgid "Let's build together!"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:24
+msgid "@PadmaTeam"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:28
+msgid "Become a Patron"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:29
+msgid "Other support options"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:30
+msgid "Join to our community"
+msgstr ""
+
+#: library/admin/partials/notices/support-us.php:31
+msgid "Dismiss"
 msgstr ""
 
 #: library/api/api-element.php:109
@@ -324,11 +1520,6 @@ msgstr ""
 
 #: library/common/functions.php:645
 msgid "Type to search, then press enter"
-msgstr ""
-
-#: library/common/functions.php:673
-#: library/common/functions.php:675
-msgid "Search"
 msgstr ""
 
 #: library/common/functions.php:739

@@ -2,9 +2,9 @@
 global $wpdb, $post;
 ?>
 <h2 class="nav-tab-wrapper big-tabs-tabs">
-	<a class="nav-tab" href="#tab-system-info">System Info</a>
-	<a class="nav-tab" href="#tab-snapshots">Snapshots</a>
-	<a class="nav-tab" href="#tab-reset">Reset</a>
+	<a class="nav-tab" href="#tab-system-info"><?php _e('System Info','padma'); ?></a>
+	<a class="nav-tab" href="#tab-snapshots"><?php _e('Snapshots','padma'); ?></a>
+	<a class="nav-tab" href="#tab-reset"><?php _e('Reset','padma'); ?></a>
 </h2>
 
 <?php do_action('padma_admin_save_message'); ?>
@@ -16,7 +16,7 @@ global $wpdb, $post;
 						
 		<div id="system-info">
 				
-			<h3 class="title" style="margin-bottom: 10px;"><strong>System Info</strong></h3>
+			<h3 class="title" style="margin-bottom: 10px;"><strong><?php _e('System Info','padma'); ?></strong></h3>
 
 
 <?php
@@ -25,9 +25,9 @@ if ( apply_filters( 'replace_editor', false, $post ) === true ) {
 }?>
 
 			<p class="description">
-				Copy and paste this information into support/forums if requested.
+				<?php _e('Copy and paste this information into support/forums if requested.','padma'); ?>
 				<br /><br />
-				<strong>Please copy all of the content in the text area below and paste it as-is in the requested forum discussion.</strong>
+				<strong><?php _e('Please copy all of the content in the text area below and paste it as-is in the requested forum discussion.','padma'); ?></strong>
 			</p>
 			
 			<?php
@@ -39,7 +39,7 @@ if ( apply_filters( 'replace_editor', false, $post ) === true ) {
 			$snapshots_info = PadmaDataSnapshots::get_table_info();
 			?>
 
-<textarea readonly="readonly" id="system-info-textarea" title="To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).">
+<textarea readonly="readonly" id="system-info-textarea" title="<?php _e('To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).','padma'); ?>">
 
     ### Begin System Info ###
 
@@ -150,17 +150,27 @@ if ( is_array($active_plugins) && count($active_plugins) ) {
 
 	<div class="big-tab" id="tab-snapshots-content">
 
-		<h3 class="title" style="margin-bottom: 10px;"><strong>Snapshots</strong></h3>
+		<h3 class="title" style="margin-bottom: 10px;"><strong><?php _e('Snapshots','padma'); ?></strong></h3>
 
 		<p class="description">
-			There are currently <?php echo $snapshots_info['count']; ?> snapshots taking up <?php echo $snapshots_info['size']; ?> of disk space.<br /><br />
-			You can delete individual snapshots in the Visual Editor under Snapshots if you do not wish to delete all snapshots.
+			<?php 
+				echo sprintf( 
+					__('There are currently %s snapshots taking up %s of disk space.','padma'), 
+					$snapshots_info['count'], 
+					$snapshots_info['size'] 
+				); 
+			?><br /><br />
+			<?php _e('You can delete individual snapshots in the Visual Editor under Snapshots if you do not wish to delete all snapshots.','padma'); ?>
 		</p>
 
 		<form method="post" id="padma-delete-snapshots">
 			<input type="hidden" value="<?php echo wp_create_nonce( 'padma-delete-snapshots-nonce' ); ?>" name="padma-delete-snapshots-nonce" id="padma-delete-snapshots-nonce" />
 
-			<input type="submit" value="Delete All Snapshots" class="button button-primary padma-medium-button" name="padma-delete-snapshots" id="padma-delete-snapshots" onclick="return confirm('Caution! This will delete ALL snapshots. This means you will not be able to rollback your site until you create new snapshots.  \'OK\' to delete, \'Cancel\' to stop');" />
+			<input type="submit" value="Delete All Snapshots" class="button button-primary padma-medium-button" name="padma-delete-snapshots" id="padma-delete-snapshots" onclick="return confirm(<?php 
+
+				_e('\'Caution! This will delete ALL snapshots. This means you will not be able to rollback your site until you create new snapshots. OK to delete, Cancel to stop\'','padma'); 
+
+				?>);" />
 		</form>
 		<!-- #reset -->
 
@@ -172,9 +182,9 @@ if ( is_array($active_plugins) && count($active_plugins) ) {
 		<?php if ( defined('PADMA_ALLOW_RESET') && PADMA_ALLOW_RESET === true ): ?>
 		<?php if ( !isset($GLOBALS['padma_reset_success']) || $GLOBALS['padma_reset_success'] == false ): ?>
 		<div class="alert-red reset-alert alert">
-			<h3>Warning</h3>
+			<h3><?php _e('Warning','padma'); ?></h3>
 			
-			<p>Clicking the <em>Reset</em> button below will delete <strong>ALL</strong> existing Padma data including, but not limited to: Blocks, Design Settings, and Padma Search Engine Optimization settings.</p>
+			<p><?php _e('Clicking the <em>Reset</em> button below will delete <strong>ALL</strong> existing Padma data including, but not limited to: Blocks, Design Settings, and Padma Search Engine Optimization settings.','padma'); ?></p>
 			
 			<form method="post" id="reset-padma">
 				<input type="hidden" value="<?php echo wp_create_nonce('padma-reset-nonce'); ?>" name="padma-reset-nonce" id="padma-reset-nonce" />
@@ -185,11 +195,11 @@ if ( is_array($active_plugins) && count($active_plugins) ) {
 		<?php endif; ?>
 		<?php else: ?>
 		<div class="alert-yellow reset-info alert">
-			<h3>Padma Theme Reset Disabled</h3>
+			<h3><?php _e('Padma Theme Reset Disabled','padma'); ?></h3>
 
-			<p>For your security, resetting Padma Theme is disabled.</p>
+			<p><?php _e('For your security, resetting Padma Theme is disabled.','padma'); ?></p>
 
-			<p>If you wish to reset your Padma installation, please <span style="font-weight: 600;color: #fff;background: #2f2f2f; padding: 2px 4px;">add the code below to your wp-config.php file</span>. <p>Please make sure to add the code above this line in your wp.config.php file:  <code> /* That's all, stop editing! Happy blogging. */</code><br />Not sure how to edit your wp-config.php file?  Please see <a href="http://codex.wordpress.org/Editing_wp-config.php" target="_blank">Editing wp-config.php</a> in the official WordPress documentation.</p>
+			<p><?php _e('If you wish to reset your Padma installation, please <span style="font-weight: 600;color: #fff;background: #2f2f2f; padding: 2px 4px;">add the code below to your wp-config.php file</span>. <p>Please make sure to add the code above this line in your wp.config.php file:  <code> /* That\'s all, stop editing! Happy blogging. */</code><br />Not sure how to edit your wp-config.php file?  Please see <a href="http://codex.wordpress.org/Editing_wp-config.php" target="_blank">Editing wp-config.php</a> in the official WordPress documentation.','padma'); ?></p>
 
 			<textarea class="code" style="width: 400px;height:45px;resize:none;margin: 10px 0 10px;" readonly="readonly">define('PADMA_ALLOW_RESET', true);</textarea>
 		</div>

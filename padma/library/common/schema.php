@@ -25,8 +25,6 @@ class PadmaSchema {
 		if(is_null($post))
 			return;
 
-		debug($post);
-
 		/**
 		 *
 		 * Author

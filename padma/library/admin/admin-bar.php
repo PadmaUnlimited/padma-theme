@@ -44,7 +44,7 @@ class PadmaAdminBar {
 		$wp_admin_bar->add_menu(array(
 			'parent' 	=> 'padma',
 			'id' 		=> 'padma-ve', 
-			'title' 	=> 'Visual Editor',  
+			'title' 	=> __('Visual Editor','padma'),  
 			'href' 		=>  add_query_arg(array(
 											'visual-editor' 		=> 'true',
 											'visual-editor-mode' 	=> $default_visual_editor_mode,
@@ -59,7 +59,7 @@ class PadmaAdminBar {
 			$wp_admin_bar->add_menu(array(
 				'parent' 	=> 'padma-ve',
 				'id' 		=> 'padma-ve-grid', 
-				'title' 	=> 'Grid',  
+				'title' 	=> __('Grid','padma'),  
 				'href' 		=>  add_query_arg(array(
 												'visual-editor' 		=> 'true',
 												'visual-editor-mode' 	=> 'grid',
@@ -74,7 +74,7 @@ class PadmaAdminBar {
 		$wp_admin_bar->add_menu(array(
 			'parent' 	=> 'padma-ve',
 			'id' 		=> 'padma-ve-design', 
-			'title' 	=> 'Design',  
+			'title' 	=> __('Design','padma'), 
 			'href' 		=> add_query_arg(array(
 											'visual-editor' 		=> 'true',
 											'visual-editor-mode' 	=>
@@ -86,7 +86,7 @@ class PadmaAdminBar {
 		$wp_admin_bar->add_menu(array(
 			'parent' 	=> 'padma',
 			'id' 		=> 'padma-admin-templates',
-			'title' 	=> 'Templates',
+			'title' 	=> __('Templates','padma'),
 			'href' 		=> admin_url('admin.php?page=padma-templates')
 		));
 			
@@ -94,42 +94,42 @@ class PadmaAdminBar {
 		$wp_admin_bar->add_menu(array(
 			'parent' 	=> 'padma',
 			'id' 		=> 'padma-admin-options', 
-			'title' 	=> 'Options',  
+			'title' 	=> __('Options','padma'),  
 			'href' 		=> admin_url('admin.php?page=padma-options')
 		));
 
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-options',
 						'id' => 'padma-admin-options-general', 
-						'title' => 'General',  
+						'title' => __('General','padma'),  
 						'href' => admin_url('admin.php?page=padma-options#tab-general')
 					));
 					
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-options',
 						'id' => 'padma-admin-options-seo', 
-						'title' => 'Search Engine Optimization',  
+						'title' => __('Search Engine Optimization','padma'),  
 						'href' => admin_url('admin.php?page=padma-options#tab-seo')
 					));
 					
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-options',
 						'id' => 'padma-admin-options-scripts',
-						'title' => 'Scripts/Analytics',  
+						'title' => __('Scripts/Analytics','padma'),  
 						'href' => admin_url('admin.php?page=padma-options#tab-scripts')
 					));
 					
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-options',
 						'id' => 'padma-admin-options-visual-editor',
-						'title' => 'Visual Editor',  
+						'title' => __('Visual Editor','padma'),  
 						'href' => admin_url('admin.php?page=padma-options#tab-visual-editor')
 					));
 					
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-options',
 						'id' => 'padma-admin-options-advanced',
-						'title' => 'Advanced',  
+						'title' => __('Advanced','padma'),  
 						'href' => admin_url('admin.php?page=padma-options#tab-advanced')
 					));
 					
@@ -137,14 +137,14 @@ class PadmaAdminBar {
 				$wp_admin_bar->add_menu(array(
 					'parent' => 'padma',
 					'id' => 'padma-admin-tools', 
-					'title' => 'Tools',  
+					'title' => __('Tools','padma'),  
 					'href' => admin_url('admin.php?page=padma-tools')
 				));
 
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-tools',
 						'id' => 'padma-admin-tools-system-info', 
-						'title' => 'System Info',  
+						'title' => __('System Info','padma'),  
 						'href' => admin_url('admin.php?page=padma-tools#tab-system-info')
 					));
 
@@ -152,7 +152,7 @@ class PadmaAdminBar {
 						$wp_admin_bar->add_menu(array(
 							'parent' => 'padma-admin-tools',
 							'id' => 'padma-admin-tools-clear-cache', 
-							'title' => 'Clear cache',  
+							'title' => __('Clear cache','padma'),  
 							'href' => 'javascript:;'
 						));						
 					}
@@ -160,7 +160,7 @@ class PadmaAdminBar {
 					$wp_admin_bar->add_menu(array(
 						'parent' => 'padma-admin-tools',
 						'id' => 'padma-admin-tools-reset', 
-						'title' => 'Reset',  
+						'title' => __('Reset','padma'),  
 						'href' => admin_url('admin.php?page=padma-tools#tab-reset')
 					));
 					

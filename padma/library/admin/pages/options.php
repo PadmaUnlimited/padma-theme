@@ -1,11 +1,11 @@
 <h2 class="nav-tab-wrapper big-tabs-tabs">
-	<a class="nav-tab" href="#tab-general">General</a>
-	<a class="nav-tab" href="#tab-seo">Search Engine Optimization</a>
-	<a class="nav-tab" href="#tab-scripts">Scripts/Analytics</a>
-	<a class="nav-tab" href="#tab-visual-editor">Visual Editor</a>
-	<a class="nav-tab" href="#tab-advanced">Advanced</a>
-	<a class="nav-tab" href="#tab-compatibility">Compatibility</a>
-	<a class="nav-tab" href="#tab-mobile">Mobile</a>
+	<a class="nav-tab" href="#tab-general"><?php _e('General','padma'); ?></a>
+	<a class="nav-tab" href="#tab-seo"><?php _e('Search Engine Optimization','padma'); ?></a>
+	<a class="nav-tab" href="#tab-scripts"><?php _e('Scripts/Analytics','padma'); ?></a>
+	<a class="nav-tab" href="#tab-visual-editor"><?php _e('Visual Editor','padma'); ?></a>
+	<a class="nav-tab" href="#tab-advanced"><?php _e('Advanced','padma'); ?></a>
+	<a class="nav-tab" href="#tab-compatibility"><?php _e('Compatibility','padma'); ?></a>
+	<a class="nav-tab" href="#tab-mobile"><?php _e('Mobile','padma'); ?></a>
 </h2>
 
 <?php do_action('padma_admin_save_message'); ?>
@@ -23,12 +23,12 @@
 			?>
 
 
-				<h3 class="title title-hr">General</h3>
+				<h3 class="title title-hr"><?php _e('General','padma'); ?></h3>
 
 			<?php
 			} else {
 
-				echo '<h3 class="title">General</h3>';
+				echo '<h3 class="title">' . __('General','padma') . '</h3>';
 
 			}
 
@@ -39,7 +39,7 @@
 					'type' => 'text',
 					'label' => 'Favicon URL',
 					'value' => PadmaOption::get('favicon'),
-					'description' => 'A favicon is the little image that sits next to your address in the favorites menu and on tabs.  If you do not know how to save an image as an icon you can go to <a href="http://www.favicon.cc/" target="_blank">favicon.cc</a> and draw or import an image.'
+					'description' => __('A favicon is the little image that sits next to your address in the favorites menu and on tabs.  If you do not know how to save an image as an icon you can go to <a href="http://www.favicon.cc/" target="_blank">favicon.cc</a> and draw or import an image.','padma')
 				),
 
 				array(
@@ -47,7 +47,7 @@
 					'size' => 'large',
 					'type' => 'text',
 					'label' => 'Feed URL',
-					'description' => 'If you use any service like <a href="http://feedburner.google.com/" target="_blank">FeedBurner</a>, type the feed URL here.',
+					'description' => __('If you use any service like <a href="http://feedburner.google.com/" target="_blank">FeedBurner</a>, type the feed URL here.','padma'),
 					'value' => PadmaOption::get('feed-url')
 				)
 			);
@@ -55,44 +55,44 @@
 			PadmaAdminInputs::generate($form);
 			?>
 
-			<h3 class="title title-hr">Admin Preferences</h3>
+			<h3 class="title title-hr"><?php _e('Admin Preferences','padma'); ?></h3>
 
 			<?php
 			$form = array(
 				array(
 					'id' 		=> 'menu-setup',
 					'type' 		=> 'radio',
-					'label' 	=> 'Default Admin Page',
+					'label' 	=> __('Default Admin Page','padma'),
 					'value' 	=> PadmaOption::get('menu-setup', false, 'getting-started'),
 					'radios' 	=> array(
 						array(
 							'value' => 'getting-started',
-							'label' => 'Getting Started'
+							'label' => __('Getting Started','padma')
 						),
 
 						array(
 							'value' => 'visual-editor',
-							'label' => 'Visual Editor'
+							'label' => __('Visual Editor','padma')
 						),
 
 						array(
 							'value' => 'options',
-							'label' => 'Options'
+							'label' => __('Options','padma')
 						)
 					),
-					'description' => 'Select which admin page you would like to be directed to when you click on "Padma" in the WordPress Admin.'
+					'description' => __('Select which admin page you would like to be directed to when you click on "Padma" in the WordPress Admin.','padma')
 				),
 				array(
 					'type' 	=> 'checkbox',
-					'label' => 'Do not recommend plugin installation',
+					'label' => __('Do not recommend plugin installation','padma'),
 					'checkboxes' => array(
 						array(
 							'id' 		=> 'do-not-recommend-plugin-installation',
-							'label' 	=> 'Hide recommended plugin notice',
+							'label' 	=> __('Hide recommended plugin notice','padma'),
 							'checked' 	=> PadmaOption::get('do-not-recommend-plugin-installation', false, false)
 						)
 					),
-					'description' => 'If on, Padma will not recommend install "Updater" and "Services" plugin'
+					'description' => __('If on, Padma will not recommend install "Updater" and "Services" plugin','padma')
 				)
 			);
 
@@ -110,15 +110,15 @@
 				switch ( PadmaSEO::plugin_active() ) {
 
 					case 'aioseop':
-						echo '<div class="alert alert-yellow"><p>Padma has detected that you are using the All In One SEO pack plugin.  In order to reduce conflicts and save resources, Padma\'s SEO functionality has been disabled.</p></div>';
+						echo '<div class="alert alert-yellow"><p>' . __('Padma has detected that you are using the All In One SEO pack plugin.  In order to reduce conflicts and save resources, Padma\'s SEO functionality has been disabled.','padma') . '</p></div>';
 					break;
 
 					case 'wpseo':
-						echo '<div class="alert alert-yellow"><p>Padma has detected that you are using Yoast\'s WordPress SEO plugin.  In order to reduce conflicts and save resources, Padma\'s SEO functionality has been disabled.</p></div>';
+						echo '<div class="alert alert-yellow"><p>' . __('Padma has detected that you are using Yoast\'s WordPress SEO plugin.  In order to reduce conflicts and save resources, Padma\'s SEO functionality has been disabled.','padma') . '</p></div>';
 					break;
 
 					default:
-						echo '<div class="alert alert-yellow"><p>Padma\'s SEO functionality is disabled.</p></div>';
+						echo '<div class="alert alert-yellow"><p>' . __('Padma\'s SEO functionality is disabled.','padma') . '</p></div>';
 						break;
 
 				}
@@ -126,7 +126,7 @@
 			} else {
 			?>
 
-				<h3 class="title" id="seo-templates-title">SEO Templates</h3>
+				<h3 class="title" id="seo-templates-title"><?php _e('SEO Templates','padma'); ?></h3>
 
 				<div id="seo-templates">
 					<div id="seo-templates-hidden-inputs">
@@ -166,13 +166,13 @@
 					</div>
 
 					<div id="seo-templates-header">
-						<span>Select a Template:</span>
+						<span><?php _e('Select a Template:','padma'); ?></span>
 						<select>
-							<option value="index">Blog Index</option>
+							<option value="index"><?php _e('Blog Index','padma'); ?></option>
 
 							<?php
 							if ( get_option('show_on_front') == 'page' )
-								echo '<option value="front_page">Front Page</option>';
+								echo '<option value="front_page">' . __('Front Page','padma') . '</option>';
 							?>
 
 							<optgroup label="Single">
@@ -185,13 +185,13 @@
 							</optgroup>
 
 							<optgroup label="Archive">
-								<option value="archive-category">Category</option>
-								<option value="archive-search">Search</option>
-								<option value="archive-date">Date</option>
-								<option value="archive-author">Author</option>
-								<option value="archive-post_tag">Post Tag</option>
-								<option value="archive-post_type">Post Type</option>
-								<option value="archive-taxonomy">Taxonomy</option>
+								<option value="archive-category"><?php _e('Category','padma'); ?></option>
+								<option value="archive-search"><?php _e('Search','padma'); ?></option>
+								<option value="archive-date"><?php _e('Date','padma'); ?></option>
+								<option value="archive-author"><?php _e('Author','padma'); ?></option>
+								<option value="archive-post_tag"><?php _e('Post Tag','padma'); ?></option>
+								<option value="archive-post_type"><?php _e('Post Type','padma'); ?></option>
+								<option value="archive-taxonomy"><?php _e('Taxonomy','padma'); ?></option>
 							</optgroup>
 
 							<option value="four04">404</option>
@@ -207,8 +207,8 @@
 								'id' => 'title',
 								'type' => 'text',
 								'size' => 'large',
-								'label' => 'Title',
-								'description' => 'The title is the main text that describes the page. It is the single most important on-page SEO element (behind overall content).  The title appears at the top of the web browser when viewing the page, in browser tabs, search engine results, and external websites.  <strong>Tip:</strong> it is best that the title stays below 70 characters.<br /><br /><a href="http://www.seomoz.org/learn-seo/title-tag" target="_blank">Learn more about Titles &raquo;</a>',
+								'label' => __('Title','padma'),
+								'description' => __('The title is the main text that describes the page. It is the single most important on-page SEO element (behind overall content).  The title appears at the top of the web browser when viewing the page, in browser tabs, search engine results, and external websites.  <strong>Tip:</strong> it is best that the title stays below 70 characters.<br /><br /><a href="http://www.seomoz.org/learn-seo/title-tag" target="_blank">Learn more about Titles &raquo;</a>','padma'),
 								'no-submit' => true
 							),
 
@@ -217,8 +217,8 @@
 								'type' => 'paragraph',
 								'cols' => 60,
 								'rows' => 3,
-								'label' => '<code>&lt;meta&gt;</code> Description',
-								'description' => 'Meta description tags, while not important to search engine rankings, are extremely important in gaining user click-through from search engine result pages (SERPs). These short paragraphs are your opportunity to advertise content to searchers and let them know exactly what the given page has with regard to what they’re looking for. <strong>Tip:</strong> a good description is around 150 characters.<br /><br /><a href="http://www.seomoz.org/learn-seo/meta-description" target="_blank">Learn more about &lt;meta&gt; Descriptions &raquo;</a>',
+								'label' => '<code>&lt;meta&gt;</code> ' . __('Description','padma'),
+								'description' => __('Meta description tags, while not important to search engine rankings, are extremely important in gaining user click-through from search engine result pages (SERPs). These short paragraphs are your opportunity to advertise content to searchers and let them know exactly what the given page has with regard to what they’re looking for. <strong>Tip:</strong> a good description is around 150 characters.<br /><br /><a href="http://www.seomoz.org/learn-seo/meta-description" target="_blank">Learn more about &lt;meta&gt; Descriptions &raquo;</a>','padma'),
 								'no-submit' => true
 							)
 						);
@@ -228,23 +228,25 @@
 
 						<div class="hr"></div>
 
-						<p><strong>You may use the following variables in the Title and Description inputs above:</strong></p>
+						<p><strong><?php _e('You may use the following variables in the Title and Description inputs above:','padma'); ?></strong></p>
 
 						<ul>
-							<li><code>%title%</code> &mdash; Will retrieve the title of whatever post, archive, or page is being displayed.</li>
-							<li><code>%sitename%</code> &mdash; Will retrieve the name of the site.  This can be set in <a href="<?php echo admin_url('options-general.php'); ?>" target="_blank">Settings &raquo; General</a>.</li>
-							<li><code>%tagline%</code> &mdash; Will retrieve the tagline/description of the site.  This can be set in <a href="<?php echo admin_url('options-general.php'); ?>" target="_blank">Settings &raquo; General</a>.</li>
-							<li><code>%meta%</code> &mdash; Used only on taxonomy archives to display the term name.</li>
+							<li><code>%title%</code> &mdash; <?php _e('Will retrieve the title of whatever post, archive, or page is being displayed.','padma'); ?></li>
+							<li><code>%sitename%</code> &mdash; <?php echo sprintf( __('Will retrieve the name of the site. This can be set in <a href="%s" target="_blank">Settings &raquo; General</a>.','padma'), admin_url('options-general.php') ); ?></li>
+
+							<li><code>%tagline%</code> &mdash; <?php echo sprintf( __('Will retrieve the tagline/description of the site.  This can be set in <a href="%s" target="_blank">Settings &raquo; General</a>.','padma'), admin_url('options-general.php') ); ?></li>
+
+							<li><code>%meta%</code> &mdash; <?php _e('Used only on taxonomy archives to display the term name.','padma'); ?></li>
 						</ul>
 
-						<h3 id="seo-templates-advanced-options-title" class="title title-hr">Advanced Options <span>Show &darr;</span></h3>
+						<h3 id="seo-templates-advanced-options-title" class="title title-hr"><?php _e('Advanced Options <span>Show &darr;</span>','padma'); ?></h3>
 
 						<div id="seo-templates-advanced-options">
 							<?php
 							$form = array(
 								array(
 									'type' => 'checkbox',
-									'label' => 'Page Indexing',
+									'label' => __('Page Indexing','padma'),
 									'checkboxes' => array(
 										array(
 											'id' => 'noindex',
@@ -252,12 +254,12 @@
 											'no-submit' => true
 										)
 									),
-									'description' => 'Index/NoIndex tells the engines whether the page should be crawled and kept in the engines\' index for retrieval. If you check this box to opt for <code>noindex</code>, the page will be excluded from the engines.  <strong>Note:</strong> if you\'re not sure what this does, do not check this box.'
+									'description' => __('Index/NoIndex tells the engines whether the page should be crawled and kept in the engines\' index for retrieval. If you check this box to opt for <code>noindex</code>, the page will be excluded from the engines.  <strong>Note:</strong> if you\'re not sure what this does, do not check this box.','padma')
 								),
 
 								array(
 									'type' => 'checkbox',
-									'label' => 'Link Following',
+									'label' => __('Link Following','padma'),
 									'checkboxes' => array(
 										array(
 											'id' => 'nofollow',
@@ -265,59 +267,59 @@
 											'no-submit' => true
 										)
 									),
-									'description' => 'Follow/NoFollow tells the engines whether links on the page should be crawled. If you check this box to employ "nofollow," the engines will disregard the links on the page both for discovery and ranking purposes.  <strong>Note:</strong> if you\'re not sure what this does, do not check this box.'
+									'description' => __('Follow/NoFollow tells the engines whether links on the page should be crawled. If you check this box to employ "nofollow," the engines will disregard the links on the page both for discovery and ranking purposes.  <strong>Note:</strong> if you\'re not sure what this does, do not check this box.','padma')
 								),
 
 								array(
 									'type' => 'checkbox',
-									'label' => 'Page Archiving',
+									'label' => __('Page Archiving','padma'),
 									'checkboxes' => array(
 										array(
 											'id' => 'noarchive',
-											'label' => 'Enable <code>noarchive</code>',
+											'label' => __('Enable <code>noarchive</code>','padma'),
 											'no-submit' => true
 										)
 									),
-									'description' => 'Noarchive is used to restrict search engines from saving a cached copy of the page. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the "cached" link in the search results.  Check this box to restrict search engines from storing cached copies of this page.'
+									'description' => __('Noarchive is used to restrict search engines from saving a cached copy of the page. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the "cached" link in the search results.  Check this box to restrict search engines from storing cached copies of this page.','padma')
 								),
 
 								array(
 									'type' => 'checkbox',
-									'label' => 'Effects',
+									'label' => __('Effects','padma'),
 									'checkboxes' => array(
 										array(
 											'id' => 'nosnippet',
-											'label' => 'Enable <code>nosnippet</code>',
+											'label' => __('Enable <code>nosnippet</code>','padma'),
 											'no-submit' => true
 										)
 									),
-									'description' => 'Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the page\'s title and URL in the search results.'
+									'description' => __('Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the page\'s title and URL in the search results.','padma')
 								),
 
 								array(
 									'type' => 'checkbox',
-									'label' => 'Open Directory Project',
+									'label' => __('Open Directory Project','padma'),
 									'checkboxes' => array(
 										array(
 											'id' => 'noodp',
-											'label' => 'Enable <code>NoODP</code>',
+											'label' => __('Enable <code>NoODP</code>','padma'),
 											'no-submit' => true
 										)
 									),
-									'description' => 'NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results.'
+									'description' => __('NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results.','padma')
 								),
 
 								array(
 									'type' => 'checkbox',
-									'label' => 'Yahoo! Directory',
+									'label' => __('Yahoo! Directory','padma'),
 									'checkboxes' => array(
 										array(
 											'id' => 'noydir',
-											'label' => 'Enable <code>NoYDir</code>',
+											'label' => __('Enable <code>NoYDir</code>','padma'),
 											'no-submit' => true
 										)
 									),
-									'description' => 'NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results.'
+									'description' => __('NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results.','padma')
 								)
 							);
 
@@ -328,9 +330,9 @@
 					</div><!-- #seo-templates-inputs -->
 				</div><!-- #seo-templates-content -->
 
-				<div id="seo-description" class="alert alert-yellow"><p>Unfamiliar with <em>Search Engine Optimization</em>?  <a href="http://www.seomoz.org/beginners-guide-to-seo/" target="_blank">Learn More &raquo;</a></p></div>
+				<div id="seo-description" class="alert alert-yellow"><p><?php _e('Unfamiliar with <em>Search Engine Optimization</em>?','padma'); ?>  <a href="http://www.seomoz.org/beginners-guide-to-seo/" target="_blank"><?php _e('Learn More','padma'); ?> &raquo;</a></p></div>
 
-				<h3 class="title title-hr">Content <code>nofollow</code> Links</h3>
+				<h3 class="title title-hr"><?php _e('Content <code>nofollow</code> Links','padma'); ?></h3>
 
 				<?php
 				$form = array(
@@ -340,11 +342,11 @@
 						'checkboxes' => array(
 							array(
 								'id' => 'nofollow-comment-author-url',
-								'label' => 'Add nofollow To Comment Authors\' URL',
+								'label' => __('Add nofollow To Comment Authors\' URL','padma'),
 								'checked' => PadmaOption::get('nofollow-comment-author-url', 'general', false)
 							)
 						),
-						'description' => 'Adding nofollow to the comment authors\' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to.'
+						'description' => __('Adding nofollow to the comment authors\' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to.','padma')
 					)
 				);
 
@@ -358,15 +360,15 @@
 				$form = array(
 					array(
 						'type' => 'checkbox',
-						'label' => 'Disable microdata markup',
+						'label' => __('Disable microdata markup','padma'),
 						'checkboxes' => array(
 							array(
 								'id' => 'disable-schema-support',
-								'label' => 'Do not add ld+json data',
+								'label' => __('Do not add ld+json data','padma'),
 								'checked' => PadmaOption::get('disable-schema-support', 'general', false)
 							)
 						),
-						'description' => 'Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what\'s on a webpage.'
+						'description' => __('Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what\'s on a webpage.','padma')
 					)
 				);
 
@@ -389,7 +391,7 @@
 					'type' => 'paragraph',
 					'cols' => 90,
 					'rows' => 8,
-					'label' => 'Header Scripts',
+					'label' => __('Header Scripts','padma'),
 					'description' => 'Anything here will go in the <code>&lt;head&gt;</code> of the website. If you are using <a href="http://google.com/analytics" target="_blank">Google Analytics</a>, paste the code provided here. <strong>Do not place plain text in this!</strong>',
 					'allow-tabbing' => true,
 					'value' => PadmaOption::get('header-scripts')
@@ -400,8 +402,8 @@
 					'type' => 'paragraph',
 					'cols' => 90,
 					'rows' => 8,
-					'label' => 'Footer Scripts',
-					'description' => 'Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>',
+					'label' => __('Footer Scripts','padma'),
+					'description' => __('Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>','padma'),
 					'allow-tabbing' => true,
 					'value' => PadmaOption::get('footer-scripts')
 				)
@@ -419,15 +421,15 @@
 			$form = array(
 				array(
 					'type' => 'checkbox',
-					'label' => 'Tooltips',
+					'label' => __('Tooltips','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'disable-visual-editor-tooltips',
-							'label' => 'Disable Tooltips in the Visual Editor',
+							'label' => __('Disable Tooltips in the Visual Editor','padma'),
 							'checked' => PadmaOption::get('disable-visual-editor-tooltips', false, false)
 						)
 					),
-					'description' => 'If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works.'
+					'description' => __('If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works.','padma')
 				)
 			);
 
@@ -439,32 +441,32 @@
 
 		<div class="big-tab" id="tab-advanced-content">
 
-			<h3 class="title">Automatic Updates</h3>
+			<h3 class="title"><?php _e('Automatic Updates','padma'); ?></h3>
 			<?php
 			$form = array(
 				array(
 					'type' => 'checkbox',
-					'label' => 'Disable Automatic Core Updates',
+					'label' => __('Disable Automatic Core Updates','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'disable-automatic-core-updates',
-							'label' => 'Disable Automatic Core Updates',
+							'label' => __('Disable Automatic Core Updates','padma'),
 							'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
 						)
 					),
-					'description' => 'By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.'
+					'description' => __('By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.','padma')
 				),
 				array(
 					'type' => 'checkbox',
-					'label' => 'Disable Automatic Plugin Updates',
+					'label' => __('Disable Automatic Plugin Updates','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'disable-automatic-plugin-updates',
-							'label' => 'Disable Automatic Plugin Updates',
+							'label' => __('Disable Automatic Plugin Updates','padma'),
 							'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
 						)
 					),
-					'description' => 'By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.'
+					'description' => __('By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.','padma')
 				),
 			);
 
@@ -473,140 +475,140 @@
 
 
 
-			<h3 class="title">Caching &amp; Compression</h3>
+			<h3 class="title"><?php _e('Caching &amp; Compression','padma'); ?></h3>
 
 			<?php
 			$form = array(
 				array(
 					'type' => 'checkbox',
-					'label' => 'Asset Caching',
+					'label' => __('Asset Caching','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'disable-caching',
-							'label' => 'Disable Padma Caching',
+							'label' => __('Disable Padma Caching','padma'),
 							'checked' => PadmaOption::get('disable-caching', false, false)
 						)
 					),
-					'description' => 'By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load.'
+					'description' => __('By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load.','padma')
 				),
 
 				array(
 					'type' => 'checkbox',
-					'label' => 'Dependency Query Variables',
+					'label' => __('Dependency Query Variables','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'remove-dependency-query-vars',
-							'label' => 'Remove Query Variables from Dependency URLs',
+							'label' => __('Remove Query Variables from Dependency URLs','padma'),
 							'checked' => PadmaOption::get('remove-dependency-query-vars', false, false)
 						)
 					),
-					'description' => 'To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files.'
+					'description' => __('To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files.','padma')
 				),
 
 				array(
 					'type' => 'checkbox',
-					'label' => 'Compatibility with mod_pagespeed',
+					'label' => __('Compatibility with mod_pagespeed','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'compatibility-mod_pagespeed',
-							'label' => 'Compatibility with mod_pagespeed',
+							'label' => __('Compatibility with mod_pagespeed','padma'),
 							'checked' => PadmaOption::get('compatibility-mod_pagespeed', false, false)
 						)
 					),
-					'description' => 'Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you.'
+					'description' => __('Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you.','padma')
 				),
 
 				array(
 					'type' => 'checkbox',
-					'label' => 'HTTP/2 Server Push',
+					'label' => __('HTTP/2 Server Push','padma','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'http2-server-push',
-							'label' => 'HTTP/2 Server Push',
+							'label' => __('HTTP/2 Server Push','padma'),
 							'checked' => PadmaOption::get('http2-server-push', false, false)
 						)
 					),
-					'description' => 'Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental.'
+					'description' => __('Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental.','padma')
 				)
 			);
 
 			PadmaAdminInputs::generate($form);
 			?>
 
-			<h3 class="title title-hr">Admin</h3>
+			<h3 class="title title-hr"><?php _e('Admin','padma'); ?></h3>
 
 			<?php
 			$form = array(
 				array(
 					'type' => 'checkbox',
-					'label' => 'Version Number',
+					'label' => __('Version Number','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'hide-menu-version-number',
-							'label' => 'Hide Padma Version Number From Menu',
+							'label' => __('Hide Padma Version Number From Menu','padma'),
 							'checked' => PadmaOption::get('hide-menu-version-number', false, true)
 						)
 					),
-					'description' => 'Check this if you wish to have the Menu say "Padma" instead of "Padma ' .PADMA_VERSION . '"'
+					'description' => sprintf( __('Check this if you wish to have the Menu say "Padma" instead of "Padma %s"','padma'), PADMA_VERSION )
 				),
 
 				array(
 					'type' => 'checkbox',
-					'label' => 'Editor Style',
+					'label' => __('Editor Style','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'disable-editor-style',
-							'label' => 'Disable Editor Style',
+							'label' => __('Disable Editor Style','padma'),
 							'checked' => PadmaOption::get('disable-editor-style', false, false)
 						)
 					),
-					'description' => 'By default, Padma will take any settings in the Design Editor and add them to <a href="http://codex.wordpress.org/TinyMCE" target="_blank">WordPress\' TinyMCE editor</a> style.  Use this option to prevent that.'
+					'description' => __('By default, Padma will take any settings in the Design Editor and add them to <a href="http://codex.wordpress.org/TinyMCE" target="_blank">WordPress\' TinyMCE editor</a> style.  Use this option to prevent that.','padma')
 				)
 			);
 
 			PadmaAdminInputs::generate($form);
 			?>
 
-			<h3 class="title title-hr">Developer</h3>
+			<h3 class="title title-hr"><?php _e('Developer','padma'); ?></h3>
 
-			<div class="alert alert-red"><p>Once active this option will allow you to upgrade your website to the latest Preview, Beta or Release candidate.</p></div>
+			<div class="alert alert-red"><p><?php _e('Once active this option will allow you to upgrade your website to the latest Preview, Beta or Release candidate.','padma'); ?></p></div>
 
 			<?php
 			$form = array(
 				array(
 					'type' => 'checkbox',
-					'label' => 'Use Padma developer version',
+					'label' => __('Use Padma developer version','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'use-developer-version',
-							'label' => 'Allow install testing or preview version',
+							'label' => __('Allow install testing or preview version','padma'),
 							'checked' => PadmaOption::get('use-developer-version', false, false)
 						)
 					),
-					'description' => 'This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong>'
+					'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong>','padma')
 				)
 			);
 
 			PadmaAdminInputs::generate($form);
 			?>
 
-			<h3 class="title title-hr">Debugging</h3>
+			<h3 class="title title-hr"><?php _e('Debugging','padma'); ?></h3>
 
-			<div class="alert alert-red"><p>The following option should only be checked if a member of the Padma Themes team asks you to do so.</p></div>
+			<div class="alert alert-red"><p><?php _e('The following option should only be checked if a member of the Padma Themes team asks you to do so.','padma'); ?></p></div>
 
 			<?php
 			$form = array(
 				array(
 					'type' => 'checkbox',
-					'label' => 'Debug Mode',
+					'label' => __('Debug Mode','padma'),
 					'checkboxes' => array(
 						array(
 							'id' => 'debug-mode',
-							'label' => 'Enable Debug Mode',
+							'label' => __('Enable Debug Mode','padma'),
 							'checked' => PadmaOption::get('debug-mode', false, false)
 						)
 					),
-					'description' => 'Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>.'
+					'description' => __('Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>.','padma')
 				)
 			);
 
@@ -617,20 +619,20 @@
 
 		<div class="big-tab" id="tab-compatibility-content">
 
-			<h3 class="title">Plugin templates</h3>
+			<h3 class="title"><?php _e('Plugin templates','padma'); ?></h3>
 			<?php
 			$form = array(
 				array(
 					'type' 	=> 'checkbox',
-					'label' => 'Plugin templates',
+					'label' => __('Plugin templates','padma'),
 					'checkboxes' => array(
 						array(
 							'id' 		=> 'allow-plugin-templates',
-							'label' 	=> 'Allow plugin templates',
+							'label' 	=> __('Allow plugin templates','padma'),
 							'checked' 	=> PadmaOption::get('allow-plugin-templates', false, false)
 						)
 					),
-					'description' => 'Allow load plugin templates related to Custom Post Types instead Padma Layout'
+					'description' => __('Allow load plugin templates related to Custom Post Types instead Padma Layout','padma')
 				)
 			);
 
@@ -639,20 +641,20 @@
 
 
 
-			<h3 class="title">Headway</h3>
+			<h3 class="title"><?php _e('Headway','padma'); ?></h3>
 			<?php
 			$form = array(
 				array(
 					'type' 	=> 'checkbox',
-					'label' => 'Headway support',
+					'label' => __('Headway support','padma'),
 					'checkboxes' => array(
 						array(
 							'id' 		=> 'headway-support',
-							'label' 	=> 'Enable Headway classes support',
+							'label' 	=> __('Enable Headway classes support','padma'),
 							'checked' 	=> PadmaOption::get('headway-support', false, false)
 						)
 					),
-					'description' => 'If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental.'
+					'description' => __('If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental.','padma')
 				)
 			);
 
@@ -660,20 +662,20 @@
 			?>
 
 
-			<h3 class="title">Gutenberg</h3>
+			<h3 class="title"><?php _e('Gutenberg','padma'); ?></h3>
 			<?php
 			$form = array(
 				array(
 					'type' 	=> 'checkbox',
-					'label' => 'Display Padma Blocks in Gutenberg',
+					'label' => __('Display Padma Blocks in Gutenberg','padma'),
 					'checkboxes' => array(
 						array(
 							'id' 		=> 'padma-blocks-as-gutenberg-blocks',
-							'label' 	=> 'Show Padma Blocks as Gutenberg Blocks',
+							'label' 	=> __('Show Padma Blocks as Gutenberg Blocks','padma'),
 							'checked' 	=> PadmaOption::get('padma-blocks-as-gutenberg-blocks', false, false)
 						)
 					),
-					'description' => 'If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to "Block Options > Anywhere" to enable it. <strong>Important:</strong> This feature is Experimental.'
+					'description' => __('If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to "Block Options > Anywhere" to enable it. <strong>Important:</strong> This feature is Experimental.','padma')
 				)
 			);
 
@@ -684,21 +686,21 @@
 
 		<div class="big-tab" id="tab-mobile-content">
 
-			<h3 class="title">Responsive options</h3>
+			<h3 class="title"><?php _e('Responsive options','padma'); ?></h3>
 
 			<?php
 			$form = array(
 				array(
 					'type' 	=> 'checkbox',
-					'label' => 'Allow mobile zooming',
+					'label' => __('Allow mobile zooming','padma'),
 					'checkboxes' => array(
 						array(
 							'id' 		=> 'allow-mobile-zooming',
-							'label' 	=> 'Allow mobile zooming',
+							'label' 	=> __('Allow mobile zooming','padma'),
 							'checked' 	=> PadmaOption::get('allow-mobile-zooming', false, false)
 						)
 					),
-					'description' => 'Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers.'
+					'description' => __('Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers.','padma')
 				)
 			);
 
@@ -713,7 +715,7 @@
 	<div class="hr hr-submit" style="display: none;"></div>
 
 	<p class="submit" style="display: none;">
-		<input type="submit" name="padma-submit" value="Save Changes" class="button-primary padma-save" />
+		<input type="submit" name="padma-submit" value="<?php _e('Save Changes','padma'); ?>" class="button-primary padma-save" />
 	</p>
 
 </form>

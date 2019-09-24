@@ -185,7 +185,7 @@ class PadmaPropertyInputs {
 						 *
 						 */						
 						if($args['group']=='margins'){							
-							if($args['property_values']['margin-top'] == 'auto'){
+							if( isset($args['property_values']['margin-top']) && $args['property_values']['margin-top'] == 'auto'){
 								unset($args['property_values']['margin-top']);
 								$args['property_values']['margin-top-auto'] = 'auto';
 							}

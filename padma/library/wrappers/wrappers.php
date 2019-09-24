@@ -158,7 +158,8 @@ class PadmaWrappers {
 
 			/* Do not register instance for mirrored wrapper */
 			if ( PadmaWrappersData::is_wrapper_mirrored($wrapper_options) ){
-				if($wrapper_options['settings']['do-not-mirror-wrapper-styles']){
+				if( !empty($wrapper_options['settings']['do-not-mirror-wrapper-styles']) && $wrapper_options['settings']['do-not-mirror-wrapper-styles'] == true){
+					
 					$original_wrapper = $wrapper_options['mirror_id'];
 					$mirroring_wrappers_no_style[$original_wrapper] = $wrapper_id;					
 				}

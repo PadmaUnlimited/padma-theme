@@ -823,7 +823,7 @@ function padma_register_web_font_provider($class) {
  *
  */
 if(!function_exists('debug')){	
-	function debug($data){
+	function debug($data=null){
 		if($data)
 			error_log( print_r($data,1) );
 	}	

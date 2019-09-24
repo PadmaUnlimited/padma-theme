@@ -63,12 +63,12 @@ abstract class PadmaWebFontProvider {
 
 		echo '<form class="fonts-search">';
 
-	      	echo '<input class="fonts-filter" type="text" placeholder="Search ' . $this->name . '" name="search-input">';
+	      	echo '<input class="fonts-filter" type="text" placeholder="' . __('Search ','padma') . $this->name . '" name="search-input">';
 
 	      	if ( is_array($this->sorting_options) && !empty($this->sorting_options) ) {
 
 	      		echo '<div class="select-container"><select name="choices">';
-	      			echo '<option value="" disabled="disabled">&ndash; Sort By &ndash;</option>';
+	      			echo '<option value="" disabled="disabled">&ndash; ' . __('Sort By ','padma') . '&ndash;</option>';
 	      			
 	      			foreach ( $this->sorting_options as $sorting_option_value => $sorting_option_text )
 	      				echo '<option value="' . $sorting_option_value . '">' . $sorting_option_text . '</option>';
@@ -88,8 +88,8 @@ abstract class PadmaWebFontProvider {
 			<div class="fonts-list webfonts-list">
 				<ul></ul>
 
-				<div class="loading fonts-loading"><p>Loading Fonts...</p></div>
-				<div class="fonts-noresults" style="display:none;">No Results</div>
+				<div class="loading fonts-loading"><p>' . __('Loading Fonts...','padma') . '</p></div>
+				<div class="fonts-noresults" style="display:none;">' . __('No Results','padma') . '</div>
 			</div><!-- .fonts-list -->
 		';
 
@@ -187,7 +187,7 @@ abstract class PadmaWebFontProvider {
 			$html .= $variants;
 			$html .= ']">
 					<span class="font-family">' . $font['name'] . '</span> 
-					<span class="font-preview-text">The quick brown fox jumps over the lazy dog.</span> 
+					<span class="font-preview-text">' . __('The quick brown fox jumps over the lazy dog.','padma') . '</span> 
 
 					<span title="Use Font" class="use-font action"></span>
 					<span title="Preview Font" class="preview-font action"></span>

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-24T15:58:07-05:00\n"
+"POT-Creation-Date: 2019-09-24T18:25:29-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -399,6 +399,7 @@ msgstr ""
 
 #: library/admin/admin-meta-boxes.php:172
 #: library/admin/pages/options.php:210
+#: library/blocks/content/content.php:184
 msgid "Title"
 msgstr ""
 
@@ -482,8 +483,8 @@ msgstr ""
 msgid "<strong>Configure the SEO settings for this page (Front Page) in the Padma Search Engine Optimization settings tab in <a href=\"%\" target=\"_blank\">Padma &raquo; Configuration</a>.</strong>"
 msgstr ""
 
-#: library/admin/admin-pages.php:15
-msgid "<p>You are now being redirected. If you are not redirected within 3 seconds, click <a href=\"%s/?visual-editor=true\"><strong>here</strong></a>.</p>"
+#: library/admin/admin-pages.php:16
+msgid "<p>You are now being redirected. If you are not redirected within 3 seconds, click <a href=\"%s\"><strong>here</strong></a>.</p>"
 msgstr ""
 
 #: library/admin/admin-write.php:55
@@ -1413,6 +1414,102 @@ msgstr ""
 msgid "Error: The group being registered already exists."
 msgstr ""
 
+#: library/blocks/audio/audio.php:178
+msgid "Your browser does not support the audio tag."
+msgstr ""
+
+#: library/blocks/audio/audio.php:186
+msgid "You have not added an audio yet. Please upload and apply an audio."
+msgstr ""
+
+#: library/blocks/audio/audio.php:219
+msgid "Add an Audio"
+msgstr ""
+
+#: library/blocks/audio/audio.php:248
+msgid "Specifies that the audio will start playing as soon as it is ready"
+msgstr ""
+
+#: library/blocks/audio/audio.php:253
+msgid "Controls"
+msgstr ""
+
+#: library/blocks/audio/audio.php:256
+msgid "Specifies that audio controls should be displayed (such as a play/pause button etc)."
+msgstr ""
+
+#: library/blocks/audio/audio.php:261
+msgid "Loop"
+msgstr ""
+
+#: library/blocks/audio/audio.php:264
+msgid "Specifies that the audio will start over again, every time it is finished"
+msgstr ""
+
+#: library/blocks/audio/audio.php:269
+msgid "Muted"
+msgstr ""
+
+#: library/blocks/audio/audio.php:272
+msgid "Specifies that the audio output of the audio should be muted"
+msgstr ""
+
+#: library/blocks/audio/audio.php:277
+msgid "Preload"
+msgstr ""
+
+#: library/blocks/audio/audio.php:285
+msgid "Specifies if and how the author thinks the audio should be loaded when the page loads"
+msgstr ""
+
+#: library/blocks/audio/audio.php:292
+msgid "Position Audio"
+msgstr ""
+
+#: library/blocks/audio/audio.php:297
+msgid "Position audio inside container"
+msgstr ""
+
+#: library/blocks/audio/audio.php:299
+msgid "You can position this audio in relation to the block using the positions provided"
+msgstr ""
+
+#: library/blocks/audio/audio.php:303
+msgid "Top Left"
+msgstr ""
+
+#: library/blocks/audio/audio.php:304
+msgid "Top Center"
+msgstr ""
+
+#: library/blocks/audio/audio.php:305
+msgid "Top Right"
+msgstr ""
+
+#: library/blocks/audio/audio.php:306
+msgid "Center Left"
+msgstr ""
+
+#: library/blocks/audio/audio.php:307
+msgid "Center Center"
+msgstr ""
+
+#: library/blocks/audio/audio.php:308
+msgid "Center Right"
+msgstr ""
+
+#: library/blocks/audio/audio.php:309
+msgid "Bottom Left"
+msgstr ""
+
+#: library/blocks/audio/audio.php:310
+msgid "Bottom Center"
+msgstr ""
+
+#: library/blocks/audio/audio.php:311
+msgid "Bottom Right"
+msgstr ""
+
 #: library/blocks/blocks.php:82
 msgid "The block class being registered does not exist."
 msgstr ""
@@ -1421,32 +1518,145 @@ msgstr ""
 msgid "The Padma blocks array does not exist."
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:64
+#: library/blocks/breadcrumbs/breadcrumbs.php:19
+msgid "Breadcrumbs"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:21
+msgid "Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:75
 msgid "Home"
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:107
+#: library/blocks/breadcrumbs/breadcrumbs.php:118
 msgid "Search Results For:"
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:116
+#: library/blocks/breadcrumbs/breadcrumbs.php:127
 msgid "Author Archives:"
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:123
+#: library/blocks/breadcrumbs/breadcrumbs.php:134
 msgid "Tag Archives:"
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:130
+#: library/blocks/breadcrumbs/breadcrumbs.php:141
 msgid "Archives:"
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:137
+#: library/blocks/breadcrumbs/breadcrumbs.php:148
 msgid "Whoops! Page Not Found..."
 msgstr ""
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:145
+#: library/blocks/breadcrumbs/breadcrumbs.php:156
+#: library/blocks/breadcrumbs/breadcrumbs.php:221
 msgid "You Are Here:"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:210
+msgid "Show \"You Are Here\" prefix"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:212
+msgid "If you would like the breadcrumbs to show \"You Are Here:\" or anything similar in front of the breadcrumb trail, then check this."
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:218
+msgid "Prefix Text"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:220
+msgid "If the previous checkbox is checked, then you may customize the prefix text."
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:226
+msgid "Separator"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:228
+msgid "This will be shown between each breadcrumb.  e.g. If the separator is \"&raquo;\" then it will be shown as Home &raquo; Page Name."
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:17
+msgid "Display Contact Form 7"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:33
+msgid "Form Container"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:39
+msgid "Form paragraph"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:45
+msgid "Form H1"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:51
+msgid "Form H2"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:57
+msgid "Form H3"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:63
+msgid "Form H4"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:69
+msgid "Form H5"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:75
+msgid "Form H6"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:81
+msgid "Form new line"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:87
+msgid "Form label"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:93
+msgid "Form span"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:99
+msgid "Form input"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:105
+msgid "Form select"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:111
+msgid "Form textarea"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:117
+msgid "Form submit"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:174
+msgid "Select form"
+msgstr ""
+
+#: library/blocks/contact-form-7/contact-form-7.php:190
+msgid "Select a form"
+msgstr ""
+
+#: library/blocks/content/comments-template.php:18
+msgid "One Response"
+msgstr ""
+
+#: library/blocks/content/comments-template.php:20
+msgid "Responses"
 msgstr ""
 
 #: library/blocks/content/comments-template.php:54
@@ -1538,6 +1748,333 @@ msgstr ""
 
 #: library/blocks/content/content-display.php:1228
 msgid "View all posts by %s"
+msgstr ""
+
+#: library/blocks/content/content.php:16
+msgid "Content"
+msgstr ""
+
+#: library/blocks/content/content.php:18
+msgid "Main content area to show the current page's content or the latest posts.  This is considered the \"Loop\" in other themes."
+msgstr ""
+
+#: library/blocks/content/content.php:149
+msgid "Article"
+msgstr ""
+
+#: library/blocks/content/content.php:156
+msgid "Entry Container"
+msgstr ""
+
+#: library/blocks/content/content.php:163
+msgid "Page Entry Container"
+msgstr ""
+
+#: library/blocks/content/content.php:170
+msgid "Post Entry Container"
+msgstr ""
+
+#: library/blocks/content/content.php:178
+msgid "Entry Row"
+msgstr ""
+
+#: library/blocks/content/content.php:194
+msgid "Archive Title"
+msgstr ""
+
+#: library/blocks/content/content.php:200
+msgid "Body Text"
+msgstr ""
+
+#: library/blocks/content/content.php:201
+msgid "All text including &lt;p&gt; elements"
+msgstr ""
+
+#: library/blocks/content/content.php:207
+msgid "Body Hyperlinks"
+msgstr ""
+
+#: library/blocks/content/content.php:217
+msgid "Images"
+msgstr ""
+
+#: library/blocks/content/content.php:224
+msgid "Image Captions"
+msgstr ""
+
+#: library/blocks/content/content.php:232
+msgid "Images in Captions"
+msgstr ""
+
+#: library/blocks/content/content.php:240
+msgid "Caption Text"
+msgstr ""
+
+#: library/blocks/content/content.php:246
+msgid "Meta"
+msgstr ""
+
+#: library/blocks/content/content.php:252
+msgid "Meta Above Content"
+msgstr ""
+
+#: library/blocks/content/content.php:259
+msgid "Meta Below Content"
+msgstr ""
+
+#: library/blocks/content/content.php:266
+msgid "Meta Hyperlinks"
+msgstr ""
+
+#: library/blocks/content/content.php:277
+msgid "Author Avatar Image"
+msgstr ""
+
+#: library/blocks/content/content.php:284
+msgid "Publisher Logo container"
+msgstr ""
+
+#: library/blocks/content/content.php:291
+msgid "Publisher Logo image container"
+msgstr ""
+
+#: library/blocks/content/content.php:298
+msgid "Publisher Logo link"
+msgstr ""
+
+#: library/blocks/content/content.php:305
+msgid "Publisher Logo image"
+msgstr ""
+
+#: library/blocks/content/content.php:312
+msgid "Publisher Logo meta data"
+msgstr ""
+
+#: library/blocks/content/content.php:319
+msgid "Post Entry Date"
+msgstr ""
+
+#: library/blocks/content/content.php:326
+msgid "Heading"
+msgstr ""
+
+#: library/blocks/content/content.php:354
+msgid "Sub Heading"
+msgstr ""
+
+#: library/blocks/content/content.php:374
+msgid "Unordered Lists"
+msgstr ""
+
+#: library/blocks/content/content.php:381
+msgid "Unordered List Items"
+msgstr ""
+
+#: library/blocks/content/content.php:388
+msgid "Ordered Lists"
+msgstr ""
+
+#: library/blocks/content/content.php:395
+msgid "Ordered List Items"
+msgstr ""
+
+#: library/blocks/content/content.php:402
+msgid "Featured Image"
+msgstr ""
+
+#: library/blocks/content/content.php:409
+msgid "Continue Reading Button"
+msgstr ""
+
+#: library/blocks/content/content.php:419
+msgid "Loop Navigation Button"
+msgstr ""
+
+#: library/blocks/content/content.php:429
+msgid "Comments"
+msgstr ""
+
+#: library/blocks/content/content.php:435
+msgid "Comments Area"
+msgstr ""
+
+#: library/blocks/content/content.php:443
+msgid "Comments Area Headings"
+msgstr ""
+
+#: library/blocks/content/content.php:450
+msgid "Comment Container"
+msgstr ""
+
+#: library/blocks/content/content.php:458
+msgid "Add Comment Textarea"
+msgstr ""
+
+#: library/blocks/content/content.php:465
+msgid "Comment Author"
+msgstr ""
+
+#: library/blocks/content/content.php:472
+msgid "Comment Meta"
+msgstr ""
+
+#: library/blocks/content/content.php:479
+msgid "Comment Meta Count"
+msgstr ""
+
+#: library/blocks/content/content.php:486
+msgid "Comment Body"
+msgstr ""
+
+#: library/blocks/content/content.php:494
+msgid "Comment Reply Link"
+msgstr ""
+
+#: library/blocks/content/content.php:505
+msgid "Comment Form Input Label"
+msgstr ""
+
+#: library/blocks/content/content.php:518
+msgid "Gutenberg audio block"
+msgstr ""
+
+#: library/blocks/content/content.php:524
+msgid "Gutenberg video block"
+msgstr ""
+
+#: library/blocks/content/content.php:530
+msgid "Gutenberg file block"
+msgstr ""
+
+#: library/blocks/content/content.php:536
+msgid "Gutenberg image block"
+msgstr ""
+
+#: library/blocks/content/content.php:542
+msgid "Gutenberg gallery block"
+msgstr ""
+
+#: library/blocks/content/content.php:548
+msgid "Gutenberg gallery item"
+msgstr ""
+
+#: library/blocks/content/content.php:554
+msgid "Gutenberg cover block"
+msgstr ""
+
+#: library/blocks/content/content.php:560
+msgid "Gutenberg code block"
+msgstr ""
+
+#: library/blocks/content/content.php:566
+msgid "Gutenberg preformatted block"
+msgstr ""
+
+#: library/blocks/content/content.php:572
+msgid "Gutenberg pullquote block"
+msgstr ""
+
+#: library/blocks/content/content.php:578
+msgid "Gutenberg table block"
+msgstr ""
+
+#: library/blocks/content/content.php:584
+msgid "Gutenberg button block"
+msgstr ""
+
+#: library/blocks/content/content.php:590
+msgid "Gutenberg columns block"
+msgstr ""
+
+#: library/blocks/content/content.php:596
+msgid "Gutenberg media-text block"
+msgstr ""
+
+#: library/blocks/content/content.php:602
+msgid "Gutenberg separator block"
+msgstr ""
+
+#: library/blocks/content/content.php:608
+msgid "Gutenberg archives block"
+msgstr ""
+
+#: library/blocks/content/content.php:614
+#: library/blocks/content/content.php:620
+#: library/blocks/content/content.php:632
+msgid "Gutenberg categories block"
+msgstr ""
+
+#: library/blocks/content/content.php:626
+msgid "Gutenberg latest-comments block"
+msgstr ""
+
+#: library/blocks/content/content.php:638
+msgid "Gutenberg embed block"
+msgstr ""
+
+#: library/blocks/content/content.php:652
+msgid "Custom Fields Container"
+msgstr ""
+
+#: library/blocks/content/content.php:657
+msgid "Custom Fields Group"
+msgstr ""
+
+#: library/blocks/content/content.php:663
+msgid "Custom Fields Div"
+msgstr ""
+
+#: library/blocks/content/content.php:669
+msgid "Custom Fields text"
+msgstr ""
+
+#: library/blocks/content/content.php:675
+msgid "Custom Fields Link"
+msgstr ""
+
+#: library/blocks/content/content.php:681
+msgid "Custom Fields H1"
+msgstr ""
+
+#: library/blocks/content/content.php:687
+msgid "Custom Fields H2"
+msgstr ""
+
+#: library/blocks/content/content.php:693
+msgid "Custom Fields H3"
+msgstr ""
+
+#: library/blocks/content/content.php:699
+msgid "Custom Fields H4"
+msgstr ""
+
+#: library/blocks/content/content.php:705
+msgid "Custom Fields H5"
+msgstr ""
+
+#: library/blocks/content/content.php:711
+msgid "Custom Fields H6"
+msgstr ""
+
+#: library/blocks/content/content.php:717
+msgid "Custom Fields span"
+msgstr ""
+
+#: library/blocks/content/content.php:788
+msgid "The content block is extremely versatile.  If the default mode is selected, it will do what you expect it to do.  For example, if you add this on a page, it will display that page's content.  If you add it on the Blog Index layout, it will list the posts like a normal blog template and if you add this box on a category layout, it will list posts of that category.  If you wish to change what the content block displays, change the mode to <em>Custom Query</em> and use the settings in the <em>Query Filters</em> tab."
+msgstr ""
+
+#: library/blocks/content/content.php:790
+msgid "For more control over queries and how the query is displayed, Padma works perfectly out-of-the-box with <a href=\"http://pluginbuddy.com/purchase/loopbuddy/\" target=\"_blank\">LoopBuddy</a>."
+msgstr ""
+
+#: library/blocks/content/content.php:792
+msgid ""
+"\n"
+"\t\t\t\t<p>The entry meta is the information that appears below the post title and below the post content.  By default, it will contain information about the entry author, the categories, and comments.</p>\n"
+"\t\t\t\t<p><strong>Available Variables:</strong></p>\n"
+"\t\t\t\t<p>%date% &bull; %modified_date% &bull; %time% &bull; %comments% &bull; %comments_no_link% &bull; %respond% &bull; %author% &bull; %author_no_link% &bull; %categories% &bull; %tags% &bull; %publisher% &bull; %publisher_img% &bull; %publisher_no_img%</p>\n"
+"\t\t\t"
 msgstr ""
 
 #: library/blocks/footer/footer.php:121

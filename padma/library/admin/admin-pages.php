@@ -12,7 +12,10 @@ class PadmaAdminPages {
 
 		PadmaAdmin::show_header('Padma Visual Editor');
 
-			echo sprintf( __('<p>You are now being redirected. If you are not redirected within 3 seconds, click <a href="%s/?visual-editor=true"><strong>here</strong></a>.</p>','padma'), home_url() );
+			echo sprintf( 
+				__('<p>You are now being redirected. If you are not redirected within 3 seconds, click <a href="%s"><strong>here</strong></a>.</p>','padma'), 
+				home_url() . '/?visual-editor=true'
+			);
 
 			echo '<meta http-equiv="refresh" content="3;URL=' . home_url() . '/?visual-editor=true">';
 		

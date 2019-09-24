@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-24T18:25:29-05:00\n"
+"POT-Creation-Date: 2019-09-24T18:51:44-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -345,6 +345,7 @@ msgid "Using the alternate page title, you can override the title that's display
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:90
+#: library/blocks/content/content.php:803
 msgid "Display"
 msgstr ""
 
@@ -366,30 +367,37 @@ msgid "Use Block Default"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:126
+#: library/blocks/content/content.php:1489
 msgid "Left of Title"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:127
+#: library/blocks/content/content.php:1490
 msgid "Right of Title"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:128
+#: library/blocks/content/content.php:1491
 msgid "Left of Content"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:129
+#: library/blocks/content/content.php:1492
 msgid "Right of Content"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:130
+#: library/blocks/content/content.php:1493
 msgid "Above Title"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:131
+#: library/blocks/content/content.php:1494
 msgid "Above Content"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:132
+#: library/blocks/content/content.php:1495
 msgid "Below Content"
 msgstr ""
 
@@ -400,6 +408,7 @@ msgstr ""
 #: library/admin/admin-meta-boxes.php:172
 #: library/admin/pages/options.php:210
 #: library/blocks/content/content.php:184
+#: library/blocks/content/content.php:955
 msgid "Title"
 msgstr ""
 
@@ -791,11 +800,14 @@ msgid "Search"
 msgstr ""
 
 #: library/admin/pages/options.php:190
+#: library/blocks/content/content.php:954
 msgid "Date"
 msgstr ""
 
 #: library/admin/pages/options.php:191
 #: library/admin/pages/templates.php:68
+#: library/blocks/content/content.php:927
+#: library/blocks/content/content.php:959
 msgid "Author"
 msgstr ""
 
@@ -804,6 +816,8 @@ msgid "Post Tag"
 msgstr ""
 
 #: library/admin/pages/options.php:193
+#: library/blocks/content/content.php:910
+#: library/blocks/content/content.php:960
 msgid "Post Type"
 msgstr ""
 
@@ -1652,6 +1666,7 @@ msgid "Select a form"
 msgstr ""
 
 #: library/blocks/content/comments-template.php:18
+#: library/blocks/content/content.php:1399
 msgid "One Response"
 msgstr ""
 
@@ -1811,14 +1826,17 @@ msgid "Caption Text"
 msgstr ""
 
 #: library/blocks/content/content.php:246
+#: library/blocks/content/content.php:805
 msgid "Meta"
 msgstr ""
 
 #: library/blocks/content/content.php:252
+#: library/blocks/content/content.php:1302
 msgid "Meta Above Content"
 msgstr ""
 
 #: library/blocks/content/content.php:259
+#: library/blocks/content/content.php:1309
 msgid "Meta Below Content"
 msgstr ""
 
@@ -1891,6 +1909,7 @@ msgid "Loop Navigation Button"
 msgstr ""
 
 #: library/blocks/content/content.php:429
+#: library/blocks/content/content.php:806
 msgid "Comments"
 msgstr ""
 
@@ -2075,6 +2094,595 @@ msgid ""
 "\t\t\t\t<p><strong>Available Variables:</strong></p>\n"
 "\t\t\t\t<p>%date% &bull; %modified_date% &bull; %time% &bull; %comments% &bull; %comments_no_link% &bull; %respond% &bull; %author% &bull; %author_no_link% &bull; %categories% &bull; %tags% &bull; %publisher% &bull; %publisher_img% &bull; %publisher_no_img%</p>\n"
 "\t\t\t"
+msgstr ""
+
+#: library/blocks/content/content.php:801
+msgid "Mode"
+msgstr ""
+
+#: library/blocks/content/content.php:802
+#: library/blocks/content/content.php:856
+msgid "Query Filters"
+msgstr ""
+
+#: library/blocks/content/content.php:804
+msgid "Custom Fields"
+msgstr ""
+
+#: library/blocks/content/content.php:807
+msgid "Featured Images"
+msgstr ""
+
+#: library/blocks/content/content.php:817
+msgid "Query Mode"
+msgstr ""
+
+#: library/blocks/content/content.php:820
+msgid "Default Behavior"
+msgstr ""
+
+#: library/blocks/content/content.php:821
+msgid "Custom Query"
+msgstr ""
+
+#: library/blocks/content/content.php:842
+msgid "Fetch a Page"
+msgstr ""
+
+#: library/blocks/content/content.php:848
+msgid "Fetch Page Content"
+msgstr ""
+
+#: library/blocks/content/content.php:849
+msgid "Query options have no effect if you have chosen to Fetch a Page"
+msgstr ""
+
+#: library/blocks/content/content.php:857
+msgid "Query options have no effect if you have chosen to Fetch a Page's content above"
+msgstr ""
+
+#: library/blocks/content/content.php:863
+msgid "Categories"
+msgstr ""
+
+#: library/blocks/content/content.php:871
+msgid "Categories Mode"
+msgstr ""
+
+#: library/blocks/content/content.php:874
+msgid "Include"
+msgstr ""
+
+#: library/blocks/content/content.php:875
+msgid "Exclude"
+msgstr ""
+
+#: library/blocks/content/content.php:882
+msgid "Tags Filter"
+msgstr ""
+
+#: library/blocks/content/content.php:883
+msgid "Check this to allow the tags filter show."
+msgstr ""
+
+#: library/blocks/content/content.php:901
+msgid "Tags"
+msgstr ""
+
+#: library/blocks/content/content.php:919
+msgid "Post Status"
+msgstr ""
+
+#: library/blocks/content/content.php:935
+msgid "Number of Posts"
+msgstr ""
+
+#: library/blocks/content/content.php:943
+msgid "Offset"
+msgstr ""
+
+#: library/blocks/content/content.php:944
+msgid "The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped."
+msgstr ""
+
+#: library/blocks/content/content.php:951
+msgid "Order By"
+msgstr ""
+
+#: library/blocks/content/content.php:956
+msgid "Random"
+msgstr ""
+
+#: library/blocks/content/content.php:957
+msgid "Comment Count"
+msgstr ""
+
+#: library/blocks/content/content.php:961
+msgid "Custom Order"
+msgstr ""
+
+#: library/blocks/content/content.php:968
+msgid "Order"
+msgstr ""
+
+#: library/blocks/content/content.php:971
+msgid "Descending"
+msgstr ""
+
+#: library/blocks/content/content.php:972
+msgid "Ascending"
+msgstr ""
+
+#: library/blocks/content/content.php:978
+msgid "Include by ID"
+msgstr ""
+
+#: library/blocks/content/content.php:979
+#: library/blocks/content/content.php:986
+msgid "In both Include and Exclude by ID, you use a comma separated list of IDs of your post type."
+msgstr ""
+
+#: library/blocks/content/content.php:985
+msgid "Exclude by ID"
+msgstr ""
+
+#: library/blocks/content/content.php:993
+msgid "Read More Text"
+msgstr ""
+
+#: library/blocks/content/content.php:995
+msgid "Continue Reading"
+msgstr ""
+
+#: library/blocks/content/content.php:996
+msgid "If excerpts are being shown or a featured post is truncated using WordPress' read more shortcode, then this will be shown after the excerpt or truncated content."
+msgstr ""
+
+#: library/blocks/content/content.php:1002
+msgid "Show Titles"
+msgstr ""
+
+#: library/blocks/content/content.php:1004
+msgid "If you wish to only show the content and meta of the entry, you can hide the entry (post or page) titles with this option."
+msgstr ""
+
+#: library/blocks/content/content.php:1010
+msgid "Link Titles?"
+msgstr ""
+
+#: library/blocks/content/content.php:1012
+msgid "If you wish to turn off the link to Post/Page titles, uncheck this"
+msgstr ""
+
+#: library/blocks/content/content.php:1018
+msgid "Show Archive Title?"
+msgstr ""
+
+#: library/blocks/content/content.php:1020
+msgid "If you wish to turn off the page title on archive layouts (e.g. category, tag, etc), uncheck this"
+msgstr ""
+
+#: library/blocks/content/content.php:1029
+msgid "Only archive name"
+msgstr ""
+
+#: library/blocks/content/content.php:1030
+msgid "Custom title"
+msgstr ""
+
+#: library/blocks/content/content.php:1032
+msgid "Archive Title type"
+msgstr ""
+
+#: library/blocks/content/content.php:1033
+msgid "Display normal title, only archive (category, tag, etc) or Custom Archive Title"
+msgstr ""
+
+#: library/blocks/content/content.php:1058
+msgid "Custom Archive title"
+msgstr ""
+
+#: library/blocks/content/content.php:1059
+msgid "Use custom title for archive. Use %archive% for category, tag, etc: example \"Category Archives: %archive%\""
+msgstr ""
+
+#: library/blocks/content/content.php:1065
+msgid "Show Read More"
+msgstr ""
+
+#: library/blocks/content/content.php:1067
+msgid "Show and hide the continue reading or read more text/button."
+msgstr ""
+
+#: library/blocks/content/content.php:1073
+msgid "Entry Content Display"
+msgstr ""
+
+#: library/blocks/content/content.php:1074
+msgid "The entry content is the actual body of the entry.  This is what you enter in the rich text area when creating an entry (post or page).  When set to normal, Padma will determine if full entries or excerpts should be displayed based off of the <em>Featured Posts</em> setting and what page is being displayed.<br /><br /><strong>Tip:</strong> Set this to <em>Hide Entry Content</em> to create a simple listing of posts."
+msgstr ""
+
+#: library/blocks/content/content.php:1078
+msgid "Show Full Entries"
+msgstr ""
+
+#: library/blocks/content/content.php:1079
+msgid "Show Excerpts"
+msgstr ""
+
+#: library/blocks/content/content.php:1080
+msgid "Hide Entry Content"
+msgstr ""
+
+#: library/blocks/content/content.php:1113
+msgid "Show Entry"
+msgstr ""
+
+#: library/blocks/content/content.php:1115
+msgid "By default, the entries will always be shown.  However, there may be certain cases where you wish to show the entry content in one Content Block, but the comments in another.  With this option, you can do that."
+msgstr ""
+
+#: library/blocks/content/content.php:1121
+msgid "Comments Visibility"
+msgstr ""
+
+#: library/blocks/content/content.php:1125
+msgid "Always Hide Comments"
+msgstr ""
+
+#: library/blocks/content/content.php:1126
+msgid "Always Show Comments"
+msgstr ""
+
+#: library/blocks/content/content.php:1128
+msgid "When set to automatic, the comments will only show on single post pages.  However, there may be times where you want to force comment visibility to allow comments on pages.  Or, you may hide the comments if you wish to not see them at all.<br /><br /><strong>Tip:</strong> Create unique layouts by using this option in conjunction with the Show Entry option to show the entry content in one Content Block and show the comments in another Content Block."
+msgstr ""
+
+#: library/blocks/content/content.php:1134
+msgid "Featured Posts"
+msgstr ""
+
+#: library/blocks/content/content.php:1136
+msgid "Featured posts are the posts where all of the content is displayed, unless limited by using the WordPress more tag.  After the featured posts are displayed, the content will automatically switch to showing automatically truncated excerpts."
+msgstr ""
+
+#: library/blocks/content/content.php:1142
+msgid "Show Older/Newer Posts Navigation"
+msgstr ""
+
+#: library/blocks/content/content.php:1143
+msgid "On archive layouts: Show links at the bottom of the loop for the visitor to view older or newer posts."
+msgstr ""
+
+#: library/blocks/content/content.php:1150
+msgid "Show Single Post Navigation"
+msgstr ""
+
+#: library/blocks/content/content.php:1152
+msgid "By default, Padma will show links to the previous and next posts below an entry when viewing only one entry at a time.  You can choose to hide those links with this option."
+msgstr ""
+
+#: library/blocks/content/content.php:1171
+msgid "Single Post Navigation: Same Tax?"
+msgstr ""
+
+#: library/blocks/content/content.php:1173
+msgid "If you have Show Single Post Navigation turned on, by default WordPress/Padma will show links the next and previous post in chronological order. If you want the next/previous posts to only link to posts in the same taxonomy as the current post, enable this."
+msgstr ""
+
+#: library/blocks/content/content.php:1188
+msgid "Single Post Navigation Taxonomy"
+msgstr ""
+
+#: library/blocks/content/content.php:1190
+msgid "If you have enabled Same Tax for Single Post Navigation, you can choose which taxonomy you want it to apply to.  By default, it will apply to the category taxonomy."
+msgstr ""
+
+#: library/blocks/content/content.php:1197
+msgid "Show Edit Link"
+msgstr ""
+
+#: library/blocks/content/content.php:1199
+msgid "The edit link is a convenient link that will be shown next to the post title.  It will take you straight to the WordPress admin to edit the entry."
+msgstr ""
+
+#: library/blocks/content/content.php:1205
+msgid "Custom Excerpts"
+msgstr ""
+
+#: library/blocks/content/content.php:1211
+msgid "Custom Excerpts Length"
+msgstr ""
+
+#: library/blocks/content/content.php:1213
+msgid "By default the excerpts are set to 55 words. This can be far too many and a PHP hook will need to be set to change it. Instead you can set a custom amount here by specifically stating the number of words you want to show."
+msgstr ""
+
+#: library/blocks/content/content.php:1227
+msgid "Excerpts Length"
+msgstr ""
+
+#: library/blocks/content/content.php:1229
+msgid "Control the length of the excerpt. By default they are set to display 55 words. This setting allows you to reduce or even lengthen that as you like and can be very handy to customise the look of your archive pages."
+msgstr ""
+
+#: library/blocks/content/content.php:1235
+msgid "Column Layout"
+msgstr ""
+
+#: library/blocks/content/content.php:1241
+msgid "Enable Column Layout"
+msgstr ""
+
+#: library/blocks/content/content.php:1243
+msgid "Enable this option to display articles side by side as columns."
+msgstr ""
+
+#: library/blocks/content/content.php:1271
+msgid "How many posts to show per row."
+msgstr ""
+
+#: library/blocks/content/content.php:1284
+msgid "The amount of horizontal spacing between posts."
+msgstr ""
+
+#: library/blocks/content/content.php:1294
+msgid "Entry Meta Display (Per Post Type)"
+msgstr ""
+
+#: library/blocks/content/content.php:1295
+msgid "Choose which post types you wish for the entry meta to appear on."
+msgstr ""
+
+#: library/blocks/content/content.php:1304
+msgid "Posted on %date% by %author% &bull; %comments%"
+msgstr ""
+
+#: library/blocks/content/content.php:1311
+msgid "Filed Under: %categories%"
+msgstr ""
+
+#: library/blocks/content/content.php:1317
+msgid "Date Format"
+msgstr ""
+
+#: library/blocks/content/content.php:1323
+msgid "Time Format"
+msgstr ""
+
+#: library/blocks/content/content.php:1329
+msgid "Comments Meta"
+msgstr ""
+
+#: library/blocks/content/content.php:1334
+msgid "Comment Format &ndash; More Than 1 Comment"
+msgstr ""
+
+#: library/blocks/content/content.php:1337
+msgid "Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>more than 1 comment</strong> on the entry."
+msgstr ""
+
+#: library/blocks/content/content.php:1342
+msgid "Comment Format &ndash; 1 Comment"
+msgstr ""
+
+#: library/blocks/content/content.php:1345
+msgid "Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>just 1 comment</strong> on the entry."
+msgstr ""
+
+#: library/blocks/content/content.php:1350
+msgid "Comment Format &ndash; 0 Comments"
+msgstr ""
+
+#: library/blocks/content/content.php:1353
+msgid "Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there are <strong>0 comments</strong> on the entry."
+msgstr ""
+
+#: library/blocks/content/content.php:1359
+msgid "Respond Format"
+msgstr ""
+
+#: library/blocks/content/content.php:1361
+msgid "Leave a comment!"
+msgstr ""
+
+#: library/blocks/content/content.php:1362
+msgid "Determines the %respond% variable for the entry meta."
+msgstr ""
+
+#: library/blocks/content/content.php:1370
+msgid "Comments Area Heading"
+msgstr ""
+
+#: library/blocks/content/content.php:1375
+msgid "Comments Area Heading Format"
+msgstr ""
+
+#: library/blocks/content/content.php:1378
+msgid ""
+"Heading above all comments.\n"
+"\t\t\t\t\t\t<br />\n"
+"\t\t\t\t\t\t<br /><strong>Available Variables:</strong>\n"
+"\t\t\t\t\t\t<ul>\n"
+"\t\t\t\t\t\t\t<li>%responses%</li>\n"
+"\t\t\t\t\t\t\t<li>%title%</li>\n"
+"\t\t\t\t\t\t</ul>"
+msgstr ""
+
+#: library/blocks/content/content.php:1389
+msgid "Responses Format &ndash; More Than 1 Comment"
+msgstr ""
+
+#: library/blocks/content/content.php:1392
+msgid "Controls what the %responses% variable will output in the comments area heading if there is <strong>more than 1 comment</strong> on the entry."
+msgstr ""
+
+#: library/blocks/content/content.php:1397
+msgid "Responses Format &ndash; 1 Comment"
+msgstr ""
+
+#: library/blocks/content/content.php:1400
+msgid "Controls what the %responses% variable will output in the comments area heading if there is <strong>just 1 comment</strong> on the entry."
+msgstr ""
+
+#: library/blocks/content/content.php:1406
+msgid "Reply Area"
+msgstr ""
+
+#: library/blocks/content/content.php:1411
+msgid "Comment Form Title"
+msgstr ""
+
+#: library/blocks/content/content.php:1413
+msgid "Leave a reply"
+msgstr ""
+
+#: library/blocks/content/content.php:1414
+msgid "This is the text that displays above the comment form."
+msgstr ""
+
+#: library/blocks/content/content.php:1419
+msgid "Reply Form Title"
+msgstr ""
+
+#: library/blocks/content/content.php:1421
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: library/blocks/content/content.php:1422
+msgid "The title of comment form when replying to a comment."
+msgstr ""
+
+#: library/blocks/content/content.php:1435
+msgid "Submit Text"
+msgstr ""
+
+#: library/blocks/content/content.php:1437
+msgid "Post Comment"
+msgstr ""
+
+#: library/blocks/content/content.php:1438
+msgid "The submit button text."
+msgstr ""
+
+#: library/blocks/content/content.php:1447
+msgid "Show Featured Images"
+msgstr ""
+
+#: library/blocks/content/content.php:1466
+msgid "Use featured image as background"
+msgstr ""
+
+#: library/blocks/content/content.php:1473
+msgid "Link Featured Image"
+msgstr ""
+
+#: library/blocks/content/content.php:1476
+msgid "Entry (Default)"
+msgstr ""
+
+#: library/blocks/content/content.php:1477
+msgid "Attachment Page"
+msgstr ""
+
+#: library/blocks/content/content.php:1478
+msgid "None"
+msgstr ""
+
+#: library/blocks/content/content.php:1480
+msgid "By default, Padma will create a link around the featured image which links back to the post. Choose no link or to link to the image's attachment page instead."
+msgstr ""
+
+#: library/blocks/content/content.php:1486
+msgid "Image Position"
+msgstr ""
+
+#: library/blocks/content/content.php:1502
+msgid "Use Per-Entry Featured Image Positions"
+msgstr ""
+
+#: library/blocks/content/content.php:1504
+msgid "In the WordPress write panel, there is a Padma meta box that allows you to change the featured image position for the entry being edited.<br /><br />By default, the block will use that value, but you may uncheck this so that the blocks thumbnail position is always used."
+msgstr ""
+
+#: library/blocks/content/content.php:1510
+msgid "Featured Image Sizing"
+msgstr ""
+
+#: library/blocks/content/content.php:1516
+msgid "Featured Image Size (Left/Right)"
+msgstr ""
+
+#: library/blocks/content/content.php:1521
+msgid "Adjust the size of the featured image sizes.  This is used for both the width and height of the images."
+msgstr ""
+
+#: library/blocks/content/content.php:1528
+msgid "Featured Image Height Ratio (Above Title/Content)"
+msgstr ""
+
+#: library/blocks/content/content.php:1533
+msgid "Adjust the height of feature images when set to the above title or above content positions.  This value controls what percent the height of the image will be in regards to the width of the block.<br /><br />Example: If the block width is 500 pixels and the ratio is 50% then the feature image size will be 500px by 250px."
+msgstr ""
+
+#: library/blocks/content/content.php:1540
+msgid "Crop Featured Images"
+msgstr ""
+
+#: library/blocks/content/content.php:1575
+msgid "LoopBuddy Query"
+msgstr ""
+
+#: library/blocks/content/content.php:1577
+msgid "Select a LoopBuddy query to the right.  Queries determine what content (posts, pages, etc) will be displayed.  You can modify/add queries in the WordPress admin under LoopBuddy."
+msgstr ""
+
+#: library/blocks/content/content.php:1584
+msgid "LoopBuddy Layout"
+msgstr ""
+
+#: library/blocks/content/content.php:1586
+msgid "Select a LoopBuddy layout to the right.  Layouts determine how the query will be displayed.  This includes the order of the content in relation to the title, meta, and so on.  You can modify/add layouts in the WordPress admin under LoopBuddy."
+msgstr ""
+
+#: library/blocks/content/content.php:1592
+msgid "<strong>Even though we have the options to choose a LoopBuddy layout and query here, we recommend you configure LoopBuddy using its <a href=\"%s\" target=\"_blank\">options panel</a>.</strong><br /><br />The options below are more useful if you're using two Content Blocks on one layout and wish to configure them separately.  <strong>Note:</strong> You MUST have a query selected in order to also select a LoopBuddy layout."
+msgstr ""
+
+#: library/blocks/content/content.php:1610
+msgid "SearchWP Engine"
+msgstr ""
+
+#: library/blocks/content/content.php:1612
+msgid "If you wish to display the results of a supplemented SearchWP engine, please select the engine here."
+msgstr ""
+
+#: library/blocks/content/content.php:1665
+msgid "The selected post type does not have custom fields."
+msgstr ""
+
+#: library/blocks/content/content.php:1667
+msgid "There is not custom fields to show."
+msgstr ""
+
+#: library/blocks/content/content.php:1750
+msgid "&ndash; Do Not Fetch &ndash;"
+msgstr ""
+
+#: library/blocks/content/content.php:1774
+msgid "No tags available"
+msgstr ""
+
+#: library/blocks/content/content.php:1842
+msgid "&ndash; Select an Engine &ndash;"
+msgstr ""
+
+#: library/blocks/content/content.php:1874
+msgid "&ndash; Use Default Query &ndash;"
+msgstr ""
+
+#: library/blocks/content/content.php:1893
+msgid "&ndash; Use Default Layout &ndash;"
 msgstr ""
 
 #: library/blocks/footer/footer.php:121

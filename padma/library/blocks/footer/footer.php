@@ -3,47 +3,63 @@
 class PadmaFooterBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'footer';	
-	public $name = 'Footer';		
-	public $options_class = 'PadmaFooterBlockOptions';	
-	public $html_tag = 'footer';	
-	public $attributes = array(
-		'itemscope' => '',
-		'itemtype' => 'http://schema.org/WPFooter'
-	);
-	public $description = 'This typically goes at the bottom of your site and will display the copyright, and miscellaneous links.';
-	public $allow_titles = false;	
-	protected $show_content_in_grid = true;
-	public $categories 	= array('core','content');
-	public $inline_editable = array('custom-copyright');
-		
+	public $id;
+	public $name;
+	public $options_class;
+	public $html_tag;
+	public $attributes;
+	public $description;
+	public $allow_titles;
+	protected $show_content_in_grid;
+	public $categories;
+	public $inline_editable;
+	
+
+	function __construct(){
+
+		$this->id = 'footer';	
+		$this->name = 'Footer';		
+		$this->options_class = 'PadmaFooterBlockOptions';	
+		$this->html_tag = 'footer';	
+		$this->attributes = array(
+			'itemscope' => '',
+			'itemtype' => 'http://schema.org/WPFooter'
+		);
+		$this->description = __('This typically goes at the bottom of your site and will display the copyright, and miscellaneous links.','padma');
+		$this->allow_titles = false;	
+		$this->show_content_in_grid = true;
+		$this->categories 	= array('core','content');
+		$this->inline_editable = array('custom-copyright');
+
+	}
+
 	
 	function setup_elements() {
 		
 		$this->register_block_element(array(
 			'id' => 'copyright',
-			'name' => 'Copyright',
+			'name' => __('Copyright','padma'),
 			'selector' => 'p.copyright',
 			'properties' => array('fonts', 'animation')
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'padma-attribution',
-			'name' => 'Padma Attribution',
+			'name' => __('Padma Attribution','padma'),
 			'selector' => 'p.footer-padma-link',
 			'properties' => array('fonts', 'animation')
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'administration-panel',
-			'name' => 'Administration Panel',
+			'name' => __('Administration Panel','padma'),
 			'selector' => 'a.footer-admin-link',
 			'properties' => array('fonts', 'animation')
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'go-to-top',
-			'name' => 'Go To Top Link',
+			'name' => __('Go To Top Link','padma'),
 			'selector' => 'a.footer-go-to-top-link',
 			'states' => array(
 				'Hover' => 'a.footer-go-to-top-link:hover'
@@ -52,7 +68,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 		
 		$this->register_block_element(array(
 			'id' => 'responsive-grid-link',
-			'name' => 'Responsive Grid Toggle Link',
+			'name' => __('Responsive Grid Toggle Link','padma'),
 			'selector' => 'a.footer-responsive-grid-link',
 			'properties' => array('fonts', 'animation')
 		));
@@ -207,74 +223,81 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 
 class PadmaFooterBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'nav-menu-content' => 'Content'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'nav-menu-content' => array(
-			'show-admin-link' => array(
-				'type' => 'checkbox',
-				'name' => 'show-admin-link',
-				'label' => 'Show Admin Link/Login',
-				'default' => true
-			),
-			
-			'show-go-to-top-link' => array(
-				'name' => 'show-go-to-top-link',
-				'label' => 'Show Go To Top Link',
-				'type' => 'checkbox',
-				'default' => true,
-				'toggle'    => array(
-					'true' => array(
-						'show' => array(
-							'#input-custom-go-to-top-text'
-						)
-					),
-					'false' => array(
-						'hide' => array(
-							'#input-custom-go-to-top-text'
+
+	function __construct(){
+		
+		$this->tabs = array(
+			'nav-menu-content' => __('Content','padma')
+		);
+
+		$this->inputs = array(
+			'nav-menu-content' => array(
+				'show-admin-link' => array(
+					'type' => 'checkbox',
+					'name' => 'show-admin-link',
+					'label' => __('Show Admin Link/Login','padma'),
+					'default' => true
+				),
+				
+				'show-go-to-top-link' => array(
+					'name' => 'show-go-to-top-link',
+					'label' => __('Show Go To Top Link','padma'),
+					'type' => 'checkbox',
+					'default' => true,
+					'toggle'    => array(
+						'true' => array(
+							'show' => array(
+								'#input-custom-go-to-top-text'
+							)
+						),
+						'false' => array(
+							'hide' => array(
+								'#input-custom-go-to-top-text'
+							)
 						)
 					)
-				)
-			),
+				),
 
-			'custom-go-to-top-text' => array(
-				'name' => 'custom-go-to-top-text',
-				'label' => 'Custom "Go to Top" text',
-				'type' => 'text',
-				'tooltip' => 'Custom "Go to Top" text'
-			),
-			
-			'hide-padma-attribution' => array(
-				'name' => 'hide-padma-attribution',
-				'label' => 'Hide Padma Theme Attribution',
-				'type' => 'checkbox',
-				'default' => false
-			),
-			
-			'show-copyright' => array(
-				'name' => 'show-copyright',
-				'label' => 'Show Copyright',
-				'type' => 'checkbox',
-				'default' => true
-			),
-			
-			'custom-copyright' => array(
-				'name' => 'custom-copyright',
-				'label' => 'Custom Copyright',
-				'type' => 'text',
-				'tooltip' => 'If you would like to change the copyright in the footer to say something different, enter it here. Use %Y% for current year.'
-			),
-			
-			'show-responsive-grid-link' => array(
-				'name' => 'show-responsive-grid-link',
-				'label' => 'Hide a link to view the full site on mobile.',
-				'type' => 'checkbox',
-				'tooltip' => 'Shows a link to either view the full site or view the mobile site.',
-				'default' => false
+				'custom-go-to-top-text' => array(
+					'name' => 'custom-go-to-top-text',
+					'label' => __('Custom "Go to Top" text','padma'),
+					'type' => 'text',
+					'tooltip' => __('Custom "Go to Top" text','padma')
+				),
+				
+				'hide-padma-attribution' => array(
+					'name' => 'hide-padma-attribution',
+					'label' => __('Hide Padma Theme Attribution','padma'),
+					'type' => 'checkbox',
+					'default' => false
+				),
+				
+				'show-copyright' => array(
+					'name' => 'show-copyright',
+					'label' => __('Show Copyright','padma'),
+					'type' => 'checkbox',
+					'default' => true
+				),
+				
+				'custom-copyright' => array(
+					'name' => 'custom-copyright',
+					'label' => __('Custom Copyright','padma'),
+					'type' => 'text',
+					'tooltip' => __('If you would like to change the copyright in the footer to say something different, enter it here. Use %Y% for current year.','padma')
+				),
+				
+				'show-responsive-grid-link' => array(
+					'name' => 'show-responsive-grid-link',
+					'label' => __('Hide a link to view the full site on mobile.','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('Shows a link to either view the full site or view the mobile site.','padma'),
+					'default' => false
+				)
 			)
-		)
-	);
+		);
+	}
 		
 }

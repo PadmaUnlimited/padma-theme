@@ -3,26 +3,41 @@
 class PadmaHeaderBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'header';	
-	public $name = 'Header';		
-	public $options_class = 'PadmaHeaderBlockOptions';	
-	public $fixed_height = true;	
-	public $html_tag = 'header';	
-	public $attributes = array(
-		'itemscope' => '',
-		'itemtype' => 'http://schema.org/WPHeader'
-	);
-	public $description = 'Display your banner, logo, or site title and tagline.  This typically goes at the top of your website.';
-	public $allow_titles = false;	
-	protected $show_content_in_grid = true;
-	public $categories = array('core','content');	
+	public $id;
+	public $name;
+	public $options_class;
+	public $fixed_height;
+	public $html_tag;
+	public $attributes;
+	public $description;
+	public $allow_titles;
+	protected $show_content_in_grid;
+	public $categories;
 	
+
+	function __construct(){
+
+		$this->id = 'header';	
+		$this->name = __('Header','padma');
+		$this->options_class = 'PadmaHeaderBlockOptions';	
+		$this->fixed_height = true;	
+		$this->html_tag = 'header';	
+		$this->attributes = array(
+			'itemscope' => '',
+			'itemtype' => 'http://schema.org/WPHeader'
+		);
+		$this->description = __('Display your banner, logo, or site title and tagline.  This typically goes at the top of your website.','padma');
+		$this->allow_titles = false;	
+		$this->show_content_in_grid = true;
+		$this->categories = array('core','content');
+
+	}
 	
 	function setup_elements() {
 		
 		$this->register_block_element(array(
 			'id' => 'site-title',
-			'name' => 'Site Title',
+			'name' => __('Site Title','padma'),
 			'selector' => 'span.banner a',
 			'states' => array(
 				'Hover' => 'span.banner a:hover',
@@ -32,7 +47,7 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'banner-image',
-			'name' => 'Banner/Logo Link',
+			'name' => __('Banner/Logo Link','padma'),
 			'selector' => 'a.banner-image',
 			'states' => array(
 				'Clicked' => 'a.banner-image:active',
@@ -42,13 +57,13 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'banner-image-img',
-			'name' => 'Banner Image',
+			'name' => __('Banner Image','padma'),
 			'selector' => 'a.banner-image img'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'site-tagline',
-			'name' => 'Site Tagline',
+			'name' => __('Site Tagline','padma'),
 			'selector' => '.tagline'
 		));
 		
@@ -114,35 +129,42 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 
 class PadmaHeaderBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' => 'General'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'general' => array(
-			'header-image' => array(
-				'type' => 'image',
-				'name' => 'header-image',
-				'label' => 'Banner/Logo',
-				'default' => null
-			),
-			
-			'resize-header-image' => array(
-				'name' => 'resize-header-image',
-				'label' => 'Automatically Resize Header Image',
-				'type' => 'checkbox',
-				'tooltip' => 'If you would like Padma to automatically scale and crop your header image to the correct dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>',
-				'default' => true
-			),
-			
-			'hide-tagline' => array(
-				'name' => 'hide-tagline',
-				'label' => 'Hide Tagline',
-				'type' => 'checkbox',
-				'tooltip' => 'Check this to hide the tagline in your header.  The tagline will sit beneath your site title.<br /><br /><em><strong>Important:</strong> The tagline will <strong>NOT</strong> show if a Header Image is added.</em>',
-				'default' => false
+
+	function __construct(){
+
+		$this->tabs = array(
+			'general' => 'General'
+		);
+
+		$this->inputs = array(
+			'general' => array(
+				'header-image' => array(
+					'type' => 'image',
+					'name' => 'header-image',
+					'label' => __('Banner/Logo','padma'),
+					'default' => null
+				),
+				
+				'resize-header-image' => array(
+					'name' => 'resize-header-image',
+					'label' => __('Automatically Resize Header Image','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('If you would like Padma to automatically scale and crop your header image to the correct dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>','padma'),
+					'default' => true
+				),
+				
+				'hide-tagline' => array(
+					'name' => 'hide-tagline',
+					'label' => __('Hide Tagline','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('Check this to hide the tagline in your header.  The tagline will sit beneath your site title.<br /><br /><em><strong>Important:</strong> The tagline will <strong>NOT</strong> show if a Header Image is added.</em>','padma'),
+					'default' => false
+				)
 			)
-		)
-	);
+		);
+	}
 	
 }

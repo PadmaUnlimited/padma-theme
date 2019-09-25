@@ -4,13 +4,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Padma Unlimited 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
-"Last-Translator: manfred rodriguez <manfred.rodriguez@padmaunlimited.com>\n"
+"Last-Translator: Paola González <castellanitadeshuesada@gmail.com>\n"
 "Language-Team: Spanish (Costa Rica)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-23T20:30:29-05:00\n"
-"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"PO-Revision-Date: 2019-09-25 02:35+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es-CR\n"
@@ -452,6 +452,13 @@ msgid ""
 "<strong>body class</strong> if only this entry is being viewed (e.g. single "
 "post or page view). Classes can be separated with spaces and/or commas."
 msgstr ""
+"Si está familiarizado con <a href=\"http://www.w3schools.com/css/\" "
+"target=\"_blank\"> CSS </a> y desea diseñar esta entrada apuntando a una "
+"determinada clase o clases de CSS ), puede ingresarlos aquí. La clase se "
+"agregará a la <strong> clase del contenedor de entrada </strong> junto con "
+"la <strong> clase de cuerpo </strong> si solo se está viendo esta entrada "
+"(por ejemplo, una sola publicación o vista de página). Las clases se pueden "
+"separar con espacios y / o comas."
 
 #: library/admin/admin-meta-boxes.php:115 
 #: library/admin/admin-meta-boxes.php:121
@@ -1409,31 +1416,41 @@ msgid ""
 "Requires a web server that supports HTTP/2. <strong>Important:</strong> This "
 "feature is Experimental."
 msgstr ""
+"Permite a WordPress enviar un Enlace: <...> rel = encabezado\"prefetch\" "
+"para cada secuencia de scripts y estilo en la cola a medida que WordPress "
+"los envía a la fuente de la página. Requiere un servidor web que admita HTTP "
+"/ 2. <strong> Importante: </strong> Esta función es Experimental."
 
 #: library/admin/pages/options.php:538
 msgid "Admin"
-msgstr ""
+msgstr "Administración"
 
 #: library/admin/pages/options.php:544
 msgid "Version Number"
-msgstr ""
+msgstr "Número de Versión"
 
 #: library/admin/pages/options.php:548
 msgid "Hide Padma Version Number From Menu"
 msgstr ""
+"Ocultar el número de Versión de Padma del Menú\n"
+" \n"
 
 #: library/admin/pages/options.php:552
 msgid ""
 "Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
 msgstr ""
+"Marque esto si desea que el menú diga \"Padma\" en lugar de \"Padma% s\"\n"
+" \n"
 
 #: library/admin/pages/options.php:557
 msgid "Editor Style"
-msgstr ""
+msgstr "Estilo del Editor"
 
 #: library/admin/pages/options.php:561
 msgid "Disable Editor Style"
 msgstr ""
+"Deshabilitar Estilo del Editor\n"
+" \n"
 
 #: library/admin/pages/options.php:565
 msgid ""
@@ -1441,24 +1458,33 @@ msgid ""
 "to <a href=\"http://codex.wordpress.org/TinyMCE\" target=\"_blank\">"
 "WordPress' TinyMCE editor</a> style.  Use this option to prevent that."
 msgstr ""
+"De forma predeterminada, Padma tomará cualquier configuración en el Editor "
+"de Diseño y la agregará a <a href=\"http://codex.wordpress.org/TinyMCE\" "
+"target=\"_blank\"> Editor de WordPress 'TinyMCE </a>estilo. Use esta opción "
+"para evitar eso.\n"
+" \n"
 
 #: library/admin/pages/options.php:572
 msgid "Developer"
 msgstr ""
+"Desarrollador\n"
 
 #: library/admin/pages/options.php:574
 msgid ""
 "Once active this option will allow you to upgrade your website to the latest "
 "Preview, Beta or Release candidate."
 msgstr ""
+"Una vez activa, esta opción le permitirá actualizar su sitio web a la última "
+"versión Preliminar, Beta o Candidato de Lanzamiento.\n"
+" \n"
 
 #: library/admin/pages/options.php:580
 msgid "Use Padma developer version"
-msgstr ""
+msgstr "Utilice la versión para desarrolladores de Padma"
 
 #: library/admin/pages/options.php:584
 msgid "Allow install testing or preview version"
-msgstr ""
+msgstr "Permitir prueba de instalación o versión de vista previa"
 
 #: library/admin/pages/options.php:588
 msgid ""
@@ -1466,24 +1492,34 @@ msgid ""
 "doing. Padma Theme and plugins will upgrade to testing version. <strong>Do "
 "NOT use on production sites.<strong>"
 msgstr ""
+"Esta opción es para desarrolladores, use esta opción solo si sabe lo que "
+"está haciendo. Padma Theme y los plugins se actualizarán a la versión de "
+"prueba. <strong> NO lo use en sitios de producción. <strong>"
 
 #: library/admin/pages/options.php:595
 msgid "Debugging"
 msgstr ""
+"Depuración\n"
+" \n"
 
 #: library/admin/pages/options.php:597
 msgid ""
 "The following option should only be checked if a member of the Padma Themes "
 "team asks you to do so."
 msgstr ""
+"La siguiente opción solo debe marcarse si un miembro del equipo de Padma "
+"Themes le pide que lo haga."
 
 #: library/admin/pages/options.php:603
 msgid "Debug Mode"
 msgstr ""
+"Modo de Depuración \n"
 
 #: library/admin/pages/options.php:607
 msgid "Enable Debug Mode"
 msgstr ""
+"Habilitar Modo de Depuración\n"
+" \n"
 
 #: library/admin/pages/options.php:611
 msgid ""
@@ -1491,31 +1527,36 @@ msgid ""
 "Visual Editor for support purposes, but <strong>will not allow changes to be "
 "saved<strong>."
 msgstr ""
+"Tener habilitado el Modo de depuración permitirá que el equipo de Padma "
+"Temas acceda al Editor visual para fines de soporte, pero <strong> no "
+"permitirá que los cambios se guarden <strong>."
 
 #: library/admin/pages/options.php:622 library/admin/pages/options.php:627
 msgid "Plugin templates"
-msgstr ""
+msgstr "Plantillas de Plugin"
 
 #: library/admin/pages/options.php:631
 msgid "Allow plugin templates"
-msgstr ""
+msgstr "Permite plantillas de plugin"
 
 #: library/admin/pages/options.php:635
 msgid ""
 "Allow load plugin templates related to Custom Post Types instead Padma Layout"
 msgstr ""
+"Permitir cargar plantillas de plugins relacionadas con Tipos de "
+"Publicaciones Personalizadas en lugar de Padma Layout"
 
 #: library/admin/pages/options.php:644
 msgid "Headway"
-msgstr ""
+msgstr "Headway"
 
 #: library/admin/pages/options.php:649
 msgid "Headway support"
-msgstr ""
+msgstr "Soporte de Headway "
 
 #: library/admin/pages/options.php:653
 msgid "Enable Headway classes support"
-msgstr ""
+msgstr "Habilitar el soporte de clases de Headway"
 
 #: library/admin/pages/options.php:657
 msgid ""
@@ -1523,18 +1564,23 @@ msgid ""
 "allows to you use blocks like Headway Rocket and similar. <strong>Important:"
 "</strong> This feature is Experimental."
 msgstr ""
+"Si está activado, Padma intentará admitir todas las clases de PHP "
+"relacionadas con Headway. Esto le permite usar bloques como Headway Rocket y "
+"similares. <strong> Importante: </strong> Esta función es Experimental."
 
 #: library/admin/pages/options.php:665
 msgid "Gutenberg"
-msgstr ""
+msgstr "Gutenberg"
 
 #: library/admin/pages/options.php:670
 msgid "Display Padma Blocks in Gutenberg"
 msgstr ""
+"Mostrar Bloques de Padma en Gutenberg\n"
+" \n"
 
 #: library/admin/pages/options.php:674
 msgid "Show Padma Blocks as Gutenberg Blocks"
-msgstr ""
+msgstr "Mostrar Bloques de Padma como Bloques de Gutenberg"
 
 #: library/admin/pages/options.php:678
 msgid ""
@@ -1542,149 +1588,169 @@ msgid ""
 "\"Block Options > Anywhere\" to enable it. <strong>Important:</strong> This "
 "feature is Experimental."
 msgstr ""
+"Si está activado, Padma permitirá usar Bloques de Padma como Bloques de "
+"Gutenberg. Vaya a \"Opciones de Bloque> En cualquier lugar\" para "
+"habilitarlo. <strong> Importante: </strong> Esta función es Experimental."
 
 #: library/admin/pages/options.php:689
 msgid "Responsive options"
-msgstr ""
+msgstr "Opciones responsivas"
 
 #: library/admin/pages/options.php:695 library/admin/pages/options.php:699
 msgid "Allow mobile zooming"
-msgstr ""
+msgstr "Permitir zoom móvil"
 
 #: library/admin/pages/options.php:703
 msgid ""
 "Adds the viewport meta tag with zooming permission to give your users the "
 "ability to zoom in your website with mobile browsers."
 msgstr ""
+"Agrega la metaetiqueta viewport con permiso de zoom para dar a sus usuarios "
+"la capacidad de hacer zoom en su sitio web con navegadores móviles.\n"
+" \n"
 
 #: library/admin/pages/options.php:718
 msgid "Save Changes"
-msgstr ""
+msgstr "Guardar cambios"
 
 #: library/admin/pages/templates.php:2 library/admin/pages/templates.php:42
 msgid "Export Template"
-msgstr ""
+msgstr "Exportar Plantilla"
 
 #: library/admin/pages/templates.php:3 library/admin/pages/templates.php:48
 msgid ""
 "Fill out the information below to export all design settings, layouts, and "
 "blocks as a Padma Template"
 msgstr ""
+"Complete la información a continuación para exportar todas las "
+"configuraciones de diseño, layouts y bloques como una Plantilla Padma"
 
 #: library/admin/pages/templates.php:9
 msgid "Template Name"
-msgstr ""
+msgstr "Nombre de Plantilla"
 
 #: library/admin/pages/templates.php:18
 msgid "Template Author"
-msgstr ""
+msgstr "Autor de Plantilla"
 
 #: library/admin/pages/templates.php:23
 msgid "Template Version"
-msgstr ""
+msgstr "Versión de Plantilla"
 
 #: library/admin/pages/templates.php:28
 msgid "Template Image"
-msgstr ""
+msgstr "Imagen de Plantilla"
 
 #: library/admin/pages/templates.php:32 library/admin/pages/templates.php:82
 msgid "Select Image"
-msgstr ""
+msgstr "Seleccionar Imagen"
 
 #: library/admin/pages/templates.php:47 library/admin/pages/templates.php:112 
 #: library/admin/pages/templates.php:120
 msgid "Save Template on Cloud"
-msgstr ""
+msgstr "Guardar Plantilla en la Nube"
 
 #: library/admin/pages/templates.php:54
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: library/admin/pages/templates.php:73
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: library/admin/pages/templates.php:78
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: library/admin/pages/templates.php:90
 msgid "Visibility"
-msgstr ""
+msgstr "Visibilidad"
 
 #: library/admin/pages/templates.php:90
 msgid "(Private: Only for me, Public: Available to sell in market)"
-msgstr ""
+msgstr "(Privado: solo para mí, Público: Disponible para vender en el mercado)"
 
 #: library/admin/pages/templates.php:92
 msgid "Private"
-msgstr ""
+msgstr "Privado"
 
 #: library/admin/pages/templates.php:93
 msgid "Public"
-msgstr ""
+msgstr "Público"
 
 #: library/admin/pages/templates.php:117
 msgid "Padma Templates"
-msgstr ""
+msgstr "Plantillas Padma"
 
 #: library/admin/pages/templates.php:118
 msgid "Install Template"
-msgstr ""
+msgstr "Instalar Plantilla"
 
 #: library/admin/pages/templates.php:119
 msgid "Export Current Template"
 msgstr ""
+"Exportar Plantilla Actual\n"
+" \n"
 
 #: library/admin/pages/templates.php:137
 msgid "Active: "
-msgstr ""
+msgstr "Activo:"
 
 #: library/admin/pages/templates.php:141
 msgid "Activate"
-msgstr ""
+msgstr "Activar"
 
 #: library/admin/pages/templates.php:156
 msgid "Templates available on your Padma Services Account"
-msgstr ""
+msgstr "Plantillas disponibles en su Cuenta de Servicios Padma"
 
 #: library/admin/pages/templates.php:174
 msgid "Available: "
-msgstr ""
+msgstr "Disponible:"
 
 #: library/admin/pages/templates.php:177
 msgid "Install"
-msgstr ""
+msgstr "Instalar"
 
 #: library/admin/pages/templates.php:194
 msgid "Add Blank Template"
 msgstr ""
+"Agregar Plantilla en Blanco\n"
+" \n"
 
 #: library/admin/pages/tools.php:28
 msgid "Copy and paste this information into support/forums if requested."
 msgstr ""
+"Copie y pegue esta información en soporte / foros si así lo solicita.\n"
+" \n"
 
 #: library/admin/pages/tools.php:30
 msgid ""
 "Please copy all of the content in the text area below and paste it as-is in "
 "the requested forum discussion."
 msgstr ""
+"Copie todo el contenido en el área de texto a continuación y péguelo como "
+"está en la discusión solicitada en el foro."
 
 #: library/admin/pages/tools.php:42
 msgid ""
 "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
 msgstr ""
+"Para copiar la información del sistema, haga clic a continuación y luego "
+"presione Ctrl + C (PC) o Cmd + C (Mac)."
 
 #: library/admin/pages/tools.php:158
 msgid "There are currently %s snapshots taking up %s of disk space."
-msgstr ""
+msgstr "Actualmente hay % s instantáneas que ocupan  %s espacio en disco."
 
 #: library/admin/pages/tools.php:163
 msgid ""
 "You can delete individual snapshots in the Visual Editor under Snapshots if "
 "you do not wish to delete all snapshots."
 msgstr ""
+"Puede eliminar instantáneas individuales en el Editor Visual en Instantáneas "
+"si no desea eliminar todas las instantáneas."
 
 #: library/admin/pages/tools.php:171
 msgid ""
@@ -1692,10 +1758,14 @@ msgid ""
 "rollback your site until you create new snapshots. OK to delete, Cancel to "
 "stop'"
 msgstr ""
+"'¡Precaución! Esto eliminará TODAS las instantáneas. Esto significa que no "
+"podrá revertir su sitio hasta que cree nuevas instantáneas. OK para eliminar,"
+" Cancelar para detener '\n"
+" \n"
 
 #: library/admin/pages/tools.php:185
 msgid "Warning"
-msgstr ""
+msgstr "Advertencia"
 
 #: library/admin/pages/tools.php:187
 msgid ""
@@ -1703,14 +1773,20 @@ msgid ""
 "existing Padma data including, but not limited to: Blocks, Design Settings, "
 "and Padma Search Engine Optimization settings."
 msgstr ""
+"Al hacer clic en el botón <em> Restablecer </em> se eliminarán <strong> "
+"TODOS </strong> los datos existentes de Padma, incluidos pero no limitados a:"
+" Bloques, Configuración de Diseño y Configuración de Optimización del Motor "
+"de Búsqueda de Padma.\n"
+" \n"
 
 #: library/admin/pages/tools.php:198
 msgid "Padma Theme Reset Disabled"
-msgstr ""
+msgstr "Restablecimiento del Tema de Padma Deshabilitado"
 
 #: library/admin/pages/tools.php:200
 msgid "For your security, resetting Padma Theme is disabled."
 msgstr ""
+"Para su seguridad, el restablecimiento de Padma Theme está desactivado."
 
 #: library/admin/pages/tools.php:202
 msgid ""
@@ -1723,76 +1799,88 @@ msgid ""
 "php\" target=\"_blank\">Editing wp-config.php</a> in the official WordPress "
 "documentation."
 msgstr ""
+"Si desea restablecer su instalación de Padma, <span style = \"font-weight: "
+"600; color: #fff; background: # 2f2f2f; padding: 2px 4px;\"> agregue el "
+"código siguiente a su archivo wp-config.php </span>. <p> Asegúrese de "
+"agregar el código sobre esta línea en su archivo wp.config.php: <code> / * "
+"Eso es todo, ¡pare la edición! Feliz blogging * / </code> <br /> ¿No está "
+"seguro de cómo editar su archivo wp-config.php? Consulte <a href=\"http:"
+"//codex.wordpress.org/Editing_wp-config.php\" target=\"_blank\"> Edición de "
+"wp-config.php </a> en la documentación oficial de WordPress."
 
 #: library/admin/partials/notices/support-us.php:10
 msgid "Hello"
-msgstr ""
+msgstr "Hola"
 
 #: library/admin/partials/notices/support-us.php:11
 msgid ""
 "Our team has been working really hard to bring this powerful tool to you. We "
 "hope you like it."
 msgstr ""
+"Nuestro equipo ha estado trabajando intensamente para brindarle esta "
+"poderosa herramienta. Esperamos que les guste."
 
 #: library/admin/partials/notices/support-us.php:12
 msgid "Aim to collaborate?"
-msgstr ""
+msgstr "¿Desea colaborar?"
 
 #: library/admin/partials/notices/support-us.php:13
 msgid "Your support is vital for success…"
-msgstr ""
+msgstr "Su apoyo es vital para el éxito ..."
 
 #: library/admin/partials/notices/support-us.php:15
 msgid "- Become a sponsor via Patron or PayPal"
-msgstr ""
+msgstr "- Conviértase en un patrocinador a través de Patron o PayPal"
 
 #: library/admin/partials/notices/support-us.php:16
 msgid "- Report errors in: https://www.padmaunlimited.com/bug-report/"
-msgstr ""
+msgstr "- Informar errores en: https://www.padmaunlimited.com/bug-report/"
 
 #: library/admin/partials/notices/support-us.php:17
 msgid "- Collaborate coding through GitHub"
-msgstr ""
+msgstr "- Colabora en la codificación a través de GitHub"
 
 #: library/admin/partials/notices/support-us.php:18
 msgid "- Suggest functionalities, blocks or plugins"
-msgstr ""
+msgstr "- Sugerir funcionalidades, bloques o plugins"
 
 #: library/admin/partials/notices/support-us.php:19
 msgid "- Join our social networks"
 msgstr ""
+"- Únase a nuestras redes sociales\n"
+" \n"
 
 #: library/admin/partials/notices/support-us.php:20
 msgid "- Share Padma Unlimited Builder with colleagues and friends"
-msgstr ""
+msgstr "- Comparta Padma Unlimited Builder con colegas y amigos"
 
 #: library/admin/partials/notices/support-us.php:21
 msgid "- Spread the word!"
-msgstr ""
+msgstr "Cuéntele a todos!"
 
 #: library/admin/partials/notices/support-us.php:23
 msgid "Let's build together!"
-msgstr ""
+msgstr "¡Construyamos juntos!"
 
 #: library/admin/partials/notices/support-us.php:24
 msgid "@PadmaTeam"
-msgstr ""
+msgstr "@PadmaTeam"
 
 #: library/admin/partials/notices/support-us.php:28
 msgid "Become a Patron"
-msgstr ""
+msgstr "Convertirse en Patrocinador"
 
 #: library/admin/partials/notices/support-us.php:29
 msgid "Other support options"
-msgstr ""
+msgstr "Otras opciones dee soporte"
 
 #: library/admin/partials/notices/support-us.php:30
 msgid "Join to our community"
-msgstr ""
+msgstr "Únase a nuestra comunidad"
 
 #: library/admin/partials/notices/support-us.php:31
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 #: library/api/api-element.php:109
 msgid "Error: Arguments must be an array for this element."

@@ -3,11 +3,21 @@
 class PadmaEmbedBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'embed';	
-	public $name = 'Embed';		
-	public $options_class = 'PadmaEmbedBlockOptions';	
-	public $description = 'The Embed block allows you to embed YouTube, Vimeo, or any other popular oEmbed supported service.';
-	public $categories 	= array('core','media');	
+	public $id;
+	public $name;
+	public $options_class;
+	public $description;
+	public $categories;
+
+	function __construct(){
+
+		$this->id = 'embed';	
+		$this->name = __('Embed','padma');
+		$this->options_class = 'PadmaEmbedBlockOptions';	
+		$this->description = __('The Embed block allows you to embed YouTube, Vimeo, or any other popular oEmbed supported service.','padma');
+		$this->categories = array('core','media');
+	}
+
 
 	function init() {
 		
@@ -36,7 +46,7 @@ class PadmaEmbedBlock extends PadmaBlockAPI {
 			
 		} else {
 			
-			echo '<div class="alert alert-yellow"><p>There is no content to display.  Please enter a valid embed URL in the visual editor.</p></div>';
+			echo '<div class="alert alert-yellow"><p>' . __('There is no content to display. Please enter a valid embed URL in the visual editor.','padma') . '</p></div>';
 			
 		}
 		
@@ -111,26 +121,33 @@ class PadmaEmbedBlock extends PadmaBlockAPI {
 
 class PadmaEmbedBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'embed-options' => 'Embed Options'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'embed-options' => array(
-			'embed-notice' => array(
-				'name' => 'embed-notice',
-				'type' => 'notice',
-				'notice' => 'Enter the URL <strong>(No HTML)</strong> to the media you wish to embed.  We support most major video and photo sites including (but not limited to) YouTube, Vimeo, Flickr, blip.tv, Hulu, and more.  <em>Need more info about oEmbed?  <a href="http://codex.wordpress.org/Embeds" target="_blank">Read More &rarr;</a></em>'
-			),
+	function __construct(){
 
-			'embed-url' => array(
-				'type' => 'text',
-				'name' => 'embed-url',
-				'label' => 'Embed URL',
-				'default' => null,
-				'placeholder' => 'URL of Media'
+		$this->tabs = array(
+			'embed-options' => __('Embed Options','padma')
+		);
+
+		$this->inputs = array(
+			'embed-options' => array(
+				'embed-notice' => array(
+					'name' => 'embed-notice',
+					'type' => 'notice',
+					'notice' => __('Enter the URL <strong>(No HTML)</strong> to the media you wish to embed.  We support most major video and photo sites including (but not limited to) YouTube, Vimeo, Flickr, blip.tv, Hulu, and more.  <em>Need more info about oEmbed?  <a href="http://codex.wordpress.org/Embeds" target="_blank">Read More &rarr;</a></em>','padma')
+				),
+
+				'embed-url' => array(
+					'type' => 'text',
+					'name' => 'embed-url',
+					'label' => __('Embed URL','padma'),
+					'default' => null,
+					'placeholder' => __('URL of Media','padma')
+				)
 			)
-		)
-	);
+		);
+
+	}
 	
 }

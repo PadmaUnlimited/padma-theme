@@ -3,10 +3,20 @@
 class PadmaGravityFormsBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'gravity-forms';	
-	public $name = 'Gravity Forms';	
-	public $options_class = 'PadmaGravityFormsBlockOptions';
-	public $categories 	= array('core','forms');			
+	public $id;
+	public $name;
+	public $options_class;
+	public $categories;
+
+
+	function __construct(){
+		
+		$this->id = 'gravity-forms';	
+		$this->name = 'Gravity Forms';	
+		$this->options_class = 'PadmaGravityFormsBlockOptions';
+		$this->categories 	= array('core','forms');		
+	}			
+
 
 	public static function enqueue_action($block_id) {
 								
@@ -24,7 +34,7 @@ class PadmaGravityFormsBlock extends PadmaBlockAPI {
 		//If no form ID is present, display the message and stop this function.
 		if ( !$form_id ) {
 			
-			echo '<p>There is no form to display.</p>';
+			echo __('<p>There is no form to display.</p>','padma');
 						
 			return;
 			
@@ -47,53 +57,60 @@ class PadmaGravityFormsBlock extends PadmaBlockAPI {
 class PadmaGravityFormsBlockOptions extends PadmaBlockOptionsAPI {
 	
 	
-	public $tabs = array(
-		'form-setup' => 'Form Setup'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'form-setup' => array(
-			
-			'form-id' => array(
-				'type' => 'select',
-				'name' => 'form-id',
-				'label' => 'Form To Display',
-				'default' => '',
-				'tooltip' => 'Select which form you would like this block to display.',
-				'options' => 'get_forms()'
-			),
-			
-			'display-title' => array(
-				'type' => 'checkbox',
-				'name' => 'display-title',
-				'label' => 'Display Form Title',
-				'default' => true
-			),
-			
-			'display-description' => array(
-				'type' => 'checkbox',
-				'name' => 'display-description',
-				'label' => 'Display Form Description',
-				'default' => true
-			),
-			
-			'use-ajax' => array(
-				'type' => 'checkbox',
-				'name' => 'use-ajax',
-				'label' => 'Use AJAX',
-				'default' => false,
-				'tooltip' => 'AJAX is a technology that will allow faster submission on your forms.'
-			),
-			
-		)
-	);
+
+	function __construct(){
+		
+		$this->tabs = array(
+			'form-setup' => __('Form Setup','padma')
+		);
+
+		public $inputs = array(
+			'form-setup' => array(
+				
+				'form-id' => array(
+					'type' => 'select',
+					'name' => 'form-id',
+					'label' => __('Form To Display','padma'),
+					'default' => '',
+					'tooltip' => __('Select which form you would like this block to display.','padma'),
+					'options' => 'get_forms()'
+				),
+				
+				'display-title' => array(
+					'type' => 'checkbox',
+					'name' => 'display-title',
+					'label' => __('Display Form Title','padma'),
+					'default' => true
+				),
+				
+				'display-description' => array(
+					'type' => 'checkbox',
+					'name' => 'display-description',
+					'label' => __('Display Form Description','padma'),
+					'default' => true
+				),
+				
+				'use-ajax' => array(
+					'type' => 'checkbox',
+					'name' => 'use-ajax',
+					'label' => __('Use AJAX','padma'),
+					'default' => false,
+					'tooltip' => __('AJAX is a technology that will allow faster submission on your forms.','padma')
+				),
+				
+			)
+		);
+	}
 	
 	
 	function get_forms() {
 		
 		$forms = RGFormsModel::get_forms();
 		
-		$options = array('' => '&ndash; Select a Form &ndash;');
+		$options = array('' => __('&ndash; Select a Form &ndash;','padma') );
 		
 		foreach ( $forms as $form ) {
 			

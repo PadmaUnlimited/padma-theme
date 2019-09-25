@@ -189,15 +189,15 @@ class PadmaPropertyInputs {
 								unset($args['property_values']['margin-top']);
 								$args['property_values']['margin-top-auto'] = 'auto';
 							}
-							if($args['property_values']['margin-right'] == 'auto'){
+							if( isset($args['property_values']['margin-right']) && $args['property_values']['margin-right'] == 'auto'){
 								unset($args['property_values']['margin-right']);
 								$args['property_values']['margin-right-auto'] = 'auto';
 							}
-							if($args['property_values']['margin-bottom'] == 'auto'){
+							if( isset($args['property_values']['margin-bottom']) && $args['property_values']['margin-bottom'] == 'auto'){
 								unset($args['property_values']['margin-bottom']);
 								$args['property_values']['margin-bottom-auto'] = 'auto';
 							}
-							if($args['property_values']['margin-left'] == 'auto'){
+							if( isset($args['property_values']['margin-left']) && $args['property_values']['margin-left'] == 'auto'){
 								unset($args['property_values']['margin-left']);
 								$args['property_values']['margin-left-auto'] = 'auto';
 							}
@@ -269,6 +269,8 @@ class PadmaPropertyInputs {
 				$customize_button = $element_args['special_element_type'] != 'default' ? '<div class="customize-property"><span class="tooltip" title="Click to change the value for this property.  If left uncustomized, the property will automatically inherit to the default set for this element type in the defaults tab or the parent element if editing a state, instance, or layout-specific element.">Customize</span></div>' : null;
 
 
+				$js_callback = ( !empty($property_options['js-callback']) ) ? $property_options['js-callback'] : '';
+
 				$hidden_input_attributes_array = array(
 					'type' 					=> 'hidden',
 					'class' 				=> 'property-hidden-input',
@@ -278,7 +280,7 @@ class PadmaPropertyInputs {
 					'special_element_type' 	=> $element_args['special_element_type'],
 					'special_element_meta' 	=> $element_args['special_element_meta'],
 					'element_selector' 		=> esc_attr(stripslashes($element_args['selector'])),
-					'callback' 				=> $callbackJS = esc_attr('(function(params){' . $property_options['js-callback'] . '})')
+					'callback' 				=> $callbackJS = esc_attr('(function(params){' . $js_callback . '})')
 				);
 									
 

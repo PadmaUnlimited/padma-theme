@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-25T14:30:53-05:00\n"
+"POT-Creation-Date: 2019-09-25T16:23:07-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -411,6 +411,7 @@ msgstr ""
 #: library/blocks/content/content.php:184
 #: library/blocks/content/content.php:955
 #: library/blocks/listings/block-options.php:264
+#: library/blocks/pin-board/pin-board.php:967
 msgid "Title"
 msgstr ""
 
@@ -796,6 +797,9 @@ msgid "Category"
 msgstr ""
 
 #: library/admin/pages/options.php:189
+#: library/blocks/navigation/navigation.php:719
+#: library/blocks/search/search.php:17
+#: library/blocks/search/search.php:70
 #: library/common/functions.php:673
 #: library/common/functions.php:675
 msgid "Search"
@@ -804,6 +808,7 @@ msgstr ""
 #: library/admin/pages/options.php:190
 #: library/blocks/content/content.php:954
 #: library/blocks/listings/block-options.php:263
+#: library/blocks/pin-board/pin-board.php:966
 msgid "Date"
 msgstr ""
 
@@ -812,6 +817,8 @@ msgstr ""
 #: library/blocks/content/content.php:927
 #: library/blocks/content/content.php:959
 #: library/blocks/listings/block-options.php:238
+#: library/blocks/pin-board/pin-board.php:593
+#: library/blocks/pin-board/pin-board.php:943
 msgid "Author"
 msgstr ""
 
@@ -823,10 +830,12 @@ msgstr ""
 #: library/blocks/content/content.php:910
 #: library/blocks/content/content.php:960
 #: library/blocks/listings/block-options.php:197
+#: library/blocks/pin-board/pin-board.php:906
 msgid "Post Type"
 msgstr ""
 
 #: library/admin/pages/options.php:194
+#: library/blocks/pin-board/pin-board.php:914
 msgid "Taxonomy"
 msgstr ""
 
@@ -891,6 +900,7 @@ msgid "Noarchive is used to restrict search engines from saving a cached copy of
 msgstr ""
 
 #: library/admin/pages/options.php:288
+#: library/blocks/pin-board/pin-board.php:803
 msgid "Effects"
 msgstr ""
 
@@ -1567,6 +1577,7 @@ msgid "Breadcrumbs aid in the navigation of your site by showing a visual hierar
 msgstr ""
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:31
+#: library/blocks/pin-board/pin-board.php:800
 msgid "Text"
 msgstr ""
 
@@ -1579,6 +1590,8 @@ msgid "Separators"
 msgstr ""
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:75
+#: library/blocks/navigation/navigation.php:671
+#: library/blocks/navigation/navigation.php:876
 msgid "Home"
 msgstr ""
 
@@ -1721,86 +1734,86 @@ msgstr ""
 msgid "This post is password protected.  Please enter the password to view the comments."
 msgstr ""
 
-#: library/blocks/content/content-display.php:157
+#: library/blocks/content/content-display.php:158
 #: library/blocks/listings/content-display.php:68
 msgid "<p>Sorry, there was no content that matched your search.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:288
+#: library/blocks/content/content-display.php:289
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:291
+#: library/blocks/content/content-display.php:292
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:294
+#: library/blocks/content/content-display.php:295
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:297
+#: library/blocks/content/content-display.php:298
 msgid "Blog Archives"
 msgstr ""
 
-#: library/blocks/content/content-display.php:310
+#: library/blocks/content/content-display.php:311
 msgid "Category Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:345
-#: library/blocks/content/content-display.php:348
+#: library/blocks/content/content-display.php:346
+#: library/blocks/content/content-display.php:349
 msgid "Author Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:358
+#: library/blocks/content/content-display.php:359
 msgid "Search Results for: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:367
+#: library/blocks/content/content-display.php:368
 msgid "Tag Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:564
+#: library/blocks/content/content-display.php:565
 #: library/blocks/listings/content-display.php:199
 msgid "%s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:852
+#: library/blocks/content/content-display.php:853
 msgid "Pages:"
 msgstr ""
 
-#: library/blocks/content/content-display.php:893
+#: library/blocks/content/content-display.php:894
 msgid "Whoops!  Page Not Found"
 msgstr ""
 
-#: library/blocks/content/content-display.php:901
+#: library/blocks/content/content-display.php:902
 msgid "<p>Don't fret, you didn't do anything wrong.  It appears that the page you are looking for does not exist or has been moved elsewhere.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:903
+#: library/blocks/content/content-display.php:904
 msgid "<p>If you keep ending up here, please head back to our <a href=\"%s\">homepage</a> or try the search form below.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:978
+#: library/blocks/content/content-display.php:979
 msgid "Discard Reply"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1016
+#: library/blocks/content/content-display.php:1017
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1017
+#: library/blocks/content/content-display.php:1018
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1211
+#: library/blocks/content/content-display.php:1212
 msgid "%s &ndash; Comments"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1220
+#: library/blocks/content/content-display.php:1221
 msgid "Respond to %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1228
+#: library/blocks/content/content-display.php:1229
 msgid "View all posts by %s"
 msgstr ""
 
@@ -1809,6 +1822,7 @@ msgstr ""
 #: library/blocks/custom-code/custom-code.php:119
 #: library/blocks/custom-code/custom-code.php:128
 #: library/blocks/footer/footer.php:233
+#: library/blocks/navigation/navigation.php:716
 msgid "Content"
 msgstr ""
 
@@ -1853,6 +1867,7 @@ msgid "Body Hyperlinks"
 msgstr ""
 
 #: library/blocks/content/content.php:217
+#: library/blocks/pin-board/pin-board.php:802
 msgid "Images"
 msgstr ""
 
@@ -1870,6 +1885,7 @@ msgstr ""
 
 #: library/blocks/content/content.php:246
 #: library/blocks/content/content.php:805
+#: library/blocks/pin-board/pin-board.php:801
 msgid "Meta"
 msgstr ""
 
@@ -2140,11 +2156,13 @@ msgid ""
 msgstr ""
 
 #: library/blocks/content/content.php:801
+#: library/blocks/pin-board/pin-board.php:813
 msgid "Mode"
 msgstr ""
 
 #: library/blocks/content/content.php:802
 #: library/blocks/content/content.php:856
+#: library/blocks/pin-board/pin-board.php:798
 msgid "Query Filters"
 msgstr ""
 
@@ -2185,6 +2203,7 @@ msgid "Query options have no effect if you have chosen to Fetch a Page's content
 msgstr ""
 
 #: library/blocks/content/content.php:863
+#: library/blocks/pin-board/pin-board.php:600
 msgid "Categories"
 msgstr ""
 
@@ -2194,11 +2213,13 @@ msgstr ""
 
 #: library/blocks/content/content.php:874
 #: library/blocks/listings/block-options.php:141
+#: library/blocks/pin-board/pin-board.php:935
 msgid "Include"
 msgstr ""
 
 #: library/blocks/content/content.php:875
 #: library/blocks/listings/block-options.php:132
+#: library/blocks/pin-board/pin-board.php:936
 msgid "Exclude"
 msgstr ""
 
@@ -2211,6 +2232,7 @@ msgid "Check this to allow the tags filter show."
 msgstr ""
 
 #: library/blocks/content/content.php:901
+#: library/blocks/pin-board/pin-board.php:607
 msgid "Tags"
 msgstr ""
 
@@ -2225,21 +2247,25 @@ msgstr ""
 
 #: library/blocks/content/content.php:943
 #: library/blocks/listings/block-options.php:246
+#: library/blocks/pin-board/pin-board.php:892
 msgid "Offset"
 msgstr ""
 
 #: library/blocks/content/content.php:944
 #: library/blocks/listings/block-options.php:247
+#: library/blocks/pin-board/pin-board.php:893
 msgid "The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped."
 msgstr ""
 
 #: library/blocks/content/content.php:951
 #: library/blocks/listings/block-options.php:260
+#: library/blocks/pin-board/pin-board.php:963
 msgid "Order By"
 msgstr ""
 
 #: library/blocks/content/content.php:956
 #: library/blocks/listings/block-options.php:265
+#: library/blocks/pin-board/pin-board.php:968
 msgid "Random"
 msgstr ""
 
@@ -2254,18 +2280,22 @@ msgstr ""
 
 #: library/blocks/content/content.php:968
 #: library/blocks/listings/block-options.php:274
+#: library/blocks/pin-board/pin-board.php:958
+#: library/blocks/pin-board/pin-board.php:975
 msgid "Order"
 msgstr ""
 
 #: library/blocks/content/content.php:971
 #: library/blocks/listings/block-options.php:97
 #: library/blocks/listings/block-options.php:277
+#: library/blocks/pin-board/pin-board.php:978
 msgid "Descending"
 msgstr ""
 
 #: library/blocks/content/content.php:972
 #: library/blocks/listings/block-options.php:98
 #: library/blocks/listings/block-options.php:278
+#: library/blocks/pin-board/pin-board.php:979
 msgid "Ascending"
 msgstr ""
 
@@ -2295,6 +2325,7 @@ msgid "If excerpts are being shown or a featured post is truncated using WordPre
 msgstr ""
 
 #: library/blocks/content/content.php:1002
+#: library/blocks/pin-board/pin-board.php:1014
 msgid "Show Titles"
 msgstr ""
 
@@ -2707,10 +2738,12 @@ msgid "<strong>Even though we have the options to choose a LoopBuddy layout and 
 msgstr ""
 
 #: library/blocks/content/content.php:1610
+#: library/blocks/search/search.php:141
 msgid "SearchWP Engine"
 msgstr ""
 
 #: library/blocks/content/content.php:1612
+#: library/blocks/search/search.php:143
 msgid "If you wish to display the results of a supplemented SearchWP engine, please select the engine here."
 msgstr ""
 
@@ -2731,6 +2764,7 @@ msgid "No tags available"
 msgstr ""
 
 #: library/blocks/content/content.php:1842
+#: library/blocks/search/search.php:153
 msgid "&ndash; Select an Engine &ndash;"
 msgstr ""
 
@@ -3247,6 +3281,7 @@ msgstr ""
 
 #: library/blocks/navigation/navigation.php:168
 #: library/blocks/navigation/navigation.php:519
+#: library/blocks/navigation/navigation.php:795
 msgid "Menu"
 msgstr ""
 
@@ -3263,6 +3298,7 @@ msgid "Menu Container - Vertical"
 msgstr ""
 
 #: library/blocks/navigation/navigation.php:524
+#: library/blocks/navigation/navigation.php:595
 msgid "Menu Item"
 msgstr ""
 
@@ -3274,12 +3310,688 @@ msgstr ""
 msgid "Menu Item - Active"
 msgstr ""
 
-#: library/blocks/pin-board/pin-board.php:725
+#: library/blocks/navigation/navigation.php:539
+#: library/blocks/navigation/navigation.php:622
+msgid "Sub Menu"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:544
+#: library/blocks/navigation/navigation.php:630
+msgid "Sub Menu Item"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:549
+msgid "Sub Menu Item Link"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:554
+#: library/blocks/navigation/navigation.php:650
+#: library/blocks/search/search.php:35
+msgid "Search Input"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:559
+msgid "Horizontal SlideOut Tag"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:568
+msgid "Horizontal SlideOut Icon"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:577
+msgid "Horizontal SlideOut Icon Line"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:717
+msgid "Setup"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:718
+msgid "Home Link"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:720
+msgid "Orientation"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:721
+msgid "Dropdowns"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:729
+msgid "Navigation Item Height"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:740
+msgid "You must have Responsive Grid enabled to take advantage of these options. Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:746
+msgid "Responsive Method"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:749
+msgid "Vertical Menu"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:750
+msgid "Horizontal Slideout"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:751
+msgid "Basic Select Input"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:801
+msgid "Responsive Menu Label Position"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:803
+#: library/blocks/navigation/navigation.php:815
+#: library/blocks/navigation/navigation.php:895
+#: library/blocks/navigation/navigation.php:917
+msgid "Left"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:804
+#: library/blocks/navigation/navigation.php:816
+#: library/blocks/navigation/navigation.php:896
+#: library/blocks/navigation/navigation.php:918
+msgid "Right"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:805
+#: library/blocks/navigation/navigation.php:919
+msgid "Center"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:813
+msgid "Slide Out Position"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:824
+msgid "Use Responsive Menu Breakpoint"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:825
+msgid "If this is unchecked then the slide out or vertical navigation will show for all devices."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:840
+msgid "Menu Breakpoint"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:841
+msgid "This is the device width at which the navigation block should hide its own navigation and display the slide out or vertical navigation."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:851
+msgid "You must have Responsive Grid enabled to take advantage of these options.  Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:857
+msgid "Responsive Select"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:859
+msgid "When enabled, your navigation will turn into a mobile-friendly select menu when your visitors are viewing your site on a mobile device (phones, not tablets)."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:867
+msgid "Hide Home Link"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:869
+msgid "If you do not have a static page as the front page, Padma will add a home item to the navigation menu by default."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:873
+msgid "Home Link Text"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:875
+msgid "If you would like the link to your homepage to say something other than <em>Home</em>, enter it here!"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:884
+msgid "Enable Navigation Search"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:886
+msgid "If you wish to have a simple search form in the navigation bar, then check this box. <em><strong>Note:</strong> the search form will not show if the Vertical Navigation option is enabled for this block.</em>"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:892
+msgid "Search Position"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:898
+msgid "If you would like the navigation search input to snap to the left instead of the right, you can use this option."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:904
+msgid "Search Placeholder"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:905
+#: library/common/functions.php:645
+msgid "Type to search, then press enter"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:906
+msgid "This will be the text inside the search input telling the visitor how to interact with the search input."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:914
+msgid "Alignment"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:926
+msgid "Vertical Navigation"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:928
+msgid "Instead of showing navigation horizontally, you can make the navigation show vertically. <em><strong>Note:</strong> You may have to resize the block to make the navigation items fit correctly.</em>"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:936
+msgid "Drop Down Effect"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:939
+msgid "No Effect"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:940
+msgid "Fade"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:941
+msgid "Slide"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:943
+msgid "This is the effect that will be used when the drop downs are shown and hidden."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:949
+msgid "Hover Intent"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:951
+msgid "Hover Intent makes it so if a navigation item with a drop down is hovered then the drop down will only be shown if the visitor has their mouse over the item for more than a split second.<br /><br />This reduces drop-downs from sporatically showing if the visitor makes fast movements over the navigation."
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:960
+msgid "To add items to this navigation menu, go to <a href=\"%s\" target=\"_blank\">WordPress Admin &raquo; Appearance &raquo; Menus</a>. Then, create a menu and assign it to <em>%s</em> in the <strong>Theme Locations</strong> box."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:17
+msgid "Pin Board"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:18
+msgid "Use to display your content in a masonry grid like Pinterest."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:544
+msgid "Pin Thumbnail"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:550
+msgid "Pin Thumbnail Link"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:556
+msgid "Pin Thumbnail Image"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:562
+msgid "Pin Below Thumb"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:568
+msgid "Pin Title"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:577
+msgid "Pin Title Link"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:586
+msgid "Pin Meta"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:614
+msgid "Categories Link"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:620
+msgid "Pin Text"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:626
+msgid "Pin Content Links"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:632
+msgid "Pin Content Image"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:638
+msgid "Pagination Button"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:646
+msgid "Pagination Current Page"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:736
 msgid "&laquo; Previous Page"
 msgstr ""
 
-#: library/common/functions.php:645
-msgid "Type to search, then press enter"
+#: library/blocks/pin-board/pin-board.php:797
+msgid "Pin Setup"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:799
+msgid "Pagination/Infinite Scroll"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:804
+msgid "Social"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:814
+msgid "If you would like to modify the default behaviour, select custom query. <br/><strong>Note:</strong>On archive pages, it's not advisable to use a custom query if the block is displaying the archive results.<br/>On search pages, it may be necessary to limit results to only certain content types."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:816
+msgid "Default behaviour"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:817
+msgid "Custom query"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:831
+msgid "Layout"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:836
+msgid "Columns"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:841
+msgid "Set how many pins to display horizontally"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:847
+msgid "Columns (iPhone/Smartphone)"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:852
+msgid "Set how many pins to display horizontally for iPhones and smartphones.  <strong>Recommended setting: 1 or 2</strong>"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:858
+msgid "Gutter Width"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:864
+msgid "The amount in space between pins horizontally."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:870
+msgid "Pin Bottom Margin"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:876
+msgid "The amount of space on the bottom of each pin."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:884
+msgid "Pins Per Page"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:886
+msgid "Determines how many pins to load at one time before loading more via pagination or <em>infinite scrolling</em>."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:900
+msgid "Filters"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:907
+msgid "Choose a post type to display. If none are selected, it will automatically default to all."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:917
+msgid "Select the taxonomy to filter pins on ."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:924
+#: library/blocks/pin-board/pin-board.php:1207
+msgid "Terms"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:927
+#: library/blocks/pin-board/pin-board.php:1210
+msgid "Filter the pins that are shown by the selected taxonomy's terms."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:932
+msgid "Terms Mode"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:938
+msgid "If this is set to <em>include</em>, then only the pins that match the terms filter will be shown.  If set to <em>exclude</em>, all pins that match the selected terms will not be shown."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:950
+msgid "Exclude Current Post"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:952
+msgid "Enabling this option will exclude the current Post from the pinboard, usefull when are creating a \"related post\" block."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:988
+msgid "Paginate Pins"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:990
+msgid "Enabling pagination adds buttons to the bottom of the pin board to go to the next/previous page.  <strong>Note:</strong> If infinite scrolling is enabled, pagination will be hidden."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:996
+msgid "Enumerate pagination"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:998
+msgid "If pagination is displayed, enabling this will also show page number navigation."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1004
+msgid "Infinite Scrolling"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1006
+msgid "Infinite scrolling allows your visitors to view all of your pins without the need for them to click a button to continue to the next page.  The pins will be loaded automatically simply by scrolling."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1021
+msgid "Titles position"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1023
+msgid "Above"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1023
+msgid "Below"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1029
+msgid "Titles link to post"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1031
+msgid "Open the post when the user clicks on the title"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1037
+msgid "Content To Show"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1039
+msgid "&ndash; Do Not Show Content &ndash;"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1040
+msgid "Excerpts"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1041
+msgid "Full Content"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1044
+msgid "The content is the written text or HTML for the entry.  This is edited in the WordPress admin panel."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1050
+msgid "Only show content when no featured image"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1052
+msgid "If enabled, regardless of the content chosen in <em>Content to Show</em> will only show content for pins with no featured image."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1062
+msgid "Meta: Show Author \"byline\""
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1064
+msgid "<strong>Example:</strong> <em>by</em> Author Name"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1070
+msgid "Meta: Show Categories"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1077
+msgid "Meta: Show Tags"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1084
+msgid "Meta: Show Post Type"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1091
+msgid "Meta: Show Date/Time"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1098
+msgid "Meta: Posted Verb"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1099
+msgid "Posted"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1100
+msgid "The posted verb will be placed before the time.  For instance, you may want to use \"Listed\" for real estate rather than \"Posted\""
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1108
+msgid "Show Images"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1114
+msgid "Image click action"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1116
+msgid "Choose the action when user clicks on an image."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1118
+msgid "Open post"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1119
+msgid "Popup original image"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1120
+msgid "Do nothing"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1127
+msgid "Crop Vertically"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1129
+msgid "Trim all images to have the same height.  The trimmed/cropped height is roughly 75% of the width."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1137
+msgid "Hover Focus"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1139
+msgid "If enabled, the hovered pin will be focused while all others will be faded out."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1147
+msgid "Pinterest: Show \"Pin It\" Button"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1149
+msgid "Show a Pinterest \"Pin It\" button inside of the images."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1155
+msgid "Twitter: Show Tweet Button"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1157
+msgid "Show a tweet button either inside of the post image or by the title."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1163
+msgid "Twitter: Your Username"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1169
+msgid "Twitter: Hashtag to put in tweets (Optional)"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1175
+msgid "Facebook: Show Like/Share Button"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1177
+msgid "Show a Facebook share/like button either inside of the post image or by the title."
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1182
+msgid "Facebook: Button Verb"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1185
+msgid "Like"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1186
+msgid "Recommend"
+msgstr ""
+
+#: library/blocks/pin-board/pin-board.php:1332
+msgid "No terms found for this taxonomy"
+msgstr ""
+
+#: library/blocks/search/search.php:19
+msgid "This will output the default search form"
+msgstr ""
+
+#: library/blocks/search/search.php:29
+msgid "Search Form"
+msgstr ""
+
+#: library/blocks/search/search.php:41
+msgid "Search Button"
+msgstr ""
+
+#: library/blocks/search/search.php:76
+#: library/blocks/search/search.php:105
+msgid "Enter search term and hit enter."
+msgstr ""
+
+#: library/blocks/search/search.php:102
+msgid "Input Text Placeholder"
+msgstr ""
+
+#: library/blocks/search/search.php:104
+msgid "The placeholder is text that will be shown in the Search input and immediately removed after you start typing in the search input."
+msgstr ""
+
+#: library/blocks/search/search.php:110
+msgid "Show Search Button"
+msgstr ""
+
+#: library/blocks/search/search.php:125
+msgid "Button Text"
+msgstr ""
+
+#: library/blocks/site-logo/site-logo.php:18
+#: library/blocks/site-logo/site-logo.php:36
+msgid "Site Logo"
+msgstr ""
+
+#: library/blocks/site-logo/site-logo.php:24
+msgid "Display custom site logo"
+msgstr ""
+
+#: library/blocks/site-logo/site-logo.php:75
+msgid "To set the site custom logo go to <a href=\"%s\" target=\"_blank\">\"Appearance > Customize > Site Identity\"</a>"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:16
+msgid "SlideDeck 2"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:18
+msgid "Conveniently add SlideDecks anywhere on any layout."
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:34
+msgid "SlideDeck must be installed and activated in order for the SlideDeck block to work properly."
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:45
+msgid "Please choose a SlideDeck to display."
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:130
+msgid "Settings"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:143
+msgid "Choose a SlideDeck to Display"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:146
+msgid "Select the SlideDeck you wish to display"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:152
+msgid "Use Block Size for SlideDeck"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:154
+msgid "Choose whether or not you'd like to use the block's size to dictate the SlideDeck's size.  If you choose not to, it will use the size defined in the SlideDeck's settings."
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:168
+msgid "&ndash; Select a SlideDeck &ndash;"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:183
+msgid "SlideDeck Quick Links:"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:184
+msgid "Add/Manage SlideDecks"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:185
+msgid "Lenses"
+msgstr ""
+
+#: library/blocks/slidedeck/slidedeck.php:186
+msgid "Advanced Options"
 msgstr ""
 
 #: library/common/functions.php:739

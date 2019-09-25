@@ -1,10 +1,9 @@
 <?php
 class PadmaListingBlockDisplay {
 		
-	var $count = 0;	
-		
+	var $count = 0;			
 	var $query = array();
-	
+		
 	
 	function __construct($block) {
 		

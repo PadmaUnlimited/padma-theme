@@ -2,23 +2,38 @@
 
 class PadmaSiteLogoBlock extends PadmaBlockAPI {
 	
-	public $id 				= 'site-logo';	
-	public $name 			= 'Site Logo';		
-	public $options_class 	= 'PadmaSiteLogoBlockOptions';			
-	public $attributes 		= array(
-									'itemscope' => '',
-									'itemtype' => 'https://schema.org/ImageObject'
-								);
-	public $description 	= 'Display custom site logo';
-	public $categories 		= array('core','media');
-	
-	protected $show_content_in_grid = false;
+	public $id;
+	public $name;
+	public $options_class;
+	public $attributes;
+	public $description;
+	public $categories;
+
+	protected $show_content_in_grid;
+
+
+	function __construct(){
+
+		$this->id 				= 'site-logo';
+		$this->name 			= __('Site Logo','padma');
+		$this->options_class 	= 'PadmaSiteLogoBlockOptions';			
+		$this->attributes 		= array(
+										'itemscope' => '',
+										'itemtype' => 'https://schema.org/ImageObject'
+									);
+		$this->description 	= __('Display custom site logo','padma');
+		$this->categories 		= array('core','media');
+		
+		$this->show_content_in_grid = false;
+
+	}
+
 	
 	function setup_elements() {
 		
 		$this->register_block_element(array(
 			'id' => 'site-logo',
-			'name' => 'Site Logo',
+			'name' => __('Site Logo','padma'),
 			'selector' => 'img.site-logo',			
 		));
 
@@ -57,7 +72,7 @@ class PadmaSiteLogoBlockOptions extends PadmaBlockOptionsAPI {
 
 	function modify_arguments($args = false) {
 
-		$this->tab_notices['site-logo-content'] = 'To set the site custom logo go to <a href="' . admin_url('customize.php') . '" target="_blank">"Appearance > Customize > Site Identity"</a>';
+		$this->tab_notices['site-logo-content'] = sprintf( __('To set the site custom logo go to <a href="%s" target="_blank">"Appearance > Customize > Site Identity"</a>','padma'), admin_url('customize.php') );
 
 	}
 	

@@ -28,19 +28,19 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 		
 		$this->register_block_element(array(
 			'id' => 'text',
-			'name' => 'Text',
+			'name' => __('Text','padma'),
 			'selector' => 'p'
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'hyperlinks',
-			'name' => 'Hyperlinks',
+			'name' => __('Hyperlinks','padma'),
 			'selector' => 'p a'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'separators',
-			'name' => 'Separators',
+			'name' => __('Separators','padma'),
 			'selector' => 'span.sep'
 		));
 		

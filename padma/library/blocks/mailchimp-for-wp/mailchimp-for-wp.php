@@ -1,14 +1,25 @@
 <?php
 
-
 class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 	
-	public $id 				= 'mailchimp-for-wp';	
-	public $name 			= 'Mailchimp for WordPress';		
-	public $options_class 	= 'PadmaMailchimpForWPBlockOptions';
-	public $description 	= 'Display Mailchimp for WordPress';
-	public $categories 		= array('core','forms');
+	public $id;
+	public $name;
+	public $options_class;
+	public $description;
+	public $categories;
 	
+	
+	function __construct(){
+
+		$this->id = 'mailchimp-for-wp';
+		$this->name	= __('Mailchimp for WordPress','padma');
+		$this->options_class = 'PadmaMailchimpForWPBlockOptions';
+		$this->description = __('Display Mailchimp for WordPress','padma');
+		$this->categories = array('core','forms');
+
+	}
+
+
 	public function init() {
 
 		if(!class_exists('mc4wp'))
@@ -20,29 +31,29 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(			
 			'id' => 'mc4wp-form',			
-			'name' => 'Form',
-			'description' => 'Form',
+			'name' => __('Form','padma'),
+			'description' => __('Form','padma'),
 			'selector' => '.mc4wp-form'
 		));
 
 		$this->register_block_element(array(			
 			'id' => 'mc4wp-form',			
-			'name' => 'Form container',
-			'description' => 'Form container',
+			'name' => __('Form container','padma'),
+			'description' => __('Form container','padma'),
 			'selector' => '.mc4wp-form .mc4wp-form-fields'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'mc4wp-form-p',			
-			'name' => 'Paragraph',
-			'description' => 'Paragraph',
+			'name' => __('Paragraph','padma'),
+			'description' => __('Paragraph','padma'),
 			'selector' => '.mc4wp-form .mc4wp-form-fields p'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'mc4wp-form-label',			
-			'name' => 'Label',
-			'description' => 'Label',
+			'name' => __('Label','padma'),
+			'description' => __('Label','padma'),
 			'selector' => '.mc4wp-form .mc4wp-form-fields label'
 		));
 
@@ -55,7 +66,7 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'form-submit',
-			'name' => 'Form submit',
+			'name' => __('Form submit','padma'),
 			'selector' => '.mc4wp-form .mc4wp-form-fields input[type="submit"]',
 		));
 	

@@ -14,7 +14,7 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 	function __construct(){
 		
 		$this->id 				= 'custom-code';	
-		$this->name 			= 'Custom Code';		
+		$this->name 			= __('Custom Code','padma');
 		$this->options_class 	= 'PadmaCustomCodeBlockOptions';
 		$this->description 		= __('Place in custom HTML, PHP, or even WordPress shortcodes into this block.','padma');
 		$this->categories 		= array('core','code');

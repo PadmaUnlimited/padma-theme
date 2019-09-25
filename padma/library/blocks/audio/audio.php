@@ -24,7 +24,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 										'itemscope' => '',
 										'itemtype' => 'http://schema.org/AudioObject'
 									);
-		$this->description 	= 'Display an audio';
+		$this->description 	= __('Display an audio','padma');
 		$this->categories 	= array('core','media');
 		
 		$this->show_content_in_grid = false;
@@ -42,7 +42,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'audio-container',
-			'name' => 'Audio container',
+			'name' => __('Audio container','padma'),
 			'selector' => 'div.audio'
 		));
 

@@ -4,11 +4,22 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 	class PadmaPinBoardCoreBlock extends PadmaBlockAPI {
 
 
-		public $id 				= 'pin-board';
-		public $name 			= 'Pin Board';
-		public $description 	= 'Use to display your content in a masonry grid like Pinterest.';
-		public $options_class 	= 'PadmaPinBoardCoreBlockOptions';
-		public $categories 		= array('core','content');
+		public $id;
+		public $name;
+		public $description;
+		public $options_class;
+		public $categories;
+
+
+		function __construct(){
+
+			$this->id = 'pin-board';
+			$this->name = __('Pin Board','padma');
+			$this->description = __('Use to display your content in a masonry grid like Pinterest.','padma');
+			$this->options_class = 'PadmaPinBoardCoreBlockOptions';
+			$this->categories = array('core','content');
+
+		}
 
 
 		public static function init() {
@@ -530,31 +541,31 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-board-pin-thumbnail',
-				'name' 			=> 'Pin Thumbnail',
+				'name' 			=> __('Pin Thumbnail','padma'),
 				'selector' 		=> '.pin-board-pin-thumbnail',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-board-pin-thumbnail-link',
-				'name' 			=> 'Pin Thumbnail Link',
+				'name' 			=> __('Pin Thumbnail Link','padma'),
 				'selector' 		=> '.pin-board-pin-thumbnail a',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-board-pin-thumbnail-link-img',
-				'name' 			=> 'Pin Thumbnail Image',
+				'name' 			=> __('Pin Thumbnail Image','padma'),
 				'selector' 		=> '.pin-board-pin-thumbnail a img',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-below-thumb',
-				'name' 			=> 'Pin Below Thumb',
+				'name' 			=> __('Pin Below Thumb','padma'),
 				'selector' 		=> '.pin-board-pin .below-thumb',				
 			));	
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-title',
-				'name' 			=> 'Pin Title',
+				'name' 			=> __('Pin Title','padma'),
 				'selector'		=> '.pin-board-pin .entry-title',
 				'states' 		=> array(
 						'Hover' => '.pin-board-pin .entry-title a:hover',
@@ -563,7 +574,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-title link',
-				'name' 			=> 'Pin Title Link',
+				'name' 			=> __('Pin Title Link','padma'),
 				'selector'		=> '.pin-board-pin .entry-title a',				
 				'states' 		=> array(
 						'Hover' => '.pin-board-pin .entry-title a:hover',
@@ -572,59 +583,59 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-meta',
-				'name' 			=> 'Pin Meta',
+				'name' 			=> __('Pin Meta','padma'),
 				'selector' 		=> '.pin-board-pin .entry-meta',				
 			));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-author',
-					'name' 			=> 'Author',
+					'name' 			=> __('Author','padma'),
 					'selector' 		=> '.pin-board-pin .entry-meta .author-link',					
 				));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-categories',
-					'name' 			=> 'Categories',
+					'name' 			=> __('Categories','padma'),
 					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories',					
 				));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-tags',
-					'name' 			=> 'Tags',
+					'name' 			=> __('Tags','padma'),
 					'selector' 		=> '.pin-board-pin .entry-meta .entry-tags',					
 				));
 
 				$this->register_block_element(array(
 					'parent' 		=> 'pin-meta',
 					'id' 			=> 'pin-meta-categories-link',
-					'name' 			=> 'Categories Link',
+					'name' 			=> __('Categories Link','padma'),
 					'selector' 		=> '.pin-board-pin .entry-meta .entry-categories a',					
 				));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-text',
-				'name' 			=> 'Pin Text',
+				'name' 			=> __('Pin Text','padma'),
 				'selector' 		=> '.pin-board-pin .entry-content',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-content-a',
-				'name' 			=> 'Pin Content Links',
+				'name' 			=> __('Pin Content Links','padma'),
 				'selector' 		=> '.pin-board-pin .entry-content a',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-content-img',
-				'name' 			=> 'Pin Content Image',
+				'name' 			=> __('Pin Content Image','padma'),
 				'selector' 		=> '.pin-board-pin .entry-content img',
 			));
 
 			$this->register_block_element(array(
 				'id' 			=> 'pagination-button',
-				'name' 			=> 'Pagination Button',
+				'name' 			=> __('Pagination Button','padma'),
 				'selector' 		=> '.pin-board-pagination a',
 				'states' 		=> array(
 						'Hover' => '.pin-board-pagination a:hover',
@@ -632,7 +643,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			));
 			$this->register_block_element(array(
 				'id' 			=> 'pagination-text',
-				'name' 			=> 'Pagination Current Page',
+				'name' 			=> __('Pagination Current Page','padma'),
 				'selector' 		=> '.pin-board-pagination span.page-numbers.current',
 			));
 
@@ -776,405 +787,409 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 	class PadmaPinBoardCoreBlockOptions extends PadmaBlockOptionsAPI {
 
 		public $taxonomy_list;
-
 		public $terms_list;
+		public $tabs;
+		public $inputs;
 
-		public $tabs = array(
-			'pin-setup' 		=> 'Pin Setup',
-			'query-filters' 	=> 'Query Filters',
-			'pagination' 		=> 'Pagination/Infinite Scroll',
-			'text' 				=> 'Text',
-			'meta' 				=> 'Meta',
-			'images' 			=> 'Images',
-			'effects' 			=> 'Effects',
-			'social' 			=> 'Social'
-		);
+		function __construct(){
+			
+			$this->tabs = array(
+				'pin-setup' 		=> __('Pin Setup','padma'),
+				'query-filters' 	=> __('Query Filters','padma'),
+				'pagination' 		=> __('Pagination/Infinite Scroll','padma'),
+				'text' 				=> __('Text','padma'),
+				'meta' 				=> __('Meta','padma'),
+				'images' 			=> __('Images','padma'),
+				'effects' 			=> __('Effects','padma'),
+				'social' 			=> __('Social','padma')
+			);
 
 
-		public $inputs = array(
-			'pin-setup' => array(
-				'mode' => array(
-					'type' 		=> 'select',
-					'name' 		=> 'mode',
-					'label' 	=> 'Mode',
-					'tooltip' 	=> 'If you would like to modify the default behaviour, select custom query. <br/><strong>Note:</strong>On archive pages, it\'s not advisable to use a custom query if the block is displaying the archive results.<br/>On search pages, it may be necessary to limit results to only certain content types.',
-					'options' 	=> array(
-							'default' 	=> 'Default behaviour',
-							'custom' 	=> 'Custom query',
-						),
-					'toggle' 	=> array(
-						'default' => array(
-								'hide' => 'li#sub-tab-query-filters'
+			$this->inputs = array(
+				'pin-setup' => array(
+					'mode' => array(
+						'type' 		=> 'select',
+						'name' 		=> 'mode',
+						'label' 	=> __('Mode','padma'),
+						'tooltip' 	=> __('If you would like to modify the default behaviour, select custom query. <br/><strong>Note:</strong>On archive pages, it\'s not advisable to use a custom query if the block is displaying the archive results.<br/>On search pages, it may be necessary to limit results to only certain content types.','padma'),
+						'options' 	=> array(
+								'default' 	=> __('Default behaviour','padma'),
+								'custom' 	=> __('Custom query','padma'),
 							),
-						'custom' => array(
-							'show' => 'li#sub-tab-query-filters'
+						'toggle' 	=> array(
+							'default' => array(
+									'hide' => 'li#sub-tab-query-filters'
+								),
+							'custom' => array(
+								'show' => 'li#sub-tab-query-filters'
+							)
+						)
+					),
+					'layout-heading' => array(
+						'name' 	=> 'layout-heading',
+						'type' 	=> 'heading',
+						'label' => __('Layout','padma'),
+					),
+					'columns' => array(
+						'type' 				=> 'slider',
+						'name' 				=> 'columns',
+						'label' 			=> __('Columns','padma'),
+						'slider-min' 		=> 1,
+						'slider-max' 		=> 7,
+						'slider-interval'	=> 1,
+						'default' 			=> 3,
+						'tooltip' 			=> __('Set how many pins to display horizontally','padma')
+					),
+
+					'columns-smartphone' => array(
+						'type' 				=> 'slider',
+						'name' 				=> 'columns-smartphone',
+						'label' 			=> __('Columns (iPhone/Smartphone)','padma'),
+						'slider-min' 		=> 1,
+						'slider-max' 		=> 7,
+						'slider-interval' 	=> 1,
+						'default' 			=> 2,
+						'tooltip' 			=> __('Set how many pins to display horizontally for iPhones and smartphones.  <strong>Recommended setting: 1 or 2</strong>','padma')
+					),
+
+					'gutter-width' => array(
+						'type' 				=> 'slider',
+						'name' 				=> 'gutter-width',
+						'label' 			=> __('Gutter Width','padma'),
+						'slider-min' 		=> 0,
+						'slider-max' 		=> 100,
+						'slider-interval' 	=> 1,
+						'default' 			=> 15,
+						'unit' 				=> 'px',
+						'tooltip' 			=> __('The amount in space between pins horizontally.','padma')
+					),
+
+					'pin-bottom-margin' => array(
+						'type' 				=> 'slider',
+						'name' 				=> 'pin-bottom-margin',
+						'label' 			=> __('Pin Bottom Margin','padma'),
+						'slider-min' 		=> 0,
+						'slider-max' 		=> 50,
+						'slider-interval' 	=> 1,
+						'default' 			=> 15,
+						'unit' 				=> 'px',
+						'tooltip' 			=> __('The amount of space on the bottom of each pin.','padma')
+					)
+				),
+
+				'query-filters' => array(
+					'pins-per-page' => array(
+						'type' 		=> 'integer',
+						'name' 		=> 'pins-per-page',
+						'label' 	=> __('Pins Per Page','padma'),
+						'default' 	=> 10,
+						'tooltip' 	=> __('Determines how many pins to load at one time before loading more via pagination or <em>infinite scrolling</em>.','padma')
+					),
+
+					'offset' => array(
+						'type' 		=> 'integer',
+						'name' 		=> 'offset',
+						'label' 	=> __('Offset','padma'),
+						'tooltip' 	=> __('The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.','padma'),
+						'default' 	=> 0
+					),
+
+					'filters-heading' => array(
+						'name' 	=> 'filters-heading',
+						'type' 	=> 'heading',
+						'label' => __('Filters','padma'),
+					),
+
+					'post-type' => array(
+						'type' 		=> 'multi-select',
+						'name' 		=> 'post-type',
+						'label' 	=> __('Post Type','padma'),
+						'tooltip' 	=> __('Choose a post type to display. If none are selected, it will automatically default to all.','padma'),
+						'default' 	=> 'any',
+						'options' 	=> 'get_post_types()'
+					),
+					'taxonomies' => array(
+						'type' 		=> 'select',
+						'name' 		=> 'taxonomies',
+						'label' 	=> __('Taxonomy','padma'),
+						'default' 	=> 'category',
+						'options' 	=> array( 'none' => 'No taxonomies' ),
+						'tooltip' 	=> __('Select the taxonomy to filter pins on .','padma'),
+						'callback' 	=> 'reloadBlockOptions()'
+					),
+					// For simplicity with migrating from categories to all taxonomies, these next two have kept the same names. In the future a function could be written to port them to a correctly named variable
+					'categories' => array(
+						'type' 		=> 'multi-select',
+						'name' 		=> 'categories',
+						'label' 	=> __('Terms','padma'),
+						'default' 	=> '',
+						'options' 	=> array( 'none' => 'No terms' ),
+						'tooltip' 	=> __('Filter the pins that are shown by the selected taxonomy\'s terms.','padma')
+					),
+					'categories-mode' => array(
+						'type' 		=> 'select',
+						'name' 		=> 'categories-mode',
+						'label' 	=> __('Terms Mode','padma'),
+						'tooltip' 	=> '',
+						'options' 	=> array(
+							'include' => __('Include','padma'),
+							'exclude' => __('Exclude','padma')
+						),
+						'tooltip' 	=> __('If this is set to <em>include</em>, then only the pins that match the terms filter will be shown.  If set to <em>exclude</em>, all pins that match the selected terms will not be shown.','padma')
+					),
+					'author' => array(
+						'type' 		=> 'multi-select',
+						'name' 		=> 'author',
+						'label' 	=> __('Author','padma'),
+						'tooltip' 	=> '',
+						'options' 	=> 'get_authors()'
+					),
+					'exclude-current-post' => array(
+						'type' => 'checkbox',
+						'name' => 'exclude-current-post',
+						'label' => __('Exclude Current Post','padma'),
+						'default' => false,
+						'tooltip' => __('Enabling this option will exclude the current Post from the pinboard, usefull when are creating a "related post" block.','padma')
+					),
+
+					'order-heading' => array(
+						'name' 	=> 'order-heading',
+						'type' 	=> 'heading',
+						'label' => __('Order','padma'),
+					),
+					'order-by' => array(
+						'type' 		=> 'select',
+						'name' 		=> 'order-by',
+						'label' 	=> __('Order By','padma'),
+						'tooltip' 	=> '',
+						'options' 	=> array(
+							'date' 	=> __('Date','padma'),
+							'title' => __('Title','padma'),
+							'rand' 	=> __('Random','padma'),
+							'ID' 	=> 'ID'
+						)
+					),
+					'order' => array(
+						'type' => 'select',
+						'name' => 'order',
+						'label' => __('Order','padma'),
+						'tooltip' => '',
+						'options' => array(
+							'desc' => __('Descending','padma'),
+							'asc' => __('Ascending','padma'),
 						)
 					)
 				),
-				'layout-heading' => array(
-					'name' 	=> 'layout-heading',
-					'type' 	=> 'heading',
-					'label' => 'Layout',
-				),
-				'columns' => array(
-					'type' 				=> 'slider',
-					'name' 				=> 'columns',
-					'label' 			=> 'Columns',
-					'slider-min' 		=> 1,
-					'slider-max' 		=> 7,
-					'slider-interval'	=> 1,
-					'default' 			=> 3,
-					'tooltip' 			=> 'Set how many pins to display horizontally'
-				),
 
-				'columns-smartphone' => array(
-					'type' 				=> 'slider',
-					'name' 				=> 'columns-smartphone',
-					'label' 			=> 'Columns (iPhone/Smartphone)',
-					'slider-min' 		=> 1,
-					'slider-max' 		=> 7,
-					'slider-interval' 	=> 1,
-					'default' 			=> 2,
-					'tooltip' 			=> 'Set how many pins to display horizontally for iPhones and smartphones.  <strong>Recommended setting: 1 or 2</strong>'
-				),
-
-				'gutter-width' => array(
-					'type' 				=> 'slider',
-					'name' 				=> 'gutter-width',
-					'label' 			=> 'Gutter Width',
-					'slider-min' 		=> 0,
-					'slider-max' 		=> 100,
-					'slider-interval' 	=> 1,
-					'default' 			=> 15,
-					'unit' 				=> 'px',
-					'tooltip' 			=> 'The amount in space between pins horizontally.'
-				),
-
-				'pin-bottom-margin' => array(
-					'type' 				=> 'slider',
-					'name' 				=> 'pin-bottom-margin',
-					'label' 			=> 'Pin Bottom Margin',
-					'slider-min' 		=> 0,
-					'slider-max' 		=> 50,
-					'slider-interval' 	=> 1,
-					'default' 			=> 15,
-					'unit' 				=> 'px',
-					'tooltip' 			=> 'The amount of space on the bottom of each pin.'
-				)
-			),
-
-			'query-filters' => array(
-				'pins-per-page' => array(
-					'type' 		=> 'integer',
-					'name' 		=> 'pins-per-page',
-					'label' 	=> 'Pins Per Page',
-					'default' 	=> 10,
-					'tooltip' 	=> 'Determines how many pins to load at one time before loading more via pagination or <em>infinite scrolling</em>.'
-				),
-
-				'offset' => array(
-					'type' 		=> 'integer',
-					'name' 		=> 'offset',
-					'label' 	=> 'Offset',
-					'tooltip' 	=> 'The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.',
-					'default' 	=> 0
-				),
-
-				'filters-heading' => array(
-					'name' 	=> 'filters-heading',
-					'type' 	=> 'heading',
-					'label' => 'Filters',
-				),
-
-				'post-type' => array(
-					'type' 		=> 'multi-select',
-					'name' 		=> 'post-type',
-					'label' 	=> 'Post Type',
-					'tooltip' 	=> 'Choose a post type to display. If none are selected, it will automatically default to all.',
-					'default' 	=> 'any',
-					'options' 	=> 'get_post_types()'
-				),
-				'taxonomies' => array(
-					'type' 		=> 'select',
-					'name' 		=> 'taxonomies',
-					'label' 	=> 'Taxonomy',
-					'default' 	=> 'category',
-					'options' 	=> array( 'none' => 'No taxonomies' ),
-					'tooltip' 	=> 'Select the taxonomy to filter pins on .',
-					'callback' 	=> 'reloadBlockOptions()'
-				),
-				// For simplicity with migrating from categories to all taxonomies, these next two have kept the same names. In the future a function could be written to port them to a correctly named variable
-				'categories' => array(
-					'type' 		=> 'multi-select',
-					'name' 		=> 'categories',
-					'label' 	=> 'Terms',
-					'default' 	=> '',
-					'options' 	=> array( 'none' => 'No terms' ),
-					'tooltip' 	=> 'Filter the pins that are shown by the selected taxonomy\'s terms.'
-				),
-				'categories-mode' => array(
-					'type' 		=> 'select',
-					'name' 		=> 'categories-mode',
-					'label' 	=> 'Terms Mode',
-					'tooltip' 	=> '',
-					'options' 	=> array(
-						'include' => 'Include',
-						'exclude' => 'Exclude'
-					),
-					'tooltip' 	=> 'If this is set to <em>include</em>, then only the pins that match the terms filter will be shown.  If set to <em>exclude</em>, all pins that match the selected terms will not be shown.'
-				),
-				'author' => array(
-					'type' 		=> 'multi-select',
-					'name' 		=> 'author',
-					'label' 	=> 'Author',
-					'tooltip' 	=> '',
-					'options' 	=> 'get_authors()'
-				),
-				'exclude-current-post' => array(
-					'type' => 'checkbox',
-					'name' => 'exclude-current-post',
-					'label' => 'Exclude Current Post',
-					'default' => false,
-					'tooltip' => 'Enabling this option will exclude the current Post from the pinboard, usefull when are creating a "related post" block.'
-				),
-
-				'order-heading' => array(
-					'name' 	=> 'order-heading',
-					'type' 	=> 'heading',
-					'label' => 'Order',
-				),
-				'order-by' => array(
-					'type' 		=> 'select',
-					'name' 		=> 'order-by',
-					'label' 	=> 'Order By',
-					'tooltip' 	=> '',
-					'options' 	=> array(
-						'date' 	=> 'Date',
-						'title' => 'Title',
-						'rand' 	=> 'Random',
-						'ID' 	=> 'ID'
-					)
-				),
-				'order' => array(
-					'type' => 'select',
-					'name' => 'order',
-					'label' => 'Order',
-					'tooltip' => '',
-					'options' => array(
-						'desc' => 'Descending',
-						'asc' => 'Ascending',
-					)
-				)
-			),
-
-			'pagination' => array(
-				'paginate' => array(
-					'type' => 'checkbox',
-					'name' => 'paginate',
-					'label' => 'Paginate Pins',
-					'default' => true,
-					'tooltip' => 'Enabling pagination adds buttons to the bottom of the pin board to go to the next/previous page.  <strong>Note:</strong> If infinite scrolling is enabled, pagination will be hidden.'
-				),
-
-				'enumerate' => array(
-					'type' => 'checkbox',
-					'name' => 'enumerate',
-					'label' => 'Enumerate pagination',
-					'default' => false,
-					'tooltip' => 'If pagination is displayed, enabling this will also show page number navigation.'
-				),
-
-				'infinite-scroll' => array(
-					'type' => 'checkbox',
-					'name' => 'infinite-scroll',
-					'label' => 'Infinite Scrolling',
-					'default' => true,
-					'tooltip' => 'Infinite scrolling allows your visitors to view all of your pins without the need for them to click a button to continue to the next page.  The pins will be loaded automatically simply by scrolling.'
-				)
-			),
-
-			'text' => array(
-				'show-titles' => array(
+				'pagination' => array(
+					'paginate' => array(
 						'type' => 'checkbox',
-						'name' => 'show-titles',
-						'label' => 'Show Titles',
-						'default' => true
-					),
-
-				'titles-position' => array(
-						'type' => 'select',
-						'name' => 'titles-position',
-						'label' => 'Titles position',
-						'default' => 'below',
-						'options' => array('above' => 'Above','below' => 'Below')
-					),
-
-				'titles-link-to-post' => array(
-						'type' => 'checkbox',
-						'name' => 'titles-link-to-post',
-						'label' => 'Titles link to post',
+						'name' => 'paginate',
+						'label' => __('Paginate Pins','padma'),
 						'default' => true,
-						'tooltip' => 'Open the post when the user clicks on the title'
+						'tooltip' => __('Enabling pagination adds buttons to the bottom of the pin board to go to the next/previous page.  <strong>Note:</strong> If infinite scrolling is enabled, pagination will be hidden.','padma')
 					),
 
-				'content-to-show' => array(
-						'type' => 'select',
-						'name' => 'content-to-show',
-						'label' => 'Content To Show',
-						'options' => array(
-							'' => '&ndash; Do Not Show Content &ndash;',
-							'excerpt' => 'Excerpts',
-							'content' => 'Full Content'
-						),
-						'default' => 'excerpt',
-						'tooltip' => 'The content is the written text or HTML for the entry.  This is edited in the WordPress admin panel.'
-					),
-
-				'show-text-if-no-image' => array(
+					'enumerate' => array(
 						'type' => 'checkbox',
-						'name' => 'show-text-if-no-image',
-						'label' => 'Only show content when no featured image',
+						'name' => 'enumerate',
+						'label' => __('Enumerate pagination','padma'),
 						'default' => false,
-						'tooltip' => 'If enabled, regardless of the content chosen in <em>Content to Show</em> will only show content for pins with no featured image.'
+						'tooltip' => __('If pagination is displayed, enabling this will also show page number navigation.','padma')
 					),
 
-			),
-
-			'meta' => array(
-
-				'show-author' 	=> array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'show-author',
-						'label' 	=> 'Meta: Show Author "byline"',
-						'default' 	=> false,
-						'tooltip' 	=> '<strong>Example:</strong> <em>by</em> Author Name'
-					),
-
-				'show-category' => array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'show-category',
-						'label' 	=> 'Meta: Show Categories',
-						'default' 	=> false
-					),
-
-				'show-tags' => array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'show-tags',
-						'label' 	=> 'Meta: Show Tags',
-						'default' 	=> false
-					),
-
-				'show-post-type' => array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'show-post-type',
-						'label' 	=> 'Meta: Show Post Type',
-						'default' 	=> false
-					),
-
-				'show-datetime' => array(
-						'type' 		=> 'checkbox',
-						'name' 		=> 'show-datetime',
-						'label' 	=> 'Meta: Show Date/Time',
-						'default' 	=> false
-					),
-
-				'datetime-verb' => array(
-						'type' 		=> 'text',
-						'name' 		=> 'datetime-verb',
-						'label' 	=> 'Meta: Posted Verb',
-						'default' 	=> 'Posted',
-						'tooltip'	=> 'The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"'
-					),
-			),
-
-			'images' => array(
-				'show-images' => array(
-					'type' => 'checkbox',
-					'name' => 'show-images',
-					'label' => 'Show Images',
-					'default' => true,
-				),
-				'images-click-action' => array(
-					'type' => 'select',
-					'name' => 'image-click-action',
-					'label' => 'Image click action',
-					'default' => 'link',
-					'tooltip' => 'Choose the action when user clicks on an image.',
-					'options' => array(
-						'post'  => 'Open post',
-						'popup' => 'Popup original image',
-						'none'  => 'Do nothing'
+					'infinite-scroll' => array(
+						'type' => 'checkbox',
+						'name' => 'infinite-scroll',
+						'label' => __('Infinite Scrolling','padma'),
+						'default' => true,
+						'tooltip' => __('Infinite scrolling allows your visitors to view all of your pins without the need for them to click a button to continue to the next page.  The pins will be loaded automatically simply by scrolling.','padma')
 					)
 				),
 
-				'crop-vertically' => array(
-					'type' => 'checkbox',
-					'name' => 'crop-vertically',
-					'label' => 'Crop Vertically',
-					'default' => false,
-					'tooltip' => 'Trim all images to have the same height.  The trimmed/cropped height is roughly 75% of the width.'
-				)
-			),
+				'text' => array(
+					'show-titles' => array(
+							'type' => 'checkbox',
+							'name' => 'show-titles',
+							'label' => __('Show Titles','padma'),
+							'default' => true
+						),
 
-			'effects' => array(
-				'hover-focus' => array(
-					'type' => 'checkbox',
-					'name' => 'hover-focus',
-					'label' => 'Hover Focus',
-					'default' => false,
-					'tooltip' => 'If enabled, the hovered pin will be focused while all others will be faded out.'
-				)
-			),
+					'titles-position' => array(
+							'type' => 'select',
+							'name' => 'titles-position',
+							'label' => __('Titles position','padma'),
+							'default' => 'below',
+							'options' => array('above' => __('Above','padma'),'below' => __('Below','padma') )
+						),
 
-			'social' => array(
-				'show-pinterest-button' => array(
-					'type' => 'checkbox',
-					'name' => 'show-pinterest-button',
-					'label' => 'Pinterest: Show "Pin It" Button',
-					'default' => false,
-					'tooltip' => 'Show a Pinterest "Pin It" button inside of the images.',
+					'titles-link-to-post' => array(
+							'type' => 'checkbox',
+							'name' => 'titles-link-to-post',
+							'label' => __('Titles link to post','padma'),
+							'default' => true,
+							'tooltip' => __('Open the post when the user clicks on the title','padma')
+						),
+
+					'content-to-show' => array(
+							'type' => 'select',
+							'name' => 'content-to-show',
+							'label' => __('Content To Show','padma'),
+							'options' => array(
+								'' => __('&ndash; Do Not Show Content &ndash;','padma'),
+								'excerpt' => __('Excerpts','padma'),
+								'content' => __('Full Content','padma')
+							),
+							'default' => 'excerpt',
+							'tooltip' => __('The content is the written text or HTML for the entry.  This is edited in the WordPress admin panel.','padma')
+						),
+
+					'show-text-if-no-image' => array(
+							'type' => 'checkbox',
+							'name' => 'show-text-if-no-image',
+							'label' => __('Only show content when no featured image','padma'),
+							'default' => false,
+							'tooltip' => __('If enabled, regardless of the content chosen in <em>Content to Show</em> will only show content for pins with no featured image.','padma')
+						),
+
 				),
 
-				'show-twitter-button' => array(
-					'type' => 'checkbox',
-					'name' => 'show-twitter-button',
-					'label' => 'Twitter: Show Tweet Button',
-					'default' => false,
-					'tooltip' => 'Show a tweet button either inside of the post image or by the title.',
+				'meta' => array(
+
+					'show-author' 	=> array(
+							'type' 		=> 'checkbox',
+							'name' 		=> 'show-author',
+							'label' 	=> __('Meta: Show Author "byline"','padma'),
+							'default' 	=> false,
+							'tooltip' 	=> __('<strong>Example:</strong> <em>by</em> Author Name','padma')
+						),
+
+					'show-category' => array(
+							'type' 		=> 'checkbox',
+							'name' 		=> 'show-category',
+							'label' 	=> __('Meta: Show Categories','padma'),
+							'default' 	=> false
+						),
+
+					'show-tags' => array(
+							'type' 		=> 'checkbox',
+							'name' 		=> 'show-tags',
+							'label' 	=> __('Meta: Show Tags','padma'),
+							'default' 	=> false
+						),
+
+					'show-post-type' => array(
+							'type' 		=> 'checkbox',
+							'name' 		=> 'show-post-type',
+							'label' 	=> __('Meta: Show Post Type','padma'),
+							'default' 	=> false
+						),
+
+					'show-datetime' => array(
+							'type' 		=> 'checkbox',
+							'name' 		=> 'show-datetime',
+							'label' 	=> __('Meta: Show Date/Time','padma'),
+							'default' 	=> false
+						),
+
+					'datetime-verb' => array(
+							'type' 		=> 'text',
+							'name' 		=> 'datetime-verb',
+							'label' 	=> __('Meta: Posted Verb','padma'),
+							'default' 	=> __('Posted','padma'),
+							'tooltip'	=> __('The posted verb will be placed before the time.  For instance, you may want to use "Listed" for real estate rather than "Posted"','padma')
+						),
 				),
 
-				'twitter-username' => array(
-					'type' => 'text',
-					'name' => 'twitter-username',
-					'label' => 'Twitter: Your Username'
-				),
-
-				'twitter-hashtag' => array(
-					'type' => 'text',
-					'name' => 'twitter-hashtag',
-					'label' => 'Twitter: Hashtag to put in tweets (Optional)'
-				),
-
-				'show-facebook-button' => array(
-					'type' => 'checkbox',
-					'name' => 'show-facebook-button',
-					'label' => 'Facebook: Show Like/Share Button',
-					'default' => false,
-					'tooltip' => 'Show a Facebook share/like button either inside of the post image or by the title.',
-				),
-
-				'facebook-button-verb' => array(
-					'type' => 'select',
-					'label' => 'Facebook: Button Verb',
-					'name' => 'facebook-button-verb',
-					'options' => array(
-						'like' => 'Like',
-						'recommend' => 'Recommend'
+				'images' => array(
+					'show-images' => array(
+						'type' => 'checkbox',
+						'name' => 'show-images',
+						'label' => __('Show Images','padma'),
+						'default' => true,
 					),
-					'default' => 'like'
+					'images-click-action' => array(
+						'type' => 'select',
+						'name' => 'image-click-action',
+						'label' => __('Image click action','padma'),
+						'default' => 'link',
+						'tooltip' => __('Choose the action when user clicks on an image.','padma'),
+						'options' => array(
+							'post'  => __('Open post','padma'),
+							'popup' => __('Popup original image','padma'),
+							'none'  => __('Do nothing','padma')
+						)
+					),
+
+					'crop-vertically' => array(
+						'type' => 'checkbox',
+						'name' => 'crop-vertically',
+						'label' => __('Crop Vertically','padma'),
+						'default' => false,
+						'tooltip' => __('Trim all images to have the same height.  The trimmed/cropped height is roughly 75% of the width.','padma')
+					)
+				),
+
+				'effects' => array(
+					'hover-focus' => array(
+						'type' => 'checkbox',
+						'name' => 'hover-focus',
+						'label' => __('Hover Focus','padma'),
+						'default' => false,
+						'tooltip' => __('If enabled, the hovered pin will be focused while all others will be faded out.','padma')
+					)
+				),
+
+				'social' => array(
+					'show-pinterest-button' => array(
+						'type' => 'checkbox',
+						'name' => 'show-pinterest-button',
+						'label' => __('Pinterest: Show "Pin It" Button','padma'),
+						'default' => false,
+						'tooltip' => __('Show a Pinterest "Pin It" button inside of the images.','padma'),
+					),
+
+					'show-twitter-button' => array(
+						'type' => 'checkbox',
+						'name' => 'show-twitter-button',
+						'label' => __('Twitter: Show Tweet Button','padma'),
+						'default' => false,
+						'tooltip' => __('Show a tweet button either inside of the post image or by the title.','padma'),
+					),
+
+					'twitter-username' => array(
+						'type' => 'text',
+						'name' => 'twitter-username',
+						'label' => __('Twitter: Your Username','padma')
+					),
+
+					'twitter-hashtag' => array(
+						'type' => 'text',
+						'name' => 'twitter-hashtag',
+						'label' => __('Twitter: Hashtag to put in tweets (Optional)','padma')
+					),
+
+					'show-facebook-button' => array(
+						'type' => 'checkbox',
+						'name' => 'show-facebook-button',
+						'label' => __('Facebook: Show Like/Share Button','padma'),
+						'default' => false,
+						'tooltip' => __('Show a Facebook share/like button either inside of the post image or by the title.','padma'),
+					),
+
+					'facebook-button-verb' => array(
+						'type' => 'select',
+						'label' => __('Facebook: Button Verb','padma'),
+						'name' => 'facebook-button-verb',
+						'options' => array(
+							'like' => __('Like','padma'),
+							'recommend' => __('Recommend','padma')
+						),
+						'default' => 'like'
+					)
 				)
-			)
-		);
+			);
+		}
 
 
 		public function modify_arguments($args = false) {
@@ -1189,10 +1204,10 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			$this->inputs['query-filters']['categories'] = array(
 				'type' 		=> 'multi-select',
 				'name' 		=> 'categories',
-				'label' 	=> 'Terms',
+				'label' 	=> __('Terms','padma'),
 				'default' 	=> '',
 				'options' 	=> $this->terms_list[$tax_slug],
-				'tooltip' 	=> 'Filter the pins that are shown by the selected taxonomy\'s terms.'
+				'tooltip' 	=> __('Filter the pins that are shown by the selected taxonomy\'s terms.','padma')
 			);
 
 			$callback = '
@@ -1314,7 +1329,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				}
 
 				if ( !$keys_only && count($terms[$key]) == 0 ) {
-					$terms[$key]['none'] = 'No terms found for this taxonomy';
+					$terms[$key]['none'] = __('No terms found for this taxonomy','padma');
 				}
 
 			}
@@ -1353,106 +1368,4 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 	}
 
-
-
-	/*
-	function parse_meta($meta) {
-
-		global $post, $authordata;
-
-		$variables = array(
-			'date',
-			'time',
-			'comments',
-			'comments_no_link',
-			'respond',
-			'author',
-			'author_no_link',
-			'categories',
-			'tags',
-			'edit'
-		);
-
-		foreach ( $variables as $variable ) {
-
-			if ( strpos($meta, '%' . $variable . '%') === false )
-				continue;
-
-			switch ( $variable ) {
-
-				case 'date':
-
-					$date_format = $this->get_setting('date-format', 'wordpress-default');
-					$date = ($date_format != 'wordpress-default') ? get_the_time($date_format) : get_the_date();
-
-					$replacement['date'] = '<time class="entry-date published updated" itemprop="datePublished" datetime="' . get_the_time( 'c' ) . '">' . $date . '</time>';
-
-				break;
-
-				case 'time':
-
-					$time_format = $this->get_setting('time-format', 'wordpress-default');
-					$time = ($date_format != 'wordpress-default') ? get_the_time($time_format) : get_the_time();
-
-					$replacement['time'] = '<time class="entry-time" datetime="' . get_the_time( 'c' ) . '">' . $time . '</time>';
-
-				break;
-
-				case 'comments':
-				case 'comments_no_link':
-
-					$comments_number = (int)get_comments_number($post->ID);
-
-					if ( $comments_number === 0 ) 
-						$comments_format = stripslashes($this->get_setting('comment-format-0', '%num% Comments'));
-					elseif ( $comments_number == 1 ) 
-						$comments_format = stripslashes($this->get_setting('comment-format-1', '%num% Comment'));
-					elseif ( $comments_number > 1 ) 
-						$comments_format = stripslashes($this->get_setting('comment-format', '%num% Comments'));
-
-					$comments = str_replace('%num%', $comments_number, $comments_format);
-					
-					$replacement['comments'] = '<a href="' . get_comments_link() . '" title="' . sprintf(__('%s &ndash; Comments', 'padma'), the_title_attribute('echo=0')) . '" class="entry-comments">' . $comments . '</a>';
-					$replacement['comments_no_link'] = $comments;
-
-				break;
-
-				case 'respond':
-
-					$respond_format = stripslashes($this->get_setting('respond-format', 'Leave a comment!'));
-					
-					$replacement['respond'] = '<a href="' . get_permalink() . '#respond" title="' . sprintf(__('Respond to %s', 'padma'), the_title_attribute('echo=0')) . '" class="entry-respond">' . $respond_format . '</a>';
-
-				break;
-
-				case 'author':
-				case 'author_no_link':
-
-					$replacement['author'] = '<span class="entry-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="author-link fn nickname url" href="' . get_author_posts_url($authordata->ID) . '" title="' . sprintf(__('View all posts by %s', 'padma'), $authordata->display_name) . '" itemprop="url"><span class="entry-author-name" itemprop="name">' . $authordata->display_name . '</span></a></span>';
-					$replacement['author_no_link'] = $authordata->display_name;
-
-				break;
-
-				case 'categories':
-					$replacement['categories'] = get_the_category_list(', ');
-				break;
-
-				case 'tags':
-					$replacement['tags'] = (get_the_tags() != NULL) ? get_the_tag_list('<span class="tag-links" itemprop="keywords">','<span class="tag-sep">, </span>','</span>') : '';
-				break;
-
-				case 'edit':
-					$replacement['edit'] = null;
-				break;
-
-
-			}
-
-			$meta = str_replace('%' . $variable . '%', $replacement[$variable], $meta);
-
-		}
-
-		return apply_filters('padma_meta', $meta);
-		
-	}*/
 }

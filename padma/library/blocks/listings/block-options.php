@@ -2,6 +2,287 @@
 
 class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 
+	public $tabs;
+	public $inputs;
+
+
+	function __construct(){
+		
+		$this->tabs = array(
+			'listing-type' => __('Select Listing Type','padma'),
+			'posts-pages-filters' => __('Posts &amp; Pages Filters','padma'),
+			'taxonomy-options' => __('Taxonomy Options','padma')
+		);
+		
+		$this->inputs = array(
+			'listing-type' => array(
+
+				'listing-type' => array(
+					'type' => 'select',
+					'name' => 'listing-type',
+					'label' => __('List?','padma'),
+					'tooltip' => __('Select a type of list output and then configure it with the options on the left.','padma'),
+					'options' => array(
+						'taxonomy' => __('Taxonomy (category, tag etc)','padma'),
+						'content' => __('Posts or Pages (custom posts)','padma'),
+						'authors' => __('Authors','padma')
+					),
+					'default' => 'taxonomy',
+					'toggle'    => array(
+						'taxonomy' => array(
+							'show' => array(
+								'#sub-tab-taxonomy-options'
+							),
+							'hide' => array(
+								'#sub-tab-posts-pages-filters'
+							)
+						),
+						'content' => array(
+							'hide' => array(
+								'#sub-tab-taxonomy-options'
+							),
+							'show' => array(
+								'#sub-tab-posts-pages-filters'
+							)
+						)
+					)
+				)
+				
+			),
+
+			'taxonomy-options'	=> array(
+
+				'terms-select-taxonomy-heading' => array(
+					'name' => 'terms-select-taxonomy-heading',
+					'type' => 'heading',
+					'label' => __('Select Taxonomy','padma')
+				),
+
+				'select-taxonomy' => array(
+					'label' => __('Select Taxonomy to display','padma'),
+					'type' => 'select',
+					'name' => 'select-taxonomy',
+					'options' => 'get_taxonomies()',
+					'default' => 'category',
+				),
+
+				'terms-options-sorting-heading' => array(
+					'name' => 'terms-options-sorting-heading',
+					'type' => 'heading',
+					'label' => __('Sort Taxonomy','padma')
+				),
+
+				'terms-orderby' => array(
+					'type' => 'select',
+					'name' => 'terms-orderby',
+					'label' => __('Order By?','padma'),
+					'tooltip' => __('Sort term alphabetically, by unique Term ID, or by the count of items in that Term','padma'),
+					'options' => array(
+						'none' => __('None','padma'),
+						'ID' => 'ID',
+						'name' => __('Name','padma'),
+						'slug' => __('Slug','padma'),
+						'count' => __('Count','padma'),
+						//'term_group' => 'Term Group'
+					),
+					'default' => 'name'
+				),
+
+				'terms-order' => array(
+					'type' => 'select',
+					'name' => 'terms-order',
+					'label' => __('Order?','padma'),
+					'tooltip' => __('Sort order for term (either ascending or descending).','padma'),
+					'options' => array(
+						'DESC' => __('Descending','padma'),
+						'ASC' => __('Ascending','padma')
+					),
+					'default' => 'ASC'
+				),
+
+				'terms-options-filter-heading' => array(
+					'name' => 'terms-options-filter-heading',
+					'type' => 'heading',
+					'label' => __('Filter Taxonomy','padma')
+				),
+
+				'terms-number' => array(
+					'type' => 'slider',
+					'slider-min' => 0,
+					'slider-max' => 30,
+					'slider-interval' => 1,
+					'name' => 'terms-number',
+					'label' => __('Number of terms','padma'),
+					'default' => '10',
+					'tooltip' => __('Sets the number of terms to display. Default 0 for no limit.','padma')
+				),
+
+				'terms-child-of' => array(
+					'type' => 'select',
+					'name' => 'terms-child-of',
+					'label' => __('Child Of','padma'),
+					'options' => 'get_listing_terms()',
+					'default' => '',
+					'tooltip' => __('Only display terms that are children of what you specify here.','padma')
+				),
+
+				'terms-exclude' => array(
+					'type' => 'multi-select',
+					'name' => 'terms-exclude',
+					'label' => __('Exclude','padma'),
+					'options' => 'get_listing_terms()',
+					'default' => '',
+					'tooltip' => __('Exclude one or more term from the results.','padma')
+				),
+
+				'terms-include' => array(
+					'type' => 'multi-select',
+					'name' => 'terms-include',
+					'label' => __('Include','padma'),
+					'options' => 'get_listing_terms()',
+					'default' => '',
+					'tooltip' => __('Only include certain terms in the list.','padma')
+				),
+
+				'terms-slug' => array(
+					'name' => 'terms-slug',
+					'type' => 'text',
+					'label' => 'Slug',
+					'tooltip' => __('Returns terms whose "slug" matches this value. Default is empty string.','padma')
+				),
+
+				'terms-options-display-heading' => array(
+					'name' => 'terms-options-display-heading',
+					'type' => 'heading',
+					'label' => __('Display Taxonomy','padma')
+				),
+
+				'terms-hide-empty' => array(
+					'type' => 'checkbox',
+					'name' => 'terms-hide-empty', 
+					'label' => __('Hide Empty?','padma'),
+					'tooltip' => __('Toggles the display of term with no posts.','padma'),
+					'default' => true
+				),
+
+				'terms-hierarchical' => array(
+					'type' => 'checkbox',
+					'name' => 'terms-hierarchical', 
+					'label' => __('Hierarchical?','padma'),
+					'tooltip' => __('Whether to include terms that have non-empty descendants .','padma'),
+					'default' => true
+				)
+
+			),
+
+			'posts-pages-filters' => array(
+
+				'number-of-posts' => array(
+					'type' => 'integer',
+					'name' => 'number-of-posts',
+					'label' => __('Number of Posts','padma'),
+					'tooltip' => '',
+					'default' => 5
+				),
+
+				'posts-pages-post-type-heading' => array(
+					'name' => 'posts-pages-post-type-heading',
+					'type' => 'heading',
+					'label' => __('Filter Content','padma')
+				),
+
+				'post-type' => array(
+					'type' => 'select',
+					'name' => 'post-type',
+					'label' => __('Post Type','padma'),
+					'tooltip' => '',
+					'options' => 'get_post_types()',
+					'toggle'    => array(
+						'0' => array(
+							'hide' => array(
+								'#input-post-taxonomy-filter',
+								'#input-terms'
+							)
+						)
+					),
+					'callback' => '
+						reloadBlockOptions()'
+				),
+
+				'post-taxonomy-filter' => array(
+					'label' => __('Select Taxonomy to filter','padma'),
+					'type' => 'select',
+					'name' => 'post-taxonomy-filter',
+					'options' => 'get_taxonomies()',
+					'default' => 'category',
+					'toggle'    => array(
+						'0' => array(
+							'hide' => array(
+								'#input-terms'
+							)
+						)
+					),
+					'callback' => '
+						reloadBlockOptions()'
+				),
+
+				'terms' => array(
+					'type' => 'multi-select',
+					'name' => 'terms',
+					'tooltip' => ''
+				),
+
+				'author' => array(
+					'type' => 'multi-select',
+					'name' => 'author',
+					'label' => __('Author','padma'),
+					'tooltip' => '',
+					'options' => 'get_authors()'
+				),
+				
+				'offset' => array(
+					'type' => 'integer',
+					'name' => 'offset',
+					'label' => __('Offset','padma'),
+					'tooltip' => __('The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.','padma'),
+					'default' => 0
+				),
+				
+				'posts-pages-sort-heading' => array(
+					'name' => 'posts-pages-sort-heading',
+					'type' => 'heading',
+					'label' => __('Sort Content','padma')
+				),
+				
+				'order-by' => array(
+					'type' => 'select',
+					'name' => 'order-by',
+					'label' => __('Order By','padma'),
+					'tooltip' => '',
+					'options' => array(
+						'date' => __('Date','padma'),
+						'title' => __('Title','padma'),
+						'rand' => __('Random','padma'),
+						'comment_count' => __('Comment Count','padma'),
+						'ID' => 'ID'
+					)
+				),
+				
+				'order' => array(
+					'type' => 'select',
+					'name' => 'order',
+					'label' => __('Order','padma'),
+					'tooltip' => '',
+					'options' => array(
+						'desc' => __('Descending','padma'),
+						'asc' => __('Ascending','padma'),
+					)
+				)
+			),
+		);
+
+	}
+
 	function modify_arguments($args = false) {
 		
 		$block = $args['block'];
@@ -31,279 +312,6 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 		$this->inputs['taxonomy-options']['terms-include']['options'] = $terms;
 		
 	}
-	
-	public $tabs = array(
-		'listing-type' => 'Select Listing Type',
-		'posts-pages-filters' => 'Posts &amp; Pages Filters',
-		'taxonomy-options' => 'Taxonomy Options'
-	);
-
-	public $inputs = array(
-		'listing-type' => array(
-
-			'listing-type' => array(
-				'type' => 'select',
-				'name' => 'listing-type',
-				'label' => 'List?',
-				'tooltip' => 'Select a type of list output and then configure it with the options on the left.',
-				'options' => array(
-					'taxonomy' => 'Taxonomy (category, tag etc)',
-					'content' => 'Posts or Pages (custom posts)',
-					'authors' => 'Authors'
-				),
-				'default' => 'taxonomy',
-				'toggle'    => array(
-					'taxonomy' => array(
-						'show' => array(
-							'#sub-tab-taxonomy-options'
-						),
-						'hide' => array(
-							'#sub-tab-posts-pages-filters'
-						)
-					),
-					'content' => array(
-						'hide' => array(
-							'#sub-tab-taxonomy-options'
-						),
-						'show' => array(
-							'#sub-tab-posts-pages-filters'
-						)
-					)
-				)
-			)
-			
-		),
-
-		'taxonomy-options'	=> array(
-
-			'terms-select-taxonomy-heading' => array(
-				'name' => 'terms-select-taxonomy-heading',
-				'type' => 'heading',
-				'label' => 'Select Taxonomy'
-			),
-
-			'select-taxonomy' => array(
-				'label' => 'Select Taxonomy to display',
-				'type' => 'select',
-				'name' => 'select-taxonomy',
-				'options' => 'get_taxonomies()',
-				'default' => 'category',
-			),
-
-			'terms-options-sorting-heading' => array(
-				'name' => 'terms-options-sorting-heading',
-				'type' => 'heading',
-				'label' => 'Sort Taxonomy'
-			),
-
-			'terms-orderby' => array(
-				'type' => 'select',
-				'name' => 'terms-orderby',
-				'label' => 'Order By?',
-				'tooltip' => 'Sort term alphabetically, by unique Term ID, or by the count of items in that Term',
-				'options' => array(
-					'none' => 'None',
-					'ID' => 'ID',
-					'name' => 'Name',
-					'slug' => 'Slug',
-					'count' => 'Count',
-					//'term_group' => 'Term Group'
-				),
-				'default' => 'name'
-			),
-
-			'terms-order' => array(
-				'type' => 'select',
-				'name' => 'terms-order',
-				'label' => 'Order?',
-				'tooltip' => 'Sort order for term (either ascending or descending).',
-				'options' => array(
-					'DESC' => 'Descending',
-					'ASC' => 'Ascending'
-				),
-				'default' => 'ASC'
-			),
-
-			'terms-options-filter-heading' => array(
-				'name' => 'terms-options-filter-heading',
-				'type' => 'heading',
-				'label' => 'Filter Taxonomy'
-			),
-
-			'terms-number' => array(
-				'type' => 'slider',
-				'slider-min' => 0,
-				'slider-max' => 30,
-				'slider-interval' => 1,
-				'name' => 'terms-number',
-				'label' => 'Number of terms',
-				'default' => '10',
-				'tooltip' => 'Sets the number of terms to display. Default 0 for no limit.'
-			),
-
-			'terms-child-of' => array(
-				'type' => 'select',
-				'name' => 'terms-child-of',
-				'label' => 'Child Of',
-				'options' => 'get_listing_terms()',
-				'default' => '',
-				'tooltip' => 'Only display terms that are children of what you specify here.'
-			),
-
-			'terms-exclude' => array(
-				'type' => 'multi-select',
-				'name' => 'terms-exclude',
-				'label' => 'Exclude',
-				'options' => 'get_listing_terms()',
-				'default' => '',
-				'tooltip' => 'Exclude one or more term from the results.'
-			),
-
-			'terms-include' => array(
-				'type' => 'multi-select',
-				'name' => 'terms-include',
-				'label' => 'Include',
-				'options' => 'get_listing_terms()',
-				'default' => '',
-				'tooltip' => 'Only include certain terms in the list.'
-			),
-
-			'terms-slug' => array(
-				'name' => 'terms-slug',
-				'type' => 'text',
-				'label' => 'Slug',
-				'tooltip' => 'Returns terms whose "slug" matches this value. Default is empty string.'
-			),
-
-			'terms-options-display-heading' => array(
-				'name' => 'terms-options-display-heading',
-				'type' => 'heading',
-				'label' => 'Display Taxonomy'
-			),
-
-			'terms-hide-empty' => array(
-				'type' => 'checkbox',
-				'name' => 'terms-hide-empty', 
-				'label' => 'Hide Empty?',
-				'tooltip' => 'Toggles the display of term with no posts.',
-				'default' => true
-			),
-
-			'terms-hierarchical' => array(
-				'type' => 'checkbox',
-				'name' => 'terms-hierarchical', 
-				'label' => 'Hierarchical?',
-				'tooltip' => 'Whether to include terms that have non-empty descendants .',
-				'default' => true
-			)
-
-		),
-
-		'posts-pages-filters' => array(
-
-			'number-of-posts' => array(
-				'type' => 'integer',
-				'name' => 'number-of-posts',
-				'label' => 'Number of Posts',
-				'tooltip' => '',
-				'default' => 5
-			),
-
-			'posts-pages-post-type-heading' => array(
-				'name' => 'posts-pages-post-type-heading',
-				'type' => 'heading',
-				'label' => 'Filter Content'
-			),
-
-			'post-type' => array(
-				'type' => 'select',
-				'name' => 'post-type',
-				'label' => 'Post Type',
-				'tooltip' => '',
-				'options' => 'get_post_types()',
-				'toggle'    => array(
-					'0' => array(
-						'hide' => array(
-							'#input-post-taxonomy-filter',
-							'#input-terms'
-						)
-					)
-				),
-				'callback' => '
-					reloadBlockOptions()'
-			),
-
-			'post-taxonomy-filter' => array(
-				'label' => 'Select Taxonomy to filter',
-				'type' => 'select',
-				'name' => 'post-taxonomy-filter',
-				'options' => 'get_taxonomies()',
-				'default' => 'category',
-				'toggle'    => array(
-					'0' => array(
-						'hide' => array(
-							'#input-terms'
-						)
-					)
-				),
-				'callback' => '
-					reloadBlockOptions()'
-			),
-
-			'terms' => array(
-				'type' => 'multi-select',
-				'name' => 'terms',
-				'tooltip' => ''
-			),
-
-			'author' => array(
-				'type' => 'multi-select',
-				'name' => 'author',
-				'label' => 'Author',
-				'tooltip' => '',
-				'options' => 'get_authors()'
-			),
-			
-			'offset' => array(
-				'type' => 'integer',
-				'name' => 'offset',
-				'label' => 'Offset',
-				'tooltip' => 'The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.',
-				'default' => 0
-			),
-			
-			'posts-pages-sort-heading' => array(
-				'name' => 'posts-pages-sort-heading',
-				'type' => 'heading',
-				'label' => 'Sort Content'
-			),
-			
-			'order-by' => array(
-				'type' => 'select',
-				'name' => 'order-by',
-				'label' => 'Order By',
-				'tooltip' => '',
-				'options' => array(
-					'date' => 'Date',
-					'title' => 'Title',
-					'rand' => 'Random',
-					'comment_count' => 'Comment Count',
-					'ID' => 'ID'
-				)
-			),
-			
-			'order' => array(
-				'type' => 'select',
-				'name' => 'order',
-				'label' => 'Order',
-				'tooltip' => '',
-				'options' => array(
-					'desc' => 'Descending',
-					'asc' => 'Ascending',
-				)
-			)
-		),
-	);
 
 	function get_taxonomies($post_type='') {
 

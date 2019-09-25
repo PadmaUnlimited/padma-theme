@@ -3,12 +3,23 @@
 class PadmaSlideDeckBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'slidedeck';	
-	public $name = 'SlideDeck 2';	
-	public $options_class = 'PadmaSlideDeckBlockOptions';
-	public $description = 'Conveniently add SlideDecks anywhere on any layout.'; /* This will be shown in the block type selector */
-	public $categories 	= array('core','content', 'media');
+	public $id;
+	public $name;
+	public $options_class;
+	public $description;
+	public $categories;
 
+
+	function __construct(){
+		
+		$this->id = 'slidedeck';	
+		$this->name = __('SlideDeck 2','padma');
+		$this->options_class = 'PadmaSlideDeckBlockOptions';
+		$this->description = __('Conveniently add SlideDecks anywhere on any layout.','padma'); 
+		/* This will be shown in the block type selector */
+		$this->categories 	= array('core','content', 'media');		
+
+	}
 
 	/** 
 	 * Anything in here will be displayed when the block is being displayed.
@@ -20,7 +31,7 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 		/* Make sure SlideDeck is activated and working */
 			if ( !is_object($SlideDeckPlugin) ) {
 
-				echo '<div class="alert alert-red"><p>SlideDeck must be installed and activated in order for the SlideDeck block to work properly.</p></div>';
+				echo '<div class="alert alert-red"><p>' . __('SlideDeck must be installed and activated in order for the SlideDeck block to work properly.','padma') . '</p></div>';
 				return;
 
 			}
@@ -31,7 +42,7 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 		/* Make sure that there's a selected SlideDeck */
 			if ( empty($slidedeck_id) ) {
 
-				echo '<div class="alert alert-red"><p>Please choose a SlideDeck to display.</p></div>';
+				echo '<div class="alert alert-red"><p>' . __('Please choose a SlideDeck to display.','padma') . '</p></div>';
 				return;
 
 			}
@@ -40,7 +51,7 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 
 			if ( empty($slidedeck_query) ) {
 
-				echo '<div class="alert alert-red"><p>The SlideDeck you previously chose must\'ve been deleted or moved elsewhere.  Please select another SlideDeck to display.</p></div>';
+				echo '<div class="alert alert-red"><p>' . __('The SlideDeck you previously chose must\'ve been deleted or moved elsewhere.  Please select another SlideDeck to display.') . '</p></div>';
 				return;
 
 			}
@@ -109,35 +120,42 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 class PadmaSlideDeckBlockOptions extends PadmaBlockOptionsAPI {
 	
 	
-	public $tabs = array(
-		'settings-tab' => 'Settings'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'settings-tab' => array(
-			'slidedeck-dashboard-link' => array(
-				'type' => 'notice',
-				'name' => 'slidedeck-dashboard-link',
-				'notice' => ''
-			),
-			'slidedeck-id' => array(
-				'type' => 'select',
-				'name' => 'slidedeck-id', //This will be the setting you retrieve from the database.
-				'label' => 'Choose a SlideDeck to Display',
-				'default' => '',
-				'options' => 'get_slidedecks()',
-				'tooltip' => 'Select the SlideDeck you wish to display',
-			),
 
-			'use-block-size' => array(
-				'type' => 'checkbox',
-				'name' => 'use-block-size',
-				'label' => 'Use Block Size for SlideDeck',
-				'default' => true,
-				'tooltip' => 'Choose whether or not you\'d like to use the block\'s size to dictate the SlideDeck\'s size.  If you choose not to, it will use the size defined in the SlideDeck\'s settings.'
+	function __construct(){
+
+		$this->tabs = array(
+			'settings-tab' => __('Settings','padma')
+		);
+
+		$this->inputs = array(
+			'settings-tab' => array(
+				'slidedeck-dashboard-link' => array(
+					'type' => 'notice',
+					'name' => 'slidedeck-dashboard-link',
+					'notice' => ''
+				),
+				'slidedeck-id' => array(
+					'type' => 'select',
+					'name' => 'slidedeck-id', //This will be the setting you retrieve from the database.
+					'label' => __('Choose a SlideDeck to Display','padma'),
+					'default' => '',
+					'options' => 'get_slidedecks()',
+					'tooltip' => __('Select the SlideDeck you wish to display','padma'),
+				),
+
+				'use-block-size' => array(
+					'type' => 'checkbox',
+					'name' => 'use-block-size',
+					'label' => __('Use Block Size for SlideDeck','padma'),
+					'default' => true,
+					'tooltip' => __('Choose whether or not you\'d like to use the block\'s size to dictate the SlideDeck\'s size.  If you choose not to, it will use the size defined in the SlideDeck\'s settings.','padma')
+				)
 			)
-		)
-	);
+		);
+	}
 
 
 	function get_slidedecks() {
@@ -147,7 +165,7 @@ class PadmaSlideDeckBlockOptions extends PadmaBlockOptionsAPI {
 		$slidedecks = $SlideDeckPlugin->SlideDeck->get(null, 'post_title', 'ASC', 'publish');
 
 		$options = array(
-			'' => '&ndash; Select a SlideDeck &ndash;'
+			'' => __('&ndash; Select a SlideDeck &ndash;','padma')
 		);
 
 		foreach ( $slidedecks as $slidedeck )
@@ -162,10 +180,10 @@ class PadmaSlideDeckBlockOptions extends PadmaBlockOptionsAPI {
 
 		/* Since we can't call functions when declaring a property, we must put in the admin links here that way we can use admin_url() */
 			$this->inputs['settings-tab']['slidedeck-dashboard-link']['notice'] = '
-			    <strong>SlideDeck Quick Links:</strong>&nbsp;
-				<a href="' . admin_url('admin.php?page=' . SLIDEDECK2_BASENAME) . '" target="_blank">Add/Manage SlideDecks</a> | 
-				<a href="' . admin_url('admin.php?page=' . SLIDEDECK2_BASENAME . '/lenses') . '" target="_blank">Lenses</a> | 
-				<a href="' . admin_url('admin.php?page=' . SLIDEDECK2_BASENAME . '/options') . '" target="_blank">Advanced Options</a>
+			    <strong>' . __('SlideDeck Quick Links:','padma') . '</strong>&nbsp;
+				<a href="' . admin_url('admin.php?page=' . SLIDEDECK2_BASENAME) . '" target="_blank">' . __('Add/Manage SlideDecks','padma') . '</a> | 
+				<a href="' . admin_url('admin.php?page=' . SLIDEDECK2_BASENAME . '/lenses') . '" target="_blank">' . __('Lenses','padma') . '</a> | 
+				<a href="' . admin_url('admin.php?page=' . SLIDEDECK2_BASENAME . '/options') . '" target="_blank">' . __('Advanced Options','padma') . '</a>
 			';
 
 	}

@@ -18,7 +18,7 @@ class PadmaFooterBlock extends PadmaBlockAPI {
 	function __construct(){
 
 		$this->id = 'footer';	
-		$this->name = 'Footer';		
+		$this->name = __('Footer','padma');
 		$this->options_class = 'PadmaFooterBlockOptions';	
 		$this->html_tag = 'footer';	
 		$this->attributes = array(

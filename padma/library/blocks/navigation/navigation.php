@@ -2,25 +2,39 @@
 
 class PadmaNavigationBlock extends PadmaBlockAPI {
 
-
-	public $id = 'navigation';
-	public $name = 'Navigation';
-	public $options_class = 'PadmaNavigationBlockOptions';
-	public $fixed_height = false;
-	public $html_tag = 'nav';
-	public $attributes = array(
-		'itemscope' => '',
-		'itemtype' => 'http://schema.org/SiteNavigationElement'
-	);
-	public $description = 'The navigation is the menu that will display all of the pages in your site.';
-	public $categories 	= array('core','navigation');
-
-	protected $show_content_in_grid = true;
+	public $id;
+	public $name;
+	public $options_class;
+	public $fixed_height;
+	public $html_tag;
+	public $attributes;
+	public $description;
+	public $categories;
+	protected $show_content_in_grid;
 
 	/* Use this to pass the block from static function to static function */
 	static public $block = null;
 	static private $menu_sub_check_cache = array();
 	static private $wp_nav_menu_cache = array();
+
+
+
+	function __construct(){
+
+		$this->id = 'navigation';
+		$this->name = 'Navigation';
+		$this->options_class = 'PadmaNavigationBlockOptions';
+		$this->fixed_height = false;
+		$this->html_tag = 'nav';
+		$this->attributes = array(
+			'itemscope' => '',
+			'itemtype' => 'http://schema.org/SiteNavigationElement'
+		);
+		$this->description = 'The navigation is the menu that will display all of the pages in your site.';
+		$this->categories = array('core','navigation');
+		$this->show_content_in_grid = true;
+
+	}
 
 
 	public static function init() {
@@ -151,7 +165,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 
 			echo '<span class="pushy-menu-toggle' . $toggle_class . '">
-					<span class="pushy-menu-toggle-text">' . parent::get_setting($block, 'responsive-menu-label', 'Menu') . '</span>
+					<span class="pushy-menu-toggle-text">' . parent::get_setting($block, 'responsive-menu-label', __('Menu','padma')) . '</span>
 					<span class="pushy-menu-toggle-icon">
                         <span class="pushy-menu-toggle-icon-bar"></span>
                         <span class="pushy-menu-toggle-icon-bar"></span>
@@ -492,57 +506,57 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 	function setup_elements() {
 
 		$this->register_block_element( array(
-			'name' => 'Menu Container',
+			'name' => __('Menu Container','padma'),
 			'selector' => '.nav-horizontal'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Menu Container - Vertical',
+			'name' => __('Menu Container - Vertical','padma'),
 			'selector' => '.nav-vertical'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Menu',
+			'name' => __('Menu','padma'),
 			'selector' => 'ul.menu'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Menu Item',
+			'name' => __('Menu Item','padma'),
 			'selector' => 'ul.menu li'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Menu Item Link',
+			'name' => __('Menu Item Link','padma'),
 			'selector' => 'ul.menu li a'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Menu Item - Active',
+			'name' => __('Menu Item - Active','padma'),
 			'selector' => 'ul.menu li.current-menu-item a'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Sub Menu',
+			'name' => __('Sub Menu','padma'),
 			'selector' => 'ul.sub-menu'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Sub Menu Item',
+			'name' => __('Sub Menu Item','padma'),
 			'selector' => 'ul.sub-menu li'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Sub Menu Item Link',
+			'name' => __('Sub Menu Item Link','padma'),
 			'selector' => 'ul.sub-menu li a'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Search Input',
+			'name' => __('Search Input','padma'),
 			'selector' => '#searchform input[type="text"]'
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Horizontal SlideOut Tag',
+			'name' => __('Horizontal SlideOut Tag','padma'),
 			'selector' => '.nav-horizontal .pushy-menu-toggle',
 			'states' => array(
 					'Hover' => '.nav-horizontal .pushy-menu-toggle:hover', 
@@ -551,7 +565,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Horizontal SlideOut Icon',
+			'name' => __('Horizontal SlideOut Icon','padma'),
 			'selector' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon',
 			'states' => array(
 					'Hover' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon:hover', 
@@ -560,7 +574,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		) );
 
 		$this->register_block_element( array(
-			'name' => 'Horizontal SlideOut Icon Line',
+			'name' => __('Horizontal SlideOut Icon Line','padma'),
 			'selector' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar',
 			'states' => array(
 					'Hover' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:hover', 
@@ -578,7 +592,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$this->register_block_element( array(
 				'legacy-only' => true,
 				'id' => 'menu-item',
-				'name' => 'Menu Item',
+				'name' => __('Menu Item','padma'),
 				'selector' => 'ul.menu li > a',
 				'states' => array(
 						'Selected' => '
@@ -605,7 +619,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$this->register_block_element( array(
 				'legacy-only' => true,
 				'id' => 'sub-nav-menu',
-				'name' => 'Sub Menu',
+				'name' => __('Sub Menu','padma'),
 				'selector' => 'ul.sub-menu'
 		) );
 
@@ -613,7 +627,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$this->register_block_element( array(
 				'legacy-only' => true,
 				'id' => 'sub-menu-item',
-				'name' => 'Sub Menu Item',
+				'name' => __('Sub Menu Item','padma'),
 				'selector' => 'ul.sub-menu li > a',
 				'states' => array(
 						'Selected' => '
@@ -633,7 +647,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		$this->register_block_element( array(
 				'legacy-only' => true,
 				'id' => 'search-input',
-				'name' => 'Search Input',
+				'name' => __('Search Input','padma'),
 				'selector' => '#searchform input[type="text"]',
 				'states' => array(
 						'Focused' => '#searchform input[type="text"]:focus'
@@ -654,7 +668,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		if ( get_option( 'show_on_front' ) == 'posts' ) {
 
 			$current = ( is_home() || is_front_page() ) ? ' current-menu-item current_page_item' : null;
-			$home_text = ( parent::get_setting( $block, 'home-link-text' ) ) ? parent::get_setting( $block, 'home-link-text' ) : 'Home';
+			$home_text = ( parent::get_setting( $block, 'home-link-text' ) ) ? parent::get_setting( $block, 'home-link-text' ) : __('Home','padma');
 
 			/* If it's not the grid, then do not add the extra <span>'s */
 			if ( ! padma_get( 've-live-content-query', $block ) ) {
@@ -692,251 +706,258 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 
-	public $tabs = array(
-		'nav-menu-content' => 'Content',
-		'setup' => 'Setup',
-		'home-link' => 'Home Link',
-		'search' => 'Search',
-		'orientation' => 'Orientation',
-		'dropdowns' => 'Dropdowns',
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'setup' => array(
-			'item-height' => array(
-				'type' => 'slider',
-				'name' => 'item-height',
-				'label' => 'Navigation Item Height',
-				'default' => 40,
-				'slider-min' => 0,
-				'slider-max' => 250,
-				'slider-interval' => 1,
-				'unit' => 'px'
-			),
 
-			'responsiveness-notice' => array(
-				'name' => 'responsiveness-notice',
-				'type' => 'notice',
-				'notice' => 'You must have Responsive Grid enabled to take advantage of these options. Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode.'
-			),
+	function __construct(){
 
-			'responsive-method' => array(
-				'type' => 'select',
-				'name' => 'responsive-method',
-				'label' => 'Responsive Method',
-				'default' => 'vertical',
-				'options' => array(
-					'vertical' => 'Vertical Menu',
-					'slide-out' => 'Horizontal Slideout',
-					'select' => 'Basic Select Input'
+		$this->tabs = array(
+			'nav-menu-content' => __('Content','padma'),
+			'setup' => __('Setup','padma'),
+			'home-link' => __('Home Link','padma'),
+			'search' => __('Search','padma'),
+			'orientation' => __('Orientation','padma'),
+			'dropdowns' => __('Dropdowns','padma'),
+		);
+
+		$this->inputs = array(
+			'setup' => array(
+				'item-height' => array(
+					'type' => 'slider',
+					'name' => 'item-height',
+					'label' => __('Navigation Item Height','padma'),
+					'default' => 40,
+					'slider-min' => 0,
+					'slider-max' => 250,
+					'slider-interval' => 1,
+					'unit' => 'px'
 				),
-				'toggle' => array(
-					'vertical' => array(
-						'show' => array(
-							'#input-responsive-menu-label',
-							'#input-responsive-menu-label-position',
-							'#input-use-responsive-menu-breakpoint'
-						),
-						'hide' => array(
-							'#input-slide-out-menu-position',
-							'#input-responsive-select',
-						)
+
+				'responsiveness-notice' => array(
+					'name' => 'responsiveness-notice',
+					'type' => 'notice',
+					'notice' => __('You must have Responsive Grid enabled to take advantage of these options. Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode.','padma')
+				),
+
+				'responsive-method' => array(
+					'type' => 'select',
+					'name' => 'responsive-method',
+					'label' => __('Responsive Method','padma'),
+					'default' => 'vertical',
+					'options' => array(
+						'vertical' => __('Vertical Menu','padma'),
+						'slide-out' => __('Horizontal Slideout','padma'),
+						'select' => __('Basic Select Input','padma')
 					),
-					'slide-out' => array(
-						'show' => array(
-							'#input-responsive-menu-label',
-							'#input-responsive-menu-label-position',
-							'#input-use-responsive-menu-breakpoint',
-							'#input-slide-out-menu-position'
+					'toggle' => array(
+						'vertical' => array(
+							'show' => array(
+								'#input-responsive-menu-label',
+								'#input-responsive-menu-label-position',
+								'#input-use-responsive-menu-breakpoint'
+							),
+							'hide' => array(
+								'#input-slide-out-menu-position',
+								'#input-responsive-select',
+							)
 						),
-						'hide' => array(
-							'#input-responsive-select',
-						)
-					),
-					'select' => array(
-						'show' => array(
-							'#input-responsive-select',
+						'slide-out' => array(
+							'show' => array(
+								'#input-responsive-menu-label',
+								'#input-responsive-menu-label-position',
+								'#input-use-responsive-menu-breakpoint',
+								'#input-slide-out-menu-position'
+							),
+							'hide' => array(
+								'#input-responsive-select',
+							)
 						),
-						'hide' => array(
-							'#input-responsive-menu-label',
-							'#input-responsive-menu-label-position',
-							'#input-use-responsive-menu-breakpoint',
-							'#input-responsive-menu-breakpoint',
-							'#input-slide-out-menu-position'
+						'select' => array(
+							'show' => array(
+								'#input-responsive-select',
+							),
+							'hide' => array(
+								'#input-responsive-menu-label',
+								'#input-responsive-menu-label-position',
+								'#input-use-responsive-menu-breakpoint',
+								'#input-responsive-menu-breakpoint',
+								'#input-slide-out-menu-position'
+							)
 						)
 					)
-				)
-			),
-
-			'responsive-menu-label' => array(
-				'type' => 'text',
-				'name' => 'responsive-menu-label',
-				'label' => 'Responsive Menu Label',
-				'default' => 'Menu'
-			),
-
-			'responsive-menu-label-position' => array(
-				'type' => 'select',
-				'name' => 'responsive-menu-label-position',
-				'label' => 'Responsive Menu Label Position',
-				'options' => array(
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center'
 				),
-				'default' => 'right'
-			),
 
-			'slide-out-menu-position' => array(
-				'type' => 'select',
-				'name' => 'slide-out-menu-position',
-				'label' => 'Slide Out Position',
-				'options' => array(
-					'left' => 'Left',
-					'right' => 'Right'
+				'responsive-menu-label' => array(
+					'type' => 'text',
+					'name' => 'responsive-menu-label',
+					'label' => 'Responsive Menu Label',
+					'default' => __('Menu','padma')
 				),
-				'default' => 'left'
-			),
 
-			'use-responsive-menu-breakpoint' => array(
-				'type' => 'checkbox',
-				'name' => 'use-responsive-menu-breakpoint',
-				'label' => 'Use Responsive Menu Breakpoint',
-				'tooltip' => 'If this is unchecked then the slide out or vertical navigation will show for all devices.',
-				'default' => true,
-				'toggle' => array(
-					'true' => array(
-						'show' => '#input-responsive-menu-breakpoint'
+				'responsive-menu-label-position' => array(
+					'type' => 'select',
+					'name' => 'responsive-menu-label-position',
+					'label' => __('Responsive Menu Label Position','padma'),
+					'options' => array(
+						'left' => __('Left','padma'),
+						'right' => __('Right','padma'),
+						'center' => __('Center','padma')
 					),
-					'false' => array(
-						'hide' => '#input-responsive-menu-breakpoint'
+					'default' => 'right'
+				),
+
+				'slide-out-menu-position' => array(
+					'type' => 'select',
+					'name' => 'slide-out-menu-position',
+					'label' => __('Slide Out Position','padma'),
+					'options' => array(
+						'left' => __('Left','padma'),
+						'right' => __('Right','padma')
+					),
+					'default' => 'left'
+				),
+
+				'use-responsive-menu-breakpoint' => array(
+					'type' => 'checkbox',
+					'name' => 'use-responsive-menu-breakpoint',
+					'label' => __('Use Responsive Menu Breakpoint','padma'),
+					'tooltip' => __('If this is unchecked then the slide out or vertical navigation will show for all devices.','padma'),
+					'default' => true,
+					'toggle' => array(
+						'true' => array(
+							'show' => '#input-responsive-menu-breakpoint'
+						),
+						'false' => array(
+							'hide' => '#input-responsive-menu-breakpoint'
+						)
 					)
+				),
+
+				'responsive-menu-breakpoint' => array(
+					'type' => 'slider',
+					'name' => 'responsive-menu-breakpoint',
+					'label' => __('Menu Breakpoint','padma'),
+					'tooltip' => __('This is the device width at which the navigation block should hide its own navigation and display the slide out or vertical navigation.','padma'),
+					'unit' => 'px',
+					'default' => 600,
+					'slider-min' => 200,
+					'slider-max' => 1200
+				),
+
+				'responsiveness-notice' => array(
+					'name' => 'responsiveness-notice',
+					'type' => 'notice',
+					'notice' => __('You must have Responsive Grid enabled to take advantage of these options.  Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode.','padma')
+				),
+
+				'responsive-select' => array(
+					'type' => 'checkbox',
+					'name' => 'responsive-select',
+					'label' => __('Responsive Select','padma'),
+					'default' => true,
+					'tooltip' => __('When enabled, your navigation will turn into a mobile-friendly select menu when your visitors are viewing your site on a mobile device (phones, not tablets).','padma')
 				)
 			),
 
-			'responsive-menu-breakpoint' => array(
-				'type' => 'slider',
-				'name' => 'responsive-menu-breakpoint',
-				'label' => 'Menu Breakpoint',
-				'tooltip' => 'This is the device width at which the navigation block should hide its own navigation and display the slide out or vertical navigation.',
-				'unit' => 'px',
-				'default' => 600,
-				'slider-min' => 200,
-				'slider-max' => 1200
-			),
-
-			'responsiveness-notice' => array(
-				'name' => 'responsiveness-notice',
-				'type' => 'notice',
-				'notice' => 'You must have Responsive Grid enabled to take advantage of these options.  Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the Grid mode.'
-			),
-
-			'responsive-select' => array(
-				'type' => 'checkbox',
-				'name' => 'responsive-select',
-				'label' => 'Responsive Select',
-				'default' => true,
-				'tooltip' => 'When enabled, your navigation will turn into a mobile-friendly select menu when your visitors are viewing your site on a mobile device (phones, not tablets).'
-			)
-		),
-
-		'home-link' => array(
-			'hide-home-link' => array(
-				'type' => 'checkbox',
-				'name' => 'hide-home-link',
-				'label' => 'Hide Home Link',
-				'default' => false,
-				'tooltip' => 'If you do not have a static page as the front page, Padma will add a home item to the navigation menu by default.',
-			),
-			'home-link-text' => array(
-				'name' => 'home-link-text',
-				'label' => 'Home Link Text',
-				'type' => 'text',
-				'tooltip' => 'If you would like the link to your homepage to say something other than <em>Home</em>, enter it here!',
-				'default' => 'Home'
-			)
-		),
-
-		'search' => array(
-			'enable-nav-search' => array(
-				'type' => 'checkbox',
-				'name' => 'enable-nav-search',
-				'label' => 'Enable Navigation Search',
-				'default' => false,
-				'tooltip' => 'If you wish to have a simple search form in the navigation bar, then check this box. <em><strong>Note:</strong> the search form will not show if the Vertical Navigation option is enabled for this block.</em>'
-			),
-
-			'nav-search-position' => array(
-				'type' => 'select',
-				'name' => 'nav-search-position',
-				'label' => 'Search Position',
-				'default' => 'right',
-				'options' => array(
-					'left' => 'Left',
-					'right' => 'Right'
+			'home-link' => array(
+				'hide-home-link' => array(
+					'type' => 'checkbox',
+					'name' => 'hide-home-link',
+					'label' => __('Hide Home Link','padma'),
+					'default' => false,
+					'tooltip' => __('If you do not have a static page as the front page, Padma will add a home item to the navigation menu by default.','padma'),
 				),
-				'tooltip' => 'If you would like the navigation search input to snap to the left instead of the right, you can use this option.'
-			),
-
-			'nav-search-placeholder' => array(
-				'type' => 'text',
-				'name' => 'nav-search-placeholder',
-				'label' => 'Search Placeholder',
-				'default' => 'Type to search, then press enter',
-				'tooltip' => 'This will be the text inside the search input telling the visitor how to interact with the search input.'
-			)
-		),
-
-		'orientation' => array(
-			'alignment' => array(
-				'type' => 'select',
-				'name' => 'alignment',
-				'label' => 'Alignment',
-				'default' => 'left',
-				'options' => array(
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center'
+				'home-link-text' => array(
+					'name' => 'home-link-text',
+					'label' => __('Home Link Text','padma'),
+					'type' => 'text',
+					'tooltip' => __('If you would like the link to your homepage to say something other than <em>Home</em>, enter it here!','padma'),
+					'default' => __('Home','padma')
 				)
 			),
 
-			'vert-nav-box' => array(
-				'type' => 'checkbox',
-				'name' => 'vert-nav-box',
-				'label' => 'Vertical Navigation',
-				'default' => false,
-				'tooltip' => 'Instead of showing navigation horizontally, you can make the navigation show vertically. <em><strong>Note:</strong> You may have to resize the block to make the navigation items fit correctly.</em>'
-			)
-		),
-
-		'dropdowns' => array(
-			'effect' => array(
-				'type' => 'select',
-				'name' => 'effect',
-				'label' => 'Drop Down Effect',
-				'default' => 'fade',
-				'options' => array(
-					'none' => 'No Effect',
-					'fade' => 'Fade',
-					'slide' => 'Slide'
+			'search' => array(
+				'enable-nav-search' => array(
+					'type' => 'checkbox',
+					'name' => 'enable-nav-search',
+					'label' => __('Enable Navigation Search','padma'),
+					'default' => false,
+					'tooltip' => __('If you wish to have a simple search form in the navigation bar, then check this box. <em><strong>Note:</strong> the search form will not show if the Vertical Navigation option is enabled for this block.</em>','padma')
 				),
-				'tooltip' => 'This is the effect that will be used when the drop downs are shown and hidden.'
+
+				'nav-search-position' => array(
+					'type' => 'select',
+					'name' => 'nav-search-position',
+					'label' => __('Search Position','padma'),
+					'default' => 'right',
+					'options' => array(
+						'left' => __('Left','padma'),
+						'right' => __('Right','padma')
+					),
+					'tooltip' => __('If you would like the navigation search input to snap to the left instead of the right, you can use this option.','padma')
+				),
+
+				'nav-search-placeholder' => array(
+					'type' => 'text',
+					'name' => 'nav-search-placeholder',
+					'label' => __('Search Placeholder','padma'),
+					'default' => __('Type to search, then press enter','padma'),
+					'tooltip' => __('This will be the text inside the search input telling the visitor how to interact with the search input.','padma')
+				)
 			),
 
-			'hover-intent' => array(
-				'type' => 'checkbox',
-				'name' => 'hover-intent',
-				'label' => 'Hover Intent',
-				'default' => true,
-				'tooltip' => 'Hover Intent makes it so if a navigation item with a drop down is hovered then the drop down will only be shown if the visitor has their mouse over the item for more than a split second.<br /><br />This reduces drop-downs from sporatically showing if the visitor makes fast movements over the navigation.'
-			)
-		),
-	);
+			'orientation' => array(
+				'alignment' => array(
+					'type' => 'select',
+					'name' => 'alignment',
+					'label' => __('Alignment','padma'),
+					'default' => 'left',
+					'options' => array(
+						'left' => __('Left','padma'),
+						'right' => __('Right','padma'),
+						'center' => __('Center','padma')
+					)
+				),
+
+				'vert-nav-box' => array(
+					'type' => 'checkbox',
+					'name' => 'vert-nav-box',
+					'label' => __('Vertical Navigation','padma'),
+					'default' => false,
+					'tooltip' => __('Instead of showing navigation horizontally, you can make the navigation show vertically. <em><strong>Note:</strong> You may have to resize the block to make the navigation items fit correctly.</em>','padma')
+				)
+			),
+
+			'dropdowns' => array(
+				'effect' => array(
+					'type' => 'select',
+					'name' => 'effect',
+					'label' => __('Drop Down Effect','padma'),
+					'default' => 'fade',
+					'options' => array(
+						'none' => __('No Effect','padma'),
+						'fade' => __('Fade','padma'),
+						'slide' => __('Slide','padma')
+					),
+					'tooltip' => __('This is the effect that will be used when the drop downs are shown and hidden.','padma')
+				),
+
+				'hover-intent' => array(
+					'type' => 'checkbox',
+					'name' => 'hover-intent',
+					'label' => __('Hover Intent','padma'),
+					'default' => true,
+					'tooltip' => __('Hover Intent makes it so if a navigation item with a drop down is hovered then the drop down will only be shown if the visitor has their mouse over the item for more than a split second.<br /><br />This reduces drop-downs from sporatically showing if the visitor makes fast movements over the navigation.','padma')
+				)
+			),
+		);
+	}
 	
 
 	function modify_arguments( $args = false ) {
 
-		$this->tab_notices['nav-menu-content'] = 'To add items to this navigation menu, go to <a href="' . admin_url( 'nav-menus.php' ) . '" target="_blank">WordPress Admin &raquo; Appearance &raquo; Menus</a>. Then, create a menu and assign it to <em>' . PadmaBlocksData::get_block_name( $args['blockID'] ) . '</em> in the <strong>Theme Locations</strong> box.';
+		$this->tab_notices['nav-menu-content'] = sprintf( __('To add items to this navigation menu, go to <a href="%s" target="_blank">WordPress Admin &raquo; Appearance &raquo; Menus</a>. Then, create a menu and assign it to <em>%s</em> in the <strong>Theme Locations</strong> box.','padma'), admin_url( 'nav-menus.php' ), PadmaBlocksData::get_block_name( $args['blockID'] ));
 
 		if ( $block_height = PadmaBlocksData::get_block_height( $args['blockID'] ) ) {
 			$this->inputs['setup']['item-height']['default'] = $block_height;
@@ -945,9 +966,6 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 		if ( PadmaResponsiveGrid::is_enabled() ) {
 			unset( $this->inputs['setup']['responsiveness-notice'] );
 		}
-
-
-		
 
 	}
 

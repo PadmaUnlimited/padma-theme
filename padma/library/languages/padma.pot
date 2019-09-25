@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Padma Unlimited 1.1.48\n"
+"Project-Id-Version: Padma Unlimited 1.1.50\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-24T18:51:44-05:00\n"
+"POT-Creation-Date: 2019-09-25T14:30:53-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -80,6 +80,7 @@ msgid "Add a url for the block title"
 msgstr ""
 
 #: library/abstract/api-block.php:561
+#: library/blocks/image/image.php:232
 msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 
@@ -409,6 +410,7 @@ msgstr ""
 #: library/admin/pages/options.php:210
 #: library/blocks/content/content.php:184
 #: library/blocks/content/content.php:955
+#: library/blocks/listings/block-options.php:264
 msgid "Title"
 msgstr ""
 
@@ -801,6 +803,7 @@ msgstr ""
 
 #: library/admin/pages/options.php:190
 #: library/blocks/content/content.php:954
+#: library/blocks/listings/block-options.php:263
 msgid "Date"
 msgstr ""
 
@@ -808,6 +811,7 @@ msgstr ""
 #: library/admin/pages/templates.php:68
 #: library/blocks/content/content.php:927
 #: library/blocks/content/content.php:959
+#: library/blocks/listings/block-options.php:238
 msgid "Author"
 msgstr ""
 
@@ -818,6 +822,7 @@ msgstr ""
 #: library/admin/pages/options.php:193
 #: library/blocks/content/content.php:910
 #: library/blocks/content/content.php:960
+#: library/blocks/listings/block-options.php:197
 msgid "Post Type"
 msgstr ""
 
@@ -1205,6 +1210,7 @@ msgid "Save Template on Cloud"
 msgstr ""
 
 #: library/admin/pages/templates.php:54
+#: library/blocks/listings/block-options.php:83
 msgid "Name"
 msgstr ""
 
@@ -1213,6 +1219,9 @@ msgid "Version"
 msgstr ""
 
 #: library/admin/pages/templates.php:78
+#: library/blocks/image/image.php:19
+#: library/blocks/image/image.php:37
+#: library/blocks/image/image.php:167
 msgid "Image"
 msgstr ""
 
@@ -1428,6 +1437,14 @@ msgstr ""
 msgid "Error: The group being registered already exists."
 msgstr ""
 
+#: library/blocks/audio/audio.php:27
+msgid "Display an audio"
+msgstr ""
+
+#: library/blocks/audio/audio.php:45
+msgid "Audio container"
+msgstr ""
+
 #: library/blocks/audio/audio.php:178
 msgid "Your browser does not support the audio tag."
 msgstr ""
@@ -1489,38 +1506,47 @@ msgid "You can position this audio in relation to the block using the positions 
 msgstr ""
 
 #: library/blocks/audio/audio.php:303
+#: library/blocks/image/image.php:250
 msgid "Top Left"
 msgstr ""
 
 #: library/blocks/audio/audio.php:304
+#: library/blocks/image/image.php:251
 msgid "Top Center"
 msgstr ""
 
 #: library/blocks/audio/audio.php:305
+#: library/blocks/image/image.php:252
 msgid "Top Right"
 msgstr ""
 
 #: library/blocks/audio/audio.php:306
+#: library/blocks/image/image.php:253
 msgid "Center Left"
 msgstr ""
 
 #: library/blocks/audio/audio.php:307
+#: library/blocks/image/image.php:254
 msgid "Center Center"
 msgstr ""
 
 #: library/blocks/audio/audio.php:308
+#: library/blocks/image/image.php:255
 msgid "Center Right"
 msgstr ""
 
 #: library/blocks/audio/audio.php:309
+#: library/blocks/image/image.php:256
 msgid "Bottom Left"
 msgstr ""
 
 #: library/blocks/audio/audio.php:310
+#: library/blocks/image/image.php:257
 msgid "Bottom Center"
 msgstr ""
 
 #: library/blocks/audio/audio.php:311
+#: library/blocks/image/image.php:258
 msgid "Bottom Right"
 msgstr ""
 
@@ -1538,6 +1564,18 @@ msgstr ""
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:21
 msgid "Breadcrumbs aid in the navigation of your site by showing a visual hierarchy of where your visitor is.<br /><strong>Example:</strong> Home &raquo; Blog &raquo; Sample Blog Post"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:31
+msgid "Text"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:37
+msgid "Hyperlinks"
+msgstr ""
+
+#: library/blocks/breadcrumbs/breadcrumbs.php:43
+msgid "Separators"
 msgstr ""
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:75
@@ -1654,6 +1692,7 @@ msgid "Form textarea"
 msgstr ""
 
 #: library/blocks/contact-form-7/contact-form-7.php:117
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:69
 msgid "Form submit"
 msgstr ""
 
@@ -1683,7 +1722,7 @@ msgid "This post is password protected.  Please enter the password to view the c
 msgstr ""
 
 #: library/blocks/content/content-display.php:157
-#: library/blocks/listings/content-display.php:69
+#: library/blocks/listings/content-display.php:68
 msgid "<p>Sorry, there was no content that matched your search.</p>"
 msgstr ""
 
@@ -1721,7 +1760,7 @@ msgid "Tag Archives: %s"
 msgstr ""
 
 #: library/blocks/content/content-display.php:564
-#: library/blocks/listings/content-display.php:200
+#: library/blocks/listings/content-display.php:199
 msgid "%s"
 msgstr ""
 
@@ -1766,6 +1805,10 @@ msgid "View all posts by %s"
 msgstr ""
 
 #: library/blocks/content/content.php:16
+#: library/blocks/custom-code/custom-code.php:43
+#: library/blocks/custom-code/custom-code.php:119
+#: library/blocks/custom-code/custom-code.php:128
+#: library/blocks/footer/footer.php:233
 msgid "Content"
 msgstr ""
 
@@ -2150,10 +2193,12 @@ msgid "Categories Mode"
 msgstr ""
 
 #: library/blocks/content/content.php:874
+#: library/blocks/listings/block-options.php:141
 msgid "Include"
 msgstr ""
 
 #: library/blocks/content/content.php:875
+#: library/blocks/listings/block-options.php:132
 msgid "Exclude"
 msgstr ""
 
@@ -2174,26 +2219,32 @@ msgid "Post Status"
 msgstr ""
 
 #: library/blocks/content/content.php:935
+#: library/blocks/listings/block-options.php:183
 msgid "Number of Posts"
 msgstr ""
 
 #: library/blocks/content/content.php:943
+#: library/blocks/listings/block-options.php:246
 msgid "Offset"
 msgstr ""
 
 #: library/blocks/content/content.php:944
+#: library/blocks/listings/block-options.php:247
 msgid "The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped."
 msgstr ""
 
 #: library/blocks/content/content.php:951
+#: library/blocks/listings/block-options.php:260
 msgid "Order By"
 msgstr ""
 
 #: library/blocks/content/content.php:956
+#: library/blocks/listings/block-options.php:265
 msgid "Random"
 msgstr ""
 
 #: library/blocks/content/content.php:957
+#: library/blocks/listings/block-options.php:266
 msgid "Comment Count"
 msgstr ""
 
@@ -2202,14 +2253,19 @@ msgid "Custom Order"
 msgstr ""
 
 #: library/blocks/content/content.php:968
+#: library/blocks/listings/block-options.php:274
 msgid "Order"
 msgstr ""
 
 #: library/blocks/content/content.php:971
+#: library/blocks/listings/block-options.php:97
+#: library/blocks/listings/block-options.php:277
 msgid "Descending"
 msgstr ""
 
 #: library/blocks/content/content.php:972
+#: library/blocks/listings/block-options.php:98
+#: library/blocks/listings/block-options.php:278
 msgid "Ascending"
 msgstr ""
 
@@ -2586,6 +2642,7 @@ msgid "Attachment Page"
 msgstr ""
 
 #: library/blocks/content/content.php:1478
+#: library/blocks/listings/block-options.php:81
 msgid "None"
 msgstr ""
 
@@ -2685,32 +2742,536 @@ msgstr ""
 msgid "&ndash; Use Default Layout &ndash;"
 msgstr ""
 
-#: library/blocks/footer/footer.php:121
-msgid "Administration Panel"
+#: library/blocks/custom-code/custom-code.php:17
+msgid "Custom Code"
 msgstr ""
 
-#: library/blocks/footer/footer.php:123
-msgid "Administration Login"
+#: library/blocks/custom-code/custom-code.php:19
+msgid "Place in custom HTML, PHP, or even WordPress shortcodes into this block."
 msgstr ""
 
-#: library/blocks/footer/footer.php:140
-msgid "Unlimited by Padma"
+#: library/blocks/custom-code/custom-code.php:35
+msgid "There is no custom code to display."
 msgstr ""
 
-#: library/blocks/footer/footer.php:152
+#: library/blocks/custom-code/custom-code.php:49
+msgid "Content H1"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:55
+msgid "Content H2"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:61
+msgid "Content H3"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:67
+msgid "Content H4"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:73
+msgid "Content H5"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:79
+msgid "Content H6"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:85
+msgid "Content p"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:91
+msgid "Content a"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:97
+msgid "Content ul"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:103
+msgid "Content ul li"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:127
+msgid "content"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:130
+msgid "Write your custom code here. To enable PHP Execution please add define('PADMA_DISABLE_PHP_PARSING', false); to your wp-config.php"
+msgstr ""
+
+#: library/blocks/custom-code/custom-code.php:141
+msgid "PHP Parsing is currently disable, to enable PHP Execution please add: <br><pre>define('PADMA_DISABLE_PHP_PARSING', false);</pre><br> to your wp-config.php"
+msgstr ""
+
+#: library/blocks/embed/embed.php:15
+msgid "Embed"
+msgstr ""
+
+#: library/blocks/embed/embed.php:17
+msgid "The Embed block allows you to embed YouTube, Vimeo, or any other popular oEmbed supported service."
+msgstr ""
+
+#: library/blocks/embed/embed.php:49
+msgid "There is no content to display. Please enter a valid embed URL in the visual editor."
+msgstr ""
+
+#: library/blocks/embed/embed.php:130
+msgid "Embed Options"
+msgstr ""
+
+#: library/blocks/embed/embed.php:138
+msgid "Enter the URL <strong>(No HTML)</strong> to the media you wish to embed.  We support most major video and photo sites including (but not limited to) YouTube, Vimeo, Flickr, blip.tv, Hulu, and more.  <em>Need more info about oEmbed?  <a href=\"http://codex.wordpress.org/Embeds\" target=\"_blank\">Read More &rarr;</a></em>"
+msgstr ""
+
+#: library/blocks/embed/embed.php:144
+msgid "Embed URL"
+msgstr ""
+
+#: library/blocks/embed/embed.php:146
+msgid "URL of Media"
+msgstr ""
+
+#: library/blocks/footer/footer.php:21
+msgid "Footer"
+msgstr ""
+
+#: library/blocks/footer/footer.php:28
+msgid "This typically goes at the bottom of your site and will display the copyright, and miscellaneous links."
+msgstr ""
+
+#: library/blocks/footer/footer.php:41
+#: library/blocks/footer/footer.php:168
 msgid "Copyright"
 msgstr ""
 
-#: library/blocks/footer/footer.php:192
+#: library/blocks/footer/footer.php:48
+msgid "Padma Attribution"
+msgstr ""
+
+#: library/blocks/footer/footer.php:55
+#: library/blocks/footer/footer.php:137
+msgid "Administration Panel"
+msgstr ""
+
+#: library/blocks/footer/footer.php:62
+msgid "Go To Top Link"
+msgstr ""
+
+#: library/blocks/footer/footer.php:71
+msgid "Responsive Grid Toggle Link"
+msgstr ""
+
+#: library/blocks/footer/footer.php:139
+msgid "Administration Login"
+msgstr ""
+
+#: library/blocks/footer/footer.php:156
+msgid "Unlimited by Padma"
+msgstr ""
+
+#: library/blocks/footer/footer.php:208
 msgid "View Full Site"
 msgstr ""
 
-#: library/blocks/footer/footer.php:199
+#: library/blocks/footer/footer.php:215
 msgid "View Mobile Site"
 msgstr ""
 
-#: library/blocks/navigation/navigation.php:403
+#: library/blocks/footer/footer.php:241
+msgid "Show Admin Link/Login"
+msgstr ""
+
+#: library/blocks/footer/footer.php:247
+msgid "Show Go To Top Link"
+msgstr ""
+
+#: library/blocks/footer/footer.php:266
+#: library/blocks/footer/footer.php:268
+msgid "Custom \"Go to Top\" text"
+msgstr ""
+
+#: library/blocks/footer/footer.php:273
+msgid "Hide Padma Theme Attribution"
+msgstr ""
+
+#: library/blocks/footer/footer.php:280
+msgid "Show Copyright"
+msgstr ""
+
+#: library/blocks/footer/footer.php:287
+msgid "Custom Copyright"
+msgstr ""
+
+#: library/blocks/footer/footer.php:289
+msgid "If you would like to change the copyright in the footer to say something different, enter it here. Use %Y% for current year."
+msgstr ""
+
+#: library/blocks/footer/footer.php:294
+msgid "Hide a link to view the full site on mobile."
+msgstr ""
+
+#: library/blocks/footer/footer.php:296
+msgid "Shows a link to either view the full site or view the mobile site."
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:37
+msgid "<p>There is no form to display.</p>"
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:67
+msgid "Form Setup"
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:76
+msgid "Form To Display"
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:78
+msgid "Select which form you would like this block to display."
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:85
+msgid "Display Form Title"
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:92
+msgid "Display Form Description"
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:99
+msgid "Use AJAX"
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:101
+msgid "AJAX is a technology that will allow faster submission on your forms."
+msgstr ""
+
+#: library/blocks/gravity-forms/gravity-forms.php:113
+msgid "&ndash; Select a Form &ndash;"
+msgstr ""
+
+#: library/blocks/header/header.php:21
+msgid "Header"
+msgstr ""
+
+#: library/blocks/header/header.php:29
+msgid "Display your banner, logo, or site title and tagline.  This typically goes at the top of your website."
+msgstr ""
+
+#: library/blocks/header/header.php:40
+msgid "Site Title"
+msgstr ""
+
+#: library/blocks/header/header.php:50
+msgid "Banner/Logo Link"
+msgstr ""
+
+#: library/blocks/header/header.php:60
+msgid "Banner Image"
+msgstr ""
+
+#: library/blocks/header/header.php:66
+msgid "Site Tagline"
+msgstr ""
+
+#: library/blocks/header/header.php:147
+msgid "Banner/Logo"
+msgstr ""
+
+#: library/blocks/header/header.php:153
+msgid "Automatically Resize Header Image"
+msgstr ""
+
+#: library/blocks/header/header.php:155
+msgid "If you would like Padma to automatically scale and crop your header image to the correct dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>"
+msgstr ""
+
+#: library/blocks/header/header.php:161
+msgid "Hide Tagline"
+msgstr ""
+
+#: library/blocks/header/header.php:163
+msgid "Check this to hide the tagline in your header.  The tagline will sit beneath your site title.<br /><br /><em><strong>Important:</strong> The tagline will <strong>NOT</strong> show if a Header Image is added.</em>"
+msgstr ""
+
+#: library/blocks/image/image.php:27
+msgid "Display an image"
+msgstr ""
+
+#: library/blocks/image/image.php:44
+msgid "Image Link"
+msgstr ""
+
+#: library/blocks/image/image.php:127
+msgid "You have not added an image yet. Please upload and apply an image."
+msgstr ""
+
+#: library/blocks/image/image.php:161
+msgid "Add an Image"
+msgstr ""
+
+#: library/blocks/image/image.php:173
+msgid "Automatically Resize Image"
+msgstr ""
+
+#: library/blocks/image/image.php:175
+msgid "If you would like Padma to automatically scale and crop the image to the blocks dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>"
+msgstr ""
+
+#: library/blocks/image/image.php:183
+msgid "This will be used as the \"title\" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it."
+msgstr ""
+
+#: library/blocks/image/image.php:190
+msgid "This will be used as the \"alt\" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility."
+msgstr ""
+
+#: library/blocks/image/image.php:196
+msgid "Link Image"
+msgstr ""
+
+#: library/blocks/image/image.php:201
+msgid "Link the image?"
+msgstr ""
+
+#: library/blocks/image/image.php:203
+msgid "If you would like to link the image to a url activate this setting. Must add http:// first"
+msgstr ""
+
+#: library/blocks/image/image.php:223
+msgid "Link image URL?"
+msgstr ""
+
+#: library/blocks/image/image.php:225
+msgid "Set the URL for the image to link to"
+msgstr ""
+
+#: library/blocks/image/image.php:230
+msgid "Open in a new window?"
+msgstr ""
+
+#: library/blocks/image/image.php:239
+msgid "Position Image"
+msgstr ""
+
+#: library/blocks/image/image.php:244
+msgid "Position image inside container"
+msgstr ""
+
+#: library/blocks/image/image.php:246
+msgid "You can position this image in relation to the block using the positions provided"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:12
+msgid "Select Listing Type"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:13
+msgid "Posts &amp; Pages Filters"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:14
+msgid "Taxonomy Options"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:23
+msgid "List?"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:24
+msgid "Select a type of list output and then configure it with the options on the left."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:26
+msgid "Taxonomy (category, tag etc)"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:27
+msgid "Posts or Pages (custom posts)"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:28
+msgid "Authors"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:58
+msgid "Select Taxonomy"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:62
+msgid "Select Taxonomy to display"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:72
+msgid "Sort Taxonomy"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:78
+msgid "Order By?"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:79
+msgid "Sort term alphabetically, by unique Term ID, or by the count of items in that Term"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:84
+msgid "Slug"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:85
+msgid "Count"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:94
+msgid "Order?"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:95
+msgid "Sort order for term (either ascending or descending)."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:106
+msgid "Filter Taxonomy"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:115
+msgid "Number of terms"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:117
+msgid "Sets the number of terms to display. Default 0 for no limit."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:123
+msgid "Child Of"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:126
+msgid "Only display terms that are children of what you specify here."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:135
+msgid "Exclude one or more term from the results."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:144
+msgid "Only include certain terms in the list."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:151
+msgid "Returns terms whose \"slug\" matches this value. Default is empty string."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:157
+msgid "Display Taxonomy"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:163
+msgid "Hide Empty?"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:164
+msgid "Toggles the display of term with no posts."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:171
+msgid "Hierarchical?"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:172
+msgid "Whether to include terms that have non-empty descendants ."
+msgstr ""
+
+#: library/blocks/listings/block-options.php:191
+msgid "Filter Content"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:213
+msgid "Select Taxonomy to filter"
+msgstr ""
+
+#: library/blocks/listings/block-options.php:254
+msgid "Sort Content"
+msgstr ""
+
+#: library/blocks/listings/listings.php:17
+msgid "Listings"
+msgstr ""
+
+#: library/blocks/listings/listings.php:19
+msgid "List out your posts, custom post types, categories, tags, custom taxonomies, authors, pages, and comments."
+msgstr ""
+
+#: library/blocks/listings/listings.php:34
+msgid "List Container"
+msgstr ""
+
+#: library/blocks/listings/listings.php:40
+msgid "List Item"
+msgstr ""
+
+#: library/blocks/listings/listings.php:46
+msgid "List Item Link"
+msgstr ""
+
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:15
+msgid "Mailchimp for WordPress"
+msgstr ""
+
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:17
+msgid "Display Mailchimp for WordPress"
+msgstr ""
+
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:34
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:35
+msgid "Form"
+msgstr ""
+
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:41
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:42
+msgid "Form container"
+msgstr ""
+
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:48
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:49
+msgid "Paragraph"
+msgstr ""
+
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:55
+#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:56
+msgid "Label"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:168
+#: library/blocks/navigation/navigation.php:519
+msgid "Menu"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:417
 msgid "Navigation"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:509
+msgid "Menu Container"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:514
+msgid "Menu Container - Vertical"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:524
+msgid "Menu Item"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:529
+msgid "Menu Item Link"
+msgstr ""
+
+#: library/blocks/navigation/navigation.php:534
+msgid "Menu Item - Active"
 msgstr ""
 
 #: library/blocks/pin-board/pin-board.php:725
@@ -2786,6 +3347,6 @@ msgstr ""
 msgid "You have customized a property in this property group."
 msgstr ""
 
-#: library/visual-editor/panels/design/property-inputs.php:302
+#: library/visual-editor/panels/design/property-inputs.php:304
 msgid "You have customized this property."
 msgstr ""

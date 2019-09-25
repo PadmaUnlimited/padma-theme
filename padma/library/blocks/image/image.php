@@ -2,32 +2,46 @@
 
 class PadmaImageBlock extends PadmaBlockAPI {
 	
-	public $id 				= 'image';	
-	public $name 			= 'Image';		
-	public $options_class 	= 'PadmaImageBlockOptions';	
-	public $fixed_height 	= true;	
-	public $html_tag 		= 'figure';
-	public $attributes 		= array(
-									'itemscope' => '',
-									'itemtype' => 'http://schema.org/ImageObject'
-								);
-	public $description 	= 'Display an image';
-	public $categories 		= array('core','media');
-	
-	protected $show_content_in_grid = true;
+	public $id;
+	public $name;
+	public $options_class;
+	public $fixed_height;
+	public $html_tag;
+	public $attributes;
+	public $description;
+	public $categories;	
+	protected $show_content_in_grid;
+
+
+	function __construct(){
+
+		$this->id 				= 'image';
+		$this->name 			= __('Image','padma');
+		$this->options_class 	= 'PadmaImageBlockOptions';	
+		$this->fixed_height 	= true;	
+		$this->html_tag 		= 'figure';
+		$this->attributes 		= array(
+										'itemscope' => '',
+										'itemtype' => 'http://schema.org/ImageObject'
+									);
+		$this->description 	= __('Display an image','padma');
+		$this->categories 		= array('core','media');		
+		$this->show_content_in_grid = true;
+
+	}
 	
 	function setup_elements() {
 		
 		$this->register_block_element(array(
 			'id' => 'image',
-			'name' => 'Image',
+			'name' => __('Image','padma'),
 			'selector' => 'img',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'sizes', 'advanced', 'transition', 'outlines', 'filter')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'image-link',
-			'name' => 'Image Link',
+			'name' => __('Image Link','padma'),
 			'selector' => 'a img',
 			'states' => array(
 				'Hover' => 'a:hover img',
@@ -110,7 +124,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 			
 		} else {
 
-			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>You have not added an image yet. Please upload and apply an image.</p></div>';
+			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>' . __('You have not added an image yet. Please upload and apply an image.','padma') . '</p></div>';
 		}
 		
 		/* Output position styling for Grid mode */
@@ -128,118 +142,125 @@ class PadmaImageBlock extends PadmaBlockAPI {
 
 class PadmaImageBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' => 'General'
-	);
 
-	public $inputs = array(
-		'general' => array(
+	public $tabs;
+	public $inputs;
 
-			'image-heading' => array(
-				'name' => 'image-heading',
-				'type' => 'heading',
-				'label' => 'Add an Image'
-			),
 
-			'image' => array(
-				'type' => 'image',
-				'name' => 'image',
-				'label' => 'Image',
-				'default' => null
-			),
-			
-			'resize-image' => array(
-				'name' => 'resize-image',
-				'label' => 'Automatically Resize Image',
-				'type' => 'checkbox',
-				'tooltip' => 'If you would like Padma to automatically scale and crop the image to the blocks dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>',
-				'default' => true
-			),
+	function __construct(){
+		$this->tabs = array(
+			'general' => 'General'
+		);
 
-			'image-title' => array(
-				'name' => 'image-title',
-				'label' => 'Image Title',
-				'type' => 'text',
-				'tooltip' => 'This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.',
-			),
+		$this->inputs = array(
+			'general' => array(
 
-			'image-alt' => array(
-				'name' => 'image-alt',
-				'label' => 'Image Alternate Text',
-				'type' => 'text',
-				'tooltip' => 'This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.',
-			),
+				'image-heading' => array(
+					'name' => 'image-heading',
+					'type' => 'heading',
+					'label' => __('Add an Image','padma')
+				),
 
-			'link-heading' => array(
-				'name' => 'link-heading',
-				'type' => 'heading',
-				'label' => 'Link Image'
-			),
+				'image' => array(
+					'type' => 'image',
+					'name' => 'image',
+					'label' => __('Image','padma'),
+					'default' => null
+				),
+				
+				'resize-image' => array(
+					'name' => 'resize-image',
+					'label' => __('Automatically Resize Image','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('If you would like Padma to automatically scale and crop the image to the blocks dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>','padma'),
+					'default' => true
+				),
 
-			'link-image' => array(
-				'name' => 'link-image',
-				'label' => 'Link the image?',
-				'type' => 'checkbox',
-				'tooltip' => 'If you would like to link the image to a url activate this setting. Must add http:// first',
-				'default' => false,
-				'toggle' => array(
-					'true' => array(
-						'show' => array(
-							'#input-link-url',
-							'#input-link-target'
-						)
-					),
-					'false' => array(
-						'hide' => array(
-							'#input-link-url',
-							'#input-link-target'
+				'image-title' => array(
+					'name' => 'image-title',
+					'label' => 'Image Title',
+					'type' => 'text',
+					'tooltip' => __('This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.','padma'),
+				),
+
+				'image-alt' => array(
+					'name' => 'image-alt',
+					'label' => 'Image Alternate Text',
+					'type' => 'text',
+					'tooltip' => __('This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.','padma'),
+				),
+
+				'link-heading' => array(
+					'name' => 'link-heading',
+					'type' => 'heading',
+					'label' => __('Link Image','padma')
+				),
+
+				'link-image' => array(
+					'name' => 'link-image',
+					'label' => __('Link the image?','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('If you would like to link the image to a url activate this setting. Must add http:// first','padma'),
+					'default' => false,
+					'toggle' => array(
+						'true' => array(
+							'show' => array(
+								'#input-link-url',
+								'#input-link-target'
+							)
+						),
+						'false' => array(
+							'hide' => array(
+								'#input-link-url',
+								'#input-link-target'
+							)
 						)
 					)
+				),
+
+				'link-url' => array(
+					'name' => 'link-url',
+					'label' => __('Link image URL?','padma'),
+					'type' => 'text',
+					'tooltip' => __('Set the URL for the image to link to','padma')
+				),
+
+				'link-target' => array(
+					'name' => 'link-target',
+					'label' => __('Open in a new window?','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('If you would like to open the link in a new window check this option','padma'),
+					'default' => false,
+				),
+
+				'position-heading' => array(
+					'name' => 'position-heading',
+					'type' => 'heading',
+					'label' => __('Position Image','padma')
+				),
+
+				'image-position' => array(
+					'name' => 'image-position',
+					'label' => __('Position image inside container','padma'),
+					'type' => 'select',
+					'tooltip' => __('You can position this image in relation to the block using the positions provided','padma'),
+					'default' => 'none',
+					'options' => array(
+						'' => 'None',
+						'top_left' => __('Top Left','padma'),
+						'top_center' => __('Top Center','padma'),
+						'top_right' => __('Top Right','padma'),
+						'center_left' => __('Center Left','padma'),
+						'center_center' => __('Center Center','padma'),
+						'center_right' => __('Center Right','padma'),
+						'bottom_left' => __('Bottom Left','padma'),
+						'bottom_center' => __('Bottom Center','padma'),
+						'bottom_right' => __('Bottom Right','padma')
+					)
 				)
-			),
 
-			'link-url' => array(
-				'name' => 'link-url',
-				'label' => 'Link image URL?',
-				'type' => 'text',
-				'tooltip' => 'Set the URL for the image to link to'
-			),
-
-			'link-target' => array(
-				'name' => 'link-target',
-				'label' => 'Open in a new window?',
-				'type' => 'checkbox',
-				'tooltip' => 'If you would like to open the link in a new window check this option',
-				'default' => false,
-			),
-
-			'position-heading' => array(
-				'name' => 'position-heading',
-				'type' => 'heading',
-				'label' => 'Position Image'
-			),
-
-			'image-position' => array(
-				'name' => 'image-position',
-				'label' => 'Position image inside container',
-				'type' => 'select',
-				'tooltip' => 'You can position this image in relation to the block using the positions provided',
-				'default' => 'none',
-				'options' => array(
-					'' => 'None',
-					'top_left' => 'Top Left',
-					'top_center' => 'Top Center',
-					'top_right' => 'Top Right',
-					'center_left' => 'Center Left',
-					'center_center' => 'Center Center',
-					'center_right' => 'Center Right',
-					'bottom_left' => 'Bottom Left',
-					'bottom_center' => 'Bottom Center',
-					'bottom_right' => 'Bottom Right'
-				)
 			)
-
-		)
-	);
+		);
+	}
 	
 }

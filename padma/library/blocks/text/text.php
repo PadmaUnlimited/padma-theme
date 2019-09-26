@@ -3,13 +3,26 @@
 class PadmaTextBlock extends PadmaBlockAPI {
 	
 	
-	public $id = 'text';	
-	public $name = 'Text';		
-	public $options_class = 'PadmaTextBlockOptions';
-	public $description = 'Use the built-in rich text editor to insert titles, text, and more!';
-	public $categories 	= array('core','content');		
-	public $inline_editable = array('block-title', 'block-subtitle', 'content');
+	public $id;
+	public $name;
+	public $options_class;
+	public $description;
+	public $categories;
+	public $inline_editable;
 	
+	
+	function __construct(){
+
+		$this->id = 'text';
+		$this->name = __('Text','padma');
+		$this->options_class = 'PadmaTextBlockOptions';
+		$this->description = __('Use the built-in rich text editor to insert titles, text, and more!','padma');
+		$this->categories 	= array('core','content');		
+		$this->inline_editable = array('block-title', 'block-subtitle', 'content');
+
+	}
+
+
 	function content($block) {
 		
 		$content = parent::get_setting($block, 'content');	
@@ -18,7 +31,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 			if ( $content != null )
 				echo do_shortcode(stripslashes($content));
 			else
-				echo '<p class="content">There is no content to display.</p>';
+				echo '<p class="content">' . __('There is no content to display.','padma') . '</p>';
 		echo '</div>';
 		
 	}
@@ -28,7 +41,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		
 		$this->register_block_element(array(
 			'id' => 'text',
-			'name' => 'Text',
+			'name' => __('Text','padma'),
 			'selector' => '.entry-content',
 			'properties' => array('fonts', 'padding'),
 			'inspectable' => false
@@ -37,7 +50,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'strong',
 			'parent' => 'text',
-			'name' => 'Bold text',
+			'name' => __('Bold text','padma'),
 			'description' => '&lt;strong&gt;',
 			'selector' => 'div.entry-content strong'
 		));
@@ -45,20 +58,20 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'emphasized',
 			'parent' => 'text',
-			'name' => 'Italic text',
+			'name' => __('Italic text','padma'),
 			'selector' => 'div.entry-content em'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'paragraphs',
-			'name' => 'Paragraphs',
+			'name' => __('Paragraphs','padma'),
 			'selector' => '.entry-content p'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'paragraphs-first',
 			'parent' => 'paragraphs',
-			'name' => 'First Paragraphs',
+			'name' => __('First Paragraphs','padma'),
 			'selector' => '.entry-content p:first-of-type',
 			'inspectable' => false
 		));
@@ -66,14 +79,14 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'paragraphs-last',
 			'parent' => 'paragraphs',
-			'name' => 'Last Paragraphs',
+			'name' => __('Last Paragraphs','padma'),
 			'selector' => '.entry-content p:last-of-type',
 			'inspectable' => false
 		));
 
 		$this->register_block_element(array(
 			'id' => 'hyperlinks',
-			'name' => 'Hyperlinks',
+			'name' => __('Hyperlinks','padma'),
 			'selector' => '.entry-content a',
 			'properties' => array('fonts'),
 			'states' => array(
@@ -84,7 +97,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		
 		$this->register_block_element(array(
 			'id' => 'heading',
-			'name' => 'Headings',
+			'name' => __('Headings','padma'),
 			'description' => '&lt;H3&gt;, &lt;H2&gt;, &lt;H1&gt;',
 			'selector' => '.entry-content h3, div.entry-content h2, div.entry-content h1'
 		));
@@ -92,7 +105,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'heading-h1',
 			'parent' => 'heading',
-			'name' => 'Heading 1',
+			'name' => __('Heading 1','padma'),
 			'description' => '&lt;H1&gt;',
 			'selector' => 'div.entry-content h1'
 		));
@@ -100,7 +113,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'heading-h2',
 			'parent' => 'heading',
-			'name' => 'Heading 2',
+			'name' => __('Heading 2','padma'),
 			'description' => '&lt;H2&gt;',
 			'selector' => 'div.entry-content h2'
 		));
@@ -108,33 +121,33 @@ class PadmaTextBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'heading-h3',
 			'parent' => 'heading',
-			'name' => 'Heading 3',
+			'name' => __('Heading 3','padma'),
 			'description' => '&lt;H3&gt;',
 			'selector' => 'div.entry-content h3'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'sub-heading',
-			'name' => 'Sub Heading',
+			'name' => __('Sub Heading','padma'),
 			'description' => '&lt;H4&gt;',
 			'selector' => '.entry-content h4'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'image',
-			'name' => 'Images',
+			'name' => __('Images','padma'),
 			'selector' => 'div.entry-content img'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'form',
-			'name' => 'Forms',
+			'name' => __('Forms','padma'),
 			'selector' => 'div.entry-content form'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'buttons',
-			'name' => 'Button',
+			'name' => __('Button','padma'),
 			'parent' => 'form',
 			'selector' => '
 				.entry-content input[type="submit"],
@@ -157,7 +170,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'inputs',
-			'name' => 'Inputs',
+			'name' => __('Inputs','padma'),
 			'parent' => 'form',
 			'selector' => '
 				.entry-content input[type="text"],
@@ -183,19 +196,25 @@ class PadmaTextBlock extends PadmaBlockAPI {
 
 class PadmaTextBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'content' => 'Content'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'content' => array(
+	function __construct(){
+
+		$this->tabs = array(
+			'content' => __('Content','padma')
+		);
+
+		$this->inputs = array(
 			'content' => array(
-				'type' => 'wysiwyg',
-				'name' => 'content',
-				'label' => 'Content',
-				'default' => null
+				'content' => array(
+					'type' => 'wysiwyg',
+					'name' => 'content',
+					'label' => __('Content','padma'),
+					'default' => null
+				)
 			)
-		)
-	);
+		);
+	}
 	
 }

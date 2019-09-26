@@ -3,14 +3,26 @@
 class PadmaSliderBlock extends PadmaBlockAPI {
 	
 	
-	public $id 				= 'slider';	
-	public $name 			= 'Slider';		
-	public $options_class 	= 'PadmaSliderBlockOptions';	
-	public $fixed_height 	= false;
-	public $description 	= 'Create effective responsive image slideshows.';
-	public $categories 		= array('core','content', 'media');
+	public $id;
+	public $name;
+	public $options_class;
+	public $fixed_height;
+	public $description;
+	public $categories;
 	
 	
+	function __construct(){
+
+		$this->id = 'slider';	
+		$this->name = 'Slider';		
+		$this->options_class = 'PadmaSliderBlockOptions';	
+		$this->fixed_height = false;
+		$this->description = __('Create effective responsive image slideshows.','padma');
+		$this->categories = array('core','content', 'media');
+
+	}
+
+
 	public static function enqueue_action($block_id, $block) {
 
 		$images = parent::get_setting($block, 'images', array());
@@ -70,7 +82,7 @@ jQuery(window).load(function(){
 
 		if ( !$has_images ) {
 
-			echo '<div class="alert alert-yellow"><p>There are no images to display.</p></div>';
+			echo '<div class="alert alert-yellow"><p>' . __('There are no images to display.','padma') . '</p></div>';
 			
 			return;
 
@@ -141,58 +153,58 @@ jQuery(window).load(function(){
 
 		$this->register_block_element(array(
 			'id' => 'slider-container',
-			'name' => 'Slider Container',
-			'description' => 'Contains Viewport, Paging',
+			'name' => __('Slider Container','padma'),
+			'description' => __('Contains Viewport, Paging','padma'),
 			'selector' => '.flexslider',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'advanced', 'transition', 'outlines')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-viewport',
-			'name' => 'Slider Viewport',
-			'description' => 'Contains Images',
+			'name' => __('Slider Viewport','padma'),
+			'description' => __('Contains Images','padma'),
 			'selector' => '.flex-viewport',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'overflow', 'advanced', 'transition', 'outlines')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-caption',
-			'name' => 'Slider Caption',
+			'name' => __('Slider Caption','padma'),
 			'selector' => '.flex-caption',
 			'properties' => array('background', 'padding', 'fonts')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-direction-nav-link',
-			'name' => 'Slider Direction Nav Link',
+			'name' => _('Slider Direction Nav Link','padma'),
 			'selector' => '.flex-direction-nav a',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-direction-nav-next',
-			'name' => 'Slider Direction Next',
+			'name' => __('Slider Direction Next','padma'),
 			'selector' => '.flex-direction-nav a.flex-next',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-direction-nav-prev',
-			'name' => 'Slider Direction Prev',
+			'name' => __('Slider Direction Prev','padma'),
 			'selector' => '.flex-direction-nav a.flex-prev',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-paging',
-			'name' => 'Slider Paging',
+			'name' => __('Slider Paging','padma'),
 			'selector' => '.flex-control-nav',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
 		));
 
 		$this->register_block_element(array(
 			'id' => 'slider-paging-link',
-			'name' => 'Slider Paging Link',
+			'name' => __('Slider Paging Link','padma'),
 			'selector' => '.flex-control-paging li a',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow'),
 			'states' => array(
@@ -209,173 +221,180 @@ jQuery(window).load(function(){
 
 class PadmaSliderBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'slider-images' => 'Slider Images',
-		'animation' => 'Animation',
-		'ui' => 'User Interface',
-		'advanced' => 'Advanced'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'slider-images' => array(
-			'images' => array(
-				'type' => 'repeater',
-				'name' => 'images',
-				'label' => 'Images',
-				'tooltip' => 'Upload the images that you would like to add to the image rotator here.  You can even drag and drop the images to change the order.',
-				'inputs' => array(
-					array(
-						'type' => 'image',
-						'name' => 'image',
-						'label' => 'Image',
-						'default' => null
+	
+	function __construct(){
+
+		$this->tabs = array(
+			'slider-images' => __('Slider Images','padma'),
+			'animation' => __('Animation','padma'),
+			'ui' => __('User Interface','padma'),
+			'advanced' => __('Advanced','padma')
+		);
+
+		$this->inputs = array(
+			'slider-images' => array(
+				'images' => array(
+					'type' => 'repeater',
+					'name' => 'images',
+					'label' => __('Images','padma'),
+					'tooltip' => __('Upload the images that you would like to add to the image rotator here.  You can even drag and drop the images to change the order.','padma'),
+					'inputs' => array(
+						array(
+							'type' => 'image',
+							'name' => 'image',
+							'label' => __('Image','padma'),
+							'default' => null
+						),
+
+						array(
+							'type' => 'text',
+							'name' => 'image-hyperlink',
+							'label' => __('Hyperlink','padma'),
+							'default' => null
+						),
+
+						array(
+							'type' => 'checkbox',
+							'name' => 'image-open-link-in-new-window',
+							'label' => __('Open Link in New Window','padma'),
+							'default' => false
+						),
+
+						array(
+							'type' => 'text',
+							'name' => 'image-description',
+							'label' => __('Caption','padma'),
+							'placeholder' => __('Describe the Image','padma'),
+							'tooltip' => __('This will be displayed underneath the image.','padma')
+						),
+
+						array(
+							'type' => 'text',
+							'name' => 'image-title',
+							'label' => __('"title" Attribute','padma'),
+							'tooltip' => __('This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.','padma')
+						),
+
+						array(
+							'type' => 'text',
+							'name' => 'image-alt',
+							'label' => __('"alt" Attribute','padma'),
+							'tooltip' => __('This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.','padma')
+						)
 					),
+					'sortable' => true,
+					'limit' => false
+				),
 
-					array(
-						'type' => 'text',
-						'name' => 'image-hyperlink',
-						'label' => 'Hyperlink',
-						'default' => null
-					),
+				'randomize-order' => array(
+					'type' => 'checkbox',
+					'name' => 'randomize-order',
+					'label' => __('Randomize Image Order','padma'),
+					'default' => false
+				),
 
-					array(
+				'image-sizing-header' => array(
+					'type' => 'heading',
+					'name' => 'image-sizing-header',
+					'label' => __('Image Sizing','padma')
+				),
+
+					'crop-resize-images' => array(
 						'type' => 'checkbox',
-						'name' => 'image-open-link-in-new-window',
-						'label' => 'Open Link in New Window',
-						'default' => false
+						'name' => 'crop-resize-images',
+						'label' => __('Crop and Resize Images','padma'),
+						'default' => true,
+						'tooltip' => __('The Slider block has the ability to automatically resize and crop images to fit in the Slider if the images are too big.  This will improve loading times and make the image fit better in the Slider.<br /><br />If you do not want the Slider block to do this, uncheck this option and the Slider block will insert your original uploaded images into the slider.  <strong>Please note:</strong> Even with this unchecked the images will still be resized with CSS.','padma')
 					),
 
-					array(
-						'type' => 'text',
-						'name' => 'image-description',
-						'label' => 'Caption',
-						'placeholder' => 'Describe the Image',
-						'tooltip' => 'This will be displayed underneath the image.'
-					),
+				'content-types-heading' => array(
+					'type' => 'heading',
+					'name' => 'content-types-heading',
+					'label' => __('Other Content Types','padma'),
+				),
 
-					array(
-						'type' => 'text',
-						'name' => 'image-title',
-						'label' => '"title" Attribute',
-						'tooltip' => 'This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.'
-					),
+					'content-types-text' => array(
+						'type' => 'notice',
+						'name' => 'content-types-text',
+						'notice' => __('This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmaunlimited.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmaunlimited.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.','padma')
+					)
+			),
 
-					array(
-						'type' => 'text',
-						'name' => 'image-alt',
-						'label' => '"alt" Attribute',
-						'tooltip' => 'This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.'
+			'animation' => array(
+				'animation' => array(
+					'type' => 'select',
+					'name' => 'animation',
+					'label' => __('Animation','padma'),
+					'default' => 'slide-horizontal',
+					'options' => array(
+						'slide-horizontal' => __('Slide Horizontal','padma'),
+						'slide-vertical' => __('Slide Vertical','padma'),
+						'fade' => 'Fade'
 					)
 				),
-				'sortable' => true,
-				'limit' => false
-			),
 
-			'randomize-order' => array(
-				'type' => 'checkbox',
-				'name' => 'randomize-order',
-				'label' => 'Randomize Image Order',
-				'default' => false
-			),
-
-			'image-sizing-header' => array(
-				'type' => 'heading',
-				'name' => 'image-sizing-header',
-				'label' => 'Image Sizing'
-			),
-
-				'crop-resize-images' => array(
-					'type' => 'checkbox',
-					'name' => 'crop-resize-images',
-					'label' => 'Crop and Resize Images',
-					'default' => true,
-					'tooltip' => 'The Slider block has the ability to automatically resize and crop images to fit in the Slider if the images are too big.  This will improve loading times and make the image fit better in the Slider.<br /><br />If you do not want the Slider block to do this, uncheck this option and the Slider block will insert your original uploaded images into the slider.  <strong>Please note:</strong> Even with this unchecked the images will still be resized with CSS.'
+				'animation-speed' => array(
+					'type' => 'slider',
+					'name' => 'animation-speed',
+					'label' => __('Animation Speed','padma'),
+					'default' => 500,
+					'slider-min' => 50,
+					'slider-max' => 5000,
+					'slider-interval' => 10,
+					'tooltip' => __('Adjust this to change how long the animation lasts when fading between images.','padma'),
+					'unit' => 'ms'
 				),
 
-			'content-types-heading' => array(
-				'type' => 'heading',
-				'name' => 'content-types-heading',
-				'label' => 'Other Content Types',
+				'slideshow' => array(
+					'type' => 'checkbox',
+					'name' => 'slideshow',
+					'label' => __('Automatic Slide Advancement','padma'),
+					'default' => true,
+					'tooltip' => __('Act as a slideshow and automatically move to the next slide.','padma')
+				),
+				
+				'animation-timeout' => array(
+					'type' => 'slider',
+					'name' => 'animation-timeout',
+					'label' => __('Time Between Slides','padma'),
+					'default' => 6,
+					'slider-min' => 1,
+					'slider-max' => 20,
+					'slider-interval' => 1,
+					'tooltip' => __('This is the amount of time each image will stay visible.','padma'),
+					'unit' => 's'
+				)
 			),
 
+			'ui' => array(
+				'show-pager-nav' => array(
+					'type' => 'checkbox',
+					'name' => 'show-pager-nav',
+					'label' => __('Show Pager Navigation','padma'),
+					'default' => true,
+					'tooltip' => __('Show dots below slider to choose specific slides.','padma')
+				),
+
+				'show-direction-nav' => array(
+					'type' => 'checkbox',
+					'name' => 'show-direction-nav',
+					'label' => __('Show Next/Previous Arrows','padma'),
+					'default' => true,
+					'tooltip' => __('Show arrows to advance to the next/previous slides.','padma')
+				)
+			),
+
+			'advanced' => array(
 				'content-types-text' => array(
 					'type' => 'notice',
 					'name' => 'content-types-text',
-					'notice' => 'This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmaunlimited.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmaunlimited.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.'
+					'notice' => __('This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmaunlimited.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmaunlimited.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.','padma')
 				)
-		),
-
-		'animation' => array(
-			'animation' => array(
-				'type' => 'select',
-				'name' => 'animation',
-				'label' => 'Animation',
-				'default' => 'slide-horizontal',
-				'options' => array(
-					'slide-horizontal' => 'Slide Horizontal',
-					'slide-vertical' => 'Slide Vertical',
-					'fade' => 'Fade'
-				)
-			),
-
-			'animation-speed' => array(
-				'type' => 'slider',
-				'name' => 'animation-speed',
-				'label' => 'Animation Speed',
-				'default' => 500,
-				'slider-min' => 50,
-				'slider-max' => 5000,
-				'slider-interval' => 10,
-				'tooltip' => 'Adjust this to change how long the animation lasts when fading between images.',
-				'unit' => 'ms'
-			),
-
-			'slideshow' => array(
-				'type' => 'checkbox',
-				'name' => 'slideshow',
-				'label' => 'Automatic Slide Advancement',
-				'default' => true,
-				'tooltip' => 'Act as a slideshow and automatically move to the next slide.'
-			),
-			
-			'animation-timeout' => array(
-				'type' => 'slider',
-				'name' => 'animation-timeout',
-				'label' => 'Time Between Slides',
-				'default' => 6,
-				'slider-min' => 1,
-				'slider-max' => 20,
-				'slider-interval' => 1,
-				'tooltip' => 'This is the amount of time each image will stay visible.',
-				'unit' => 's'
 			)
-		),
-
-		'ui' => array(
-			'show-pager-nav' => array(
-				'type' => 'checkbox',
-				'name' => 'show-pager-nav',
-				'label' => 'Show Pager Navigation',
-				'default' => true,
-				'tooltip' => 'Show dots below slider to choose specific slides.'
-			),
-
-			'show-direction-nav' => array(
-				'type' => 'checkbox',
-				'name' => 'show-direction-nav',
-				'label' => 'Show Next/Previous Arrows',
-				'default' => true,
-				'tooltip' => 'Show arrows to advance to the next/previous slides.'
-			)
-		),
-
-		'advanced' => array(
-			'content-types-text' => array(
-				'type' => 'notice',
-				'name' => 'content-types-text',
-				'notice' => 'This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href="http://padmaunlimited.com/go/slidedeck-lite" target="_blank">SlideDeck</a> and <a href="http://padmaunlimited.com/extend/addon/sliderplus/" target="_blank">SliderPlus</a>.'
-			)
-		)
-	);
+		);
+	}
 	
 }

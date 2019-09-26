@@ -54,7 +54,7 @@ class PadmaDisplay {
 	
 		} else {
 
-			echo '<div class="alert alert-yellow"><p>The Padma Grid is not supported in this Child Theme.</p></div>';
+			echo '<div class="alert alert-yellow"><p>' . __('The Padma Grid is not supported in this Child Theme.','padma') . '</p></div>';
 
 		}
 

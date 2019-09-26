@@ -2,20 +2,34 @@
 
 class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
-	public $id = 'widget-area';
-	public $name = 'Widget Area';
-	public $options_class = 'PadmaWidgetAreaBlockOptions';
-	public $html_tag = 'aside';
-	public $attributes = array(
-		'itemscope' => '',
-		'itemtype' => 'http://schema.org/WPSideBar'
-	);
-	public $description = 'Used typically as a sidebar or to aid the footer.  The widget area will display WordPress widgets which are managed in the WordPress Appearance &raquo; Widgets panel.';
-	public $categories 	= array('core','content');
+	public $id;
+	public $name;
+	public $options_class;
+	public $html_tag;
+	public $attributes;
+	public $description;
+	public $categories;
+
+
+	function __construct(){
+
+		$this->id = 'widget-area';
+		$this->name = __('Widget Area','padma');
+		$this->options_class = 'PadmaWidgetAreaBlockOptions';
+		$this->html_tag = 'aside';
+		$this->attributes = array(
+			'itemscope' => '',
+			'itemtype' => 'http://schema.org/WPSideBar'
+		);
+		$this->description = __('Used typically as a sidebar or to aid the footer.  The widget area will display WordPress widgets which are managed in the WordPress Appearance &raquo; Widgets panel.','padma');
+		$this->categories 	= array('core','content');
+
+	}
+
 
 	public static function init_action($block_id, $block) {
 
-		$widget_area_name = PadmaBlocksData::get_block_name($block) . ' &mdash; ' . 'Layout: ' . PadmaLayout::get_name($block['layout']);
+		$widget_area_name = PadmaBlocksData::get_block_name($block) . ' &mdash; ' . __('Layout: ','padma') . PadmaLayout::get_name($block['layout']);
 
 		$widget_area = array(
 			'name'			 =>   $widget_area_name,
@@ -35,31 +49,31 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'widget-area',
-			'name' => 'Widget Area',
+			'name' => __('Widget Area','padma'),
 			'selector' => 'ul.widget-area'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'widget',
-			'name' => 'Widget',
+			'name' => __('Widget','padma'),
 			'selector' => 'li.widget'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'widget-title',
-			'name' => 'Widget Title',
+			'name' => __('Widget Title','padma'),
 			'selector' => 'li.widget h3.widget-title'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'widget-title-inner',
-			'name' => 'Widget Title Inner',
+			'name' => __('Widget Title Inner','padma'),
 			'selector' => 'li.widget .widget-title span'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'widget-links',
-			'name' => 'Widget Links',
+			'name' => __('Widget Links','padma'),
 			'selector' => 'li.widget a',
 			'states' => array(
 				'Selected' => 'ul li.current_page_item a', 
@@ -70,7 +84,7 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'widget-lists',
-			'name' => 'Widget Lists',
+			'name' => __('Widget Lists','padma'),
 			'description' => '&lt;UL&gt;',
 			'selector' => 'li.widget ul',
 			'properties' => array('fonts', 'lists', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'advanced', 'transition', 'outlines'),
@@ -78,7 +92,7 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 			$this->register_block_element(array(
 				'id' => 'widget-list-items',
-				'name' => 'Widget List Items',
+				'name' => __('Widget List Items','padma'),
 				'description' => '&lt;LI&gt;',
 				'selector' => 'li.widget ul li'
 			));
@@ -160,8 +174,8 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 				} else {
 		
 					echo '<li class="widget widget-no-widgets">';
-						echo '<h3 class="widget-title"><span class="widget-inner">No widgets!</span></h3>';
-						echo '<p>Add widgets to this sidebar in the <a href="' . admin_url('widgets.php') . '">Widgets panel</a> under Appearance in the WordPress Admin.</p>';
+						echo '<h3 class="widget-title"><span class="widget-inner">' . __('No widgets!','padma') . '</span></h3>';
+						echo sprintf( __('<p>Add widgets to this sidebar in the <a href="%s">Widgets panel</a> under Appearance in the WordPress Admin.</p>','padma'), admin_url('widgets.php') );
 					echo '</li>';
 					
 				}
@@ -178,23 +192,30 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 class PadmaWidgetAreaBlockOptions extends PadmaBlockOptionsAPI {
 
 
-	public $tabs = array(
-		'widget-area-content' => 'Content',
-		'widget-layout' => 'Widget Layout'
-	);
+	public $tabs;
+	public $inputs;
 
 
-	public $inputs = array(
-		'widget-layout' => array(
-			'horizontal-widgets' => array(
-				'type' => 'checkbox',
-				'name' => 'horizontal-widgets',
-				'label' => 'Horizontal Widgets',
-				'default' => false,
-				'tooltip' => 'Instead of showing widgets vertically, you can make them span horizontally.  This is especially useful for widgetized footers.'
+	function __construct(){
+
+		$this->tabs = array(
+			'widget-area-content' => __('Content','padma'),
+			'widget-layout' => __('Widget Layout','padma')
+		);
+
+
+		$this->inputs = array(
+			'widget-layout' => array(
+				'horizontal-widgets' => array(
+					'type' => 'checkbox',
+					'name' => 'horizontal-widgets',
+					'label' => __('Horizontal Widgets','padma'),
+					'default' => false,
+					'tooltip' => __('Instead of showing widgets vertically, you can make them span horizontally. This is especially useful for widgetized footers.','padma')
+				)
 			)
-		)
-	);
+		);
+	}
 
 
 	function modify_arguments($args = false) {
@@ -203,7 +224,12 @@ class PadmaWidgetAreaBlockOptions extends PadmaBlockOptionsAPI {
 
 		$sidebar_id = 'widget-area-' . $args['block_id'];
 
-		$this->tab_notices['widget-area-content'] = 'To add widgets to this widget area, go to <a href="' . admin_url('widgets.php') . '" target="_blank">WordPress Admin &raquo; Appearance &raquo; Widgets</a> and add the widgets to <em>' . PadmaBlocksData::get_block_name( $args['block'] ) . ' &mdash; ' . 'Layout: ' . PadmaLayout::get_name( $args['layoutID'] ) . '</em>.';
+		$this->tab_notices['widget-area-content'] =  sprintf( 
+			__('To add widgets to this widget area, go to <a href="%s" target="_blank">WordPress Admin &raquo; Appearance &raquo; Widgets</a> and add the widgets to <em>%s &mdash; Layout: %s</em>.','padma'), 
+			admin_url('widgets.php'), 
+			PadmaBlocksData::get_block_name( $args['block'] ), 
+			PadmaLayout::get_name( $args['layoutID'] ) 
+		);
 
 		/* don't show the default widgets options if it is not going to serve any purpose */
 		if ( empty($sidebars_widgets[$sidebar_id]) ) :
@@ -213,20 +239,20 @@ class PadmaWidgetAreaBlockOptions extends PadmaBlockOptionsAPI {
 			$this->inputs['widget-default']['default-widgets'] = array(
 				'type' => 'repeater',
 				'name' => 'default-widgets',
-				'label' => 'Default Widgets',
-				'tooltip' => 'Assign default widgets to this widget area.',
+				'label' => __('Default Widgets','padma'),
+				'tooltip' => __('Assign default widgets to this widget area.','padma'),
 				'inputs' => array(
 					array(
 						'type' => 'select',
 						'name' => 'widget',
-						'label' => 'Widget',
+						'label' => __('Widget','padma'),
 						'default' => array( 'pages' ),
 						'options' => 'get_widgets()',
 					),
 					array(
 						'type'    => 'checkbox',
 						'name'    => 'show-title',
-						'label'   => 'Show Title',
+						'label'   => __('Show Title','padma'),
 						'default' => true,
 						'toggle' => array(
 							'true' => array(
@@ -240,9 +266,9 @@ class PadmaWidgetAreaBlockOptions extends PadmaBlockOptionsAPI {
 					array(
 						'type' => 'text',
 						'name' => 'title',
-						'label' => 'Title',
+						'label' => __('Title','padma'),
 						'default' => '%default%',
-						'tootlip' => 'This will be the title shown above the widget.  If you want to use the default for the widget type, please enter <em>%default%</em>'
+						'tootlip' => __('This will be the title shown above the widget.  If you want to use the default for the widget type, please enter <em>%default%</em>','padma')
 					)
 				),
 				'sortable' => true
@@ -265,7 +291,7 @@ class PadmaWidgetAreaBlockOptions extends PadmaBlockOptionsAPI {
 		foreach ( $wp_widget_factory->widgets as $class => $widgets )
 			$options[$class] = $widgets->name; 
 
-		return array_merge( array( '' => 'Make a Selection' ), $options);
+		return array_merge( array( '' => __('Make a Selection','padma') ), $options);
 
 	}
 

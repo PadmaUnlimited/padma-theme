@@ -830,7 +830,7 @@ class PadmaBlocks {
 
 	public static function unknown_block_content($block = null) {
 
-		echo '<div class="alert alert-red block-type-unknown-notice"><p>The requested block type of \'' . $block['requested-type'] . '\' does not exist.  Please re-activate the block plugin or child theme if you wish to use this block again.</p></div>';
+		echo '<div class="alert alert-red block-type-unknown-notice"><p>' . sprintf( __('The requested block type of \'%s\' does not exist. Please re-activate the block plugin or child theme if you wish to use this block again.','padma'), $block['requested-type']) . '</p></div>';
 
 	}
 

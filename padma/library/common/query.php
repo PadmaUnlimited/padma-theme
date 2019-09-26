@@ -109,7 +109,7 @@ class PadmaQuery{
 		foreach ($tags_select_query as $tag)
 			$tag_options[$tag->term_id] = $tag->name;
 		
-		$tag_options = (count($tag_options) == 0) ? array('text' => 'No tags available') : $tag_options;
+		$tag_options = (count($tag_options) == 0) ? array('text' => __('No tags available','padma') ) : $tag_options;
 
 		return $tag_options;
 	}
@@ -171,7 +171,7 @@ class PadmaQuery{
 	 */
 	public static function get_taxonomies() {
 
-		$taxonomy_options = array('&ndash; Default: Category &ndash;');
+		$taxonomy_options = array( __('&ndash; Default: Category &ndash;','padma') );
 
 		$taxonomy_select_query=get_taxonomies(false, 'objects', 'or');
 

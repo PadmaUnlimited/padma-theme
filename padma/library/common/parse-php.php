@@ -32,7 +32,7 @@ function padma_parse_php($content) {
 	} else {
 
 		$error 	= error_get_last();
-		$parsed = '<p><strong>Error while parsing PHP:</strong> ' . $error['message'] . '</p>';
+		$parsed = '<p>' . sprintf( __('<strong>Error while parsing PHP:</strong> %s', 'padma'), $error['message']) . '</p>';
 
 	}
 	

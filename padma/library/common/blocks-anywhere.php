@@ -61,7 +61,7 @@ class PadmaBlocksAnywhere {
 
 		if ( empty( $layout_id ) && $block['type'] == 'content' && $block['settings']['mode'] == 'default' ) {
 
-			echo '<div class="alert alert-red">This block does not have any post assigned. Please specify the post_id your would like to display as a shortcode parameter.</div>';
+			echo '<div class="alert alert-red">' . __('This block does not have any post assigned. Please specify the post_id your would like to display as a shortcode parameter.', 'padma') . '</div>';
 
 		} else {
 
@@ -95,7 +95,7 @@ class PadmaBlocksAnywhere {
 		ob_end_clean();
 
 		if ( empty( $output_string ) )
-			return '<div class="alert alert-yellow">The padma block shortcut ID you have entered does not exist. Please enter a valid block ID!</div>';
+			return '<div class="alert alert-yellow">' . __('The padma block shortcut ID you have entered does not exist. Please enter a valid block ID!', 'padma') . '</div>';
 		else
 			return $output_string;
 

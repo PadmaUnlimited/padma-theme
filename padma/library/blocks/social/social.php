@@ -2,15 +2,28 @@
 
 class PadmaSocialBlock extends PadmaBlockAPI {
 	
-	public $id 				= 'social';	
-	public $name 			= 'Social';		
-	public $options_class 	= 'PadmaSocialBlockOptions';	
-	public $fixed_height 	= true;	
-	public $html_tag 		= 'section';
-	public $description 	= 'Display a set of social icons';
-	public $categories 		= array('core','social');
+	public $id;
+	public $name;
+	public $options_class;
+	public $fixed_height;
+	public $html_tag;
+	public $description;
+	public $categories;
+	protected $show_content_in_grid;
 
-	protected $show_content_in_grid = false;
+
+	function __construct(){
+
+		$this->id = 'social';	
+		$this->name = 'Social';		
+		$this->options_class = 'PadmaSocialBlockOptions';	
+		$this->fixed_height = true;	
+		$this->html_tag = 'section';
+		$this->description = __('Display a set of social icons','padma');
+		$this->categories = array('core','social');
+		$this->show_content_in_grid = false;
+	
+	}
 
 	
 	public function init() {
@@ -23,37 +36,37 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'icons-wrapper',
-			'name' => 'Icons Container',
+			'name' => __('Icons Container','padma'),
 			'selector' => 'ul.social-icons '
 		));
 
 		$this->register_block_element(array(
 			'id' => 'icon',
-			'name' => 'Icon Container ',
+			'name' => __('Icon Container','padma'),
 			'selector' => 'li'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'icon-first',
-			'name' => 'First Icon',
+			'name' => __('First Icon','padma'),
 			'selector' => 'li:first-child'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'icon-last',
-			'name' => 'Last Icon',
+			'name' => __('Last Icon','padma'),
 			'selector' => 'li:last-child'
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'image',
-			'name' => 'Image',
+			'name' => __('Image','padma'),
 			'selector' => 'img'
 		));
 
 		$this->register_block_element(array(
 			'id' => 'image-link',
-			'name' => 'Image Link',
+			'name' => __('Image Link','padma'),
 			'selector' => 'img a',
 			'states' => array(
 				'Hover' => 'img a:hover',
@@ -161,7 +174,7 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 
 		if ( !$has_icons) {
 
-			echo '<div class="alert alert-yellow"><p>There are no icons to display.</p></div>';
+			echo '<div class="alert alert-yellow"><p>' . __('There are no icons to display.','padma') . '</p></div>';
 			
 			return;
 
@@ -228,227 +241,235 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 
 class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' => 'General',
-		'custom-icons-set' => 'Custom Icons'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-		'general' => array(
+	
+	function __construct(){
 
-			'icon-set' => array(
-				'type' => 'select',
-				'name' => 'icon-set',
-				'label' => 'Icon Set',
-				'default' => 'peel-icons',
-				'options' => 'get_icon_sets()',
-				'tooltip' => 'Select custom to add your own icons or select one of these sets',
-				'toggle'    => array(
-					'custom' => array(
-						'hide' => array(
-							'li[id*="-set"]:not(#sub-tab-custom-icons-set)'
+		$this->tabs = array(
+			'general' => 'General',
+			'custom-icons-set' => __('Custom Icons','padma')
+		);
+
+		$this->inputs = array(
+			'general' => array(
+
+				'icon-set' => array(
+					'type' => 'select',
+					'name' => 'icon-set',
+					'label' => __('Icon Set','padma'),
+					'default' => 'peel-icons',
+					'options' => 'get_icon_sets()',
+					'tooltip' => __('Select custom to add your own icons or select one of these sets','padma'),
+					'toggle'    => array(
+						'custom' => array(
+							'hide' => array(
+								'li[id*="-set"]:not(#sub-tab-custom-icons-set)'
+							),
+							'show' => array(
+								'li#sub-tab-custom-icons-set'
+							)
 						),
-						'show' => array(
-							'li#sub-tab-custom-icons-set'
+						'peel-icons' => array(
+							'hide' => array(
+								'li[id*="-set"]:not(#sub-tab-peel-icons-set)'
+							),
+							'show' => array(
+								'li#sub-tab-peel-icons-set'
+							)
+						),
+						'soft-social' => array(
+							'hide' => array(
+								'li[id*="-set"]:not(#sub-tab-soft-social-set)'
+							),
+							'show' => array(
+								'li#sub-tab-soft-social-set'
+							)
 						)
 					),
-					'peel-icons' => array(
-						'hide' => array(
-							'li[id*="-set"]:not(#sub-tab-peel-icons-set)'
-						),
-						'show' => array(
-							'li#sub-tab-peel-icons-set'
-						)
-					),
-					'soft-social' => array(
-						'hide' => array(
-							'li[id*="-set"]:not(#sub-tab-soft-social-set)'
-						),
-						'show' => array(
-							'li#sub-tab-soft-social-set'
-						)
+					'callback' => '
+						reloadBlockOptions()'
+					
+				),
+
+				'layout-heading' => array(
+					'name' => 'layout-heading',
+					'type' => 'heading',
+					'label' => __('Layout','padma'),
+					'tooltip' => __('Set the position of all icons in the block and the orientation before you add your icons.','padma')
+				),
+
+				'icons-position' => array(
+					'name' => 'icons-position',
+					'label' => __('Position icons inside container','padma'),
+					'type' => 'select',
+					'tooltip' => __('You can position the social icons in relation to the block using the positions provided','padma'),
+					'default' => 'none',
+					'options' => array(
+						'' => 'None',
+						'top_left' => __('Top Left','padma'),
+						'top_center' => __('Top Center','padma'),
+						'top_right' => __('Top Right','padma'),
+						'center_left' => __('Center Left','padma'),
+						'center_center' => __('Center Center','padma'),
+						'center_right' => __('Center Right','padma'),
+						'bottom_left' => __('Bottom Left','padma'),
+						'bottom_center' => __('Bottom Center','padma'),
+						'bottom_right' => __('Bottom Right','padma')
 					)
 				),
-				'callback' => '
-					reloadBlockOptions()'
-				
-			),
 
-			'layout-heading' => array(
-				'name' => 'layout-heading',
-				'type' => 'heading',
-				'label' => 'Layout',
-				'tooltip' => 'Set the position of all icons in the block and the orientation before you add your icons.'
-			),
+				'orientation' => array(
+					'type' => 'select',
+					'name' => 'orientation',
+					'label' => __('Orientation','padma'),
+					'tooltip' => '',
+					'options' => array(
+						'vertical' => 'Vertical',
+						'horizontal' => 'Horizontal'
+					),
+					'toggle'    => array(
+						'vertical' => array(
+							'show' => array(
+								'#input-vertical-spacing'
+							),
+							'hide' => array(
+								'#input-horizontal-spacing'
+							),
+						),
+						'horizontal' => array(
+							'show' => array(
+								'#input-horizontal-spacing'
+							),
+							'hide' => array(
+								'#input-vertical-spacing'
+							),
+						)
+					),
+					'tooltip' => __('Display articles on top of each other (vertical) or side by side as a grid (horizontal)','padma')
+				),
 
-			'icons-position' => array(
-				'name' => 'icons-position',
-				'label' => 'Position icons inside container',
-				'type' => 'select',
-				'tooltip' => 'You can position the social icons in relation to the block using the positions provided',
-				'default' => 'none',
-				'options' => array(
-					'' => 'None',
-					'top_left' => 'Top Left',
-					'top_center' => 'Top Center',
-					'top_right' => 'Top Right',
-					'center_left' => 'Center Left',
-					'center_center' => 'Center Center',
-					'center_right' => 'Center Right',
-					'bottom_left' => 'Bottom Left',
-					'bottom_center' => 'Bottom Center',
-					'bottom_right' => 'Bottom Right'
+				'horizontal-spacing' => array(
+					'type' => 'text',
+					'name' => 'horizontal-spacing',
+					'label' => __('Horizontal Spacing','padma'),
+					'default' => '10',
+					'unit' => 'px',
+					'tooltip' => __('Set the px horizontal spacing between the icons.','padma')
+				),
+
+				'vertical-spacing' => array(
+					'type' => 'text',
+					'name' => 'vertical-spacing',
+					'label' => __('Vertical Spacing','padma'),
+					'default' => '10',
+					'unit' => 'px',
+					'tooltip' => __('Set the px vertical spacing between the icons.','padma')
+				),
+
+				'svg-heading' => array(
+					'name' => 'svg-heading',
+					'type' => 'heading',
+					'label' => __('SVG Images','padma'),
+					'tooltip' => __('Allows you to upload SVG Images. Many icons come with SVG versions of the icons. Using an SVG means it is easier to size the icons. With images like .png and .gif you need to manually size them in a graphics program.','padma')
+				),
+
+				'use-svg' => array(
+					'name' => 'use-svg',
+					'label' => __('Use SVG?','padma'),
+					'type' => 'checkbox',
+					'tooltip' => __('If you would like to upload SVG images check this option','padma'),
+					'default' => false,
+					'toggle'    => array(
+						'true' => array(
+							'show' => array(
+								'#input-svg-width',
+								'#input-svg-height'
+							)
+						),
+						'false' => array(
+							'hide' => array(
+								'#input-svg-width',
+								'#input-svg-height'
+							)
+						)
+					),
+				),
+
+				'svg-width' => array(
+					'type' => 'text',
+					'name' => 'svg-width',
+					'label' => __('SVG Image Width','padma'),
+					'tooltip' => __('Set the width of all SVG\'s in the block. This also controls the width with a 1:1 ratio','padma')
 				)
+
 			),
 
-			'orientation' => array(
-				'type' => 'select',
-				'name' => 'orientation',
-				'label' => 'Orientation',
-				'tooltip' => '',
-				'options' => array(
-					'vertical' => 'Vertical',
-					'horizontal' => 'Horizontal'
-				),
-				'toggle'    => array(
-					'vertical' => array(
-						'show' => array(
-							'#input-vertical-spacing'
+			'custom-icons-set' => array(
+				'icons' => array(
+					'type' => 'repeater',
+					'name' => 'icons',
+					'label' => __('Icons','padma'),
+					'inputs' => array(
+						array(
+							'type' => 'image',
+							'name' => 'image',
+							'label' => __('Image','padma'),
+							'default' => null
 						),
-						'hide' => array(
-							'#input-horizontal-spacing'
+
+						array(
+							'type' => 'text',
+							'name' => 'image-title',
+							'label' => '"title"',
+							'tooltip' => __('This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.','padma')
 						),
-					),
-					'horizontal' => array(
-						'show' => array(
-							'#input-horizontal-spacing'
+
+						array(
+							'type' => 'text',
+							'name' => 'image-alt',
+							'label' => '"alt"',
+							'tooltip' => __('This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.','padma')
 						),
-						'hide' => array(
-							'#input-vertical-spacing'
+
+						array(
+							'name' => 'link-heading',
+							'type' => 'heading',
+							'label' => __('Link Image','padma')
 						),
-					)
-				),
-				'tooltip' => 'Display articles on top of each other (vertical) or side by side as a grid (horizontal)'
-			),
 
-			'horizontal-spacing' => array(
-				'type' => 'text',
-				'name' => 'horizontal-spacing',
-				'label' => 'Horizontal Spacing',
-				'default' => '10',
-				'unit' => 'px',
-				'tooltip' => 'Set the px horizontal spacing between the icons.'
-			),
+						array(
+							'name' => 'link-url',
+							'label' => __('Link URL?','padma'),
+							'type' => 'text',
+							'tooltip' => __('Set the URL for the image to link to','padma')
+						),
 
-			'vertical-spacing' => array(
-				'type' => 'text',
-				'name' => 'vertical-spacing',
-				'label' => 'Vertical Spacing',
-				'default' => '10',
-				'unit' => 'px',
-				'tooltip' => 'Set the px vertical spacing between the icons.'
-			),
+						array(
+							'name' => 'link-alt',
+							'label' => '"alt"',
+							'type' => 'text',
+							'tooltip' => __('Set alternative text for the link','padma')
+						),
 
-			'svg-heading' => array(
-				'name' => 'svg-heading',
-				'type' => 'heading',
-				'label' => 'SVG Images',
-				'tooltip' => 'Allows you to upload SVG Images. Many icons come with SVG versions of the icons. Using an SVG means it is easier to size the icons. With images like .png and .gif you need to manually size them in a graphics program.'
-			),
-
-			'use-svg' => array(
-				'name' => 'use-svg',
-				'label' => 'Use SVG?',
-				'type' => 'checkbox',
-				'tooltip' => 'If you would like to upload SVG images check this option',
-				'default' => false,
-				'toggle'    => array(
-					'true' => array(
-						'show' => array(
-							'#input-svg-width',
-							'#input-svg-height'
+						array(
+							'name' => 'link-target',
+							'label' => __('New window?','padma'),
+							'type' => 'checkbox',
+							'tooltip' => __('If you would like to open the link in a new window check this option','padma'),
+							'default' => false,
 						)
+
 					),
-					'false' => array(
-						'hide' => array(
-							'#input-svg-width',
-							'#input-svg-height'
-						)
-					)
+					'tooltip' => __('Upload the images that you would like to add to the image block.','padma'),
+					'sortable' => true,
+					'limit' => false
 				),
 			),
+		);
 
-			'svg-width' => array(
-				'type' => 'text',
-				'name' => 'svg-width',
-				'label' => 'SVG Image Width',
-				'tooltip' => 'Set the width of all SVG\'s in the block. This also controls the width with a 1:1 ratio'
-			)
-
-		),
-
-		'custom-icons-set' => array(
-			'icons' => array(
-				'type' => 'repeater',
-				'name' => 'icons',
-				'label' => 'Icons',
-				'inputs' => array(
-					array(
-						'type' => 'image',
-						'name' => 'image',
-						'label' => 'Image',
-						'default' => null
-					),
-
-					array(
-						'type' => 'text',
-						'name' => 'image-title',
-						'label' => '"title"',
-						'tooltip' => 'This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.'
-					),
-
-					array(
-						'type' => 'text',
-						'name' => 'image-alt',
-						'label' => '"alt"',
-						'tooltip' => 'This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.'
-					),
-
-					array(
-						'name' => 'link-heading',
-						'type' => 'heading',
-						'label' => 'Link Image'
-					),
-
-					array(
-						'name' => 'link-url',
-						'label' => 'Link URL?',
-						'type' => 'text',
-						'tooltip' => 'Set the URL for the image to link to'
-					),
-
-					array(
-						'name' => 'link-alt',
-						'label' => '"alt"',
-						'type' => 'text',
-						'tooltip' => 'Set alternative text for the link'
-					),
-
-					array(
-						'name' => 'link-target',
-						'label' => 'New window?',
-						'type' => 'checkbox',
-						'tooltip' => 'If you would like to open the link in a new window check this option',
-						'default' => false,
-					)
-
-				),
-				'tooltip' => 'Upload the images that you would like to add to the image block.',
-				'sortable' => true,
-				'limit' => false
-			),
-		),
-	);
+	}
 
 	public function modify_arguments($args = false) {
 
@@ -463,12 +484,12 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 				'icons'.$icon_set => array(
 					'type' => 'repeater',
 					'name' => 'icons' . $icon_set,
-					'label' => 'Icons',
+					'label' => __('Icons','padma'),
 					'inputs' => array(
 						array(
 							'type' => 'select',
 							'name' => 'network',
-							'label' => 'Network',
+							'label' => __('Network','padma'),
 							'default' => null,
 							'options' => self::get_icons( $icon_set )
 						),
@@ -477,46 +498,46 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 							'type' => 'text',
 							'name' => 'image-title',
 							'label' => '"title"',
-							'tooltip' => 'This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.'
+							'tooltip' => __('This will be used as the "title" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it.','padma')
 						),
 
 						array(
 							'type' => 'text',
 							'name' => 'image-alt',
 							'label' => '"alt"',
-							'tooltip' => 'This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.'
+							'tooltip' => __('This will be used as the "alt" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility.','padma')
 						),
 
 						array(
 							'name' => 'link-heading',
 							'type' => 'heading',
-							'label' => 'Link Image'
+							'label' => __('Link Image','padma')
 						),
 
 						array(
 							'name' => 'link-url',
-							'label' => 'Link URL?',
+							'label' => __('Link URL?','padma'),
 							'type' => 'text',
-							'tooltip' => 'Set the URL for the image to link to'
+							'tooltip' => __('Set the URL for the image to link to','padma')
 						),
 
 						array(
 							'name' => 'link-alt',
 							'label' => '"alt"',
 							'type' => 'text',
-							'tooltip' => 'Set alternative text for the link'
+							'tooltip' => __('Set alternative text for the link','padma')
 						),
 
 						array(
 							'name' => 'link-target',
-							'label' => 'New window?',
+							'label' => __('New window?','padma'),
 							'type' => 'checkbox',
-							'tooltip' => 'If you would like to open the link in a new window check this option',
+							'tooltip' => __('If you would like to open the link in a new window check this option','padma'),
 							'default' => false,
 						)
 
 					),
-					'tooltip' => 'Upload the images that you would like to add to the image block.',
+					'tooltip' => __('Upload the images that you would like to add to the image block.','padma'),
 					'sortable' => true,
 					'limit' => false
 				)
@@ -544,7 +565,7 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 
 		}
 
-		$icons_options['custom'] = 'Custom Icons';
+		$icons_options['custom'] = __('Custom Icons','padma');
 
 		return $icons_options;
 

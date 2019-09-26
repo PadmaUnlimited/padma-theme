@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-25T16:23:07-05:00\n"
+"POT-Creation-Date: 2019-09-26T13:07:00-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -81,6 +81,8 @@ msgstr ""
 
 #: library/abstract/api-block.php:561
 #: library/blocks/image/image.php:232
+#: library/blocks/social/social.php:460
+#: library/blocks/social/social.php:535
 msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 
@@ -275,6 +277,7 @@ msgstr ""
 
 #: library/admin/admin-bar.php:132
 #: library/admin/pages/options.php:6
+#: library/blocks/slider/slider.php:234
 msgid "Advanced"
 msgstr ""
 
@@ -412,6 +415,7 @@ msgstr ""
 #: library/blocks/content/content.php:955
 #: library/blocks/listings/block-options.php:264
 #: library/blocks/pin-board/pin-board.php:967
+#: library/blocks/widget-area/widget-area.php:269
 msgid "Title"
 msgstr ""
 
@@ -1232,6 +1236,9 @@ msgstr ""
 #: library/blocks/image/image.php:19
 #: library/blocks/image/image.php:37
 #: library/blocks/image/image.php:167
+#: library/blocks/slider/slider.php:248
+#: library/blocks/social/social.php:63
+#: library/blocks/social/social.php:418
 msgid "Image"
 msgstr ""
 
@@ -1472,6 +1479,7 @@ msgid "Specifies that the audio will start playing as soon as it is ready"
 msgstr ""
 
 #: library/blocks/audio/audio.php:253
+#: library/blocks/video/video.php:285
 msgid "Controls"
 msgstr ""
 
@@ -1480,6 +1488,7 @@ msgid "Specifies that audio controls should be displayed (such as a play/pause b
 msgstr ""
 
 #: library/blocks/audio/audio.php:261
+#: library/blocks/video/video.php:264
 msgid "Loop"
 msgstr ""
 
@@ -1488,6 +1497,7 @@ msgid "Specifies that the audio will start over again, every time it is finished
 msgstr ""
 
 #: library/blocks/audio/audio.php:269
+#: library/blocks/video/video.php:293
 msgid "Muted"
 msgstr ""
 
@@ -1496,6 +1506,7 @@ msgid "Specifies that the audio output of the audio should be muted"
 msgstr ""
 
 #: library/blocks/audio/audio.php:277
+#: library/blocks/video/video.php:272
 msgid "Preload"
 msgstr ""
 
@@ -1517,46 +1528,64 @@ msgstr ""
 
 #: library/blocks/audio/audio.php:303
 #: library/blocks/image/image.php:250
+#: library/blocks/social/social.php:311
+#: library/blocks/video/video.php:350
 msgid "Top Left"
 msgstr ""
 
 #: library/blocks/audio/audio.php:304
 #: library/blocks/image/image.php:251
+#: library/blocks/social/social.php:312
+#: library/blocks/video/video.php:351
 msgid "Top Center"
 msgstr ""
 
 #: library/blocks/audio/audio.php:305
 #: library/blocks/image/image.php:252
+#: library/blocks/social/social.php:313
+#: library/blocks/video/video.php:352
 msgid "Top Right"
 msgstr ""
 
 #: library/blocks/audio/audio.php:306
 #: library/blocks/image/image.php:253
+#: library/blocks/social/social.php:314
+#: library/blocks/video/video.php:353
 msgid "Center Left"
 msgstr ""
 
 #: library/blocks/audio/audio.php:307
 #: library/blocks/image/image.php:254
+#: library/blocks/social/social.php:315
+#: library/blocks/video/video.php:354
 msgid "Center Center"
 msgstr ""
 
 #: library/blocks/audio/audio.php:308
 #: library/blocks/image/image.php:255
+#: library/blocks/social/social.php:316
+#: library/blocks/video/video.php:355
 msgid "Center Right"
 msgstr ""
 
 #: library/blocks/audio/audio.php:309
 #: library/blocks/image/image.php:256
+#: library/blocks/social/social.php:317
+#: library/blocks/video/video.php:356
 msgid "Bottom Left"
 msgstr ""
 
 #: library/blocks/audio/audio.php:310
 #: library/blocks/image/image.php:257
+#: library/blocks/social/social.php:318
+#: library/blocks/video/video.php:357
 msgid "Bottom Center"
 msgstr ""
 
 #: library/blocks/audio/audio.php:311
 #: library/blocks/image/image.php:258
+#: library/blocks/social/social.php:319
+#: library/blocks/video/video.php:358
 msgid "Bottom Right"
 msgstr ""
 
@@ -1568,7 +1597,12 @@ msgstr ""
 msgid "The Padma blocks array does not exist."
 msgstr ""
 
+#: library/blocks/blocks.php:833
+msgid "The requested block type of '%s' does not exist. Please re-activate the block plugin or child theme if you wish to use this block again."
+msgstr ""
+
 #: library/blocks/breadcrumbs/breadcrumbs.php:19
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:35
 msgid "Breadcrumbs"
 msgstr ""
 
@@ -1578,10 +1612,14 @@ msgstr ""
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:31
 #: library/blocks/pin-board/pin-board.php:800
+#: library/blocks/text/text.php:17
+#: library/blocks/text/text.php:44
+#: library/elements/default-elements.php:9
 msgid "Text"
 msgstr ""
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:37
+#: library/blocks/text/text.php:89
 msgid "Hyperlinks"
 msgstr ""
 
@@ -1823,6 +1861,9 @@ msgstr ""
 #: library/blocks/custom-code/custom-code.php:128
 #: library/blocks/footer/footer.php:233
 #: library/blocks/navigation/navigation.php:716
+#: library/blocks/text/text.php:205
+#: library/blocks/text/text.php:213
+#: library/blocks/widget-area/widget-area.php:202
 msgid "Content"
 msgstr ""
 
@@ -1868,6 +1909,8 @@ msgstr ""
 
 #: library/blocks/content/content.php:217
 #: library/blocks/pin-board/pin-board.php:802
+#: library/blocks/slider/slider.php:242
+#: library/blocks/text/text.php:138
 msgid "Images"
 msgstr ""
 
@@ -1936,6 +1979,7 @@ msgid "Heading"
 msgstr ""
 
 #: library/blocks/content/content.php:354
+#: library/blocks/text/text.php:131
 msgid "Sub Heading"
 msgstr ""
 
@@ -2760,6 +2804,7 @@ msgid "&ndash; Do Not Fetch &ndash;"
 msgstr ""
 
 #: library/blocks/content/content.php:1774
+#: library/common/query.php:112
 msgid "No tags available"
 msgstr ""
 
@@ -3036,6 +3081,7 @@ msgid "Display an image"
 msgstr ""
 
 #: library/blocks/image/image.php:44
+#: library/blocks/social/social.php:69
 msgid "Image Link"
 msgstr ""
 
@@ -3056,14 +3102,22 @@ msgid "If you would like Padma to automatically scale and crop the image to the 
 msgstr ""
 
 #: library/blocks/image/image.php:183
+#: library/blocks/slider/slider.php:278
+#: library/blocks/social/social.php:426
+#: library/blocks/social/social.php:501
 msgid "This will be used as the \"title\" attribute for the image.  The title attribute is beneficial for SEO (Search Engine Optimization) and will allow your visitors to move their mouse over the image and read about it."
 msgstr ""
 
 #: library/blocks/image/image.php:190
+#: library/blocks/slider/slider.php:285
+#: library/blocks/social/social.php:433
+#: library/blocks/social/social.php:508
 msgid "This will be used as the \"alt\" attribute for the image.  The alt attribute is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for general accessibility."
 msgstr ""
 
 #: library/blocks/image/image.php:196
+#: library/blocks/social/social.php:439
+#: library/blocks/social/social.php:514
 msgid "Link Image"
 msgstr ""
 
@@ -3080,6 +3134,8 @@ msgid "Link image URL?"
 msgstr ""
 
 #: library/blocks/image/image.php:225
+#: library/blocks/social/social.php:446
+#: library/blocks/social/social.php:521
 msgid "Set the URL for the image to link to"
 msgstr ""
 
@@ -3261,6 +3317,7 @@ msgstr ""
 
 #: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:34
 #: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:35
+#: library/elements/default-elements.php:104
 msgid "Form"
 msgstr ""
 
@@ -3271,11 +3328,13 @@ msgstr ""
 
 #: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:48
 #: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:49
+#: library/elements/default-elements.php:18
 msgid "Paragraph"
 msgstr ""
 
 #: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:55
 #: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:56
+#: library/elements/default-elements.php:112
 msgid "Label"
 msgstr ""
 
@@ -3351,6 +3410,7 @@ msgid "Home Link"
 msgstr ""
 
 #: library/blocks/navigation/navigation.php:720
+#: library/blocks/social/social.php:326
 msgid "Orientation"
 msgstr ""
 
@@ -3615,6 +3675,7 @@ msgid "Custom query"
 msgstr ""
 
 #: library/blocks/pin-board/pin-board.php:831
+#: library/blocks/social/social.php:299
 msgid "Layout"
 msgstr ""
 
@@ -3994,6 +4055,554 @@ msgstr ""
 msgid "Advanced Options"
 msgstr ""
 
+#: library/blocks/slider/slider.php:20
+msgid "Create effective responsive image slideshows."
+msgstr ""
+
+#: library/blocks/slider/slider.php:85
+msgid "There are no images to display."
+msgstr ""
+
+#: library/blocks/slider/slider.php:156
+msgid "Slider Container"
+msgstr ""
+
+#: library/blocks/slider/slider.php:157
+msgid "Contains Viewport, Paging"
+msgstr ""
+
+#: library/blocks/slider/slider.php:164
+msgid "Slider Viewport"
+msgstr ""
+
+#: library/blocks/slider/slider.php:165
+msgid "Contains Images"
+msgstr ""
+
+#: library/blocks/slider/slider.php:172
+msgid "Slider Caption"
+msgstr ""
+
+#: library/blocks/slider/slider.php:179
+msgid "Slider Direction Nav Link"
+msgstr ""
+
+#: library/blocks/slider/slider.php:186
+msgid "Slider Direction Next"
+msgstr ""
+
+#: library/blocks/slider/slider.php:193
+msgid "Slider Direction Prev"
+msgstr ""
+
+#: library/blocks/slider/slider.php:200
+msgid "Slider Paging"
+msgstr ""
+
+#: library/blocks/slider/slider.php:207
+msgid "Slider Paging Link"
+msgstr ""
+
+#: library/blocks/slider/slider.php:231
+msgid "Slider Images"
+msgstr ""
+
+#: library/blocks/slider/slider.php:232
+#: library/blocks/slider/slider.php:330
+msgid "Animation"
+msgstr ""
+
+#: library/blocks/slider/slider.php:233
+msgid "User Interface"
+msgstr ""
+
+#: library/blocks/slider/slider.php:243
+msgid "Upload the images that you would like to add to the image rotator here.  You can even drag and drop the images to change the order."
+msgstr ""
+
+#: library/blocks/slider/slider.php:255
+#: library/elements/default-elements.php:27
+msgid "Hyperlink"
+msgstr ""
+
+#: library/blocks/slider/slider.php:262
+msgid "Open Link in New Window"
+msgstr ""
+
+#: library/blocks/slider/slider.php:269
+msgid "Caption"
+msgstr ""
+
+#: library/blocks/slider/slider.php:270
+msgid "Describe the Image"
+msgstr ""
+
+#: library/blocks/slider/slider.php:271
+msgid "This will be displayed underneath the image."
+msgstr ""
+
+#: library/blocks/slider/slider.php:277
+msgid "\"title\" Attribute"
+msgstr ""
+
+#: library/blocks/slider/slider.php:284
+msgid "\"alt\" Attribute"
+msgstr ""
+
+#: library/blocks/slider/slider.php:295
+msgid "Randomize Image Order"
+msgstr ""
+
+#: library/blocks/slider/slider.php:302
+msgid "Image Sizing"
+msgstr ""
+
+#: library/blocks/slider/slider.php:308
+msgid "Crop and Resize Images"
+msgstr ""
+
+#: library/blocks/slider/slider.php:310
+msgid "The Slider block has the ability to automatically resize and crop images to fit in the Slider if the images are too big.  This will improve loading times and make the image fit better in the Slider.<br /><br />If you do not want the Slider block to do this, uncheck this option and the Slider block will insert your original uploaded images into the slider.  <strong>Please note:</strong> Even with this unchecked the images will still be resized with CSS."
+msgstr ""
+
+#: library/blocks/slider/slider.php:316
+msgid "Other Content Types"
+msgstr ""
+
+#: library/blocks/slider/slider.php:322
+#: library/blocks/slider/slider.php:394
+msgid "This Slider block is only capable of displaying images.  If you wish to insert more content such as text, videos, etc., we recommend <a href=\"http://padmaunlimited.com/go/slidedeck-lite\" target=\"_blank\">SlideDeck</a> and <a href=\"http://padmaunlimited.com/extend/addon/sliderplus/\" target=\"_blank\">SliderPlus</a>."
+msgstr ""
+
+#: library/blocks/slider/slider.php:333
+msgid "Slide Horizontal"
+msgstr ""
+
+#: library/blocks/slider/slider.php:334
+msgid "Slide Vertical"
+msgstr ""
+
+#: library/blocks/slider/slider.php:342
+msgid "Animation Speed"
+msgstr ""
+
+#: library/blocks/slider/slider.php:347
+msgid "Adjust this to change how long the animation lasts when fading between images."
+msgstr ""
+
+#: library/blocks/slider/slider.php:354
+msgid "Automatic Slide Advancement"
+msgstr ""
+
+#: library/blocks/slider/slider.php:356
+msgid "Act as a slideshow and automatically move to the next slide."
+msgstr ""
+
+#: library/blocks/slider/slider.php:362
+msgid "Time Between Slides"
+msgstr ""
+
+#: library/blocks/slider/slider.php:367
+msgid "This is the amount of time each image will stay visible."
+msgstr ""
+
+#: library/blocks/slider/slider.php:376
+msgid "Show Pager Navigation"
+msgstr ""
+
+#: library/blocks/slider/slider.php:378
+msgid "Show dots below slider to choose specific slides."
+msgstr ""
+
+#: library/blocks/slider/slider.php:384
+msgid "Show Next/Previous Arrows"
+msgstr ""
+
+#: library/blocks/slider/slider.php:386
+msgid "Show arrows to advance to the next/previous slides."
+msgstr ""
+
+#: library/blocks/social/social.php:22
+msgid "Display a set of social icons"
+msgstr ""
+
+#: library/blocks/social/social.php:39
+msgid "Icons Container"
+msgstr ""
+
+#: library/blocks/social/social.php:45
+msgid "Icon Container"
+msgstr ""
+
+#: library/blocks/social/social.php:51
+msgid "First Icon"
+msgstr ""
+
+#: library/blocks/social/social.php:57
+msgid "Last Icon"
+msgstr ""
+
+#: library/blocks/social/social.php:177
+msgid "There are no icons to display."
+msgstr ""
+
+#: library/blocks/social/social.php:252
+#: library/blocks/social/social.php:568
+msgid "Custom Icons"
+msgstr ""
+
+#: library/blocks/social/social.php:261
+msgid "Icon Set"
+msgstr ""
+
+#: library/blocks/social/social.php:264
+msgid "Select custom to add your own icons or select one of these sets"
+msgstr ""
+
+#: library/blocks/social/social.php:300
+msgid "Set the position of all icons in the block and the orientation before you add your icons."
+msgstr ""
+
+#: library/blocks/social/social.php:305
+msgid "Position icons inside container"
+msgstr ""
+
+#: library/blocks/social/social.php:307
+msgid "You can position the social icons in relation to the block using the positions provided"
+msgstr ""
+
+#: library/blocks/social/social.php:350
+msgid "Display articles on top of each other (vertical) or side by side as a grid (horizontal)"
+msgstr ""
+
+#: library/blocks/social/social.php:356
+msgid "Horizontal Spacing"
+msgstr ""
+
+#: library/blocks/social/social.php:359
+msgid "Set the px horizontal spacing between the icons."
+msgstr ""
+
+#: library/blocks/social/social.php:365
+msgid "Vertical Spacing"
+msgstr ""
+
+#: library/blocks/social/social.php:368
+msgid "Set the px vertical spacing between the icons."
+msgstr ""
+
+#: library/blocks/social/social.php:374
+msgid "SVG Images"
+msgstr ""
+
+#: library/blocks/social/social.php:375
+msgid "Allows you to upload SVG Images. Many icons come with SVG versions of the icons. Using an SVG means it is easier to size the icons. With images like .png and .gif you need to manually size them in a graphics program."
+msgstr ""
+
+#: library/blocks/social/social.php:380
+msgid "Use SVG?"
+msgstr ""
+
+#: library/blocks/social/social.php:382
+msgid "If you would like to upload SVG images check this option"
+msgstr ""
+
+#: library/blocks/social/social.php:403
+msgid "SVG Image Width"
+msgstr ""
+
+#: library/blocks/social/social.php:404
+msgid "Set the width of all SVG's in the block. This also controls the width with a 1:1 ratio"
+msgstr ""
+
+#: library/blocks/social/social.php:413
+#: library/blocks/social/social.php:487
+msgid "Icons"
+msgstr ""
+
+#: library/blocks/social/social.php:444
+#: library/blocks/social/social.php:519
+msgid "Link URL?"
+msgstr ""
+
+#: library/blocks/social/social.php:453
+#: library/blocks/social/social.php:528
+msgid "Set alternative text for the link"
+msgstr ""
+
+#: library/blocks/social/social.php:458
+#: library/blocks/social/social.php:533
+msgid "New window?"
+msgstr ""
+
+#: library/blocks/social/social.php:465
+#: library/blocks/social/social.php:540
+msgid "Upload the images that you would like to add to the image block."
+msgstr ""
+
+#: library/blocks/social/social.php:492
+msgid "Network"
+msgstr ""
+
+#: library/blocks/text/text.php:19
+msgid "Use the built-in rich text editor to insert titles, text, and more!"
+msgstr ""
+
+#: library/blocks/text/text.php:34
+msgid "There is no content to display."
+msgstr ""
+
+#: library/blocks/text/text.php:53
+msgid "Bold text"
+msgstr ""
+
+#: library/blocks/text/text.php:61
+msgid "Italic text"
+msgstr ""
+
+#: library/blocks/text/text.php:67
+msgid "Paragraphs"
+msgstr ""
+
+#: library/blocks/text/text.php:74
+msgid "First Paragraphs"
+msgstr ""
+
+#: library/blocks/text/text.php:82
+msgid "Last Paragraphs"
+msgstr ""
+
+#: library/blocks/text/text.php:100
+#: library/elements/default-elements.php:34
+msgid "Headings"
+msgstr ""
+
+#: library/blocks/text/text.php:108
+#: library/elements/default-elements.php:42
+msgid "Heading 1"
+msgstr ""
+
+#: library/blocks/text/text.php:116
+#: library/elements/default-elements.php:51
+msgid "Heading 2"
+msgstr ""
+
+#: library/blocks/text/text.php:124
+#: library/elements/default-elements.php:60
+msgid "Heading 3"
+msgstr ""
+
+#: library/blocks/text/text.php:144
+msgid "Forms"
+msgstr ""
+
+#: library/blocks/text/text.php:150
+#: library/elements/default-elements.php:133
+msgid "Button"
+msgstr ""
+
+#: library/blocks/text/text.php:173
+msgid "Inputs"
+msgstr ""
+
+#: library/blocks/video/video.php:27
+msgid "Display an video"
+msgstr ""
+
+#: library/blocks/video/video.php:196
+msgid "You have not added an video yet. Please upload and apply an video."
+msgstr ""
+
+#: library/blocks/video/video.php:230
+msgid "Add an Video"
+msgstr ""
+
+#: library/blocks/video/video.php:259
+msgid "Specifies that the video will start playing as soon as it is ready"
+msgstr ""
+
+#: library/blocks/video/video.php:267
+msgid "Specifies that the video will start over again, every time it is finished"
+msgstr ""
+
+#: library/blocks/video/video.php:280
+msgid "Specifies if and how the author thinks the video should be loaded when the page loads"
+msgstr ""
+
+#: library/blocks/video/video.php:288
+msgid "Specifies that video controls should be displayed (such as a play/pause button etc)."
+msgstr ""
+
+#: library/blocks/video/video.php:296
+msgid "Specifies that the audio output of the video should be muted"
+msgstr ""
+
+#: library/blocks/video/video.php:301
+msgid "Poster URL"
+msgstr ""
+
+#: library/blocks/video/video.php:303
+msgid "Specifies an image to be shown while the video is downloading, or until the user hits the play button"
+msgstr ""
+
+#: library/blocks/video/video.php:308
+msgid "Width"
+msgstr ""
+
+#: library/blocks/video/video.php:310
+msgid "Sets the width of the video player"
+msgstr ""
+
+#: library/blocks/video/video.php:315
+msgid "Allow dynamic width"
+msgstr ""
+
+#: library/blocks/video/video.php:318
+msgid "Automatically change video width when window resize"
+msgstr ""
+
+#: library/blocks/video/video.php:323
+msgid "Height"
+msgstr ""
+
+#: library/blocks/video/video.php:325
+msgid "Sets the height of the video player"
+msgstr ""
+
+#: library/blocks/video/video.php:330
+msgid "Allow dynamic height"
+msgstr ""
+
+#: library/blocks/video/video.php:333
+msgid "Automatically change video height when window resize"
+msgstr ""
+
+#: library/blocks/video/video.php:339
+msgid "Position Video"
+msgstr ""
+
+#: library/blocks/video/video.php:344
+msgid "Position video inside container"
+msgstr ""
+
+#: library/blocks/video/video.php:346
+msgid "You can position this video in relation to the block using the positions provided"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:17
+#: library/blocks/widget-area/widget-area.php:52
+msgid "Widget Area"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:24
+msgid "Used typically as a sidebar or to aid the footer.  The widget area will display WordPress widgets which are managed in the WordPress Appearance &raquo; Widgets panel."
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:32
+msgid "Layout: "
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:58
+#: library/blocks/widget-area/widget-area.php:248
+msgid "Widget"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:64
+msgid "Widget Title"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:70
+msgid "Widget Title Inner"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:76
+msgid "Widget Links"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:87
+msgid "Widget Lists"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:95
+msgid "Widget List Items"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:177
+msgid "No widgets!"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:178
+msgid "<p>Add widgets to this sidebar in the <a href=\"%s\">Widgets panel</a> under Appearance in the WordPress Admin.</p>"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:203
+msgid "Widget Layout"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:212
+msgid "Horizontal Widgets"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:214
+msgid "Instead of showing widgets vertically, you can make them span horizontally. This is especially useful for widgetized footers."
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:228
+msgid "To add widgets to this widget area, go to <a href=\"%s\" target=\"_blank\">WordPress Admin &raquo; Appearance &raquo; Widgets</a> and add the widgets to <em>%s &mdash; Layout: %s</em>."
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:242
+msgid "Default Widgets"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:243
+msgid "Assign default widgets to this widget area."
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:255
+msgid "Show Title"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:271
+msgid "This will be the title shown above the widget.  If you want to use the default for the widget type, please enter <em>%default%</em>"
+msgstr ""
+
+#: library/blocks/widget-area/widget-area.php:294
+msgid "Make a Selection"
+msgstr ""
+
+#: library/common/blocks-anywhere.php:64
+msgid "This block does not have any post assigned. Please specify the post_id your would like to display as a shortcode parameter."
+msgstr ""
+
+#: library/common/blocks-anywhere.php:98
+msgid "The padma block shortcut ID you have entered does not exist. Please enter a valid block ID!"
+msgstr ""
+
+#: library/common/compatibility-checks.php:14
+msgid ""
+"\n"
+"\n"
+"\t\tPadma requires WordPress 3.4 or higher.  You are running WordPress %s.<br /><br />\n"
+"\n"
+"\t\tPlease deactivate Padma by going to <a href=\"%s\">Appearance &raquo; Themes</a> and choosing a difference theme until your WordPress installation has been updated to 3.4 or higher.<br /><br />\n"
+"\n"
+"\t\tIf the issue persists, please visit <a href=\"https://www.padmaunlimited.com\" target=\"_blank\">Padma Support</a>.\n"
+"\t"
+msgstr ""
+
+#: library/common/compatibility-checks.php:35
+msgid ""
+"\n"
+"\n"
+"\t\tPadma requires PHP 7.0 or higher, as does WordPress 3.4 and higher.  You are running PHP %s.<br /><br />\n"
+"\n"
+"\t\tPlease deactivate Padma by going to <a href=\"%s\">Appearance &raquo; Themes</a> and choosing a difference theme until your PHP has been updated to 7.0 or higher.<br /><br />\n"
+"\n"
+"\t\tIf the issue persists, please contact your web host or visit <a href=\"http://padmaunlimited.com\" target=\"_blank\">Padma Support</a>.\n"
+"\t"
+msgstr ""
+
 #: library/common/functions.php:739
 msgid "Error: The meta box class being registered does not exist."
 msgstr ""
@@ -4030,6 +4639,121 @@ msgstr ""
 msgid "Error: Unable to save image with WP_Image_Editor class"
 msgstr ""
 
+#: library/common/parse-php.php:35
+msgid "<strong>Error while parsing PHP:</strong> %s"
+msgstr ""
+
+#: library/common/query.php:174
+msgid "&ndash; Default: Category &ndash;"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:8
+msgid "Shop Title"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:17
+msgid "Result Count"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:26
+msgid "Ordering"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:27
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:36
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:56
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:65
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:74
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:82
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:124
+msgid "Storefront: WooCommerce"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:46
+msgid "Product Listings"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:55
+msgid "Product Listings: Names"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:64
+msgid "Product Listings: Images"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:73
+msgid "Product Listings: Onsale"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:81
+msgid "Product Listings: Prices"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:93
+msgid "Product Page: Name"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:102
+msgid "Product Page: Image"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:112
+msgid "Product Page: Price"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:122
+msgid "Product Page: Short Description"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:131
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:141
+msgid "Product Page: Button"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:143
+msgid "Storefront: WooCommerce Button"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:151
+msgid "Product Page: Button text"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:161
+msgid "Product Page: Product Title"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:171
+msgid "Product Page: Single Button"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:181
+msgid "Product Page: Single Button Text"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:191
+msgid "Product Page: Input Text"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:201
+msgid "Product Page: Woocommerce Message"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:214
+msgid "Related Products Container"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:223
+msgid "Related Products Heading"
+msgstr ""
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:233
+msgid "Related Product Container"
+msgstr ""
+
+#: library/display/display.php:57
+msgid "The Padma Grid is not supported in this Child Theme."
+msgstr ""
+
 #: library/display/layout-renderer.php:127
 msgid "No Content to Display"
 msgstr ""
@@ -4040,6 +4764,74 @@ msgstr ""
 
 #: library/display/layout-renderer.php:137
 msgid "<p>There is no content to display.  Please notify the site administrator or <a href=\"%s\">login</a>.</p>"
+msgstr ""
+
+#: library/elements/default-elements.php:5
+msgid "Global Styling"
+msgstr ""
+
+#: library/elements/default-elements.php:10
+msgid "&lt;body&gt;"
+msgstr ""
+
+#: library/elements/default-elements.php:19
+msgid "All &lt;p&gt; elements"
+msgstr ""
+
+#: library/elements/default-elements.php:69
+msgid "Sub Headings"
+msgstr ""
+
+#: library/elements/default-elements.php:78
+msgid "Heading 4"
+msgstr ""
+
+#: library/elements/default-elements.php:87
+msgid "Heading 5"
+msgstr ""
+
+#: library/elements/default-elements.php:96
+msgid "Heading 6"
+msgstr ""
+
+#: library/elements/default-elements.php:113
+msgid "Form Label"
+msgstr ""
+
+#: library/elements/default-elements.php:121
+msgid "Input"
+msgstr ""
+
+#: library/elements/default-elements.php:122
+msgid "Inputs & Textareas"
+msgstr ""
+
+#: library/elements/default-elements.php:134
+msgid "Buttons & Submit Inputs"
+msgstr ""
+
+#: library/elements/default-elements.php:146
+msgid "Blockquote"
+msgstr ""
+
+#: library/elements/default-elements.php:154
+msgid "Block"
+msgstr ""
+
+#: library/elements/default-elements.php:162
+msgid "Block Title"
+msgstr ""
+
+#: library/elements/default-elements.php:169
+msgid "Block Title Inner"
+msgstr ""
+
+#: library/elements/default-elements.php:177
+msgid "Block Title Link"
+msgstr ""
+
+#: library/elements/default-elements.php:185
+msgid "Block Subtitle"
 msgstr ""
 
 #: library/fonts/traditional-fonts.php:127

@@ -23,9 +23,14 @@ class PadmaVisualEditorIframeGrid {
 
 				echo '<div class="wrapper-mirror-notice">
 						<div>
-						<h2>Wrapper Mirrored</h2>
-						<p>This wrapper is mirroring the blocks in a wrapper <span class="wrapper-mirror-notice-alias">' . $mirror_wrapper_alias . '</span> <span class="wrapper-mirror-notice-layout">from "' . $mirror_wrapper_layout . '" layout</span></p>
-						<small>Mirroring can be disabled via Wrapper Options in the right-click menu</small>
+						<h2>' . __('Wrapper Mirrored','padma') . '</h2>
+						<p>' . 
+						sprintf( 
+							__('This wrapper is mirroring the blocks in a wrapper <span class="wrapper-mirror-notice-alias">%1$s</span> <span class="wrapper-mirror-notice-layout">from "%1$s" layout</span>','padma'), 
+							$mirror_wrapper_alias, 
+							$mirror_wrapper_layout) 
+						. '</p>
+						<small>' . __('Mirroring can be disabled via Wrapper Options in the right-click menu','padma') . '</small>
 						</div>
 					</div><!-- .wrapper-mirror-notice -->';
 			/* End mirrored wrapper notice */
@@ -105,13 +110,13 @@ class PadmaVisualEditorIframeGrid {
 
 		echo '<div id="wrapper-buttons-template">';
 			
-			echo '<div class="wrapper-handle wrapper-top-margin-handle wrapper-margin-handle" title="Drag to change wrapper top margin"><span></span><span></span><span></span></div>';
+			echo '<div class="wrapper-handle wrapper-top-margin-handle wrapper-margin-handle" title="' . __('Drag to change wrapper top margin','padma') . '"><span></span><span></span><span></span></div>';
 			
-			echo '<div class="wrapper-handle wrapper-drag-handle" title="Drag to change wrapper order"><span></span><span></span><span></span></div>';
+			echo '<div class="wrapper-handle wrapper-drag-handle" title="' . __('Drag to change wrapper order','padma') . '"><span></span><span></span><span></span></div>';
 			
-			echo '<div class="wrapper-handle wrapper-bottom-margin-handle wrapper-margin-handle" title="Drag to change wrapper bottom margin"><span></span><span></span><span></span></div>';
+			echo '<div class="wrapper-handle wrapper-bottom-margin-handle wrapper-margin-handle" title="' . __('Drag to change wrapper bottom margin','padma') . '"><span></span><span></span><span></span></div>';
 
-			echo '<div class="wrapper-options" title="Click to open wrapper options"><span></span></div>';
+			echo '<div class="wrapper-options" title="' . __('Click to open wrapper options','padma') . '"><span></span></div>';
 
 		echo '</div><!-- .wrapper-buttons -->';
 

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-26T13:07:00-05:00\n"
+"POT-Creation-Date: 2019-10-08T15:21:50-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -87,18 +87,22 @@ msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 
 #: library/abstract/api-block.php:691
+#: library/wrappers/wrapper-options.php:360
 msgid "Select a screen width for these change to take effect."
 msgstr ""
 
 #: library/abstract/api-block.php:707
+#: library/wrappers/wrapper-options.php:376
 msgid "Min Width (applies to screens that are wider than breakpoint)"
 msgstr ""
 
 #: library/abstract/api-block.php:708
+#: library/wrappers/wrapper-options.php:377
 msgid "Max Width (applies to screens that are narrower than breakpoint)"
 msgstr ""
 
 #: library/abstract/api-block.php:716
+#: library/wrappers/wrapper-options.php:385
 msgid "Adaptive Options"
 msgstr ""
 
@@ -135,6 +139,7 @@ msgid "If you have the responsive grid enabled and the user views your website o
 msgstr ""
 
 #: library/abstract/api-block.php:786
+#: library/wrappers/wrapper-options.php:23
 msgid "Import/Export"
 msgstr ""
 
@@ -144,6 +149,7 @@ msgid "Import Block Settings"
 msgstr ""
 
 #: library/abstract/api-block.php:799
+#: library/wrappers/wrapper-options.php:435
 msgid "Select File to Import"
 msgstr ""
 
@@ -160,6 +166,7 @@ msgid "Export Block Settings"
 msgstr ""
 
 #: library/abstract/api-block.php:836
+#: library/wrappers/wrapper-options.php:472
 msgid "Download Export File"
 msgstr ""
 
@@ -230,11 +237,14 @@ msgstr ""
 #: library/admin/admin.php:269
 #: library/admin/admin.php:277
 #: library/admin/pages/options.php:5
-#: library/admin/pages/options.php:75
+#: library/admin/pages/options.php:88
+#: library/admin/pages/options.php:496
+#: library/admin/pages/options.php:501
 msgid "Visual Editor"
 msgstr ""
 
 #: library/admin/admin-bar.php:62
+#: library/wrappers/wrapper-options.php:31
 msgid "Grid"
 msgstr ""
 
@@ -254,14 +264,12 @@ msgstr ""
 #: library/admin/admin.php:271
 #: library/admin/admin.php:276
 #: library/admin/pages/getting-started.php:14
-#: library/admin/pages/options.php:80
+#: library/admin/pages/options.php:93
 msgid "Options"
 msgstr ""
 
 #: library/admin/admin-bar.php:104
 #: library/admin/pages/options.php:2
-#: library/admin/pages/options.php:26
-#: library/admin/pages/options.php:31
 msgid "General"
 msgstr ""
 
@@ -272,6 +280,8 @@ msgstr ""
 
 #: library/admin/admin-bar.php:118
 #: library/admin/pages/options.php:4
+#: library/admin/pages/options.php:449
+#: library/admin/pages/options.php:454
 msgid "Scripts/Analytics"
 msgstr ""
 
@@ -349,11 +359,12 @@ msgid "Using the alternate page title, you can override the title that's display
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:90
-#: library/blocks/content/content.php:803
+#: library/blocks/content/content.php:806
 msgid "Display"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:94
+#: library/wrappers/wrapper-options.php:272
 msgid "Custom CSS Class(es)"
 msgstr ""
 
@@ -371,37 +382,37 @@ msgid "Use Block Default"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:126
-#: library/blocks/content/content.php:1489
+#: library/blocks/content/content.php:1492
 msgid "Left of Title"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:127
-#: library/blocks/content/content.php:1490
+#: library/blocks/content/content.php:1493
 msgid "Right of Title"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:128
-#: library/blocks/content/content.php:1491
+#: library/blocks/content/content.php:1494
 msgid "Left of Content"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:129
-#: library/blocks/content/content.php:1492
+#: library/blocks/content/content.php:1495
 msgid "Right of Content"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:130
-#: library/blocks/content/content.php:1493
+#: library/blocks/content/content.php:1496
 msgid "Above Title"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:131
-#: library/blocks/content/content.php:1494
+#: library/blocks/content/content.php:1497
 msgid "Above Content"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:132
-#: library/blocks/content/content.php:1495
+#: library/blocks/content/content.php:1498
 msgid "Below Content"
 msgstr ""
 
@@ -410,9 +421,9 @@ msgid "Set the position of the featured image for this entry."
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:172
-#: library/admin/pages/options.php:210
+#: library/admin/pages/options.php:240
 #: library/blocks/content/content.php:184
-#: library/blocks/content/content.php:955
+#: library/blocks/content/content.php:958
 #: library/blocks/listings/block-options.php:264
 #: library/blocks/pin-board/pin-board.php:967
 #: library/blocks/widget-area/widget-area.php:269
@@ -424,7 +435,7 @@ msgid "Custom <code>&lt;title&gt;</code> tag"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:180
-#: library/admin/pages/options.php:220
+#: library/admin/pages/options.php:250
 #: library/admin/pages/templates.php:59
 msgid "Description"
 msgstr ""
@@ -470,7 +481,7 @@ msgid "<code>noodp</code> links in this entry."
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:222
-#: library/admin/pages/options.php:309
+#: library/admin/pages/options.php:339
 msgid "NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results."
 msgstr ""
 
@@ -479,7 +490,7 @@ msgid "<code>noydir</code> links in this entry."
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:230
-#: library/admin/pages/options.php:322
+#: library/admin/pages/options.php:352
 msgid "NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results."
 msgstr ""
 
@@ -508,7 +519,7 @@ msgid "Open in Visual Editor"
 msgstr ""
 
 #: library/admin/admin.php:261
-#: library/admin/pages/options.php:70
+#: library/admin/pages/options.php:83
 msgid "Getting Started"
 msgstr ""
 
@@ -537,6 +548,7 @@ msgid "<strong>Please note:</strong> Enabling the responsive grid can cause styl
 msgstr ""
 
 #: library/admin/admin.php:498
+#: library/visual-editor/panels/grid/setup.php:149
 msgid "Enable Responsive Grid"
 msgstr ""
 
@@ -744,63 +756,75 @@ msgstr ""
 msgid "If you use any service like <a href=\"http://feedburner.google.com/\" target=\"_blank\">FeedBurner</a>, type the feed URL here."
 msgstr ""
 
-#: library/admin/pages/options.php:58
+#: library/admin/pages/options.php:66
 msgid "Admin Preferences"
 msgstr ""
 
-#: library/admin/pages/options.php:65
+#: library/admin/pages/options.php:78
 msgid "Default Admin Page"
 msgstr ""
 
-#: library/admin/pages/options.php:83
+#: library/admin/pages/options.php:96
 msgid "Select which admin page you would like to be directed to when you click on \"Padma\" in the WordPress Admin."
 msgstr ""
 
-#: library/admin/pages/options.php:87
+#: library/admin/pages/options.php:100
 msgid "Do not recommend plugin installation"
 msgstr ""
 
-#: library/admin/pages/options.php:91
+#: library/admin/pages/options.php:104
 msgid "Hide recommended plugin notice"
 msgstr ""
 
-#: library/admin/pages/options.php:95
+#: library/admin/pages/options.php:108
 msgid "If on, Padma will not recommend install \"Updater\" and \"Services\" plugin"
 msgstr ""
 
-#: library/admin/pages/options.php:113
+#: library/admin/pages/options.php:112
+msgid "Version Number"
+msgstr ""
+
+#: library/admin/pages/options.php:116
+msgid "Hide Padma Version Number From Menu"
+msgstr ""
+
+#: library/admin/pages/options.php:120
+msgid "Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
+msgstr ""
+
+#: library/admin/pages/options.php:143
 msgid "Padma has detected that you are using the All In One SEO pack plugin.  In order to reduce conflicts and save resources, Padma's SEO functionality has been disabled."
 msgstr ""
 
-#: library/admin/pages/options.php:117
+#: library/admin/pages/options.php:147
 msgid "Padma has detected that you are using Yoast's WordPress SEO plugin.  In order to reduce conflicts and save resources, Padma's SEO functionality has been disabled."
 msgstr ""
 
-#: library/admin/pages/options.php:121
+#: library/admin/pages/options.php:151
 msgid "Padma's SEO functionality is disabled."
 msgstr ""
 
-#: library/admin/pages/options.php:129
+#: library/admin/pages/options.php:159
 msgid "SEO Templates"
 msgstr ""
 
-#: library/admin/pages/options.php:169
+#: library/admin/pages/options.php:199
 msgid "Select a Template:"
 msgstr ""
 
-#: library/admin/pages/options.php:171
+#: library/admin/pages/options.php:201
 msgid "Blog Index"
 msgstr ""
 
-#: library/admin/pages/options.php:175
+#: library/admin/pages/options.php:205
 msgid "Front Page"
 msgstr ""
 
-#: library/admin/pages/options.php:188
+#: library/admin/pages/options.php:218
 msgid "Category"
 msgstr ""
 
-#: library/admin/pages/options.php:189
+#: library/admin/pages/options.php:219
 #: library/blocks/navigation/navigation.php:719
 #: library/blocks/search/search.php:17
 #: library/blocks/search/search.php:70
@@ -809,380 +833,378 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: library/admin/pages/options.php:190
-#: library/blocks/content/content.php:954
+#: library/admin/pages/options.php:220
+#: library/blocks/content/content.php:957
 #: library/blocks/listings/block-options.php:263
 #: library/blocks/pin-board/pin-board.php:966
 msgid "Date"
 msgstr ""
 
-#: library/admin/pages/options.php:191
+#: library/admin/pages/options.php:221
 #: library/admin/pages/templates.php:68
-#: library/blocks/content/content.php:927
-#: library/blocks/content/content.php:959
+#: library/blocks/content/content.php:930
+#: library/blocks/content/content.php:962
 #: library/blocks/listings/block-options.php:238
 #: library/blocks/pin-board/pin-board.php:593
 #: library/blocks/pin-board/pin-board.php:943
 msgid "Author"
 msgstr ""
 
-#: library/admin/pages/options.php:192
+#: library/admin/pages/options.php:222
 msgid "Post Tag"
 msgstr ""
 
-#: library/admin/pages/options.php:193
-#: library/blocks/content/content.php:910
-#: library/blocks/content/content.php:960
+#: library/admin/pages/options.php:223
+#: library/blocks/content/content.php:913
+#: library/blocks/content/content.php:963
 #: library/blocks/listings/block-options.php:197
 #: library/blocks/pin-board/pin-board.php:906
 msgid "Post Type"
 msgstr ""
 
-#: library/admin/pages/options.php:194
+#: library/admin/pages/options.php:224
 #: library/blocks/pin-board/pin-board.php:914
 msgid "Taxonomy"
 msgstr ""
 
-#: library/admin/pages/options.php:211
+#: library/admin/pages/options.php:241
 msgid "The title is the main text that describes the page. It is the single most important on-page SEO element (behind overall content).  The title appears at the top of the web browser when viewing the page, in browser tabs, search engine results, and external websites.  <strong>Tip:</strong> it is best that the title stays below 70 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-seo/title-tag\" target=\"_blank\">Learn more about Titles &raquo;</a>"
 msgstr ""
 
-#: library/admin/pages/options.php:221
+#: library/admin/pages/options.php:251
 msgid "Meta description tags, while not important to search engine rankings, are extremely important in gaining user click-through from search engine result pages (SERPs). These short paragraphs are your opportunity to advertise content to searchers and let them know exactly what the given page has with regard to what they’re looking for. <strong>Tip:</strong> a good description is around 150 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-seo/meta-description\" target=\"_blank\">Learn more about &lt;meta&gt; Descriptions &raquo;</a>"
 msgstr ""
 
-#: library/admin/pages/options.php:231
+#: library/admin/pages/options.php:261
 msgid "You may use the following variables in the Title and Description inputs above:"
 msgstr ""
 
-#: library/admin/pages/options.php:234
+#: library/admin/pages/options.php:264
 msgid "Will retrieve the title of whatever post, archive, or page is being displayed."
 msgstr ""
 
-#: library/admin/pages/options.php:235
+#: library/admin/pages/options.php:265
 msgid "Will retrieve the name of the site. This can be set in <a href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
 msgstr ""
 
-#: library/admin/pages/options.php:237
+#: library/admin/pages/options.php:267
 msgid "Will retrieve the tagline/description of the site.  This can be set in <a href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
 msgstr ""
 
-#: library/admin/pages/options.php:239
+#: library/admin/pages/options.php:269
 msgid "Used only on taxonomy archives to display the term name."
 msgstr ""
 
-#: library/admin/pages/options.php:242
+#: library/admin/pages/options.php:272
 msgid "Advanced Options <span>Show &darr;</span>"
 msgstr ""
 
-#: library/admin/pages/options.php:249
+#: library/admin/pages/options.php:279
 msgid "Page Indexing"
 msgstr ""
 
-#: library/admin/pages/options.php:257
+#: library/admin/pages/options.php:287
 msgid "Index/NoIndex tells the engines whether the page should be crawled and kept in the engines' index for retrieval. If you check this box to opt for <code>noindex</code>, the page will be excluded from the engines.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
 msgstr ""
 
-#: library/admin/pages/options.php:262
+#: library/admin/pages/options.php:292
 msgid "Link Following"
 msgstr ""
 
-#: library/admin/pages/options.php:270
+#: library/admin/pages/options.php:300
 msgid "Follow/NoFollow tells the engines whether links on the page should be crawled. If you check this box to employ \"nofollow,\" the engines will disregard the links on the page both for discovery and ranking purposes.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
 msgstr ""
 
-#: library/admin/pages/options.php:275
+#: library/admin/pages/options.php:305
 msgid "Page Archiving"
 msgstr ""
 
-#: library/admin/pages/options.php:279
+#: library/admin/pages/options.php:309
 msgid "Enable <code>noarchive</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:283
+#: library/admin/pages/options.php:313
 msgid "Noarchive is used to restrict search engines from saving a cached copy of the page. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the \"cached\" link in the search results.  Check this box to restrict search engines from storing cached copies of this page."
 msgstr ""
 
-#: library/admin/pages/options.php:288
+#: library/admin/pages/options.php:318
 #: library/blocks/pin-board/pin-board.php:803
 msgid "Effects"
 msgstr ""
 
-#: library/admin/pages/options.php:292
+#: library/admin/pages/options.php:322
 msgid "Enable <code>nosnippet</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:296
+#: library/admin/pages/options.php:326
 msgid "Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the page's title and URL in the search results."
 msgstr ""
 
-#: library/admin/pages/options.php:301
+#: library/admin/pages/options.php:331
 msgid "Open Directory Project"
 msgstr ""
 
-#: library/admin/pages/options.php:305
+#: library/admin/pages/options.php:335
 msgid "Enable <code>NoODP</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:314
+#: library/admin/pages/options.php:344
 msgid "Yahoo! Directory"
 msgstr ""
 
-#: library/admin/pages/options.php:318
+#: library/admin/pages/options.php:348
 msgid "Enable <code>NoYDir</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:333
+#: library/admin/pages/options.php:363
 msgid "Unfamiliar with <em>Search Engine Optimization</em>?"
 msgstr ""
 
-#: library/admin/pages/options.php:333
+#: library/admin/pages/options.php:363
 msgid "Learn More"
 msgstr ""
 
-#: library/admin/pages/options.php:335
+#: library/admin/pages/options.php:371
+#: library/admin/pages/options.php:376
 msgid "Content <code>nofollow</code> Links"
 msgstr ""
 
-#: library/admin/pages/options.php:345
+#: library/admin/pages/options.php:386
 msgid "Add nofollow To Comment Authors' URL"
 msgstr ""
 
-#: library/admin/pages/options.php:349
+#: library/admin/pages/options.php:390
 msgid "Adding nofollow to the comment authors' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to."
 msgstr ""
 
-#: library/admin/pages/options.php:363
+#: library/admin/pages/options.php:406
+#: library/admin/pages/options.php:411
+msgid "Disable Schema.org support"
+msgstr ""
+
+#: library/admin/pages/options.php:417
 msgid "Disable microdata markup"
 msgstr ""
 
-#: library/admin/pages/options.php:367
+#: library/admin/pages/options.php:421
 msgid "Do not add ld+json data"
 msgstr ""
 
-#: library/admin/pages/options.php:371
+#: library/admin/pages/options.php:425
 msgid "Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what's on a webpage."
 msgstr ""
 
-#: library/admin/pages/options.php:394
+#: library/admin/pages/options.php:463
 msgid "Header Scripts"
 msgstr ""
 
-#: library/admin/pages/options.php:405
+#: library/admin/pages/options.php:474
 msgid "Footer Scripts"
 msgstr ""
 
-#: library/admin/pages/options.php:406
+#: library/admin/pages/options.php:475
 msgid "Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>"
 msgstr ""
 
-#: library/admin/pages/options.php:424
+#: library/admin/pages/options.php:507
 msgid "Tooltips"
 msgstr ""
 
-#: library/admin/pages/options.php:428
+#: library/admin/pages/options.php:511
 msgid "Disable Tooltips in the Visual Editor"
 msgstr ""
 
-#: library/admin/pages/options.php:432
+#: library/admin/pages/options.php:515
 msgid "If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works."
 msgstr ""
 
-#: library/admin/pages/options.php:444
-msgid "Automatic Updates"
-msgstr ""
-
-#: library/admin/pages/options.php:449
-#: library/admin/pages/options.php:453
-msgid "Disable Automatic Core Updates"
-msgstr ""
-
-#: library/admin/pages/options.php:457
-msgid "By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin."
-msgstr ""
-
-#: library/admin/pages/options.php:461
-#: library/admin/pages/options.php:465
-msgid "Disable Automatic Plugin Updates"
-msgstr ""
-
-#: library/admin/pages/options.php:469
-msgid "By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin."
-msgstr ""
-
-#: library/admin/pages/options.php:478
-msgid "Caching &amp; Compression"
-msgstr ""
-
-#: library/admin/pages/options.php:484
-msgid "Asset Caching"
-msgstr ""
-
-#: library/admin/pages/options.php:488
-msgid "Disable Padma Caching"
-msgstr ""
-
-#: library/admin/pages/options.php:492
-msgid "By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load."
-msgstr ""
-
-#: library/admin/pages/options.php:497
-msgid "Dependency Query Variables"
-msgstr ""
-
-#: library/admin/pages/options.php:501
-msgid "Remove Query Variables from Dependency URLs"
-msgstr ""
-
-#: library/admin/pages/options.php:505
-msgid "To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files."
-msgstr ""
-
-#: library/admin/pages/options.php:510
-#: library/admin/pages/options.php:514
-msgid "Compatibility with mod_pagespeed"
-msgstr ""
-
-#: library/admin/pages/options.php:518
-msgid "Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you."
-msgstr ""
-
-#: library/admin/pages/options.php:523
-#: library/admin/pages/options.php:527
-msgid "HTTP/2 Server Push"
-msgstr ""
-
-#: library/admin/pages/options.php:531
-msgid "Enables WordPress to send a Link:<...> rel=\"prefetch\" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental."
-msgstr ""
-
-#: library/admin/pages/options.php:538
-msgid "Admin"
-msgstr ""
-
-#: library/admin/pages/options.php:544
-msgid "Version Number"
-msgstr ""
-
-#: library/admin/pages/options.php:548
-msgid "Hide Padma Version Number From Menu"
-msgstr ""
-
-#: library/admin/pages/options.php:552
-msgid "Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
-msgstr ""
-
-#: library/admin/pages/options.php:557
+#: library/admin/pages/options.php:519
 msgid "Editor Style"
 msgstr ""
 
-#: library/admin/pages/options.php:561
+#: library/admin/pages/options.php:523
 msgid "Disable Editor Style"
 msgstr ""
 
-#: library/admin/pages/options.php:565
+#: library/admin/pages/options.php:527
 msgid "By default, Padma will take any settings in the Design Editor and add them to <a href=\"http://codex.wordpress.org/TinyMCE\" target=\"_blank\">WordPress' TinyMCE editor</a> style.  Use this option to prevent that."
 msgstr ""
 
-#: library/admin/pages/options.php:572
+#: library/admin/pages/options.php:546
+#: library/admin/pages/options.php:551
+#: library/admin/pages/options.php:666
+#: library/admin/pages/options.php:671
+msgid "Automatic Updates"
+msgstr ""
+
+#: library/admin/pages/options.php:557
+#: library/admin/pages/options.php:561
+#: library/admin/pages/options.php:677
+#: library/admin/pages/options.php:681
+msgid "Disable Automatic Core Updates"
+msgstr ""
+
+#: library/admin/pages/options.php:565
+#: library/admin/pages/options.php:685
+msgid "By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin."
+msgstr ""
+
+#: library/admin/pages/options.php:569
+#: library/admin/pages/options.php:573
+#: library/admin/pages/options.php:689
+#: library/admin/pages/options.php:693
+msgid "Disable Automatic Plugin Updates"
+msgstr ""
+
+#: library/admin/pages/options.php:577
+#: library/admin/pages/options.php:697
+msgid "By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin."
+msgstr ""
+
+#: library/admin/pages/options.php:593
+#: library/admin/pages/options.php:598
+msgid "Caching &amp; Compression"
+msgstr ""
+
+#: library/admin/pages/options.php:604
+msgid "Asset Caching"
+msgstr ""
+
+#: library/admin/pages/options.php:608
+msgid "Disable Padma Caching"
+msgstr ""
+
+#: library/admin/pages/options.php:612
+msgid "By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load."
+msgstr ""
+
+#: library/admin/pages/options.php:617
+msgid "Dependency Query Variables"
+msgstr ""
+
+#: library/admin/pages/options.php:621
+msgid "Remove Query Variables from Dependency URLs"
+msgstr ""
+
+#: library/admin/pages/options.php:625
+msgid "To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files."
+msgstr ""
+
+#: library/admin/pages/options.php:630
+#: library/admin/pages/options.php:634
+msgid "Compatibility with mod_pagespeed"
+msgstr ""
+
+#: library/admin/pages/options.php:638
+msgid "Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you."
+msgstr ""
+
+#: library/admin/pages/options.php:643
+#: library/admin/pages/options.php:647
+msgid "HTTP/2 Server Push"
+msgstr ""
+
+#: library/admin/pages/options.php:651
+msgid "Enables WordPress to send a Link:<...> rel=\"prefetch\" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental."
+msgstr ""
+
+#: library/admin/pages/options.php:712
+#: library/admin/pages/options.php:717
 msgid "Developer"
 msgstr ""
 
-#: library/admin/pages/options.php:574
-msgid "Once active this option will allow you to upgrade your website to the latest Preview, Beta or Release candidate."
+#: library/admin/pages/options.php:723
+msgid "Use Padma Developer version"
 msgstr ""
 
-#: library/admin/pages/options.php:580
-msgid "Use Padma developer version"
-msgstr ""
-
-#: library/admin/pages/options.php:584
+#: library/admin/pages/options.php:727
 msgid "Allow install testing or preview version"
 msgstr ""
 
-#: library/admin/pages/options.php:588
-msgid "This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong>"
+#: library/admin/pages/options.php:731
+msgid "This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong> Once active this option will allow you to upgrade your website to the latest version."
 msgstr ""
 
-#: library/admin/pages/options.php:595
+#: library/admin/pages/options.php:746
+#: library/admin/pages/options.php:751
 msgid "Debugging"
 msgstr ""
 
-#: library/admin/pages/options.php:597
-msgid "The following option should only be checked if a member of the Padma Themes team asks you to do so."
-msgstr ""
-
-#: library/admin/pages/options.php:603
+#: library/admin/pages/options.php:757
 msgid "Debug Mode"
 msgstr ""
 
-#: library/admin/pages/options.php:607
+#: library/admin/pages/options.php:761
 msgid "Enable Debug Mode"
 msgstr ""
 
-#: library/admin/pages/options.php:611
+#: library/admin/pages/options.php:765
 msgid "Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>."
 msgstr ""
 
-#: library/admin/pages/options.php:622
-#: library/admin/pages/options.php:627
+#: library/admin/pages/options.php:785
+#: library/admin/pages/options.php:790
+#: library/admin/pages/options.php:796
 msgid "Plugin templates"
 msgstr ""
 
-#: library/admin/pages/options.php:631
+#: library/admin/pages/options.php:800
 msgid "Allow plugin templates"
 msgstr ""
 
-#: library/admin/pages/options.php:635
+#: library/admin/pages/options.php:804
 msgid "Allow load plugin templates related to Custom Post Types instead Padma Layout"
 msgstr ""
 
-#: library/admin/pages/options.php:644
+#: library/admin/pages/options.php:820
+#: library/admin/pages/options.php:825
 msgid "Headway"
 msgstr ""
 
-#: library/admin/pages/options.php:649
+#: library/admin/pages/options.php:831
 msgid "Headway support"
 msgstr ""
 
-#: library/admin/pages/options.php:653
+#: library/admin/pages/options.php:835
 msgid "Enable Headway classes support"
 msgstr ""
 
-#: library/admin/pages/options.php:657
+#: library/admin/pages/options.php:839
 msgid "If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:665
+#: library/admin/pages/options.php:855
+#: library/admin/pages/options.php:860
 msgid "Gutenberg"
 msgstr ""
 
-#: library/admin/pages/options.php:670
+#: library/admin/pages/options.php:866
 msgid "Display Padma Blocks in Gutenberg"
 msgstr ""
 
-#: library/admin/pages/options.php:674
+#: library/admin/pages/options.php:870
 msgid "Show Padma Blocks as Gutenberg Blocks"
 msgstr ""
 
-#: library/admin/pages/options.php:678
+#: library/admin/pages/options.php:874
 msgid "If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to \"Block Options > Anywhere\" to enable it. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:689
+#: library/admin/pages/options.php:893
+#: library/admin/pages/options.php:898
 msgid "Responsive options"
 msgstr ""
 
-#: library/admin/pages/options.php:695
-#: library/admin/pages/options.php:699
+#: library/admin/pages/options.php:904
+#: library/admin/pages/options.php:908
 msgid "Allow mobile zooming"
 msgstr ""
 
-#: library/admin/pages/options.php:703
+#: library/admin/pages/options.php:912
 msgid "Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers."
 msgstr ""
 
-#: library/admin/pages/options.php:718
+#: library/admin/pages/options.php:930
 msgid "Save Changes"
 msgstr ""
 
@@ -1259,6 +1281,7 @@ msgid "Public"
 msgstr ""
 
 #: library/admin/pages/templates.php:117
+#: library/visual-editor/display.php:453
 msgid "Padma Templates"
 msgstr ""
 
@@ -1462,130 +1485,130 @@ msgstr ""
 msgid "Audio container"
 msgstr ""
 
-#: library/blocks/audio/audio.php:178
+#: library/blocks/audio/audio.php:179
 msgid "Your browser does not support the audio tag."
 msgstr ""
 
-#: library/blocks/audio/audio.php:186
+#: library/blocks/audio/audio.php:187
 msgid "You have not added an audio yet. Please upload and apply an audio."
 msgstr ""
 
-#: library/blocks/audio/audio.php:219
+#: library/blocks/audio/audio.php:220
 msgid "Add an Audio"
 msgstr ""
 
-#: library/blocks/audio/audio.php:248
+#: library/blocks/audio/audio.php:249
 msgid "Specifies that the audio will start playing as soon as it is ready"
 msgstr ""
 
-#: library/blocks/audio/audio.php:253
-#: library/blocks/video/video.php:285
+#: library/blocks/audio/audio.php:254
+#: library/blocks/video/video.php:286
 msgid "Controls"
 msgstr ""
 
-#: library/blocks/audio/audio.php:256
+#: library/blocks/audio/audio.php:257
 msgid "Specifies that audio controls should be displayed (such as a play/pause button etc)."
 msgstr ""
 
-#: library/blocks/audio/audio.php:261
-#: library/blocks/video/video.php:264
+#: library/blocks/audio/audio.php:262
+#: library/blocks/video/video.php:265
 msgid "Loop"
 msgstr ""
 
-#: library/blocks/audio/audio.php:264
+#: library/blocks/audio/audio.php:265
 msgid "Specifies that the audio will start over again, every time it is finished"
 msgstr ""
 
-#: library/blocks/audio/audio.php:269
-#: library/blocks/video/video.php:293
+#: library/blocks/audio/audio.php:270
+#: library/blocks/video/video.php:294
 msgid "Muted"
 msgstr ""
 
-#: library/blocks/audio/audio.php:272
+#: library/blocks/audio/audio.php:273
 msgid "Specifies that the audio output of the audio should be muted"
 msgstr ""
 
-#: library/blocks/audio/audio.php:277
-#: library/blocks/video/video.php:272
+#: library/blocks/audio/audio.php:278
+#: library/blocks/video/video.php:273
 msgid "Preload"
 msgstr ""
 
-#: library/blocks/audio/audio.php:285
+#: library/blocks/audio/audio.php:286
 msgid "Specifies if and how the author thinks the audio should be loaded when the page loads"
 msgstr ""
 
-#: library/blocks/audio/audio.php:292
+#: library/blocks/audio/audio.php:293
 msgid "Position Audio"
 msgstr ""
 
-#: library/blocks/audio/audio.php:297
+#: library/blocks/audio/audio.php:298
 msgid "Position audio inside container"
 msgstr ""
 
-#: library/blocks/audio/audio.php:299
+#: library/blocks/audio/audio.php:300
 msgid "You can position this audio in relation to the block using the positions provided"
 msgstr ""
 
-#: library/blocks/audio/audio.php:303
+#: library/blocks/audio/audio.php:304
 #: library/blocks/image/image.php:250
 #: library/blocks/social/social.php:311
-#: library/blocks/video/video.php:350
+#: library/blocks/video/video.php:351
 msgid "Top Left"
 msgstr ""
 
-#: library/blocks/audio/audio.php:304
+#: library/blocks/audio/audio.php:305
 #: library/blocks/image/image.php:251
 #: library/blocks/social/social.php:312
-#: library/blocks/video/video.php:351
+#: library/blocks/video/video.php:352
 msgid "Top Center"
 msgstr ""
 
-#: library/blocks/audio/audio.php:305
+#: library/blocks/audio/audio.php:306
 #: library/blocks/image/image.php:252
 #: library/blocks/social/social.php:313
-#: library/blocks/video/video.php:352
+#: library/blocks/video/video.php:353
 msgid "Top Right"
 msgstr ""
 
-#: library/blocks/audio/audio.php:306
+#: library/blocks/audio/audio.php:307
 #: library/blocks/image/image.php:253
 #: library/blocks/social/social.php:314
-#: library/blocks/video/video.php:353
+#: library/blocks/video/video.php:354
 msgid "Center Left"
 msgstr ""
 
-#: library/blocks/audio/audio.php:307
+#: library/blocks/audio/audio.php:308
 #: library/blocks/image/image.php:254
 #: library/blocks/social/social.php:315
-#: library/blocks/video/video.php:354
+#: library/blocks/video/video.php:355
 msgid "Center Center"
 msgstr ""
 
-#: library/blocks/audio/audio.php:308
+#: library/blocks/audio/audio.php:309
 #: library/blocks/image/image.php:255
 #: library/blocks/social/social.php:316
-#: library/blocks/video/video.php:355
+#: library/blocks/video/video.php:356
 msgid "Center Right"
 msgstr ""
 
-#: library/blocks/audio/audio.php:309
+#: library/blocks/audio/audio.php:310
 #: library/blocks/image/image.php:256
 #: library/blocks/social/social.php:317
-#: library/blocks/video/video.php:356
+#: library/blocks/video/video.php:357
 msgid "Bottom Left"
 msgstr ""
 
-#: library/blocks/audio/audio.php:310
+#: library/blocks/audio/audio.php:311
 #: library/blocks/image/image.php:257
 #: library/blocks/social/social.php:318
-#: library/blocks/video/video.php:357
+#: library/blocks/video/video.php:358
 msgid "Bottom Center"
 msgstr ""
 
-#: library/blocks/audio/audio.php:311
+#: library/blocks/audio/audio.php:312
 #: library/blocks/image/image.php:258
 #: library/blocks/social/social.php:319
-#: library/blocks/video/video.php:358
+#: library/blocks/video/video.php:359
 msgid "Bottom Right"
 msgstr ""
 
@@ -1756,7 +1779,7 @@ msgid "Select a form"
 msgstr ""
 
 #: library/blocks/content/comments-template.php:18
-#: library/blocks/content/content.php:1399
+#: library/blocks/content/content.php:1402
 msgid "One Response"
 msgstr ""
 
@@ -1927,18 +1950,18 @@ msgid "Caption Text"
 msgstr ""
 
 #: library/blocks/content/content.php:246
-#: library/blocks/content/content.php:805
+#: library/blocks/content/content.php:808
 #: library/blocks/pin-board/pin-board.php:801
 msgid "Meta"
 msgstr ""
 
 #: library/blocks/content/content.php:252
-#: library/blocks/content/content.php:1302
+#: library/blocks/content/content.php:1305
 msgid "Meta Above Content"
 msgstr ""
 
 #: library/blocks/content/content.php:259
-#: library/blocks/content/content.php:1309
+#: library/blocks/content/content.php:1312
 msgid "Meta Below Content"
 msgstr ""
 
@@ -2012,7 +2035,7 @@ msgid "Loop Navigation Button"
 msgstr ""
 
 #: library/blocks/content/content.php:429
-#: library/blocks/content/content.php:806
+#: library/blocks/content/content.php:809
 msgid "Comments"
 msgstr ""
 
@@ -2182,15 +2205,15 @@ msgstr ""
 msgid "Custom Fields span"
 msgstr ""
 
-#: library/blocks/content/content.php:788
+#: library/blocks/content/content.php:791
 msgid "The content block is extremely versatile.  If the default mode is selected, it will do what you expect it to do.  For example, if you add this on a page, it will display that page's content.  If you add it on the Blog Index layout, it will list the posts like a normal blog template and if you add this box on a category layout, it will list posts of that category.  If you wish to change what the content block displays, change the mode to <em>Custom Query</em> and use the settings in the <em>Query Filters</em> tab."
 msgstr ""
 
-#: library/blocks/content/content.php:790
+#: library/blocks/content/content.php:793
 msgid "For more control over queries and how the query is displayed, Padma works perfectly out-of-the-box with <a href=\"http://pluginbuddy.com/purchase/loopbuddy/\" target=\"_blank\">LoopBuddy</a>."
 msgstr ""
 
-#: library/blocks/content/content.php:792
+#: library/blocks/content/content.php:795
 msgid ""
 "\n"
 "\t\t\t\t<p>The entry meta is the information that appears below the post title and below the post content.  By default, it will contain information about the entry author, the categories, and comments.</p>\n"
@@ -2199,437 +2222,437 @@ msgid ""
 "\t\t\t"
 msgstr ""
 
-#: library/blocks/content/content.php:801
+#: library/blocks/content/content.php:804
 #: library/blocks/pin-board/pin-board.php:813
 msgid "Mode"
 msgstr ""
 
-#: library/blocks/content/content.php:802
-#: library/blocks/content/content.php:856
+#: library/blocks/content/content.php:805
+#: library/blocks/content/content.php:859
 #: library/blocks/pin-board/pin-board.php:798
 msgid "Query Filters"
 msgstr ""
 
-#: library/blocks/content/content.php:804
+#: library/blocks/content/content.php:807
 msgid "Custom Fields"
 msgstr ""
 
-#: library/blocks/content/content.php:807
+#: library/blocks/content/content.php:810
 msgid "Featured Images"
 msgstr ""
 
-#: library/blocks/content/content.php:817
+#: library/blocks/content/content.php:820
 msgid "Query Mode"
 msgstr ""
 
-#: library/blocks/content/content.php:820
+#: library/blocks/content/content.php:823
 msgid "Default Behavior"
 msgstr ""
 
-#: library/blocks/content/content.php:821
+#: library/blocks/content/content.php:824
 msgid "Custom Query"
 msgstr ""
 
-#: library/blocks/content/content.php:842
+#: library/blocks/content/content.php:845
 msgid "Fetch a Page"
 msgstr ""
 
-#: library/blocks/content/content.php:848
+#: library/blocks/content/content.php:851
 msgid "Fetch Page Content"
 msgstr ""
 
-#: library/blocks/content/content.php:849
+#: library/blocks/content/content.php:852
 msgid "Query options have no effect if you have chosen to Fetch a Page"
 msgstr ""
 
-#: library/blocks/content/content.php:857
+#: library/blocks/content/content.php:860
 msgid "Query options have no effect if you have chosen to Fetch a Page's content above"
 msgstr ""
 
-#: library/blocks/content/content.php:863
+#: library/blocks/content/content.php:866
 #: library/blocks/pin-board/pin-board.php:600
 msgid "Categories"
 msgstr ""
 
-#: library/blocks/content/content.php:871
+#: library/blocks/content/content.php:874
 msgid "Categories Mode"
 msgstr ""
 
-#: library/blocks/content/content.php:874
+#: library/blocks/content/content.php:877
 #: library/blocks/listings/block-options.php:141
 #: library/blocks/pin-board/pin-board.php:935
 msgid "Include"
 msgstr ""
 
-#: library/blocks/content/content.php:875
+#: library/blocks/content/content.php:878
 #: library/blocks/listings/block-options.php:132
 #: library/blocks/pin-board/pin-board.php:936
 msgid "Exclude"
 msgstr ""
 
-#: library/blocks/content/content.php:882
+#: library/blocks/content/content.php:885
 msgid "Tags Filter"
 msgstr ""
 
-#: library/blocks/content/content.php:883
+#: library/blocks/content/content.php:886
 msgid "Check this to allow the tags filter show."
 msgstr ""
 
-#: library/blocks/content/content.php:901
+#: library/blocks/content/content.php:904
 #: library/blocks/pin-board/pin-board.php:607
 msgid "Tags"
 msgstr ""
 
-#: library/blocks/content/content.php:919
+#: library/blocks/content/content.php:922
 msgid "Post Status"
 msgstr ""
 
-#: library/blocks/content/content.php:935
+#: library/blocks/content/content.php:938
 #: library/blocks/listings/block-options.php:183
 msgid "Number of Posts"
 msgstr ""
 
-#: library/blocks/content/content.php:943
+#: library/blocks/content/content.php:946
 #: library/blocks/listings/block-options.php:246
 #: library/blocks/pin-board/pin-board.php:892
 msgid "Offset"
 msgstr ""
 
-#: library/blocks/content/content.php:944
+#: library/blocks/content/content.php:947
 #: library/blocks/listings/block-options.php:247
 #: library/blocks/pin-board/pin-board.php:893
 msgid "The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped."
 msgstr ""
 
-#: library/blocks/content/content.php:951
+#: library/blocks/content/content.php:954
 #: library/blocks/listings/block-options.php:260
 #: library/blocks/pin-board/pin-board.php:963
 msgid "Order By"
 msgstr ""
 
-#: library/blocks/content/content.php:956
+#: library/blocks/content/content.php:959
 #: library/blocks/listings/block-options.php:265
 #: library/blocks/pin-board/pin-board.php:968
 msgid "Random"
 msgstr ""
 
-#: library/blocks/content/content.php:957
+#: library/blocks/content/content.php:960
 #: library/blocks/listings/block-options.php:266
 msgid "Comment Count"
 msgstr ""
 
-#: library/blocks/content/content.php:961
+#: library/blocks/content/content.php:964
 msgid "Custom Order"
 msgstr ""
 
-#: library/blocks/content/content.php:968
+#: library/blocks/content/content.php:971
 #: library/blocks/listings/block-options.php:274
 #: library/blocks/pin-board/pin-board.php:958
 #: library/blocks/pin-board/pin-board.php:975
 msgid "Order"
 msgstr ""
 
-#: library/blocks/content/content.php:971
+#: library/blocks/content/content.php:974
 #: library/blocks/listings/block-options.php:97
 #: library/blocks/listings/block-options.php:277
 #: library/blocks/pin-board/pin-board.php:978
 msgid "Descending"
 msgstr ""
 
-#: library/blocks/content/content.php:972
+#: library/blocks/content/content.php:975
 #: library/blocks/listings/block-options.php:98
 #: library/blocks/listings/block-options.php:278
 #: library/blocks/pin-board/pin-board.php:979
 msgid "Ascending"
 msgstr ""
 
-#: library/blocks/content/content.php:978
+#: library/blocks/content/content.php:981
 msgid "Include by ID"
 msgstr ""
 
-#: library/blocks/content/content.php:979
-#: library/blocks/content/content.php:986
+#: library/blocks/content/content.php:982
+#: library/blocks/content/content.php:989
 msgid "In both Include and Exclude by ID, you use a comma separated list of IDs of your post type."
 msgstr ""
 
-#: library/blocks/content/content.php:985
+#: library/blocks/content/content.php:988
 msgid "Exclude by ID"
 msgstr ""
 
-#: library/blocks/content/content.php:993
+#: library/blocks/content/content.php:996
 msgid "Read More Text"
 msgstr ""
 
-#: library/blocks/content/content.php:995
+#: library/blocks/content/content.php:998
 msgid "Continue Reading"
 msgstr ""
 
-#: library/blocks/content/content.php:996
+#: library/blocks/content/content.php:999
 msgid "If excerpts are being shown or a featured post is truncated using WordPress' read more shortcode, then this will be shown after the excerpt or truncated content."
 msgstr ""
 
-#: library/blocks/content/content.php:1002
+#: library/blocks/content/content.php:1005
 #: library/blocks/pin-board/pin-board.php:1014
 msgid "Show Titles"
 msgstr ""
 
-#: library/blocks/content/content.php:1004
+#: library/blocks/content/content.php:1007
 msgid "If you wish to only show the content and meta of the entry, you can hide the entry (post or page) titles with this option."
 msgstr ""
 
-#: library/blocks/content/content.php:1010
+#: library/blocks/content/content.php:1013
 msgid "Link Titles?"
 msgstr ""
 
-#: library/blocks/content/content.php:1012
+#: library/blocks/content/content.php:1015
 msgid "If you wish to turn off the link to Post/Page titles, uncheck this"
 msgstr ""
 
-#: library/blocks/content/content.php:1018
+#: library/blocks/content/content.php:1021
 msgid "Show Archive Title?"
 msgstr ""
 
-#: library/blocks/content/content.php:1020
+#: library/blocks/content/content.php:1023
 msgid "If you wish to turn off the page title on archive layouts (e.g. category, tag, etc), uncheck this"
 msgstr ""
 
-#: library/blocks/content/content.php:1029
+#: library/blocks/content/content.php:1032
 msgid "Only archive name"
 msgstr ""
 
-#: library/blocks/content/content.php:1030
+#: library/blocks/content/content.php:1033
 msgid "Custom title"
 msgstr ""
 
-#: library/blocks/content/content.php:1032
+#: library/blocks/content/content.php:1035
 msgid "Archive Title type"
 msgstr ""
 
-#: library/blocks/content/content.php:1033
+#: library/blocks/content/content.php:1036
 msgid "Display normal title, only archive (category, tag, etc) or Custom Archive Title"
 msgstr ""
 
-#: library/blocks/content/content.php:1058
+#: library/blocks/content/content.php:1061
 msgid "Custom Archive title"
 msgstr ""
 
-#: library/blocks/content/content.php:1059
+#: library/blocks/content/content.php:1062
 msgid "Use custom title for archive. Use %archive% for category, tag, etc: example \"Category Archives: %archive%\""
 msgstr ""
 
-#: library/blocks/content/content.php:1065
+#: library/blocks/content/content.php:1068
 msgid "Show Read More"
 msgstr ""
 
-#: library/blocks/content/content.php:1067
+#: library/blocks/content/content.php:1070
 msgid "Show and hide the continue reading or read more text/button."
 msgstr ""
 
-#: library/blocks/content/content.php:1073
+#: library/blocks/content/content.php:1076
 msgid "Entry Content Display"
 msgstr ""
 
-#: library/blocks/content/content.php:1074
+#: library/blocks/content/content.php:1077
 msgid "The entry content is the actual body of the entry.  This is what you enter in the rich text area when creating an entry (post or page).  When set to normal, Padma will determine if full entries or excerpts should be displayed based off of the <em>Featured Posts</em> setting and what page is being displayed.<br /><br /><strong>Tip:</strong> Set this to <em>Hide Entry Content</em> to create a simple listing of posts."
 msgstr ""
 
-#: library/blocks/content/content.php:1078
+#: library/blocks/content/content.php:1081
 msgid "Show Full Entries"
 msgstr ""
 
-#: library/blocks/content/content.php:1079
+#: library/blocks/content/content.php:1082
 msgid "Show Excerpts"
 msgstr ""
 
-#: library/blocks/content/content.php:1080
+#: library/blocks/content/content.php:1083
 msgid "Hide Entry Content"
 msgstr ""
 
-#: library/blocks/content/content.php:1113
+#: library/blocks/content/content.php:1116
 msgid "Show Entry"
 msgstr ""
 
-#: library/blocks/content/content.php:1115
+#: library/blocks/content/content.php:1118
 msgid "By default, the entries will always be shown.  However, there may be certain cases where you wish to show the entry content in one Content Block, but the comments in another.  With this option, you can do that."
 msgstr ""
 
-#: library/blocks/content/content.php:1121
+#: library/blocks/content/content.php:1124
 msgid "Comments Visibility"
 msgstr ""
 
-#: library/blocks/content/content.php:1125
+#: library/blocks/content/content.php:1128
 msgid "Always Hide Comments"
 msgstr ""
 
-#: library/blocks/content/content.php:1126
+#: library/blocks/content/content.php:1129
 msgid "Always Show Comments"
 msgstr ""
 
-#: library/blocks/content/content.php:1128
+#: library/blocks/content/content.php:1131
 msgid "When set to automatic, the comments will only show on single post pages.  However, there may be times where you want to force comment visibility to allow comments on pages.  Or, you may hide the comments if you wish to not see them at all.<br /><br /><strong>Tip:</strong> Create unique layouts by using this option in conjunction with the Show Entry option to show the entry content in one Content Block and show the comments in another Content Block."
 msgstr ""
 
-#: library/blocks/content/content.php:1134
+#: library/blocks/content/content.php:1137
 msgid "Featured Posts"
 msgstr ""
 
-#: library/blocks/content/content.php:1136
+#: library/blocks/content/content.php:1139
 msgid "Featured posts are the posts where all of the content is displayed, unless limited by using the WordPress more tag.  After the featured posts are displayed, the content will automatically switch to showing automatically truncated excerpts."
 msgstr ""
 
-#: library/blocks/content/content.php:1142
+#: library/blocks/content/content.php:1145
 msgid "Show Older/Newer Posts Navigation"
 msgstr ""
 
-#: library/blocks/content/content.php:1143
+#: library/blocks/content/content.php:1146
 msgid "On archive layouts: Show links at the bottom of the loop for the visitor to view older or newer posts."
 msgstr ""
 
-#: library/blocks/content/content.php:1150
+#: library/blocks/content/content.php:1153
 msgid "Show Single Post Navigation"
 msgstr ""
 
-#: library/blocks/content/content.php:1152
+#: library/blocks/content/content.php:1155
 msgid "By default, Padma will show links to the previous and next posts below an entry when viewing only one entry at a time.  You can choose to hide those links with this option."
 msgstr ""
 
-#: library/blocks/content/content.php:1171
+#: library/blocks/content/content.php:1174
 msgid "Single Post Navigation: Same Tax?"
 msgstr ""
 
-#: library/blocks/content/content.php:1173
+#: library/blocks/content/content.php:1176
 msgid "If you have Show Single Post Navigation turned on, by default WordPress/Padma will show links the next and previous post in chronological order. If you want the next/previous posts to only link to posts in the same taxonomy as the current post, enable this."
 msgstr ""
 
-#: library/blocks/content/content.php:1188
+#: library/blocks/content/content.php:1191
 msgid "Single Post Navigation Taxonomy"
 msgstr ""
 
-#: library/blocks/content/content.php:1190
+#: library/blocks/content/content.php:1193
 msgid "If you have enabled Same Tax for Single Post Navigation, you can choose which taxonomy you want it to apply to.  By default, it will apply to the category taxonomy."
 msgstr ""
 
-#: library/blocks/content/content.php:1197
+#: library/blocks/content/content.php:1200
 msgid "Show Edit Link"
 msgstr ""
 
-#: library/blocks/content/content.php:1199
+#: library/blocks/content/content.php:1202
 msgid "The edit link is a convenient link that will be shown next to the post title.  It will take you straight to the WordPress admin to edit the entry."
 msgstr ""
 
-#: library/blocks/content/content.php:1205
+#: library/blocks/content/content.php:1208
 msgid "Custom Excerpts"
 msgstr ""
 
-#: library/blocks/content/content.php:1211
+#: library/blocks/content/content.php:1214
 msgid "Custom Excerpts Length"
 msgstr ""
 
-#: library/blocks/content/content.php:1213
+#: library/blocks/content/content.php:1216
 msgid "By default the excerpts are set to 55 words. This can be far too many and a PHP hook will need to be set to change it. Instead you can set a custom amount here by specifically stating the number of words you want to show."
 msgstr ""
 
-#: library/blocks/content/content.php:1227
+#: library/blocks/content/content.php:1230
 msgid "Excerpts Length"
 msgstr ""
 
-#: library/blocks/content/content.php:1229
+#: library/blocks/content/content.php:1232
 msgid "Control the length of the excerpt. By default they are set to display 55 words. This setting allows you to reduce or even lengthen that as you like and can be very handy to customise the look of your archive pages."
 msgstr ""
 
-#: library/blocks/content/content.php:1235
+#: library/blocks/content/content.php:1238
 msgid "Column Layout"
 msgstr ""
 
-#: library/blocks/content/content.php:1241
+#: library/blocks/content/content.php:1244
 msgid "Enable Column Layout"
 msgstr ""
 
-#: library/blocks/content/content.php:1243
+#: library/blocks/content/content.php:1246
 msgid "Enable this option to display articles side by side as columns."
 msgstr ""
 
-#: library/blocks/content/content.php:1271
+#: library/blocks/content/content.php:1274
 msgid "How many posts to show per row."
 msgstr ""
 
-#: library/blocks/content/content.php:1284
+#: library/blocks/content/content.php:1287
 msgid "The amount of horizontal spacing between posts."
 msgstr ""
 
-#: library/blocks/content/content.php:1294
+#: library/blocks/content/content.php:1297
 msgid "Entry Meta Display (Per Post Type)"
 msgstr ""
 
-#: library/blocks/content/content.php:1295
+#: library/blocks/content/content.php:1298
 msgid "Choose which post types you wish for the entry meta to appear on."
 msgstr ""
 
-#: library/blocks/content/content.php:1304
+#: library/blocks/content/content.php:1307
 msgid "Posted on %date% by %author% &bull; %comments%"
 msgstr ""
 
-#: library/blocks/content/content.php:1311
+#: library/blocks/content/content.php:1314
 msgid "Filed Under: %categories%"
 msgstr ""
 
-#: library/blocks/content/content.php:1317
+#: library/blocks/content/content.php:1320
 msgid "Date Format"
 msgstr ""
 
-#: library/blocks/content/content.php:1323
+#: library/blocks/content/content.php:1326
 msgid "Time Format"
 msgstr ""
 
-#: library/blocks/content/content.php:1329
+#: library/blocks/content/content.php:1332
 msgid "Comments Meta"
 msgstr ""
 
-#: library/blocks/content/content.php:1334
+#: library/blocks/content/content.php:1337
 msgid "Comment Format &ndash; More Than 1 Comment"
 msgstr ""
 
-#: library/blocks/content/content.php:1337
+#: library/blocks/content/content.php:1340
 msgid "Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>more than 1 comment</strong> on the entry."
 msgstr ""
 
-#: library/blocks/content/content.php:1342
+#: library/blocks/content/content.php:1345
 msgid "Comment Format &ndash; 1 Comment"
 msgstr ""
 
-#: library/blocks/content/content.php:1345
+#: library/blocks/content/content.php:1348
 msgid "Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>just 1 comment</strong> on the entry."
 msgstr ""
 
-#: library/blocks/content/content.php:1350
+#: library/blocks/content/content.php:1353
 msgid "Comment Format &ndash; 0 Comments"
 msgstr ""
 
-#: library/blocks/content/content.php:1353
+#: library/blocks/content/content.php:1356
 msgid "Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there are <strong>0 comments</strong> on the entry."
 msgstr ""
 
-#: library/blocks/content/content.php:1359
+#: library/blocks/content/content.php:1362
 msgid "Respond Format"
 msgstr ""
 
-#: library/blocks/content/content.php:1361
+#: library/blocks/content/content.php:1364
 msgid "Leave a comment!"
 msgstr ""
 
-#: library/blocks/content/content.php:1362
+#: library/blocks/content/content.php:1365
 msgid "Determines the %respond% variable for the entry meta."
 msgstr ""
 
-#: library/blocks/content/content.php:1370
+#: library/blocks/content/content.php:1373
 msgid "Comments Area Heading"
 msgstr ""
 
-#: library/blocks/content/content.php:1375
+#: library/blocks/content/content.php:1378
 msgid "Comments Area Heading Format"
 msgstr ""
 
-#: library/blocks/content/content.php:1378
+#: library/blocks/content/content.php:1381
 msgid ""
 "Heading above all comments.\n"
 "\t\t\t\t\t\t<br />\n"
@@ -2640,184 +2663,184 @@ msgid ""
 "\t\t\t\t\t\t</ul>"
 msgstr ""
 
-#: library/blocks/content/content.php:1389
+#: library/blocks/content/content.php:1392
 msgid "Responses Format &ndash; More Than 1 Comment"
 msgstr ""
 
-#: library/blocks/content/content.php:1392
+#: library/blocks/content/content.php:1395
 msgid "Controls what the %responses% variable will output in the comments area heading if there is <strong>more than 1 comment</strong> on the entry."
 msgstr ""
 
-#: library/blocks/content/content.php:1397
+#: library/blocks/content/content.php:1400
 msgid "Responses Format &ndash; 1 Comment"
 msgstr ""
 
-#: library/blocks/content/content.php:1400
+#: library/blocks/content/content.php:1403
 msgid "Controls what the %responses% variable will output in the comments area heading if there is <strong>just 1 comment</strong> on the entry."
 msgstr ""
 
-#: library/blocks/content/content.php:1406
+#: library/blocks/content/content.php:1409
 msgid "Reply Area"
 msgstr ""
 
-#: library/blocks/content/content.php:1411
+#: library/blocks/content/content.php:1414
 msgid "Comment Form Title"
 msgstr ""
 
-#: library/blocks/content/content.php:1413
+#: library/blocks/content/content.php:1416
 msgid "Leave a reply"
 msgstr ""
 
-#: library/blocks/content/content.php:1414
+#: library/blocks/content/content.php:1417
 msgid "This is the text that displays above the comment form."
 msgstr ""
 
-#: library/blocks/content/content.php:1419
+#: library/blocks/content/content.php:1422
 msgid "Reply Form Title"
 msgstr ""
 
-#: library/blocks/content/content.php:1421
+#: library/blocks/content/content.php:1424
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: library/blocks/content/content.php:1422
+#: library/blocks/content/content.php:1425
 msgid "The title of comment form when replying to a comment."
 msgstr ""
 
-#: library/blocks/content/content.php:1435
+#: library/blocks/content/content.php:1438
 msgid "Submit Text"
 msgstr ""
 
-#: library/blocks/content/content.php:1437
+#: library/blocks/content/content.php:1440
 msgid "Post Comment"
 msgstr ""
 
-#: library/blocks/content/content.php:1438
+#: library/blocks/content/content.php:1441
 msgid "The submit button text."
 msgstr ""
 
-#: library/blocks/content/content.php:1447
+#: library/blocks/content/content.php:1450
 msgid "Show Featured Images"
 msgstr ""
 
-#: library/blocks/content/content.php:1466
+#: library/blocks/content/content.php:1469
 msgid "Use featured image as background"
 msgstr ""
 
-#: library/blocks/content/content.php:1473
+#: library/blocks/content/content.php:1476
 msgid "Link Featured Image"
 msgstr ""
 
-#: library/blocks/content/content.php:1476
+#: library/blocks/content/content.php:1479
 msgid "Entry (Default)"
 msgstr ""
 
-#: library/blocks/content/content.php:1477
+#: library/blocks/content/content.php:1480
 msgid "Attachment Page"
 msgstr ""
 
-#: library/blocks/content/content.php:1478
+#: library/blocks/content/content.php:1481
 #: library/blocks/listings/block-options.php:81
 msgid "None"
 msgstr ""
 
-#: library/blocks/content/content.php:1480
+#: library/blocks/content/content.php:1483
 msgid "By default, Padma will create a link around the featured image which links back to the post. Choose no link or to link to the image's attachment page instead."
 msgstr ""
 
-#: library/blocks/content/content.php:1486
+#: library/blocks/content/content.php:1489
 msgid "Image Position"
 msgstr ""
 
-#: library/blocks/content/content.php:1502
+#: library/blocks/content/content.php:1505
 msgid "Use Per-Entry Featured Image Positions"
 msgstr ""
 
-#: library/blocks/content/content.php:1504
+#: library/blocks/content/content.php:1507
 msgid "In the WordPress write panel, there is a Padma meta box that allows you to change the featured image position for the entry being edited.<br /><br />By default, the block will use that value, but you may uncheck this so that the blocks thumbnail position is always used."
 msgstr ""
 
-#: library/blocks/content/content.php:1510
+#: library/blocks/content/content.php:1513
 msgid "Featured Image Sizing"
 msgstr ""
 
-#: library/blocks/content/content.php:1516
+#: library/blocks/content/content.php:1519
 msgid "Featured Image Size (Left/Right)"
 msgstr ""
 
-#: library/blocks/content/content.php:1521
+#: library/blocks/content/content.php:1524
 msgid "Adjust the size of the featured image sizes.  This is used for both the width and height of the images."
 msgstr ""
 
-#: library/blocks/content/content.php:1528
+#: library/blocks/content/content.php:1531
 msgid "Featured Image Height Ratio (Above Title/Content)"
 msgstr ""
 
-#: library/blocks/content/content.php:1533
+#: library/blocks/content/content.php:1536
 msgid "Adjust the height of feature images when set to the above title or above content positions.  This value controls what percent the height of the image will be in regards to the width of the block.<br /><br />Example: If the block width is 500 pixels and the ratio is 50% then the feature image size will be 500px by 250px."
 msgstr ""
 
-#: library/blocks/content/content.php:1540
+#: library/blocks/content/content.php:1543
 msgid "Crop Featured Images"
 msgstr ""
 
-#: library/blocks/content/content.php:1575
+#: library/blocks/content/content.php:1578
 msgid "LoopBuddy Query"
 msgstr ""
 
-#: library/blocks/content/content.php:1577
+#: library/blocks/content/content.php:1580
 msgid "Select a LoopBuddy query to the right.  Queries determine what content (posts, pages, etc) will be displayed.  You can modify/add queries in the WordPress admin under LoopBuddy."
 msgstr ""
 
-#: library/blocks/content/content.php:1584
+#: library/blocks/content/content.php:1587
 msgid "LoopBuddy Layout"
 msgstr ""
 
-#: library/blocks/content/content.php:1586
+#: library/blocks/content/content.php:1589
 msgid "Select a LoopBuddy layout to the right.  Layouts determine how the query will be displayed.  This includes the order of the content in relation to the title, meta, and so on.  You can modify/add layouts in the WordPress admin under LoopBuddy."
 msgstr ""
 
-#: library/blocks/content/content.php:1592
+#: library/blocks/content/content.php:1595
 msgid "<strong>Even though we have the options to choose a LoopBuddy layout and query here, we recommend you configure LoopBuddy using its <a href=\"%s\" target=\"_blank\">options panel</a>.</strong><br /><br />The options below are more useful if you're using two Content Blocks on one layout and wish to configure them separately.  <strong>Note:</strong> You MUST have a query selected in order to also select a LoopBuddy layout."
 msgstr ""
 
-#: library/blocks/content/content.php:1610
+#: library/blocks/content/content.php:1613
 #: library/blocks/search/search.php:141
 msgid "SearchWP Engine"
 msgstr ""
 
-#: library/blocks/content/content.php:1612
+#: library/blocks/content/content.php:1615
 #: library/blocks/search/search.php:143
 msgid "If you wish to display the results of a supplemented SearchWP engine, please select the engine here."
 msgstr ""
 
-#: library/blocks/content/content.php:1665
+#: library/blocks/content/content.php:1668
 msgid "The selected post type does not have custom fields."
 msgstr ""
 
-#: library/blocks/content/content.php:1667
+#: library/blocks/content/content.php:1670
 msgid "There is not custom fields to show."
 msgstr ""
 
-#: library/blocks/content/content.php:1750
+#: library/blocks/content/content.php:1753
 msgid "&ndash; Do Not Fetch &ndash;"
 msgstr ""
 
-#: library/blocks/content/content.php:1774
+#: library/blocks/content/content.php:1777
 #: library/common/query.php:112
 msgid "No tags available"
 msgstr ""
 
-#: library/blocks/content/content.php:1842
+#: library/blocks/content/content.php:1845
 #: library/blocks/search/search.php:153
 msgid "&ndash; Select an Engine &ndash;"
 msgstr ""
 
-#: library/blocks/content/content.php:1874
+#: library/blocks/content/content.php:1877
 msgid "&ndash; Use Default Query &ndash;"
 msgstr ""
 
-#: library/blocks/content/content.php:1893
+#: library/blocks/content/content.php:1896
 msgid "&ndash; Use Default Layout &ndash;"
 msgstr ""
 
@@ -3680,6 +3703,7 @@ msgid "Layout"
 msgstr ""
 
 #: library/blocks/pin-board/pin-board.php:836
+#: library/wrappers/wrapper-options.php:37
 msgid "Columns"
 msgstr ""
 
@@ -3696,6 +3720,7 @@ msgid "Set how many pins to display horizontally for iPhones and smartphones.  <
 msgstr ""
 
 #: library/blocks/pin-board/pin-board.php:858
+#: library/wrappers/wrapper-options.php:86
 msgid "Gutter Width"
 msgstr ""
 
@@ -4409,83 +4434,83 @@ msgstr ""
 msgid "Display an video"
 msgstr ""
 
-#: library/blocks/video/video.php:196
+#: library/blocks/video/video.php:197
 msgid "You have not added an video yet. Please upload and apply an video."
 msgstr ""
 
-#: library/blocks/video/video.php:230
+#: library/blocks/video/video.php:231
 msgid "Add an Video"
 msgstr ""
 
-#: library/blocks/video/video.php:259
+#: library/blocks/video/video.php:260
 msgid "Specifies that the video will start playing as soon as it is ready"
 msgstr ""
 
-#: library/blocks/video/video.php:267
+#: library/blocks/video/video.php:268
 msgid "Specifies that the video will start over again, every time it is finished"
 msgstr ""
 
-#: library/blocks/video/video.php:280
+#: library/blocks/video/video.php:281
 msgid "Specifies if and how the author thinks the video should be loaded when the page loads"
 msgstr ""
 
-#: library/blocks/video/video.php:288
+#: library/blocks/video/video.php:289
 msgid "Specifies that video controls should be displayed (such as a play/pause button etc)."
 msgstr ""
 
-#: library/blocks/video/video.php:296
+#: library/blocks/video/video.php:297
 msgid "Specifies that the audio output of the video should be muted"
 msgstr ""
 
-#: library/blocks/video/video.php:301
+#: library/blocks/video/video.php:302
 msgid "Poster URL"
 msgstr ""
 
-#: library/blocks/video/video.php:303
+#: library/blocks/video/video.php:304
 msgid "Specifies an image to be shown while the video is downloading, or until the user hits the play button"
 msgstr ""
 
-#: library/blocks/video/video.php:308
+#: library/blocks/video/video.php:309
 msgid "Width"
 msgstr ""
 
-#: library/blocks/video/video.php:310
+#: library/blocks/video/video.php:311
 msgid "Sets the width of the video player"
 msgstr ""
 
-#: library/blocks/video/video.php:315
+#: library/blocks/video/video.php:316
 msgid "Allow dynamic width"
 msgstr ""
 
-#: library/blocks/video/video.php:318
+#: library/blocks/video/video.php:319
 msgid "Automatically change video width when window resize"
 msgstr ""
 
-#: library/blocks/video/video.php:323
+#: library/blocks/video/video.php:324
 msgid "Height"
 msgstr ""
 
-#: library/blocks/video/video.php:325
+#: library/blocks/video/video.php:326
 msgid "Sets the height of the video player"
 msgstr ""
 
-#: library/blocks/video/video.php:330
+#: library/blocks/video/video.php:331
 msgid "Allow dynamic height"
 msgstr ""
 
-#: library/blocks/video/video.php:333
+#: library/blocks/video/video.php:334
 msgid "Automatically change video height when window resize"
 msgstr ""
 
-#: library/blocks/video/video.php:339
+#: library/blocks/video/video.php:340
 msgid "Position Video"
 msgstr ""
 
-#: library/blocks/video/video.php:344
+#: library/blocks/video/video.php:345
 msgid "Position video inside container"
 msgstr ""
 
-#: library/blocks/video/video.php:346
+#: library/blocks/video/video.php:347
 msgid "You can position this video in relation to the block using the positions provided"
 msgstr ""
 
@@ -4834,6 +4859,26 @@ msgstr ""
 msgid "Block Subtitle"
 msgstr ""
 
+#: library/elements/structural-elements.php:7
+msgid "Structure"
+msgstr ""
+
+#: library/elements/structural-elements.php:13
+msgid "HTML Document"
+msgstr ""
+
+#: library/elements/structural-elements.php:21
+msgid "Body"
+msgstr ""
+
+#: library/elements/structural-elements.php:30
+msgid "Wrapper"
+msgstr ""
+
+#: library/elements/structural-elements.php:38
+msgid "Individual block types and block elements"
+msgstr ""
+
 #: library/fonts/traditional-fonts.php:127
 msgid "To register a font, the argument array must include an \"id\", \"stack\", and \"name\"."
 msgstr ""
@@ -4847,10 +4892,476 @@ msgstr ""
 msgid "The element ID is not registered."
 msgstr ""
 
+#: library/visual-editor/boxes/grid-manager.php:48
+#: library/visual-editor/display.php:434
+msgid "Grid Manager"
+msgstr ""
+
+#: library/visual-editor/boxes/grid-manager.php:49
+msgid "Choose a preset or a page to clone"
+msgstr ""
+
+#: library/visual-editor/boxes/snapshots.php:42
+msgid "Restore your work with snapshots."
+msgstr ""
+
+#: library/visual-editor/display.php:275
+msgid "Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;"
+msgstr ""
+
+#: library/visual-editor/display.php:291
+msgid "Toggle Inspector"
+msgstr ""
+
+#: library/visual-editor/display.php:292
+msgid "Shortcut:</em> Ctrl + I"
+msgstr ""
+
+#: library/visual-editor/display.php:293
+msgid "<strong>How to use:</strong> <em>Right-click</em> highlighted elements to style them.  Once an element is selected, you may nudge it using your arrow keys."
+msgstr ""
+
+#: library/visual-editor/display.php:294
+msgid "The faded orange and purple are the margins and padding. These colors are only visible when the inspector is active."
+msgstr ""
+
+#: library/visual-editor/display.php:356
+#: library/visual-editor/display.php:359
+msgid "Get more blocks"
+msgstr ""
+
+#: library/visual-editor/display.php:437
+msgid "Clear Cache"
+msgstr ""
+
+#: library/visual-editor/display.php:437
+msgid "Disabled"
+msgstr ""
+
+#: library/visual-editor/display.php:449
+msgid "Dashboard"
+msgstr ""
+
+#: library/visual-editor/display.php:450
+msgid "Widgets"
+msgstr ""
+
+#: library/visual-editor/display.php:451
+msgid "Menus"
+msgstr ""
+
+#: library/visual-editor/display.php:452
+msgid "Padma Options"
+msgstr ""
+
+#: library/visual-editor/display.php:454
+msgid "Padma Tools"
+msgstr ""
+
+#: library/visual-editor/display.php:455
+msgid "Documentation"
+msgstr ""
+
+#: library/visual-editor/display.php:456
+msgid "Support"
+msgstr ""
+
+#: library/visual-editor/display.php:457
+msgid "Community"
+msgstr ""
+
+#: library/visual-editor/display.php:458
+msgid "Get Involved"
+msgstr ""
+
+#: library/visual-editor/display.php:464
+msgid "View Site"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:26
+msgid "Wrapper Mirrored"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:29
+msgid "This wrapper is mirroring the blocks in a wrapper <span class=\"wrapper-mirror-notice-alias\">%1$s</span> <span class=\"wrapper-mirror-notice-layout\">from \"%1$s\" layout</span>"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:33
+msgid "Mirroring can be disabled via Wrapper Options in the right-click menu"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:113
+msgid "Drag to change wrapper top margin"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:115
+msgid "Drag to change wrapper order"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:117
+msgid "Drag to change wrapper bottom margin"
+msgstr ""
+
+#: library/visual-editor/iframe-grid.php:119
+msgid "Click to open wrapper options"
+msgstr ""
+
 #: library/visual-editor/panels/design/property-inputs.php:151
 msgid "You have customized a property in this property group."
 msgstr ""
 
 #: library/visual-editor/panels/design/property-inputs.php:304
 msgid "You have customized this property."
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:44
+msgid "Toggle Design Editor"
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:54
+msgid "Show All Elements"
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:55
+msgid "Show Current Layout Elements"
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:65
+msgid "You <strong>have not selected an element</strong> to edit."
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:66
+msgid "Use the inspector to inspect an element you want to edit."
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:76
+msgid "This element does not have any customized properties or instances."
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:95
+msgid "Editing:"
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:103
+msgid "Customize For Current Layout"
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:104
+msgid "Customize Regular Element"
+msgstr ""
+
+#: library/visual-editor/panels/design/side-panel-design-editor.php:111
+msgid "Show only modified options"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:83
+msgid "Responsive Grid"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:90
+msgid "<strong>Note:</strong> the content in the grid above will not reflect how your site actually looks.  The content inside the blocks is to give you a general reference while you wireframe and build the layout to your site.<br /><br />The settings below are <strong>global</strong> and are not customized on a per-layout basis."
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:92
+msgid "The Padma Responsive Grid allows the powerful grid in Padma Base to be custom-tailored depending on the device that the visitor is viewing the site from.  Please note: some sites may benefit from having the responsive grid enabled while other will not.  As the designer of the website, it is up to you to decide.  The responsive grid can be enabled or disabled at any time."
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:100
+msgid "Default Column Count"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:102
+msgid "The column count is the number of columns in the grid.  This is represented by the grey regions on the grid.<br /><br /><strong>This will NOT affect wrappers that are already created.  It only affects wrappers that are created after this setting is changed.</strong>"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:112
+msgid "Global Column Width"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:114
+#: library/wrappers/wrapper-options.php:75
+msgid "The column width is the amount of space inside of each column.  This is represented by the grey regions on the grid."
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:125
+msgid "Global Gutter Width"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:127
+#: library/wrappers/wrapper-options.php:88
+msgid "The gutter width is the amount of space between each column.  This is the space between each of the grey regions on the grid."
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:140
+msgid "Global Grid Width"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:151
+msgid "If Padma's responsive grid is enabled, the grid will automatically adjust depending on the visitor's device (computer, iPhone, iPad, etc).  Enabling the responsive grid can be extremely beneficial for some websites, but may not be wortbthile for other websites.  If the responsive grid is enabled, the user will always have the option to disable the responsive grid via a link in the footer block.<br /><br /><strong>Please Note:</strong> with the responsive grid enabled, the exact pixel widths of blocks may differ very slightly from when it is <em>disabled</em>."
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:157
+msgid "Responsive Video Resizing"
+msgstr ""
+
+#: library/visual-editor/panels/grid/setup.php:159
+msgid "If the Responsive Grid is enabled and the user visits the site when there are YouTube, Vimeo, or any other videos, then the videos will not resize properly unless then is checked."
+msgstr ""
+
+#: library/visual-editor/visual-editor-ajax.php:212
+msgid "Grid Safe mode enabled. Block content not outputted."
+msgstr ""
+
+#: library/visual-editor/visual-editor.php:18
+msgid "Add blocks and arrange your website structure"
+msgstr ""
+
+#: library/visual-editor/visual-editor.php:20
+msgid "Choose fonts, colors, and other styles"
+msgstr ""
+
+#: library/visual-editor/visual-editor.php:698
+msgid "Unfortunately, the Padma Visual Editor does not work with Internet Explorer due to its lack of modern features."
+msgstr ""
+
+#: library/visual-editor/visual-editor.php:700
+msgid "Please upgrade to a modern browser such as <a href=\"http://www.google.com/chrome\" target=\"_blank\">Google Chrome</a> or <a href=\"http://firefox.com\" target=\"_blank\">Mozilla Firefox</a>."
+msgstr ""
+
+#: library/visual-editor/visual-editor.php:702
+msgid "If this message persists after upgrading to a modern browser, please visit our <a href=\"https://www.padmaunlimited.com/community/\" target=\"_blank\">Community</a>."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:15
+msgid "Wrapper Options"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:19
+msgid "Grid &amp; Margins"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:20
+msgid "Sticky Positioning"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:21
+msgid "Mirroring &amp; Config"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:22
+msgid "Responsive"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:39
+msgid "Number of columns in the Grid.  Suggested values 9, 12, 16, and 24.<br /><br /><strong>Note:</strong> The wrapper must be empty of all blocks prior to changing the column count.  Either move the blocks to another wrapper or delete them if they are not needed."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:49
+msgid "Use Independent Grid"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:50
+msgid "Check this if you would like this wrapper to have different Grid settings than the Global Grid settings."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:73
+msgid "Column Width"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:101
+msgid "Grid Width"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:108
+msgid "Wrapper Margins"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:114
+msgid "Top Margin"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:116
+msgid "Space in between the top of this wrapper and the top of the page or the wrapper above it."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:134
+msgid "Bottom Margin"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:136
+msgid "Space in between this wrapper and the bottom of the page."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:156
+msgid "Enable Sticky Positioning"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:178
+msgid "Top Offset"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:190
+msgid "Enable Shrink on Scroll"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:214
+msgid "Shrink ratio"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:225
+msgid "Shrink images"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:226
+msgid "Attempt to shrink contained images"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:233
+msgid "Attempt with child elements"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:234
+msgid "Attempt to shrink contained elements"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:244
+msgid "Mirror Blocks From Another Wrapper"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:246
+msgid "By using this option, you can tell a wrapper to \"mirror\" another wrapper and all of its blocks.  This option is useful if you are wanting to share a wrapper&mdash;such as a header&mdash;across layouts on your site.  Select the wrapper you wish to mirror the content from in the select box to the right."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:255
+msgid "Do not mirror styles"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:257
+msgid "Use this option to prevent styles mirroring"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:263
+msgid "Wrapper Alias"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:265
+msgid "Enter an easily recognizable name for the wrapper alias and it will be used throughout your site admin.  Aliases are used in the Design Editor, mirroring menu, and are a great way of keeping track of a specific wrapper."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:274
+msgid "Need more finite control?  Enter the custom CSS class selectors here and they will be added to the wrappers's class attribute. <strong>DO NOT</strong> put regular CSS in here.  Use the Live CSS editor for that."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:283
+msgid "Configure Breakpoints."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:289
+msgid "Set Breakpoint"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:291
+msgid "Off - No Breakpoint"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:292
+#: library/wrappers/wrapper-options.php:367
+msgid "Custom Width"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:293
+msgid "1920px - Very Large Screens"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:294
+msgid "1824px - Large Screens"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:295
+msgid "1224px - Desktop and Laptop"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:296
+msgid "1024px - Popular Tablet Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:297
+msgid "812px - iPhone X Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:298
+msgid "768px - Popular Tablet Portrait"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:299
+msgid "736px - iPhone 6+ & 7+ & 8+ Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:300
+msgid "667px - iPhone 6 & 7 & 8 & Android Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:301
+msgid "600px - Popular Breakpoint in Padma"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:302
+msgid "568px - iPhone 5 Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:303
+msgid "480px - iPhone 3 & 4 Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:304
+msgid "414px - iPhone 6+ & 7+ & 8+ Landscape"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:305
+msgid "375px - iPhone 6 & 7 & 8 & X & Android Portrait"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:306
+msgid "320px - iPhone 3 & 4 & 5 & Android Portrait"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:368
+msgid "Add px value as well. eg: 600px"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:374
+msgid "Min or Max width"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:391
+msgid "Stretch blocks for mobile"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:393
+msgid "Enable this option to make all blocks in this wrapper stretch the full wrapper width on smaller screens. Blocks placed side by side may not look good on smaller screens as they fight for the horizontal space. Setting this option makes each block go full width at the set break point."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:399
+msgid "Attempt to Center items"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:401
+msgid "This will attempt to center the elements in this block at the set breakpoint. NOTE: This will not work for all elements but give it a try and if it works for you then great. More complex html like menus will require custom code."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:407
+msgid "Hide this wrapper"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:409
+msgid "This will hide this wrapper for the set breakpoint."
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:429
+#: library/wrappers/wrapper-options.php:458
+msgid "Import Wrapper Settings"
+msgstr ""
+
+#: library/wrappers/wrapper-options.php:466
+msgid "Export Wrapper Settings"
 msgstr ""

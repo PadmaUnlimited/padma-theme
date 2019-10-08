@@ -71,12 +71,12 @@ class PadmaBlocks {
 	public static function register_block_types() {
 
 		global $padma_unregistered_block_types;
-		global $registry;
+		global $padma_registry;
 
 		foreach ( $padma_unregistered_block_types as $class => $block_type_data ) {
 
-			// Add this class and path to global class registry to be loaded in loader.php
-			$registry = array_merge($registry, array($class => $block_type_data['block_type_path']));
+			// Add this class and path to global class padma_registry to be loaded in loader.php
+			$padma_registry = array_merge($padma_registry, array($class => $block_type_data['block_type_path']));
 			
 			if ( !class_exists($class) )
 				return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);

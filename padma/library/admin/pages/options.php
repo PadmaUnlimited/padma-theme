@@ -14,92 +14,122 @@
 <form method="post">
 	<input type="hidden" value="<?php echo wp_create_nonce('padma-admin-nonce'); ?>" name="padma-admin-nonce" id="padma-admin-nonce" />
 
+
 	<div class="big-tabs-container">
 
 		<div class="big-tab" id="tab-general-content">
 
-			<?php
-			if ( is_main_site() ) {
-			?>
+			<!-- General -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text">Toggle panel: General</span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
 
-				<h3 class="title title-hr"><?php _e('General','padma'); ?></h3>
+					<h2 class="hndle"><span>General</span></h2>
 
-			<?php
-			} else {
-
-				echo '<h3 class="title">' . __('General','padma') . '</h3>';
-
-			}
-
-			$form = array(
-				array(
-					'id' => 'favicon',
-					'size' => 'large',
-					'type' => 'text',
-					'label' => 'Favicon URL',
-					'value' => PadmaOption::get('favicon'),
-					'description' => __('A favicon is the little image that sits next to your address in the favorites menu and on tabs.  If you do not know how to save an image as an icon you can go to <a href="http://www.favicon.cc/" target="_blank">favicon.cc</a> and draw or import an image.','padma')
-				),
-
-				array(
-					'id' => 'feed-url',
-					'size' => 'large',
-					'type' => 'text',
-					'label' => 'Feed URL',
-					'description' => __('If you use any service like <a href="http://feedburner.google.com/" target="_blank">FeedBurner</a>, type the feed URL here.','padma'),
-					'value' => PadmaOption::get('feed-url')
-				)
-			);
-
-			PadmaAdminInputs::generate($form);
-			?>
-
-			<h3 class="title title-hr"><?php _e('Admin Preferences','padma'); ?></h3>
-
-			<?php
-			$form = array(
-				array(
-					'id' 		=> 'menu-setup',
-					'type' 		=> 'radio',
-					'label' 	=> __('Default Admin Page','padma'),
-					'value' 	=> PadmaOption::get('menu-setup', false, 'getting-started'),
-					'radios' 	=> array(
+					<?php
+					$form = array(
 						array(
-							'value' => 'getting-started',
-							'label' => __('Getting Started','padma')
+							'id' => 'favicon',
+							'size' => 'large',
+							'type' => 'text',
+							'label' => 'Favicon URL',
+							'value' => PadmaOption::get('favicon'),
+							'description' => __('A favicon is the little image that sits next to your address in the favorites menu and on tabs.  If you do not know how to save an image as an icon you can go to <a href="http://www.favicon.cc/" target="_blank">favicon.cc</a> and draw or import an image.','padma')
 						),
 
 						array(
-							'value' => 'visual-editor',
-							'label' => __('Visual Editor','padma')
+							'id' => 'feed-url',
+							'size' => 'large',
+							'type' => 'text',
+							'label' => 'Feed URL',
+							'description' => __('If you use any service like <a href="http://feedburner.google.com/" target="_blank">FeedBurner</a>, type the feed URL here.','padma'),
+							'value' => PadmaOption::get('feed-url')
+						)
+					);
+
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
+
+			<!-- Admin Preferences -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Admin Preferences','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span>Admin Preferences</span></h2>
+
+					<?php
+					$form = array(
+						array(
+							'id' 		=> 'menu-setup',
+							'type' 		=> 'radio',
+							'label' 	=> __('Default Admin Page','padma'),
+							'value' 	=> PadmaOption::get('menu-setup', false, 'getting-started'),
+							'radios' 	=> array(
+								array(
+									'value' => 'getting-started',
+									'label' => __('Getting Started','padma')
+								),
+
+								array(
+									'value' => 'visual-editor',
+									'label' => __('Visual Editor','padma')
+								),
+
+								array(
+									'value' => 'options',
+									'label' => __('Options','padma')
+								)
+							),
+							'description' => __('Select which admin page you would like to be directed to when you click on "Padma" in the WordPress Admin.','padma')
 						),
-
 						array(
-							'value' => 'options',
-							'label' => __('Options','padma')
-						)
-					),
-					'description' => __('Select which admin page you would like to be directed to when you click on "Padma" in the WordPress Admin.','padma')
-				),
-				array(
-					'type' 	=> 'checkbox',
-					'label' => __('Do not recommend plugin installation','padma'),
-					'checkboxes' => array(
+							'type' 	=> 'checkbox',
+							'label' => __('Do not recommend plugin installation','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'do-not-recommend-plugin-installation',
+									'label' 	=> __('Hide recommended plugin notice','padma'),
+									'checked' 	=> PadmaOption::get('do-not-recommend-plugin-installation', false, false)
+								)
+							),
+							'description' => __('If on, Padma will not recommend install "Updater" and "Services" plugin','padma')
+						),
 						array(
-							'id' 		=> 'do-not-recommend-plugin-installation',
-							'label' 	=> __('Hide recommended plugin notice','padma'),
-							'checked' 	=> PadmaOption::get('do-not-recommend-plugin-installation', false, false)
-						)
-					),
-					'description' => __('If on, Padma will not recommend install "Updater" and "Services" plugin','padma')
-				)
-			);
+							'type' => 'checkbox',
+							'label' => __('Version Number','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'hide-menu-version-number',
+									'label' => __('Hide Padma Version Number From Menu','padma'),
+									'checked' => PadmaOption::get('hide-menu-version-number', false, true)
+								)
+							),
+							'description' => sprintf( __('Check this if you wish to have the Menu say "Padma" instead of "Padma %s"','padma'), PADMA_VERSION )
+						),
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
 
-		</div><!-- #tab-general-content -->
+					?>
+				</div>
+			</div>
+
+		</div>
+
+
 
 
 		<div class="big-tab" id="tab-seo-content">
@@ -332,48 +362,75 @@
 
 				<div id="seo-description" class="alert alert-yellow"><p><?php _e('Unfamiliar with <em>Search Engine Optimization</em>?','padma'); ?>  <a href="http://www.seomoz.org/beginners-guide-to-seo/" target="_blank"><?php _e('Learn More','padma'); ?> &raquo;</a></p></div>
 
-				<h3 class="title title-hr"><?php _e('Content <code>nofollow</code> Links','padma'); ?></h3>
 
-				<?php
-				$form = array(
-					array(
-						'type' => 'checkbox',
-						'label' => 'Comment Authors\' URL',
-						'checkboxes' => array(
+				<!-- Content <code>nofollow</code> Links -->
+				<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+					<div id="" class="postbox padma-admin-options-group">
+						
+						<button type="button" class="handlediv" aria-expanded="false">
+							<span class="screen-reader-text"><?php _e('Content <code>nofollow</code> Links','padma'); ?></span>
+							<span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+
+
+						<h2 class="hndle"><span><?php _e('Content <code>nofollow</code> Links','padma'); ?></span></h2>
+
+						<?php
+						$form = array(
 							array(
-								'id' => 'nofollow-comment-author-url',
-								'label' => __('Add nofollow To Comment Authors\' URL','padma'),
-								'checked' => PadmaOption::get('nofollow-comment-author-url', 'general', false)
+								'type' => 'checkbox',
+								'label' => 'Comment Authors\' URL',
+								'checkboxes' => array(
+									array(
+										'id' => 'nofollow-comment-author-url',
+										'label' => __('Add nofollow To Comment Authors\' URL','padma'),
+										'checked' => PadmaOption::get('nofollow-comment-author-url', 'general', false)
+									)
+								),
+								'description' => __('Adding nofollow to the comment authors\' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to.','padma')
 							)
-						),
-						'description' => __('Adding nofollow to the comment authors\' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to.','padma')
-					)
-				);
+						);
 
-				PadmaAdminInputs::generate($form);
-				?>
+						PadmaAdminInputs::admin_field_generate($form);
+
+						?>
+					</div>
+				</div>
 
 
-				<h3 class="title title-hr">Disable Schema.org support</h3>
+				<!-- Disable Schema.org support -->
+				<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+					<div id="" class="postbox padma-admin-options-group">
+						
+						<button type="button" class="handlediv" aria-expanded="false">
+							<span class="screen-reader-text"><?php _e('Disable Schema.org support','padma'); ?></span>
+							<span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
 
-				<?php
-				$form = array(
-					array(
-						'type' => 'checkbox',
-						'label' => __('Disable microdata markup','padma'),
-						'checkboxes' => array(
+
+						<h2 class="hndle"><span><?php _e('Disable Schema.org support','padma'); ?></span></h2>
+
+						<?php
+						$form = array(
 							array(
-								'id' => 'disable-schema-support',
-								'label' => __('Do not add ld+json data','padma'),
-								'checked' => PadmaOption::get('disable-schema-support', 'general', false)
+								'type' => 'checkbox',
+								'label' => __('Disable microdata markup','padma'),
+								'checkboxes' => array(
+									array(
+										'id' => 'disable-schema-support',
+										'label' => __('Do not add ld+json data','padma'),
+										'checked' => PadmaOption::get('disable-schema-support', 'general', false)
+									)
+								),
+								'description' => __('Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what\'s on a webpage.','padma')
 							)
-						),
-						'description' => __('Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what\'s on a webpage.','padma')
-					)
-				);
+						);
 
-				PadmaAdminInputs::generate($form);
-				?>
+						PadmaAdminInputs::admin_field_generate($form);
+
+						?>
+					</div>
+				</div>				
 
 			<?php
 			}
@@ -384,333 +441,488 @@
 
 		<div class="big-tab" id="tab-scripts-content">
 
-			<?php
-			$form = array(
-				array(
-					'id' => 'header-scripts',
-					'type' => 'paragraph',
-					'cols' => 90,
-					'rows' => 8,
-					'label' => __('Header Scripts','padma'),
-					'description' => 'Anything here will go in the <code>&lt;head&gt;</code> of the website. If you are using <a href="http://google.com/analytics" target="_blank">Google Analytics</a>, paste the code provided here. <strong>Do not place plain text in this!</strong>',
-					'allow-tabbing' => true,
-					'value' => PadmaOption::get('header-scripts')
-				),
+			<!-- Scripts/Analytics -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Scripts/Analytics','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
-				array(
-					'id' => 'footer-scripts',
-					'type' => 'paragraph',
-					'cols' => 90,
-					'rows' => 8,
-					'label' => __('Footer Scripts','padma'),
-					'description' => __('Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>','padma'),
-					'allow-tabbing' => true,
-					'value' => PadmaOption::get('footer-scripts')
-				)
-			);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					<h2 class="hndle"><span><?php _e('Scripts/Analytics','padma'); ?></span></h2>
 
+					<?php
+					$form = array(
+						array(
+							'id' => 'header-scripts',
+							'type' => 'paragraph',
+							'cols' => 90,
+							'rows' => 8,
+							'label' => __('Header Scripts','padma'),
+							'description' => 'Anything here will go in the <code>&lt;head&gt;</code> of the website. If you are using <a href="http://google.com/analytics" target="_blank">Google Analytics</a>, paste the code provided here. <strong>Do not place plain text in this!</strong>',
+							'allow-tabbing' => true,
+							'value' => PadmaOption::get('header-scripts')
+						),
+
+						array(
+							'id' => 'footer-scripts',
+							'type' => 'paragraph',
+							'cols' => 90,
+							'rows' => 8,
+							'label' => __('Footer Scripts','padma'),
+							'description' => __('Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>','padma'),
+							'allow-tabbing' => true,
+							'value' => PadmaOption::get('footer-scripts')
+						)
+					);
+
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 		</div><!-- #tab-scripts-content -->
 
 
 		<div class="big-tab" id="tab-visual-editor-content">
 
-			<?php
-			$form = array(
-				array(
-					'type' => 'checkbox',
-					'label' => __('Tooltips','padma'),
-					'checkboxes' => array(
+			<!-- Visual Editor -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Visual Editor','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span><?php _e('Visual Editor','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' => 'disable-visual-editor-tooltips',
-							'label' => __('Disable Tooltips in the Visual Editor','padma'),
-							'checked' => PadmaOption::get('disable-visual-editor-tooltips', false, false)
+							'type' => 'checkbox',
+							'label' => __('Tooltips','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-visual-editor-tooltips',
+									'label' => __('Disable Tooltips in the Visual Editor','padma'),
+									'checked' => PadmaOption::get('disable-visual-editor-tooltips', false, false)
+								)
+							),
+							'description' => __('If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works.','padma')
+						),
+						array(
+							'type' => 'checkbox',
+							'label' => __('Editor Style','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-editor-style',
+									'label' => __('Disable Editor Style','padma'),
+									'checked' => PadmaOption::get('disable-editor-style', false, false)
+								)
+							),
+							'description' => __('By default, Padma will take any settings in the Design Editor and add them to <a href="http://codex.wordpress.org/TinyMCE" target="_blank">WordPress\' TinyMCE editor</a> style.  Use this option to prevent that.','padma')
 						)
-					),
-					'description' => __('If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works.','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
 
+					?>
+				</div>
+			</div>
 		</div>
 
 
 		<div class="big-tab" id="tab-advanced-content">
 
-			<h3 class="title"><?php _e('Automatic Updates','padma'); ?></h3>
-			<?php
-			$form = array(
-				array(
-					'type' => 'checkbox',
-					'label' => __('Disable Automatic Core Updates','padma'),
-					'checkboxes' => array(
+			<!-- Advanced -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Automatic Updates','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span><?php _e('Automatic Updates','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' => 'disable-automatic-core-updates',
+							'type' => 'checkbox',
 							'label' => __('Disable Automatic Core Updates','padma'),
-							'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
-						)
-					),
-					'description' => __('By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.','padma')
-				),
-				array(
-					'type' => 'checkbox',
-					'label' => __('Disable Automatic Plugin Updates','padma'),
-					'checkboxes' => array(
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-automatic-core-updates',
+									'label' => __('Disable Automatic Core Updates','padma'),
+									'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
+								)
+							),
+							'description' => __('By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.','padma')
+						),
 						array(
-							'id' => 'disable-automatic-plugin-updates',
+							'type' => 'checkbox',
 							'label' => __('Disable Automatic Plugin Updates','padma'),
-							'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
-						)
-					),
-					'description' => __('By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.','padma')
-				),
-			);
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-automatic-plugin-updates',
+									'label' => __('Disable Automatic Plugin Updates','padma'),
+									'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
+								)
+							),
+							'description' => __('By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.','padma')
+						),
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 
 
+			<!-- Caching &amp; Compression -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Caching &amp; Compression','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
-			<h3 class="title"><?php _e('Caching &amp; Compression','padma'); ?></h3>
 
-			<?php
-			$form = array(
-				array(
-					'type' => 'checkbox',
-					'label' => __('Asset Caching','padma'),
-					'checkboxes' => array(
+					<h2 class="hndle"><span><?php _e('Caching &amp; Compression','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' => 'disable-caching',
-							'label' => __('Disable Padma Caching','padma'),
-							'checked' => PadmaOption::get('disable-caching', false, false)
-						)
-					),
-					'description' => __('By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load.','padma')
-				),
+							'type' => 'checkbox',
+							'label' => __('Asset Caching','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-caching',
+									'label' => __('Disable Padma Caching','padma'),
+									'checked' => PadmaOption::get('disable-caching', false, false)
+								)
+							),
+							'description' => __('By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load.','padma')
+						),
 
-				array(
-					'type' => 'checkbox',
-					'label' => __('Dependency Query Variables','padma'),
-					'checkboxes' => array(
 						array(
-							'id' => 'remove-dependency-query-vars',
-							'label' => __('Remove Query Variables from Dependency URLs','padma'),
-							'checked' => PadmaOption::get('remove-dependency-query-vars', false, false)
-						)
-					),
-					'description' => __('To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files.','padma')
-				),
+							'type' => 'checkbox',
+							'label' => __('Dependency Query Variables','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'remove-dependency-query-vars',
+									'label' => __('Remove Query Variables from Dependency URLs','padma'),
+									'checked' => PadmaOption::get('remove-dependency-query-vars', false, false)
+								)
+							),
+							'description' => __('To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files.','padma')
+						),
 
-				array(
-					'type' => 'checkbox',
-					'label' => __('Compatibility with mod_pagespeed','padma'),
-					'checkboxes' => array(
 						array(
-							'id' => 'compatibility-mod_pagespeed',
+							'type' => 'checkbox',
 							'label' => __('Compatibility with mod_pagespeed','padma'),
-							'checked' => PadmaOption::get('compatibility-mod_pagespeed', false, false)
-						)
-					),
-					'description' => __('Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you.','padma')
-				),
+							'checkboxes' => array(
+								array(
+									'id' => 'compatibility-mod_pagespeed',
+									'label' => __('Compatibility with mod_pagespeed','padma'),
+									'checked' => PadmaOption::get('compatibility-mod_pagespeed', false, false)
+								)
+							),
+							'description' => __('Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you.','padma')
+						),
 
-				array(
-					'type' => 'checkbox',
-					'label' => __('HTTP/2 Server Push','padma','padma'),
-					'checkboxes' => array(
 						array(
-							'id' => 'http2-server-push',
-							'label' => __('HTTP/2 Server Push','padma'),
-							'checked' => PadmaOption::get('http2-server-push', false, false)
+							'type' => 'checkbox',
+							'label' => __('HTTP/2 Server Push','padma','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'http2-server-push',
+									'label' => __('HTTP/2 Server Push','padma'),
+									'checked' => PadmaOption::get('http2-server-push', false, false)
+								)
+							),
+							'description' => __('Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental.','padma')
 						)
-					),
-					'description' => __('Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental.','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
 
-			<h3 class="title title-hr"><?php _e('Admin','padma'); ?></h3>
+					?>
+				</div>
+			</div>
 
-			<?php
-			$form = array(
-				array(
-					'type' => 'checkbox',
-					'label' => __('Version Number','padma'),
-					'checkboxes' => array(
+			<!-- Advanced -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Automatic Updates','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span><?php _e('Automatic Updates','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' => 'hide-menu-version-number',
-							'label' => __('Hide Padma Version Number From Menu','padma'),
-							'checked' => PadmaOption::get('hide-menu-version-number', false, true)
-						)
-					),
-					'description' => sprintf( __('Check this if you wish to have the Menu say "Padma" instead of "Padma %s"','padma'), PADMA_VERSION )
-				),
-
-				array(
-					'type' => 'checkbox',
-					'label' => __('Editor Style','padma'),
-					'checkboxes' => array(
+							'type' => 'checkbox',
+							'label' => __('Disable Automatic Core Updates','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-automatic-core-updates',
+									'label' => __('Disable Automatic Core Updates','padma'),
+									'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
+								)
+							),
+							'description' => __('By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.','padma')
+						),
 						array(
-							'id' => 'disable-editor-style',
-							'label' => __('Disable Editor Style','padma'),
-							'checked' => PadmaOption::get('disable-editor-style', false, false)
-						)
-					),
-					'description' => __('By default, Padma will take any settings in the Design Editor and add them to <a href="http://codex.wordpress.org/TinyMCE" target="_blank">WordPress\' TinyMCE editor</a> style.  Use this option to prevent that.','padma')
-				)
-			);
+							'type' => 'checkbox',
+							'label' => __('Disable Automatic Plugin Updates','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'disable-automatic-plugin-updates',
+									'label' => __('Disable Automatic Plugin Updates','padma'),
+									'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
+								)
+							),
+							'description' => __('By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.','padma')
+						),
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
 
-			<h3 class="title title-hr"><?php _e('Developer','padma'); ?></h3>
+					?>
+				</div>
+			</div>
 
-			<div class="alert alert-red"><p><?php _e('Once active this option will allow you to upgrade your website to the latest Preview, Beta or Release candidate.','padma'); ?></p></div>
+			<!-- Developer -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Developer','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
-			<?php
-			$form = array(
-				array(
-					'type' => 'checkbox',
-					'label' => __('Use Padma developer version','padma'),
-					'checkboxes' => array(
+
+					<h2 class="hndle"><span><?php _e('Developer','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' => 'use-developer-version',
-							'label' => __('Allow install testing or preview version','padma'),
-							'checked' => PadmaOption::get('use-developer-version', false, false)
+							'type' => 'checkbox',
+							'label' => __('Use Padma Developer version','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'use-developer-version',
+									'label' => __('Allow install testing or preview version','padma'),
+									'checked' => PadmaOption::get('use-developer-version', false, false)
+								)
+							),
+							'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong> Once active this option will allow you to upgrade your website to the latest version.','padma')
 						)
-					),
-					'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong>','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
 
-			<h3 class="title title-hr"><?php _e('Debugging','padma'); ?></h3>
+					?>
+				</div>
+			</div>
 
-			<div class="alert alert-red"><p><?php _e('The following option should only be checked if a member of the Padma Themes team asks you to do so.','padma'); ?></p></div>
+			<!-- Debugging -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Debugging','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
-			<?php
-			$form = array(
-				array(
-					'type' => 'checkbox',
-					'label' => __('Debug Mode','padma'),
-					'checkboxes' => array(
+
+					<h2 class="hndle"><span><?php _e('Debugging','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' => 'debug-mode',
-							'label' => __('Enable Debug Mode','padma'),
-							'checked' => PadmaOption::get('debug-mode', false, false)
+							'type' => 'checkbox',
+							'label' => __('Debug Mode','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'debug-mode',
+									'label' => __('Enable Debug Mode','padma'),
+									'checked' => PadmaOption::get('debug-mode', false, false)
+								)
+							),
+							'description' => __('Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>.','padma')
 						)
-					),
-					'description' => __('Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>.','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
+			
 
 		</div>
 
 		<div class="big-tab" id="tab-compatibility-content">
 
-			<h3 class="title"><?php _e('Plugin templates','padma'); ?></h3>
-			<?php
-			$form = array(
-				array(
-					'type' 	=> 'checkbox',
-					'label' => __('Plugin templates','padma'),
-					'checkboxes' => array(
+			<!-- Plugin templates -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Plugin templates','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span><?php _e('Plugin templates','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' 		=> 'allow-plugin-templates',
-							'label' 	=> __('Allow plugin templates','padma'),
-							'checked' 	=> PadmaOption::get('allow-plugin-templates', false, false)
+							'type' 	=> 'checkbox',
+							'label' => __('Plugin templates','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'allow-plugin-templates',
+									'label' 	=> __('Allow plugin templates','padma'),
+									'checked' 	=> PadmaOption::get('allow-plugin-templates', false, false)
+								)
+							),
+							'description' => __('Allow load plugin templates related to Custom Post Types instead Padma Layout','padma')
 						)
-					),
-					'description' => __('Allow load plugin templates related to Custom Post Types instead Padma Layout','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 
 
+			<!-- Headway -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Headway','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
-			<h3 class="title"><?php _e('Headway','padma'); ?></h3>
-			<?php
-			$form = array(
-				array(
-					'type' 	=> 'checkbox',
-					'label' => __('Headway support','padma'),
-					'checkboxes' => array(
+
+					<h2 class="hndle"><span><?php _e('Headway','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' 		=> 'headway-support',
-							'label' 	=> __('Enable Headway classes support','padma'),
-							'checked' 	=> PadmaOption::get('headway-support', false, false)
+							'type' 	=> 'checkbox',
+							'label' => __('Headway support','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'headway-support',
+									'label' 	=> __('Enable Headway classes support','padma'),
+									'checked' 	=> PadmaOption::get('headway-support', false, false)
+								)
+							),
+							'description' => __('If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental.','padma')
 						)
-					),
-					'description' => __('If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental.','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 
 
-			<h3 class="title"><?php _e('Gutenberg','padma'); ?></h3>
-			<?php
-			$form = array(
-				array(
-					'type' 	=> 'checkbox',
-					'label' => __('Display Padma Blocks in Gutenberg','padma'),
-					'checkboxes' => array(
+			<!-- Gutenberg -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Gutenberg','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span><?php _e('Gutenberg','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' 		=> 'padma-blocks-as-gutenberg-blocks',
-							'label' 	=> __('Show Padma Blocks as Gutenberg Blocks','padma'),
-							'checked' 	=> PadmaOption::get('padma-blocks-as-gutenberg-blocks', false, false)
+							'type' 	=> 'checkbox',
+							'label' => __('Display Padma Blocks in Gutenberg','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'padma-blocks-as-gutenberg-blocks',
+									'label' 	=> __('Show Padma Blocks as Gutenberg Blocks','padma'),
+									'checked' 	=> PadmaOption::get('padma-blocks-as-gutenberg-blocks', false, false)
+								)
+							),
+							'description' => __('If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to "Block Options > Anywhere" to enable it. <strong>Important:</strong> This feature is Experimental.','padma')
 						)
-					),
-					'description' => __('If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to "Block Options > Anywhere" to enable it. <strong>Important:</strong> This feature is Experimental.','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 
 		</div>
 
 		<div class="big-tab" id="tab-mobile-content">
 
-			<h3 class="title"><?php _e('Responsive options','padma'); ?></h3>
+			<!-- Responsive options -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+					
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Responsive options','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
 
-			<?php
-			$form = array(
-				array(
-					'type' 	=> 'checkbox',
-					'label' => __('Allow mobile zooming','padma'),
-					'checkboxes' => array(
+
+					<h2 class="hndle"><span><?php _e('Responsive options','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
 						array(
-							'id' 		=> 'allow-mobile-zooming',
-							'label' 	=> __('Allow mobile zooming','padma'),
-							'checked' 	=> PadmaOption::get('allow-mobile-zooming', false, false)
+							'type' 	=> 'checkbox',
+							'label' => __('Allow mobile zooming','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'allow-mobile-zooming',
+									'label' 	=> __('Allow mobile zooming','padma'),
+									'checked' 	=> PadmaOption::get('allow-mobile-zooming', false, false)
+								)
+							),
+							'description' => __('Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers.','padma')
 						)
-					),
-					'description' => __('Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers.','padma')
-				)
-			);
+					);
 
-			PadmaAdminInputs::generate($form);
-			?>
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 
 		</div>
 
 
-	</div>
+	
 
 	<div class="hr hr-submit" style="display: none;"></div>
 

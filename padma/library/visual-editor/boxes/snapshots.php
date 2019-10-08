@@ -14,7 +14,7 @@ class PadmaSnapshotsBox extends PadmaVisualEditorBoxAPI {
 	 **/
 	protected $title = 'Snapshots';
 
-	protected $description = 'Restore your work with snapshots.';
+	protected $description;
 
 
 	/**
@@ -37,6 +37,10 @@ class PadmaSnapshotsBox extends PadmaVisualEditorBoxAPI {
 	protected $draggable = true;
 
 	protected $resizable = false;
+
+	function __construct(){
+		$this->description = __('Restore your work with snapshots.','padma');
+	}
 
 
 	public function content() {

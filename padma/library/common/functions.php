@@ -811,7 +811,7 @@ function padma_register_visual_editor_panel_callback($class) {
 
 
 function padma_register_web_font_provider($class) {
-
+	
 	return new $class;
 
 }

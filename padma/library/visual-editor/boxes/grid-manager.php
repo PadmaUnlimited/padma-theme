@@ -11,9 +11,9 @@ class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 	/**
 	 * Name of panel.  This will be shown in the title.
 	 **/
-	protected $title = 'Grid Manager';
+	protected $title;
 	
-	protected $description = 'Choose a preset or a page to clone';
+	protected $description;
 	
 	
 	/**
@@ -44,7 +44,10 @@ class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 	protected $load_with_ajax_callback = 'afterGridManagerLoad();';
 	
 	
-	
+	function __construct(){
+		$this->title = __('Grid Manager','padma');
+		$this->description = __('Choose a preset or a page to clone','padma');
+	}
 	public function content() {
 		
 		$current_layout = padma_post('layout');

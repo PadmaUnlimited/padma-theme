@@ -15,9 +15,9 @@ class PadmaVisualEditor {
 					
 		//If no child theme is active or if a child theme IS active and the grid is supported, use the grid mode.
 		if ( current_theme_supports('padma-grid') )
-			self::$modes['Grid'] = 'Add blocks and arrange your website structure';		
+			self::$modes['Grid'] = __('Add blocks and arrange your website structure','padma');
 		
-		self::$modes['Design'] = 'Choose fonts, colors, and other styles';
+		self::$modes['Design'] = __('Choose fonts, colors, and other styles','padma');
 		
 		//If the grid is disabled, set Design as the default mode.
 		if ( !current_theme_supports('padma-grid') )
@@ -693,15 +693,13 @@ class PadmaVisualEditor {
 		if ( !padma_is_ie() || (padma_is_ie(9) || padma_is_ie(10) || padma_is_ie(11)) )
 			return false;
 			
-		$message = '
-			<span style="text-align: center;font-size: 26px;width: 100%;display: block;margin-bottom: 20px;">Error</span>
+		$message = '<span style="text-align: center;font-size: 26px;width: 100%;display: block;margin-bottom: 20px;">Error</span>';
 
-			Unfortunately, the Padma Visual Editor does not work with Internet Explorer due to its lack of modern features.<br /><br />
+		$message .= __('Unfortunately, the Padma Visual Editor does not work with Internet Explorer due to its lack of modern features.','padma') . '<br /><br />';
 
-			Please upgrade to a modern browser such as <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.<br /><br />
+		$message .= __('Please upgrade to a modern browser such as <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.','padma') . '<br /><br />'; 
 
-			If this message persists after upgrading to a modern browser, please visit our <a href="https://www.padmaunlimited.com/community/" target="_blank">Community</a>.
-		';
+		$message .= __('If this message persists after upgrading to a modern browser, please visit our <a href="https://www.padmaunlimited.com/community/" target="_blank">Community</a>.','padma');
 
 		return wp_die($message);
 		

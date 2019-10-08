@@ -1187,32 +1187,32 @@ class PadmaElementProperties {
 			),
 
 		/*	Filter		*/
-		'filter' => array(
-			'group' => 'Filter',
-			'name' 	=> 'Filter',
-			'type' 	=> 'select',
-			'options' => array(
-				'none' 	=> 'none',				
-				'blur' 	=> 'Blur',				
-				'brightness' => 'Brightness',				
-				'contrast' => 'Contrast',				
-				'grayscale' => 'Grayscale',				
-				'hue-rotate' => 'Hue-Rotate',				
-				'invert' => 'Invert',				
-				'opacity' => 'Opacity',				
-				'saturate' => 'Saturate',				
-				'sepia' => 'Sepia',
+			'filter' => array(
+				'group' => 'Filter',
+				'name' 	=> 'Filter',
+				'type' 	=> 'select',
+				'options' => array(
+					'none' 	=> 'none',				
+					'blur' 	=> 'Blur',				
+					'brightness' => 'Brightness',				
+					'contrast' => 'Contrast',				
+					'grayscale' => 'Grayscale',				
+					'hue-rotate' => 'Hue-Rotate',				
+					'invert' => 'Invert',				
+					'opacity' => 'Opacity',				
+					'saturate' => 'Saturate',				
+					'sepia' => 'Sepia',
+				),
+				//'callback' => 'reloadBlockOptions(block.id)',
+				'js-callback' 		=> 'propertyInputCallbackFilter(params);',
+				'complex-property' 	=> 'PadmaElementProperties::complex_property_filter'			
 			),
-			//'callback' => 'reloadBlockOptions(block.id)',
-			'js-callback' 		=> 'propertyInputCallbackFilter(params);',
-			'complex-property' 	=> 'PadmaElementProperties::complex_property_filter'			
-		),
 
-		'filter-value' => array(
-			'group' => 'Filter',
-			'name' 	=> 'Value',
-			'type' 	=> 'integer',
-		),
+			'filter-value' => array(
+				'group' => 'Filter',
+				'name' 	=> 'Value',
+				'type' 	=> 'integer',
+			),
 
 
 		/*		Effects		*/

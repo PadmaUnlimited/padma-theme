@@ -176,7 +176,7 @@ jQuery(window).load(function(){
 
 		$this->register_block_element(array(
 			'id' => 'slider-direction-nav-link',
-			'name' => _('Slider Direction Nav Link','padma'),
+			'name' => __('Slider Direction Nav Link','padma'),
 			'selector' => '.flex-direction-nav a',
 			'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow')
 		));

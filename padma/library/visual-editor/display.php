@@ -272,7 +272,7 @@ class PadmaVisualEditorDisplay {
 		 */
 		$html = '';
 		$html .= '<li id="minimize">
-					<span title="Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;" class="tooltip-bottom-right">g</span>
+					<span title="' . __('Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;','padma') . '" class="tooltip-bottom-right">g</span>
 				</li>';
 
 		echo $html;
@@ -288,11 +288,10 @@ class PadmaVisualEditorDisplay {
 
 				if ( current_theme_supports('padma-design-editor') ) {
 
-					$tooltip = '
-						<strong>Toggle Inspector</strong><br />
-						<em>Shortcut:</em> Ctrl + I<br /><br />
-						<strong>How to use:</strong> <em>Right-click</em> highlighted elements to style them.  Once an element is selected, you may nudge it using your arrow keys.<br /><br />
-						The faded orange and purple are the margins and padding.  These colors are only visible when the inspector is active.';
+					$tooltip = '<strong>' . __('Toggle Inspector','padma') . '</strong><br />
+						<em>' . __('Shortcut:</em> Ctrl + I','padma') . '<br /><br />
+						' . __('<strong>How to use:</strong> <em>Right-click</em> highlighted elements to style them.  Once an element is selected, you may nudge it using your arrow keys.','padma') . '<br /><br />
+						' . __('The faded orange and purple are the margins and padding. These colors are only visible when the inspector is active.','padma');
 
 					echo '<div class="menu-mode-buttons">';
 						echo '<span class="menu-mode-button tooltip-bottom-right" id="toggle-inspector" title="' . esc_attr($tooltip) . '"></span>';
@@ -354,10 +353,10 @@ class PadmaVisualEditorDisplay {
 				echo '
 					<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" data-hasqtip="71" oldtitle="Display an audio" title="" aria-describedby="qtip-71" style="">
 						<a target="_blank" href="https://www.padmaunlimited.com/how-to-get-more-blocks/">
-							<h4 style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">Get more blocks</h4>
+							<h4 style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">' . __('Get more blocks', 'padma') . '</h4>
 						</a>
 						<div class="block-type-description">
-							<p>Get more blocks</p>
+							<p>' . __('Get more blocks', 'padma') . '</p>
 						</div>
 					</div>';
 
@@ -432,10 +431,10 @@ class PadmaVisualEditorDisplay {
 				<ul>';
 
 					if ( PadmaVisualEditor::is_mode('grid') )
-						echo '<li id="tools-grid-manager"><span>Grid Manager</span></li>';
+						echo '<li id="tools-grid-manager"><span>' . __('Grid Manager', 'padma') . '</span></li>';
 
 					if ( PadmaCompiler::can_cache() )
-						echo '<li id="tools-clear-cache"><span>Clear Cache' . (!PadmaCompiler::caching_enabled() ? ' (Disabled)' : '') . '</span></li>';
+						echo '<li id="tools-clear-cache"><span>' . __('Clear Cache', 'padma') . ' ' . (!PadmaCompiler::caching_enabled() ? ' (' . __('Disabled', 'padma') . ')' : '') . '</span></li>';
 
 					echo '<li id="tools-tour"><span>Tour</span></li>
 				</ul>
@@ -447,22 +446,22 @@ class PadmaVisualEditorDisplay {
 				<span>Admin</span>
 
 				<ul>
-					<li><a href="' . admin_url()  . '" target="_blank">Dashboard</a></li>
-					<li><a href="' . admin_url('widgets.php')  . '" target="_blank">Widgets</a></li>
-					<li><a href="' . admin_url('nav-menus.php')  . '" target="_blank">Menus</a></li>
-					<li><a href="' . admin_url('admin.php?page=padma-options')  . '" target="_blank">Padma Options</a></li>
-					<li><a href="' . admin_url('admin.php?page=padma-templates')  . '" target="_blank">Padma Templates</a></li>
-					<li><a href="' . admin_url('admin.php?page=padma-tools')  . '" target="_blank">Padma Tools</a></li>
-					<li><a href="https://docs.padmaunlimited.com" target="_blank" rel="noopener">Documentation</a></li>
-					<li><a href="mailto:support@padmaunlimited.com" target="_blank">Support</a></li>
-					<li><a href="https://www.padmaunlimited.com/community/" target="_blank" rel="noopener">Community</a></li>
-					<li><a href="https://www.patreon.com/bePatron?u=11838968" target="_blank" rel="noopener">Become a Patron</a></li>
+					<li><a href="' . admin_url()  . '" target="_blank">' . __('Dashboard', 'padma') . '</a></li>
+					<li><a href="' . admin_url('widgets.php')  . '" target="_blank">' . __('Widgets', 'padma') . '</a></li>
+					<li><a href="' . admin_url('nav-menus.php')  . '" target="_blank">' . __('Menus', 'padma') . '</a></li>
+					<li><a href="' . admin_url('admin.php?page=padma-options')  . '" target="_blank">' . __('Padma Options', 'padma') . '</a></li>
+					<li><a href="' . admin_url('admin.php?page=padma-templates')  . '" target="_blank">' . __('Padma Templates', 'padma') . '</a></li>
+					<li><a href="' . admin_url('admin.php?page=padma-tools')  . '" target="_blank">' . __('Padma Tools', 'padma') . '</a></li>
+					<li><a href="https://docs.padmaunlimited.com" target="_blank" rel="noopener">' . __('Documentation', 'padma') . '</a></li>
+					<li><a href="mailto:support@padmaunlimited.com" target="_blank">' . __('Support', 'padma') . '</a></li>
+					<li><a href="https://www.padmaunlimited.com/community/" target="_blank" rel="noopener">' . __('Community', 'padma') . '</a></li>
+					<li><a href="https://www.padmaunlimited.com/get-started/how-to-collaborate/" target="_blank" rel="noopener">' . __('Get Involved','padma') . '</a></li>
 				</ul>
 
 			</li>';
 
 
-		echo '<li id="menu-link-view-site"><a href="' . home_url() . '" target="_blank">View Site</a></li>';
+		echo '<li id="menu-link-view-site"><a href="' . home_url() . '" target="_blank">' . __('View Site','padma') . '</a></li>';
 
 	}
 }

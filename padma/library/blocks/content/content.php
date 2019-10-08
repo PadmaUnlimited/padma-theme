@@ -736,7 +736,10 @@ class PadmaContentBlock extends PadmaBlockAPI {
 		foreach ($block['settings'] as $name => $value) {
 			
 			$data = explode('-', $name);
-			$post_type = $data[3];
+			$post_type = (!empty($data[3])) ? $data[3]: null;
+
+			if(is_null($post_type))
+				continue;
 
 			$custom_field = $name;
 			$custom_field = str_replace('custom-field-show-' . $post_type . '-', '' , $custom_field);
@@ -1646,7 +1649,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 
 		$post_types = $custom_fields = array();
 
-		if( $this->block['settings']['mode'] == 'custom-query' ){
+		if( !empty($this->block['settings']['mode']) && $this->block['settings']['mode'] == 'custom-query' ){
 			$post_types = $this->block['settings']['post-type'];
 
 			if(empty($post_types))

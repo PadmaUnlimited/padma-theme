@@ -18,3 +18,90 @@
 	min-width: 200px;
 	max-width: 400px;
 }
+.padma-admin-options-group{}
+.padma-admin-options-group > h2.hndle{
+	font-size: 14px;
+    padding: 8px 12px;
+    margin: 0 !important;
+    line-height: 1.4;
+
+}
+.padma-postbox-container{
+	width: 100%;
+}
+.padma-admin-options-group .handlediv .toggle-indicator:before{
+	margin-top: 4px;
+    width: 20px;
+    border-radius: 50%;
+    text-indent: -1px;
+    content: "\f142";
+    display: inline-block;
+    font: normal 20px/1 dashicons;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none!important;
+}
+.padma-admin-options-group .padma-fields{}
+.padma-admin-options-group .padma-fields.inside{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.padma-admin-options-group .padma-fields.left{}
+.padma-admin-options-group .padma-field{
+	padding: 15px 0;
+	margin: 0;
+	position: relative;
+	border-top: #EEEEEE solid 1px;
+}
+.padma-admin-options-group .padma-fields.left .padma-field:before{
+	content: "";
+    display: block;
+    position: absolute;
+    z-index: 0;
+    background: #F9F9F9;
+    border-color: #E1E1E1;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+}
+.padma-admin-options-group .padma-fields.left .padma-field:after{
+    display: block;
+    clear: both;
+    content: "";
+}
+.padma-admin-options-group .padma-field:first-child{
+	border-top-width: 0;
+}
+.padma-admin-options-group .padma-label{
+    float: left;
+    width: 20%;
+    margin: 0;
+    padding: 0 12px;
+    vertical-align: top;
+    box-sizing: border-box;
+    position: relative;
+}
+.padma-admin-options-group .padma-label label{
+	display: block;
+    font-weight: bold;
+    margin: 0 0 3px;
+    padding: 0;
+}
+.padma-admin-options-group .padma-label p.description{
+	font-weight: 400;
+}
+.padma-admin-options-group .padma-input{
+    float: left;
+    width: 80%;
+    margin: 0;
+    padding: 0 12px;
+    box-sizing: border-box;
+    position: relative;
+}
+.big-tab.big-tab-visible .padma-postbox-container{
+	display: block !important;
+}

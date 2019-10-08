@@ -4,18 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Padma Unlimited 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
-"Last-Translator: manfred <manfred@plasma.cr>\n"
-"Language-Team: Español de Costa Rica\n"
+"Last-Translator: manfred rodriguez <manfred.rodriguez@padmaunlimited.com>\n"
+"Language-Team: Spanish (Costa Rica)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-26T09:43:53-05:00\n"
-"PO-Revision-Date: 2019-09-26 14:56+0000\n"
+"POT-Creation-Date: 2019-09-24T18:51:44-05:00\n"
+"PO-Revision-Date: 2019-10-08 17:35+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
-"Language: es_CR\n"
+"Language: es-CR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.0; wp-5.2.4-alpha-46074"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
 
 #. Theme Name of the theme
 msgid "Padma Unlimited"
@@ -37,8 +37,8 @@ msgid ""
 "and <a target=\"_blank\" href=\"https://www.casadelapalmera.com/\">Casa de "
 "la Palmera</a>."
 msgstr ""
-"Padma es un tema de creación de plantillas con edición de arrastrar y soltar,"
-" capacidades de diseño de apuntar y hacer clic, potente optimización de "
+"Padma es un constructor de temas con edición de arrastrar y soltar, "
+"capacidades de diseño de apuntar y hacer clic, potente optimización de "
 "motores de búsqueda y mucho más. Para obtener más información, visite "
 "nuestro <a href=\"http://www.padmaunlimited.com/\" target=\"_blank\"> Padma "
 "</a> sitio web. Original escrito por Clay Griffith de Headway Themes y "
@@ -49,7 +49,7 @@ msgstr ""
 
 #. Author of the theme
 msgid "Padma Unlimited Team"
-msgstr "Padma Unlimited Team"
+msgstr "Equipo de Padma Unlimited "
 
 #: library/abstract/api-block.php:162
 msgid "Error: The block options class being registered does not exist."
@@ -84,7 +84,7 @@ msgid ""
 msgstr ""
 "Ingrese un nombre fácilmente reconocible para el alias de bloque y se "
 "utilizará en todo el área de administración de su sitio web. Por ejemplo, el "
-"alias asignado a un bloque de widgets se usará en el panel de widgets del "
+"alias asignado a un bloque de widgets se usará en el panel de Widgets del "
 "escritorio de WordPress.\n"
 
 #: library/abstract/api-block.php:462
@@ -95,8 +95,7 @@ msgid ""
 msgstr ""
 "¿Necesita control más específico? Ingrese aquí los selectores de clase CSS "
 "personalizados y se agregarán al atributo de clase del bloque. <strong> NO "
-"</ strong> poner CSS regular aquí. Utilice el Live CSS editor en vivo para "
-"eso.\n"
+"</ strong> poner CSS regular aquí. Utilice el Live CSS editor para eso.\n"
 
 #: library/abstract/api-block.php:470
 msgid ""
@@ -135,7 +134,7 @@ msgstr ""
 msgid "Add a url for the block title"
 msgstr "Agregue una URL para el título del bloque"
 
-#: library/abstract/api-block.php:561 library/blocks/image/image.php:232
+#: library/abstract/api-block.php:561
 msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 "Marque esta opción para abrir el enlace en una nueva ventana\n"
@@ -148,7 +147,7 @@ msgstr ""
 #: library/abstract/api-block.php:707
 msgid "Min Width (applies to screens that are wider than breakpoint)"
 msgstr ""
-"Ancho mínimo (se aplica a pantallas que son más anchas que el punto de "
+"Ancho Mínimo (se aplica a pantallas que son más anchas que el punto de "
 "interrupción)"
 
 #: library/abstract/api-block.php:708
@@ -185,10 +184,12 @@ msgid ""
 "drops below the content. The lists can look empty due to mass of whitespace. "
 "This will put the list items into 2 columns side by side."
 msgstr ""
-"Coloque los elementos de la lista en dos columnas (categorías, publicaciones "
-"más recientes, menús y otros tipos de listas), una al lado de la otra, "
-"evitando una apariencia vacía, especialmente cuando la lista está en una "
-"barra lateral que se mueve hacia abajo en los dispositivos móviles.\n"
+"Cualquier tipo de lista, como categorías, publicaciones más recientes, "
+"incluso menús, etc. funcionan bien en pantallas grandes en la barra lateral. "
+"Pero en pantallas más pequeñas donde la barra lateral cae debajo del "
+"contenido. Las listas pueden verse vacías debido a la gran cantidad de "
+"espacios en blanco. Esto colocará los elementos de la lista en 2 columnas "
+"una al lado de la otra."
 
 #: library/abstract/api-block.php:745
 msgid "Hide this block"
@@ -200,7 +201,7 @@ msgstr "Esto ocultará este bloque para el punto de interrupción establecido."
 
 #: library/abstract/api-block.php:762
 msgid "Legacy Responsive Grid Block Hiding"
-msgstr "Ocultación de bloque de cuadrícula resposiva heredada"
+msgstr "Ocultación de Bloque de Cuadrícula Resposiva heredada"
 
 #: library/abstract/api-block.php:764
 msgid ""
@@ -225,7 +226,7 @@ msgstr "Importado/ Exportado"
 
 #: library/abstract/api-block.php:793 library/abstract/api-block.php:822
 msgid "Import Block Settings"
-msgstr "Importar configuración de Bloque"
+msgstr "Importar Configuración de Bloque"
 
 #: library/abstract/api-block.php:799
 msgid "Select File to Import"
@@ -254,7 +255,7 @@ msgstr "No Reflejar"
 #: library/abstract/api-panel.php:440
 msgid "View Textarea"
 msgstr ""
-"Ver Textarea\n"
+"Ver \"Área de Texto\"\n"
 
 #: library/abstract/api-panel.php:458
 msgid "View Code Editor"
@@ -313,9 +314,9 @@ msgstr ""
 msgid "The quick brown fox jumps over the lazy dog."
 msgstr "Jovencillo emponzoñado de whisky, ¡qué figurota exhibe!"
 
-#: library/admin/admin-bar.php:47 library/admin/admin-bar.php:125
-#: library/admin/admin.php:262 library/admin/admin.php:269
-#: library/admin/admin.php:277 library/admin/pages/options.php:5
+#: library/admin/admin-bar.php:47 library/admin/admin-bar.php:125 
+#: library/admin/admin.php:262 library/admin/admin.php:269 
+#: library/admin/admin.php:277 library/admin/pages/options.php:5 
 #: library/admin/pages/options.php:75
 msgid "Visual Editor"
 msgstr "Editor Visual"
@@ -328,19 +329,19 @@ msgstr "Cuadrícula"
 msgid "Design"
 msgstr "Diseño"
 
-#: library/admin/admin-bar.php:89 library/admin/admin.php:263
+#: library/admin/admin-bar.php:89 library/admin/admin.php:263 
 #: library/admin/admin.php:270 library/admin/admin.php:278
 msgid "Templates"
 msgstr "Plantillas"
 
-#: library/admin/admin-bar.php:97 library/admin/admin.php:264
-#: library/admin/admin.php:271 library/admin/admin.php:276
-#: library/admin/pages/getting-started.php:14
+#: library/admin/admin-bar.php:97 library/admin/admin.php:264 
+#: library/admin/admin.php:271 library/admin/admin.php:276 
+#: library/admin/pages/getting-started.php:14 
 #: library/admin/pages/options.php:80
 msgid "Options"
 msgstr "Opciones"
 
-#: library/admin/admin-bar.php:104 library/admin/pages/options.php:2
+#: library/admin/admin-bar.php:104 library/admin/pages/options.php:2 
 #: library/admin/pages/options.php:26 library/admin/pages/options.php:31
 msgid "General"
 msgstr "General"
@@ -351,19 +352,19 @@ msgstr "Optimización para Mototres de Búsqueda"
 
 #: library/admin/admin-bar.php:118 library/admin/pages/options.php:4
 msgid "Scripts/Analytics"
-msgstr "Scripts/Analytics"
+msgstr "Scrypts/Analytics"
 
 #: library/admin/admin-bar.php:132 library/admin/pages/options.php:6
 msgid "Advanced"
 msgstr ""
 "Avanzado\n"
 
-#: library/admin/admin-bar.php:140 library/admin/admin.php:265
+#: library/admin/admin-bar.php:140 library/admin/admin.php:265 
 #: library/admin/admin.php:272 library/admin/admin.php:279
 msgid "Tools"
 msgstr "Herramientas"
 
-#: library/admin/admin-bar.php:147 library/admin/pages/tools.php:5
+#: library/admin/admin-bar.php:147 library/admin/pages/tools.php:5 
 #: library/admin/pages/tools.php:19
 msgid "System Info"
 msgstr "Información del Sistema"
@@ -373,7 +374,7 @@ msgid "Clear cache"
 msgstr ""
 "Limpiar cache\n"
 
-#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:85
+#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:85 
 #: library/admin/pages/tools.php:7
 msgid "Reset"
 msgstr "Reiniciar"
@@ -389,11 +390,11 @@ msgid ""
 "modified in the Padma Visual Editor."
 msgstr ""
 "Asigne un diseño compartido a esta entrada. Los Diseños Compartidos se "
-"pueden agregar y modificar en el Editor visual de Padma."
+"pueden agregar y modificar en el Editor Visual de Padma."
 
 #: library/admin/admin-meta-boxes.php:22
 msgid "&ndash; Do Not Use Shared Layout &ndash;"
-msgstr "& ndash; No utilice diseño compartido & ndash;"
+msgstr "& ndash; No utilice Diseño Compartido & ndash;"
 
 #: library/admin/admin-meta-boxes.php:56
 msgid "Hide Title"
@@ -436,7 +437,7 @@ msgid ""
 "longer and more descriptive title in the actual page content."
 msgstr ""
 "Usando el título de página alternativo, puede anular el título que se "
-"muestra en el Bloque de contenido de la página. Al hacer esto, puede tener "
+"muestra en el Bloque de Contenido de la página. Al hacer esto, puede tener "
 "un título de página más corto en el menú de navegación y <code> & lt; title "
 "& gt; </code>, pero puede tener un título más largo y más descriptivo en el "
 "contenido real de la página."
@@ -466,7 +467,7 @@ msgstr ""
 "(por ejemplo, una sola publicación o vista de página). Las clases se pueden "
 "separar con espacios y / o comas."
 
-#: library/admin/admin-meta-boxes.php:116
+#: library/admin/admin-meta-boxes.php:116 
 #: library/admin/admin-meta-boxes.php:122
 msgid "Featured Image Position"
 msgstr "Posición de Imagen Destacada"
@@ -475,37 +476,37 @@ msgstr "Posición de Imagen Destacada"
 msgid "Use Block Default"
 msgstr "Usar Bloque Predeterminado"
 
-#: library/admin/admin-meta-boxes.php:126
+#: library/admin/admin-meta-boxes.php:126 
 #: library/blocks/content/content.php:1489
 msgid "Left of Title"
 msgstr "A la Izquierda del Título"
 
-#: library/admin/admin-meta-boxes.php:127
+#: library/admin/admin-meta-boxes.php:127 
 #: library/blocks/content/content.php:1490
 msgid "Right of Title"
 msgstr "A la Derecha del Título"
 
-#: library/admin/admin-meta-boxes.php:128
+#: library/admin/admin-meta-boxes.php:128 
 #: library/blocks/content/content.php:1491
 msgid "Left of Content"
 msgstr "A la Izquierda del Contenido"
 
-#: library/admin/admin-meta-boxes.php:129
+#: library/admin/admin-meta-boxes.php:129 
 #: library/blocks/content/content.php:1492
 msgid "Right of Content"
 msgstr "A la Derecha del Contenido"
 
-#: library/admin/admin-meta-boxes.php:130
+#: library/admin/admin-meta-boxes.php:130 
 #: library/blocks/content/content.php:1493
 msgid "Above Title"
 msgstr "Por encima del Título"
 
-#: library/admin/admin-meta-boxes.php:131
+#: library/admin/admin-meta-boxes.php:131 
 #: library/blocks/content/content.php:1494
 msgid "Above Content"
 msgstr "Por encima del Contenido"
 
-#: library/admin/admin-meta-boxes.php:132
+#: library/admin/admin-meta-boxes.php:132 
 #: library/blocks/content/content.php:1495
 msgid "Below Content"
 msgstr "Debajo del Contenido"
@@ -514,11 +515,9 @@ msgstr "Debajo del Contenido"
 msgid "Set the position of the featured image for this entry."
 msgstr "Establezca la posición de la imagen destacada para esta entrada."
 
-#: library/admin/admin-meta-boxes.php:172 library/admin/pages/options.php:210
-#: library/blocks/content/content.php:184
+#: library/admin/admin-meta-boxes.php:172 library/admin/pages/options.php:210 
+#: library/blocks/content/content.php:184 
 #: library/blocks/content/content.php:955
-#: library/blocks/listings/block-options.php:264
-#: library/blocks/pin-board/pin-board.php:967
 msgid "Title"
 msgstr "Título"
 
@@ -526,7 +525,7 @@ msgstr "Título"
 msgid "Custom <code>&lt;title&gt;</code> tag"
 msgstr "Etiqueta <code> & lt; title & gt; </code> personalizada"
 
-#: library/admin/admin-meta-boxes.php:180 library/admin/pages/options.php:220
+#: library/admin/admin-meta-boxes.php:180 library/admin/pages/options.php:220 
 #: library/admin/pages/templates.php:59
 msgid "Description"
 msgstr "Descripción"
@@ -567,8 +566,8 @@ msgstr ""
 "Follow / NoFollow le dice a los motores si los enlaces en la entrada deben "
 "rastrearse. Si marca esta casilla para emplear \"nofollow\", los motores "
 "ignorarán los enlaces en la entrada tanto para fines de descubrimiento como "
-"de clasificación. <strong> Nota: </strong> si no está seguro de lo que hace, "
-"no marque esta casilla."
+"de ranking. <strong> Nota: </strong> si no está seguro de lo que hace, no "
+"marque esta casilla."
 
 #: library/admin/admin-meta-boxes.php:204
 msgid "<code>noarchive</code> links in this entry."
@@ -668,7 +667,7 @@ msgid ""
 "Padma &raquo; Configuration</a>.</strong>"
 msgstr ""
 "<strong> Configure los ajustes de SEO para esta página (Página de Inicio) en "
-"la pestaña de configuración de Optimización del Motor de Búsqueda de Padma "
+"la pestaña de Configuración de Optimización del Motor de Búsqueda de Padma "
 "en <a href=\"%\" target=\"_blank\"> Padma & raquo; Configuración </a>. "
 "</strong>"
 
@@ -694,7 +693,7 @@ msgid ""
 "the WordPress menus system with Padma, please add a Navigation block in the "
 "<a href=\"%s\" target=\"_blank\">Visual Editor: Grid</a>."
 msgstr ""
-"Padma ha detectado que no tienes bloques de Navegación. Si desea utilizar el "
+"Padma ha detectado que no tiene bloques de Navegación. Si desea utilizar el "
 "sistema de menús de WordPress con Padma, agregue un bloque de Navegación en "
 "el <a href=\"%s\" target=\"_blank\"> Editor Visual: Cuadrícula </a>."
 
@@ -708,7 +707,7 @@ msgid ""
 "Templates."
 msgstr ""
 "Por favor ir a <a href=\"%s\">Padma &rsaquo; Plantillas</a> para instalar "
-"Plantillas"
+"Plantillas."
 
 #: library/admin/admin.php:495
 msgid "Important! Your site is currently not mobile-friendly."
@@ -751,7 +750,7 @@ msgstr "Abrir en el Editor Visual de Padma "
 msgid "Welcome"
 msgstr "Bienvenidos"
 
-#: library/admin/pages/getting-started.php:16
+#: library/admin/pages/getting-started.php:16 
 #: library/admin/pages/getting-started.php:93
 msgid "Need help?"
 msgstr "¿Necesita ayuda?"
@@ -766,7 +765,8 @@ msgstr "Bienvenido!"
 
 #: library/admin/pages/getting-started.php:25
 msgid "Your <strong>Padma Theme Builder</strong> installation is ready."
-msgstr "Su instalación de <strong> Padma Theme Builder </strong> está lista."
+msgstr ""
+"Su instalación de <strong>Constructor de Temas de Padma </strong> está lista."
 
 #: library/admin/pages/getting-started.php:26
 msgid "You can start creating now!"
@@ -784,7 +784,7 @@ msgstr ""
 msgid ""
 "Padma | unlimited - Core features in the WordPress dashboard / admin menu."
 msgstr ""
-"Padma | Unlimited - funciones Principales en el panel de control de "
+"Padma | Unlimited - Funciones Principales en el panel de control de "
 "WordPress / menú de administración."
 
 #: library/admin/pages/getting-started.php:32
@@ -830,7 +830,7 @@ msgid ""
 "layouts and edit the visual style of your WordPress website through a "
 "graphical interface."
 msgstr ""
-"Padma | Unlimited Editor es una herramienta poderosa para diseñar y "
+"Editor Padma | Unlimited es una herramienta poderosa para diseñar y "
 "personalizar sus diseños y editar el estilo visual de su sitio web de "
 "WordPress a través de una interfaz gráfica."
 
@@ -880,10 +880,10 @@ msgid ""
 "You should provide this system information If you want to open a ticket or "
 "if you log a help request on the forums"
 msgstr ""
-"Debe proporcionar esta información del sistema si desea abrir un ticket o si "
-"registra una solicitud de ayuda en los foros"
+"Debe proporcionar esta información del sistema si desea abrir un tiquetet o "
+"si registra una solicitud de ayuda en los foros"
 
-#: library/admin/pages/getting-started.php:81 library/admin/pages/tools.php:6
+#: library/admin/pages/getting-started.php:81 library/admin/pages/tools.php:6 
 #: library/admin/pages/tools.php:153
 msgid "Snapshots"
 msgstr "Instantáneas"
@@ -902,7 +902,7 @@ msgid ""
 "Theme Builder installation."
 msgstr ""
 "Instrucciones para restablecer su <strong> Padma |  Unlimited</strong> "
-"WordPress Theme Builder  instalación."
+"instalación del Constructor de Temas para WordPress."
 
 #: library/admin/pages/getting-started.php:94
 msgid ""
@@ -999,7 +999,7 @@ msgid ""
 "Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, "
 "Templates on cloud, site monitor."
 msgstr ""
-"Servicios: Documentación, Lifesaver (migrar desde HTW / Blox), Child Theme, "
+"Servicios: Documentación, Lifesaver (Migrar desde HTW / Blox), Child Theme, "
 "Plantillas en la nube, monitor del sitio."
 
 #: library/admin/pages/getting-started.php:125
@@ -1105,7 +1105,7 @@ msgstr "Plantillas SEO"
 
 #: library/admin/pages/options.php:169
 msgid "Select a Template:"
-msgstr "Seleccione una Plantilla"
+msgstr "Seleccione una Plantilla:"
 
 #: library/admin/pages/options.php:171
 msgid "Blog Index"
@@ -1119,41 +1119,31 @@ msgstr "Portada"
 msgid "Category"
 msgstr "Categoría"
 
-#: library/admin/pages/options.php:189
-#: library/blocks/navigation/navigation.php:719
-#: library/blocks/search/search.php:17 library/blocks/search/search.php:70
-#: library/common/functions.php:673 library/common/functions.php:675
+#: library/admin/pages/options.php:189 library/common/functions.php:673 
+#: library/common/functions.php:675
 msgid "Search"
 msgstr "Búsqueda"
 
 #: library/admin/pages/options.php:190 library/blocks/content/content.php:954
-#: library/blocks/listings/block-options.php:263
-#: library/blocks/pin-board/pin-board.php:966
 msgid "Date"
 msgstr "Fecha"
 
-#: library/admin/pages/options.php:191 library/admin/pages/templates.php:68
-#: library/blocks/content/content.php:927
+#: library/admin/pages/options.php:191 library/admin/pages/templates.php:68 
+#: library/blocks/content/content.php:927 
 #: library/blocks/content/content.php:959
-#: library/blocks/listings/block-options.php:238
-#: library/blocks/pin-board/pin-board.php:593
-#: library/blocks/pin-board/pin-board.php:943
 msgid "Author"
 msgstr "Autor"
 
 #: library/admin/pages/options.php:192
 msgid "Post Tag"
-msgstr "Publicar etiqueta"
+msgstr "Publicar Etiqueta"
 
-#: library/admin/pages/options.php:193 library/blocks/content/content.php:910
+#: library/admin/pages/options.php:193 library/blocks/content/content.php:910 
 #: library/blocks/content/content.php:960
-#: library/blocks/listings/block-options.php:197
-#: library/blocks/pin-board/pin-board.php:906
 msgid "Post Type"
 msgstr "Tipo de Publicación"
 
 #: library/admin/pages/options.php:194
-#: library/blocks/pin-board/pin-board.php:914
 msgid "Taxonomy"
 msgstr "Taxonomía"
 
@@ -1196,7 +1186,7 @@ msgstr ""
 "respecto a lo que están buscando. <strong> Consejo: </strong> una buena "
 "descripción tiene alrededor de 150 caracteres. <br /> <br /> <a href = "
 "\"http://www.seomoz.org/learn-seo/meta-description\" target = \"_blank\"> "
-"Obtenga más información sobre &lt; meta & gt; Descripciones y raquo;</a>"
+"Obtenga más información sobre &lt; meta & gt; Descripciones &raquo;</a>"
 
 #: library/admin/pages/options.php:231
 msgid ""
@@ -1298,7 +1288,6 @@ msgstr ""
 "caché de esta página."
 
 #: library/admin/pages/options.php:288
-#: library/blocks/pin-board/pin-board.php:803
 msgid "Effects"
 msgstr "Efectos"
 
@@ -1397,7 +1386,7 @@ msgstr ""
 
 #: library/admin/pages/options.php:424
 msgid "Tooltips"
-msgstr "Información sobre herramientas"
+msgstr "Sugerencias sobre herramientas"
 
 #: library/admin/pages/options.php:428
 msgid "Disable Tooltips in the Visual Editor"
@@ -1503,9 +1492,9 @@ msgid ""
 "combine them properly. If you are not using mod_pagespeed on your server, "
 "this feature will not do anything for you."
 msgstr ""
-"Strps id y medios de las etiquetas de la hoja de estilo, lo que permite que "
-"la velocidad de página los combine correctamente. Si no está utilizando "
-"mod_pagespeed en su servidor, esta función no hará nada por usted."
+"Strips id y atributos de medios desde las etiquetas de la hoja de estilo, "
+"permite que la velocidad de página los combine correctamente. Si no está "
+"utilizando mod_pagespeed en su servidor, esta función no hará nada por usted."
 
 #: library/admin/pages/options.php:523 library/admin/pages/options.php:527
 msgid "HTTP/2 Server Push"
@@ -1576,8 +1565,8 @@ msgid ""
 "Once active this option will allow you to upgrade your website to the latest "
 "Preview, Beta or Release candidate."
 msgstr ""
-"Una vez activa, esta opción le permitirá actualizar su sitio web a la última "
-"versión Preliminar, Beta o Candidato de Lanzamiento.\n"
+"Una vez activada, esta opción le permitirá actualizar su sitio web a la "
+"última versión Preliminar, Beta o Candidato de Lanzamiento.\n"
 " \n"
 
 #: library/admin/pages/options.php:580
@@ -1747,13 +1736,12 @@ msgstr "Imagen de Plantilla"
 msgid "Select Image"
 msgstr "Seleccionar Imagen"
 
-#: library/admin/pages/templates.php:47 library/admin/pages/templates.php:112
+#: library/admin/pages/templates.php:47 library/admin/pages/templates.php:112 
 #: library/admin/pages/templates.php:120
 msgid "Save Template on Cloud"
 msgstr "Guardar Plantilla en la Nube"
 
 #: library/admin/pages/templates.php:54
-#: library/blocks/listings/block-options.php:83
 msgid "Name"
 msgstr "Nombre"
 
@@ -1761,8 +1749,7 @@ msgstr "Nombre"
 msgid "Version"
 msgstr "Versión"
 
-#: library/admin/pages/templates.php:78 library/blocks/image/image.php:19
-#: library/blocks/image/image.php:37 library/blocks/image/image.php:167
+#: library/admin/pages/templates.php:78
 msgid "Image"
 msgstr "Imagen"
 
@@ -2036,14 +2023,6 @@ msgstr "Error: se requiere un selector CSS para esta instancia de elemento."
 msgid "Error: The group being registered already exists."
 msgstr "Error: El grupo que se está registrando ya existe."
 
-#: library/blocks/audio/audio.php:27
-msgid "Display an audio"
-msgstr ""
-
-#: library/blocks/audio/audio.php:45
-msgid "Audio container"
-msgstr ""
-
 #: library/blocks/audio/audio.php:178
 msgid "Your browser does not support the audio tag."
 msgstr "Su navegador no es compatible con la etiqueta de audio."
@@ -2120,39 +2099,39 @@ msgstr ""
 "Puede colocar este audio en relación con el bloque utilizando las posiciones "
 "proporcionadas"
 
-#: library/blocks/audio/audio.php:303 library/blocks/image/image.php:250
+#: library/blocks/audio/audio.php:303
 msgid "Top Left"
 msgstr "Arriba a la izquierda"
 
-#: library/blocks/audio/audio.php:304 library/blocks/image/image.php:251
+#: library/blocks/audio/audio.php:304
 msgid "Top Center"
 msgstr "Centro Superior"
 
-#: library/blocks/audio/audio.php:305 library/blocks/image/image.php:252
+#: library/blocks/audio/audio.php:305
 msgid "Top Right"
 msgstr "Arriba a la Derecha"
 
-#: library/blocks/audio/audio.php:306 library/blocks/image/image.php:253
+#: library/blocks/audio/audio.php:306
 msgid "Center Left"
 msgstr "Centro Izquierda"
 
-#: library/blocks/audio/audio.php:307 library/blocks/image/image.php:254
+#: library/blocks/audio/audio.php:307
 msgid "Center Center"
 msgstr "Centro Centro"
 
-#: library/blocks/audio/audio.php:308 library/blocks/image/image.php:255
+#: library/blocks/audio/audio.php:308
 msgid "Center Right"
 msgstr "Centro Derecha"
 
-#: library/blocks/audio/audio.php:309 library/blocks/image/image.php:256
+#: library/blocks/audio/audio.php:309
 msgid "Bottom Left"
 msgstr "Abajo a la Izquierda"
 
-#: library/blocks/audio/audio.php:310 library/blocks/image/image.php:257
+#: library/blocks/audio/audio.php:310
 msgid "Bottom Center"
 msgstr "Parte Inferior Central"
 
-#: library/blocks/audio/audio.php:311 library/blocks/image/image.php:258
+#: library/blocks/audio/audio.php:311
 msgid "Bottom Right"
 msgstr "Abajo a la Derecha"
 
@@ -2178,22 +2157,7 @@ msgstr ""
 "visual de dónde está su visitante.<br /><strong>Ejemplo:</strong> Inicio "
 "&raquo; Blog &raquo; Muestra de Publicación en el Blog"
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:31
-#: library/blocks/pin-board/pin-board.php:800
-msgid "Text"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:37
-msgid "Hyperlinks"
-msgstr ""
-
-#: library/blocks/breadcrumbs/breadcrumbs.php:43
-msgid "Separators"
-msgstr ""
-
 #: library/blocks/breadcrumbs/breadcrumbs.php:75
-#: library/blocks/navigation/navigation.php:671
-#: library/blocks/navigation/navigation.php:876
 msgid "Home"
 msgstr "Inicio"
 
@@ -2216,12 +2180,12 @@ msgstr "Archivo:"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:148
 msgid "Whoops! Page Not Found..."
-msgstr "Opa! Página no encontrada..."
+msgstr "Opa! Página No Encontrada..."
 
-#: library/blocks/breadcrumbs/breadcrumbs.php:156
+#: library/blocks/breadcrumbs/breadcrumbs.php:156 
 #: library/blocks/breadcrumbs/breadcrumbs.php:221
 msgid "You Are Here:"
-msgstr "Usted está aquí:"
+msgstr "Usted Está Aquí:"
 
 #: library/blocks/breadcrumbs/breadcrumbs.php:210
 msgid "Show \"You Are Here\" prefix"
@@ -2324,7 +2288,6 @@ msgid "Form textarea"
 msgstr "Formulario \"Área de Texto\""
 
 #: library/blocks/contact-form-7/contact-form-7.php:117
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:69
 msgid "Form submit"
 msgstr "Enviar Formulario"
 
@@ -2336,7 +2299,7 @@ msgstr "Seleccionar Formulario"
 msgid "Select a form"
 msgstr "Selecciona un formulario"
 
-#: library/blocks/content/comments-template.php:18
+#: library/blocks/content/comments-template.php:18 
 #: library/blocks/content/content.php:1399
 msgid "One Response"
 msgstr "Una Respuesta"
@@ -2357,60 +2320,60 @@ msgstr ""
 "Esta publicación está protegida por contraseña. Por favor, introduzca la "
 "contraseña para ver los comentarios."
 
-#: library/blocks/content/content-display.php:158
-#: library/blocks/listings/content-display.php:68
+#: library/blocks/content/content-display.php:157 
+#: library/blocks/listings/content-display.php:69
 msgid "<p>Sorry, there was no content that matched your search.</p>"
 msgstr "<p> Lo sentimos, no hubo contenido que coincida con su búsqueda. </p>"
 
-#: library/blocks/content/content-display.php:289
+#: library/blocks/content/content-display.php:288
 msgid "Daily Archives: %s"
 msgstr ""
 "Archivos diarios:% s\n"
 
-#: library/blocks/content/content-display.php:292
+#: library/blocks/content/content-display.php:291
 msgid "Monthly Archives: %s"
 msgstr "Archivos mensuales :% s"
 
-#: library/blocks/content/content-display.php:295
+#: library/blocks/content/content-display.php:294
 msgid "Yearly Archives: %s"
 msgstr "Archivos anuales: % s"
 
-#: library/blocks/content/content-display.php:298
+#: library/blocks/content/content-display.php:297
 msgid "Blog Archives"
 msgstr ""
 "Archivos del Blog\n"
 
-#: library/blocks/content/content-display.php:311
+#: library/blocks/content/content-display.php:310
 msgid "Category Archives: %s"
 msgstr "Archivos de categoría:% s"
 
-#: library/blocks/content/content-display.php:346
-#: library/blocks/content/content-display.php:349
+#: library/blocks/content/content-display.php:345 
+#: library/blocks/content/content-display.php:348
 msgid "Author Archives: %s"
 msgstr "Archivos del autor:% s"
 
-#: library/blocks/content/content-display.php:359
+#: library/blocks/content/content-display.php:358
 msgid "Search Results for: %s"
 msgstr "Resultados de Búsqueda para: %s"
 
-#: library/blocks/content/content-display.php:368
+#: library/blocks/content/content-display.php:367
 msgid "Tag Archives: %s"
 msgstr "Archivo de etiquetas: % s"
 
-#: library/blocks/content/content-display.php:565
-#: library/blocks/listings/content-display.php:199
+#: library/blocks/content/content-display.php:564 
+#: library/blocks/listings/content-display.php:200
 msgid "%s"
 msgstr "%s"
 
-#: library/blocks/content/content-display.php:853
+#: library/blocks/content/content-display.php:852
 msgid "Pages:"
 msgstr "Páginas:"
 
-#: library/blocks/content/content-display.php:894
+#: library/blocks/content/content-display.php:893
 msgid "Whoops!  Page Not Found"
-msgstr "Opa! Página no encontrada"
+msgstr "Opa! Página No Encontrada"
 
-#: library/blocks/content/content-display.php:902
+#: library/blocks/content/content-display.php:901
 msgid ""
 "<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
 "are looking for does not exist or has been moved elsewhere.</p>"
@@ -2418,7 +2381,7 @@ msgstr ""
 "<p> No se preocupe, no hiciste nada malo. Parece que la página que está "
 "buscando no existe o se ha movido a otro lugar. </p>"
 
-#: library/blocks/content/content-display.php:904
+#: library/blocks/content/content-display.php:903
 msgid ""
 "<p>If you keep ending up here, please head back to our <a href=\"%s\">"
 "homepage</a> or try the search form below.</p>"
@@ -2426,36 +2389,31 @@ msgstr ""
 "<p> Si continúa terminando aquí, regrese a nuestra <a href=\"%s\"> página de "
 "inicio </a> o pruebe el formulario de búsqueda a continuación. </p>"
 
-#: library/blocks/content/content-display.php:979
+#: library/blocks/content/content-display.php:978
 msgid "Discard Reply"
 msgstr "Descartar respuesta"
 
-#: library/blocks/content/content-display.php:1017
+#: library/blocks/content/content-display.php:1016
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class = \"meta-nav\"> & larr; </span> Publicaciones anteriores"
 
-#: library/blocks/content/content-display.php:1018
+#: library/blocks/content/content-display.php:1017
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Nuevas publicaciones <span class = \"meta-nav\"> & rarr; </span>"
 
-#: library/blocks/content/content-display.php:1212
+#: library/blocks/content/content-display.php:1211
 msgid "%s &ndash; Comments"
 msgstr "%s &ndash; Comentarios"
 
-#: library/blocks/content/content-display.php:1221
+#: library/blocks/content/content-display.php:1220
 msgid "Respond to %s"
 msgstr "Responda a % s"
 
-#: library/blocks/content/content-display.php:1229
+#: library/blocks/content/content-display.php:1228
 msgid "View all posts by %s"
 msgstr "Ver todas las publicaciones por % s"
 
 #: library/blocks/content/content.php:16
-#: library/blocks/custom-code/custom-code.php:43
-#: library/blocks/custom-code/custom-code.php:119
-#: library/blocks/custom-code/custom-code.php:128
-#: library/blocks/footer/footer.php:233
-#: library/blocks/navigation/navigation.php:716
 msgid "Content"
 msgstr "Contenido"
 
@@ -2507,7 +2465,6 @@ msgid "Body Hyperlinks"
 msgstr "Enlaces del Cuerpo"
 
 #: library/blocks/content/content.php:217
-#: library/blocks/pin-board/pin-board.php:802
 msgid "Images"
 msgstr "Imágenes"
 
@@ -2523,18 +2480,17 @@ msgstr "Imágenes en Subtítulos"
 msgid "Caption Text"
 msgstr "Texto de Subtítulo"
 
-#: library/blocks/content/content.php:246
+#: library/blocks/content/content.php:246 
 #: library/blocks/content/content.php:805
-#: library/blocks/pin-board/pin-board.php:801
 msgid "Meta"
 msgstr "Meta"
 
-#: library/blocks/content/content.php:252
+#: library/blocks/content/content.php:252 
 #: library/blocks/content/content.php:1302
 msgid "Meta Above Content"
 msgstr "Meta Sobre el Contenido"
 
-#: library/blocks/content/content.php:259
+#: library/blocks/content/content.php:259 
 #: library/blocks/content/content.php:1309
 msgid "Meta Below Content"
 msgstr "Meta Debajo del Contenido"
@@ -2549,7 +2505,7 @@ msgstr "Imagen de Avatar del Autor"
 
 #: library/blocks/content/content.php:284
 msgid "Publisher Logo container"
-msgstr "Contenedor del logo del Editor"
+msgstr "Contenedor del Logo del Editor"
 
 #: library/blocks/content/content.php:291
 msgid "Publisher Logo image container"
@@ -2611,7 +2567,7 @@ msgstr ""
 "Botón de Navegación de Bucle\n"
 " \n"
 
-#: library/blocks/content/content.php:429
+#: library/blocks/content/content.php:429 
 #: library/blocks/content/content.php:806
 msgid "Comments"
 msgstr "Comentarios"
@@ -2720,8 +2676,8 @@ msgstr "Bloque Separador Gutenberg"
 msgid "Gutenberg archives block"
 msgstr "Bloque de Archivos de Gutenberg"
 
-#: library/blocks/content/content.php:614
-#: library/blocks/content/content.php:620
+#: library/blocks/content/content.php:614 
+#: library/blocks/content/content.php:620 
 #: library/blocks/content/content.php:632
 msgid "Gutenberg categories block"
 msgstr "Bloque de Categorías Gutenberg "
@@ -2798,8 +2754,8 @@ msgstr ""
 "del Índice del Blog, enumerará las publicaciones como una plantilla de blog "
 "normal y si agrega este cuadro en un diseño de categoría, enumerará las "
 "publicaciones de esa categoría. Si desea cambiar lo que muestra el bloque de "
-"contenido, cambie el modo a <em> Consulta personalizada </em> y use la "
-"configuración en la pestaña <em> Filtros de consulta </em>."
+"contenido, cambie el modo a <em> Consulta Personalizada </em> y use la "
+"configuración en <em> Filtros de Consulta </em>."
 
 #: library/blocks/content/content.php:790
 msgid ""
@@ -2835,13 +2791,11 @@ msgstr ""
 "&bull; %publisher_no_img%</p>"
 
 #: library/blocks/content/content.php:801
-#: library/blocks/pin-board/pin-board.php:813
 msgid "Mode"
 msgstr "Modo"
 
-#: library/blocks/content/content.php:802
+#: library/blocks/content/content.php:802 
 #: library/blocks/content/content.php:856
-#: library/blocks/pin-board/pin-board.php:798
 msgid "Query Filters"
 msgstr "Filtros de Consulta"
 
@@ -2887,7 +2841,6 @@ msgstr ""
 "de una página anterior"
 
 #: library/blocks/content/content.php:863
-#: library/blocks/pin-board/pin-board.php:600
 msgid "Categories"
 msgstr "Categorías"
 
@@ -2896,14 +2849,10 @@ msgid "Categories Mode"
 msgstr "Modo de Categorías"
 
 #: library/blocks/content/content.php:874
-#: library/blocks/listings/block-options.php:141
-#: library/blocks/pin-board/pin-board.php:935
 msgid "Include"
 msgstr "Incluir"
 
 #: library/blocks/content/content.php:875
-#: library/blocks/listings/block-options.php:132
-#: library/blocks/pin-board/pin-board.php:936
 msgid "Exclude"
 msgstr "Excluir"
 
@@ -2916,7 +2865,6 @@ msgid "Check this to allow the tags filter show."
 msgstr "Marque esto para permitir que se muestre el filtro de etiquetas."
 
 #: library/blocks/content/content.php:901
-#: library/blocks/pin-board/pin-board.php:607
 msgid "Tags"
 msgstr "Etiquetas"
 
@@ -2925,19 +2873,14 @@ msgid "Post Status"
 msgstr "Estado de la Publicación"
 
 #: library/blocks/content/content.php:935
-#: library/blocks/listings/block-options.php:183
 msgid "Number of Posts"
 msgstr "Número de Publicaciones"
 
 #: library/blocks/content/content.php:943
-#: library/blocks/listings/block-options.php:246
-#: library/blocks/pin-board/pin-board.php:892
 msgid "Offset"
 msgstr "Offset"
 
 #: library/blocks/content/content.php:944
-#: library/blocks/listings/block-options.php:247
-#: library/blocks/pin-board/pin-board.php:893
 msgid ""
 "The offset is the number of entries or posts you would like to skip.  If the "
 "offset is 1, then the first post will be skipped."
@@ -2946,19 +2889,14 @@ msgstr ""
 "offset es 1, se omitirá la primera publicación."
 
 #: library/blocks/content/content.php:951
-#: library/blocks/listings/block-options.php:260
-#: library/blocks/pin-board/pin-board.php:963
 msgid "Order By"
 msgstr "Ordenar Por"
 
 #: library/blocks/content/content.php:956
-#: library/blocks/listings/block-options.php:265
-#: library/blocks/pin-board/pin-board.php:968
 msgid "Random"
 msgstr "Aleatorio"
 
 #: library/blocks/content/content.php:957
-#: library/blocks/listings/block-options.php:266
 msgid "Comment Count"
 msgstr "Conteo de Comentarios"
 
@@ -2967,23 +2905,14 @@ msgid "Custom Order"
 msgstr "Orden Personalizado"
 
 #: library/blocks/content/content.php:968
-#: library/blocks/listings/block-options.php:274
-#: library/blocks/pin-board/pin-board.php:958
-#: library/blocks/pin-board/pin-board.php:975
 msgid "Order"
 msgstr "Ordenar"
 
 #: library/blocks/content/content.php:971
-#: library/blocks/listings/block-options.php:97
-#: library/blocks/listings/block-options.php:277
-#: library/blocks/pin-board/pin-board.php:978
 msgid "Descending"
 msgstr "Descendente"
 
 #: library/blocks/content/content.php:972
-#: library/blocks/listings/block-options.php:98
-#: library/blocks/listings/block-options.php:278
-#: library/blocks/pin-board/pin-board.php:979
 msgid "Ascending"
 msgstr "Ascendente"
 
@@ -2991,7 +2920,7 @@ msgstr "Ascendente"
 msgid "Include by ID"
 msgstr "Incluir por ID"
 
-#: library/blocks/content/content.php:979
+#: library/blocks/content/content.php:979 
 #: library/blocks/content/content.php:986
 msgid ""
 "In both Include and Exclude by ID, you use a comma separated list of IDs of "
@@ -3023,7 +2952,6 @@ msgstr ""
 "extracto o del contenido truncado."
 
 #: library/blocks/content/content.php:1002
-#: library/blocks/pin-board/pin-board.php:1014
 msgid "Show Titles"
 msgstr "Mostrar Títulos"
 
@@ -3087,7 +3015,7 @@ msgid ""
 "\"Category Archives: %archive%\""
 msgstr ""
 "Use título personalizado para el archivo. Utilice% archive% para categoría, "
-"etiqueta, etc.: ejemplo \"Archivos de categoría:% archive%\""
+"etiqueta, etc.: ejemplo \"Archivos de categoría: % archive%\""
 
 #: library/blocks/content/content.php:1065
 msgid "Show Read More"
@@ -3115,7 +3043,7 @@ msgstr ""
 "o página). Cuando se establece en normal, Padma determinará si las entradas "
 "o extractos completos deben mostrarse en función de la configuración de <em> "
 "Publicaciones destacadas </em> y qué página se muestra. <br /> <br /> "
-"<strong> Consejo: </strong> establezca esto en <em> Ocultar Contenido de "
+"<strong> Consejo: </strong> Establezca esto en <em> Ocultar Contenido de "
 "Entrada </em> para crear una lista simple de publicaciones."
 
 #: library/blocks/content/content.php:1078
@@ -3201,7 +3129,7 @@ msgid ""
 "On archive layouts: Show links at the bottom of the loop for the visitor to "
 "view older or newer posts."
 msgstr ""
-"En diseños de archivo: muestre enlaces en la parte inferior del bucle para "
+"En diseños de archivo: Muestre enlaces en la parte inferior del bucle para "
 "que el visitante vea las publicaciones más antiguas o más recientes."
 
 #: library/blocks/content/content.php:1150
@@ -3221,7 +3149,7 @@ msgstr ""
 #: library/blocks/content/content.php:1171
 msgid "Single Post Navigation: Same Tax?"
 msgstr ""
-"Navegación de Publicación Única: ¿El mismo Impuesto?\n"
+"Navegación de Publicación Única: ¿La misma Tax?\n"
 " \n"
 
 #: library/blocks/content/content.php:1173
@@ -3261,7 +3189,7 @@ msgid ""
 "  It will take you straight to the WordPress admin to edit the entry."
 msgstr ""
 "El enlace de edición es un enlace conveniente que se mostrará junto al "
-"título de la publicación. Te llevará directamente al administrador de "
+"título de la publicación. Le llevará directamente al administrador de "
 "WordPress para editar la entrada."
 
 #: library/blocks/content/content.php:1205
@@ -3511,7 +3439,6 @@ msgid "Attachment Page"
 msgstr "Página Adjunta"
 
 #: library/blocks/content/content.php:1478
-#: library/blocks/listings/block-options.php:81
 msgid "None"
 msgstr "Ninguno"
 
@@ -3633,11 +3560,11 @@ msgstr ""
 "</strong> DEBE tener una consulta seleccionada para seleccionar también un "
 "diseño LoopBuddy."
 
-#: library/blocks/content/content.php:1610 library/blocks/search/search.php:141
+#: library/blocks/content/content.php:1610
 msgid "SearchWP Engine"
 msgstr "SearchWP Engine"
 
-#: library/blocks/content/content.php:1612 library/blocks/search/search.php:143
+#: library/blocks/content/content.php:1612
 msgid ""
 "If you wish to display the results of a supplemented SearchWP engine, please "
 "select the engine here."
@@ -3661,7 +3588,7 @@ msgstr "&ndash; No buscar &ndash;"
 msgid "No tags available"
 msgstr "No hay etiquetas disponibles."
 
-#: library/blocks/content/content.php:1842 library/blocks/search/search.php:153
+#: library/blocks/content/content.php:1842
 msgid "&ndash; Select an Engine &ndash;"
 msgstr "&ndash; Seleccione un Motor &ndash;"
 
@@ -3673,1352 +3600,42 @@ msgstr "&ndash;Usar Consulta Predeterminada&ndash;"
 msgid "&ndash; Use Default Layout &ndash;"
 msgstr "&ndash; Usar Diseño Predeterminado &ndash;"
 
-#: library/blocks/custom-code/custom-code.php:17
-msgid "Custom Code"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:19
-msgid ""
-"Place in custom HTML, PHP, or even WordPress shortcodes into this block."
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:35
-msgid "There is no custom code to display."
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:49
-msgid "Content H1"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:55
-msgid "Content H2"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:61
-msgid "Content H3"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:67
-msgid "Content H4"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:73
-msgid "Content H5"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:79
-msgid "Content H6"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:85
-msgid "Content p"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:91
-msgid "Content a"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:97
-msgid "Content ul"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:103
-msgid "Content ul li"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:127
-msgid "content"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:130
-msgid ""
-"Write your custom code here. To enable PHP Execution please add "
-"define('PADMA_DISABLE_PHP_PARSING', false); to your wp-config.php"
-msgstr ""
-
-#: library/blocks/custom-code/custom-code.php:141
-msgid ""
-"PHP Parsing is currently disable, to enable PHP Execution please add: <br>"
-"<pre>define('PADMA_DISABLE_PHP_PARSING', false);</pre><br> to your wp-config."
-"php"
-msgstr ""
-
-#: library/blocks/embed/embed.php:15
-msgid "Embed"
-msgstr ""
-
-#: library/blocks/embed/embed.php:17
-msgid ""
-"The Embed block allows you to embed YouTube, Vimeo, or any other popular "
-"oEmbed supported service."
-msgstr ""
-
-#: library/blocks/embed/embed.php:49
-msgid ""
-"There is no content to display. Please enter a valid embed URL in the visual "
-"editor."
-msgstr ""
-
-#: library/blocks/embed/embed.php:130
-msgid "Embed Options"
-msgstr ""
-
-#: library/blocks/embed/embed.php:138
-msgid ""
-"Enter the URL <strong>(No HTML)</strong> to the media you wish to embed.  We "
-"support most major video and photo sites including (but not limited to) "
-"YouTube, Vimeo, Flickr, blip.tv, Hulu, and more.  <em>Need more info about "
-"oEmbed?  <a href=\"http://codex.wordpress.org/Embeds\" target=\"_blank\">"
-"Read More &rarr;</a></em>"
-msgstr ""
-
-#: library/blocks/embed/embed.php:144
-msgid "Embed URL"
-msgstr ""
-
-#: library/blocks/embed/embed.php:146
-msgid "URL of Media"
-msgstr ""
-
-#: library/blocks/footer/footer.php:21
-msgid "Footer"
-msgstr ""
-
-#: library/blocks/footer/footer.php:28
-msgid ""
-"This typically goes at the bottom of your site and will display the "
-"copyright, and miscellaneous links."
-msgstr ""
-
-#: library/blocks/footer/footer.php:41 library/blocks/footer/footer.php:168
-msgid "Copyright"
-msgstr "Copyright"
-
-#: library/blocks/footer/footer.php:48
-msgid "Padma Attribution"
-msgstr ""
-
-#: library/blocks/footer/footer.php:55 library/blocks/footer/footer.php:137
+#: library/blocks/footer/footer.php:121
 msgid "Administration Panel"
 msgstr "Panel de Administracion"
 
-#: library/blocks/footer/footer.php:62
-msgid "Go To Top Link"
-msgstr ""
-
-#: library/blocks/footer/footer.php:71
-msgid "Responsive Grid Toggle Link"
-msgstr ""
-
-#: library/blocks/footer/footer.php:139
+#: library/blocks/footer/footer.php:123
 msgid "Administration Login"
 msgstr "Inicio de sesión de administración"
 
-#: library/blocks/footer/footer.php:156
+#: library/blocks/footer/footer.php:140
 msgid "Unlimited by Padma"
 msgstr "Ilimitado por Padma"
 
-#: library/blocks/footer/footer.php:208
+#: library/blocks/footer/footer.php:152
+msgid "Copyright"
+msgstr "Copyright"
+
+#: library/blocks/footer/footer.php:192
 msgid "View Full Site"
-msgstr "Ver sitio completo"
+msgstr "Ver Sitio Completo"
 
-#: library/blocks/footer/footer.php:215
+#: library/blocks/footer/footer.php:199
 msgid "View Mobile Site"
-msgstr "Ver sitio móvil"
+msgstr "Ver Sitio Móvil"
 
-#: library/blocks/footer/footer.php:241
-msgid "Show Admin Link/Login"
-msgstr ""
-
-#: library/blocks/footer/footer.php:247
-msgid "Show Go To Top Link"
-msgstr ""
-
-#: library/blocks/footer/footer.php:266 library/blocks/footer/footer.php:268
-msgid "Custom \"Go to Top\" text"
-msgstr ""
-
-#: library/blocks/footer/footer.php:273
-msgid "Hide Padma Theme Attribution"
-msgstr ""
-
-#: library/blocks/footer/footer.php:280
-msgid "Show Copyright"
-msgstr ""
-
-#: library/blocks/footer/footer.php:287
-msgid "Custom Copyright"
-msgstr ""
-
-#: library/blocks/footer/footer.php:289
-msgid ""
-"If you would like to change the copyright in the footer to say something "
-"different, enter it here. Use %Y% for current year."
-msgstr ""
-
-#: library/blocks/footer/footer.php:294
-msgid "Hide a link to view the full site on mobile."
-msgstr ""
-
-#: library/blocks/footer/footer.php:296
-msgid "Shows a link to either view the full site or view the mobile site."
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:37
-msgid "<p>There is no form to display.</p>"
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:67
-msgid "Form Setup"
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:76
-msgid "Form To Display"
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:78
-msgid "Select which form you would like this block to display."
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:85
-msgid "Display Form Title"
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:92
-msgid "Display Form Description"
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:99
-msgid "Use AJAX"
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:101
-msgid "AJAX is a technology that will allow faster submission on your forms."
-msgstr ""
-
-#: library/blocks/gravity-forms/gravity-forms.php:113
-msgid "&ndash; Select a Form &ndash;"
-msgstr ""
-
-#: library/blocks/header/header.php:21
-msgid "Header"
-msgstr ""
-
-#: library/blocks/header/header.php:29
-msgid ""
-"Display your banner, logo, or site title and tagline.  This typically goes "
-"at the top of your website."
-msgstr ""
-
-#: library/blocks/header/header.php:40
-msgid "Site Title"
-msgstr ""
-
-#: library/blocks/header/header.php:50
-msgid "Banner/Logo Link"
-msgstr ""
-
-#: library/blocks/header/header.php:60
-msgid "Banner Image"
-msgstr ""
-
-#: library/blocks/header/header.php:66
-msgid "Site Tagline"
-msgstr ""
-
-#: library/blocks/header/header.php:147
-msgid "Banner/Logo"
-msgstr ""
-
-#: library/blocks/header/header.php:153
-msgid "Automatically Resize Header Image"
-msgstr ""
-
-#: library/blocks/header/header.php:155
-msgid ""
-"If you would like Padma to automatically scale and crop your header image to "
-"the correct dimensions, keep this checked.<br /><br /><em><strong>Important:"
-"</strong> In order for the image to be resized and cropped it must be "
-"uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From "
-"URL</strong>.</em>"
-msgstr ""
-
-#: library/blocks/header/header.php:161
-msgid "Hide Tagline"
-msgstr ""
-
-#: library/blocks/header/header.php:163
-msgid ""
-"Check this to hide the tagline in your header.  The tagline will sit beneath "
-"your site title.<br /><br /><em><strong>Important:</strong> The tagline will "
-"<strong>NOT</strong> show if a Header Image is added.</em>"
-msgstr ""
-
-#: library/blocks/image/image.php:27
-msgid "Display an image"
-msgstr ""
-
-#: library/blocks/image/image.php:44
-msgid "Image Link"
-msgstr ""
-
-#: library/blocks/image/image.php:127
-msgid "You have not added an image yet. Please upload and apply an image."
-msgstr ""
-
-#: library/blocks/image/image.php:161
-msgid "Add an Image"
-msgstr ""
-
-#: library/blocks/image/image.php:173
-msgid "Automatically Resize Image"
-msgstr ""
-
-#: library/blocks/image/image.php:175
-msgid ""
-"If you would like Padma to automatically scale and crop the image to the "
-"blocks dimensions, keep this checked.<br /><br /><em><strong>Important:"
-"</strong> In order for the image to be resized and cropped it must be "
-"uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From "
-"URL</strong>.</em>"
-msgstr ""
-
-#: library/blocks/image/image.php:183
-msgid ""
-"This will be used as the \"title\" attribute for the image.  The title "
-"attribute is beneficial for SEO (Search Engine Optimization) and will allow "
-"your visitors to move their mouse over the image and read about it."
-msgstr ""
-
-#: library/blocks/image/image.php:190
-msgid ""
-"This will be used as the \"alt\" attribute for the image.  The alt attribute "
-"is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for "
-"general accessibility."
-msgstr ""
-
-#: library/blocks/image/image.php:196
-msgid "Link Image"
-msgstr ""
-
-#: library/blocks/image/image.php:201
-msgid "Link the image?"
-msgstr ""
-
-#: library/blocks/image/image.php:203
-msgid ""
-"If you would like to link the image to a url activate this setting. Must add "
-"http:// first"
-msgstr ""
-
-#: library/blocks/image/image.php:223
-msgid "Link image URL?"
-msgstr ""
-
-#: library/blocks/image/image.php:225
-msgid "Set the URL for the image to link to"
-msgstr ""
-
-#: library/blocks/image/image.php:230
-msgid "Open in a new window?"
-msgstr ""
-
-#: library/blocks/image/image.php:239
-msgid "Position Image"
-msgstr ""
-
-#: library/blocks/image/image.php:244
-msgid "Position image inside container"
-msgstr ""
-
-#: library/blocks/image/image.php:246
-msgid ""
-"You can position this image in relation to the block using the positions "
-"provided"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:12
-msgid "Select Listing Type"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:13
-msgid "Posts &amp; Pages Filters"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:14
-msgid "Taxonomy Options"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:23
-msgid "List?"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:24
-msgid ""
-"Select a type of list output and then configure it with the options on the "
-"left."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:26
-msgid "Taxonomy (category, tag etc)"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:27
-msgid "Posts or Pages (custom posts)"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:28
-msgid "Authors"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:58
-msgid "Select Taxonomy"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:62
-msgid "Select Taxonomy to display"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:72
-msgid "Sort Taxonomy"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:78
-msgid "Order By?"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:79
-msgid ""
-"Sort term alphabetically, by unique Term ID, or by the count of items in "
-"that Term"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:84
-msgid "Slug"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:85
-msgid "Count"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:94
-msgid "Order?"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:95
-msgid "Sort order for term (either ascending or descending)."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:106
-msgid "Filter Taxonomy"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:115
-msgid "Number of terms"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:117
-msgid "Sets the number of terms to display. Default 0 for no limit."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:123
-msgid "Child Of"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:126
-msgid "Only display terms that are children of what you specify here."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:135
-msgid "Exclude one or more term from the results."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:144
-msgid "Only include certain terms in the list."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:151
-msgid ""
-"Returns terms whose \"slug\" matches this value. Default is empty string."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:157
-msgid "Display Taxonomy"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:163
-msgid "Hide Empty?"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:164
-msgid "Toggles the display of term with no posts."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:171
-msgid "Hierarchical?"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:172
-msgid "Whether to include terms that have non-empty descendants ."
-msgstr ""
-
-#: library/blocks/listings/block-options.php:191
-msgid "Filter Content"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:213
-msgid "Select Taxonomy to filter"
-msgstr ""
-
-#: library/blocks/listings/block-options.php:254
-msgid "Sort Content"
-msgstr ""
-
-#: library/blocks/listings/listings.php:17
-msgid "Listings"
-msgstr ""
-
-#: library/blocks/listings/listings.php:19
-msgid ""
-"List out your posts, custom post types, categories, tags, custom taxonomies, "
-"authors, pages, and comments."
-msgstr ""
-
-#: library/blocks/listings/listings.php:34
-msgid "List Container"
-msgstr ""
-
-#: library/blocks/listings/listings.php:40
-msgid "List Item"
-msgstr ""
-
-#: library/blocks/listings/listings.php:46
-msgid "List Item Link"
-msgstr ""
-
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:15
-msgid "Mailchimp for WordPress"
-msgstr ""
-
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:17
-msgid "Display Mailchimp for WordPress"
-msgstr ""
-
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:34
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:35
-msgid "Form"
-msgstr ""
-
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:41
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:42
-msgid "Form container"
-msgstr ""
-
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:48
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:49
-msgid "Paragraph"
-msgstr ""
-
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:55
-#: library/blocks/mailchimp-for-wp/mailchimp-for-wp.php:56
-msgid "Label"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:168
-#: library/blocks/navigation/navigation.php:519
-#: library/blocks/navigation/navigation.php:795
-msgid "Menu"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:417
+#: library/blocks/navigation/navigation.php:403
 msgid "Navigation"
 msgstr "Navegación"
 
-#: library/blocks/navigation/navigation.php:509
-msgid "Menu Container"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:514
-msgid "Menu Container - Vertical"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:524
-#: library/blocks/navigation/navigation.php:595
-msgid "Menu Item"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:529
-msgid "Menu Item Link"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:534
-msgid "Menu Item - Active"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:539
-#: library/blocks/navigation/navigation.php:622
-msgid "Sub Menu"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:544
-#: library/blocks/navigation/navigation.php:630
-msgid "Sub Menu Item"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:549
-msgid "Sub Menu Item Link"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:554
-#: library/blocks/navigation/navigation.php:650
-#: library/blocks/search/search.php:35
-msgid "Search Input"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:559
-msgid "Horizontal SlideOut Tag"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:568
-msgid "Horizontal SlideOut Icon"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:577
-msgid "Horizontal SlideOut Icon Line"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:717
-msgid "Setup"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:718
-msgid "Home Link"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:720
-msgid "Orientation"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:721
-msgid "Dropdowns"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:729
-msgid "Navigation Item Height"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:740
-msgid ""
-"You must have Responsive Grid enabled to take advantage of these options. "
-"Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the "
-"Grid mode."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:746
-msgid "Responsive Method"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:749
-msgid "Vertical Menu"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:750
-msgid "Horizontal Slideout"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:751
-msgid "Basic Select Input"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:801
-msgid "Responsive Menu Label Position"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:803
-#: library/blocks/navigation/navigation.php:815
-#: library/blocks/navigation/navigation.php:895
-#: library/blocks/navigation/navigation.php:917
-msgid "Left"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:804
-#: library/blocks/navigation/navigation.php:816
-#: library/blocks/navigation/navigation.php:896
-#: library/blocks/navigation/navigation.php:918
-msgid "Right"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:805
-#: library/blocks/navigation/navigation.php:919
-msgid "Center"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:813
-msgid "Slide Out Position"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:824
-msgid "Use Responsive Menu Breakpoint"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:825
-msgid ""
-"If this is unchecked then the slide out or vertical navigation will show for "
-"all devices."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:840
-msgid "Menu Breakpoint"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:841
-msgid ""
-"This is the device width at which the navigation block should hide its own "
-"navigation and display the slide out or vertical navigation."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:851
-msgid ""
-"You must have Responsive Grid enabled to take advantage of these options.  "
-"Responsive Grid can be enabled under Setup &raquo; Responsive Grid in the "
-"Grid mode."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:857
-msgid "Responsive Select"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:859
-msgid ""
-"When enabled, your navigation will turn into a mobile-friendly select menu "
-"when your visitors are viewing your site on a mobile device (phones, not "
-"tablets)."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:867
-msgid "Hide Home Link"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:869
-msgid ""
-"If you do not have a static page as the front page, Padma will add a home "
-"item to the navigation menu by default."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:873
-msgid "Home Link Text"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:875
-msgid ""
-"If you would like the link to your homepage to say something other than <em>"
-"Home</em>, enter it here!"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:884
-msgid "Enable Navigation Search"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:886
-msgid ""
-"If you wish to have a simple search form in the navigation bar, then check "
-"this box. <em><strong>Note:</strong> the search form will not show if the "
-"Vertical Navigation option is enabled for this block.</em>"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:892
-msgid "Search Position"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:898
-msgid ""
-"If you would like the navigation search input to snap to the left instead of "
-"the right, you can use this option."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:904
-msgid "Search Placeholder"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:905
-#: library/common/functions.php:645
-msgid "Type to search, then press enter"
-msgstr "Escriba para buscar, luego presione enter"
-
-#: library/blocks/navigation/navigation.php:906
-msgid ""
-"This will be the text inside the search input telling the visitor how to "
-"interact with the search input."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:914
-msgid "Alignment"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:926
-msgid "Vertical Navigation"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:928
-msgid ""
-"Instead of showing navigation horizontally, you can make the navigation show "
-"vertically. <em><strong>Note:</strong> You may have to resize the block to "
-"make the navigation items fit correctly.</em>"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:936
-msgid "Drop Down Effect"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:939
-msgid "No Effect"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:940
-msgid "Fade"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:941
-msgid "Slide"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:943
-msgid ""
-"This is the effect that will be used when the drop downs are shown and "
-"hidden."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:949
-msgid "Hover Intent"
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:951
-msgid ""
-"Hover Intent makes it so if a navigation item with a drop down is hovered "
-"then the drop down will only be shown if the visitor has their mouse over "
-"the item for more than a split second.<br /><br />This reduces drop-downs "
-"from sporatically showing if the visitor makes fast movements over the "
-"navigation."
-msgstr ""
-
-#: library/blocks/navigation/navigation.php:960
-msgid ""
-"To add items to this navigation menu, go to <a href=\"%s\" target=\"_blank\">"
-"WordPress Admin &raquo; Appearance &raquo; Menus</a>. Then, create a menu "
-"and assign it to <em>%s</em> in the <strong>Theme Locations</strong> box."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:17
-msgid "Pin Board"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:18
-msgid "Use to display your content in a masonry grid like Pinterest."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:544
-msgid "Pin Thumbnail"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:550
-msgid "Pin Thumbnail Link"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:556
-msgid "Pin Thumbnail Image"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:562
-msgid "Pin Below Thumb"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:568
-msgid "Pin Title"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:577
-msgid "Pin Title Link"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:586
-msgid "Pin Meta"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:614
-msgid "Categories Link"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:620
-msgid "Pin Text"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:626
-msgid "Pin Content Links"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:632
-msgid "Pin Content Image"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:638
-msgid "Pagination Button"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:646
-msgid "Pagination Current Page"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:736
+#: library/blocks/pin-board/pin-board.php:725
 msgid "&laquo; Previous Page"
 msgstr ""
 "& laquo; Página anterior\n"
 
-#: library/blocks/pin-board/pin-board.php:797
-msgid "Pin Setup"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:799
-msgid "Pagination/Infinite Scroll"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:804
-msgid "Social"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:814
-msgid ""
-"If you would like to modify the default behaviour, select custom query. <br/>"
-"<strong>Note:</strong>On archive pages, it's not advisable to use a custom "
-"query if the block is displaying the archive results.<br/>On search pages, "
-"it may be necessary to limit results to only certain content types."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:816
-msgid "Default behaviour"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:817
-msgid "Custom query"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:831
-msgid "Layout"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:836
-msgid "Columns"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:841
-msgid "Set how many pins to display horizontally"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:847
-msgid "Columns (iPhone/Smartphone)"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:852
-msgid ""
-"Set how many pins to display horizontally for iPhones and smartphones.  "
-"<strong>Recommended setting: 1 or 2</strong>"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:858
-msgid "Gutter Width"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:864
-msgid "The amount in space between pins horizontally."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:870
-msgid "Pin Bottom Margin"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:876
-msgid "The amount of space on the bottom of each pin."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:884
-msgid "Pins Per Page"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:886
-msgid ""
-"Determines how many pins to load at one time before loading more via "
-"pagination or <em>infinite scrolling</em>."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:900
-msgid "Filters"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:907
-msgid ""
-"Choose a post type to display. If none are selected, it will automatically "
-"default to all."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:917
-msgid "Select the taxonomy to filter pins on ."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:924
-#: library/blocks/pin-board/pin-board.php:1207
-msgid "Terms"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:927
-#: library/blocks/pin-board/pin-board.php:1210
-msgid "Filter the pins that are shown by the selected taxonomy's terms."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:932
-msgid "Terms Mode"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:938
-msgid ""
-"If this is set to <em>include</em>, then only the pins that match the terms "
-"filter will be shown.  If set to <em>exclude</em>, all pins that match the "
-"selected terms will not be shown."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:950
-msgid "Exclude Current Post"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:952
-msgid ""
-"Enabling this option will exclude the current Post from the pinboard, "
-"usefull when are creating a \"related post\" block."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:988
-msgid "Paginate Pins"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:990
-msgid ""
-"Enabling pagination adds buttons to the bottom of the pin board to go to the "
-"next/previous page.  <strong>Note:</strong> If infinite scrolling is enabled,"
-" pagination will be hidden."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:996
-msgid "Enumerate pagination"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:998
-msgid ""
-"If pagination is displayed, enabling this will also show page number "
-"navigation."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1004
-msgid "Infinite Scrolling"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1006
-msgid ""
-"Infinite scrolling allows your visitors to view all of your pins without the "
-"need for them to click a button to continue to the next page.  The pins will "
-"be loaded automatically simply by scrolling."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1021
-msgid "Titles position"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1023
-msgid "Above"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1023
-msgid "Below"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1029
-msgid "Titles link to post"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1031
-msgid "Open the post when the user clicks on the title"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1037
-msgid "Content To Show"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1039
-msgid "&ndash; Do Not Show Content &ndash;"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1040
-msgid "Excerpts"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1041
-msgid "Full Content"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1044
-msgid ""
-"The content is the written text or HTML for the entry.  This is edited in "
-"the WordPress admin panel."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1050
-msgid "Only show content when no featured image"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1052
-msgid ""
-"If enabled, regardless of the content chosen in <em>Content to Show</em> "
-"will only show content for pins with no featured image."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1062
-msgid "Meta: Show Author \"byline\""
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1064
-msgid "<strong>Example:</strong> <em>by</em> Author Name"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1070
-msgid "Meta: Show Categories"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1077
-msgid "Meta: Show Tags"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1084
-msgid "Meta: Show Post Type"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1091
-msgid "Meta: Show Date/Time"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1098
-msgid "Meta: Posted Verb"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1099
-msgid "Posted"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1100
-msgid ""
-"The posted verb will be placed before the time.  For instance, you may want "
-"to use \"Listed\" for real estate rather than \"Posted\""
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1108
-msgid "Show Images"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1114
-msgid "Image click action"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1116
-msgid "Choose the action when user clicks on an image."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1118
-msgid "Open post"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1119
-msgid "Popup original image"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1120
-msgid "Do nothing"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1127
-msgid "Crop Vertically"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1129
-msgid ""
-"Trim all images to have the same height.  The trimmed/cropped height is "
-"roughly 75% of the width."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1137
-msgid "Hover Focus"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1139
-msgid ""
-"If enabled, the hovered pin will be focused while all others will be faded "
-"out."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1147
-msgid "Pinterest: Show \"Pin It\" Button"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1149
-msgid "Show a Pinterest \"Pin It\" button inside of the images."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1155
-msgid "Twitter: Show Tweet Button"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1157
-msgid "Show a tweet button either inside of the post image or by the title."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1163
-msgid "Twitter: Your Username"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1169
-msgid "Twitter: Hashtag to put in tweets (Optional)"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1175
-msgid "Facebook: Show Like/Share Button"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1177
-msgid ""
-"Show a Facebook share/like button either inside of the post image or by the "
-"title."
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1182
-msgid "Facebook: Button Verb"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1185
-msgid "Like"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1186
-msgid "Recommend"
-msgstr ""
-
-#: library/blocks/pin-board/pin-board.php:1332
-msgid "No terms found for this taxonomy"
-msgstr ""
-
-#: library/blocks/search/search.php:19
-msgid "This will output the default search form"
-msgstr ""
-
-#: library/blocks/search/search.php:29
-msgid "Search Form"
-msgstr ""
-
-#: library/blocks/search/search.php:41
-msgid "Search Button"
-msgstr ""
-
-#: library/blocks/search/search.php:76 library/blocks/search/search.php:105
-msgid "Enter search term and hit enter."
-msgstr ""
-
-#: library/blocks/search/search.php:102
-msgid "Input Text Placeholder"
-msgstr ""
-
-#: library/blocks/search/search.php:104
-msgid ""
-"The placeholder is text that will be shown in the Search input and "
-"immediately removed after you start typing in the search input."
-msgstr ""
-
-#: library/blocks/search/search.php:110
-msgid "Show Search Button"
-msgstr ""
-
-#: library/blocks/search/search.php:125
-msgid "Button Text"
-msgstr ""
-
-#: library/blocks/site-logo/site-logo.php:18
-#: library/blocks/site-logo/site-logo.php:36
-msgid "Site Logo"
-msgstr ""
-
-#: library/blocks/site-logo/site-logo.php:24
-msgid "Display custom site logo"
-msgstr ""
-
-#: library/blocks/site-logo/site-logo.php:75
-msgid ""
-"To set the site custom logo go to <a href=\"%s\" target=\"_blank\">"
-"\"Appearance > Customize > Site Identity\"</a>"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:16
-msgid "SlideDeck 2"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:18
-msgid "Conveniently add SlideDecks anywhere on any layout."
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:34
-msgid ""
-"SlideDeck must be installed and activated in order for the SlideDeck block "
-"to work properly."
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:45
-msgid "Please choose a SlideDeck to display."
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:130
-msgid "Settings"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:143
-msgid "Choose a SlideDeck to Display"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:146
-msgid "Select the SlideDeck you wish to display"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:152
-msgid "Use Block Size for SlideDeck"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:154
-msgid ""
-"Choose whether or not you'd like to use the block's size to dictate the "
-"SlideDeck's size.  If you choose not to, it will use the size defined in the "
-"SlideDeck's settings."
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:168
-msgid "&ndash; Select a SlideDeck &ndash;"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:183
-msgid "SlideDeck Quick Links:"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:184
-msgid "Add/Manage SlideDecks"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:185
-msgid "Lenses"
-msgstr ""
-
-#: library/blocks/slidedeck/slidedeck.php:186
-msgid "Advanced Options"
-msgstr ""
+#: library/common/functions.php:645
+msgid "Type to search, then press enter"
+msgstr "Escriba para buscar, luego presione enter"
 
 #: library/common/functions.php:739
 msgid "Error: The meta box class being registered does not exist."
@@ -5061,7 +3678,7 @@ msgstr "Error: No se puede guardar la imagen con la clase WP_Image_Editor"
 
 #: library/display/layout-renderer.php:127
 msgid "No Content to Display"
-msgstr "No hay contenido para mostrar"
+msgstr "No hay Contenido para Mostrar"
 
 #: library/display/layout-renderer.php:133
 msgid ""
@@ -5087,11 +3704,11 @@ msgstr ""
 "Para registrar una fuente, la matriz de argumentos debe incluir un \"id\", "
 "\"stack\" y \"name\"."
 
-#: library/maintenance/legacy-classes.php:66
-#: library/maintenance/legacy-classes.php:96
-#: library/maintenance/legacy-classes.php:181
-#: library/maintenance/legacy-classes.php:214
-#: library/maintenance/legacy-classes.php:245
+#: library/maintenance/legacy-classes.php:66 
+#: library/maintenance/legacy-classes.php:96 
+#: library/maintenance/legacy-classes.php:181 
+#: library/maintenance/legacy-classes.php:214 
+#: library/maintenance/legacy-classes.php:245 
 #: library/maintenance/legacy-classes.php:271
 msgid "The element ID is not registered."
 msgstr "La ID del elemento no está registrada."
@@ -5100,6 +3717,6 @@ msgstr "La ID del elemento no está registrada."
 msgid "You have customized a property in this property group."
 msgstr "Ha personalizado una propiedad en este grupo de propiedades."
 
-#: library/visual-editor/panels/design/property-inputs.php:304
+#: library/visual-editor/panels/design/property-inputs.php:302
 msgid "You have customized this property."
 msgstr "Ha personalizado esta propiedad."

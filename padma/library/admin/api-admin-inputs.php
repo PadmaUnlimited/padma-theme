@@ -44,6 +44,41 @@ class PadmaAdminInputs {
 		echo '</table>';
 		
 	}
+
+
+	public static function admin_field_generate($inputs, $class = 'form-table') {
+
+		echo '<div class="inside padma-fields left '.$class.'">';
+		foreach ( $inputs as $input ) {
+
+			if ( !method_exists(__CLASS__, 'input_' . $input['type']) )
+				continue;
+
+			$id = isset($input['id']) ? $input['id'] : null;
+			$suffix = (isset($input['suffix']) && $input['suffix']) ? $input['suffix'] : null;				
+			$tooltip = (isset($input['tooltip']) && $input['tooltip']) ? '<span class="label-tooltip" title="' . esc_attr($input['tooltip']) . '"></span>' : null;			
+			$description = (isset($input['description']) && $input['description']) ? '<p class="description">' . $input['description'] . '</p>' : null;			
+				
+			
+			if ( padma_get('value', $input) && !is_int(padma_get('value', $input)) )
+				$input['value'] = stripslashes(esc_attr($input['value']));
+			
+
+			echo '<div class="padma-field">';
+			echo 	'<div class="padma-label">';
+			echo 		'<label>' . $input['label'] . $tooltip . '</label>';
+			echo 		'<p class="description">' . $suffix . $description . '</p>';			
+			echo 	'</div>';
+			echo 	'<div class="padma-input">';
+			
+			call_user_func(array(__CLASS__, 'input_' . $input['type']), $input);;
+
+			echo 	'</div>';
+			echo '</div>';
+
+		}
+		echo '</div>';
+	}
 	
 	
 	public static function input_text($input) {

@@ -209,7 +209,7 @@ class PadmaVisualEditorAJAX {
 		/* Check for grid safe mode */
 			if ( PadmaOption::get('grid-safe-mode', false, false) ) {
 
-				echo '<div class="alert alert-red block-safe-mode"><p>Grid Safe mode enabled.  Block content not outputted.</p></div>';
+				echo '<div class="alert alert-red block-safe-mode"><p>' . __('Grid Safe mode enabled. Block content not outputted.','padma') . '</p></div>';
 
 				return;
 

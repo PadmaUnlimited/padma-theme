@@ -92,7 +92,8 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 
-
+		$js = '';
+		
 		if(parent::get_setting($block, 'width-dynamic') || parent::get_setting($block, 'height-dynamic')){
 			
 			$js 		= "jQuery(document).ready(function() {";

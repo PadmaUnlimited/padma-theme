@@ -409,5 +409,12 @@ $(document).ready(function() {
 
 		});
 	})
+
+	/*
+		Toggle admin fields
+	*/
+	$(document).on('click','button.handlediv',function(){
+		$(this).closest('.padma-admin-options-group').toggleClass('closed');
+	})
 });
 })(jQuery);

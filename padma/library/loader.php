@@ -1,8 +1,8 @@
 <?php
 
-global $registry;
+global $padma_registry;
 
-$registry = array(
+$padma_registry = array(
 
 	// Abstract
 	'PadmaAdminMetaBoxAPI' => 'abstract/api-admin-meta-box',
@@ -122,16 +122,16 @@ $registry = array(
 
 );
 
-$registry = apply_filters('padma_class_registry', $registry);
+$padma_registry = apply_filters('padma_class_registry', $padma_registry);
 
 
 spl_autoload_register(function ($class) {
 
-	global $registry;
+	global $padma_registry;
 	$file = '';
 
-	if ( isset($registry[$class]) )
-		$file = $registry[$class];
+	if ( isset($padma_registry[$class]) )
+		$file = $padma_registry[$class];
 
 	if(!is_file($file))
 		$file = dirname( __FILE__ ) . '/' . $file . '.php';

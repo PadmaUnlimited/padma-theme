@@ -4,13 +4,13 @@ function padma_register_structural_elements() {
 	
 	//Structure
 	PadmaElementAPI::register_group('structure', array(
-		'name' => 'Structure'
+		'name' => __('Structure','padma')
 	));
 
 		PadmaElementAPI::register_element( array(
 			'group'            => 'structure',
 			'id'               => 'html',
-			'name'             => 'HTML Document',
+			'name'             => __('HTML Document','padma'),
 			'selector'         => 'html',
 			'disallow-nudging' => true
 		) );
@@ -18,7 +18,7 @@ function padma_register_structural_elements() {
 		PadmaElementAPI::register_element(array(
 			'group' => 'structure',
 			'id' => 'body',
-			'name' => 'Body',
+			'name' => __('Body','padma'),
 			'selector' => 'body',
 			'properties' => array('background', 'borders', 'padding'),
 			'disallow-nudging' => true
@@ -27,7 +27,7 @@ function padma_register_structural_elements() {
 		PadmaElementAPI::register_element(array(
 			'group' => 'structure',
 			'id' => 'wrapper',
-			'name' => 'Wrapper',
+			'name' => __('Wrapper','padma'),
 			'selector' => 'div.wrapper',
 			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines')
 		));
@@ -35,7 +35,7 @@ function padma_register_structural_elements() {
 	//Blocks
 	PadmaElementAPI::register_group('blocks', array(
 		'name' => 'Blocks',
-		'description' => 'Individual block types and block elements'
+		'description' => __('Individual block types and block elements','padma')
 	));
 	
 }

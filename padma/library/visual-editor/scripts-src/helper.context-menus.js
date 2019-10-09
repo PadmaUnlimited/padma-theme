@@ -72,6 +72,9 @@
 
 	contextMenuCreator = function(args, event, iframe) {
 
+		
+		
+
 		event.stopPropagation(); /* Keep other context menus from opening */
 
 		if ( typeof args != 'object' )
@@ -84,9 +87,11 @@
 		var contextMenuTitle = typeof args.title == 'function' ? args.title.apply(undefined, [event]) : args.title;
 		var contextMenu = $('<ul id="context-menu-' + args.id + '" class="context-menu"><h3>' + contextMenuTitle + '</h3></ul>');
 
+
 		/* Trigger onShow callback */
 		if ( typeof args.onShow == 'function' )
 			args.onShow.apply(contextMenu, [event]);
+
 
 		/* Fire contentsCallback to insert items */
 		args.contentsCallback.apply(contextMenu, [event]);

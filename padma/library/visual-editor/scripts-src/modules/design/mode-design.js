@@ -2508,7 +2508,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				return setupContextMenu({					
 					id: 'inspector',
 					elements: 'body',
-					title: function(event) {
+					title: function(event) {						
 						return inspectorElement.data('inspectorElementOptions').name;
 					},
 					onShow: inspectorContextMenuOnShow,

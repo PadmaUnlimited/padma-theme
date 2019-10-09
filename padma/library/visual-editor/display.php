@@ -195,6 +195,8 @@ class PadmaVisualEditorDisplay {
 
 		$current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
 
+		debug( [ 'mobile' => PadmaMobileDetect::isMobile() ]);
+
 		wp_localize_script('padma-editor', 'Padma', array(
 			'ajaxURL' => admin_url('admin-ajax.php'),
 			'security' => wp_create_nonce('padma-visual-editor-ajax'),
@@ -241,7 +243,7 @@ class PadmaVisualEditorDisplay {
 
 			'responsiveGrid' => PadmaResponsiveGrid::is_enabled(),
 
-			'touch' => (stripos($_SERVER['HTTP_USER_AGENT'], 'iPad') !== false) ? true : false,
+			'touch' => PadmaMobileDetect::isMobile(),
 
 			'layouts' => json_encode(array(
 				'pages' => PadmaLayoutSelector::get_basic_pages(),

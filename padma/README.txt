@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.2.3
-Version: 1.1.53
+Version: 1.1.54
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.53
+= 1.1.54
 * Released: On Dev
 
 Tested with WordPress 5.3 RC2
@@ -93,6 +93,7 @@ Added CSS Filter options to Visual Editor
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
 Updated Animate.css to 3.7.2
 Updated translations
+Updated Visual Editor for mobile usage
 
 
 = 1.1.0

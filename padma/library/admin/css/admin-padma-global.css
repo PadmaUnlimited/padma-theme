@@ -29,6 +29,10 @@
 .padma-postbox-container{
 	width: 100%;
 }
+.padma-postbox-container > .padma-admin-options-group > h2.hndle{
+    margin-bottom: 0px !important;
+}
+
 .padma-admin-options-group .handlediv .toggle-indicator:before{
 	margin-top: 4px;
     width: 20px;
@@ -105,3 +109,7 @@
 .big-tab.big-tab-visible .padma-postbox-container{
 	display: block !important;
 }
+.nav-tab-wrapper.big-tabs-tabs{
+    margin-bottom: 15px;
+}
+.nav-tab-wrapper.big-tabs-tabs{

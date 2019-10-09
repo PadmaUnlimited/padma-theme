@@ -584,7 +584,6 @@
 				</div>
 			</div>
 
-
 			<!-- Caching &amp; Compression -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
@@ -650,52 +649,6 @@
 							),
 							'description' => __('Enables WordPress to send a Link:<...> rel="prefetch" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental.','padma')
 						)
-					);
-
-					PadmaAdminInputs::admin_field_generate($form);
-
-					?>
-				</div>
-			</div>
-
-			<!-- Advanced -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
-				<div id="" class="postbox padma-admin-options-group">
-					
-					<button type="button" class="handlediv" aria-expanded="false">
-						<span class="screen-reader-text"><?php _e('Automatic Updates','padma'); ?></span>
-						<span class="toggle-indicator" aria-hidden="true"></span>
-					</button>
-
-
-					<h2 class="hndle"><span><?php _e('Automatic Updates','padma'); ?></span></h2>
-
-					<?php
-					$form = array(
-						array(
-							'type' => 'checkbox',
-							'label' => __('Disable Automatic Core Updates','padma'),
-							'checkboxes' => array(
-								array(
-									'id' => 'disable-automatic-core-updates',
-									'label' => __('Disable Automatic Core Updates','padma'),
-									'checked' => PadmaOption::get('disable-automatic-core-updates', false, false)
-								)
-							),
-							'description' => __('By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin.','padma')
-						),
-						array(
-							'type' => 'checkbox',
-							'label' => __('Disable Automatic Plugin Updates','padma'),
-							'checkboxes' => array(
-								array(
-									'id' => 'disable-automatic-plugin-updates',
-									'label' => __('Disable Automatic Plugin Updates','padma'),
-									'checked' => PadmaOption::get('disable-automatic-plugin-updates', false, false)
-								)
-							),
-							'description' => __('By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin.','padma')
-						),
 					);
 
 					PadmaAdminInputs::admin_field_generate($form);

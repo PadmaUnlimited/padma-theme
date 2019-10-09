@@ -1,6 +1,6 @@
 /* Important Stuff */
 .wrap.padma-page h2 {
-	margin-bottom: 15px;
+	margin-bottom: 15px !important;
 }
 
 /* Regular Elements */

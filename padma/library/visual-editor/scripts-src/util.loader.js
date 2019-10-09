@@ -20,7 +20,7 @@ define(['jquery', 'util.misc'], function($) {
 		}
 		
 		if ( typeof opacity != 'undefined' )
-			element.find('.cog-container').css({opacity: opacity});
+			element.find('.lotus').css({opacity: opacity});
 			
 		return true;
 		

@@ -195,8 +195,6 @@ class PadmaVisualEditorDisplay {
 
 		$current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
 
-		debug( [ 'mobile' => PadmaMobileDetect::isMobile() ]);
-
 		wp_localize_script('padma-editor', 'Padma', array(
 			'ajaxURL' => admin_url('admin-ajax.php'),
 			'security' => wp_create_nonce('padma-visual-editor-ajax'),

@@ -452,6 +452,7 @@ body.show-ve div#ve-loading-overlay {
 	pointer-events: none;
 }
 body.show-ve .ui-tabs .panel .lotus,
+body.show-ve #side-panel .lotus,
 body.show-ve .fonts-loading > .lotus,
 body.show-ve div#iframe-loading-overlay > .lotus,
 body.show-ve div#ve-loading-overlay > .lotus {
@@ -490,6 +491,7 @@ body.show-ve div#ve-loading-overlay > .lotus {
     
 }
 body.show-ve .ui-tabs .panel .lotus > .lotus_leaf,
+body.show-ve #side-panel .lotus > .lotus_leaf,
 body.show-ve .fonts-loading .lotus > .lotus_leaf,
 body.show-ve div#iframe-loading-overlay .lotus > .lotus_leaf,
 body.show-ve div#ve-loading-overlay .lotus > .lotus_leaf{
@@ -531,6 +533,7 @@ body.show-ve div#ve-loading-overlay .lotus > .lotus_leaf{
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(1),
 body.show-ve .fonts-loading .lotus :nth-child(1),
+body.show-ve #side-panel .lotus :nth-child(1),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(1),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(1) {
 	animation: lotus-show-1 2s ease-out 1 normal forwards;
@@ -541,6 +544,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(1) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(2),
 body.show-ve .fonts-loading .lotus :nth-child(2),
+body.show-ve #side-panel .lotus :nth-child(2),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(2),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(2) {
 	animation: lotus-show-2 2s ease-out 1 normal forwards;
@@ -551,6 +555,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(2) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(3),
 body.show-ve .fonts-loading .lotus :nth-child(3),
+body.show-ve #side-panel .lotus :nth-child(3),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(3),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(3) {
 	animation: lotus-show-3 2s ease-out 1 normal forwards;
@@ -561,6 +566,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(3) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(4),
 body.show-ve .fonts-loading .lotus :nth-child(4),
+body.show-ve #side-panel .lotus :nth-child(4),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(4),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(4) {
 	animation: lotus-show-4 2s ease-out 1 normal forwards;
@@ -571,6 +577,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(4) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(5),
 body.show-ve .fonts-loading .lotus :nth-child(5),
+body.show-ve #side-panel .lotus :nth-child(5),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(5),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(5) {
 	animation: lotus-show-5 2s ease-out 1 normal forwards;
@@ -581,6 +588,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(5) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(6),
 body.show-ve .fonts-loading .lotus :nth-child(6),
+body.show-ve #side-panel .lotus :nth-child(6),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(6),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(6) {
 	animation: lotus-show-6 2s ease-out 1 normal forwards;
@@ -591,6 +599,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(6) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(7),
 body.show-ve .fonts-loading .lotus :nth-child(7),
+body.show-ve #side-panel .lotus :nth-child(7),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(7),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(7) {
 	animation: lotus-show-7 2s ease-out 1 normal forwards;
@@ -601,6 +610,7 @@ body.show-ve div#ve-loading-overlay .lotus :nth-child(7) {
 }
 body.show-ve .ui-tabs .panel .lotus :nth-child(8),
 body.show-ve .fonts-loading .lotus :nth-child(8),
+body.show-ve #side-panel .lotus :nth-child(8),
 body.show-ve div#iframe-loading-overlay .lotus :nth-child(8),
 body.show-ve div#ve-loading-overlay .lotus :nth-child(8) {
 	animation: lotus-show-8 2s ease-out 1 normal forwards;

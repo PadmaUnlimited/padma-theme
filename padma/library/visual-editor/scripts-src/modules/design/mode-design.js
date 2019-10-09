@@ -56,10 +56,12 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			
 			this._init = function() {
 
-				createCog($('#side-panel'), true, true);
-
+				createCog($('#side-panel'), true, true, false, 1);
+				
 				$.when(designEditorRequestElements(), designEditorRequestElementData())
 					.then(this.setupElementSelector);
+
+
 
 				this.bindElementSelector();
 
@@ -83,6 +85,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			}
 		
 			this.setupElementSelector = function() {
+
+
 
                 /* Show tabs */
                 $('#side-panel').addClass('side-panel-loaded');
@@ -151,6 +155,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 				/* Show only layout elements */
 				designEditor.showOnlyLayoutElements();
+
+				// Remove loader
+				$('#side-panel .lotus').remove();
 
 			}
 

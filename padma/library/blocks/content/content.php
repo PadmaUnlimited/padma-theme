@@ -1650,10 +1650,11 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		$post_types = $custom_fields = array();
 
 		if( !empty($this->block['settings']['mode']) && $this->block['settings']['mode'] == 'custom-query' ){
-			$post_types = $this->block['settings']['post-type'];
 
-			if(empty($post_types))
-				$post_types[] = 'post';
+			if( isset($this->block['settings']['post-type']) )
+				$post_types = $this->block['settings']['post-type'];
+			else
+				$post_types = array('post');
 
 		}else{
 			$post_types = get_post_types();
@@ -1763,8 +1764,11 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 
 	
 	function get_categories() {
-
-		return PadmaQuery::get_categories($this->block['settings']['post-type']);
+		
+		if( isset($this->block['settings']['post-type']) )
+			return PadmaQuery::get_categories($this->block['settings']['post-type']);
+		else
+			return array();
 
 	}
 

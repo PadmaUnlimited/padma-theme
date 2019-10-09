@@ -203,8 +203,8 @@ class PadmaQuery{
 	 */
 	public static function get_meta($post_types = array('post')){
 
-		if(!is_array($post_type))
-			$post_type = array($post_type);
+		if(!is_array($post_types))
+			$post_types = array($post_types);
 
 		$custom_fields = array();
 
@@ -237,7 +237,10 @@ class PadmaQuery{
 						    if(is_serialized($value))
 						    	continue;
 
-						    $custom_fields[$post_type][$custom_field_name]++;
+						    if( isset($custom_fields[$post_type][$custom_field_name]) )
+						    	$custom_fields[$post_type][$custom_field_name]++;
+						    else
+						    	$custom_fields[$post_type][$custom_field_name] = 1;
 
 						}
 					}				

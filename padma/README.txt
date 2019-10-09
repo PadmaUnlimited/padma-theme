@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.2.3
-Version: 1.1.51
+Version: 1.1.52
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.51
+= 1.1.52
 * Released: On Dev
 
 Tested with WordPress 5.3 RC2
@@ -61,6 +61,7 @@ Fixed: animation-duration default 1s when not set.
 Fixed: pinboard block width issue
 Fixed: breakpoint issues with wrappers
 Fixed: Schema error when post date is not standard
+Fixed: Missing arrow.svg in slide-out menu was added
 New features on content block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

@@ -67,7 +67,7 @@ class PadmaGravityFormsBlockOptions extends PadmaBlockOptionsAPI {
 			'form-setup' => __('Form Setup','padma')
 		);
 
-		public $inputs = array(
+		$this->inputs = array(
 			'form-setup' => array(
 				
 				'form-id' => array(

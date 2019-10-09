@@ -72,9 +72,6 @@
 
 	contextMenuCreator = function(args, event, iframe) {
 
-		
-		
-
 		event.stopPropagation(); /* Keep other context menus from opening */
 
 		if ( typeof args != 'object' )
@@ -115,8 +112,6 @@
 		contextMenu.delegate('span', contextMenuClickEvent, contextMenuItemClick);
 
 		/* Context menu positioning */
-
-
 		if ( typeof event.originalEvent != 'undefined' && typeof event.originalEvent.clientX != 'undefined' ) {
 
 			var contextMenuX = event.originalEvent.clientX;			
@@ -128,8 +123,21 @@
 
 		} else {
 
-			var contextMenuX = event.data.x;
-			var contextMenuY = event.data.y + 40;
+			var contextMenuX;
+			var contextMenuY;
+
+			if( event.type == 'taphold'){
+
+				var contextMenuX = event.originalEvent.touches[0].clientX;
+				var contextMenuY = event.originalEvent.touches[0].clientY + 40;
+
+			}else{
+
+				var contextMenuX = event.data.x;
+				var contextMenuY = event.data.y + 40;
+
+			}
+
 
 		}
 
@@ -164,6 +172,7 @@
 		/* Add context menu to iframe */
 			contextMenu.appendTo($('body'));
 
+		
 		/* Context Menu overflow */
 			/* X overflow */
 				if ( (contextMenuX + contextMenu.outerWidth()) > $(window).width() ) {
@@ -182,8 +191,11 @@
 				}
 		/* End Context Menu Overflow */
 
+
 		/* Prevent regular context menu from opening */
-			event.preventDefault();
+			if (event.cancelable) {
+				event.preventDefault();
+			}
 			return false;
 
 	}

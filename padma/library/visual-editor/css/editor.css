@@ -7955,6 +7955,50 @@ input.shortcode-anywhere{
 	width: 300px;
     text-align: center;
 }
+#mobile-menu{
+	display: none;
+}
+@media only screen and (max-width : 1260px) { 
+	div#menu{
+		overflow: hidden;
+		transition: height 500ms;
+		min-width: 700px;
+	}
+	div#menu.open{
+		height: auto;
+	}
+	div#menu #mobile-menu{
+	    display: block;	    
+	    position: fixed;
+	    right: 0;
+	    top: 0;
+	    z-index: 1000;
+	    line-height: 35px;
+	    width: 35px;
+	    height: 25px;
+	    cursor: pointer;
+	    background-image: url(../images/menu.png);
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: 25px;
+	    padding: 5px;
+	}
+	div#menu #menu-right{
+		float: right;
+	    width: 100%;
+	    display: block;	    
+	    text-align: center;
+	}
+	div#menu #menu-right .top-menu-nav{
+		height: 35px;
+	    margin: auto;
+	    float: none;
+	    clear: both;
+	    text-align: center;
+	    display: inline-block;
+	}
+}
+
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 

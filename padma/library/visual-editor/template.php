@@ -99,6 +99,8 @@
 			</div>
 	
 		</div><!-- #menu-right -->
+
+		<div id="mobile-menu"></div>
 	</div><!-- #menu -->
 
 	

@@ -119,6 +119,22 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 				});
 			/* END TOOLS */
 
+			/*	Mobile menu	*/
+				
+				var event = !Padma.touch ? 'click': 'touchstart';
+
+				$(document).on(event,'#mobile-menu',function(){
+					
+					var menu = $('#menu');
+					if(menu.hasClass('open')){
+						menu.removeClass('open');
+					}else{
+						menu.addClass('open');
+					}
+
+				});
+					
+			/*	END Mobile menu	*/
 		}
 
 	}

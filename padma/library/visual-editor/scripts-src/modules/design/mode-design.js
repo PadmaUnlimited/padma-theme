@@ -2229,7 +2229,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				
 				inspectorTooltip.show();
 
-				var inspectorMouseMoveEvent = !Padma.touch ? 'mousemove' : 'tap';
+				var inspectorMouseMoveEvent = !Padma.touch ? 'mousemove' : 'touchstart';
 				$i('html').bind(inspectorMouseMoveEvent, inspectorMouseMove);											
 
 				setupInspectorContextMenu();

@@ -32,7 +32,7 @@ class Padma {
 			define('THEME_FRAMEWORK', 'padma');			
 		}
 		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.1.54');			
+			define('PADMA_VERSION', '1.1.55');			
 		}
 
 		/* Define directories */
@@ -594,7 +594,7 @@ class Padma {
 			}
 
 		}
-				
+
 		//Init everything after dependencies have been loaded
 		foreach($classes_to_init as $class){
 			

@@ -5,76 +5,8 @@ class GridSetupPanel extends PadmaVisualEditorPanelAPI {
 	public $name;
 	public $mode = 'grid';	
 	public $tabs;	
-	public $tab_notices;
-	
-	public $inputs = array(
-		'grid' => array(
-			'columns' => array(
-				'type' => 'slider',
-				'name' => 'columns',
-				'label' => 'Default Column Count', /* Column count is default only because you can't change it on the fly */
-				'default' => 24,
-				'tooltip' => 'The column count is the number of columns in the grid.  This is represented by the grey regions on the grid.<br /><br /><strong>This will NOT affect wrappers that are already created.  It only affects wrappers that are created after this setting is changed.</strong>',
-				'slider-min' => 6,
-				'slider-max' => 24,
-				'slider-interval' => 1,
-				'callback' => 'Padma.defaultGridColumnCount = value.toString();updateGridWidthInput($(input).parents(".sub-tabs-content"));'
-			),
-
-			'column-width' => array(
-				'type' => 'slider',
-				'name' => 'column-width',
-				'label' => 'Global Column Width',
-				'default' => 26,
-				'tooltip' => 'The column width is the amount of space inside of each column.  This is represented by the grey regions on the grid.',
-				'unit' => 'px',
-				'slider-min' => 10,
-				'slider-max' => 120,
-				'slider-interval' => 1,
-				'callback' => 'Padma.globalGridColumnWidth = value.toString();$i("div.wrapper:not(.independent-grid)").each(function() { $(this).padmaGrid("updateGridCSS"); });updateGridWidthInput($(input).parents(".sub-tabs-content"));'
-			),
-			
-			'gutter-width' => array(
-				'type' => 'slider',
-				'name' => 'gutter-width',
-				'label' => 'Global Gutter Width',
-				'default' => 22,
-				'tooltip' => 'The gutter width is the amount of space between each column.  This is the space between each of the grey regions on the grid.',
-				'unit' => 'px',
-				'slider-min' => 0,
-				'slider-max' => 60,
-				'slider-interval' => 1,
-				'callback' => 'Padma.globalGridGutterWidth = value.toString();$i("div.wrapper:not(.independent-grid)").each(function() { $(this).padmaGrid("updateGridCSS"); });updateGridWidthInput($(input).parents(".sub-tabs-content"));'
-			),
-			
-			'grid-width' => array(
-				'type' => 'integer',
-				'unit' => 'px',
-				'default' => 1130,
-				'name' => 'grid-width',
-				'label' => 'Global Grid Width',
-				'readonly' => true
-			)
-		),
-		
-		'responsive-grid' => array(
-			'enable-responsive-grid' => array(
-				'type' => 'checkbox',
-				'name' => 'enable-responsive-grid',
-				'label' => 'Enable Responsive Grid',
-				'default' => true,
-				'tooltip' => 'If Padma\'s responsive grid is enabled, the grid will automatically adjust depending on the visitor\'s device (computer, iPhone, iPad, etc).  Enabling the responsive grid can be extremely beneficial for some websites, but may not be wortbthile for other websites.  If the responsive grid is enabled, the user will always have the option to disable the responsive grid via a link in the footer block.<br /><br /><strong>Please Note:</strong> with the responsive grid enabled, the exact pixel widths of blocks may differ very slightly from when it is <em>disabled</em>.'
-			),
-			
-			'responsive-video-resizing' => array(
-				'type' => 'checkbox',
-				'name' => 'responsive-video-resizing',
-				'label' => 'Responsive Video Resizing',
-				'default' => true,
-				'tooltip' => 'If the Responsive Grid is enabled and the user visits the site when there are YouTube, Vimeo, or any other videos, then the videos will not resize properly unless then is checked.'
-			)
-		)
-	);
+	public $tab_notices;	
+	public $inputs;
 	
 	function __construct(){
 

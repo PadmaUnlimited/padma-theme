@@ -17,7 +17,6 @@ function padma_media_view_settings_grabber( $settings ) {
 
 	$GLOBALS['wp_media_view_settings'] = $settings;
 
-
 	return $settings;
 
 }

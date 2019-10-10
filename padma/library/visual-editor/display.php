@@ -4,11 +4,11 @@ class PadmaVisualEditorDisplay {
 
 	public static function init() {
 
+		
 		Padma::load('visual-editor/layout-selector');
 
 		//Load boxes
 		Padma::load('abstract/api-box');
-
 		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/grid-manager.php';
 		require_once PADMA_LIBRARY_DIR . '/visual-editor/boxes/snapshots.php';
 
@@ -32,12 +32,12 @@ class PadmaVisualEditorDisplay {
 		add_action('padma_visual_editor_head', array(__CLASS__, 'robots'));
 
 		//Enqueue Styles
-		remove_all_actions('wp_print_styles'); /* Removes bad plugin CSS */
+		remove_all_actions('wp_print_styles'); //Removes bad plugin CSS
 		add_action('padma_visual_editor_styles', array(__CLASS__, 'enqueue_styles'));
 		add_action('padma_visual_editor_head', array(__CLASS__, 'output_inline_loading_css'), 10);
 
 		//Enqueue Scripts
-		remove_all_actions('wp_print_scripts'); /* Removes bad plugin JS */
+		remove_all_actions('wp_print_scripts'); //Removes bad plugin JS
 
 		add_filter( 'script_loader_tag', array( __CLASS__, 'require_js_attr' ), 15, 3 );
 		add_action('padma_visual_editor_scripts', array(__CLASS__, 'require_js'));
@@ -68,7 +68,7 @@ class PadmaVisualEditorDisplay {
 		if ( !defined('DONOTMINIFY') ) { 
 			define('DONOTMINIFY', true);
 		}
-
+		
 	}
 
 

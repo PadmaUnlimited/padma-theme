@@ -62,7 +62,8 @@ Fixed: pinboard block width issue
 Fixed: breakpoint issues with wrappers
 Fixed: Schema error when post date is not standard
 Fixed: Missing arrow.svg in slide-out menu was added
-New features on content block
+Fixed: When a Content Block, set to Custom Query, choosing a specific Category of Posts, displays on the front end, the Older Posts button at the bottom of the page reloads the same posts.
+New features on Content Block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
 - Added: Featured image as background

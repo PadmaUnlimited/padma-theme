@@ -27,7 +27,9 @@ class PadmaDynamicStyle {
 					$orginal_wrapper = 'wrapper-' . $data['id'];
 					$mirroring_wrapper = 'wrapper-' . $data['mirror_id'];
 
-					$elements['wrapper']['special-element-instance'][$orginal_wrapper] = $elements['wrapper']['special-element-instance'][$mirroring_wrapper];
+					if( isset($elements['wrapper']['special-element-instance'][$mirroring_wrapper]) )
+						$elements['wrapper']['special-element-instance'][$orginal_wrapper] = $elements['wrapper']['special-element-instance'][$mirroring_wrapper];
+
 					$elements['wrapper']['mirroring'][$orginal_wrapper] = $mirroring_wrapper;
 
 				}

@@ -45,12 +45,12 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 	
 	switchToContent = function (selectedContent, showSwitchNotification, selectedContentName) {
 
+		/*
 		console.log(selectedContent);
 		console.log(showSwitchNotification);
 		console.log(selectedContentName);
 		console.log('Por revisar: switchToContent');
 
-		/*
 		var content, contentNode, contentID, contentName;
 
 		if ( typeof selectedContent == 'object' && !selectedContent.hasClass('content') ) {

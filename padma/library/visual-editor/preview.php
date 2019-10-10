@@ -1,7 +1,6 @@
 <?php
 class PadmaVisualEditorPreview {
 
-
 	public static function remove_preview_options() {
 
 		if ( !PadmaCapabilities::can_user_visually_edit() )
@@ -18,7 +17,5 @@ class PadmaVisualEditorPreview {
 		}
 
 	}
-
-
 
 }

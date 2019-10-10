@@ -55,13 +55,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			var self = this;
 			
 			this._init = function() {
-
-				createCog($('#side-panel'), true, true, false, 1);
 				
 				$.when(designEditorRequestElements(), designEditorRequestElementData())
 					.then(this.setupElementSelector);
-
-
 
 				this.bindElementSelector();
 
@@ -86,16 +82,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		
 			this.setupElementSelector = function() {
 
-
+				//createCog($('#side-panel'), true, true, false, 1);
 
                 /* Show tabs */
                 $('#side-panel').addClass('side-panel-loaded');
-                $('#side-panel').find('> .cog-container').remove();
+                
 
 				/* Load in elements */
 					$('#design-editor-element-selector').empty();					
-
-					//console.log(Padma.elementGroups);
 					
 					$.each(Padma.elementGroups, function(groupID, groupInfo) {
 
@@ -156,8 +150,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				/* Show only layout elements */
 				designEditor.showOnlyLayoutElements();
 
-				// Remove loader
-				$('#side-panel .lotus').remove();
+				//$('#side-panel .lotus').remove();
+
 
 			}
 
@@ -271,8 +265,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						elementNode.appendTo($('li#element-group-' + elementSettings['group'] + ' ul.group-elements'));
 
 						
-						
-
 				}
 
 
@@ -1059,8 +1051,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 			this.loadElementInputs = function(element, specialElementInfo) {
 
-
-
 				var ajaxArgs = {
 					security: Padma.security,
 					action: 'padma_visual_editor',
@@ -1068,7 +1058,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					unsavedValues: designEditorGetUnsavedValues(element),
 					element: designEditorGetElementObject(element)
 				};
-
 
 				if ( typeof specialElementInfo == 'object' ) {
 
@@ -1320,6 +1309,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			setupTooltips();
 
 			$('.options-filter-only-modified input').prop('checked', false);
+
+			$('#side-panel .lotus').remove();
 		
 		}
 	/* END CONTENT TOGGLING */
@@ -1803,8 +1794,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		}
 
 		propertyInputCallbackFilter = function(params){
-
-			console.log(params);
 
 			var selector = params.selector;
 			var filter = params.value;

@@ -594,8 +594,7 @@ class Padma {
 			}
 
 		}
-		//debug($classes_to_init);
-		
+				
 		//Init everything after dependencies have been loaded
 		foreach($classes_to_init as $class){
 			

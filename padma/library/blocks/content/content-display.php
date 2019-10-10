@@ -2,18 +2,23 @@
 
 class PadmaContentBlockDisplay {
 		
-	var $count = 0;	
-		
+	var $count = 0;			
 	var $query = array();
 	
 	
 	function __construct($block) {
 		
 		$this->block = $block;
-		
-		/* Bring in the WordPress pagination variable. */
-		$this->paged = get_query_var('paged') ? get_query_var('paged') : 1;
-		
+
+		if ( get_query_var( 'paged' ) ) { 			
+			$this->paged = get_query_var( 'paged' );
+
+		}elseif ( get_query_var( 'page' ) ) { 
+			$this->paged = get_query_var( 'page' );
+
+		}else { 
+			$this->paged = 1; 
+		}
 		$this->add_hooks();
 
 	}
@@ -496,14 +501,21 @@ class PadmaContentBlockDisplay {
 
 					$query_options['paged'] = $this->paged;
 
-					if ($this->get_setting('offset', 0) >= 1 && $query_options['paged'] > 1){
-						$query_options['offset'] = $this->get_setting('offset', 0) + $this->get_setting('number-of-posts', 10) * ($query_options['paged'] - 1);
-					}
+
+					if( $query_options['paged'] > 1 ){
+
+						$query_options['offset'] = $this->get_setting('number-of-posts', 10) * ($query_options['paged'] - 1);
+						
+						if( $this->get_setting('offset', 0) >= 1 ){
+							$query_options['offset'] += $this->get_setting('offset');
+						}
+
+					}					
 
 				}
 
 			} //End else conditional for either page fetching or custom query filters
-
+			
 			$this->query = new WP_Query($query_options);
 
 		}
@@ -530,8 +542,6 @@ class PadmaContentBlockDisplay {
 				$post_permalink = get_permalink();
 				$post_type 		= get_post_type();
 			/* End generic variables */
-
-			//debug($post_id);
 
 			/* Meta */
 				$entry_meta_display_post_types = $this->get_setting('show-entry-meta-post-types', array('post'));

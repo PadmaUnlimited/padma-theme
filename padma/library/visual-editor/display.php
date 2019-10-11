@@ -4,7 +4,7 @@ class PadmaVisualEditorDisplay {
 
 	public static function init() {
 
-		
+
 		Padma::load('visual-editor/layout-selector');
 
 		//Load boxes
@@ -49,8 +49,8 @@ class PadmaVisualEditorDisplay {
 		add_action('padma_visual_editor_menu', array(__CLASS__, 'layout_selector'));
 
 		//add_action('padma_visual_editor_menu', array(__CLASS__, 'content_selector')); // Disabled until other release
-		
-		
+
+
 		add_action('padma_visual_editor_modes', array(__CLASS__, 'mode_navigation'));
 		add_action('padma_visual_editor_menu_links', array(__CLASS__, 'menu_links'));
 		add_action('padma_visual_editor_footer', array(__CLASS__, 'block_type_selector'));
@@ -68,7 +68,7 @@ class PadmaVisualEditorDisplay {
 		if ( !defined('DONOTMINIFY') ) { 
 			define('DONOTMINIFY', true);
 		}
-		
+
 	}
 
 
@@ -311,7 +311,7 @@ class PadmaVisualEditorDisplay {
 
 		$block_types = PadmaBlocks::get_block_types();
 
-		
+
 
 		echo "\n". '<div class="block-type-selector block-type-selector-original" style="display: none;">' . "\n";
 
@@ -323,7 +323,7 @@ class PadmaVisualEditorDisplay {
 
 		echo '<ul class="block-type-selector-filter-categories">';
 		echo '<li><a class="active" data-filter="all">All</a></li>';
-		
+
 		foreach (PadmaBlocks::get_registered_blocks_categories() as $categorie => $blocks) {
 			echo '<li><a class="" data-filter="'.$categorie.'">' . ucfirst(str_replace('-', ' ', $categorie)) . '</a></li>';
 		}
@@ -336,7 +336,7 @@ class PadmaVisualEditorDisplay {
 					foreach ($block_type['categories'] as $key => $value) {
 						$filter_categories .= 'filter-' . $value . ' '; 
 					}
-					
+
 
 					echo '
 						<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">

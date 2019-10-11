@@ -1,20 +1,20 @@
 <?php
 
 class PadmaNotices extends PadmaNotice{
-		
+
 
 	public function __construct(  ) {
 
 	}
-		
+
 	public static function init() {
 
 		if(get_option('padma_deny_admin_notices'))
 			return;
-			
+
 		// Support Us Notice	
 		self::supportUsNotice();
-				
+
 	}
 
 	private static function supportUsNotice(){
@@ -49,11 +49,11 @@ class PadmaNotices extends PadmaNotice{
 
 		// Display the notice
 		self::include_template();
-		
+
 
 	}
-	
-	
-	
-	
+
+
+
+
 }

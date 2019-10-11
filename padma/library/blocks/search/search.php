@@ -12,7 +12,7 @@ class PadmaSearchBlock extends PadmaBlockAPI {
 
 
 	function __construct(){
-		
+
 		$this->id = 'search';
 		$this->name = __('Search','padma');
 		$this->fixed_height = false;

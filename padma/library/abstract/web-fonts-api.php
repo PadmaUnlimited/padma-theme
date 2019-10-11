@@ -48,7 +48,7 @@ abstract class PadmaWebFontProvider {
 		);
 
 		echo '<div id="' . $this->id . '-fonts" class="tab-content font-provider-tab-content" data-font-allow-search="' . $attrs['search'] . '" data-font-allow-sorting="' . $attrs['sorting'] . '" data-font-webfont-provider="' . $attrs['provider'] . '" data-font-load-with-ajax="' . $attrs['ajax'] . '">';
-			
+
 			if ( $this->search )
 				$this->content_search();
 
@@ -69,7 +69,7 @@ abstract class PadmaWebFontProvider {
 
 	      		echo '<div class="select-container"><select name="choices">';
 	      			echo '<option value="" disabled="disabled">&ndash; ' . __('Sort By ','padma') . '&ndash;</option>';
-	      			
+
 	      			foreach ( $this->sorting_options as $sorting_option_value => $sorting_option_text )
 	      				echo '<option value="' . $sorting_option_value . '">' . $sorting_option_text . '</option>';
 
@@ -110,7 +110,7 @@ abstract class PadmaWebFontProvider {
 
 	}
 
- 
+
  	/* Gets the fonts using the transient if possible.  Otherwise it'll query the fonts and set the transient */
 	public function retrieve_fonts($sortby = false) {
 
@@ -170,19 +170,19 @@ abstract class PadmaWebFontProvider {
 				return;
 
 			}
-		
+
 		/* Output the fonts */
 		foreach ( $fonts as $font ) {
-			
+
 			$variants = '';
 			if(isset($font['variants'])){
 				foreach ($font['variants'] as $key => $value) {
 					$variants .= $value . ',';
 				}
 				$variants = rtrim($variants,',');
-				
+
 			}
-			
+
 			$html = '<li data-value="' . $font['id'] . '" style="font-family:' . $font['stack'] . ';" data-variants="[';			
 			$html .= $variants;
 			$html .= ']">
@@ -192,7 +192,7 @@ abstract class PadmaWebFontProvider {
 					<span title="Use Font" class="use-font action"></span>
 					<span title="Preview Font" class="preview-font action"></span>
 				</li>';
-			
+
 			echo $html;
 
 		}

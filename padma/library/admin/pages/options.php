@@ -22,7 +22,7 @@
 			<!-- General -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text">Toggle panel: General</span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -61,7 +61,7 @@
 			<!-- Admin Preferences -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Admin Preferences','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -366,7 +366,7 @@
 				<!-- Content <code>nofollow</code> Links -->
 				<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 					<div id="" class="postbox padma-admin-options-group">
-						
+
 						<button type="button" class="handlediv" aria-expanded="false">
 							<span class="screen-reader-text"><?php _e('Content <code>nofollow</code> Links','padma'); ?></span>
 							<span class="toggle-indicator" aria-hidden="true"></span>
@@ -401,7 +401,7 @@
 				<!-- Disable Schema.org support -->
 				<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 					<div id="" class="postbox padma-admin-options-group">
-						
+
 						<button type="button" class="handlediv" aria-expanded="false">
 							<span class="screen-reader-text"><?php _e('Disable Schema.org support','padma'); ?></span>
 							<span class="toggle-indicator" aria-hidden="true"></span>
@@ -444,7 +444,7 @@
 			<!-- Scripts/Analytics -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Scripts/Analytics','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -491,7 +491,7 @@
 			<!-- Visual Editor -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Visual Editor','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -541,7 +541,7 @@
 			<!-- Advanced -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Automatic Updates','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -587,7 +587,7 @@
 			<!-- Caching &amp; Compression -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Caching &amp; Compression','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -660,7 +660,7 @@
 			<!-- Developer -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Developer','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -694,7 +694,7 @@
 			<!-- Debugging -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Debugging','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -724,7 +724,7 @@
 					?>
 				</div>
 			</div>
-			
+
 
 		</div>
 
@@ -733,7 +733,7 @@
 			<!-- Plugin templates -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Plugin templates','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -768,7 +768,7 @@
 			<!-- Headway -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Headway','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -803,7 +803,7 @@
 			<!-- Gutenberg -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Gutenberg','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -841,7 +841,7 @@
 			<!-- Responsive options -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
-					
+
 					<button type="button" class="handlediv" aria-expanded="false">
 						<span class="screen-reader-text"><?php _e('Responsive options','padma'); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
@@ -875,7 +875,7 @@
 		</div>
 
 
-	
+
 
 	<div class="hr hr-submit" style="display: none;"></div>
 

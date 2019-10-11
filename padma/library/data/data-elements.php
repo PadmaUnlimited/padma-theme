@@ -25,53 +25,53 @@ class PadmaElementsData {
 
 	}
 
-	
-	
+
+
 	/* Mass Get */
 	public static function get_all_elements() {
-				
+
 		$elements = self::get_raw_data();
-			
+
 		//Move default elements to the top
 		foreach ( $elements as $element_id => $element_options ) {
-			
+
 			$element = PadmaElementAPI::get_element($element_id);
-			
+
 			if ( !isset($element['default-element']) || $element['default-element'] === false )
 				continue;
-				
+
 			$temp_id = $element_id;
 			$temp_options = $element_options;
-			
+
 			unset($elements[$element_id]);
-			
+
 			$elements = array_merge(array($temp_id => $temp_options), $elements);
-			
+
 		}
-					
+
 		return $elements;
-		
+
 	}
-	
-	
+
+
 	public static function get_element_properties($element) {
-		
+
 		//Get element ID
 		$element_id = is_array($element) ? $element['id'] : $element;
-			
+
 		$element = padma_get($element_id, self::get_raw_data());
-		
+
 		if ( !isset($element['properties']) || !is_array($element['properties']) )
 			$element['properties'] = array();
-		
+
 		$properties = $element['properties'];
-		
+
 		//Fetch the property
 		return ( is_array($properties) && count($properties) > 0 ) ? $properties : array();
-		
+
 	}
-	
-	
+
+
 	public static function get_special_element_properties($args) {
 
 		$defaults = array(
@@ -79,58 +79,58 @@ class PadmaElementsData {
 			'se_type' => null,
 			'se_meta' => null
 		);
-		
+
 		extract(array_merge($defaults, $args));
 
 		//Get element ID
 		$element_id = is_array($element) ? $element['id'] : $element;
-				
+
 		$element = padma_get($element_id, self::get_raw_data(), array(
 			'special-element-' . $se_type => array()
 		));
 
 		if ( !isset($element['special-element-' . $se_type][$se_meta]) || !is_array($element['special-element-' . $se_type][$se_meta]) )
 			$element['special-element-' . $se_type][$se_meta] = array();
-		
+
 		$properties =& $element['special-element-' . $se_type][$se_meta];
-			
+
 		//Return the data
 		return ( is_array($properties) && count($properties) > 0 ) ? $properties : array();
-		
+
 	}
-	
+
 
 	/* Single Get */
 	public static function get_property($element_id, $property_id, $default = null, $element_group = null) {
-		
+
 		$properties = self::get_element_properties($element_id);
-		
+
 		if ( $properties !== null && !is_wp_error($properties) && isset($properties[$property_id]) && (padma_fix_data_type($properties[$property_id]) || padma_fix_data_type($properties[$property_id]) === 0) )
 			return padma_fix_data_type($properties[$property_id]);
-			
+
 		else
 			return $default;
-		
+
 	}
-	
-	
+
+
 	public static function get_special_element_property($element_id, $se_type, $se_meta, $property_id, $default = null, $element_group = null) {
-		
+
 		$properties = self::get_special_element_properties(array(
 			'element' => $element_id, 
 			'se_type' => $se_type, 
 			'se_meta' => $se_meta
 		));
-		
+
 		if ( $properties !== null && !is_wp_error($properties) && isset($properties[$property_id]) && (padma_fix_data_type($properties[$property_id]) || padma_fix_data_type($properties[$property_id]) === 0) )
 			return padma_fix_data_type($properties[$property_id]);
-			
+
 		else
 			return $default;
-		
+
 	}
 
-	
+
 	/* Setting */
 	public static function set_property($element_group = null, $element_id, $property_id, $value) {
 
@@ -149,12 +149,12 @@ class PadmaElementsData {
 			$value = null;
 
 		$all_properties[$element_id]['properties'][$property_id] = $value;
-		
+
 		/* Send it back to DB */
 		return PadmaSkinOption::set('properties', $all_properties, 'design');
-		
+
 	}
-	
+
 
 		public static function delete_property($element_id, $property_id) {
 
@@ -166,10 +166,10 @@ class PadmaElementsData {
 
 			/* Send it back to DB */
 			return PadmaSkinOption::set('properties', $all_properties, 'design');
-			
+
 		}
 
-	
+
 	public static function set_special_element_property($element_group = null, $element_id, $special_element_type, $special_element_meta, $property_id, $value) {
 
 		/* Pass the torch onto self::delete_special_element_property() if the value is 'delete' */
@@ -189,10 +189,10 @@ class PadmaElementsData {
 			$value = null;
 
 		$all_properties[$element_id]['special-element-' . $special_element_type][$special_element_meta][$property_id] = $value;
-		
+
 		/* Send it back to DB */
 		return PadmaSkinOption::set('properties', $all_properties, 'design');
-		
+
 	}
 
 
@@ -213,7 +213,7 @@ class PadmaElementsData {
 			if ($element_data['value'] == 'null')
 				$element_data['value'] = null;
 
-			
+
 
 			$all_properties[$element_data['element_id']]['special-element-' . $element_data['special_element_type']][$element_data['special_element_meta']][$element_data['property_id']] = $element_data['value'];
 
@@ -231,7 +231,7 @@ class PadmaElementsData {
 
 			if ( isset($all_properties[$element_id]['special-element-' . $special_element_type][$special_element_meta][$property_id]) )
 				unset($all_properties[$element_id]['special-element-' . $special_element_type][$special_element_meta][$property_id]);
-			
+
 			/* Send it back to DB */
 			return PadmaSkinOption::set('properties', $all_properties, 'design');
 

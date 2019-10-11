@@ -48,7 +48,7 @@ class PadmaGutenbergBlocks {
 	 * register Padma Blocks Category
 	 *
 	 */
-	
+
 	public static function add_block_category( $categories, $post ){
 
 		if ( !is_admin() )
@@ -79,8 +79,8 @@ class PadmaGutenbergBlocks {
 			'title' => $title
 		);
 	}
-	
-	
+
+
 
 
 	/**
@@ -96,7 +96,7 @@ class PadmaGutenbergBlocks {
 		global $pagenow;
 		if ( $pagenow != 'post.php' && $pagenow != 'post-new.php' )
 			return;
-		
+
 
 		Padma::load('visual-editor/layout-selector');
 		$layouts = $blocks = array();
@@ -130,7 +130,7 @@ class PadmaGutenbergBlocks {
 			self::add_categories('padma-' . $params['id'], "Padma > " . $params['name']);
 
 			$blocks = array_merge($blocks,PadmaBlocksData::get_blocks_by_layout($params['id']));
-			
+
 			foreach ($blocks as $block_id => $args) {
 
 				$block = PadmaBlocksData::get_block($block_id);				
@@ -143,7 +143,7 @@ class PadmaGutenbergBlocks {
 					$block_name .= $args['settings']['alias'];
 				else
 					$block_name .= $block_id;
-				
+
 				$URL = site_url() . '/?padma-trigger=block-js&block-id='.$block_id;
 
 				wp_enqueue_script(
@@ -152,7 +152,7 @@ class PadmaGutenbergBlocks {
 				    array( 'wp-blocks', 'wp-element' ),
 				    true
 			  	);
-				
+
 				register_block_type('padma/' . $block['type']);
 
 				self::$blocks_categories[$block_id] = $params['name'];
@@ -168,7 +168,7 @@ class PadmaGutenbergBlocks {
 
 		if(!PadmaOption::get('padma-blocks-as-gutenberg-blocks'))
 			return;
-		
+
 		$expires = 60 * 60 * 24 * 30;
 
 		header("Pragma: public");
@@ -226,7 +226,7 @@ class PadmaGutenbergBlocks {
 			    window.wp.blocks,
 			    window.wp.element
 			) );";
-			
+
 		return $js;
 	}
 }

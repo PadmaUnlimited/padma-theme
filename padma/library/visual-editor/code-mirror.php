@@ -56,7 +56,7 @@
 
 		// Dialog
 		'/deps/code-mirror/addon/dialog/dialog.js',
-		
+
 		// Lint
 		'/deps/csslint.js',
 		'/deps/code-mirror/addon/lint/lint.js',

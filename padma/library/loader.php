@@ -5,7 +5,7 @@ global $padma_registry;
 $padma_registry = array(
 
 	// Abstract
-	'PadmaAdminMetaBoxAPI' => 'abstract/api-admin-meta-box',
+	'PadmaAdminMetaBoxAPI' => 'abstract/class-api-admin-meta-box',
 	'PadmaNotice'	=> 'abstract/notice',
 	'PadmaBlockAPI'	=> 'abstract/api-block',
 	'PadmaVisualEditorBoxAPI' => 'abstract/api-box',
@@ -95,7 +95,7 @@ $padma_registry = array(
 
 	// Maintenance
 	'PadmaMaintenance'	=>	'maintenance/upgrades',
-	
+
 	// Media
 	'PadmaResponsiveGridDynamicMedia'	=>	'media/dynamic/responsive-grid',
 
@@ -136,7 +136,7 @@ spl_autoload_register(function ($class) {
 
 	if(!is_file($file))
 		$file = dirname( __FILE__ ) . '/' . $file . '.php';
-	
+
 	if ( file_exists( $file ) && strpos($class, 'Padma') == 0 )
 		include $file;
 

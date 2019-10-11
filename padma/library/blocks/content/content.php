@@ -1,17 +1,17 @@
 <?php
 
 class PadmaContentBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $options_class;
 	public $description;
 	public $categories;
-	
+
 
 	function __construct(){
-		
+
 		$this->id = 'content';	
 		$this->name = __('Content','padma');
 		$this->options_class = 'PadmaContentBlockOptions';
@@ -19,16 +19,16 @@ class PadmaContentBlock extends PadmaBlockAPI {
 		$this->categories = array('core','content');
 
 	}		
-	
+
 
 	function init() {
-		
+
 		/* Load dependencies */
 		require_once PADMA_LIBRARY_DIR . '/blocks/content/content-display.php';
-		
+
 		/* Set up the comments template */
 		add_filter('comments_template', array(__CLASS__, 'add_blank_comments_template'), 5);
-		
+
 		/* Set up editor style */
 		add_filter('mce_css', array(__CLASS__, 'add_editor_style'));
 
@@ -37,34 +37,34 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 	}
 
-	
+
 	public static function add_blank_comments_template() {
-		
+
 		return PADMA_LIBRARY_DIR . '/blocks/content/comments-template.php';
-		
+
 	}
 
 
 	public static function add_comment_class_to_all_types($classes) {
-		
+
 		if ( !is_array($classes) )
 			$classes = implode(' ', trim($classes));
-				
+
 		$classes[] = 'comment';
-		
+
 		return array_filter(array_unique($classes));
-		
+
 	}
 
-	
+
 	public static function add_editor_style($css) {
-		
+
 		if ( PadmaOption::get('disable-editor-style', false, false) )
 			return $css;
-		
+
 		if ( !current_theme_supports('editor-style') )
 			return $css;
-			
+
 		if ( !current_theme_supports('padma-design-editor') )
 			return $css;
 
@@ -111,7 +111,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		return $css . "\n";
 
-		
+
 	}
 
 	static function get_column_width($block) {
@@ -134,14 +134,14 @@ class PadmaContentBlock extends PadmaBlockAPI {
 	 */	
 	static function width_as_percentage($target = '', $block) {
 		$block_width = PadmaBlocksData::get_block_width($block);
-		
+
 		if ($block_width > 0 )
 			return ($target / $block_width)*100;
 
 		return false;
 	}
 
-	
+
 	function setup_elements() {
 
 		$this->register_block_element(array(
@@ -149,7 +149,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			'name' => __('Article','padma'),
 			'selector' => 'article',			
 		));
-		
+
 		/* Classic Editor */
 			$this->register_block_element(array(
 				'id' => 'entry-container-hentry',
@@ -172,7 +172,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'selector' => '.type-post'
 				));
 
-			
+
 			$this->register_block_element(array(
 				'id' => 'entry-row',
 				'name' => __('Entry Row','padma'),
@@ -188,20 +188,20 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'Clicked' => '.entry-title:active'
 				)
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'archive-title',
 				'name' => __('Archive Title','padma'),
 				'selector' => '.archive-title'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'entry-content',
 				'name' => __('Body Text','padma'),
 				'description' => __('All text including &lt;p&gt; elements','padma'),
 				'selector' => 'div.entry-content, div.entry-content p'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'entry-content-hyperlinks',
 				'name' => __('Body Hyperlinks','padma'),
@@ -320,7 +320,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'parent' => 'entry-meta',
 					'selector' => '.entry-date'
 				));
-			
+
 			$this->register_block_element(array(
 				'id' => 'heading',
 				'name' => __('Heading','padma'),
@@ -348,7 +348,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'name' => 'H3',
 					'selector' => 'div.entry-content h3'
 				));
-			
+
 			$this->register_block_element(array(
 				'id' => 'sub-heading',
 				'name' => __('Sub Heading','padma'),
@@ -403,7 +403,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'selector' => '.block-type-content a.post-thumbnail img',
 				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'filter')
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'more-link',
 				'name' => __('Continue Reading Button','padma'),
@@ -413,7 +413,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					'Clicked' => 'div.entry-content a.more-link:active'
 				)
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'loop-navigation-link',
 				'name' => __('Loop Navigation Button','padma'),
@@ -429,7 +429,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => __('Comments','padma'),
 				'selector' => 'div#comments'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'comments-area',
 				'name' => __('Comments Area','padma'),
@@ -437,7 +437,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow'),
 				'parent' => 'comments-wrapper'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'comments-area-headings',
 				'name' => __('Comments Area Headings','padma'),
@@ -459,14 +459,14 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'selector' => '#comment',
 				'parent' => 'comments-wrapper'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'comment-author',
 				'name' => __('Comment Author','padma'),
 				'selector' => 'li.comment .comment-author',
 				'parent' => 'comments-wrapper'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'comment-meta',
 				'name' => __('Comment Meta','padma'),
@@ -480,7 +480,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'selector' => 'a.entry-comments',
 				'parent' => 'comments-wrapper'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'comment-body',
 				'name' => __('Comment Body','padma'),
@@ -488,7 +488,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'properties' => array('fonts'),
 				'parent' => 'comments-wrapper'
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'comment-reply-link',
 				'name' => __('Comment Reply Link','padma'),
@@ -560,7 +560,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => __('Gutenberg code block','padma'),
 				'selector' => '.wp-block-code',
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'gutenberg-preformatted-block',
 				'name' => __('Gutenberg preformatted block','padma'),
@@ -578,7 +578,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => __('Gutenberg table block','padma'),
 				'selector' => '.wp-block-table',
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'gutenberg-button-block',
 				'name' => __('Gutenberg button block','padma'),
@@ -590,7 +590,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => __('Gutenberg columns block','padma'),
 				'selector' => '.wp-block-columns',
 			));
-			
+
 			$this->register_block_element(array(
 				'id' => 'gutenberg-media-text-block',
 				'name' => __('Gutenberg media-text block','padma'),
@@ -717,16 +717,16 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				'name' => __('Custom Fields span','padma'),
 				'selector' => '.custom-fields span',
 			));
-		
+
 	}
-	
-	
+
+
 	function content($block) {
 
 		$block['custom-fields'] = $this->get_custom_fields($block);
 		$content_block_display = new PadmaContentBlockDisplay($block);
 		$content_block_display->display();
-		
+
 	}
 
 	function get_custom_fields($block){
@@ -734,7 +734,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 		$custom_fields_show = $custom_fields_label = $custom_fields_position = array();
 
 		foreach ($block['settings'] as $name => $value) {
-			
+
 			$data = explode('-', $name);
 			$post_type = (!empty($data[3])) ? $data[3]: null;
 
@@ -745,19 +745,19 @@ class PadmaContentBlock extends PadmaBlockAPI {
 			$custom_field = str_replace('custom-field-show-' . $post_type . '-', '' , $custom_field);
 			$custom_field = str_replace('custom-field-position-' . $post_type . '-', '' , $custom_field);
 			$custom_field = str_replace('custom-field-label-' . $post_type . '-', '' , $custom_field);
-			
+
 			if ( strpos($name, 'custom-field-show') !== false ){				
 				if($value){
 					$custom_fields_show[$post_type][$custom_field] = $value;
 				}				
 			}
-			
+
 			if ( strpos($name, 'custom-field-position') !== false )
 				$custom_fields_position[$post_type][$custom_field] = $value;
 
 			if ( strpos($name, 'custom-field-label') !== false )
 				$custom_fields_label[$post_type][$custom_field] = $value;
-						
+
 		}
 
 		$data = array();
@@ -773,14 +773,14 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		return $data;
 	}
-	
-	
+
+
 }
 
 
 class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
-	
-	
+
+
 	public $tab_notices;
 	public $tabs;	
 	public $inputs;
@@ -791,15 +791,15 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			'mode' => __('The content block is extremely versatile.  If the default mode is selected, it will do what you expect it to do.  For example, if you add this on a page, it will display that page\'s content.  If you add it on the Blog Index layout, it will list the posts like a normal blog template and if you add this box on a category layout, it will list posts of that category.  If you wish to change what the content block displays, change the mode to <em>Custom Query</em> and use the settings in the <em>Query Filters</em> tab.','padma'),
 
 			'query-setup' => __('For more control over queries and how the query is displayed, Padma works perfectly out-of-the-box with <a href="http://pluginbuddy.com/purchase/loopbuddy/" target="_blank">LoopBuddy</a>.','padma'),
-			
+
 			'meta' => __('
 				<p>The entry meta is the information that appears below the post title and below the post content.  By default, it will contain information about the entry author, the categories, and comments.</p>
 				<p><strong>Available Variables:</strong></p>
 				<p>%date% &bull; %modified_date% &bull; %time% &bull; %comments% &bull; %comments_no_link% &bull; %respond% &bull; %author% &bull; %author_no_link% &bull; %categories% &bull; %tags% &bull; %publisher% &bull; %publisher_img% &bull; %publisher_no_img%</p>
 			','padma')
 		);
-		
-		
+
+
 		$this->tabs = array(
 			'mode' 				=> __('Mode','padma'),
 			'query-filters' 	=> __('Query Filters','padma'),
@@ -810,9 +810,9 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			'post-thumbnails' 	=> __('Featured Images','padma')
 		);
 
-		
+
 		$this->inputs = array(
-			
+
 			'mode' => array(
 				'mode' => array(
 					'type' => 'select',
@@ -859,7 +859,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'label' => __('Query Filters','padma'),
 					'tooltip' => __('Query options have no effect if you have chosen to Fetch a Page\'s content above','padma')
 				),
-				
+
 				'categories' => array(
 					'type' => 'multi-select',
 					'name' => 'categories',
@@ -867,7 +867,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => '',
 					'options' => 'get_categories()'
 				),
-				
+
 				'categories-mode' => array(
 					'type' => 'select',
 					'name' => 'categories-mode',
@@ -906,7 +906,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'options' => 'get_tags()'
 				),
 
-				
+
 				'post-type' => array(
 					'type' => 'multi-select',
 					'name' => 'post-type',
@@ -923,7 +923,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => '',
 					'options' => 'get_post_status()'
 				),
-				
+
 				'author' => array(
 					'type' => 'multi-select',
 					'name' => 'author',
@@ -931,7 +931,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => '',
 					'options' => 'get_authors()'
 				),
-				
+
 				'number-of-posts' => array(
 					'type' => 'integer',
 					'name' => 'number-of-posts',
@@ -939,7 +939,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => '',
 					'default' => 10
 				),
-				
+
 				'offset' => array(
 					'type' => 'integer',
 					'name' => 'offset',
@@ -947,7 +947,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.','padma'),
 					'default' => 0
 				),
-				
+
 				'order-by' => array(
 					'type' => 'select',
 					'name' => 'order-by',
@@ -964,7 +964,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'menu_order' => __('Custom Order','padma')
 					)
 				),
-				
+
 				'order' => array(
 					'type' => 'select',
 					'name' => 'order',
@@ -989,7 +989,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('In both Include and Exclude by ID, you use a comma separated list of IDs of your post type.','padma')
 				)
 			),
-		
+
 			'display' => array(
 				'read-more-text' => array(
 					'type' => 'text',
@@ -998,7 +998,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'default' => __('Continue Reading','padma'),
 					'tooltip' => __('If excerpts are being shown or a featured post is truncated using WordPress\' read more shortcode, then this will be shown after the excerpt or truncated content.','padma')
 				),
-				
+
 				'show-titles' => array(
 					'type' => 'checkbox',
 					'name' => 'show-titles',
@@ -1061,7 +1061,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'label' => __('Custom Archive title','padma'),
 					'tooltip' => __('Use custom title for archive. Use %archive% for category, tag, etc: example "Category Archives: %archive%"','padma')				
 				),
-				
+
 				'show-readmore' => array(
 					'type' => 'checkbox',
 					'name' => 'show-readmore',
@@ -1069,7 +1069,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'default' => true,
 					'tooltip' => __('Show and hide the continue reading or read more text/button.','padma')
 				),
-				
+
 				'entry-content-display' => array(
 					'type' => 'select',
 					'name' => 'entry-content-display',
@@ -1109,7 +1109,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						)
 					)
 				),
-				
+
 				'show-entry' => array(
 					'type' => 'checkbox',
 					'name' => 'show-entry',
@@ -1117,7 +1117,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'default' => true,
 					'tooltip' => __('By default, the entries will always be shown.  However, there may be certain cases where you wish to show the entry content in one Content Block, but the comments in another.  With this option, you can do that.','padma')
 				),
-				
+
 				'comments-visibility' => array(
 					'type' => 'select',
 					'name' => 'comments-visibility',
@@ -1130,7 +1130,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					),
 					'tooltip' => __('When set to automatic, the comments will only show on single post pages.  However, there may be times where you want to force comment visibility to allow comments on pages.  Or, you may hide the comments if you wish to not see them at all.<br /><br /><strong>Tip:</strong> Create unique layouts by using this option in conjunction with the Show Entry option to show the entry content in one Content Block and show the comments in another Content Block.','padma')
 				),
-				
+
 				'featured-posts' => array(
 					'type' => 'integer',
 					'name' => 'featured-posts',
@@ -1146,7 +1146,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('On archive layouts: Show links at the bottom of the loop for the visitor to view older or newer posts.','padma'),
 					'default' => true
 				),
-				
+
 				'show-single-post-navigation' => array(
 					'type' => 'checkbox',
 					'name' => 'show-single-post-navigation',
@@ -1165,7 +1165,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 							)
 						)
 					),
-					
+
 				),
 
 				'show-single-post-navigation-enable-tax' => array(
@@ -1201,7 +1201,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'default' => true,
 					'tooltip' => __('The edit link is a convenient link that will be shown next to the post title.  It will take you straight to the WordPress admin to edit the entry.','padma')
 				),
-				
+
 				'custom-excerpts-heading' => array(
 					'name' => 'custom-excerpts-heading',
 					'type' => 'heading',
@@ -1223,7 +1223,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 							)
 					),
 				),
-				
+
 				'excerpts-length' => array(
 					'type' => 'integer',
 					'name' => 'excerpts-length',
@@ -1289,7 +1289,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			),
 
 			'custom-fields' => array(),
-			
+
 			'meta' => array(
 				'show-entry-meta-post-types' => array(
 					'type' => 'multi-select',
@@ -1299,21 +1299,21 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'options' => 'get_post_types()',
 					'default' => array('post')
 				),
-				
+
 				'entry-meta-above' => array(
 					'type' => 'textarea',
 					'label' => __('Meta Above Content','padma'),
 					'name' => 'entry-meta-above',
 					'default' => __('Posted on %date% by %author% &bull; %comments%','padma')
 				),
-				
+
 				'entry-utility-below' => array(
 					'type' => 'textarea',
 					'label' => __('Meta Below Content','padma'),
 					'name' => 'entry-utility-below',
 					'default' => __('Filed Under: %categories%','padma')
 				),
-				
+
 				'date-format' => array(
 					'type' => 'select',
 					'name' => 'date-format',
@@ -1339,7 +1339,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'default' => '%num% Comments',
 						'tooltip' => __('Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>more than 1 comment</strong> on the entry.','padma')
 					),
-					
+
 					'comment-format-1' => array(
 						'type' => 'text',
 						'label' => __('Comment Format &ndash; 1 Comment','padma'),
@@ -1347,7 +1347,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'default' => '%num% Comment',
 						'tooltip' => __('Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there is <strong>just 1 comment</strong> on the entry.','padma')
 					),
-					
+
 					'comment-format-0' => array(
 						'type' => 'text',
 						'label' => __('Comment Format &ndash; 0 Comments','padma'),
@@ -1356,7 +1356,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'tooltip' => __('Controls what the %comments% and %comments_no_link% variables will output in the entry meta if there are <strong>0 comments</strong> on the entry.','padma')
 
 					),
-					
+
 					'respond-format' => array(
 						'type' => 'text',
 						'label' => __('Respond Format','padma'),
@@ -1365,7 +1365,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'tooltip' => __('Determines the %respond% variable for the entry meta.','padma')
 					)
 			),
-			
+
 			'comments' => array(
 				'comments-area' => array(
 					'name' => 'comments-area',
@@ -1386,7 +1386,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 							<li>%title%</li>
 						</ul>','padma')
 					),
-					
+
 					'comments-area-heading-responses-number' => array(
 						'type' => 'text',
 						'label' => __('Responses Format &ndash; More Than 1 Comment','padma'),
@@ -1394,7 +1394,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'default' => '%num% Responses',
 						'tooltip' => __('Controls what the %responses% variable will output in the comments area heading if there is <strong>more than 1 comment</strong> on the entry.','padma')
 					),
-					
+
 					'comments-area-heading-responses-number-1' => array(
 						'type' => 'text',
 						'label' => __('Responses Format &ndash; 1 Comment','padma'),
@@ -1544,17 +1544,17 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'default' => true
 					)
 			)
-			
+
 		);
 	}
-	
+
 
 	function modify_arguments($args = false) {
-		
+
 		global $pluginbuddy_loopbuddy;
-		
+
 		if ( class_exists('pluginbuddy_loopbuddy') && isset($pluginbuddy_loopbuddy) ) {
-			
+
 			//Remove the old tabs
 			unset($this->tabs['mode']);
 			unset($this->tabs['meta']);
@@ -1567,10 +1567,10 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			unset($this->inputs['display']);
 			unset($this->inputs['query-filters']);
 			unset($this->inputs['post-thumbnails']);
-			
+
 			//Add in new tabs
 			$this->tabs['loopbuddy'] = 'LoopBuddy';
-			
+
 			$this->inputs['loopbuddy'] = array(
 				'loopbuddy-query' => array(
 					'type' => 'select',
@@ -1580,7 +1580,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('Select a LoopBuddy query to the right.  Queries determine what content (posts, pages, etc) will be displayed.  You can modify/add queries in the WordPress admin under LoopBuddy.','padma'),
 					'default' => ''
 				),
-				
+
 				'loopbuddy-layout' => array(
 					'type' => 'select',
 					'name' => 'loopbuddy-layout',
@@ -1590,13 +1590,13 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'default' => ''
 				)
 			);
-			
+
 			$this->tab_notices = array(
 				'loopbuddy' => sprintf( __('<strong>Even though we have the options to choose a LoopBuddy layout and query here, we recommend you configure LoopBuddy using its <a href="%s" target="_blank">options panel</a>.</strong><br /><br />The options below are more useful if you\'re using two Content Blocks on one layout and wish to configure them separately.  <strong>Note:</strong> You MUST have a query selected in order to also select a LoopBuddy layout.','padma'), admin_url('admin.php?page=pluginbuddy_loopbuddy') )
 			);
-			
+
 			return;
-			
+
 		}
 
 		if ( class_exists('SWP_Query') ) {
@@ -1660,7 +1660,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			$post_types = get_post_types();
 		}
 
-		
+
 		$custom_fields = PadmaQuery::get_meta($post_types);		
 
 		if(count($custom_fields)==0){
@@ -1675,15 +1675,15 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			$inputs = array();
 
 			foreach ($custom_fields as $post_type => $fields) {
-				
+
 				$heading = 'custom-fields-'.$post_type.'-heading';
-				
+
 				$inputs[$heading] = array(
 					'name' => $heading,
 					'type' => 'heading',
 					'label' => 'Custom Fields for: "' . $post_type . '".'
 				);
-				
+
 				foreach ($fields as $field_name => $posts_total) {
 
 					// Custom field name
@@ -1717,7 +1717,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 							)
 						)
 					);					
-					
+
 					// Custom field label input
 					$inputs[$label] = array(
 						'type' => 'text',
@@ -1725,7 +1725,7 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 						'label' => '"'.$field_name .'" label',
 						'default' => '',
 					);
-					
+
 					// Custom field position input
 					$inputs[$position] = array(
 						'type' => 'select',
@@ -1745,26 +1745,26 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 			$this->inputs['custom-fields'] = $inputs;
 
 		}
-		
-	}
-	
-	
-	function get_pages() {
-		
-		$page_options = array( __('&ndash; Do Not Fetch &ndash;','padma') );
-		
-		$page_select_query = get_pages();
-		
-		foreach ($page_select_query as $page)
-			$page_options[$page->ID] = $page->post_title;
-		
-		return $page_options;
-		
+
 	}
 
-	
+
+	function get_pages() {
+
+		$page_options = array( __('&ndash; Do Not Fetch &ndash;','padma') );
+
+		$page_select_query = get_pages();
+
+		foreach ($page_select_query as $page)
+			$page_options[$page->ID] = $page->post_title;
+
+		return $page_options;
+
+	}
+
+
 	function get_categories() {
-		
+
 		if( isset($this->block['settings']['post-type']) )
 			return PadmaQuery::get_categories($this->block['settings']['post-type']);
 		else
@@ -1773,53 +1773,53 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 	}
 
 	function get_tags() {
-		
+
 		$tag_options = array();
 		$tags_select_query = get_terms('post_tag');
 		foreach ($tags_select_query as $tag)
 			$tag_options[$tag->term_id] = $tag->name;
 		$tag_options = (count($tag_options) == 0) ? array('text'	 => __('No tags available','padma') ) : $tag_options;
 		return $tag_options;
-	
+
 	}
-	
-	
+
+
 	function get_authors() {
-		
+
 		$author_options = array();
-		
+
 		$authors = get_users(array(
 			'orderby' => 'post_count',
 			'order' => 'desc',
 			'who' => 'authors'
 		));
-		
+
 		foreach ( $authors as $author )
 			$author_options[$author->ID] = $author->display_name;
-			
+
 		return $author_options;
-		
+
 	}
-	
-	
+
+
 	function get_post_types() {
-		
+
 		$post_type_options = array();
 
 		$post_types = get_post_types(false, 'objects'); 
-			
+
 		foreach($post_types as $post_type_id => $post_type){
-			
+
 			//Make sure the post type is not an excluded post type.
 			if(in_array($post_type_id, array('revision', 'nav_menu_item'))) 
 				continue;
-			
+
 			$post_type_options[$post_type_id] = $post_type->labels->name;
-		
+
 		}
-		
+
 		return $post_type_options;
-		
+
 	}
 
 	function get_taxonomies() {
@@ -1828,19 +1828,19 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 
 		$taxonomy_select_query=get_taxonomies(false, 'objects', 'or');
 
-		
+
 		foreach ($taxonomy_select_query as $taxonomy)
 			$taxonomy_options[$taxonomy->name] = $taxonomy->label;
-		
-		
+
+
 		return $taxonomy_options;
-		
+
 	}
 
 	function get_post_status() {
-		
+
 		return get_post_stati();
-		
+
 	}
 
 
@@ -1874,39 +1874,39 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 
 
 	function get_loopbuddy_queries() {
-		
+
 		$loopbuddy_options = get_option('pluginbuddy_loopbuddy');
-		
+
 		$queries = array(
 			'' => __('&ndash; Use Default Query &ndash;','padma')
 		);
-				
+
 		foreach ( $loopbuddy_options['queries'] as $query_id => $query ) {
-						
+
 			$queries[$query_id] = $query['title'];
-			
+
 		}
-		
+
 		return $queries;
-		
+
 	}
 
-	
+
 	function get_loopbuddy_layouts() {
-		
+
 		$loopbuddy_options = get_option('pluginbuddy_loopbuddy');
-		
+
 		$layouts = array(
 			'' => __('&ndash; Use Default Layout &ndash;','padma')
 		);
-				
+
 		foreach ( $loopbuddy_options['layouts'] as $layout_id => $layout ) {
-			
+
 			$layouts[$layout_id] = $layout['title'];
-			
+
 		}
-		
+
 		return $layouts;
-		
+
 	}
 }

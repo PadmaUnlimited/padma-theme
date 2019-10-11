@@ -46,7 +46,7 @@ class PadmaBlocks {
 
 
 		add_action('init', array(__CLASS__, 'register_block_types'), 8);
-		
+
 		add_action('init', array(__CLASS__, 'process_registered_blocks'), 9);
 
 		/* Handle block-specific actions */
@@ -77,7 +77,7 @@ class PadmaBlocks {
 
 			// Add this class and path to global class padma_registry to be loaded in loader.php
 			$padma_registry = array_merge($padma_registry, array($class => $block_type_data['block_type_path']));
-			
+
 			if ( !class_exists($class) )
 				return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);
 
@@ -112,7 +112,7 @@ class PadmaBlocks {
 	public static function load_core_blocks() {
 
 		foreach ( apply_filters('padma_core_block_types', self::$core_blocks) as $block ) {
-			
+
 			$block_path = '/blocks/' . $block . '/' . $block . '.php';
 
 			/* Allow blocks to be overriden by child themes */
@@ -127,11 +127,11 @@ class PadmaBlocks {
 
 
 	public static function register_core_blocks(){
-		
+
 		foreach ( apply_filters('padma_core_block_types', self::$core_blocks) as $block ) {
 
 			$register_file = '/blocks/' . $block . '/block-register.php';
-			
+
 			/* Allow blocks to be overriden by child themes */
 			if ( PADMA_CHILD_THEME_ACTIVE && file_exists( untrailingslashit(PADMA_CHILD_THEME_DIR) . $register_file ) )
 				require_once untrailingslashit( PADMA_CHILD_THEME_DIR ) . $register_file;
@@ -500,7 +500,7 @@ class PadmaBlocks {
 
 		if ( !($blocks = PadmaBlocksData::get_all_blocks()) )
 			return false;
-	
+
 		foreach ( $blocks as $block ) {
 
 			/* Do not register instance for block that's in a mirrored wrapper */
@@ -565,9 +565,9 @@ class PadmaBlocks {
 							}
 
 				} /* /foreach */
-			
+
 		}
-		
+
 	}
 
 
@@ -653,7 +653,7 @@ class PadmaBlocks {
 
 		//Fetch the HTML tag for the block
 		$block_tag = ( $html_tag = padma_get('html-tag', $block_type_settings) ) ? $html_tag : 'div';
-		
+
 		//The ID attribute for the block.  This will change if mirrored.
 		$block_id_for_id_attr = $where != 'grid' ? PadmaBlocksData::get_legacy_id( $block ) : $block['id'];
 
@@ -747,23 +747,23 @@ class PadmaBlocks {
 		return $block['id'];
 
 	}
-	
+
 	public static function block_attr( $block_type_settings ) {
-	
+
 		if ( !$attributes = padma_get('attributes', $block_type_settings) )
 			return;
-		
+
 		$output = '';
-		
+
 	    foreach ( $attributes as $key => $value ) {
-	    
+
 	        if ( is_numeric($key) )
 	            $output .= esc_html($value);
 	        else   
 	        	$output .= sprintf( ' %s="%s"', esc_html($key), esc_attr($value) );
-	        
+
 	    }
-		
+
 	    return $output;
 
 	}
@@ -793,9 +793,9 @@ class PadmaBlocks {
 				$categories[$value][] = $block_type;
 			}
 		}
-		
+
 		ksort($categories);
-		
+
 		return $categories;
 
 	}

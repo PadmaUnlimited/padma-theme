@@ -1,6 +1,6 @@
 <?php
 function padma_content_block_editor_style() {
-	
+
 	$body_bg = PadmaElementsData::get_property('block-content-entry-container', 'background-color', 'ffffff');	
 	$body_color = PadmaElementsData::get_property('block-content-entry-content', 'color', '333333');
 	$body_font_family = PadmaElementsData::get_property('block-content-entry-content', 'font-family', 'helvetica, sans-serif');
@@ -59,23 +59,23 @@ function padma_content_block_editor_style() {
 		p {
 			margin: 0 0 15px;
 		}
-		
+
 		/* Lists */
 		ul, ol {
 			padding: 0 0 0 40px;
 			margin: 15px 0;
 		}
-		
+
 		ul ul, ol ol { margin: 0; } /* Lists inside lists should not have the margin on them. */	
 
 	    ul li { list-style: disc; }
 	    ul ul li { list-style: circle; }
 	    ul ul ul li { list-style: square; }
-	    
+
 	    ol li { list-style: decimal; }
 	    ol ol li { list-style: lower-alpha; }
 	    ol ol ol li { list-style: lower-roman; }
-		
+
 		strong {
 			font-weight: bold;
 		}
@@ -181,5 +181,5 @@ function padma_content_block_editor_style() {
 			color: inherit;
 		}
 		';
-	
+
 }

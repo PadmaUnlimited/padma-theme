@@ -1,9 +1,9 @@
 <?php
 class PadmaPropertyInputs {
-	
-	
+
+
 	public static function display($element, $special_element_type = false, $special_element_meta = false, $data, $data_without_defaults) {
-						
+
 		if ( !is_array($element) || empty($element['properties']) )
 			return null;
 
@@ -16,7 +16,7 @@ class PadmaPropertyInputs {
 			'property_values' => $data,
 			'property_values_excluding_defaults' => $data_without_defaults
 		);
-				
+
 		/*  Format $element['properties'] into an easier array to work with and then make it alphabetical */
 			$property_groups = array();
 
@@ -48,7 +48,7 @@ class PadmaPropertyInputs {
 
 		/* Sort property groups */
 			ksort($property_groups);
-			
+
 		/* Display the property groups registered to the element.  */			
 			$property_group_row_i = 0;
 
@@ -73,14 +73,14 @@ class PadmaPropertyInputs {
 						echo '</div><!-- .property-group-row -->';
 						unset($property_group_row_open);
 					}
-							
+
 			} 	
-		
+
 	}
-	
-	
+
+
 	public static function box($args) {
-		
+
 		$defaults = array(
 			'group' => null,
 			'element' => null,
@@ -91,33 +91,33 @@ class PadmaPropertyInputs {
 			'property_values_excluding_defaults' => false,
 			'unsaved_values' => false
 		);
-		
+
 		$args = array_merge($defaults, $args);
 		$args['group_nice'] = ucwords(str_replace('-', ' ', $args['group']));
 
 		//If the group doesn't exist, don't attempt to display it
 		if ( !($properties = PadmaElementProperties::get_properties_by_group($args['group_nice'])) )
 			return false;
-			
+
 		$args['selector'] = isset($args['element']['selector']) ? $args['element']['selector'] : null;
 
 		/* Custom behaviors for special element types */
 			switch ( $args['special_element_type'] ) {
-				
+
 				case 'instance':
 
 					$instances = padma_get('instances', $args['element']);
 					$instance = $instances[$args['special_element_meta']];
-				
+
 					$args['selector'] = $instance['selector'];
 
 				break;
-				
+
 				case 'state':
 
 					$states = padma_get('states', $args['element']);
 					$state = $states[$args['special_element_meta']];
-				
+
 					$args['selector'] = $state['selector'];
 
 				break;
@@ -135,7 +135,7 @@ class PadmaPropertyInputs {
 					}
 
 				break;
-				
+
 			} 
 
 		/* Set customized box class flag */
@@ -157,9 +157,9 @@ class PadmaPropertyInputs {
 		/* Create the box */
 			echo '<div class="design-editor-box design-editor-box-' . $args['group'] . $customized_box_class . '">';
 				echo '<span class="design-editor-box-title"' . $property_box_title . '><span>' . $args['group_nice'] . '</span></span>';
-					
+
 				echo '<ul class="design-editor-box-content">';
-					
+
 					foreach ( $properties as $property_id => $property_options ) {
 
 
@@ -230,12 +230,12 @@ class PadmaPropertyInputs {
 						/* End box model input handling */
 
 					}
-					
+
 				echo '</ul><!-- .design-editor-box-content -->';
-			
+
 			echo '</div><!-- .design-editor-box -->';
 		/* End box creation */
-		
+
 	}
 
 
@@ -244,24 +244,24 @@ class PadmaPropertyInputs {
 			//Make sure the input type for the property really exists
 			if ( !is_callable(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type']))) )
 				return false;
-			
+
 			/* Get the value of the property */
 				$original_property_value = padma_fix_data_type(padma_get($property_id, $element_args['property_values']));
 
 				if ( ($original_property_value || $original_property_value === 0) && strtolower($original_property_value) !== 'delete' ) {
-					
+
 					$property_options['value'] 		= $element_args['property_values'][$property_id];
 					$property_options['customized'] = true;
-					
+
 
 				//Fall back to default
 				} else {
-																	
+
 					$property_default = isset($property_options['default']) ? $property_options['default'] : null;
 
 					$property_options['value'] 		= $property_default;
 					$property_options['customized'] = false;
-																		
+
 				}	
 
 			/* Set up elements and attributes */
@@ -282,7 +282,7 @@ class PadmaPropertyInputs {
 					'element_selector' 		=> esc_attr(stripslashes($element_args['selector'])),
 					'callback' 				=> $callbackJS = esc_attr('(function(params){' . $js_callback . '})')
 				);
-									
+
 
 				/* Turn attributes array into a string for HTML */
 					$hidden_input_attributes = '';
@@ -291,7 +291,7 @@ class PadmaPropertyInputs {
 						$hidden_input_attributes .= $attribute . '="' . $attribute_value . '" ';
 
 					$hidden_input_attributes = trim($hidden_input_attributes);
-							
+
 			/* Set up attributes */
 				$property_title = '';
 				$property_classes = array(
@@ -348,10 +348,10 @@ class PadmaPropertyInputs {
 			}
 
 			echo '<li data-property-id="' . $property_id . '" class="' . implode(' ', array_filter($property_classes)) . '"' . $property_title . '>';
-			
+
 				echo '<strong><span class="property-label">' . $property_options['name'] . '</span>' . (!padma_get('lockable', $property_options) ? $uncustomize_button : null) . '</strong>';
 				echo '<div class="property-' . $property_options['type'] . ' property">';
-												
+
 					echo (padma_get('lockable', $property_options)) ? $uncustomize_button : null; /* Uncustomize button needs to be in different location for box model input s*/
 
 
@@ -359,7 +359,7 @@ class PadmaPropertyInputs {
 
 					//Effects
 					if($property_id === 'effect' && isset($property_options['complex-options'])){
-						
+
 						$property_options['options'] = call_user_func($property_options['complex-options'], $element_args);
 
 						call_user_func(
@@ -369,13 +369,13 @@ class PadmaPropertyInputs {
 						);
 
 					}else{
-						
+
 						call_user_func(array(__CLASS__, 'input_' . str_replace('-', '_', $property_options['type'])), $property_options, $property_id);
 					}
 
 
 					if ( is_array( padma_get( 'unit', $property_options ) ) ) {
-					
+
 						$unit_value = trim(str_replace( array_merge( range( 0, 9 ), array( '.', '-' ) ), '', $property_options['value'] ));
 
 						self::input_select(array(
@@ -384,22 +384,22 @@ class PadmaPropertyInputs {
 							'unit-select' 	=> true
 						));
 					}
-					
+
 
 				echo '<input ' . $hidden_input_attributes . ' />';
-					
+
 				echo '</div>';
-				
+
 				echo $customize_button; 
-				
+
 			echo '</li>';
-			
+
 
 		}
-	
-	
+
+
 	public static function input_integer($options, $id) {
-		
+
 		$unit = is_string(padma_get('unit', $options)) ? '<span class="unit">' . padma_get('unit', $options) . '</span>' : null;
 
 		/* Remove unit from value */
@@ -412,107 +412,107 @@ class PadmaPropertyInputs {
 
 
 		echo '<input type="number" value="' . $options['value'] . '" step="' . padma_get('step', $options, 1) . '"  />' . $unit;
-						
+
 	}
-	
-	
+
+
 	public static function input_color($options, $id) {
-				
+
 		echo '
 		<div class="colorpicker-box-container">
 			<div class="colorpicker-box-transparency"></div>
 			<div class="colorpicker-box" style="background-color:' . padma_format_color($options['value']) . ';"></div>
 		</div><!-- .colorpicker-box-container -->
 		';
-		
+
 	}
-	
-	
+
+
 	public static function input_select($options, $id = null) {
 
 		$unit_select_class = padma_get('unit-select', $options) ? ' property-unit-select' : '';
-		
+
 		echo '<div class="select-container' . $unit_select_class . '"><select>';
-						
+
 			//If 'options' is a function, then call it and replace $options['options']
 			if ( is_string($options['options']) && strpos($options['options'], '()') !== false ) {
-				
+
 				$sanitized_function = str_replace('()', '', $options['options']);
-				
+
 				//If is a method rather than function, the method must be declared as static otherwise it'll return false on PHP 5.2
 				if ( !is_callable($sanitized_function) ) {
 					echo '</select></div><!-- .select-container -->';
 					return;
 				}
-				
+
 				$options['options'] = call_user_func($sanitized_function);
-				
+
 			}
-			
+
 			if ( is_array($options['options']) ) {
-				
+
 				foreach ( $options['options'] as $value => $content ) {
-					
+
 					//If it's an optgroup, handle it.
 					if ( is_array($content) ) {
-						
+
 						echo '<optgroup label="' . $value . '">';
-						
+
 						foreach ( $content as $value => $text ) {
-				
+
 							//If the current option is the value in the DB, then mark it as selected
 							$selected_option = ( $value == $options['value'] ) ? ' selected="selected"' : null;
 
 							echo '<option value="' . $value . '"' . $selected_option . '>' . $text . '</option>';
-							
+
 						} 
-						
+
 						echo '</optgroup>';
-						
+
 					//Otherwise it's just a normal option
 					} else {
-						
+
 						//If the current option is the value in the DB, then mark it as selected
 						$selected_option = ( $value == $options['value'] ) ? ' selected="selected"' : null;
 
 						echo '<option value="' . $value . '"' . $selected_option . '>' . $content . '</option>';
-						
+
 					}
-					
+
 				}
-				
+
 			}	
-				
-			
+
+
 		echo '</select></div><!-- .select-container -->';
-		
+
 	}
-	
-	
+
+
 	public static function input_image($options, $id) {
-		
+
 		$src_visibility = ( is_string($options['value']) && strlen($options['value']) > 0 && $options['value'] != 'none' ) ? '' : ' style="display:none;"';
 
 		$filename_parts = explode('/', $options['value']);
 		$filename = end($filename_parts);
-		
+
 		echo '
 			<span class="button">Choose</span>
-			
+
 			<div class="image-input-controls-container"' . $src_visibility . '>
 				<span class="src">' . $filename . '</span>
 				<span class="delete-image">Delete</span>
 			</div>
 		';
-				
+
 	}
-	
-	
+
+
 	public static function input_checkbox($options, $id) {
-		
+
 	}
-	
-	
+
+
 	public static function input_font_family_select($options, $id) {
 
 		/* Output input */
@@ -551,7 +551,7 @@ class PadmaPropertyInputs {
 
 		/* Font Browser */
 			echo '<div class="font-browser">';
-					
+
 					echo '<ul class="tabs">';
 						do_action('padma_fonts_browser_tabs');
 					echo '</ul>';
@@ -559,6 +559,6 @@ class PadmaPropertyInputs {
 					do_action('padma_fonts_browser_content');
 
 			echo '</div><!-- .font-browser -->';
-				
+
 	}
 }

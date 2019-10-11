@@ -29,7 +29,7 @@ class PadmaSettings {
 	 * return the setting
 	 *
 	 */
-	
+
 	public static function get($key){
 		return self::$settings[$key];
 	}
@@ -45,7 +45,7 @@ class PadmaSettings {
 		/*	Errors	*/
 		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 		@ini_set('display_errors', 'Off');
-		
+
 	}
 
 	/**
@@ -60,5 +60,5 @@ class PadmaSettings {
 
 	}
 
-	
+
 }

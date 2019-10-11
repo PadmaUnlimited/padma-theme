@@ -159,25 +159,25 @@ class PadmaWrappers {
 			/* Do not register instance for mirrored wrapper */
 			if ( PadmaWrappersData::is_wrapper_mirrored($wrapper_options) ){
 				if( !empty($wrapper_options['settings']['do-not-mirror-wrapper-styles']) && $wrapper_options['settings']['do-not-mirror-wrapper-styles'] == true){
-					
+
 					$original_wrapper = $wrapper_options['mirror_id'];
 					$mirroring_wrappers_no_style[$original_wrapper] = $wrapper_id;					
 				}
 				continue;
 			}
-			
+
 			$wrapper_id_for_selector    = PadmaWrappersData::get_legacy_id( $wrapper_options );
 			$wrapper_id_for_selector    = self::format_wrapper_id( $wrapper_id_for_selector);
 
 			$wrapper_name = padma_get('alias', padma_get('settings', $wrapper_options, array())) ? 'Wrapper: ' . padma_get( 'alias', padma_get( 'settings', $wrapper_options, array() ) ) : 'Wrapper (Unnamed)';
 
-			
+
 			if( empty($mirroring_wrappers_no_style[$wrapper_id_for_selector]) ){
 				$selector = '#wrapper-' . $wrapper_id_for_selector . ', div#whitewrap div.wrapper-mirroring-' . $wrapper_id_for_selector;
 			}else{
 				$selector = '#wrapper-' . $wrapper_id_for_selector;
 			}
-			
+
 
 			PadmaElementAPI::register_element_instance(array(
 				'group' => 'structure',

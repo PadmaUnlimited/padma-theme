@@ -1,14 +1,14 @@
 <?php
 
 class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
 	public $description;
 	public $categories;
-	
-	
+
+
 	function __construct(){
 
 		$this->id = 'mailchimp-for-wp';
@@ -26,7 +26,7 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 			return false;
 
 	}
-	
+
 	function setup_elements() {
 
 		$this->register_block_element(array(			
@@ -69,19 +69,19 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 			'name' => __('Form submit','padma'),
 			'selector' => '.mc4wp-form .mc4wp-form-fields input[type="submit"]',
 		));
-	
+
 	}
 
 
 	public static function dynamic_css($block_id, $block = false) {
-			
+
 	}
 
 
 	public static function dynamic_js($block_id, $block = false) {
-	
+
 	}
-	
+
 	public function content($block) {
 
 		$form_id = parent::get_setting($block, 'form-id', '');		
@@ -89,7 +89,7 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 	}
 
 	public static function enqueue_action($block_id, $block = false) {
-	
+
 	}
 
 
@@ -99,18 +99,18 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 
 		return get_post($form_id, OBJECT, 'raw')->post_title;
 	}
-	
+
 }
 
 
 class PadmaMailchimpForWPBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs = array(
 		'general' => 'General'
 	);
-	
+
 	public $sets = array(
-		
+
 	);
 
 	public $inputs = array(
@@ -135,17 +135,17 @@ class PadmaMailchimpForWPBlockOptions extends PadmaBlockOptionsAPI {
 		$forms = array(
 			'0' => 'Select a form'
 		);
-		
+
 		if( $data = get_posts($args)){
-			
+
 			foreach($data as $key){
 				$forms[$key->ID] = $key->post_title;
 			}
 
 		}
-		
+
 		return $forms;
 	}
 
-	
+
 }

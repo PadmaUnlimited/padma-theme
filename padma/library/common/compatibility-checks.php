@@ -24,7 +24,7 @@ if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 
 /*	Do not Check PHP Version	*/
 } elseif ( defined('PADMA_DISABLE_PHP_VERIFICATION') && PADMA_DISABLE_PHP_VERIFICATION === true) {
-	
+
 	return;
 
 

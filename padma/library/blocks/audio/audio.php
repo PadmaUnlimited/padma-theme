@@ -1,7 +1,7 @@
 <?php
 
 class PadmaAudioBlock extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -26,13 +26,13 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 									);
 		$this->description 	= __('Display an audio','padma');
 		$this->categories 	= array('core','media');
-		
+
 		$this->show_content_in_grid = false;
 
 	}
-	
+
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'audio',
 			'name' => 'Audio',
@@ -46,7 +46,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 			'selector' => 'div.audio'
 		));
 
-		
+
 	}
 
 	public static function dynamic_css($block_id, $block = false) {
@@ -65,7 +65,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 			'center_center' => 'bottom: 0; left: 0; top: 0; right: 0;',
 			'center_left' => 'bottom: 0; left: 0; top: 0;',
 			'center_right' => 'bottom: 0; top: 0; right: 0;',
-			
+
 			'bottom_left' => 'bottom: 0; left: 0;',
 			'bottom_center' => 'bottom: 0; left: 0; right: 0;',
 			'bottom_right' => 'bottom: 0;right: 0;'
@@ -84,7 +84,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 		';
 
 		return $css;
-		
+
 	}
 
 	public static function dynamic_js($block_id, $block = false) {
@@ -93,13 +93,13 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 			$block = PadmaBlocksData::get_block($block_id);
 
 		$js = '';
-		
+
 		if(parent::get_setting($block, 'width-dynamic') || parent::get_setting($block, 'height-dynamic')){
-			
+
 			$js 		= "jQuery(document).ready(function() {";
 			$js_resize 	= "jQuery( window ).on( 'orientationchange resize', function( event ) {";
 			$js_load 	= "";
-			
+
 			if(parent::get_setting($block, 'width-dynamic')){
 				$js_resize 	.= "jQuery( 'div#block-". $block_id ." audio' ).attr('width',window.innerWidth);";
 				$js_load  	.= "if(window.innerWidth < ".$block['settings']['width']."){
@@ -123,9 +123,9 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 		return $js;
 
 	}
-	
+
 	function content($block) {
-		
+
 		//Display audio if there is one
 		if (parent::get_setting($block, 'audio-mp3')||parent::get_setting($block, 'audio-ogg')||parent::get_setting($block, 'audio-wav') ) {
 
@@ -142,7 +142,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 				$audioHTML .= ' loop';
 
 			switch (parent::get_setting($block, 'preload')) {
-				
+
 				case 'none':
 					$audioHTML .= ' preload="none"';
 					break;
@@ -154,7 +154,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 				case 'auto':
 					$audioHTML .= ' preload="auto"';
 					break;
-				
+
 				default:					
 					break;
 			}
@@ -164,7 +164,7 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 
 			if(parent::get_setting($block, 'muted'))
 				$audioHTML .= ' muted';
-						
+
 			$audioHTML .= '>';
 
 			if(parent::get_setting($block, 'audio-mp3'))
@@ -180,13 +180,13 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 			$audioHTML .= '</audio></div>';
 
 			echo $audioHTML;
-		
+
 
 		} else {
 
 			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>' . __('You have not added an audio yet. Please upload and apply an audio.','padma') . '</p></div>';
 		}
-		
+
 		/* Output position styling for Grid mode */
 			if ( padma_get('ve-live-content-query', $block) && padma_post('mode') == 'grid' ) {
 				echo '<style type="text/css">';
@@ -196,11 +196,11 @@ class PadmaAudioBlock extends PadmaBlockAPI {
 
 
 	}
-	
+
 }
 
 class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
 
@@ -211,7 +211,7 @@ class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 		);
 
 		$this->inputs = array(
-			
+
 			'general' => array(
 
 				'audio-heading' => array(
@@ -317,5 +317,5 @@ class PadmaAudioBlockOptions extends PadmaBlockOptionsAPI {
 		);
 
 	}
-	
+
 }

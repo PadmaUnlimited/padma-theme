@@ -1,8 +1,8 @@
 <?php
 class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 
-	
-	
+
+
 	public $id;
 	public $name;
 	public $mode;	
@@ -10,11 +10,11 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 	public $inputs;
 
 	function __construct(){		
-		
+
 		$this->id = 'wrapper-options';
 		$this->name = __('Wrapper Options','padma');
 		$this->mode = 'grid';
-		
+
 		$this->tabs = array(
 			'setup' => __('Grid &amp; Margins','padma'),
 			'positioning' => __('Sticky Positioning','padma'),
@@ -22,7 +22,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 			'responsive' => __('Responsive','padma'),
 			'import-export' => __('Import/Export','padma'),
 		);
-		
+
 		$this->inputs = array(
 			'setup' => array(		
 				'grid-setup-heading' => array(
@@ -79,7 +79,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 						'slider-interval' => 1,
 						'callback' => 'wrapperOptionCallbackColumnWidth(input, value);'
 					),
-					
+
 					'gutter-width' => array(
 						'type' => 'slider',
 						'name' => 'gutter-width',
@@ -92,7 +92,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 						'slider-interval' => 1,
 						'callback' => 'wrapperOptionCallbackGutterWidth(input, value);'
 					),
-					
+
 					'grid-width' => array(
 						'type' => 'integer',
 						'unit' => 'px',
@@ -247,7 +247,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 					'options' => 'get_wrappers_select_options_for_mirroring()',
 					'callback' => 'updateWrapperMirrorStatus(args.wrapper.id, value, input);'
 				),
-				
+
 				'do-not-mirror-wrapper-styles' => array(
 					'type' => 'checkbox',
 					'chosen' => false,
@@ -276,7 +276,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 			),
 
 			'responsive' => array(
-				
+
 				array(
 					'type' => 'repeater',
 					'name' => 'responsive-wrapper-options',
@@ -477,7 +477,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 
 		);
 	}
-	
+
 
 	public function register() {
 
@@ -487,7 +487,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 
 
 	public function display($wrapper, $layout) {
-		
+
 		//Set block properties
 		$this->wrapper = $wrapper;
 
@@ -500,9 +500,9 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 		//Get and display panel
 		$this->modify_arguments($args);
 		$this->panel_content($args);
-		
+
 	}
-	
+
 	function modify_arguments($args = false) {
 
 		/* Do not show Wrapper Setup tab in the Design Mode */
@@ -514,7 +514,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 			return;
 
 		}
-		
+
 		/* Grid Settings Defaults */
 			$this->inputs['setup']['column-width']['default'] = PadmaWrappers::$default_column_width; 
 			$this->inputs['setup']['gutter-width']['default'] = PadmaWrappers::$default_gutter_width; 
@@ -529,21 +529,21 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 
 		/* Wrapper Mirror Value */
 		$this->inputs['config']['mirror-wrapper']['value'] = PadmaWrappersData::is_wrapper_mirrored($args['wrapper']);
-		
+
 	}
 
 
 	public function get_wrappers_select_options_for_mirroring() {
-							
+
 		$wrappers 	= PadmaWrappersData::get_all_wrappers();
 		$options 	= array('' => '&ndash; Do Not Mirror &ndash;');
-		
+
 		//If there are no wrappers to mirror, then just return the Do Not Mirror option.
 		if ( empty($wrappers) || !is_array($wrappers) )
 			return $options;
-		
+
 		foreach ( $wrappers as $wrapper_id => $wrapper ) {
-			
+
 			/* If we can't get a name for the layout, then things probably aren't looking good.  Just skip this wrapper. */
 			if ( !($layout_name = PadmaLayout::get_name($wrapper['layout'])) )
 				continue;
@@ -572,10 +572,10 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 			if ( ! isset( $options[ $layout_name ] ) ) {
 				$options[ $layout_name ] = array();
 			}
-			
+
 			//Get alias if it exists, otherwise use the default name
 			$options[$layout_name][$wrapper_id] = 'Wrapper' . $wrapper_alias . $wrapper_info_str  . $current_layout_suffix;
-			
+
 		}
 
 		//Remove the current wrapper from the list
@@ -583,8 +583,8 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 			unset($options[$this->wrapper['id']]);
 
 		return $options;
-		
+
 	}
-	
-	
+
+
 }

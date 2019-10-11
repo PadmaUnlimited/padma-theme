@@ -1,7 +1,7 @@
 <?php
 
 class PadmaQuery{
-	
+
 	function __construct(){
 
 	}
@@ -38,7 +38,7 @@ class PadmaQuery{
 
 		if(!is_array($byid_exclude))
 			$byid_exclude = explode(',', $byid_exclude);
-		
+
 		$args = array(
 			'category__in' 		=> $categories,
 			'posts_per_page'	=> $number_of_posts,
@@ -51,13 +51,13 @@ class PadmaQuery{
 			'author__in'   		=> $author,
 
 		);
-		
+
 		if(count($byid_exclude)>0 && $byid_exclude[0] != '')
 			$args['post__not_in'] = $byid_exclude;
 
 		if(count($byid_include)>0 && $byid_include[0] != '')
 			$args['post__in'] = $byid_include;
-		
+
 		$Query = new WP_Query( $args );
 
 		return $Query->posts;
@@ -87,12 +87,12 @@ class PadmaQuery{
 		    'taxonomy' => $taxonomies,
 		    'hide_empty' => false,
 		));
-		
+
 		foreach ($terms as $category)
 			$category_options[$category->term_id] = $category->name;
 
 		return $category_options;
-		
+
 	}
 
 
@@ -102,65 +102,65 @@ class PadmaQuery{
 	 *
 	 */
 	public static function get_tags() {
-		
+
 		$tag_options = array();
 		$tags_select_query = get_terms('post_tag');
 
 		foreach ($tags_select_query as $tag)
 			$tag_options[$tag->term_id] = $tag->name;
-		
+
 		$tag_options = (count($tag_options) == 0) ? array('text' => __('No tags available','padma') ) : $tag_options;
 
 		return $tag_options;
 	}
-	
-	
+
+
 	/**
 	 *
 	 * Query Authors
 	 *
 	 */
 	public static function get_authors() {
-		
+
 		$author_options = array();
-		
+
 		$authors = get_users(array(
 			'orderby' => 'post_count',
 			'order' => 'desc',
 			'who' => 'authors'
 		));
-		
+
 		foreach ( $authors as $author )
 			$author_options[$author->ID] = $author->display_name;
-			
+
 		return $author_options;
-		
+
 	}
-	
-	
+
+
 	/**
 	 *
 	 * Query posts types
 	 *
 	 */
 	public static function get_post_types() {
-		
+
 		$post_type_options = array();
 
 		$post_types = get_post_types(false, 'objects'); 
-			
+
 		foreach($post_types as $post_type_id => $post_type){
-			
+
 			//Make sure the post type is not an excluded post type.
 			if(in_array($post_type_id, array('revision', 'nav_menu_item'))) 
 				continue;
-			
+
 			$post_type_options[$post_type_id] = $post_type->labels->name;
-		
+
 		}
-		
+
 		return $post_type_options;
-		
+
 	}
 
 
@@ -175,13 +175,13 @@ class PadmaQuery{
 
 		$taxonomy_select_query=get_taxonomies(false, 'objects', 'or');
 
-		
+
 		foreach ($taxonomy_select_query as $taxonomy)
 			$taxonomy_options[$taxonomy->name] = $taxonomy->label;
-		
-		
+
+
 		return $taxonomy_options;
-		
+
 	}
 
 	/**
@@ -190,11 +190,11 @@ class PadmaQuery{
 	 *
 	 */	
 	public static function get_post_status() {
-		
+
 		return get_post_stati();
-		
+
 	}
-	
+
 
 	/**
 	 *
@@ -248,8 +248,8 @@ class PadmaQuery{
 			}
 
 		}
-        
+
         return $custom_fields;
 	}
-	
+
 }

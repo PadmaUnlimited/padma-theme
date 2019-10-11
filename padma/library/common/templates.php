@@ -29,7 +29,7 @@ class PadmaTemplates {
 		if ( !$installed_skins ) {
 			$installed_skins = array();
 		}
-				
+
 		if ( !empty($installed_skins) && is_array($installed_skins) ) {
 
 			foreach ( $installed_skins as $installed_skin_id => $installed_skin ) {
@@ -78,7 +78,7 @@ class PadmaTemplates {
 
 		}
 
-		
+
 		if ( $associative ) {
 
 			$associative_skins = array();

@@ -9,15 +9,15 @@ class PadmaPlugins{
 		 * If option "Do not recommend plugin installation" is on, Padma will not recommended installation of plugins "Updater" and "Services"
 		 *
 		 */
-		
+
 		if(PadmaOption::get('do-not-recommend-plugin-installation')){
 			return;
 		}
-		
+
 		require_once get_template_directory() . '/library/common/lib/class-tgm-plugin-activation.php';
 
 		add_action( 'tgmpa_register', array(__CLASS__,'padma_register_required_plugins'));
-		
+
 	}
 
 	/**
@@ -31,7 +31,7 @@ class PadmaPlugins{
 		 * If the source is NOT from the .org repo, then source is also required.
 		 */
 		$plugins = array(
-			
+
 			array(
 				'name'         => 'Padma Services', // The plugin name.
 				'slug'         => 'padma-services', // The plugin slug (typically the folder name).

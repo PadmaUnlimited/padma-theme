@@ -42,7 +42,7 @@ class PadmaDataPortability {
 			if(version_compare(padma_get('pu-version', $skin), '0.0.17', '<')){
 				return array('error' => 'This is not a valid Padma Template');
 			}
-			
+
 		}elseif (padma_get('bt-version', $skin)) {
 
 			if(version_compare(padma_get('bt-version', $skin), '1.0.0', '<')){
@@ -58,7 +58,7 @@ class PadmaDataPortability {
 		}else{
 			return array('error' => 'This is not a valid Padma Template');
 		}
-		
+
 		$skins = PadmaOption::get_group('skins');
 
 		/* Remove image definitions */
@@ -132,7 +132,7 @@ class PadmaDataPortability {
 			}elseif (!padma_get('hw-version', $skin) || version_compare(padma_get('hw-version', $skin), '3.7', '<') ) {
 				return array('error' => 'Headway templates from pre-3.7 versions are not supported');
 			}
-					
+
 
 		/* Change $current_skin back just to be safe */
 			PadmaOption::$current_skin 			= PadmaTemplates::get_active_id();
@@ -410,7 +410,7 @@ class PadmaDataPortability {
 		return $padmaSkin;
 	}
 
-	
+
 
 	/**
 	 *
@@ -426,7 +426,7 @@ class PadmaDataPortability {
             '/(headway\_)/',
             '/(\/headway\/)/',
             '/(\-headway\-)/',
-            
+
             // Bloxtheme
             '/(bt)/',
             '/(bloxtheme\_)/',
@@ -435,7 +435,7 @@ class PadmaDataPortability {
         );
 
         $replace_for = array(
-            
+
             'pu',
             'pu_',
             '/padma/',

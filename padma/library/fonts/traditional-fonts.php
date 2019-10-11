@@ -37,11 +37,11 @@ class PadmaTraditionalFonts extends PadmaWebFontProvider {
 	public function content_fonts_list() {
 
 		echo '<div class="fonts-list">';
-				
+
 			echo '<ul>';
 				$this->list_fonts('traditional');
 			echo '</ul>';
-		
+
 		echo '</div><!-- .fonts-list -->';
 
 	}
@@ -59,7 +59,7 @@ class PadmaFonts {
 		'palatino' 			=> 'Palatino',
 		'times' 			=> 'Times',
 		'times new roman' 	=> 'Times New Roman',
-	
+
 		'arial' 			=> 'Arial',
 		'arial black' 		=> 'Arial Black',
 		'arial narrow' 		=> 'Arial Narrow',
@@ -71,10 +71,10 @@ class PadmaFonts {
 		'tahoma' 			=> 'Tahoma',
 		'trebuchet ms' 		=> 'Trebuchet MS',
 		'verdana' 			=> 'Verdana',
-	
+
 		'courier' 			=> 'Courier',
 		'courier new' 		=> 'Courier New',
-	
+
 		'papyrus' 			=> 'Papyrus',
 		'copperplate' 		=> 'Copperplate'
 	);

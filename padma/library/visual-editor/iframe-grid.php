@@ -3,13 +3,13 @@ class PadmaVisualEditorIframeGrid {
 
 
 	public static function display_grid_blocks($blocks, $wrapper) {
-		
+
 		echo '<div class="grid-container">';
-				
+
 			if ( is_array($blocks) ) {
 
 				foreach ($blocks as $block_id => $block) {
-						
+
 					PadmaBlocks::display_block($block, 'grid');
 
 				}
@@ -36,7 +36,7 @@ class PadmaVisualEditorIframeGrid {
 			/* End mirrored wrapper notice */
 
 		echo '</div><!-- .grid-container -->';
-		
+
 	}
 
 
@@ -63,7 +63,7 @@ class PadmaVisualEditorIframeGrid {
 
 			$wrappers = PadmaWrappersData::get_wrappers_by_layout(PadmaLayout::get_current_in_use());
 			$blocks = PadmaBlocksData::get_blocks_by_layout(PadmaLayout::get_current_in_use());
-		
+
 			echo '<div id="whitewrap">';
 
 			foreach ( $wrappers as $wrapper_id => $wrapper ) {
@@ -101,19 +101,19 @@ class PadmaVisualEditorIframeGrid {
 				echo '<div id="wrapper-' . PadmaWrappers::format_wrapper_id($wrapper_id) . '" class="' . implode(' ', array_filter($wrapper_classes)) . '" data-wrapper-settings="' . esc_attr(json_encode($wrapper_settings)) . '" data-id="' . PadmaWrappers::format_wrapper_id($wrapper_id) . '" data-alias="' . esc_attr(stripslashes(padma_get('alias', $wrapper_settings))) . '">';
 
 					echo '<div class="wrapper-mirror-overlay"></div><!-- .wrapper-mirror-overlay -->';
-				
+
 					self::display_grid_blocks($wrapper_blocks, $wrapper);
-				
+
 				echo '</div><!-- #wrapper-' . $wrapper_id . ' -->';
 
 			}
 
 		echo '<div id="wrapper-buttons-template">';
-			
+
 			echo '<div class="wrapper-handle wrapper-top-margin-handle wrapper-margin-handle" title="' . __('Drag to change wrapper top margin','padma') . '"><span></span><span></span><span></span></div>';
-			
+
 			echo '<div class="wrapper-handle wrapper-drag-handle" title="' . __('Drag to change wrapper order','padma') . '"><span></span><span></span><span></span></div>';
-			
+
 			echo '<div class="wrapper-handle wrapper-bottom-margin-handle wrapper-margin-handle" title="' . __('Drag to change wrapper bottom margin','padma') . '"><span></span><span></span><span></span></div>';
 
 			echo '<div class="wrapper-options" title="' . __('Click to open wrapper options','padma') . '"><span></span></div>';
@@ -122,7 +122,7 @@ class PadmaVisualEditorIframeGrid {
 
 
 		do_action('padma_grid_iframe_footer');
-			
+
 		echo '</div><!-- #whitewrap -->
 		</body>
 		</html>';
@@ -150,12 +150,12 @@ class PadmaVisualEditorIframeGrid {
 		if ( !defined('DONOTMINIFY') ) { 
 			define('DONOTMINIFY', true);
 		}
-		
+
 		add_action('padma_grid_iframe_head', array(__CLASS__, 'print_styles'), 12);
 		add_action('padma_grid_iframe_styles', array(__CLASS__, 'enqueue_canvas_assets'));
-		
+
 		self::display_canvas();
-		
+
 	}
 
 
@@ -179,14 +179,14 @@ class PadmaVisualEditorIframeGrid {
 
 
 	public static function print_styles() {
-		
+
 		global $wp_styles;
 		$wp_styles = null;
-		
+
 		do_action('padma_grid_iframe_styles');
-		
+
 		wp_print_styles();
-		
+
 	}
 
 

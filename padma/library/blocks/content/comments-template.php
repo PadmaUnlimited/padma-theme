@@ -24,14 +24,14 @@ echo '<div id="comments">';
 						'title' => get_the_title()
 					);
 				/* End Comments Area Responses Formatting */
-				
+
 				echo str_replace(array('%responses%', '%title%'), $comments_heading_replacements, padma_get('comments-area-heading', $padma_comments_template_args, '%responses% to <em>%title%</em>'));
 
 			echo '</h3>';
 			/* End Comments Area Heading */
-			
+
 			echo '<ol class="commentlist">';
-			
+
 				wp_list_comments(apply_filters('padma_comments_args', array(
 					'avatar_size' => 44,
 					'format' => 'html5'
@@ -50,11 +50,11 @@ echo '<div id="comments">';
 			if ( $post->comment_status != 'open' ) {
 
 				if ( is_single() ) {
-					
+
 					$comments_closed = apply_filters('padma_comments_closed', __('Sorry, comments are closed for this post.', 'padma'));
-					
+
 					echo '<p class="comments-closed">' . $comments_closed . '</p>';
-					
+
 				}
 
 			}

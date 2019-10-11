@@ -136,7 +136,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		}
 
 		$nav_classes = trim( implode( ' ', array_unique( $nav_classes ) ) );
-		
+
 
 		/* Use legacy ID */
 		$block['id'] = PadmaBlocksData::get_legacy_id( $block );
@@ -235,13 +235,13 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					$css .= $selector . ' ul.menu {
 							display: none; 
 						}
-					
+
 						' . $selector . ' .slicknav_menu {
 							display: block;
 							background-color: #fff;
 						}';
 
-				
+
 					$css .= '}';
 				}
 
@@ -257,7 +257,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					$css .= $selector . ' ul.menu {
 					    display: none;
 					  }
-					
+
 					  ' . $selector . ' .pushy-menu-toggle {
 					    display: inline-block;
 					  }';
@@ -269,7 +269,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 				break;
 		}
-		
+
 		return $css;
 
 	}
@@ -302,7 +302,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			}
 
 			$js .= 'jQuery(function() {
-				
+
 					if ( typeof jQuery().superfish != "function" )
 						return false;
 
@@ -312,7 +312,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 						speed: ' . $speed . ',
 						onBeforeShow: function() {
 							var parent = jQuery(this).parent();
-							
+
 							var subMenuParentLink = jQuery(this).siblings(\'a\');
 							var subMenuParents = jQuery(this).parents(\'.sub-menu\');
 
@@ -364,7 +364,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 								additionalBtnClass: "' . $toggle_class . '",
 								additionalMenuClass: "' . $menu_class . '"
 							});
-		
+
 						});' . "\n\n";
 
 					break;
@@ -373,7 +373,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 					$slide_out_pos = parent::get_setting($block, 'slide-out-menu-position', 'left');
 
 					$js .= 'jQuery(document).ready(function($){
-					
+
 						if ( typeof window.hwPushy != "function" )
 							return false;
 
@@ -384,7 +384,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 						var id = "slide-out-" + "'  . $slide_out_pos . '";
 
 						$pushyMenu.attr("id", id);
-	
+
 						$pushyMenu.find("li").addClass("pushy-link");
 						$pushyMenu.find("ul").each(function() {
 							$(this).removeAttr("style");
@@ -394,34 +394,34 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 						$(".pushy-site-overlay").remove();
 						$(\'<div class="pushy-site-overlay" />\').appendTo("body");
-						
+
 						$(".pushy").remove();
 						$pushyMenu.prependTo(\'body\');
-						
+
 						$("#wpadminbar").appendTo("body");
-						
+
 						window.hwPushy();
-	
+
 						});' . "\n\n";
 
 					break;
 
 				default:
-					
+
 					$js .= 'jQuery(document).ready(function($){
 
 						if ( typeof window.selectnav != "function" )
 							return false;
-	
+
 						selectnav($("' . $selector . '").find("ul.menu")[0], {
 							label: "-- ' . esc_html__( 'Navigation', 'padma' ) . ' --",
 							nested: true,
 							indent: "-",
 							activeclass: "current-menu-item"
 						});
-	
+
 						$("' . $selector . '").find("ul.menu").addClass("selectnav-active");
-	
+
 						});' . "\n\n";
 
 
@@ -429,7 +429,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			}
 
 		}
-		
+
 		return $js;
 
 	}
@@ -953,7 +953,7 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 			),
 		);
 	}
-	
+
 
 	function modify_arguments( $args = false ) {
 

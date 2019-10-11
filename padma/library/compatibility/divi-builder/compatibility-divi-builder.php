@@ -6,9 +6,9 @@ class PadmaCompatibilityDiviBuilder {
 	 * Constructor
 	 */
 	private function __construct() {
-		
+
 	}
-	
+
 	/**
 	 * Gets the instance of the class
 	 */

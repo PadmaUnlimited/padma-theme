@@ -83,7 +83,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				});
 			});
 			";
-			
+
 			return $js;
 
 		}
@@ -163,7 +163,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					$show_datetime 		= parent::get_setting($block, 'show-datetime', false);
 					$datetime_verb 		= parent::get_setting($block, 'datetime-verb', 'Posted');
 					$relative_times 	= parent::get_setting($block, 'relative-times', true);
-					
+
 					//$entry_meta_above 	= $this->parse_meta(parent::get_setting('entry-meta-above', 'Posted on %date% by %author% &bull; %comments%'));
 
 
@@ -439,7 +439,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 									if ( $show_post_type ) {
 										echo '<div class="entry-post-type">' . get_post_type() . '</div>';
 									}
-									
+
 
 								echo '</div>' . "\n";
 
@@ -792,7 +792,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public $inputs;
 
 		function __construct(){
-			
+
 			$this->tabs = array(
 				'pin-setup' 		=> __('Pin Setup','padma'),
 				'query-filters' 	=> __('Query Filters','padma'),

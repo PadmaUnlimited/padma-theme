@@ -1,12 +1,12 @@
 <?php
 class PadmaSchema {
-	
+
 	function __construct(){
 
 	}
-	
+
 	public static function init() {
-		
+
 		if(PadmaOption::get('disable-schema-support'))
 			return;
 
@@ -40,7 +40,7 @@ class PadmaSchema {
 
 		if(trim($author) == '')
 			$author = get_the_author_meta('user_nicename', $post->post_author);
-	
+
 
 		/**
 		 *
@@ -50,14 +50,14 @@ class PadmaSchema {
 		$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$site_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-				
+
 
 		/**
 		 *
 		 * Article Image
 		 *
 		 */
-		
+
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];			
 
 

@@ -40,7 +40,7 @@ switch ($load_lang_code) {
 		margin-bottom:6%;
 		font-family:Verdana, Geneva, sans-serif;
 	}
-	
+
 	.container {
 		background-color:#FFF;
 		padding:30px;
@@ -50,11 +50,11 @@ switch ($load_lang_code) {
 		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 		text-align:center;
 	}
-	
+
 	.logo {
 		width:70%;
 	}
-	
+
 	input {
 		border-radius:0px;
 		width:100%;
@@ -68,22 +68,22 @@ switch ($load_lang_code) {
 		transition: all .25s ease-in-out;
 		-moz-transition: all .25s ease-in-out;
 		-webkit-transition: all .25s ease-in-out;
-		
+
 		-webkit-box-sizing: border-box;
 		   -moz-box-sizing: border-box;
 				box-sizing: border-box;
-				
+
 		-webkit-appearance: none;
 		-webkit-border-radius:0px;
 
 
 	}
-	
+
 	input:focus {
 		box-shadow: 0 0 3px #64C6E7;
 		opacity:1;
 	}
-	
+
 	.nameOfInput {
 		font-size:14px;
 		margin-bottom:1px;
@@ -91,7 +91,7 @@ switch ($load_lang_code) {
 		font-weight:bold;
 		color:#666;
 	}
-	
+
 	.login_btn {
 		margin-top:14px;
 		background-color:#F9F9F9;
@@ -104,7 +104,7 @@ switch ($load_lang_code) {
 		border:none !important;
 		cursor:pointer;
 	}
-	
+
 	.hrNews {
 		border-top:solid;
 		border-top-width:thin;
@@ -112,7 +112,7 @@ switch ($load_lang_code) {
 		margin:auto;
 		margin-top:7px;
 	}
-	
+
 	.hrNews2 {
 		margin-top:20px;
 	}

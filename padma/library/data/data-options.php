@@ -57,7 +57,7 @@ class PadmaOption {
 		if ( !$fix_data_type ) {
 			return $group_data[$option];
 		}
-		
+
 		return padma_fix_data_type($group_data[$option]);
 
 	}

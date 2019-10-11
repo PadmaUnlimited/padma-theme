@@ -19,7 +19,7 @@ class Padma {
 	 * @return void
 	 *
 	 **/
-	
+
 	public static function init() {
 
 		global $wpdb;
@@ -42,7 +42,7 @@ class Padma {
 		if(!defined('PADMA_LIBRARY_DIR')){
 			define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
 		}
-		
+
 		/* Dev Params	*/
 		if(file_exists(PADMA_LIBRARY_DIR . '/dev-env.php')){
 			require_once PADMA_LIBRARY_DIR . '/dev-env.php';
@@ -73,7 +73,7 @@ class Padma {
 		if(!defined('PADMA_DEFAULT_SKIN')){
 			define('PADMA_DEFAULT_SKIN', 'base');
 		}
-		
+
 
 		/**
 		 *
@@ -86,7 +86,7 @@ class Padma {
 		if(!defined('PADMA_DISABLE_PHP_PARSING')){			
 			define('PADMA_DISABLE_PHP_PARSING', false);
 		}
-		
+
 		/* MySQL Table names */
 		$wpdb->pu_blocks 		= $wpdb->prefix . 'pu_blocks';
 		$wpdb->pu_wrappers 		= $wpdb->prefix . 'pu_wrappers';
@@ -150,7 +150,7 @@ class Padma {
 		add_action( 'switch_theme', array(__CLASS__, 'deactivate' ));
 
 	}
-	
+
 
 	public static function activate(){
 
@@ -275,7 +275,7 @@ class Padma {
 			'common/gutenberg-blocks'	=> true,
 
 		);
-			
+
 		//Child theme API
 		if ( PADMA_CHILD_THEME_ACTIVE === true )
 			$dependencies['api/api-child-theme'] = 'ChildThemeAPI';
@@ -289,11 +289,11 @@ class Padma {
 		if ( is_admin() )
 			$dependencies['admin'] = true;
 
-		
+
 		// Load stuff now
 		Padma::load(apply_filters('padma_dependencies', $dependencies));
 		do_action('padma_setup');
-		
+
 	}
 
 
@@ -536,7 +536,7 @@ class Padma {
 			PadmaUpdater::updater(PadmaSettings::get('slug'),PADMA_DIR,true);
 
 		}
-	
+
 	}
 
 
@@ -551,14 +551,14 @@ class Padma {
 		} else {
 			$load = $classes;
 		}
-		
+
 		$classes_to_init = array();
 
 		//Remove already loaded classes from the array
 		foreach ( Padma::$loaded_classes as $class ) {
 			unset($load[$class]);
 		}
-		
+
 		foreach ( $load as $file => $init ) {
 
 
@@ -586,7 +586,7 @@ class Padma {
 				$classes_to_init[] = $init;
 
 			}else {
-				
+
 				//Handle anything and automatically insert .php if need be
 				if ( strpos($file, '/') !== false )
 					require_once PADMA_LIBRARY_DIR . '/' . $file . '.php';
@@ -597,7 +597,7 @@ class Padma {
 
 		//Init everything after dependencies have been loaded
 		foreach($classes_to_init as $class){
-			
+
 			if ( method_exists('Padma' . $class, 'init') ) {
 
 				call_user_func(array('Padma' . $class, 'init'));

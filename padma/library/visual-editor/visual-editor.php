@@ -6,31 +6,31 @@ class PadmaVisualEditor {
 	protected static $modes 			= array();	
 	protected static $default_mode 		= 'grid';
 	protected static $default_layout 	= 'index';
-	
-	
+
+
 	public static function init() {
-		
+
 		if ( !PadmaCapabilities::can_user_visually_edit() )
 			return;
-					
+
 		//If no child theme is active or if a child theme IS active and the grid is supported, use the grid mode.
 		if ( current_theme_supports('padma-grid') )
 			self::$modes['Grid'] = __('Add blocks and arrange your website structure','padma');
-		
+
 		self::$modes['Design'] = __('Choose fonts, colors, and other styles','padma');
-		
+
 		//If the grid is disabled, set Design as the default mode.
 		if ( !current_theme_supports('padma-grid') )
 			self::$default_mode = 'design';
-		
+
 		PadmaSettings::set_visual_editor_settings();
-			
+
 		//Put in action so we can run top level functions
 		do_action('padma_visual_editor_init');
-				
+
 		//Visual Editor AJAX		
 		add_action('wp_ajax_padma_visual_editor', array(__CLASS__, 'ajax'));
-		
+
 		if ( PadmaOption::get('debug-mode') )
 			add_action('wp_ajax_nopriv_padma_visual_editor', array(__CLASS__, 'ajax'));
 
@@ -43,23 +43,23 @@ class PadmaVisualEditor {
 
 		$cache_rejected_uri[] = 'visual\-editor\=true';
 		$cache_rejected_uri[] = 've\-iframe\=true';
-		
+
 		//Iframe handling
 		add_action('padma_body_close', array(__CLASS__, 'iframe_load_flag'));
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_load_flag'));
 
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_tooltip_container'));
 		add_action('padma_body_close', array(__CLASS__, 'iframe_tooltip_container'));
-     
+
         wp_enqueue_media();
 
 		padma_register_web_font_provider('PadmaTraditionalFonts');
 		padma_register_web_font_provider('PadmaGoogleFonts');
 
-		        
+
 	}
-	
-	
+
+
 	public static function ajax() {
 
 		if ( ! defined( 'DONOTCACHEDB' ) ) {
@@ -72,10 +72,10 @@ class PadmaVisualEditor {
 
 		Padma::load('visual-editor/display', 'VisualEditorDisplay');
 		Padma::load('visual-editor/visual-editor-ajax');
-		
+
 		//Authenticate nonce
 		check_ajax_referer('padma-visual-editor-ajax', 'security');
-		
+
 		$method = padma_post('method') ? padma_post('method') : padma_get('method');
 
 		//Check for a non-secure (something that doesn't save data) AJAX request first (let debug mode authentication pass through)
@@ -84,16 +84,16 @@ class PadmaVisualEditor {
 			call_user_func(array('PadmaVisualEditorAJAX', 'method_' . $method));
 			do_action('padma_visual_editor_ajax_post_' . $method);
 		}
-						
+
 		//Check for a secure (something that saves data) AJAX request and require genuine authentication
 		elseif ( method_exists('PadmaVisualEditorAJAX', 'secure_method_' . $method) && PadmaCapabilities::can_user_visually_edit(true) ) {
 			do_action('padma_visual_editor_ajax_pre_' . $method);
 			call_user_func(array('PadmaVisualEditorAJAX', 'secure_method_' . $method));
 			do_action('padma_visual_editor_ajax_post_' . $method);
 		}
-			
+
 		die();
-						
+
 	}
 
 
@@ -382,7 +382,7 @@ class PadmaVisualEditor {
 								$block['settings'] = array_merge($settings, $value);
 
 								PadmaBlocksData::update_block($id, $block);
-								
+
 								break;
 
 						}
@@ -457,7 +457,7 @@ class PadmaVisualEditor {
 			}
 			/* End everything else wrappers (delete and options) */
 
-			
+
 
 			/* Layout Options */
 			if ( $layout_options ) {
@@ -492,7 +492,7 @@ class PadmaVisualEditor {
 
 				$design_editor_properties = PadmaElementProperties::get_properties();
 
-				
+
 				/* Loop through to get every element and its properties */
 				foreach ( $design_editor_inputs as $element_id => $element_data ) {
 
@@ -509,7 +509,7 @@ class PadmaVisualEditor {
 
 							//Set each property for the regular element							
 							foreach ( $element_data_node_data as $property_id => $property_value ) {
-																
+
 								/**
 								 *
 								 * Advanced CSS support
@@ -543,7 +543,7 @@ class PadmaVisualEditor {
 										$property_id 	= 'margin-left';
 										break;
 								}
-								
+
 
 								PadmaElementsData::set_property( null, $element_id, $property_id, $property_value );
 
@@ -580,7 +580,7 @@ class PadmaVisualEditor {
 
 								//Set the special element properties now								
 								foreach ( $special_element_properties as $special_element_property => $special_element_property_value ) {
-									
+
 									/**
 									 *
 									 * Advanced CSS support
@@ -613,7 +613,7 @@ class PadmaVisualEditor {
 										case 'margin-left-auto':
 											$special_element_property 		= 'margin-left';
 											break;
-											
+
 									}
 
 
@@ -659,7 +659,7 @@ class PadmaVisualEditor {
 		} catch (Exception $e) {
 
 			/* Disable error output on saving right now */
-			
+
 			/*
 			if ( !isset($output['errors']) || !is_array($output['errors']) )
 				$output['errors'] = array();
@@ -676,23 +676,23 @@ class PadmaVisualEditor {
 
 	}
 
-	
+
 	public static function display() {
-		
+
 		self::check_if_ie();
-		
+
 		Padma::load('visual-editor/display', 'VisualEditorDisplay');
 		PadmaVisualEditorDisplay::display();
-		
+
 	}
 
 
 	public static function check_if_ie() {
-		
+
 		/* Only show this on IE versions less than 9 */
 		if ( !padma_is_ie() || (padma_is_ie(9) || padma_is_ie(10) || padma_is_ie(11)) )
 			return false;
-			
+
 		$message = '<span style="text-align: center;font-size: 26px;width: 100%;display: block;margin-bottom: 20px;">Error</span>';
 
 		$message .= __('Unfortunately, the Padma Visual Editor does not work with Internet Explorer due to its lack of modern features.','padma') . '<br /><br />';
@@ -702,45 +702,45 @@ class PadmaVisualEditor {
 		$message .= __('If this message persists after upgrading to a modern browser, please visit our <a href="https://www.padmaunlimited.com/community/" target="_blank">Community</a>.','padma');
 
 		return wp_die($message);
-		
+
 	}
 
-	
+
 	public static function get_modes() {
-				
+
 		return apply_filters('padma_visual_editor_get_modes', self::$modes);
-		
+
 	}	
-		
-	
+
+
 	public static function get_current_mode() {
-		
+
 		$mode = padma_get('visual-editor-mode');
-				
+
 		if ( $mode ) {
-			
+
 			if ( array_search(strtolower($mode), array_map('strtolower', array_keys(self::$modes))) ) {				
 				return strtolower($mode);
-				
+
 			} 
-		
+
 		}
-			
+
 		return strtolower(self::$default_mode);
-	
+
 	}	
-		
-	
+
+
 	public static function is_mode($mode) {
-				
+
 		if ( self::get_current_mode() === strtolower($mode) )
 			return true;
-			
+
 		if ( !padma_get('visual-editor-mode') && strtolower($mode) === strtolower(self::$default_mode) )
 			return true;
-			
+
 		return false;
-		
+
 	}
 
 
@@ -760,6 +760,6 @@ class PadmaVisualEditor {
 		echo '<div id="padma-tooltip-container" style="position:fixed;top:0;left:0;width:100%;height:100%;background:transparent;z-index: 0;pointer-events:none;"></div>';
 
 	}
-	
-	
+
+
 }

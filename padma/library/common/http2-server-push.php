@@ -6,17 +6,17 @@
  */
 
 class PadmaHttp2ServerPush {
-	
+
 	private $http2_script_srcs = array();
 	private $http2_stylesheet_srcs = array();
 	private $http2_header_size_accumulator = 0;
 
 	function __construct(){
-		
+
 	}
-	
+
 	public static function init() {
-		
+
 		if(!PadmaOption::get('http2-server-push'))
 			return;
 
@@ -34,7 +34,7 @@ class PadmaHttp2ServerPush {
 	}
 
 	public static function push_requests(){
-		
+
 	}
 
 	public static function max_header_size(){
@@ -60,7 +60,7 @@ class PadmaHttp2ServerPush {
 	public static function http2_ob_start() {
 	    ob_start();
 	}
-	
+
 
 	/**
 	 * @param string $src URL
@@ -88,10 +88,10 @@ class PadmaHttp2ServerPush {
 					$http2_header_size_accumulator += strlen($header);					
 					header( $header, false );					
 				}
-				
-				
+
+
 				$GLOBALS['http2_' . self::http2_link_resource_hint_as( current_filter() ) . '_srcs'][] = self::http2_link_url_to_relative_path( $preload_src );
-			
+
 			}
 
 	    }
@@ -130,7 +130,7 @@ class PadmaHttp2ServerPush {
 
 		$globals = (null === $globals) ? $GLOBALS : $globals;
 		$resource_type_key = "http2_{$resource_type}_srcs";
-		
+
 		if(!(is_array($globals) && isset($globals[$resource_type_key]))) {
 			return array();
 		}

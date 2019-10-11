@@ -1,7 +1,7 @@
 <?php
 class PadmaElementProperties {
-	
-	
+
+
 	protected static $properties = array(
 
 		/* 	Fonts */
@@ -53,7 +53,7 @@ class PadmaElementProperties {
 				'js-callback' => 'propertyInputCallbackFontStyling(params);',
 				'complex-property' => 'PadmaElementProperties::complex_property_font_styling'
 			),
-			
+
 			'text-align' => array(
 				'group' => 'Fonts',
 				'name' => 'Text Alignment',
@@ -79,7 +79,7 @@ class PadmaElementProperties {
 				'js-callback' => 'propertyInputCallbackCapitalization(params);',
 				'complex-property' => 'PadmaElementProperties::complex_property_capitalization'
 			),
-			
+
 			'letter-spacing' => array(
 				'group' => 'Fonts',
 				'name' => 'Letter Spacing',
@@ -96,7 +96,7 @@ class PadmaElementProperties {
 					'-3' => '-3px'
 				)
 			),
-			
+
 			'text-decoration' => array(
 				'group' => 'Fonts',
 				'name' => 'Text Underline',
@@ -293,7 +293,7 @@ class PadmaElementProperties {
 					'lockable' => true,
 					'default' => 0
 				),
-				
+
 				'border-right-width' => array(
 					'group' => 'Borders',
 					'name' => 'Right Border Width',
@@ -326,7 +326,7 @@ class PadmaElementProperties {
 					'lockable' => true,
 					'default' => 0
 				),
-		
+
 		/* 	Outline */
 			'outline-color' => array(
 				'group' => 'Outlines',
@@ -810,7 +810,7 @@ class PadmaElementProperties {
 			),
 
 		/*	Animation	*/
-			
+
 			'animation-name' => array(
 				'group' => 'Animation',
 				'name' 	=> 'CSS Animation',
@@ -1230,16 +1230,16 @@ class PadmaElementProperties {
 
 	);
 
-	
+
 	public static function get_property($property) {
-				
+
 		return isset(self::$properties[$property]) ? self::$properties[$property] : null;
-		
+
 	}
-	
-	
+
+
 	public static function get_properties_by_group($group) { 
-		
+
 		//Filter though all of the properties to make sure they are in the selected group
 		$filtered_properties = array_filter(self::$properties, function($property) use ($group){			
 			return ($property['group'] === $group);
@@ -1249,7 +1249,7 @@ class PadmaElementProperties {
 			return null;
 		else
 			return $filtered_properties;
-	
+
 	}
 
 
@@ -1258,20 +1258,20 @@ class PadmaElementProperties {
 		return self::$properties;
 
 	}
-	
-	
+
+
 	public static function output_css($selector, $properties = array()) {
-				
+
 		if ( !isset($selector) || $selector == false )
 			return null;
-			
+
 		if ( !is_array($properties) || count($properties) === 0 )
 			return null;
-					
+
 		$output = '';		
 		$effects = array();
 		//$transformData = array();
-			
+
 			/*	
 			if(in_array( 'transform', $properties, true ) && in_array( 'transform-angle', $properties, true ) ){
 				$transformData['type'] 	= $properties['transform'];
@@ -1279,23 +1279,23 @@ class PadmaElementProperties {
 			}*/
 
 
-			
+
 			// Animation fix
 			if( isset($properties['animation-name']) && empty($properties['animation-duration']) ){
 				$properties['animation-duration'] = '1s';
 			}
-			
+
 			//Loop through properties
 			foreach ( $properties as $property_id => $value ) {
 
-			
+
 				//If the value is an empty string, false, or null, don't attempt to put anything.
 				if ( (!isset($value) || $value === '' || $value === false || $value === null || $value === 'null' || $value === 'DELETE') && ($value !== '0' && $value !== 0) )
 					continue;
-			
+
 				//Look up the property to figure out how to handle it
 				$property = self::get_property($property_id);
-				
+
 				//If the property does not exist, skip it.
 				if ( !$property )
 					continue;
@@ -1323,7 +1323,7 @@ class PadmaElementProperties {
 				/* Everything's good, inject the selector in if it hasn't already been that way the selector isn't added when an element doesn't have any properties */
 					if ( empty($output) )
 						$output .= $selector . ' {' . "\n";
-								
+
 
 				//If it's a complex property, pass everything through it.
 				if ( padma_get('complex-property', $property) && is_callable(padma_get('complex-property', $property)) ) {
@@ -1334,13 +1334,13 @@ class PadmaElementProperties {
 						'properties' => $properties, 
 						'property' => $property
 					));
-					
+
 					continue;
 
 				} else if ( padma_get('js-property', $property) ) {
 					continue;
 				}
-				
+
 				//Format the $value by adding the unit or hex indicator if it's a color				
 				if ( padma_get('unit', $property) !== null ) {
 
@@ -1360,17 +1360,17 @@ class PadmaElementProperties {
 					}
 
 				}
-				
+
 				if ( padma_get('type', $property) === 'color' )
 					$value = padma_format_color($value);
-				
+
 				if ( padma_get('type', $property) === 'image' && $value != 'none' )
 					$value = 'url(' . $value . ')';
 
-				
+
 				// Transform support
 				if ( padma_get('group', $property) === 'Transform' ){
-					
+
 					if($properties['transform'] == 'scale' || $properties['transform'] == 'scaleX' || $properties['transform'] == 'scaleY'){
 						$unit = '';
 					}elseif($properties['transform'] == 'translate' || $properties['transform'] == 'translateX' || $properties['transform'] == 'translateY'){
@@ -1385,12 +1385,12 @@ class PadmaElementProperties {
 				if(	$property_id == 'filter-value'){
 					continue;
 				}
-				
-			
+
+
 				$output .= $property_id . ': ' . $value . ';' . "\n";
-			
+
 			} //foreach: Regular Properties
-	
+
 		/* Only close if there's actual output */
 		if ( !empty($output) )
 			$output .= '}' . "\n";
@@ -1405,7 +1405,7 @@ class PadmaElementProperties {
 			$value 			= $data['value'];
 			$properties 	= $data['properties'];
 			$property 		= $data['property'];
-			
+
 			if(padma_get('complex-property', $property) && is_callable(padma_get('complex-property', $property))){
 
 				$output .= call_user_func(padma_get('complex-property', $property), array(
@@ -1420,10 +1420,10 @@ class PadmaElementProperties {
 		}
 
 		return $output;
-		
+
 	}
-	
-	
+
+
 	public static function complex_property_filter($args) {
 
 		$filter = $args['properties']['filter'];
@@ -1467,25 +1467,25 @@ class PadmaElementProperties {
 
 	}
 
-	
+
 	public static function complex_property_shadow($args) {
-		
+
 		extract($args);
-												
+
 		$shadow_type = (strpos($property_id, 'box-shadow') !== false) ? 'box-shadow' : 'text-shadow';		
-		
+
 		global $padma_complex_property_check;
-		
+
 		//If the complex property check isn't even set, make it an empty array.
 		if ( !is_array($padma_complex_property_check) )
 			$padma_complex_property_check = array($shadow_type => array());
-						
+
 		//Since the complex property is a combination of a bunch of properties, we only want it to output once.
 		if ( isset($padma_complex_property_check[$shadow_type][$selector]) && $padma_complex_property_check[$shadow_type][$selector] == true )
 			return;
-			
+
 		$padma_complex_property_check[$shadow_type][$selector] = true;
-		
+
 		if ( !isset($properties[$shadow_type . '-color']) )
 			return null;
 
@@ -1498,70 +1498,70 @@ class PadmaElementProperties {
 		$shadow_voffset = isset($properties[$shadow_type . '-vertical-offset']) ? $properties[$shadow_type . '-vertical-offset'] : '0';
 		$shadow_blur 	= isset($properties[$shadow_type . '-blur']) ? $properties[$shadow_type . '-blur'] : '0';
 		$shadow_inset 	= (padma_get($shadow_type . '-position', $properties, 'outside') == 'inset') ? ' inset' : null;
-		
+
 		$shadow_hoffset_unit = '';
 		if(is_numeric($shadow_hoffset))
 			$shadow_hoffset_unit = 'px';
-		
+
 		$shadow_voffset_unit = '';
 		if(is_numeric($shadow_voffset))
 			$shadow_voffset_unit = 'px';
-		
+
 		$shadow_blur_unit = '';
 		if(is_numeric($shadow_blur))
 			$shadow_blur_unit = 'px';
 
 		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . $shadow_hoffset_unit . ' ' . $shadow_voffset . $shadow_voffset_unit . ' ' . $shadow_blur . $shadow_blur_unit . $shadow_inset . ';';
-		
+
 	}
-			
-		
+
+
 	public static function complex_property_capitalization($args) {
-		
+
 		extract($args);
-		
+
 		$data = '';
-		
+
 		if ( $value == 'none' ) {
-			
+
 			$data .= 'text-transform: none;';
 			$data .= 'font-variant: normal;';
-			
+
 		} elseif ( $value == 'small-caps' ) {
-			
+
 			$data .= 'text-transform: none;';
 			$data .= 'font-variant: small-caps;';
 
 		} else {
-			
+
 			$data .= 'text-transform: ' . $value . ';';
 			$data .= 'font-variant: normal;';
-			
+
 		}
-		
+
 		return $data;
-		
+
 	}
-	
-	
+
+
 	public static function complex_property_font_styling($args) {
-		
+
 		extract($args);
-		
+
 		$data = '';
-		
+
 		if ( $value == 'normal' ) {
-			
+
 			$data .= 'font-style: normal;';
 			$data .= 'font-weight: normal;';
-			
+
 		} elseif ( $value == 'bold' ) {
-			
+
 			$data .= 'font-style: normal;';
 			$data .= 'font-weight: bold;';
 
 		} elseif ( $value == 'light' ) {
-			
+
 			$data .= 'font-style: normal;';
 			$data .= 'font-weight: lighter;';
 
@@ -1571,14 +1571,14 @@ class PadmaElementProperties {
 			$data .= 'font-weight: normal;';
 
 		} elseif ( $value == 'bold-italic' ) {
-			
+
 			$data .= 'font-style: italic;';
 			$data .= 'font-weight: bold;';
-			
+
 		}
-		
+
 		return $data;
-		
+
 	}
 
 
@@ -1586,7 +1586,7 @@ class PadmaElementProperties {
 
 		global $wp_filesystem;
 		WP_Filesystem();
-		
+
 		$effect 	= $args['value'];
 		$selector 	= $args['selector'];
 
@@ -1621,7 +1621,7 @@ class PadmaElementProperties {
 		/*		Image effects		*/
 		$options['img']	= array(
 			'' => '',
-			
+
 			'emboss' 				=> 'Emboss',
 			'airbrush' 				=> 'Airbrush',
 			'chalkboard' 			=> 'Chalkboard',
@@ -1648,7 +1648,7 @@ class PadmaElementProperties {
 			'watercolor' 			=> 'Watercolor',
 			'zoom-in' 				=> 'Zoom In',
 			'zoom-in-and-rotate' 	=> 'Zoom in and rotate',			
-			
+
 			'effect-1' 				=> 'Effect 1',
 			'effect-2' 				=> 'Effect 2',
 			'effect-3' 				=> 'Effect 3',
@@ -1668,7 +1668,7 @@ class PadmaElementProperties {
 			'image-with-title-on-hover' 		=> 'Image with title on hover',
 		);
 		*/
-		
+
 		switch ($args['element']['name']) {
 			case 'Image':
 				$opts = $options['img'];
@@ -1677,7 +1677,7 @@ class PadmaElementProperties {
 			case 'Pin':			
 				$opts = $options['pin'];
 				break;
-			
+
 			default:
 				$opts = array(
 							'none' => 'There is not effects for this element',
@@ -1688,5 +1688,5 @@ class PadmaElementProperties {
 		return $opts;
 	}
 
-	
+
 }

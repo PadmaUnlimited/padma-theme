@@ -1,29 +1,29 @@
 <?php
 class PadmaListingBlockDisplay {
-		
+
 	var $count = 0;			
 	var $query = array();
-		
-	
+
+
 	function __construct($block) {
-		
+
 		$this->block = $block;
-		
+
 		/* Bring in the WordPress pagination variable. */
 		$this->paged = get_query_var('paged') ? get_query_var('paged') : 1;
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Created this function to make the call a little shorter.
 	 **/
 	function get_setting($setting, $default = null) {
-		
+
 		return PadmaBlockAPI::get_setting($this->block, $setting, $default);
-		
+
 	}
-	
+
 	function display($args = array()) {
 
 		$block = $this->block;
@@ -46,42 +46,42 @@ class PadmaListingBlockDisplay {
 				wp_reset_query();
 
 				break;
-			
+
 			default:
 				break;
 		}
 
 		echo '</ul>';
-		
+
 	}
-	
-	
+
+
 	function loop($args = array()) {
-						
+
 		if ( !dynamic_loop() ) {
-			
+
 			$this->setup_query();
-						
+
 				if ( !$this->query->have_posts() ) {
-					
+
 					echo '<div class="entry-content">';
 						echo apply_filters('padma_search_no_results', __('<p>Sorry, there was no content that matched your search.</p>', 'padma'));
 					echo '</div>';
-					
+
 				}
-			
+
 				while ( $this->query->have_posts() ) {
-				
+
 					$this->query->the_post();
-					
+
 					$this->count++;
-		
+
 					$this->display_entry(array('count' => $this->count));
-				
+
 				}
-						
+
 		}
-							
+
 	}
 
 	function display_taxonomy($args = array()) {
@@ -89,7 +89,7 @@ class PadmaListingBlockDisplay {
 		$block = $this->block;
 
 		$taxonomy = PadmaBlockAPI::get_setting($block, 'select-taxonomy', 'category');
-		
+
 		$args = array(
 		    'orderby'       => PadmaBlockAPI::get_setting($block, 'terms-orderby', 'name'), 
 		    'order'         => PadmaBlockAPI::get_setting($block, 'terms-order', 'ASC'),
@@ -110,7 +110,7 @@ class PadmaListingBlockDisplay {
 		    'search'        => '', 
 		    'cache_domain'  => 'core'
 		); 
-		
+
 		$terms = get_terms( $taxonomy, $args );
 
 		$count = count($terms);
@@ -124,7 +124,7 @@ class PadmaListingBlockDisplay {
 		    }
 		}
 	}
-	
+
 	function setup_query() {
 
 		/* Setup Query Options */
@@ -156,7 +156,7 @@ class PadmaListingBlockDisplay {
 		    );
 		}
 
-		
+
 
 		//Post Limit
 		$query_options['posts_per_page'] = $this->get_setting('number-of-posts', '5');
@@ -172,17 +172,17 @@ class PadmaListingBlockDisplay {
 		$query_options['orderby'] = $this->get_setting('order-by', 'date');
 		$query_options['order'] = $this->get_setting('order', 'desc');
 		//End order by
-		
+
 		//Initiate query instance
 		$this->query = new WP_Query($query_options);
-		
+
 	}
-	
-		
+
+
 	function display_entry($args = array()) {
-		
+
 		global $post;
-		
+
 		/* Setup generic variables */
 			$post_id = get_the_id();
 			$post_class = $this->entry_class();
@@ -197,7 +197,7 @@ class PadmaListingBlockDisplay {
 
 			$post_title = (isset($alternate_title) && $alternate_title) ? $alternate_title : get_the_title();
 			$post_title_tooltip = sprintf(esc_attr__('%s', 'padma'), the_title_attribute('echo=0'));
-			
+
 			$post_title_link = '<a href="' . $post_permalink . '" title="' . $post_title_tooltip . '" rel="bookmark">' . $post_title . '</a>';	
 		/* End Titles */
 
@@ -210,7 +210,7 @@ class PadmaListingBlockDisplay {
 
 			echo '</li>';
 	}
-	
+
 	/**
 	 * Assembles the classes for the posts.
 	 *
@@ -224,7 +224,7 @@ class PadmaListingBlockDisplay {
 	function entry_class() {
 
 		global $post, $blog_post_alt, $authordata;
-		
+
 		$c = get_post_class();
 
 		if ( !isset($blog_post_alt) ) 
@@ -235,14 +235,14 @@ class PadmaListingBlockDisplay {
 
 		if ( ++$blog_post_alt % 2 )
 			$c[] = 'alt';
-			
+
 		//Add the custom classes from the meta box
 		if ( $custom_css_class = PadmaLayoutOption::get(get_the_id(), 'css-class', null, true) ) {
-			
+
 			$custom_css_classes = str_replace('  ', ' ', str_replace(',', ' ', esc_attr(strip_tags($custom_css_class))));
 
 			$c = array_merge($c, array_filter(explode(' ', $custom_css_classes)));
-			
+
 		}
 
 		//Add column class only if layout enabled and it is not singular in default mode

@@ -43,15 +43,15 @@ $_SESSION["username"] = "disabled_pw";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title><?php echo $imagebrowser1; ?> :: Fujana Solutions</title>
     <meta name="author" content="Moritz Maleck">
     <link rel="icon" href="img/cd-ico-browser.ico">
-    
+
     <link rel="stylesheet" href="styles.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">
         var pluginname = "Image Uploader and Browser for CKEditor";
@@ -77,12 +77,12 @@ $_SESSION["username"] = "disabled_pw";
     </script>
     <script src="dist/jquery.lazyload.min.js"></script>
     <script src="dist/js.cookie-2.0.3.min.js"></script>
-    
+
     <script src="dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-    
+
     <script src="function.js"></script>
-    
+
     <script> 
         // Plugin version
         var currentpluginver = "<?php echo $currentpluginver; ?>";
@@ -93,10 +93,10 @@ $_SESSION["username"] = "disabled_pw";
 //          data: { root: "<?php echo $root; ?>", link: "<?php echo $link; ?>", ver: ""+ currentpluginver +"" }
 //        })
     </script>
-    
+
 </head>
 <body ontouchstart="">
-    
+
 <div id="header">
     <a class="" href="http://imageuploaderforckeditor.altervista.org/" target="_blank"><img src="img/cd-icon-image.png" class="headerIconLogo"></a>
     <img onclick="Cookies.remove('qEditMode');window.close();" src="img/cd-icon-close-grey.png" class="headerIconRight iconHover">
@@ -106,7 +106,7 @@ $_SESSION["username"] = "disabled_pw";
     <img onclick="pluginSettings();" src="img/cd-icon-settings.png" class="headerIconRight iconHover">
     <?php endif; ?>
 </div>
-    
+
 <div id="editbar">
     <div id="editbarView" onclick="#" class="editbarDiv"><img src="img/cd-icon-images.png" class="editbarIcon editbarIconLeft"><p class="editbarText"><?php echo $buttons1; ?></p></div>
     <a href="#" id="editbarDownload" download><div class="editbarDiv"><img src="img/cd-icon-download.png" class="editbarIcon editbarIconLeft"><p class="editbarText"><?php echo $buttons2; ?></p></div></a>
@@ -114,9 +114,9 @@ $_SESSION["username"] = "disabled_pw";
     <div id="editbarDelete" onclick="#" class="editbarDiv"><img src="img/cd-icon-qtrash.png" class="editbarIcon editbarIconLeft"><p class="editbarText"><?php echo $buttons4; ?></p></div>
     <img onclick="hideEditBar();" src="img/cd-icon-close-black.png" class="editbarIcon editbarIconRight">
 </div>
-    
+
 <div id="updates" class="popout"></div>
-    
+
 <div id="dropzone" class="dropzone" 
      ondragenter="return false;"
      ondragover="return false;"
@@ -143,7 +143,7 @@ $_SESSION["username"] = "disabled_pw";
     ?>
 </div>
 
-    
+
 <?php if($file_style == "block") { ?>
     <div class="fileDiv" onclick="window.location.href = 'http://imageuploaderforckeditor.altervista.org';">
         <div class="imgDiv">Image Uploader for CKEditor</div>
@@ -169,7 +169,7 @@ $_SESSION["username"] = "disabled_pw";
     </div><br><br>
     <img id="imageFSimg" src="#" style="#"><br>
 </div>
-    
+
 <div id="uploadImgDiv" class="lightbox popout">
     <div class="buttonBar">
         <button class="headerBtn" onclick="$('#uploadImgDiv').hide(); $('#background2').slideUp(250, 'swing');"><img src="img/cd-icon-close.png" class="headerIcon"></button>
@@ -254,8 +254,8 @@ $_SESSION["username"] = "disabled_pw";
         <br>
     </div>
 <?php } ?>
-    
-   
+
+
 <div id="background" class="background" onclick="$('#imageFullSreenClose').trigger('click');"></div>
 <div id="background2" class="background" onclick="$('#uploadImgDiv').hide(); $('#background2').slideUp(250, 'swing');"></div>
 <div id="background3" class="background" onclick="$('#settingsDiv').hide(); $('#background3').slideUp(250, 'swing');"></div>
@@ -263,7 +263,7 @@ $_SESSION["username"] = "disabled_pw";
 
 <!--Noscript part if js is disabled-->
 <noscript> <div class="noscript"> <div id="folderError" class="noscriptContainer popout"> <b><?php echo $alerts1; ?></b><br><br><?php echo $alerts5; ?> <a href="http://www.enable-javascript.com/" target="_blank"><?php echo $alerts6; ?></a><br><br><?php echo $alerts4; ?> </div></div></noscript>
-    
+
 <?php   
 // Including the language file, don't delete the following row!
 require(__DIR__ . '/lang/lang.php');

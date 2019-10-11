@@ -2,7 +2,7 @@
 
 padma_register_admin_meta_box('PadmaMetaBoxTemplate');
 class PadmaMetaBoxTemplate extends PadmaAdminMetaBoxAPI {
-	
+
 	protected $id;	
 	protected $name;				
 	protected $context;			
@@ -34,19 +34,19 @@ class PadmaMetaBoxTemplate extends PadmaAdminMetaBoxAPI {
 		$this->inputs['template']['description'] = str_replace('entry', strtolower($post_type->labels->singular_name), $this->inputs['template']['description']);
 
 	}
-	
+
 }
 
 padma_register_admin_meta_box('PadmaMetaBoxTitleControl');
 class PadmaMetaBoxTitleControl extends PadmaAdminMetaBoxAPI {
-	
+
 	protected $id;
 	protected $name;
 	protected $context;
 	protected $inputs;
-	
+
 	public function __construct(){
-		
+
 		$this->id = 'alternate-title';	
 		$this->name = 'Title Control';				
 		$this->context = 'side';			
@@ -73,7 +73,7 @@ class PadmaMetaBoxTitleControl extends PadmaAdminMetaBoxAPI {
 		);
 	}
 
-	
+
 }
 
 
@@ -97,13 +97,13 @@ class PadmaMetaBoxDisplay extends PadmaAdminMetaBoxAPI {
 			)
 		);
 	}
-	
+
 }
 
 
 padma_register_admin_meta_box('PadmaMetaBoxPostThumbnail');
 class PadmaMetaBoxPostThumbnail extends PadmaAdminMetaBoxAPI {
-	
+
 	protected $id;
 	protected $name;
 	protected $context;
@@ -137,7 +137,7 @@ class PadmaMetaBoxPostThumbnail extends PadmaAdminMetaBoxAPI {
 			),
 		);
 	}
-	
+
 }
 
 
@@ -145,7 +145,7 @@ if ( !PadmaSEO::is_disabled() )
 	padma_register_admin_meta_box('PadmaMetaBoxSEO');
 
 class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
-	
+
 	protected $id;
 	protected $name;
 	protected $post_type_supports_id;
@@ -158,14 +158,14 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 		$this->name = 'Search Engine Optimization (SEO)';			
 		$this->post_type_supports_id = 'padma-seo';		
 		$this->priority = 'high';				
-		
+
 		$this->inputs = array(
 
 			'seo-preview' => array(
 				'id' => 'seo-preview',
 				'type' => 'seo-preview'
 			),
-			
+
 			'title' => array(
 				'id' => 'title',
 				'group' => 'seo',
@@ -173,7 +173,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'text',
 				'description' => __('Custom <code>&lt;title&gt;</code> tag','padma')
 			),
-			
+
 			'description' => array(
 				'id' => 'description',
 				'group' => 'seo',
@@ -181,7 +181,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'textarea',
 				'description' => __('Custom <code>&lt;meta&gt;</code> description','padma')
 			),
-			
+
 			'noindex' => array(
 				'id' => 'noindex',
 				'group' => 'seo',
@@ -189,7 +189,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'checkbox',
 				'description' => __('Index/NoIndex tells the engines whether the entry should be crawled and kept in the engines\' index for retrieval. If you check this box to opt for <code>noindex</code>, the entry will be excluded from the engines.  <strong>Note:</strong> if you\'re not sure what this does, do not check this box.','padma')
 			),
-			
+
 			'nofollow' => array(
 				'id' => 'nofollow',
 				'group' => 'seo',
@@ -197,7 +197,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'checkbox',
 				'description' => __('Follow/NoFollow tells the engines whether links on the entry should be crawled. If you check this box to employ "nofollow," the engines will disregard the links on the entry both for discovery and ranking purposes.  <strong>Note:</strong> if you\'re not sure what this does, do not check this box.','padma')
 			),
-			
+
 			'noarchive' => array(
 				'id' => 'noarchive',
 				'group' => 'seo',
@@ -205,7 +205,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'checkbox',
 				'description' => __('Noarchive is used to restrict search engines from saving a cached copy of the entry. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the "cached" link in the search results.  Check this box to restrict search engines from storing cached copies of this entry.','padma')
 			),
-			
+
 			'nosnippet' => array(
 				'id' => 'nosnippet',
 				'group' => 'seo',
@@ -213,7 +213,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'checkbox',
 				'description' => __('Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the entry\'s title and URL in the search results.','padma')
 			),
-			
+
 			'noodp' => array(
 				'id' => 'noodp',
 				'group' => 'seo',
@@ -221,7 +221,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'checkbox',
 				'description' => __('NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results.','padma')
 			),
-			
+
 			'noydir' => array(
 				'id' => 'noydir',
 				'group' => 'seo',
@@ -229,7 +229,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'checkbox',
 				'description' => __('NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results.','padma')
 			),
-			
+
 			'redirect-301' => array(
 				'id' => 'redirect-301',
 				'group' => 'seo',
@@ -237,36 +237,36 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'text',
 				'description' => __('The 301 Permanent Redirect can be used to forward an old post or page to a new or different location.  If you ever move a page or change a page\'s permalink, use this to forward your visitors to the new location.<br /><br /><em>Want more information?  Read more about <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=93633" target="_blank">301 Redirects</a>.</em>','padma')
 			),
-			
+
 		);
 	}
-	
-	
+
+
 	protected function input_seo_preview() {
-		
+
 		global $post;
-		
+
 		$date = get_the_time('M j, Y') ? get_the_time('M j, Y') : mktime('M j, Y');
 		$date_text = ( $post->post_type == 'post' ) ? $date . ' ... ' : null;
-		
+
 		echo '<h4 id="seo-preview-title">Search Engine Result Preview</h4>';
-			
+
 			echo '<div id="seo-preview">';
-				
+
 				echo '<h4 title="Click To Edit">' . get_bloginfo('name') . '</h4>';
 				echo '<p id="seo-preview-description" title="Click To Edit">' . $date_text . '<span id="text"></span></p>';
-				
+
 				echo '<p id="seo-preview-bottom"><span id="seo-preview-url">' . str_replace('http://', '', home_url()) . '</span> - <span>Cached</span> - <span>Similar</span></p>';
-			
+
 			echo '</div><!-- #seo-preview -->';
-			
+
 		echo '<small id="seo-preview-disclaimer">' . __('Remember, this is only a predicted search engine result preview.  There is no guarantee that it will look exactly this way.  However, it will look similar.','padma') . '</small>';
-		
+
 	}
-	
-	
+
+
 	protected function input_text_with_counter($input) {
-		
+
 		echo '
 			<tr class="label">
 				<th valign="top" scope="row">
@@ -279,47 +279,47 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 					<input type="text" value="' . esc_attr($input['value']) . '" id="' . $input['attr-id'] . '" name="' . $input['attr-name'] . '" />
 				</td>
 			</tr>
-			
+
 			<tr class="character-counter">
 				<td>
 					<span>130</span><div class="character-counter-box"><div class="character-counter-inside"></div></div>
 				</td>
 			</tr>
 		';
-			
+
 	}
-	
-	
+
+
 	protected function modify_arguments($post = false) {
-		
+
 		//Do not use this box if the page being edited is the front page since they can edit the setting in the configuration.
 		if ( get_option('page_on_front') == padma_get('post') && get_option('show_on_front') == 'page' ) {
-			
+
 			$this->info = sprintf( __('<strong>Configure the SEO settings for this page (Front Page) in the Padma Search Engine Optimization settings tab in <a href="%" target="_blank">Padma &raquo; Configuration</a>.</strong>','padma'), admin_url('admin.php?page=padma-options#tab-seo') );
-			
+
 			$this->inputs = array();
-			
+
 			return;
 
 		}
-		
+
 		//Setup the defaults for the title and checkboxes
 		$current_screen = get_current_screen();
 		$seo_templates_query = PadmaOption::get('seo-templates', 'general', PadmaSEO::output_layouts_and_defaults());
 		$seo_templates = padma_get('single-' . $current_screen->id, $seo_templates_query, array());
-		
+
 		$title_template = str_replace(array('%sitename%', '%SITENAME%'), get_bloginfo('name'), padma_get('title', $seo_templates));
-				
+
 		echo '<input type="hidden" id="title-seo-template" value="' . $title_template . '" />';
-				
+
 		$this->inputs['noindex']['default'] = padma_get('noindex', $seo_templates);
 		$this->inputs['nofollow']['default'] = padma_get('nofollow', $seo_templates);
 		$this->inputs['noarchive']['default'] = padma_get('noarchive', $seo_templates);
 		$this->inputs['nosnippet']['default'] = padma_get('nosnippet', $seo_templates);
 		$this->inputs['noodp']['default'] = padma_get('noodp', $seo_templates);
 		$this->inputs['noydir']['default'] = padma_get('noydir', $seo_templates);
-		
-		
+
+
 	}
 
 }

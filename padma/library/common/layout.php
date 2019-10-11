@@ -80,33 +80,33 @@ class PadmaLayout {
 		return true;
 
 	}
-	
-	
+
+
 	/**
 	 * Returns current layout
 	 * 
 	 * @return mixed
 	 **/
 	public static function get_current() {
-		
+
 		//If the user is viewing the site through the iframe and the mode is set to Layout, then display that exact layout.
 		if ( padma_get('ve-layout') && (PadmaRoute::is_visual_editor_iframe() || PadmaRoute::is_visual_editor()) ) 
 			return urldecode(padma_get('ve-layout'));
 
 		$current_hierarchy = self::get_current_hierarchy();
-		
+
 		return apply_filters('padma_current_layout', end($current_hierarchy));
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Traverses up the hierarchy tree to figure out which layout is being used.
 	 * 
 	 * @return mixed
 	 **/
 	public static function get_current_in_use($visual_editor_force = false) {
-		
+
 		//If the user is viewing the site through the iframe and the mode is set to Layout, then display that exact layout.
 			if ( padma_get('ve-layout') && !$visual_editor_force ) {
 
@@ -125,29 +125,29 @@ class PadmaLayout {
                 }
 
 			} 
-		
+
 		//Get hierarchy
 		$hierarchy = array_reverse(self::get_current_hierarchy());
-				
+
 		//Loop through entire hierarchy to find which one is customized or has a template
 		foreach ( $hierarchy as $layout ) {
-			
+
 			$status = self::get_status($layout);
-			
+
 			//If the layout isn't customized or using a template, skip to next, otherwise we return the current layout in the next line.
 			if ( $status['customized'] === false && $status['template'] === false )
 				continue;
-				
+
 			//If the layout has a template assigned to it, use the template.  Templates will take precedence over customized status.
 			if ( $status['template'] )
 				return 'template-' . $status['template'];
-				
+
 			//If it's a customized layout, then use the layout itself after making sure there are blocks on the layout
 			if ( $status['customized'] )
 				return $layout;
-			
+
 		}
-		
+
 		//If there's still not a customized layout, loop through the top-level layouts and find the first one that's customized.
 		$top_level_layouts = array(
 			'index',
@@ -155,45 +155,45 @@ class PadmaLayout {
 			'archive',
 			'four04'
 		);
-				
+
 		if ( get_option('show_on_front') == 'page' )
 			$top_level_layouts[] = 'front_page';
 
 		foreach ( $top_level_layouts as $top_level_layout ) {
-						
+
 			$status = self::get_status($top_level_layout);
-			
+
 			if ( $status['customized'] === false && $status['template'] === false )
 				continue;
-			
+
 			//If the layout has a template assigned to it, use the template.  Templates will take precedence over customized status.
 			if ( $status['template'] )
 				return 'template-' . $status['template'];
-				
+
 			//If it's a customized layout and the layout has blocks, then use the layout itself
 			if ( $status['customized'] && count(PadmaBlocksData::get_blocks_by_layout($top_level_layout)) > 0 )
 				return $top_level_layout;
-			
+
 		}
 
 		//If there STILL isn't a customized layout, just return the top level of the current layout.
 		return apply_filters('padma_current_layout_in_use', end($hierarchy));
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Returns name of the current layout being viewed.
 	 * 
 	 * @return string
 	 **/
 	public static function get_current_name() {
-														
+
 		return self::get_name(self::get_current());
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Returns the current hierarchy. 
 	 * 
@@ -211,10 +211,10 @@ class PadmaLayout {
         if ( PadmaRoute::is_visual_editor() && padma_get( 've-layout' ) ) {
             return explode(PadmaLayout::$sep, urldecode(padma_get('ve-layout')));
         }
-				
+
 		$current_layout = array();
 		$queried_object = get_queried_object();
-				
+
 		//Now the fun begins
 		if ( is_home() || ( get_option( 'show_on_front' ) == 'posts' && is_front_page() ) ) {
 
@@ -231,12 +231,12 @@ class PadmaLayout {
 			if ( method_exists( $sitepress, 'get_current_language' ) ) {
 				$current_layout[] = 'front_page' . self::$sep . 'wpml_' . $sitepress->get_current_language();
 			}
-						
+
 		} elseif ( is_singular() ) {
 
 			$post = $queried_object;
 			$post_type = get_post_type_object($post->post_type);
-			
+
 			$current_layout[] = 'single';
 
 			if ( $post_type->name )
@@ -256,25 +256,25 @@ class PadmaLayout {
 			foreach ( array_reverse($posts) as $post_id )
 				if ( $post_type->name && $post_id )
 					$current_layout[] = 'single' . self::$sep . $post_type->name . self::$sep . $post_id;
-					
+
 		} elseif ( is_archive() || is_search() ) {
-			
+
 			$current_layout[] = 'archive';
-			
+
 			if ( is_date() ) {
-				
+
 				$current_layout[] = 'archive' . self::$sep . 'date';
-				
+
 			} elseif ( is_author() ) {
-								
+
 				$current_layout[] = 'archive' . self::$sep . 'author';
 				$current_layout[] = 'archive' . self::$sep . 'author' . self::$sep . $queried_object->ID;
-				
+
 			} elseif ( is_category() ) {
 
 				$category = $queried_object;
 				$ancestor_categories = array();
-				
+
 				$current_layout[] = 'archive' . self::$sep . 'category';
 
 				/* Ancestor categories */
@@ -288,22 +288,22 @@ class PadmaLayout {
 
 				/* Original queried category */
 				$current_layout[] = 'archive' . self::$sep . 'category' . self::$sep . $queried_object->term_id;
-				
+
 			} elseif ( is_search() ) {
-				
+
 				$current_layout[] = 'archive' . self::$sep . 'search';
-				
+
 			} elseif ( is_tag() ) {
-				
+
 				$current_layout[] = 'archive' . self::$sep . 'post_tag';
 				$current_layout[] = 'archive' . self::$sep . 'post_tag' . self::$sep . $queried_object->term_id;
-				
+
 			} elseif ( is_tax() ) {
-				
+
 				$current_layout[] = 'archive' . self::$sep . 'taxonomy';
 				$current_layout[] = 'archive' . self::$sep . 'taxonomy' . self::$sep . $queried_object->taxonomy;
 				$current_layout[] = 'archive' . self::$sep . 'taxonomy' . self::$sep . $queried_object->taxonomy . self::$sep . $queried_object->term_id;
-				
+
 			} elseif ( is_post_type_archive() ) {
 
 				$post_type = get_query_var( 'post_type' );
@@ -316,9 +316,9 @@ class PadmaLayout {
 
 				$current_layout[] = 'archive' . self::$sep . 'post_type';
 				$current_layout[] = 'archive' . self::$sep . 'post_type' . self::$sep . $post_type_obj->name;
-				
+
 			}
-			
+
 		} elseif ( is_404() ) {
 
 			$current_layout[] = 'four04';
@@ -328,7 +328,7 @@ class PadmaLayout {
 			}
 
 		}		
-		
+
 		//I think we're finally done.
 		if ( count($current_layout) ) {
 			$GLOBALS['padma_current_hierarchy'] = $current_layout;
@@ -337,24 +337,24 @@ class PadmaLayout {
 		return apply_filters('padma_current_layout_hierarchy', $current_layout);
 
 	}
-		
-		
+
+
 	/**
 	 * Returns friendly name of the layout specified.
 	 * 
 	 * @return string
 	 **/
 	public static function get_name($layout, $retry = false) {
-		
+
 		if ( !$layout )
 			return null;
-		
+
 		$layout_parts = explode(self::$sep, $layout);
 		$id = end($layout_parts);
 
 		if ( is_numeric($layout_parts[0]) )
 			return get_the_title($id) ? stripslashes(get_the_title($id)) : '(No Title)';
-		
+
 		switch ( $layout_parts[0] ) {
 
 			case 'front_page':
@@ -383,65 +383,65 @@ class PadmaLayout {
 
 				return 'Blog Index';
 			break;
-			
+
 			case 'single':
 				if ( $id == 'single' )
 					return 'Single';
-										
+
 				if ( is_numeric($id) )
 					return get_the_title($id) ? stripslashes(get_the_title($id)) : '(No Title)';
-				
+
 				//If everything else hasn't triggered, then it's a post type
 				$id = str_replace('single' . self::$sep, '', $layout);
 				$post_type = get_post_type_object($id);
 
 				if ( !is_object($post_type) )
 					return '(Unregistered Post Type: ' . $id . ')';
-				
+
 				return stripslashes($post_type->labels->singular_name);
 			break;
-			
+
 			case 'archive':
 				if ( $id == 'archive' )
 					return 'Archive';
-						
+
 				switch($layout_parts[1]) {
-					
+
 					case 'category':
 						if ( $id == 'category' )
 							return 'Category';
-														
+
 						$term = get_term($id, 'category');
-							
+
 						return $term->name ? stripslashes($term->name) : '(No Title)';
 					break;
-					
+
 					case 'search':
 						return 'Search';
 					break;
-					
+
 					case 'date':
 						return 'Date';
 					break;
-					
+
 					case 'author':
 						if ( $id == 'author' )
 							return 'Author';
-						
+
 						$user_data = get_userdata($id);
-					
+
 						return stripslashes($user_data->display_name);
 					break;
-					
+
 					case 'post_tag':
 						if ( $id == 'post_tag' ) 
 							return 'Post Tag';
-														
+
 						$term = get_term($id, 'post_tag');
-						
+
 						return $term->name ? stripslashes($term->name) : '(No Title)';
 					break;
-					
+
 					case 'taxonomy':
 						if ( $id == 'taxonomy' ) 
 							return 'Taxonomy';
@@ -451,22 +451,22 @@ class PadmaLayout {
 						if ( is_numeric(end($taxonomy_fragments)) ) {
 
 							$term_id = array_pop($taxonomy_fragments);
-														
+
 							$term = get_term($term_id, implode(self::$sep, $taxonomy_fragments));
-							
+
 							return isset($term->name) ? $term->name : '(No Title)';
-							
+
 						} elseif ( $taxonomy = get_taxonomy(implode(self::$sep, $taxonomy_fragments)) ) {
-														
+
 							return $taxonomy->labels->singular_name ? stripslashes($taxonomy->labels->singular_name) : '(No Title)';
-							
+
 						}
 					break;
-					
+
 					case 'post_type':
 						if ( $id == 'post_type' )
 							return 'Post Type';
-													
+
 						//If everything else hasn't triggered, then it's a post type
 						$id = str_replace('archive' . self::$sep . 'post_type' . self::$sep, '', $layout);
 						$post_type = get_post_type_object($id);
@@ -476,20 +476,20 @@ class PadmaLayout {
 
 						return stripslashes($post_type->labels->singular_name);
 					break;
-					
+
 					case 'post_format':
 						if ( $id == 'post_format' )
 							return 'Post Format';
-														
+
 						$term = get_term($id, 'post_format');
-							
+
 						return stripslashes($term->name);
 					break;
-					
+
 				}
-			
+
 			break;
-			
+
 			case 'four04':
 				return '404 Layout';
 			break;
@@ -518,7 +518,7 @@ class PadmaLayout {
 		}
 
 		return false;
-				
+
 	}
 
 
@@ -585,7 +585,7 @@ class PadmaLayout {
 	}
 
 
-	
+
 	/**
 	 * Gets the status of the layout.  This will tell if it's customized, using a template, or none of the previous mentioned.
 	 * 
@@ -648,13 +648,13 @@ class PadmaLayout {
 						'customized' => false,
 						'template' => false
 					);
-					
+
 				}
 
 			} 
 
 		return $status;
-		
+
 	}
 
 
@@ -702,23 +702,23 @@ class PadmaLayout {
 	public static function is_customized($layout) {
 
 		$layout_status = self::get_status($layout);
-					
+
 		return $layout_status['customized'] && !$layout_status['template'] ? true : false;
 
 	}
-	
-	
+
+
 	/** 
 	 * Simple function to query for all Padma layout templates from the database.
 	 * 
 	 * @return array
 	 **/
 	public static function get_templates() {
-		
+
 		$templates = PadmaSkinOption::get('list', 'templates', array());
-		
+
 		return $templates;
-		
+
 	}
 
 
@@ -739,14 +739,14 @@ class PadmaLayout {
 		/* These  two variables be used for when a blocks/wrappers imported ID is different than the one that it ends up with... e.g. skin importing to line up instances */
 		$block_id_translations = array();
 		$wrapper_id_translations = array();
-		
+
 		/* Build name */
 			$id = $last_template_id + 1;
 			$template_name = $template_name ? $template_name : 'Template ' . $id;
-		
+
 		/* Add template to templates array so it can be sent to DB */
 			$templates[$id] = $template_name;
-		
+
 		/* Send array to DB */
 			PadmaSkinOption::set('list', $templates, 'templates');
 			PadmaSkinOption::set('last-id', $id, 'templates');

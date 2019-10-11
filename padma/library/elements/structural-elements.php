@@ -1,7 +1,7 @@
 <?php
 add_action('padma_register_elements', 'padma_register_structural_elements');
 function padma_register_structural_elements() {
-	
+
 	//Structure
 	PadmaElementAPI::register_group('structure', array(
 		'name' => __('Structure','padma')
@@ -37,5 +37,5 @@ function padma_register_structural_elements() {
 		'name' => 'Blocks',
 		'description' => __('Individual block types and block elements','padma')
 	));
-	
+
 }

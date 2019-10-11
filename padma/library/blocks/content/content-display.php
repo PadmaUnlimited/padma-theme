@@ -1,13 +1,13 @@
 <?php
 
 class PadmaContentBlockDisplay {
-		
+
 	var $count = 0;			
 	var $query = array();
-	
-	
+
+
 	function __construct($block) {
-		
+
 		$this->block = $block;
 
 		if ( get_query_var( 'paged' ) ) { 			
@@ -22,33 +22,33 @@ class PadmaContentBlockDisplay {
 		$this->add_hooks();
 
 	}
-	
-	
+
+
 	/**
 	 * Created this function to make the call a little shorter.
 	 **/
 	function get_setting($setting, $default = null) {
-		
+
 		return PadmaBlockAPI::get_setting($this->block, $setting, $default);
-		
+
 	}
-	
-	
+
+
 	function add_hooks() {
-				
+
 		if ( !class_exists('pluginbuddy_loopbuddy') ) {
-			
+
 			add_filter('the_content_more_link', array($this, 'more_link'));
 
 			add_filter('excerpt_more', '__return_null');
 			add_filter('wp_trim_excerpt', array($this, 'excerpt_more_link'));
 
 		}
-			
+
 		add_filter('the_content', array($this, 'filter_nofollow_links_in_post'));				
-				
+
 	}
-	
+
 
 	function remove_hooks() {
 
@@ -58,10 +58,10 @@ class PadmaContentBlockDisplay {
 		remove_filter( 'wp_trim_excerpt', array( $this, 'excerpt_more_link' ) );
 
 		remove_filter('the_content', array($this, 'filter_nofollow_links_in_post'));
-		
+
 	}
 
-	
+
 	function display($args = array()) {
 
 		/* Use the generic_content action if it's set.  See http://core.trac.wordpress.org/ticket/20509 */
@@ -69,10 +69,10 @@ class PadmaContentBlockDisplay {
 				return do_action( 'generic_content' );
 			}
 
-			
+
 		/* Populate JS variable with wp_query global that way loading the block content with AJAX still shows the correct content */
 			if ( PadmaRoute::is_visual_editor_iframe() && $this->get_setting('mode', 'default') == 'default' ) {
-	
+
 				echo '<script type="text/javascript">';
 				echo 'PADMA_WP_Query_Vars = ' . json_encode($GLOBALS['wp_query']->query_vars) . ';';			
 
@@ -88,54 +88,54 @@ class PadmaContentBlockDisplay {
 
 		/* If LoopBuddy is activated, we'll strictly rely on it for the query setup and how the content is displayed. */
 			if (class_exists('pluginbuddy_loopbuddy')) {
-				
+
 				global $pluginbuddy_loopbuddy;
-				
+
 				$loopbuddy_query = $this->get_setting('loopbuddy-query', -1);
 				$loopbuddy_layout = $this->get_setting('loopbuddy-layout', -1);
-							
+
 				if ( isset($pluginbuddy_loopbuddy) && $loopbuddy_query !== -1 ) {
 					echo $pluginbuddy_loopbuddy->render_loop($loopbuddy_query, $loopbuddy_layout);
 
 					$this->remove_hooks();
-					
+
 					return;
 				}
-								
+
 			}
-			
+
 		/* Display the 404 text if it's a 404 (has to be default behavior) */
 			if ( is_404() && $this->get_setting('mode', 'default') == 'default' && !padma_get('ve-live-content-query', $this->block, false) ) {
 				$this->remove_hooks();
 
 				return $this->display_404();
 			}
-							
+
 		/* Display loop like normal if nothing else fires first */
 			$this->loop($args);
 			$this->remove_hooks();
 
 			wp_reset_query();
-		
+
 	}
-	
-	
+
+
 	function loop($args = array()) {
 
-		
+
 		$defaults = array('archive' => false);
 		extract($defaults);
 		extract($args, EXTR_OVERWRITE);
-		
+
 
 		if ( !dynamic_loop() ) {
-			
+
 			$this->setup_query();
 
 			if ($this->get_setting('show-archive-title', true))
 
 				$this->show_query_title();
-			
+
 			if ($this->get_setting('show-entry', true) || $this->get_setting('comments-visibility') != "hide" ) {
 
 				echo '<div class="loop">';
@@ -154,15 +154,15 @@ class PadmaContentBlockDisplay {
 				} else {
 
 					$have_posts = false;
-				
+
 				}
-				
+
 				if ( !$have_posts && ( $this->query instanceof SWP_Query || ( is_search() && $this->get_setting( 'mode', 'default' ) == 'default' ) ) ) {
 
 					echo '<div class="entry-content">';
 						echo apply_filters('padma_search_no_results', __('<p>Sorry, there was no content that matched your search.</p>', 'padma'));
 					echo '</div>';
-					
+
 				}
 
 				if ( $this->query instanceof SWP_Query ) {
@@ -199,18 +199,18 @@ class PadmaContentBlockDisplay {
 						$this->possible_row_close();
 
 					}
-				
+
 				}
-									
+
 				echo '</div>';
 			}
-			
+
 			$this->display_pagination();
-			
+
 		}
-							
+
 	}
-	
+
 
 		function possible_row_open() {
 
@@ -255,7 +255,7 @@ class PadmaContentBlockDisplay {
 
 		}
 
-	
+
 	function show_query_title() {
 
 
@@ -282,42 +282,42 @@ class PadmaContentBlockDisplay {
 		}
 
 		$queried_object = get_queried_object();
-			
+
 		$return = '';
 
 		/* Date Archives */
 		if ( is_date() ) {
-		
+
 			$return .= '<h1 class="archive-title date-archive-title">';
-			
+
 				if ( is_day() )
 					$return .= apply_filters('padma_archive_title', sprintf( __( 'Daily Archives: %s', 'padma' ), '<span>' . get_the_date() . '</span>'));
-				
+
 				elseif ( is_month() )
 					$return .= apply_filters('padma_archive_title', sprintf( __( 'Monthly Archives: %s', 'padma' ), '<span>' . get_the_date('F Y') . '</span>'));
-				
+
 				elseif ( is_year() )
 					$return .= apply_filters('padma_archive_title', sprintf( __( 'Yearly Archives: %s', 'padma' ), '<span>' . get_the_date('Y') . '</span>' ));
-				
+
 				else 
 					$return .= apply_filters('padma_archive_title', __( 'Blog Archives', 'padma'));
-					
+
 			$return .= '</h1>';
-						
+
 		}
-		
+
 		/* Category Archives */
 		else if ( is_category() ) {
 
 			$return .= '<h1 class="archive-title category-title">';
-			
+
 			if( $this->get_setting('show-archive-title-type', 'normal') == 'normal'){
 
 				$return .= apply_filters('padma_category_title', sprintf(__('Category Archives: %s', 'padma'), '<span>' . single_cat_title('', false) . '</span>'));
 
 
 			}elseif ( $this->get_setting('show-archive-title-type') == 'only-archive-name' ) {			
-		
+
 				$return .= apply_filters('padma_category_title', '<span>' . single_cat_title('', false) . '</span>');
 
 
@@ -327,48 +327,48 @@ class PadmaContentBlockDisplay {
 				$custom_title = $this->get_setting('custom-archive-title','Category Archives');
 				$custom_title = str_replace('%archive%', '<span>' . single_cat_title('', false) . '</span>', $custom_title);
 				$return .= apply_filters('padma_category_title', $custom_title);
-				
+
 			}
 
 			$return .= '</h1>';
 			$category_description = category_description();
-				
+
 			if ( !empty($category_description) ){
 				$return .= apply_filters('padma_category_archive_meta', '<div class="archive-meta category-archive-meta">' . $category_description . '</div>');
 			}
-			
+
 		}
-		
+
 		/* Author Archives */
 		else if ( is_author() ) {
 
 			$author = $queried_object;						
 			$author_url = esc_url(get_the_author_meta('google_profile', $author->ID));
-			
+
 			$return .= '<h1 class="archive-title author-title">';
-			
+
 				if ( strpos($author_url, 'http') === 0 )
 					$return .= sprintf(__( 'Author Archives: %s', 'padma'), '<span class="vcard"><a class="url fn n" href="' . $author_url . '" title="' . esc_attr($author->display_name) . '" rel="author">' . $author->display_name . '</a></span>');
-					
+
 				else
 					$return .= sprintf(__( 'Author Archives: %s', 'padma'), '<span class="vcard">' . $author->display_name . '</span>');
-				
+
 			$return .= '</h1>';
-			
+
 		}
-		
+
 		/* Search */
 		else if ( is_search() ) {
-			
+
 			$return .= '<h1 class="archive-title search-title">';
 				$return .= apply_filters('padma_search_title', sprintf(__('Search Results for: %s', 'padma'), '<span>' . get_search_query() . '</span>'));
 			$return .= '</h1>';
-			
+
 		}
 
 		/* Tag Archives */
 		else if ( is_tag() ) {
-			
+
 			$return .= '<h1 class="archive-title search-title">';
 				$return .= apply_filters('padma_tag_title', sprintf(__('Tag Archives: %s', 'padma'), '<span>' . single_tag_title('', false) . '</span>'));
 			$return .= '</h1>';
@@ -376,24 +376,24 @@ class PadmaContentBlockDisplay {
 			$tag_description = tag_description();
 			if ( !empty($tag_description) )
 				$return .= apply_filters('padma_tag_archive_meta', '<div class="archive-meta tag-archive-meta">' . $tag_description . '</div>');
-		
+
 		}
-		
+
 		/* Custom Post Type Archives */
 		else if ( is_post_type_archive() ) {
-						
+
 			$return .= '<h1 class="archive-title post-type-archive-title">';
 				$return .= apply_filters('padma_post_type_archive_title', $queried_object->labels->name);
 			$return .= '</h1>';
-			
+
 		}
-		
+
 		/* Custom Taxonomy Archives */
 		else if ( is_tax() ) {
-			
+
 			$taxonomy = get_taxonomy($queried_object->taxonomy);
 			$term = get_term($queried_object->term_id, $queried_object->taxonomy);
-			
+
 			$return .= '<h1 class="archive-title taxonomy-archive-title">';
 				$return .= apply_filters('padma_taxonomy_archive_title', $taxonomy->labels->singular_name . ': <span>' . $term->name . '</span>');
 			$return .= '</h1>';
@@ -401,14 +401,14 @@ class PadmaContentBlockDisplay {
 			$term_description = term_description();
 			if ( !empty($term_description) )
 				$return .= apply_filters('padma_term_archive_meta', '<div class="archive-meta term-archive-meta">' . $term_description . '</div>');		
-			
+
 		}
-		
+
 		echo apply_filters('padma_query_title', $return);
-		
+
 	}
-	
-	
+
+
 	function setup_query() {
 
 		if ( $this->get_setting( 'swp-engine' ) && class_exists( 'SWP_Query' ) ) {
@@ -435,7 +435,7 @@ class PadmaContentBlockDisplay {
 
 			if ( padma_post( 'wpQueryVars' ) && is_array( padma_post( 'wpQueryVars' ) ) ) {
 
-				
+
 				$query_options = padma_post( 'wpQueryVars' );
 
 				if( ! is_array($query_options['post_type']) ){
@@ -453,7 +453,7 @@ class PadmaContentBlockDisplay {
 			}
 
 		} else {
-						
+
 			/* Setup Query Options */
 			$query_options = array();
 
@@ -465,10 +465,10 @@ class PadmaContentBlockDisplay {
 			} else {
 
 				// Include / Exclude by ID
-						
+
 				if($this->get_setting('byid-include') ) 
 					$query_options['post__in'] = explode(',', $this->get_setting('byid-include'));
-				
+
 				if($this->get_setting('byid-exclude') ) 
 					$query_options['post__not_in'] = explode(',', $this->get_setting('byid-exclude'));
 				// End Include / Exclude by ID
@@ -505,7 +505,7 @@ class PadmaContentBlockDisplay {
 					if( $query_options['paged'] > 1 ){
 
 						$query_options['offset'] = $this->get_setting('number-of-posts', 10) * ($query_options['paged'] - 1);
-						
+
 						if( $this->get_setting('offset', 0) >= 1 ){
 							$query_options['offset'] += $this->get_setting('offset');
 						}
@@ -515,23 +515,23 @@ class PadmaContentBlockDisplay {
 				}
 
 			} //End else conditional for either page fetching or custom query filters
-			
+
 			$this->query = new WP_Query($query_options);
 
 		}
-		
+
 	}
-	
-		
+
+
 	function display_entry($args = array()) {
-		
+
 		global $post;
-		
+
 		$defaults = array(
 			'count' => false, 
 			'single' => false
 		);
-		
+
 		$args = array_merge($defaults, $args);
 
 		if ( $this->get_setting('show-entry', true) ) {
@@ -553,7 +553,7 @@ class PadmaContentBlockDisplay {
 
 					if ( $entry_meta_above )
 						$entry_meta_above = '<div class="entry-meta entry-meta-above">' . padma_parse_php($entry_meta_above) . '</div>';
-					
+
 					if ( $entry_utility_below )
 						$entry_utility_below = '<footer class="entry-utility entry-utility-below entry-meta">' . padma_parse_php($entry_utility_below) . '</footer>';
 
@@ -581,26 +581,26 @@ class PadmaContentBlockDisplay {
 					$title_tag = 'h3';
 				else
 					$title_tag = 'h2';
-				
+
 				/* If the post is singular or the post type is a page being displayed through content fetching, don't put a link in the title. */
 				if ( ( ( is_singular() && $this->get_setting('mode', 'default') != 'custom-query' ) || !$this->get_setting('link-titles', true) ) && !is_a( $this->query, 'SWP_Query' ) )
 					$post_title_link = $post_title;	
 				else
 					$post_title_link = '<a href="' . $post_permalink . '" title="' . $post_title_tooltip . '" rel="bookmark">' . $post_title . '</a>';	
 			/* End Titles */
-	
+
 			do_action('padma_before_entry', $args);
 
             $schema_itemtype = $post_type == 'post' ? 'Article' : 'CreativeWork';
 
 
 			if(	$this->get_setting('featured-image-as-background', false)){
-					
+
 				$featured_image = apply_filters('padma_featured_image_src', wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full'));
 				$featured_image_url = apply_filters('padma_featured_image_url', $featured_image[0]);
-				
+
 				echo '<article id="post-' . $post_id . '" class="' . $post_class . '" style="background-image: url('.$featured_image_url.');">';
-			
+
 			}else{
 
 				echo '<article id="post-' . $post_id . '" class="' . $post_class . '">';
@@ -615,11 +615,11 @@ class PadmaContentBlockDisplay {
 			if(isset($this->block['custom-fields']['above']) && is_array($this->block['custom-fields']['above']) && count($this->block['custom-fields']['above'])>0){
 
 				echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-above') ) )  .'">';
-				
+
 				foreach ($this->block['custom-fields']['above'] as $post_type => $custom_fields) {
 
 					foreach ($custom_fields as $field_name => $label) {
-					
+
 						$group_tag = apply_filters('padma_content_custom_fields_group_tag', 'div' );
 						$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
 						$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
@@ -628,15 +628,15 @@ class PadmaContentBlockDisplay {
 						$custom_field_content = apply_filters('padma_content_custom_fields_field_content', $custom_field_content );
 
 						if($custom_field_content){
-							
+
 							// open tag
 							echo '<' . $group_tag . ' class="custom-fields-group">';
-							
+
 							if($label)
 								echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
-							
+
 							echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
-							
+
 							// close tag
 							echo '</' . $group_tag . '>';										
 						}
@@ -645,7 +645,7 @@ class PadmaContentBlockDisplay {
 
 				echo '</div>';
 			}
-			
+
 
 
 			/**
@@ -655,8 +655,8 @@ class PadmaContentBlockDisplay {
 			 */			
 
 			echo PadmaSchema::article($post);
-			
-			
+
+
 
 			echo '<link itemprop="mainEntityOfPage" href="'.get_permalink($post_id).'" />';
 
@@ -672,7 +672,7 @@ class PadmaContentBlockDisplay {
 
 						do_action('padma_before_entry_title', $args);			
 
-					
+
 						//Show the title based on the Show Titles option
 						if (
 							$this->get_setting('show-titles', true)
@@ -680,18 +680,18 @@ class PadmaContentBlockDisplay {
 							&& !($hide_title == 'list' && $title_tag != 'h1')
 							&& !($hide_title == 'both')
 						) {
-	
+
 							echo '<' . $title_tag . ' class="entry-title" itemprop="headline">';
-								
+
 								echo $post_title_link;
-	
+
 								if ( apply_filters('padma_show_edit_link', $this->get_setting('show-edit-link', true)) )
 									edit_post_link('Edit Entry');
-	
+
 							echo '</' . $title_tag . '>';
-	
+
 						}
-	
+
 						do_action('padma_after_entry_title', $args);
 
 
@@ -703,15 +703,15 @@ class PadmaContentBlockDisplay {
 						if(isset($this->block['custom-fields']['after-title']) && is_array($this->block['custom-fields']['after-title']) && count($this->block['custom-fields']['after-title'])>0){
 
 							echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-after-title') ) )  .'">';
-							
+
 							foreach ($this->block['custom-fields']['after-title'] as $post_type => $custom_fields) {
 
 								foreach ($custom_fields as $field_name => $label) {
-								
+
 									$group_tag = apply_filters('padma_content_custom_fields_group_tag', 'div' );
 									$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
 									$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
-									
+
 									$custom_field_content = get_post_meta($post_id,$field_name,true);
 									$custom_field_content = apply_filters('padma_content_custom_fields_field_content', $custom_field_content );
 
@@ -719,12 +719,12 @@ class PadmaContentBlockDisplay {
 
 										// open tag
 										echo '<' . $group_tag . ' class="custom-fields-group">';
-										
+
 										if($label)
 											echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
-										
+
 										echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
-										
+
 										// close tag
 										echo '</' . $group_tag . '>';										
 									}
@@ -759,28 +759,28 @@ class PadmaContentBlockDisplay {
 			if(isset($this->block['custom-fields']['below']) && is_array($this->block['custom-fields']['below']) && count($this->block['custom-fields']['below'])>0){
 
 				echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-below') ) )  .'">';
-				
+
 				foreach ($this->block['custom-fields']['below'] as $post_type => $custom_fields) {
 
 					foreach ($custom_fields as $field_name => $label) {
-					
+
 						$group_tag = apply_filters('padma_content_custom_fields_group_tag', 'div' );
 						$label_tag = apply_filters('padma_content_custom_fields_label_tag', 'label' );
 						$field_tag = apply_filters('padma_content_custom_fields_field_tag', 'div' );
-						
+
 						$custom_field_content = get_post_meta($post_id,$field_name,true);
 						$custom_field_content = apply_filters('padma_content_custom_fields_field_content', $custom_field_content );
 
 						if($custom_field_content){
-							
+
 							// open tag
 							echo '<' . $group_tag . ' class="custom-fields-group">';
-							
+
 							if($label)
 								echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
-							
+
 							echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
-							
+
 							// close tag
 							echo '</' . $group_tag . '>';										
 						}
@@ -793,53 +793,53 @@ class PadmaContentBlockDisplay {
 				echo '</article>';
 
 				do_action('padma_after_entry', $args);
-				
+
 				$this->display_post_navigation();		
-		
+
 		} //show-entry check			
-	
+
 		$this->display_comments($args);
 
 	}
-	
-	
+
+
 	function display_entry_content($args) {
 
 		global $post;
-		
+
 		$entry_content_display = $this->get_setting('entry-content-display', 'normal');
-		
+
 		$show_full_entries = false;
 		$show_excerpts = false;
-	
+
 		if ( $entry_content_display == 'hide' )
 			return null;
 
 		/* Figure out whether the full entry or excerpt should be displayed */
 			if ( $entry_content_display == 'full-entries' ) {
-				
+
 				$show_full_entries = true;
-			
+
 			} elseif ( $entry_content_display == 'excerpts' ) {
-				
+
 				$show_excerpts = true;
-				
+
 			} elseif ( $args['count'] > $this->get_setting('featured-posts', 1) && !(is_singular() && $this->get_setting('mode', 'default') == 'default') ) {
-				
+
 				$show_excerpts = true;
-			
+
 			} elseif ( $this->query instanceof SWP_Query || is_search() || $this->paged > 1 ) {
-				
+
 				$show_excerpts = true;
-				
+
 			} else {
-				
+
 				$show_full_entries = true;
-				
+
 			}
-		
+
 		do_action('padma_before_entry_content', $args);
-		
+
 		if ( $show_full_entries || get_post_type() == 'forum' ) {
 
 			echo '<div class="entry-content" itemprop="text">';
@@ -878,21 +878,21 @@ class PadmaContentBlockDisplay {
 
 			echo '</div>';
 		}
-		
+
 		do_action('padma_after_entry_content', $args);
-		
+
 	}
-	
-	
+
+
 	function display_404() {
-		
+
 		$args = array(
 			'404' => true
 		);
-		
+
 		$post_id = 'system-404';
 		$post_class = 'page system-page system-404 hentry';
-		
+
 		do_action('padma_before_entry', $args);		
 
 		echo '<div id="post-' . $post_id . '" class="' . $post_class . '">';
@@ -910,9 +910,9 @@ class PadmaContentBlockDisplay {
 				echo '<div class="entry-content">';
 
 					echo __('<p>Don\'t fret, you didn\'t do anything wrong.  It appears that the page you are looking for does not exist or has been moved elsewhere.</p>', 'padma');
-					
+
 					echo sprintf(__('<p>If you keep ending up here, please head back to our <a href="%s">homepage</a> or try the search form below.</p>', 'padma'), home_url());
-										
+
 					get_search_form(true);
 
 				echo '</div>';
@@ -924,10 +924,10 @@ class PadmaContentBlockDisplay {
 			echo '</div>';
 
 		do_action('padma_after_entry', $args);
-		
+
 	}
 
-	
+
 	function display_comments($hook_args) {
 
 		global $post;
@@ -935,17 +935,17 @@ class PadmaContentBlockDisplay {
 		global $padma_comments_template_args;
 
 		add_filter('padma_comment_form_args', array($this, 'modify_comment_args'));		
-				
+
 		/* If the block is set to always hide the comments, then don't do any more checks. */
 		if ( $this->get_setting('comments-visibility', 'auto') == 'hide' )
 			return false;
-		
-		
+
+
 		/* Only do these checks if the visibility is set to auto. */
 		if ( $this->get_setting('comments-visibility', 'auto') == 'auto' ) {
-			
+
 			$post_type = get_post_type();
-			
+
 			if ( !is_singular() )
 			 	return false;
 
@@ -954,12 +954,12 @@ class PadmaContentBlockDisplay {
 
 			if ( $this->get_setting('mode', 'default') == 'custom-query' )
 				return false;
-			
+
 		}
-		
+
 		/* We're all good.  Show the comments. */
 		do_action('padma_before_entry_comments', $hook_args);		
-		
+
 		$withcomments = true;
 
 		/* Display Padma comments and send args to the comments_template() via a global variable */
@@ -970,9 +970,9 @@ class PadmaContentBlockDisplay {
 		);
 
 		comments_template();
-	
+
 		do_action('padma_after_entry_comments', $hook_args);		
-	
+
 	}
 
 
@@ -994,17 +994,17 @@ class PadmaContentBlockDisplay {
 			);
 
 			return $comments_args;
-			
+
 		}
-	
-	
+
+
 	function display_pagination($position = 'below') {
 
 	 	if ( $this->query->max_num_pages <= 1 || !$this->get_setting('paginate', true) )
 			return;
-					
+
 		echo '<div id="nav-' . $position . '" class="loop-navigation loop-utility loop-utility-' . $position . '" itemscope itemtype="http://schema.org/SiteNavigationElement">';
-			
+
 			/* If wp_pagenavi() plugin is activated, just use it. */
 			if ( $this->query instanceof SWP_Query ) {
 
@@ -1019,22 +1019,22 @@ class PadmaContentBlockDisplay {
 				echo $swp_pagination;
 
 			} else if ( function_exists('wp_pagenavi') ) {
-				
+
 				wp_pagenavi();
-				
+
 			} else {
-				
+
 				$older_posts_text = __('<span class="meta-nav">&larr;</span> Older posts', 'padma');
 				$newer_posts_text = __('Newer posts <span class="meta-nav">&rarr;</span>', 'padma');
-				
+
 				echo '<div class="nav-previous" itemprop="url">' . get_next_posts_link($older_posts_text, $this->query->max_num_pages) . '</div>';
 				echo '<div class="nav-next" itemprop="url">' . get_previous_posts_link($newer_posts_text) . '</div>';
-				
+
 			}
-		
+
 		echo '</div>';
 
-		
+
 	}
 
 
@@ -1111,16 +1111,16 @@ class PadmaContentBlockDisplay {
 		}
 
 	}
-	
-	
+
+
 	function display_post_navigation() {
-		
+
 		if ( !is_single() )
 			return false;
-			
+
 		if ( !$this->get_setting('show-single-post-navigation', true) )
 			return false;
-			
+
 		if ( $this->get_setting('mode', 'default') == 'custom-query' )
 			return false;
 
@@ -1134,8 +1134,8 @@ class PadmaContentBlockDisplay {
 
 		else 
 			$enable_tax = '';
-			
-	
+
+
 		echo '<div id="nav-below" class="loop-navigation single-post-navigation loop-utility loop-utility-below" itemscope itemtype="http://schema.org/SiteNavigationElement">';
 
 			echo '<div class="nav-previous" itemprop="url">';
@@ -1147,11 +1147,11 @@ class PadmaContentBlockDisplay {
 			echo '</div>';
 
 		echo '</div>';
-		
-		
+
+
 	}
-	
-	
+
+
 	function parse_meta($meta) {
 
 		global $post, $authordata;
@@ -1218,7 +1218,7 @@ class PadmaContentBlockDisplay {
 						$comments_format = stripslashes($this->get_setting('comment-format', '%num% Comments'));
 
 					$comments = str_replace('%num%', $comments_number, $comments_format);
-					
+
 					$replacement['comments'] = '<a href="' . get_comments_link() . '" title="' . sprintf(__('%s &ndash; Comments', 'padma'), the_title_attribute('echo=0')) . '" class="entry-comments">' . $comments . '</a>';
 					$replacement['comments_no_link'] = $comments;
 
@@ -1227,7 +1227,7 @@ class PadmaContentBlockDisplay {
 				case 'respond':
 
 					$respond_format = stripslashes($this->get_setting('respond-format', 'Leave a comment!'));
-					
+
 					$replacement['respond'] = '<a href="' . get_permalink() . '#respond" title="' . sprintf(__('Respond to %s', 'padma'), the_title_attribute('echo=0')) . '" class="entry-respond">' . $respond_format . '</a>';
 
 				break;
@@ -1263,7 +1263,7 @@ class PadmaContentBlockDisplay {
 				case 'publisher':
 
 					$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
-					
+
 					if(!has_custom_logo($blog_id))
 						return;					
 
@@ -1286,14 +1286,14 @@ class PadmaContentBlockDisplay {
 				case 'publisher_img':
 
 					$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
-					
+
 					if(!has_custom_logo($blog_id))
 						return;					
 
 					$custom_logo_id = get_theme_mod( 'custom_logo' );
 					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
-					 
+
 					add_filter( 'get_custom_logo', function($html, $blog_id){
 						return str_replace('itemprop="logo"', '', $html);
 					}, 10, 2 );
@@ -1307,7 +1307,7 @@ class PadmaContentBlockDisplay {
 					$replacement['publisher_img'] .= '</div>';
 					$replacement['publisher_img'] .= '<meta itemprop="name" content="'.$authordata->display_name.'">';
 				    $replacement['publisher_img'] .= '</div>';	
-				    
+
 				break;
 
 
@@ -1316,7 +1316,7 @@ class PadmaContentBlockDisplay {
 				case 'publisher_no_img':
 
 					$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
-					
+
 					if(!has_custom_logo($blog_id))
 						return;					
 
@@ -1347,10 +1347,10 @@ class PadmaContentBlockDisplay {
 		}
 
 		return apply_filters('padma_meta', $meta);
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Assembles the classes for the posts.
 	 *
@@ -1364,7 +1364,7 @@ class PadmaContentBlockDisplay {
 	function entry_class() {
 
 		global $post, $blog_post_alt, $authordata;
-		
+
 		$c = get_post_class();
 
 		if ( !isset($blog_post_alt) ) 
@@ -1375,14 +1375,14 @@ class PadmaContentBlockDisplay {
 
 		if ( ++$blog_post_alt % 2 )
 			$c[] = 'alt';
-			
+
 		//Add the custom classes from the meta box
 		if ( $custom_css_class = PadmaLayoutOption::get(get_the_id(), 'css-class', null, true) ) {
-			
+
 			$custom_css_classes = str_replace('  ', ' ', str_replace(',', ' ', esc_attr(strip_tags($custom_css_class))));
 
 			$c = array_merge($c, array_filter(explode(' ', $custom_css_classes)));
-			
+
 		}
 
 		$c[] = $this->get_setting('mode');	
@@ -1392,12 +1392,12 @@ class PadmaContentBlockDisplay {
 		return $c;
 
 	}
-	
-	
+
+
 	function more_link($more_link = null) {
 
 		global $post;
-		
+
 		if ( !$this->get_setting('show-readmore', true) )
 			return false;
 
@@ -1415,27 +1415,27 @@ class PadmaContentBlockDisplay {
 
 	}
 
-	
+
 	function filter_nofollow_links_in_post($text) {
 
 		global $post;
 
 		if ( !is_object($post) || empty($post->ID) || !PadmaSEO::is_seo_checkbox_enabled('nofollow', $post->ID) )
 			return $text;
-		
+
 		preg_match_all("/<a.*? href=\"(.*?)\".*?>(.*?)<\/a>/i", $text, $links);
 		$match_count = count($links[0]);
-		
+
 		for ( $i=0; $i < $match_count; $i++ ) {
-			
+
 			if ( !preg_match("/rel=[\"\']*nofollow[\"\']*/",$links[0][$i]) ) {
-				
+
 				preg_match_all("/<a.*? href=\"(.*?)\"(.*?)>(.*?)<\/a>/i", $links[0][$i], $link_text);
-				
+
 				$text = str_replace('>' . $link_text[3][0] . '</a>', ' rel="nofollow">' . $link_text[3][0] . '</a>', $text);
-				
+
 			}
-			
+
 		}
 
 		return $text;

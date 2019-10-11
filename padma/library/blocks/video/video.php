@@ -1,7 +1,7 @@
 <?php
 
 class PadmaVideoBlock extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -11,7 +11,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 	public $description;
 	public $categories;	
 	protected $show_content_in_grid;
-	
+
 
 	function __construct(){
 
@@ -26,13 +26,13 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 							);
 		$this->description = __('Display an video','padma');
 		$this->categories = array('core','media');
-		
+
 		$this->show_content_in_grid = false;
 	}
 
 
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'video',
 			'name' => 'Video',
@@ -46,7 +46,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			'selector' => 'div.video'
 		));
 
-		
+
 	}
 
 	public static function dynamic_css($block_id, $block = false) {
@@ -65,7 +65,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			'center_center' => 'bottom: 0; left: 0; top: 0; right: 0;',
 			'center_left' => 'bottom: 0; left: 0; top: 0;',
 			'center_right' => 'bottom: 0; top: 0; right: 0;',
-			
+
 			'bottom_left' => 'bottom: 0; left: 0;',
 			'bottom_center' => 'bottom: 0; left: 0; right: 0;',
 			'bottom_right' => 'bottom: 0;right: 0;'
@@ -84,7 +84,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 		';
 
 		return $css;
-		
+
 	}
 
 	public static function dynamic_js($block_id, $block = false) {
@@ -93,13 +93,13 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			$block = PadmaBlocksData::get_block($block_id);
 
 		$js = '';
-		
+
 		if(parent::get_setting($block, 'width-dynamic') || parent::get_setting($block, 'height-dynamic')){
-			
+
 			$js 		= "jQuery(document).ready(function() {";
 			$js_resize 	= "jQuery( window ).on( 'orientationchange resize load', function( event ) {";
 			$js_load 	= "";
-			
+
 			if(parent::get_setting($block, 'width-dynamic')){
 				$js_resize 	.= "jQuery( 'div#block-". $block_id ." video' ).attr('width', jQuery( 'div#block-". $block_id ."' ).width());";
 				$js_load  	.= "if(window.innerWidth < ".$block['settings']['width']."){
@@ -123,9 +123,9 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 		return $js;
 
 	}
-	
+
 	function content($block) {
-		
+
 		//Display video if there is one
 		if (parent::get_setting($block, 'video-mp4')||parent::get_setting($block, 'video-ogg')||parent::get_setting($block, 'video-webm') ) {
 
@@ -142,7 +142,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 				$videoHTML .= ' loop';
 
 			switch (parent::get_setting($block, 'preload')) {
-				
+
 				case 'none':
 					$videoHTML .= ' preload="none"';
 					break;
@@ -154,7 +154,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 				case 'auto':
 					$videoHTML .= ' preload="auto"';
 					break;
-				
+
 				default:					
 					break;
 			}
@@ -174,7 +174,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			if(parent::get_setting($block, 'height'))
 				$videoHTML .= ' height="'.parent::get_setting($block, 'height').'"';
 
-			
+
 			$videoHTML .= '>';
 
 			if(parent::get_setting($block, 'video-mp4'))
@@ -190,13 +190,13 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			$videoHTML .= '</video></div>';
 
 			echo $videoHTML;
-		
+
 
 		} else {
 
 			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>' . __('You have not added an video yet. Please upload and apply an video.','padma') . '</p></div>';
 		}
-		
+
 		/* Output position styling for Grid mode */
 			if ( padma_get('ve-live-content-query', $block) && padma_post('mode') == 'grid' ) {
 				echo '<style type="text/css">';
@@ -206,16 +206,16 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 
 
 	}
-	
+
 }
 
 
 class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
 
-	
+
 	function __construct(){
 
 		$this->tabs = array(
@@ -363,5 +363,5 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 			)
 		);
 	}
-	
+
 }

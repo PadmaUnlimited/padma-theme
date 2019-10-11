@@ -1,7 +1,7 @@
 <?php
 
 class PadmaSiteLogoBlock extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -23,33 +23,33 @@ class PadmaSiteLogoBlock extends PadmaBlockAPI {
 									);
 		$this->description 	= __('Display custom site logo','padma');
 		$this->categories 		= array('core','media');
-		
+
 		$this->show_content_in_grid = false;
 
 	}
 
-	
+
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'site-logo',
 			'name' => __('Site Logo','padma'),
 			'selector' => 'img.site-logo',			
 		));
 
-		
+
 	}
 
 	public static function dynamic_css($block_id, $block = false) {
-				
+
 	}
 
 	public static function dynamic_js($block_id, $block = false) {
-		
+
 	}
-	
+
 	function content($block) {
-		
+
 		$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$site_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -57,12 +57,12 @@ class PadmaSiteLogoBlock extends PadmaBlockAPI {
 		echo '<a href="' . home_url() . '" class="site-logo-link"><img class="site-logo" src="'.$site_image[0].'" alt="' . get_bloginfo('name') . '" /></a>';
 
 	}
-	
+
 }
 
 
 class PadmaSiteLogoBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs = array(
 		'site-logo-content' => 'Content'
 	);
@@ -75,5 +75,5 @@ class PadmaSiteLogoBlockOptions extends PadmaBlockOptionsAPI {
 		$this->tab_notices['site-logo-content'] = sprintf( __('To set the site custom logo go to <a href="%s" target="_blank">"Appearance > Customize > Site Identity"</a>','padma'), admin_url('customize.php') );
 
 	}
-	
+
 }

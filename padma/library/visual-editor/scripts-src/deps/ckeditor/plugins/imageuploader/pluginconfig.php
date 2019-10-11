@@ -22,7 +22,7 @@ if(isset($_POST["newpath"]) or isset($_POST["extension"]) or isset($_GET["file_s
 }
 
 if(isset($_SESSION['username'])){
-    
+
     if(isset($_POST["newpath"])){
         $newpath = filter_input(INPUT_POST, 'newpath', FILTER_SANITIZE_STRING);
         $root = $_SERVER['DOCUMENT_ROOT'];
@@ -34,7 +34,7 @@ if(isset($_SESSION['username'])){
         $fp = fopen(__DIR__ . '/pluginconfig.php', 'a');
         fwrite($fp, $data);
     }
-    
+
     if(isset($_POST["extension"])){
         $extension_setting = filter_input(INPUT_POST, 'extension', FILTER_SANITIZE_STRING);
         if($extension_setting == "no" or $extension_setting == "yes"){
@@ -70,7 +70,7 @@ if(isset($_SESSION['username'])){
             ';
         }
     } 
-    
+
 }
 
 // Version of the plugin

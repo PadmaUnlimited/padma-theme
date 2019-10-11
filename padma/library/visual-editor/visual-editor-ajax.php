@@ -27,9 +27,9 @@ class PadmaVisualEditorAJAX {
 			do_action('padma_switch_skin');
 
 			Padma::set_autoload( padma_post( 'skin' ) );
-			
+
 			echo 'success';
-			
+
 		}
 
 	}
@@ -155,7 +155,7 @@ class PadmaVisualEditorAJAX {
 	public static function method_query_posts() {
 
 		$post_type = explode('||', padma_post( 'content' ));
-		
+
 		$query = new WP_Query( array( 's' => padma_post( 'query' ) ) );
 		$posts = array();
 		foreach ($query->posts as $key => $post) {
@@ -343,7 +343,7 @@ class PadmaVisualEditorAJAX {
 		if( ! in_array($field, $editable_fields))
 			return;
 
-		
+
 		// Is the field into the equivalences array of class => field
 		if( $block_type_settings['inline-editable-equivalences'][$field] )
 			$field = $block_type_settings['inline-editable-equivalences'][$field];
@@ -351,16 +351,16 @@ class PadmaVisualEditorAJAX {
 
 		// Replace setting
 		$block['settings'][$field] = $content;
-		
+
 		// Save new block data to database
 		PadmaBlocksData::update_block($block_id, $block);
 
 		// Reload block data
 		$block = PadmaBlocksData::get_block($block_id);
-		
+
 		// echo setting
 		echo $block['settings'][$field];
-		
+
 	}
 
 
@@ -538,7 +538,7 @@ class PadmaVisualEditorAJAX {
 				}
 
 		}
-		
+
 		/* Spit it all out */
 		self::json_encode($elements);
 
@@ -675,7 +675,7 @@ class PadmaVisualEditorAJAX {
         } catch ( Exception $e ) {
 
             echo 'failure';
-            
+
         }
 
 	}
@@ -800,7 +800,7 @@ class PadmaVisualEditorAJAX {
 				parse_str(padma_get('skin-info'), $skin_info);
 
 				return PadmaDataPortability::export_skin($skin_info['skin-export-info']);
-				
+
 			}
 
 
@@ -813,7 +813,7 @@ class PadmaVisualEditorAJAX {
 					parse_str(padma_post('skin-info'), $skin_info);
 
 					$skin 	= PadmaDataPortability::export_skin($skin_info['skin-save-on-cloud-info'],true);
-					
+
 					$templateData = array(
 						'name' 			=> $skin_info['skin-save-on-cloud-info']['name'],
 						'description' 	=> $skin_info['skin-save-on-cloud-info']['description'],
@@ -907,7 +907,7 @@ class PadmaVisualEditorAJAX {
 
 			global $wp_filesystem;
 			WP_Filesystem();
-			
+
 			$tagName 	= padma_post('tagName');
 			$effect 	= padma_post('effect');
 			$selector 	= padma_post('selector');
@@ -917,7 +917,7 @@ class PadmaVisualEditorAJAX {
 					$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects-css/' . $effect . '.txt';					
 					$selector 	= preg_replace('/\ img/', '', $selector);
 					break;
-				
+
 				default:
 					$path = false;
 					break;
@@ -931,7 +931,7 @@ class PadmaVisualEditorAJAX {
 					'error' => 'Invalid effect for this content .'
 				));
 			}
-			
+
 
 		}
 

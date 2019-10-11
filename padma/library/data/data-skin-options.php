@@ -53,7 +53,7 @@ class PadmaSkinOption {
 
 		$args = func_get_args();
 		return self::pass_method(__FUNCTION__, $args);
-		
+
 	}
 
 

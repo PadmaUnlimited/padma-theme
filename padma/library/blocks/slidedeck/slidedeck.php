@@ -1,8 +1,8 @@
 <?php
 
 class PadmaSlideDeckBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -11,7 +11,7 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 
 
 	function __construct(){
-		
+
 		$this->id = 'slidedeck';	
 		$this->name = __('SlideDeck 2','padma');
 		$this->options_class = 'PadmaSlideDeckBlockOptions';
@@ -35,7 +35,7 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 				return;
 
 			}
-			
+
 		/* Get the chosen SlideDeck ID */
 			$slidedeck_id = parent::get_setting($block, 'slidedeck-id', null);
 
@@ -113,13 +113,13 @@ class PadmaSlideDeckBlock extends PadmaBlockAPI {
 
 		}
 
-	
+
 }
 
 
 class PadmaSlideDeckBlockOptions extends PadmaBlockOptionsAPI {
-	
-	
+
+
 	public $tabs;
 	public $inputs;
 
@@ -187,6 +187,6 @@ class PadmaSlideDeckBlockOptions extends PadmaBlockOptionsAPI {
 			';
 
 	}
-	
-	
+
+
 }

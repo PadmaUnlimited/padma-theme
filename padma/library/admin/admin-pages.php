@@ -18,7 +18,7 @@ class PadmaAdminPages {
 			);
 
 			echo '<meta http-equiv="refresh" content="3;URL=' . home_url() . '/?visual-editor=true">';
-		
+
 		PadmaAdmin::show_footer();
 
 	}

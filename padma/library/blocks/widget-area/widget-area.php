@@ -114,17 +114,17 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 		/* Use legacy ID */
 		$block['id'] = PadmaBlocksData::get_legacy_id( $block );
-	
+
 		echo ( parent::get_setting( $block, 'horizontal-widgets' ) == true ) ? '<ul class="widget-area horizontal-sidebar">' : '<ul class="widget-area">';
 
 			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-' . $block['id']) ) {
-			
+
 				global $sidebars_widgets, $wp_widget_factory;
 
 				$default_widgets = parent::get_setting( $block, 'default-widgets', array() );
-				
+
 				if ( !empty($default_widgets) && empty($sidebars_widgets['widget-area-' . $block['id']]) ) {
-					
+
 					add_filter( 'widget_title', array( $this, 'modify_default_widget_title' ), 10, 3 );
 
 					foreach ( $default_widgets as $default_widget ) {
@@ -168,16 +168,16 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 								'after_title' => '</span></h3>' . "\n",
 							)
 						);
-						
+
 					}
-				
+
 				} else {
-		
+
 					echo '<li class="widget widget-no-widgets">';
 						echo '<h3 class="widget-title"><span class="widget-inner">' . __('No widgets!','padma') . '</span></h3>';
 						echo sprintf( __('<p>Add widgets to this sidebar in the <a href="%s">Widgets panel</a> under Appearance in the WordPress Admin.</p>','padma'), admin_url('widgets.php') );
 					echo '</li>';
-					
+
 				}
 
 			} 
@@ -185,7 +185,7 @@ class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 		echo '</ul>';
 
 	}
-		
+
 }
 
 
@@ -282,7 +282,7 @@ class PadmaWidgetAreaBlockOptions extends PadmaBlockOptionsAPI {
 	function get_widgets() {
 
 		global $wp_widget_factory;
-		
+
 		if ( !isset($wp_widget_factory->widgets) )
 			return;
 

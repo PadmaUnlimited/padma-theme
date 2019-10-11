@@ -16,7 +16,7 @@ class PadmaLayoutOption {
 	public static $is_skin_option = false;
 
 	public static $current_skin;
-	
+
 
 	public static function init() {
 
@@ -115,10 +115,10 @@ class PadmaLayoutOption {
 		}
 
 		return padma_fix_data_type($return);
-		
+
 	}
 
-	
+
 	public static function set($layout, $option, $value, $global = false, $group_prefix = false, $template = null) {
 
 		if ( !$template )
@@ -162,10 +162,10 @@ class PadmaLayoutOption {
 			}
 
 		}
-		
+
 	}
-	
-	
+
+
 	public static function delete($layout, $option, $global = false) {
 
 		/* If it's post meta compatible, then use WP functions */
@@ -189,7 +189,7 @@ class PadmaLayoutOption {
 			));
 
 		}
-		
+
 	}
 
 
@@ -251,5 +251,5 @@ class PadmaLayoutOption {
 
 	}
 
-	
+
 }

@@ -1,29 +1,29 @@
 <?php
 class PadmaElements {
-	
-	
+
+
 	public static function init() {
-		
+
 		Padma::load(array(
 			'elements/properties',
 			'elements/js-properties' => 'JSProperties',
 			'data/data-elements' => 'ElementsData',
 			'api/api-element' => 'ElementAPI'
 		));
-		
+
 		add_action('padma_elements_init', array(__CLASS__, 'load_elements'));
 		add_action('padma_flush_cache', array(__CLASS__, 'flush_element_selector_cache'));
-		
+
 		do_action('padma_elements_init');
-		
+
 	}
-	
-	
+
+
 	public static function load_elements() {
 
 		include_once 'default-elements.php';
 		include_once 'structural-elements.php';
-		
+
 	}
 
 
@@ -71,5 +71,5 @@ class PadmaElements {
 
 	}
 
-	
+
 }

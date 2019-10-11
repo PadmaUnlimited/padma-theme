@@ -1,13 +1,13 @@
 <?php
 
 class PadmaContactForm7Block extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
 	public $description;
 	public $categories;
-	
+
 
 	function __construct(){
 
@@ -25,7 +25,7 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 			return false;
 
 	}
-	
+
 	function setup_elements() {
 
 		$this->register_block_element(array(
@@ -121,14 +121,14 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 
 
 	public static function dynamic_css($block_id, $block = false) {
-			
+
 	}
 
 
 	public static function dynamic_js($block_id, $block = false) {
-	
+
 	}
-	
+
 	public function content($block) {
 
 		$form_id = parent::get_setting($block, 'form-id', '');		
@@ -136,7 +136,7 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 	}
 
 	public static function enqueue_action($block_id, $block = false) {
-	
+
 	}
 
 
@@ -146,12 +146,12 @@ class PadmaContactForm7Block extends PadmaBlockAPI {
 
 		return get_post($form_id, OBJECT, 'raw')->post_title;
 	}
-	
+
 }
 
 
 class PadmaContactForm7BlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;	
 	public $sets;
 	public $inputs;
@@ -161,9 +161,9 @@ class PadmaContactForm7BlockOptions extends PadmaBlockOptionsAPI {
 		$this->tabs = array(
 			'general' => 'General'
 		);
-		
+
 		$this->sets = array(
-			
+
 		);
 
 		$this->inputs = array(
@@ -189,17 +189,17 @@ class PadmaContactForm7BlockOptions extends PadmaBlockOptionsAPI {
 		$forms = array(
 			'0' => __('Select a form','padma')
 		);
-		
+
 		if( $data = get_posts($args)){
-			
+
 			foreach($data as $key){
 				$forms[$key->ID] = $key->post_title;
 			}
 
 		}
-		
+
 		return $forms;
 	}
 
-	
+
 }

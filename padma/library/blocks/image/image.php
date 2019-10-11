@@ -1,7 +1,7 @@
 <?php
 
 class PadmaImageBlock extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -29,9 +29,9 @@ class PadmaImageBlock extends PadmaBlockAPI {
 		$this->show_content_in_grid = true;
 
 	}
-	
+
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'image',
 			'name' => __('Image','padma'),
@@ -48,7 +48,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 				'Clicked' => 'a:active img'
 			)
 		));
-		
+
 	}
 
 	public static function dynamic_css($block_id, $block = false) {
@@ -67,7 +67,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 			'center_center' => 'bottom: 0; left: 0; top: 0; right: 0;',
 			'center_left' => 'bottom: 0; left: 0; top: 0;',
 			'center_right' => 'bottom: 0; top: 0; right: 0;',
-			
+
 			'bottom_left' => 'bottom: 0; left: 0;',
 			'bottom_center' => 'bottom: 0; left: 0; right: 0;',
 			'bottom_right' => 'bottom: 0;right: 0;'
@@ -86,30 +86,30 @@ class PadmaImageBlock extends PadmaBlockAPI {
 		';
 
 		return $css;
-		
+
 	}
-	
+
 	function content($block) {
-		
+
 		//Display image if there is one
 		if ( $image_src = parent::get_setting($block, 'image') ) {
-		
+
 			$url = parent::get_setting($block, 'link-url');
 			$alt = parent::get_setting($block, 'image-alt');
 			$title = parent::get_setting($block, 'image-title');
 			$target = parent::get_setting($block, 'link-target', false) ? $target = 'target="_blank"' : '';
 
 			if ( parent::get_setting($block, 'resize-image', true) ) {
-				
+
 				$block_width = PadmaBlocksData::get_block_width($block);
 				$block_height = PadmaBlocksData::get_block_height($block);
-				
+
 				$image_url = padma_resize_image($image_src, $block_width, $block_height);
-				
+
 			} else {
-				
+
 				$image_url = $image_src;
-				
+
 			}
 
 			if ( $image_src = parent::get_setting($block, 'link-image', false) ) {
@@ -121,12 +121,12 @@ class PadmaImageBlock extends PadmaBlockAPI {
 				echo '<img src="' . padma_format_url_ssl($image_url) . '" alt="' . $alt . '" title="' . $title . '" itemprop="contentURL"/>';
 
 			}
-			
+
 		} else {
 
 			echo '<div style="margin: 5px;" class="alert alert-yellow"><p>' . __('You have not added an image yet. Please upload and apply an image.','padma') . '</p></div>';
 		}
-		
+
 		/* Output position styling for Grid mode */
 			if ( padma_get('ve-live-content-query', $block) && padma_post('mode') == 'grid' ) {
 				echo '<style type="text/css">';
@@ -136,12 +136,12 @@ class PadmaImageBlock extends PadmaBlockAPI {
 
 
 	}
-	
+
 }
 
 
 class PadmaImageBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 
 	public $tabs;
 	public $inputs;
@@ -167,7 +167,7 @@ class PadmaImageBlockOptions extends PadmaBlockOptionsAPI {
 					'label' => __('Image','padma'),
 					'default' => null
 				),
-				
+
 				'resize-image' => array(
 					'name' => 'resize-image',
 					'label' => __('Automatically Resize Image','padma'),
@@ -262,5 +262,5 @@ class PadmaImageBlockOptions extends PadmaBlockOptionsAPI {
 			)
 		);
 	}
-	
+
 }

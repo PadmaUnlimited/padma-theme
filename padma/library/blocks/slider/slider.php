@@ -1,16 +1,16 @@
 <?php
 
 class PadmaSliderBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $options_class;
 	public $fixed_height;
 	public $description;
 	public $categories;
-	
-	
+
+
 	function __construct(){
 
 		$this->id = 'slider';	
@@ -36,12 +36,12 @@ class PadmaSliderBlock extends PadmaBlockAPI {
 		wp_enqueue_script('flexslider', padma_url() . '/library/blocks/slider/assets/jquery.flexslider-min.js', array('jquery'));
 
 	}
-	
-	
+
+
 	public static function dynamic_js($block_id, $block) {
-		
+
 		$images = parent::get_setting($block, 'images', array());
-			
+
 		//If there are no images or only 1 image, do not load FlexSlider.
 		if ( count($images) <= 1 )
 			return false;
@@ -60,17 +60,17 @@ jQuery(window).load(function(){
 	   randomize: ' . (parent::get_setting($block, 'randomize-order', false) ? 'true' : 'false') . '
 	});
 });' . "\n";
-		
+
 	}
 
-	
+
 	function content($block) {
-				
+
 		$images = parent::get_setting($block, 'images', array());
 
 		$block_width = PadmaBlocksData::get_block_width($block);
 		$block_height = PadmaBlocksData::get_block_height($block);
-			
+
 		$has_images = false;
 
 		foreach ( $images as $image ){
@@ -83,11 +83,11 @@ jQuery(window).load(function(){
 		if ( !$has_images ) {
 
 			echo '<div class="alert alert-yellow"><p>' . __('There are no images to display.','padma') . '</p></div>';
-			
+
 			return;
 
 		}
-		
+
 		$no_slide_class = count($images) === 1 ? ' flexslider-no-slide' : '';
 
 		echo '<div class="flexslider' . $no_slide_class . '">';
@@ -129,15 +129,15 @@ jQuery(window).load(function(){
 			  			/* Closing tag for hyperlink */
 			  			if ( $output['hyperlink']['href'] )
 			  				echo '</a>';
-			  		
+
 			  			/* Caption */
 				  		if ( !empty($output['image']['caption']) )
 				  			echo '<p class="flex-caption">' . $output['image']['caption'] . '</p>';
 
 			  		echo '</li>';
-			  		
+
 			  	}
-		  
+
 		  	echo '</ul>';
 
 		  	/* Put in viewport div for sliders that only have 1 image and don't slide */
@@ -215,16 +215,16 @@ jQuery(window).load(function(){
 
 	}
 
-	
+
 }
 
 
 class PadmaSliderBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
 
-	
+
 	function __construct(){
 
 		$this->tabs = array(
@@ -355,7 +355,7 @@ class PadmaSliderBlockOptions extends PadmaBlockOptionsAPI {
 					'default' => true,
 					'tooltip' => __('Act as a slideshow and automatically move to the next slide.','padma')
 				),
-				
+
 				'animation-timeout' => array(
 					'type' => 'slider',
 					'name' => 'animation-timeout',
@@ -396,5 +396,5 @@ class PadmaSliderBlockOptions extends PadmaBlockOptionsAPI {
 			)
 		);
 	}
-	
+
 }

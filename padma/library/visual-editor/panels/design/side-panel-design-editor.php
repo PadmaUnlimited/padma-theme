@@ -111,9 +111,9 @@ class PadmaSidePanelDesignEditor {
 				<a class="options-filter-only-modified">' . __('Show only modified options','padma') . '<input type="checkbox" id="options-filter-only-modified"></a>
 			</div>
 			<div class="design-editor-options-container">
-			
+
 				<div class="design-editor-options" style="display:none;"></div><!-- .design-editor-options -->
-						
+
 			</div><!-- .design-editor-options-container -->
 		';
 

@@ -133,7 +133,7 @@ function padma_storefront_wc_register_elements() {
 		'description' => 'Storefront: WooCommerce',
 		'selector' => '.woocommerce .button a.product_type_simple.add_to_cart_button.ajax_add_to_cart'
 	));
-	
+
 	PadmaElementAPI::register_element(array(
 		'group' => 'blocks',
 		'id' => 'block-content-wc-product-page-button-item',
@@ -143,7 +143,7 @@ function padma_storefront_wc_register_elements() {
 		'description' => __('Storefront: WooCommerce Button','padma'),
 		'selector' => '.woocommerce ul.products li.product .button'
 	));
-	
+
 	PadmaElementAPI::register_element(array(
 		'group' => 'blocks',
 		'id' => 'block-content-wc-product-page-button-text',

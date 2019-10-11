@@ -6,15 +6,15 @@ class PadmaCompatibilityWPML {
 	 * Constructor
 	 */
 	private function __construct() {
-		
+
 	}
-	
+
 	/**
 	 * Gets the instance of the class
 	 */
 	public static function init() {
 
-		
+
 		if(!class_exists('SitePress')){
 			return;
 		}
@@ -27,5 +27,5 @@ class PadmaCompatibilityWPML {
 	public static function filter_home_url($home_url, $url, $path, $orig_scheme, $blog_id){		
 		return $url;
 	}
-	
+
 }

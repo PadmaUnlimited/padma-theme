@@ -1,8 +1,8 @@
 <?php
 
 class PadmaListingsBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -22,7 +22,7 @@ class PadmaListingsBlock extends PadmaBlockAPI {
 
 
 	function init() {
-		
+
 		require_once 'block-options.php';
 		require_once PADMA_LIBRARY_DIR . '/blocks/listings/content-display.php';		
 	}
@@ -46,7 +46,7 @@ class PadmaListingsBlock extends PadmaBlockAPI {
 			'name' => __('List Item Link','padma'),
 			'selector' => 'ul.list-items li a'
 		));
-		
+
 	}
 
 	function content($block) {
@@ -55,5 +55,5 @@ class PadmaListingsBlock extends PadmaBlockAPI {
 		$listing_block_display->display();
 
 	}
-	
+
 }

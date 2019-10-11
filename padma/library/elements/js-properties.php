@@ -28,7 +28,7 @@ class PadmaJSProperties {
 			if ( ! isset( self::$element_selectors[ $element_id ] ) ) {
 				continue;
 			}
-			
+
 			$element_selector = self::$element_selectors[$element_id];
 
 			foreach ( $js_properties as $js_property_id => $js_property_value ) {

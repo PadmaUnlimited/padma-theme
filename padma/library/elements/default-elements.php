@@ -3,7 +3,7 @@ add_action('padma_register_elements', 'padma_register_default_elements');
 function padma_register_default_elements() {
 
 	PadmaElementAPI::register_group('default-elements', __('Global Styling','padma') );
-	
+
 	PadmaElementAPI::register_element(array(
 		'id' => 'default-text',
 		'name' => __('Text','padma'),
@@ -148,7 +148,7 @@ function padma_register_default_elements() {
 		'default-element' => true,
 		'selector' => 'blockquote'
 	));
-	
+
 	PadmaElementAPI::register_element(array(
 		'id' => 'default-block',
 		'name' => __('Block','padma'),
@@ -186,5 +186,5 @@ function padma_register_default_elements() {
 		'selector' => '.block-subtitle',
 		'default-element' => true
 	));
-	
+
 }

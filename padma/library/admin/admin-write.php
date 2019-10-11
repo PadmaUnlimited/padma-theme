@@ -1,19 +1,19 @@
 <?php
 class PadmaAdminWrite {
-	
-	
+
+
 	public static function init() {
-		
+
 		/* Load the default meta boxes */
 		Padma::load('admin/admin-meta-boxes');
-				
+
 		add_action('delete_post', array(__CLASS__, 'delete_post'));
 
 		add_filter('get_sample_permalink_html', array(__CLASS__, 'open_in_visual_editor_button'), 10, 4);
-		
+
 	}
-	
-	
+
+
 	public static function delete_post($postid) {
 
 		$post = get_post($postid);
@@ -21,7 +21,7 @@ class PadmaAdminWrite {
 		/* If the post type is a revision then don't do anything. */
 		if ( $post->post_type == 'revision' )
 			return false;
-		
+
 		/* Figure out the layout ID */
 		$layout_id = 'single' . PadmaLayout::$sep . $post->post_type . PadmaLayout::$sep . $postid;
 
@@ -57,6 +57,6 @@ class PadmaAdminWrite {
 		return $return;
 
 	}
-	
-	
+
+
 }

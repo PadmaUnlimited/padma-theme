@@ -1,8 +1,8 @@
 <?php
 
 abstract class PadmaBlockAPI {
-			
-			
+
+
 	public $id;	
 	public $name;	
 	public $block_type_url;
@@ -17,17 +17,17 @@ abstract class PadmaBlockAPI {
 	public $inline_editable = array('block-title', 'block-subtitle');
 	public $inline_editable_equivalences = array();
 
-	
+
 
 	/* System Properties (DO NOT USE OR TOUCH) */	
 	protected $options;
-	
+
 	protected $show_content_in_grid = false;
 
-	
+
 	/* System Methods (DO NOT EXTEND OR MODIFY) */
 	public function register() {
-				
+
 		global $padma_block_types;
 
 		//If the Padma blocks array doesn't exist, create it.
@@ -40,9 +40,9 @@ abstract class PadmaBlockAPI {
 		// 	public $inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
 		// example 2:
 		// 	public $inline_editable = array('block-title', 'block-subtitle', array('title' => 'su-box-title'));	
-		
+
 		$inline_editable_fields = array();
-		
+
 		if(is_array($this->inline_editable)){
 			foreach ($this->inline_editable as $key => $editable_field_and_class) {
 				if(is_array($editable_field_and_class)){
@@ -54,7 +54,7 @@ abstract class PadmaBlockAPI {
 				}
 			}
 		}
-				
+
 		// Add block to array.  This array will be used for checking if certain blocks exist, the block type selector and so on.
 		// Floating blocks are created on the fly, it change the id so DO NOT use css or js based on the id
 		$padma_block_types[$this->id] = array(
@@ -72,14 +72,14 @@ abstract class PadmaBlockAPI {
 			'inline-editable' => implode(',', $inline_editable_fields),
 			'inline-editable-equivalences' => $this->inline_editable_equivalences
 		);
-		
+
 		//Add the element for the block itself
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));
-				
+
 		//Run init method if it exists
 		if ( method_exists($this, 'init') )
 			$this->init();
-		
+
 		//Run setup_elements if it exists
 		if ( method_exists($this, 'setup_elements') )
 			add_action('padma_register_elements', array($this, 'setup_elements'));
@@ -91,10 +91,10 @@ abstract class PadmaBlockAPI {
 		add_action('padma_block_content_' . $this->id, array($this, 'content'));
 
 		add_action('padma_block_options_' . $this->id, array($this, 'options_panel'), 10, 2);
-		
+
 	}
-	
-	
+
+
 	public function setup_main_block_element() {
 
 		PadmaElementAPI::register_element(array(
@@ -152,25 +152,25 @@ abstract class PadmaBlockAPI {
 			));
 
 		}
-		
+
 	}
-	
-	
+
+
 	public function options_panel($block, $layout) {
-							
+
 		if ( !class_exists($this->options_class) )
 			return new WP_Error('block_options_class_does_not_exist', __('Error: The block options class being registered does not exist.', 'padma'), $this->options_class);
-			
+
 		//Initiate options class
 		$options = new $this->options_class($this);
 		$options->display($block, $layout);
-				
+
 	}
-	
-	
+
+
 	/* Methods to extend (you can modify these!) */
 	public function content($block) {
-		
+
 	}
 
 
@@ -233,8 +233,8 @@ abstract class PadmaBlockAPI {
 		}
 
 	}
-	
-	
+
+
 	/**
 	 * The following are commented out so they are not detected 
 	 * 
@@ -258,25 +258,25 @@ abstract class PadmaBlockAPI {
 	 *  }
 	 * 
 	 **/
-	
-	
+
+
 	/* Methods to use, but not modify! */
 	public function register_block_element($args) {
 
 		/* Add the selector prefix to the selector and even handle commas */
 		$selector_prefix = '.block-type-' . $this->id . ' ';
-		
+
 		$selector_array = explode(',', $args['selector']);
-		
+
 		foreach ( $selector_array as $selector_index => $selector ) {
-						
+
 			if ( strpos(trim($selector_array[$selector_index]), '.block-type-') === 0 )
 				continue;
-			
+
 			$selector_array[$selector_index] = $selector_prefix . trim($selector);
-			
+
 		}
-		
+
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
 
@@ -291,7 +291,7 @@ abstract class PadmaBlockAPI {
 			'selector'	=> $modified_selector
 		);
 
-		
+
 		//Unset the following so they don't overwrite the defaults
 		unset($args['id']);
 		unset($args['name']);
@@ -300,14 +300,14 @@ abstract class PadmaBlockAPI {
 		//If the parent isn't the default then put on block type prefix
 		if ( !empty($args['parent']) && $args['parent'] != 'block-' . $this->id )
 			$args['parent'] = 'block-' . $this->id . '-' . $args['parent'];
-		
+
 		$element = array_merge($defaults, $args);
-		
+
 		//Go through states and add the selector prefix to each state
 		if ( isset($element['states']) && is_array($element['states']) ) {
-			
+
 			foreach ( $element['states'] as $state_name => $state_selector ) {
-				
+
 				$state_selector_array = explode(',', $state_selector);
 
 				foreach ( $state_selector_array as $selector_index => $selector ) {
@@ -318,31 +318,31 @@ abstract class PadmaBlockAPI {
 					$state_selector_array[$selector_index] = $selector_prefix . trim($selector);
 
 				}
-				
+
 				$element['states'][$state_name] = trim(implode(',', $state_selector_array));
-				
+
 			}
-			
+
 		}
 
-		
+
 		return PadmaElementAPI::register_element($element);
-		
+
 	}
-	
+
 
 	public static function get_setting($block, $setting, $default = null) {
-				
+
 		return PadmaBlocksData::get_block_setting($block, $setting, $default);
-		
+
 	}
-	
+
 }
 
 
 class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
-	
-	
+
+
 	public $block_type_object;
 	public $block 		= false;
 	public $block_id 	= false;
@@ -354,17 +354,17 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$this->block_type_object = $block_type_object;
 
 	}
-	
-	
+
+
 	public function register() {
-		
+
 		return true;
-		
+
 	}
-		
-	
+
+
 	public function display($block, $layout) {
-		
+
 		//Set block properties
 		$this->block = $block;
 
@@ -381,7 +381,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		//Allow developers to modify the properties of the class and use functions since doing a property 
 		//outside of a function will not allow you to.
 		$this->modify_arguments($args);
-		
+
 		//Add the standard block tabs
 		$this->add_standard_block_config();
 		$this->add_standard_block_import_export();
@@ -390,10 +390,10 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			$this->add_standard_block_responsive();
 
 		$this->add_anywhere_tab($args);
-		
+
 		//Display it
 		$this->panel_content($args);
-		
+
 	}
 
 	public function add_anywhere_tab($args){
@@ -406,7 +406,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
 
 		$this->tab_notices['anywhere'] = __('<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p>','padma').'<input class="shortcode-anywhere" value="'.$shortcode_txt.'">';
-		
+
 		if(PadmaOption::get('padma-blocks-as-gutenberg-blocks')){
 			$this->inputs['anywhere']['show-as-gutenberg-block'] = array(
 					'name' => 'show-as-gutenberg-block',
@@ -415,21 +415,21 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'default' => false
 				);
 		}
-			
+
 	}
 
 
 	public function add_standard_block_config() {
-		
+
 		if ( !isset($this->tabs) )
 			$this->tabs = array();
-			
+
 		if ( !isset($this->inputs) )
 			$this->inputs = array();
-		
+
 		//Add the tab
 		$this->tabs['config'] = 'Config';
-		
+
 		/* Add the inputs */
 
 		$this->inputs['config']['mirror-block'] = array(
@@ -443,7 +443,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			'callback' => 'updateBlockMirrorStatus(input, block.id, value);',
 			'value' => PadmaBlocksData::is_block_mirrored($this->block)
 		);
-		
+
 		$this->inputs['config']['alias'] = array(
 			'type' => 'text',
 			'name' => 'alias',
@@ -564,17 +564,17 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 
 			}
 		/* End Titles */
-		
+
 	}
 
 	public function add_standard_block_responsive() {
-		
+
 		if ( !isset($this->tabs) )
 			$this->tabs = array();
-			
+
 		if ( !isset($this->inputs) )
 			$this->inputs = array();
-		
+
 		//Add the tab
 		$this->tabs['responsive'] = 'Responsive Control';
 
@@ -771,20 +771,20 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			);
 
 		}
-		
+
 	}
 
 	public function add_standard_block_import_export() {
 
 		if ( !isset($this->tabs) )
 			$this->tabs = array();
-			
+
 		if ( !isset($this->inputs) )
 			$this->inputs = array();
-		
+
 		//Add the tab
 		$this->tabs['import-export'] = __('Import/Export','padma');
-		
+
 		/* Add the inputs */
 
 		$this->inputs['import-export']['import-heading'] = array(
@@ -837,21 +837,21 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 				'no-save' => true,
 				'callback' => 'exportBlockSettingsButtonCallback(args);'
 			);
-		
+
 	}
-	
+
 	public function get_blocks_select_options_for_mirroring() {
-			
+
 		$block_type = $this->block['type'];	
-				
+
 		$blocks = PadmaBlocksData::get_blocks_by_type($block_type);
-		
+
 		$options = array('' => '&ndash; '. __('Do Not Mirror','padma') . ' &ndash;');
-		
+
 		//If there are no blocks, then just return the Do Not Mirror option.
 		if ( !isset($blocks) || !is_array($blocks) )
 			return $options;
-		
+
 		foreach ( $blocks as $block_id => $block ) {
 
 			if ( $this->block['id'] == $block_id ) {
@@ -888,11 +888,11 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 			}
 
 			$options[ $layout_name ][ $block['id'] ] = padma_get( 'alias', $block['settings'], $default_name );
-			
+
 		}
 
 		return $options;
-		
+
 	}
-	
+
 }

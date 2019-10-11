@@ -7,13 +7,13 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 
 
 	function __construct(){
-		
+
 		$this->tabs = array(
 			'listing-type' => __('Select Listing Type','padma'),
 			'posts-pages-filters' => __('Posts &amp; Pages Filters','padma'),
 			'taxonomy-options' => __('Taxonomy Options','padma')
 		);
-		
+
 		$this->inputs = array(
 			'listing-type' => array(
 
@@ -47,7 +47,7 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 						)
 					)
 				)
-				
+
 			),
 
 			'taxonomy-options'	=> array(
@@ -239,7 +239,7 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => '',
 					'options' => 'get_authors()'
 				),
-				
+
 				'offset' => array(
 					'type' => 'integer',
 					'name' => 'offset',
@@ -247,13 +247,13 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('The offset is the number of entries or posts you would like to skip.  If the offset is 1, then the first post will be skipped.','padma'),
 					'default' => 0
 				),
-				
+
 				'posts-pages-sort-heading' => array(
 					'name' => 'posts-pages-sort-heading',
 					'type' => 'heading',
 					'label' => __('Sort Content','padma')
 				),
-				
+
 				'order-by' => array(
 					'type' => 'select',
 					'name' => 'order-by',
@@ -267,7 +267,7 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 						'ID' => 'ID'
 					)
 				),
-				
+
 				'order' => array(
 					'type' => 'select',
 					'name' => 'order',
@@ -284,7 +284,7 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 	}
 
 	function modify_arguments($args = false) {
-		
+
 		$block = $args['block'];
 
 		/* Content Options */
@@ -310,7 +310,7 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 		$this->inputs['taxonomy-options']['terms-child-of']['options'] = $terms;
 		$this->inputs['taxonomy-options']['terms-exclude']['options'] = $terms;
 		$this->inputs['taxonomy-options']['terms-include']['options'] = $terms;
-		
+
 	}
 
 	function get_taxonomies($post_type='') {
@@ -323,10 +323,10 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 		} else {
 			$args = '';
 		}
-		
+
 		$output = 'objects';
 		$operator = 'and';
-		
+
 		$taxonomy_options = array('&ndash; Do not filter &ndash;');
 
 		$taxonomy_select_query=get_taxonomies($args,$output,$operator);
@@ -335,13 +335,13 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 		  foreach ($taxonomy_select_query as $taxonomy)
 			$taxonomy_options[$taxonomy->name] = $taxonomy->label;
 		} 
-		
+
 		return $taxonomy_options;
-		
+
 	}
 
 	function get_listing_terms($taxonomy='category') {
-		
+
 		if ( !$taxonomy )
 			$taxonomy = 'category';
 
@@ -356,9 +356,9 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 
 		foreach ($terms as $term)
 			$terms_options[$term->term_id] = $term->name;
-		
+
 		return $terms_options;
-		
+
 	}
 
 	function get_taxonomy_label($taxonomy) {
@@ -376,57 +376,57 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 		  foreach ($taxonomy_select_query as $taxonomy)
 			return $taxonomy->label;
 		} 
-		
+
 	}
 
 	function get_authors() {
-		
+
 		$author_options = array();
-		
+
 		$authors = get_users(array(
 			'orderby' => 'post_count',
 			'order' => 'desc',
 			'who' => 'authors'
 		));
-		
+
 		foreach ( $authors as $author )
 			$author_options[$author->ID] = $author->display_name;
-			
+
 		return $author_options;
-		
+
 	}
 
 	function get_pages() {
-		
+
 		$page_options = array('&ndash; Default &ndash;');
-		
+
 		$page_select_query = get_pages();
-		
+
 		foreach ($page_select_query as $page)
 			$page_options[$page->ID] = $page->post_title;
-		
+
 		return $page_options;
-		
+
 	}
 
 	function get_post_types() {
-		
+
 		$post_type_options = array('&ndash; All Post Types &ndash;');
 
 		$post_types = get_post_types(false, 'objects'); 
-			
+
 		foreach($post_types as $post_type_id => $post_type){
-			
+
 			//Make sure the post type is not an excluded post type.
 			if(in_array($post_type_id, array('revision', 'nav_menu_item'))) 
 				continue;
-			
+
 			$post_type_options[$post_type_id] = $post_type->labels->name;
-		
+
 		}
-		
+
 		return $post_type_options;
-		
+
 	}
-	
+
 }

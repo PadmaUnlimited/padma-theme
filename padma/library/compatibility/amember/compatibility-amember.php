@@ -6,15 +6,15 @@ class PadmaCompatibilityAMember {
 	 * Constructor
 	 */
 	private function __construct() {
-		
+
 	}
-	
+
 	/**
 	 * Gets the instance of the class
 	 */
 	public static function init() {
 
-		
+
 		if(!class_exists('am4PluginsManager')){
 			return;
 		}

@@ -1,51 +1,51 @@
 <?php
 
 abstract class PadmaVisualEditorPanelAPI {
-	
-	
+
+
 	/**
 	 *	Slug/ID of panel.  Will be used for HTML IDs and whatnot.
 	 **/
 	public $id;
-	
-	
+
+
 	/**
 	 * Name of panel.  This will be shown in the tabs.
 	 **/
 	public $name;
-	
-	
+
+
 	/**
 	 * Sub tabs.  This is not always used.
 	 **/
 	public $tabs;
-	
-	
+
+
 	/**
 	 * Inputs.  This is not always used.
 	 **/
 	public $inputs;
-	
-	
+
+
 	/**
 	 * Which mode to display the panel on.
 	 **/
 	public $mode;
-	
-	
+
+
 	/**
 	 * Which options group to save in by default
 	 **/
 	public $options_group = 'general';
-	
+
 
 	/**
 	 * Will fire when the panel is opened via AJAX
 	 **/
 	public $open_js_callback = null;
-	
-	
-	
+
+
+
 	/**
 	 * Register the panel.
 	 * 
@@ -53,128 +53,128 @@ abstract class PadmaVisualEditorPanelAPI {
 	 * @param string ID of panel for HTML and options
 	 **/
 	public function register() {
-		
+
 		$mode = PadmaVisualEditor::get_current_mode();
 
 		/* Forward old Manage panels to Design */
 		if ( $this->mode == 'manage' )
 			$this->mode = 'design';
-		
+
 		if ( strtolower($this->mode) !== strtolower($mode) )
 			return false;
-		
+
 		/* Since there is a message that's displayed if there is no panel content, we have to tell it not to display the message now that
 		 * we're registering a panel */
 		remove_action('padma_visual_editor_panel_top_tabs', array('PadmaVisualEditorDisplay', 'add_default_panel_link'));
 		remove_action('padma_visual_editor_content', array('PadmaVisualEditorDisplay', 'add_default_panel'));
-			
+
 		add_action('padma_visual_editor_panel_top_tabs', array($this, 'panel_link'));
 		add_action('padma_visual_editor_content', array($this, 'build_panel'));
 
 		if ( method_exists($this, 'init') )
 			$this->init();
-					
+
 	}
-	
-	
+
+
 	public function modify_arguments($args) {
-		
+
 		//Allow developers to modify the properties of the class and use functions since doing a property 
 		//outside of a function will not allow you to.
-		
+
 	}
-	
-	
+
+
 	public function parse_function_args($array) {
-		
+
 		if ( !is_array($array) || count($array) === 0 )
 			return $array;
-			
+
 		foreach ( $array as $key => $value ) {
-			
+
 			if ( !is_string($value) )
 				continue;
-			
+
 			//Check if it's a function
 			if ( preg_match("/^[a-z0-9_]*(\(\))$/", $value) ) {				
 				$array[$key] = call_user_func(array($this, str_replace('()', '', $value)));
 			} else {
 				continue;
 			}
-			
+
 		}
-		
+
 		return $array;
-		
+
 	}
-	
-	
+
+
 	public function panel_link() {
-		
+
 		echo '<li><a href="#' . $this->id . '-tab">' . $this->name . '</a></li>';
-		
+
 	}
-	
-	
+
+
 	public function build_panel($id) {
-		
+
 		$class = ($this->tabs) ? ' sub-tab' : null;
-			
+
 		echo '<div id="' . $this->id . '-tab" class="panel' . $class . '">';
 
 			//Allow developers to modify the properties of the class and use functions since doing a property 
 			//outside of a function will not allow you to.
 			$this->modify_arguments(array());
-		
+
 			$this->panel_content();
-		
+
 		echo '</div>';
 
-					
+
 	}
-	
-	
+
+
 	public function panel_content($args = false) {
 
 		if ( $this->tabs && $this->inputs ) {
-			
+
 			echo '<ul class="sub-tabs" data-open-js-callback="' . esc_attr('(function(args){' . $this->open_js_callback . '})') . '">';
-			
+
 				foreach ($this->tabs as $id => $name) {
-					
+
 					echo '<li id="sub-tab-' . $id . '"><a href="#sub-tab-' . $id . '-content">' . $name . '</a></li>';
-					
+
 				}
-			
+
 			echo '</ul>';
-			
+
 			echo '<div class="sub-tabs-content-container" data-panel-args="' . esc_attr(json_encode($args)) . '">';
-			
+
 			foreach ($this->tabs as $id => $name) {
-				
+
 				echo '<div class="sub-tabs-content" id="sub-tab-' . $id . '-content">';
-					
+
 					//Display notice for tab if one exists.
 					if ( isset($this->tab_notices[$id]) )
 						echo '<div class="sub-tab-notice">' . $this->tab_notices[$id] . '</div>';
-				
+
 					$this->sub_tab_content($id, $name);
-				
+
 				echo '</div><!-- div#sub-tab-' . $id . '-content -->';
-				
+
 			}
-			
+
 			echo '</div><!-- .sub-tabs-content-container -->';
-						
+
 		}
-		
+
 	}
-	
-	
+
+
 	public function sub_tab_content($id, $name = false) {
-		
+
 		$this->create_inputs($id);
-					
+
 	}
 
 
@@ -188,8 +188,8 @@ abstract class PadmaVisualEditorPanelAPI {
 			}
 
 		}
-	
-	
+
+
 	public function render_input($input) {
 
 		//Fill defaults
@@ -198,17 +198,17 @@ abstract class PadmaVisualEditorPanelAPI {
 			'default' => false,
 			'callback' => null
 		);
-		
+
 		//Merge defaults
 		$input = array_merge($defaults, $input);
-		
+
 		//Fix up inputs
 		$input = $this->parse_function_args($input);
 
 
 		if ( !isset($input['name']) || !isset($input['type']) )
 			return;
-		
+
 		/* Set up main input variables */
 			$input['name'] = strtolower($input['name']);
 			$input['group'] = ( isset($input['group']) ) ? $input['group'] : $this->options_group;
@@ -239,11 +239,11 @@ abstract class PadmaVisualEditorPanelAPI {
 			/* Set up data handler override if it's used */
 				if ( padma_get('data-handler-callback', $input) )
 					$attributes_array['data-data-handler-callback'] = esc_attr('(function(args){' . $input['data-handler-callback'] . '})');
-				
+
 			/* Set up toggle attribute */
 				if ( padma_get('toggle', $input) )
 					$attributes_array['data-toggle'] = esc_attr(json_encode($input['toggle']));
-				
+
 			/* No save attribute */
 				if ( padma_get('no-save', $input, false) )
 					$attributes_array['data-no-save'] = 'true';
@@ -267,10 +267,10 @@ abstract class PadmaVisualEditorPanelAPI {
 				if ( $input['type'] != 'raw-html' ) {
 
 					echo '<div class="input input-' . $input['type'] . '" id="input-' . $input['name'] . '">';
-										
+
 						if ( $input['tooltip'] )
 							echo '<div class="tooltip-button" title="' . esc_attr($input['tooltip']) . '"></div>';
-					
+
 						call_user_func(array($this, 'input_' . str_replace('-', '_', $input['type'])), $input);
 
 					echo '</div><!-- #input-' . $input['name'] . ' -->';
@@ -280,16 +280,16 @@ abstract class PadmaVisualEditorPanelAPI {
 					call_user_func(array($this, 'input_' . str_replace('-', '_', $input['type'])), $input);
 
 				}
-				
+
 			}
 		/* End regular input handling */
-		
+
 	}
 
 
 	public function repeater($input) {
 
-	
+
 		$repeater_sortable_class = padma_get('sortable', $input) ? ' repeater-sortable' : null;
 
 		echo '<div class="repeater' . $repeater_sortable_class . '" data-repeater-limit="' . padma_get('limit', $input, '0') . '">';
@@ -348,11 +348,11 @@ abstract class PadmaVisualEditorPanelAPI {
 
 			/* Hidden Input */
 				echo '<input ' . $input['attributes'] . ' type="hidden" value="" class="repeater-group-input" />';
- 				
+
 		echo '</div><!-- .repeater -->';
 
 	}
-	
+
 
 		public function repeater_group($input, $group_index = null, $counter = null) {
 
@@ -392,10 +392,10 @@ abstract class PadmaVisualEditorPanelAPI {
 			echo '</div><!-- .repeater-group -->';	
 
 		}
-	
+
 
 	public function input_checkbox($input) {
-		
+
 		$checked_attribute = ( (bool)padma_fix_data_type($input['value']) === true ) ? ' checked="checked"' : null;
 
 		echo '<div class="input-left">';
@@ -404,22 +404,22 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo $input['label'];
 		echo '</label>';
 		echo '</div>';
-		
+
 	}
-	
-	
+
+
 	public function input_text($input) {
-	
+
 		$readonly = ( isset($input['readonly']) && $input['readonly'] === true )  ? ' disabled' : null;
-		
+
 		echo '
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
-			
+
 			<div class="input-right">
 				<input type="text" ' . $input['attributes'] . ' placeholder="' . stripslashes(esc_attr(padma_get('placeholder', $input))) . '" value="' . stripslashes(esc_attr($input['value'])) . '" class="text"' . $readonly . ' />';
-				
+
 			if ( isset($input['suffix']) ) echo '<span class="suffix">' . $input['suffix'] . '</span>';
 
 		echo '
@@ -427,15 +427,15 @@ abstract class PadmaVisualEditorPanelAPI {
 		';
 
 	}
-	
-	
+
+
 	public function input_textarea($input) {
 
 		echo '
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
-			
+
 			<div class="input-right">
 				<span class="textarea-open pencil-icon tooltip" title="' . __('View Textarea','padma') . '"></span>
 				<div class="textarea-container">
@@ -443,7 +443,7 @@ abstract class PadmaVisualEditorPanelAPI {
 				</div>
 			</div>
 		';
-		
+
 	}
 
 
@@ -469,7 +469,7 @@ abstract class PadmaVisualEditorPanelAPI {
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
-			
+
 			<div class="input-right">
 				<span class="wysiwyg-open pencil-icon tooltip" title="' . __('View Editor','padma') . '"></span>
 				<div class="wysiwyg-container">
@@ -477,30 +477,30 @@ abstract class PadmaVisualEditorPanelAPI {
 				</div>
 			</div>
 		';
-		
+
 	}
-	
+
 
 	public function input_integer($input) {
 
 		$readonly = ( isset($input['readonly']) && $input['readonly'] === true )  ? ' disabled' : null;
-		
+
 		echo '<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
-			
+
 			<div class="input-right">
 				<input type="text" ' . $input['attributes'] . ' value="' . (int)$input['value'] . '" class="text"'. $readonly .' />';
-				
+
 			if ( isset($input['unit']) ) echo '<span class="suffix">' . $input['unit'] . '</span>';
-			
+
 		echo '
 			</div>
 		';
-						
+
 	}
-	
-	
+
+
 	public function input_select($input) {
 
 		echo '
@@ -508,11 +508,11 @@ abstract class PadmaVisualEditorPanelAPI {
 				<label>' . $input['label'] . '</label>
 			</div>
 		';
-		
+
 		$chosen_class = ( padma_get('chosen', $input) ) ? ' select-chosen' : '';
 
 		echo '<div class="input-right' . $chosen_class . '">';
-			
+
 			echo '<div class="select-container"><select ' . $input['attributes'] . '>';
 
 			foreach( $input['options'] as $value => $text ) {
@@ -534,13 +534,13 @@ abstract class PadmaVisualEditorPanelAPI {
 					self::input_select_output_option($value, $text, $input['value']);
 
 				}
-				
+
 			}
 
 			echo '</select></div><!-- .select-container -->';
 
 		echo '</div>';
-										
+
 	}
 
 
@@ -551,19 +551,19 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<option value="' . $value . '"' . $selected . '>' . $text . '</option>';
 
 	}
-	
-	
+
+
 	public function input_radio($input) {
 
 		echo '<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>';
-		
+
 		$chosen_class = ( padma_get('chosen', $input) ) ? ' select-chosen' : '';
 
 		echo '<div class="input-right' . $chosen_class . '">';
 			echo '<div class="radio-container">';
-			
+
 			foreach( $input['options'] as $value => $text ) {
 				echo '<div class="radio-item">';
 				echo '<input name="'.$input['name'].'" type="radio" '.$input['attributes'].' value="'.$value.'">' . $text;
@@ -573,52 +573,52 @@ abstract class PadmaVisualEditorPanelAPI {
 			echo '</div><!-- .radio-container -->';
 
 		echo '</div>';
-										
+
 	}
 
-	
-	
+
+
 	public function input_multi_select($input) {
-				
+
 		echo '
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
 		';				
-				
+
 		echo '<div class="input-right">';
-	
+
 			echo '<span class="multi-select-open pencil-icon tooltip" title="View Options"></span>';
 			echo '<div class="multi-select-container">';
-						
+
 				echo '<select ' . $input['attributes'] . ' multiple="multiple" class="tooltip" title="' . __('Hold Ctrl (Windows) or Command (Mac) to select multiple options.','padma') . '">';
 
 				foreach ( $input['options'] as $value => $text ) {
-					
+
 					$selected = ( is_array($input['value']) && in_array($value, $input['value']) ) ? ' selected' : null;
-		
+
 					echo '<option title="' . $text . '" value="' . $value . '"' . $selected . '>' . $text . '</option>';
-					
+
 				}
 
 				echo '</select>';
-			
+
 			echo '</div><!-- .multi-select-container -->';
-	
+
 		echo '</div>';
-										
+
 	}
 
-	
+
 	public function input_colorpicker($input) {
-		
+
 		$input['value'] = padma_format_color($input['value']);
-		
+
 		echo '
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
-			
+
 			<div class="input-right">
 				<div class="colorpicker-box-container">
 					<div class="colorpicker-box-transparency"></div>
@@ -628,25 +628,25 @@ abstract class PadmaVisualEditorPanelAPI {
 				<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" />
 			</div>
 		';
-		
+
 	}
-	
-	
+
+
 	public function input_image($input) {
-		
+
 		$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';
-		
+
 		echo '<div class="input-left"><label>' . $input['label'] . '</label></div><!-- .input-left -->';
 
 		$filepath = explode('/', $input['value']);
 		$filename = end($filepath);
-				
+
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-image"' . $src_visibility . '>Delete</span>';
-						
+
 		echo '<span class="button">' . __('Choose Image','padma') . '</span>
 			<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
-		
+
 	}
 
 	public function input_hidden( $input ) {
@@ -654,59 +654,59 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" class="panel-input-hidden" />';
 
 	}
-	
+
 	public function input_audio($input) {
-		
+
 		$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';
-		
+
 		echo '<div class="input-left"><label>' . $input['label'] . '</label></div><!-- .input-left -->';
 
 		$filepath = explode('/', $input['value']);
 		$filename = end($filepath);
-				
+
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-audio"' . $src_visibility . '>Delete</span>';
-						
+
 		echo '<span class="button">' . __('Choose Audio','padma') . '</span>';
 		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
-		
+
 	}
 
 	public function input_video($input) {
-		
+
 		$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';
-		
+
 		echo '<div class="input-left"><label>' . $input['label'] . '</label></div><!-- .input-left -->';
 
 		$filepath = explode('/', $input['value']);
 		$filename = end($filepath);
-				
+
 		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
 		<span class="delete-video"' . $src_visibility . '>Delete</span>';
-						
+
 		echo '<span class="button">' . __('Choose Video','padma') . '</span>';
 		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
-		
+
 	}
 
 
 	public function input_slider($input) {
-				
+
 		$input['slider-interval'] = (isset($input['slider-interval'])) ? $input['slider-interval'] : 1;
-			
+
 		echo '<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div><!-- .input-left -->
-	
+
 			<div class="input-right">
 				<div class="input-slider-bar" slider_min="' . $input['slider-min'] . '" slider_max="' . $input['slider-max'] . '" slider_interval="' . $input['slider-interval'] . '"></div><!-- .input-slider-bar -->
-			
+
 				<div class="input-slider-bar-text">
 
 					<input type="number" value="' . $input['value'] . '" ' . $input['attributes'] . ' class="input-slider-bar-input" min="' . $input['slider-min'] . '" max="' . $input['slider-max'] . '" step="' . $input['slider-interval'] . '" pattern="\d*" />';
-	
+
 		if ( isset($input['unit']) && $input['unit'] !== false ) echo '<span class="slider-unit">' . $input['unit'] . '</span>';
-		
+
 		echo '</div><!-- .input-slider-bar-text -->';
 		echo '</div><!-- .input-right -->';
 
@@ -720,7 +720,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		echo '
 			<h3 class="options-heading">' . $input['label'] . '</h3>
 		';
-		
+
 	}
 
 
@@ -739,7 +739,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 
 	public function input_button($input) {
-							
+
 		if ( isset($input['label']) && !empty($input['label']) ) {
 
 			echo '<div class="input-left">
@@ -747,7 +747,7 @@ abstract class PadmaVisualEditorPanelAPI {
 				</div><!-- .input-left -->';
 
 		}
-	
+
 		echo '<div class="input-right">
 				<span class="button" ' . $input['attributes'] . '>' . $input['button-label'] . '</span>
 			</div><!-- .input-right -->';
@@ -756,7 +756,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 
 	public function input_import_file($input) {
-							
+
 		if ( isset($input['label']) && !empty($input['label']) ) {
 
 			echo '<div class="input-left">
@@ -766,7 +766,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		}
 
 		echo '<div class="input-right">';
-								
+
 			echo '<span class="button">' . $input['button-label'] . '</span>';
 			echo '<input type="file" ' . $input['attributes'] . ' />';
 

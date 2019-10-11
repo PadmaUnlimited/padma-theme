@@ -1,16 +1,16 @@
 <?php
 
 class PadmaTextBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $options_class;
 	public $description;
 	public $categories;
 	public $inline_editable;
-	
-	
+
+
 	function __construct(){
 
 		$this->id = 'text';
@@ -24,21 +24,21 @@ class PadmaTextBlock extends PadmaBlockAPI {
 
 
 	function content($block) {
-		
+
 		$content = parent::get_setting($block, 'content');	
-			
+
 		echo '<div class="entry-content content">';
 			if ( $content != null )
 				echo do_shortcode(stripslashes($content));
 			else
 				echo '<p class="content">' . __('There is no content to display.','padma') . '</p>';
 		echo '</div>';
-		
+
 	}
 
 
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'text',
 			'name' => __('Text','padma'),
@@ -94,7 +94,7 @@ class PadmaTextBlock extends PadmaBlockAPI {
 				'Clicked' => '.entry-content a:active'
 			)
 		));
-		
+
 		$this->register_block_element(array(
 			'id' => 'heading',
 			'name' => __('Headings','padma'),
@@ -187,15 +187,15 @@ class PadmaTextBlock extends PadmaBlockAPI {
 			)
 		));
 
-		
+
 	}
-	
-	
+
+
 }
 
 
 class PadmaTextBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
 
@@ -216,5 +216,5 @@ class PadmaTextBlockOptions extends PadmaBlockOptionsAPI {
 			)
 		);
 	}
-	
+
 }

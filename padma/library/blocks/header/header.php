@@ -1,8 +1,8 @@
 <?php
 
 class PadmaHeaderBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -13,7 +13,7 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 	public $allow_titles;
 	protected $show_content_in_grid;
 	public $categories;
-	
+
 
 	function __construct(){
 
@@ -32,9 +32,9 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 		$this->categories = array('core','content');
 
 	}
-	
+
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'site-title',
 			'name' => __('Site Title','padma'),
@@ -66,42 +66,42 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 			'name' => __('Site Tagline','padma'),
 			'selector' => '.tagline'
 		));
-		
+
 	}
-	
-	
+
+
 	function content($block) {
-			
+
 		//Use header image if there is one	
 		if ( $header_image_src = parent::get_setting($block, 'header-image') ) {
 
 			do_action('padma_before_header_link');
-		
+
 			if ( parent::get_setting($block, 'resize-header-image', true) ) {
-				
+
 				$block_width = PadmaBlocksData::get_block_width($block);
 				$block_height = PadmaBlocksData::get_block_height($block);
-				
+
 				$header_image_url = padma_resize_image($header_image_src, $block_width, $block_height);
-				
+
 			} else {
-				
+
 				$header_image_url = $header_image_src;
-				
+
 			}
 
 			echo '<a href="' . home_url() . '" class="banner-image"><img src="' . padma_format_url_ssl($header_image_url) . '" alt="' . get_bloginfo('name') . '" /></a>';
-			
+
 			do_action('padma_after_header_link');
-			
-			
+
+
 		//No image present	
 		} else {
-			
+
 			do_action('padma_before_header_link');
-			
+
 			echo '<span class="banner" itemprop="headline"><a href="' . home_url() . '">' . get_bloginfo('name') . '</a></span>';
-			
+
 			do_action('padma_after_header_link');
 
 			if ( !parent::get_setting($block, 'hide-tagline', false) ) {
@@ -115,20 +115,20 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 					echo '<span class="tagline" itemprop="description">' . get_bloginfo('description') . '</span>' . "\n";
 
 				}
-				
+
 				do_action('padma_after_tagline');
 
 			}
-			
+
 		}
-					
+
 	}
-	
+
 }
 
 
 class PadmaHeaderBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
 
@@ -147,7 +147,7 @@ class PadmaHeaderBlockOptions extends PadmaBlockOptionsAPI {
 					'label' => __('Banner/Logo','padma'),
 					'default' => null
 				),
-				
+
 				'resize-header-image' => array(
 					'name' => 'resize-header-image',
 					'label' => __('Automatically Resize Header Image','padma'),
@@ -155,7 +155,7 @@ class PadmaHeaderBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('If you would like Padma to automatically scale and crop your header image to the correct dimensions, keep this checked.<br /><br /><em><strong>Important:</strong> In order for the image to be resized and cropped it must be uploaded <strong>From Computer</strong>. <strong>NOT</strong> <strong>From URL</strong>.</em>','padma'),
 					'default' => true
 				),
-				
+
 				'hide-tagline' => array(
 					'name' => 'hide-tagline',
 					'label' => __('Hide Tagline','padma'),
@@ -166,5 +166,5 @@ class PadmaHeaderBlockOptions extends PadmaBlockOptionsAPI {
 			)
 		);
 	}
-	
+
 }

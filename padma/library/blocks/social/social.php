@@ -1,7 +1,7 @@
 <?php
 
 class PadmaSocialBlock extends PadmaBlockAPI {
-	
+
 	public $id;
 	public $name;
 	public $options_class;
@@ -22,16 +22,16 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 		$this->description = __('Display a set of social icons','padma');
 		$this->categories = array('core','social');
 		$this->show_content_in_grid = false;
-	
+
 	}
 
-	
+
 	public function init() {
 
 		add_filter( 'upload_mimes', array($this, 'add_uploader_svg_mime' ));
 
 	}
-	
+
 	public function setup_elements() {
 
 		$this->register_block_element(array(
@@ -57,7 +57,7 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 			'name' => __('Last Icon','padma'),
 			'selector' => 'li:last-child'
 		));
-		
+
 		$this->register_block_element(array(
 			'id' => 'image',
 			'name' => __('Image','padma'),
@@ -73,7 +73,7 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 				'Clicked' => 'img a:active'
 			)
 		));
-		
+
 	}
 
 
@@ -144,9 +144,9 @@ class PadmaSocialBlock extends PadmaBlockAPI {
        }
 
 		return $css;
-		
+
 	}
-	
+
 	public function content($block) {
 
 		$icon_set 	= PadmaBlockAPI::get_setting($block, 'icon-set', 'peel-icons');
@@ -175,7 +175,7 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 		if ( !$has_icons) {
 
 			echo '<div class="alert alert-yellow"><p>' . __('There are no icons to display.','padma') . '</p></div>';
-			
+
 			return;
 
 		}
@@ -224,27 +224,27 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 		  				echo '</a>';
 
 		  			echo '</li>';
-		  		
+
 		  	}
-	  
+
 	  	echo '</ul>';
 		echo '</div>';
-		
+
 	}
 
 	public function add_uploader_svg_mime( $mimes ){
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
 	}
-	
+
 }
 
 class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
 
-	
+
 	function __construct(){
 
 		$this->tabs = array(
@@ -290,7 +290,7 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 					),
 					'callback' => '
 						reloadBlockOptions()'
-					
+
 				),
 
 				'layout-heading' => array(
@@ -595,5 +595,5 @@ class PadmaSocialBlockOptions extends PadmaBlockOptionsAPI {
 
 		}
 	}
-	
+
 }

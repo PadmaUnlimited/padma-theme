@@ -114,7 +114,7 @@ abstract class PadmaNotice {
 	 * @param mixed   $data The data to pass to the template.
 	 */
 	protected function include_template( $data = null ) {
-		
+
 		if ( file_exists( self::$template_file ) ) {
 			include self::$template_file;
 		}

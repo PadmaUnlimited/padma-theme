@@ -143,7 +143,7 @@
 
 			</div>
 		<!-- /ko -->
-		
+
 		<?php 
 		if(class_exists('padmaServices')){
 
@@ -187,7 +187,7 @@
 		}
 
 		?>
-		
+
 		<div class="theme add-new-theme" id="add-blank-template">
 			<a href="#">
 				<div class="theme-screenshot"><span></span></div>

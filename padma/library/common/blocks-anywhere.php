@@ -11,12 +11,12 @@ class PadmaBlocksAnywhere {
 	private static $blocks = array();
 
 	static function init() {
-		
+
 		add_filter( 'padma_compiler_trigger_url', array( __CLASS__, 'add_current_layout' ) );
 		add_shortcode( 'padma-block', array( __CLASS__, 'create_block_shortcode' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 		add_action( 'padma_blocks_anywhere', array( __CLASS__, 'create_block_shortcode' ) );
-				
+
 	}
 
 
@@ -139,7 +139,7 @@ class PadmaBlocksAnywhere {
 			$css_name = 'padma-blocks-anywhere-css-layout-' . PadmaLayout::get_current();
 
 			$fragments['dynamic-block-css'] = array('PadmaBlocksAnywhere', 'dynamic_css');
-			
+
 			PadmaCompiler::register_file( array(
 				'name' => $css_name,
 				'format' => 'css',
@@ -148,7 +148,7 @@ class PadmaBlocksAnywhere {
 					PADMA_LIBRARY_DIR . '/media/dynamic/style.php'
 				)
 			) );
-			
+
 		}
 
 	}
@@ -191,7 +191,7 @@ class PadmaBlocksAnywhere {
 
 		/* we avoid duplicate just in case */
 		$shortcodes_ids = array_unique( $shortcodes_ids );
-	
+
 		$data = '';
 
 		if ( !empty( $shortcodes_ids ) ) {
@@ -324,10 +324,10 @@ class PadmaBlocksAnywhere {
 
 
 	public static function _get( $name, $array = false, $default = null ) {
-		
+
 		if ( $array === false )
 			$array = $_GET;
-		
+
 		if ( (is_string( $name ) || is_numeric( $name )) && !is_float( $name ) ) {
 
 			if ( is_array( $array ) && isset( $array[$name] ) )
@@ -341,9 +341,9 @@ class PadmaBlocksAnywhere {
 					return false;
 
 		}
-			
+
 		return $default;	
-			
+
 	}
 
 }

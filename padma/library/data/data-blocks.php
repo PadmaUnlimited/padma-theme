@@ -1,7 +1,7 @@
 <?php
 class PadmaBlocksData {
 
-	
+
 	public static function add_block($layout_id, $args) {
 
 		global $wpdb;
@@ -9,7 +9,7 @@ class PadmaBlocksData {
 		/* Validate input */
 		if ( !$args || !is_array($args) )
 			return false;
-		
+
 		if ( !padma_get('type', $args) )
 			return new WP_Error('pu_add_block_missing_type');
 
@@ -59,10 +59,10 @@ class PadmaBlocksData {
 
 		//All done. Spit back ID of newly created block.
 		return $insert_args['id'];
-		
+
 	}
-	
-	
+
+
 	public static function update_block($block_id, $args) {
 
 		global $wpdb;
@@ -102,7 +102,7 @@ class PadmaBlocksData {
 		));
 
 		return $query;
-		
+
 	}
 
 
@@ -134,9 +134,9 @@ class PadmaBlocksData {
 
 		/* Remove design settings and instances for this block */
 		self::delete_block_design_instances($block_id, $block_type);
-			
+
 		return $query;
-		
+
 	}
 
 
@@ -150,7 +150,7 @@ class PadmaBlocksData {
 				$instances_to_delete = array(
 					'block-' . $block_type => $block_type . '-block-' . $block_id
 				);
-			
+
 			/* Find all block children element instances and queue them to be deleted */
 				foreach ( PadmaElementAPI::get_block_elements($block_type) as $element_id => $element_info )
 					$instances_to_delete[$element_id] = $element_id . '-block-' . $block_id;
@@ -169,8 +169,8 @@ class PadmaBlocksData {
 				PadmaElementsData::batch_delete_special_element_properties($batch_data);
 
 		}
-	
-	
+
+
 	public static function delete_by_layout($layout_id) {
 
 		global $wpdb;
@@ -188,7 +188,7 @@ class PadmaBlocksData {
 			), array(
 				'mirror_id' => $block_id
 			));
-			
+
 		}
 
 		//Query to delete blocks
@@ -198,7 +198,7 @@ class PadmaBlocksData {
 		));
 
 		return $query;
-		
+
 	}
 
 
@@ -244,20 +244,20 @@ class PadmaBlocksData {
 		));
 
 	}
-	
-	
+
+
 	public static function get_block($block_id_or_obj, $use_mirrored = false) {
 
 		global $wpdb;
 
 		/* If a block array is supplied, make sure it is legitimate. */
 		if ( is_array( $block_id_or_obj) ) {
-			
+
 			if ( !isset( $block_id_or_obj['id']) && !padma_get('new', $block_id_or_obj, false) )
 				return null;
 
 			$block = $block_id_or_obj;
-				
+
 		/* Fetch the block based off of ID */
 		} elseif ( is_string( $block_id_or_obj) || is_numeric( $block_id_or_obj) ) {
 
@@ -298,20 +298,20 @@ class PadmaBlocksData {
 
 		/* No valid argument provided. */	
 		} else {
-			
+
 			return null;
-			
+
 		}
-		
+
 		/* Fetch the mirrored block if $use_mirrored is true */
 		if ( $use_mirrored === true && $mirrored_block = self::get_block_mirror($block) )
 			$block = $mirrored_block;
-				
+
 		return $block;
-		
+
 	}
-	
-	
+
+
 	public static function get_blocks_by_layout($layout_id, $wrapper_id = false, $include_design_editor_instances = false) {
 
 		global $wpdb;
@@ -357,9 +357,9 @@ class PadmaBlocksData {
 			wp_cache_set($cache_key, $layout_blocks);
 
 		}
-						
+
 		return $layout_blocks;
-				
+
 	}
 
 
@@ -466,8 +466,8 @@ class PadmaBlocksData {
 		return $wrapper_blocks;
 
 	}
-	
-	
+
+
 	public static function get_blocks_by_type($type) {
 
 		global $wpdb;
@@ -500,10 +500,10 @@ class PadmaBlocksData {
 		}
 
 		return $blocks_by_type;
-		
+
 	}
-	
-	
+
+
 	public static function get_all_blocks() {
 
 		global $wpdb;
@@ -536,7 +536,7 @@ class PadmaBlocksData {
 		}
 
 		return $all_blocks;
-		
+
 	}
 
 
@@ -580,23 +580,23 @@ class PadmaBlocksData {
 
 
 	public static function get_block_name($block) {
-		
+
 		$block = self::get_block($block);
-	
+
 		//Create the default name by using the block type and ID
 		$default_name = PadmaBlocks::block_type_nice($block['type']);
-		
+
 		return padma_get('alias', padma_get('settings', $block, array()), $default_name);
-		
+
 	}
-	
-	
+
+
 	public static function get_block_width($block) {
-		
+
 		$block = self::get_block($block);
-			
+
 		$block_grid_width = padma_get('width', $block['dimensions'], null);
-		
+
 		if ( $block_grid_width === null )
 			return null;
 
@@ -605,39 +605,39 @@ class PadmaBlocksData {
 
 		$column_width = PadmaWrappers::get_column_width($wrapper);
 		$gutter_width = PadmaWrappers::get_gutter_width($wrapper);
-			
+
 		return ( $block_grid_width * ($column_width + $gutter_width) ) - $gutter_width;
-			
+
 	}
-	
-	
+
+
 	public static function get_block_height($block) {
-		
+
 		$block = self::get_block($block);
-			
+
 		$block_grid_height = padma_get('height', $block['dimensions'], null);
-		
+
 		if ( $block_grid_height === null )
 			return null;
-			
+
 		return $block_grid_height;
-		
+
 	}
-	
+
 
 	public static function get_block_setting($block, $setting, $default = null) {
-		
+
 		$block = self::get_block($block);
-			
+
 		//No block, no settings
 		if ( !$block )
 			return $default;
-			
+
 		if ( !isset($block['settings'][$setting]) )
 			return $default;
-			
+
 		return padma_fix_data_type($block['settings'][$setting]);
-		
+
 	}
 
 
@@ -647,5 +647,5 @@ class PadmaBlocksData {
 
 	}
 
-	
+
 }

@@ -1,7 +1,7 @@
 <?php
 class PadmaCompiler {
-	
-	
+
+
 	private static $accepted_formats = array('css', 'js');
 
 
@@ -49,7 +49,7 @@ class PadmaCompiler {
 			'iframe-cache' => false,
 			'output-inline' => false
 		);
-		
+
 		$args = array_merge($defaults, $args);
 
 		if ( !$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin) )
@@ -72,11 +72,11 @@ class PadmaCompiler {
 
 		/* If file is not registered or fragments are not the same, add it to the DB. */
 			if ( $already_cached != $args ) {
-				
+
 				$cache[$args['name']] 				= $args;
 				$cache[$args['name']]['filename'] 	= null;
 				$cache[$args['name']]['hash'] 		= null;
-				
+
 				//Update cache option
 				if ( !set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache) )
 					return false;
@@ -103,7 +103,7 @@ class PadmaCompiler {
 
 
 	public static function output_inline($file) {
-		
+
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 		if ( !isset($cache[$file]) )
@@ -114,7 +114,7 @@ class PadmaCompiler {
 		return true;
 
 	}
-	
+
 	/**
 	 * @param string
 	 * 
@@ -128,12 +128,12 @@ class PadmaCompiler {
 			return wp_enqueue_script('padma-' . $file, self::get_url($file), false, false, false, $footer_js);
 		elseif ( $cache[$file]['format'] == 'css' )
 			return wp_enqueue_style('padma-' . $file, self::get_url($file));
-			
+
 		return false;	
-			
+
 	}
-	
-	
+
+
 	/**
 	 * @param string
 	 * 
@@ -145,11 +145,11 @@ class PadmaCompiler {
 
 		if ( is_ssl() && strpos($file, '-https') === false )
 			$file = $file . '-https';									
-										
+
 		//If the file isn't in the DB at all								
 		if ( !isset($cache[$file]) )
 			return false;
-													
+
 		//If cache exists
 		if ( 
 			self::caching_enabled() /* Make sure caching is enabled and possible */
@@ -157,17 +157,17 @@ class PadmaCompiler {
 			&& file_exists(PADMA_CACHE_DIR . '/' . padma_get('filename', $cache[$file]))  /* Cached file must be present */
 			&& !(PadmaRoute::is_visual_editor_iframe() && !padma_get('iframe-cache', $cache[$file])) /* Either not be iframe or if is iframe, iframe-cache must be true */
 		) {
-									
+
 			return apply_filters('padma_compiler_file_url', padma_cache_url() . '/' . padma_get('filename', $cache[$file]));
-		
+
 		//Cache doesn't exist	
 		} else {
-			
+
 			//If file doesn't exist, but we can still cache, let's cache the damn thing.
 			if ( self::caching_enabled() && !(PadmaRoute::is_visual_editor_iframe() && !padma_get('iframe-cache', $cache[$file])) ) {
-												
+
 				return self::cache_file($file) ? self::get_url($file) : null;
-			
+
 			//No caching available, now we have to use fallback method.
 			} else {
 
@@ -194,29 +194,29 @@ class PadmaCompiler {
 				}
 
 				return apply_filters('padma_compiler_trigger_url', add_query_arg($query_args, home_url('/')));
-								
+
 			}
-						
+
 		}
-		
+
 	}
-	
-	
+
+
 	/**
 	 * @param string
 	 * 
 	 * @return bool
 	 **/
 	public static function cache_file($file) {
-				
+
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
-		
+
 		//Get the current layout here directly and set is as GET since the output trigger can use POST, but this cannot.
 		$_GET['layout-in-use'] = PadmaLayout::get_current_in_use(); 
 		$_GET['compiler-cache'] = true;
-		
+
 		$content = self::combine_fragments($cache[$file]);
-		
+
 		//If existing cache file exists, delete it.		
 		self::delete_cache_file($cache[$file]['filename']);
 
@@ -226,26 +226,26 @@ class PadmaCompiler {
 
 		//Build file
 		$file_handle = @fopen(PADMA_CACHE_DIR . '/' . $cache[$file]['filename'], 'w');
-		
+
 		if ( !@fwrite($file_handle, $content) )
 			return false;
 
 		@chmod(PADMA_CACHE_DIR . '/' . $cache[$file]['filename'], 0644);
-			
+
 		@fclose($file_handle);
 
 		set_transient('pu_compiler_template_' . PadmaOption::$current_skin, $cache);
 
 		return true;		
-				
+
 	}
-	
+
 
 	/**
 	 * @return void
 	 **/
 	public static function output_trigger() {
-		
+
 		$file = padma_get('file');
 
 		//No GET parameter set		
@@ -258,21 +258,21 @@ class PadmaCompiler {
 		//File does not exist
 		if ( !isset($cache[$file]))
 			return;
-			
+
 		$format = $cache[$file]['format'];
 		$expires = 60 * 60 * 24 * 30;
-				
+
 		header("Pragma: public");
 		header("Cache-Control: max-age=".$expires);
 		header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$expires) . ' GMT');
-		
+
 		if ( $format == 'css' )
 			header("Content-type: text/css");
 		elseif ( $format == 'js' )
 			header("content-type: application/x-javascript");
 
 		echo self::combine_fragments($cache[$file]);
-		
+
  	}
 
 
@@ -281,82 +281,82 @@ class PadmaCompiler {
 	 * @param string
 	 **/
 	public static function combine_fragments($file) {
-		
+
 		extract($file);		
 
 		$num_fragments = (int)count($fragments);
 
 		$data = '';
-		
+
 		//Load dependencies if there are dependents
 		if ( is_array($dependencies) && count($dependencies) > 0 ) {
-			
+
 			foreach ( $dependencies as $dependent ) {
-				
+
 				if ( !is_file($dependent) )
 					continue;
-					
+
 				include_once $dependent;
-				
+
 			}
-			
+
 		}
 
 		//Go through and merge the fragments
 		foreach ( $fragments as $fragment_key => $fragment ) {
-			
+
 
 			//Determine if it's a function or file
 			if ( !is_array($fragment) && strpos($fragment, '.') !== false && strpos($fragment, '()') === false && file_exists($fragment) ) {
-				
+
 				if ( filesize($fragment) === 0 ) 
 					continue;
 
 				$temp_handler = fopen($fragment, 'r');
 				$data .= fread($temp_handler, filesize($fragment));
 				fclose($temp_handler);
-				
+
 			//It's a function	
 			} else {
-								
+
 				//Remove unneeded paratheses if is a string
 				if ( is_string($fragment) )
 					$fragment = str_replace('()', '', $fragment);
-				
+
 				//Check if method or function
 				if ( !is_callable($fragment) ) 
 					continue;
-					
+
 				$data .= call_user_func($fragment);
-				
+
 			}	
-					
+
 			if ( $format == 'js' && count($fragments) > 1 )
 				$data .= "\n\n;";
 			else
 				$data .= "\n\n";
-			
+
 		}
-		
+
 		return self::format_content($data, $file);
-		
+
 	}
-	
-	
+
+
 	/**
 	 * @param string
 	 * @param string
 	 **/
 	public static function format_content($content, $file) {
-		
+
 		extract($file);
-		
+
 		if ( $format == 'css' ) {
-			
+
 			$content = self::strip_whitespace($content);
-			
+
 		}
-	
+
 		$search = array(
 			'%PADMA_URL%',
 			'%PADMA_LIBRARY_URL%',
@@ -380,7 +380,7 @@ class PadmaCompiler {
 			$content = str_replace('http://', 'https://', $content);
 
 		return $content;
-		
+
 	}
 
 
@@ -393,7 +393,7 @@ class PadmaCompiler {
 				"#/\*.*?\*/#s" => '',  // Strip comments.
 				"#\s\s+#"      => ' ', // Strip excess whitespace.
 			);
-			
+
 			$search = array_keys($replace);
 			$content = preg_replace($search, $replace, $content);
 
@@ -425,13 +425,13 @@ class PadmaCompiler {
 
 		if ( defined('PADMA_DISABLE_CACHE') && PADMA_DISABLE_CACHE === true )
 			return false;
-			
+
 		if ( defined('PADMA_FORCE_CACHE') && PADMA_FORCE_CACHE === true )
 			return true;
-		
+
 		if ( defined('WP_DEBUG') && WP_DEBUG === true )
 			return false;
-			
+
 		if ( PadmaOption::get('disable-caching') )
 			return false;
 
@@ -439,20 +439,20 @@ class PadmaCompiler {
 			return false;
 
 		return true;
-		
+
 	}
-	
-	
+
+
 	/**
 	 * @return bool
 	 **/
 	public static function can_cache() {
-		
+
 		if ( !is_dir(PADMA_CACHE_DIR) || !is_writable(PADMA_CACHE_DIR) )
 			return false;
 
 		return true;
-		
+
 	}
 
 
@@ -460,31 +460,31 @@ class PadmaCompiler {
 	 * @return bool
 	 */
 	public static function flush_cache() {
-		
+
 		if ( self::can_cache() ) {
-			
+
 			delete_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 
 			$no_delete = array(
 				'..',
 				'.'
 			);
-				
+
 			if ( $handle = opendir(PADMA_CACHE_DIR) ) {
-			
+
 			    while (false !== ($file = readdir($handle)) ) {
 
 					if ( in_array($file, $no_delete) )
 						continue;
-					
+
 					@unlink(PADMA_CACHE_DIR . '/' . $file);
-		
+
 			    }
-		
+
 			    closedir($handle);
-		
+
 			}
-			
+
 		}
 
 		wp_cache_flush();
@@ -515,7 +515,7 @@ class PadmaCompiler {
 
 	}
 
-	
+
 	/**
 	 * @param string
 	 * @param string
@@ -526,19 +526,19 @@ class PadmaCompiler {
 
 		if ( !$filename || !file_exists(PADMA_CACHE_DIR . '/' . $filename) )
 			return false;
-		
+
 		return @unlink(PADMA_CACHE_DIR . '/' . $filename);
-		
+
 	}
 
-	
+
 	/**
 	 * Check if W3 Total Cache or if WP Super Cache are running.
 	 *
 	 * @return bool
 	 **/
 	public static function is_plugin_caching() {
-		
+
 		if ( class_exists('W3_Plugin_TotalCache') )
 			return 'W3 Total Cache';
 
@@ -559,10 +559,10 @@ class PadmaCompiler {
 
 		else
 			return false;
-		
+
 	}
-	
-	
+
+
 	/**
 	 * Flush Super Cache and W3 Total Cache
 	 * 
@@ -571,15 +571,15 @@ class PadmaCompiler {
 	public static function flush_plugin_caches() {
 
 		if ( function_exists('prune_super_cache') ) {
-			
+
 			global $cache_path;
 			prune_super_cache($cache_path . 'supercache/', true );
 			prune_super_cache($cache_path, true );
-			
+
 		}
 
 		if ( class_exists('W3_Plugin_TotalCache') ) {
-			
+
 			if ( function_exists('w3_instance') )
 				$w3_plugin_totalcache = w3_instance('W3_Plugin_TotalCache');
 			elseif ( is_callable(array('W3_Plugin_TotalCache', 'instance')) )
@@ -597,7 +597,7 @@ class PadmaCompiler {
 			/* Flush varnish */
 			if ( function_exists('w3tc_varnish_flush') )
 				w3tc_varnish_flush();
-		
+
 		}
 
 		if ( class_exists( 'WpeCommon' ) ) {
@@ -626,7 +626,7 @@ class PadmaCompiler {
 			$GLOBALS['quick_cache']->auto_clear_cache();
 
 		}
-		
+
 	}
 
 }

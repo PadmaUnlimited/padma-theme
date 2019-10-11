@@ -14,7 +14,7 @@ if(isset($_COOKIE['sy_lang'])) {
     }
 } else {
     $load_lang_code = "en";
-    
+
     $lang_name = "English";
 }
 

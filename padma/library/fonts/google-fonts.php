@@ -23,7 +23,7 @@ class PadmaGoogleFonts extends PadmaWebFontProvider {
 
 
 	public function query_fonts($sortby = 'date', $retry = false) {
-		
+
 		$url 			= $this->api_url . '/' . $sortby;
 		$fonts_query 	= wp_remote_get($url);
 

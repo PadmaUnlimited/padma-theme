@@ -1,7 +1,7 @@
 <?php
 class PadmaResponsiveGridDynamicMedia {
-	
-	
+
+
 	static function content() {
 
 		$content = self::computers();	
@@ -9,9 +9,9 @@ class PadmaResponsiveGridDynamicMedia {
 		$content .= self::ipad_landscape();
 		$content .= self::ipad_portrait();
 		$content .= self::smartphones();
-		
+
 		return apply_filters('padma_responsive_grid_css', $content);
-		
+
 	}
 
 
@@ -28,12 +28,12 @@ class PadmaResponsiveGridDynamicMedia {
 
 			}
 		';
-		
+
 	}
 
 
 	static function generic_mobile() {
-		
+
 		return '
 			/* --- Generic Mobile --- */
 			@media only screen and (max-width: 1024px) {
@@ -49,7 +49,7 @@ class PadmaResponsiveGridDynamicMedia {
 					max-width: 100%;
 					height: auto;
 				}
-				
+
 				.responsive-grid-active .block-type-footer p.footer-responsive-grid-link-container {
 					display: block;
 				}
@@ -60,10 +60,10 @@ class PadmaResponsiveGridDynamicMedia {
 
 			}
 		';
-		
+
 	}
-	
-	
+
+
 	static function ipad_landscape() {
 
 		return '
@@ -77,10 +77,10 @@ class PadmaResponsiveGridDynamicMedia {
 
 			}
 		';
-		
+
 	}
-	
-	
+
+
 	static function ipad_portrait() {
 
 		return '
@@ -94,16 +94,16 @@ class PadmaResponsiveGridDynamicMedia {
 
 			}
 		';
-		
+
 	}
-	
-	
+
+
 	static function smartphones() {
-						
+
 		return '
 			/* --- Smartphones and small Tablet PCs --- */
 			@media only screen and (max-width : 600px) {
-				
+
 				/* Remove wrapper margins where necessary. Remove top margin from top wrapper as well as side margins */
 					.responsive-grid-active div.wrapper:first-child { 
 						margin-top: 0 !important; 
@@ -130,7 +130,7 @@ class PadmaResponsiveGridDynamicMedia {
 					.responsive-grid-active .block-type-navigation {
 						height: auto;
 					}
-					
+
 					.responsive-grid-active .block-type-navigation .selectnav { display: block; }
 					.responsive-grid-active .block-type-navigation ul.menu.selectnav-active { display: none; }
 				/* End Navigation Block */
@@ -146,17 +146,17 @@ class PadmaResponsiveGridDynamicMedia {
 							max-width: 100%;
 							height: auto;
 						}
-						
+
 					.responsive-grid-active .block-type-content .loop-navigation {
 						text-align: center;
 					}
-					
+
 						.responsive-grid-active .block-type-content .loop-navigation .nav-previous, 
 						.responsive-grid-active .block-type-content .loop-navigation .nav-next {
 							float: none;
 							margin: 0 10px;
 						}
-						
+
 						.responsive-grid-active .block-type-content .loop-navigation .nav-next {
 							margin-top: 20px;
 						}
@@ -174,15 +174,15 @@ class PadmaResponsiveGridDynamicMedia {
 
 			}
 		';
-		
+
 	}
-	
-	
+
+
 	static function fitvids() {
-		
+
 		return 'if(window.jQuery){ jQuery(document).ready(function() { jQuery(document).fitVids(); }); }';
-		
+
 	}
-	
-	
+
+
 }

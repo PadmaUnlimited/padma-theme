@@ -1,8 +1,8 @@
 <?php
 
 class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
-	
-	
+
+
 	public $id;
 	public $name;
 	public $fixed_height;
@@ -11,8 +11,8 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 	public $categories;
 	// To allow inline editor
 	public $inline_editable;
-	
-	
+
+
 	function __construct(){
 
 		$this->id = 'breadcrumbs';
@@ -23,15 +23,15 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 		$this->categories 	= array('core','navigation');		
 		$this->inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
 	}
-	
+
 	function setup_elements() {
-		
+
 		$this->register_block_element(array(
 			'id' => 'text',
 			'name' => __('Text','padma'),
 			'selector' => 'p'
 		));
-		
+
 		$this->register_block_element(array(
 			'id' => 'hyperlinks',
 			'name' => __('Hyperlinks','padma'),
@@ -43,12 +43,12 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 			'name' => __('Separators','padma'),
 			'selector' => 'span.sep'
 		));
-		
+
 	}
-	
-	
+
+
 	function content($block) {
-		
+
 		/* If Yoast's breadcrumbs are activated then use them instead */
 		if ( function_exists('yoast_breadcrumb') ) {
 
@@ -67,13 +67,13 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 		}
 
 		wp_reset_query();
-		
+
 		/* Set up variables */
 			global $post;
-			
+
 			$breadcrumbs = array();
 			$breadcrumbs[home_url()] = __('Home', 'padma');
-		
+
 		/* Handle blogs that aren't set to the homepage */
 			if ( get_option('show_on_front') == 'page' && get_option('page_for_posts') !== get_option('page_on_front') ) {
 
@@ -93,7 +93,7 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 
 		/* Pages/Custom Post Type */
 			else if ( is_singular() && !is_home() && !is_front_page() ) {
-	
+
 				$current_page = array($post);				
 
 				/* Get the parent pages of the current page if they exist */
@@ -104,14 +104,14 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 				/* Add returned pages to breadcrumbs */
 				foreach ( $current_page as $page )
 					$breadcrumbs[get_page_link($page->ID)] = $page->post_title;
-				
+
 		/* Categories */	 			
 			} else if ( is_category() ) {
 
 				$breadcrumbs[] = single_cat_title('', false);
 
 			}
-		
+
 		/* Searches */
 			else if ( is_search() ) {
 
@@ -121,20 +121,20 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 
 		/* Author Archives */
 			else if ( is_author() ) {
-				
+
 				$author = get_queried_object();
-				
+
 				$breadcrumbs[] = __('Author Archives:', 'padma') . ' ' . $author->display_name;
-				
+
 			}
-		
+
 		/* Tag Archives */
 			else if ( is_tag() ) {
 
 				$breadcrumbs[] = __('Tag Archives:', 'padma') . ' ' . single_tag_title('', false);
 
 			}
-		
+
 		/* Date Archives */
 			else if ( is_date() ) {
 
@@ -181,22 +181,22 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 					echo '</span>';
 
 					$breadcrumbs_loop_counter++;
-					
+
 				}
 
 			echo '</p>';
 
 	}
-	
-	
+
+
 }
 
 
 class PadmaBreadcrumbsBlockOptions extends PadmaBlockOptionsAPI {
-	
+
 	public $tabs;
 	public $inputs;
-	
+
 	function __construct(){
 
 		$this->tabs = array(
@@ -212,7 +212,7 @@ class PadmaBreadcrumbsBlockOptions extends PadmaBlockOptionsAPI {
 					'tooltip' => __('If you would like the breadcrumbs to show "You Are Here:" or anything similar in front of the breadcrumb trail, then check this.','padma'),
 					'default' => false
 				),
-				
+
 				'prefix-text' => array(
 					'name' => 'prefix-text',
 					'label' => __('Prefix Text','padma'),

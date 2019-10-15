@@ -30,26 +30,36 @@ abstract class PadmaAdminMetaBoxAPI {
 
 	/**
 	 * Array (multiple post types) or string (one post type) defining which post types this meta box will be used with.
+	 *
+	 *  @var string $post_type
 	 **/
 	protected $post_types;
 
 	/**
 	 * Location of the meta box.  Generally 'advanced' or 'side'.
+	 *
+	 *   @var string $context
 	 **/
 	protected $context;
 
 	/**
 	 * Integer of where the meta box will be located vertically.
+	 *
+	 *  @var string $priority
 	 **/
 	protected $priority;
 
 	/**
 	 * Can be used to show a simple notice box above the inputs.
+	 *
+	 *  @var string $info
 	 **/
 	protected $info;
 
 	/**
 	 * Argument to be used in the post_type_supports() function to check against this meta box.
+	 *
+	 * @var string $post_type_supports_id
 	 **/
 	protected $post_type_supports_id;
 
@@ -68,8 +78,11 @@ abstract class PadmaAdminMetaBoxAPI {
 
 		/* Set up default variables */
 		$this->post_types = isset( $this->post_types ) ? $this->post_types : array( 'post', 'page' );
+
 		$this->context = isset( $this->context ) ? $this->context : 'advanced';
+
 		$this->priority = isset( $this->priority ) ? $this->priority : 'low';
+
 		$this->post_type_supports_id = isset( $this->post_type_supports_id ) ? $this->post_type_supports_id : 'padma-admin-meta-box-' . $this->id;
 
 		/* Add the prefix to the ID */
@@ -81,7 +94,7 @@ abstract class PadmaAdminMetaBoxAPI {
 		}
 
 		/* Set up hooks */
-		add_action( 'admin_init', array( $this, 'init') );
+		add_action( 'admin_init', array( $this, 'init' ) );
 		add_action( 'save_post', array( $this, 'save' ), 10, 2 );
 
 	}
@@ -118,8 +131,9 @@ abstract class PadmaAdminMetaBoxAPI {
 		 */
 		echo '<input type="hidden" name="' . $this->id . '_nonce" id="' . $this->id . '_nonce" value="' . wp_create_nonce( md5( $this->id ) ) . '" />';
 
-		if ( method_exists($this, 'modify_arguments') )
+		if ( method_exists( $this, 'modify_arguments' ) ) {
 			$this->modify_arguments( $post );
+		}
 
 		if ( isset( $this->info ) ) {
 			echo '<div class="alert alert-yellow"><p>' . $this->info . '</p></div>';
@@ -127,7 +141,7 @@ abstract class PadmaAdminMetaBoxAPI {
 
 		echo '<table cellspacing="2" cellpadding="5" style="width: 100%;" class="form-table padma-admin-meta-box">';
 
-		foreach ( $this->inputs as $name => $input) {
+		foreach ( $this->inputs as $name => $input ) {
 
 			/**
 			 * Change hyphens to underscores with the input types since methods/functions can't have hyphens
@@ -152,7 +166,7 @@ abstract class PadmaAdminMetaBoxAPI {
 			$input['attr-id'] = $this->id . '-' . $input['id'];
 			$input['attr-name'] = $this->id . '[' . $input['group'] . '][' . $input['id'] . ']';
 
-			$global = $input['id'] == 'template' ? false : true;
+			$global = 'template' === $input['id'] ? false : true;
 
 			$input['value'] = PadmaLayoutOption::get( $post->ID, $input['id'], $input['default'], $global, $input['group'] );
 
@@ -183,12 +197,12 @@ abstract class PadmaAdminMetaBoxAPI {
 	public function save( $post_ID ) {
 
 		/* Don't try saving meta if it's an autosave */
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ){
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_ID;
 		}
 
 		/* Ruh-roh, bad nonce */
-		if ( ! wp_verify_nonce( padma_post( $this->id . '_nonce' ), md5( $this->id ) ) ){
+		if ( ! wp_verify_nonce( padma_post( $this->id . '_nonce' ), md5( $this->id ) ) ) {
 			return false;
 		}
 
@@ -204,15 +218,15 @@ abstract class PadmaAdminMetaBoxAPI {
 		}
 
 		/* Loop through and set the options */
-		foreach ( $_POST[ $this->id ] as $group => $inputs) {	
+		foreach ( $_POST[ $this->id ] as $group => $inputs ) {
 
 			foreach ( $inputs as $input => $value ) {
 
-				$global = ( $input == 'template' ) ? false : true;
+				$global = ( 'template' === $input ) ? false : true;
 
 				PadmaLayoutOption::set( $post_ID, $input, $value, $global, $group );
 
-				if ( $input == 'template' ) {
+				if ('template' === $input  ) {
 					PadmaLayout::clear_status_transient();
 				}
 			}
@@ -251,9 +265,9 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
-	protected function input_checkbox($input) {
+	protected function input_checkbox( $input ) {
 
-		$checked = ( $input['value'] == true && $input['value'] !== '0' ) ? ' checked' : null;
+		$checked = ( true === $input['value'] && '0' !== $input['value'] ) ? ' checked' : null;
 
 		echo '
 			<tr>
@@ -275,16 +289,17 @@ abstract class PadmaAdminMetaBoxAPI {
 				<td>
 					<select id="' . $input['attr-id'] . '" name="' . $input['attr-name'] . '">';
 
-						if ( padma_get( 'blank-option', $input ) )
-							echo '<option value="">' . padma_get( 'blank-option', $input ) . '</option>';
+		if ( padma_get( 'blank-option', $input ) ) {
+			echo '<option value="">' . padma_get( 'blank-option', $input ) . '</option>';
+		}
 
-						foreach( $input['options'] as $value => $text ) {
+		foreach ( $input['options'] as $value => $text ) {
 
-							$selected = $input['value'] === $value ? ' selected' : null;
+			$selected = $input['value'] === $value ? ' selected' : null;
 
-							echo '<option value="' . $value . '"' . $selected . '>' . $text . '</option>';
+			echo '<option value="' . $value . '"' . $selected . '>' . $text . '</option>';
 
-						}
+		}
 
 		echo '		</select>
 				</td>
@@ -299,29 +314,28 @@ abstract class PadmaAdminMetaBoxAPI {
 			<tr>
 				<td colspan="2">';
 
-					$count = 0;
+		$count = 0;
 
-					$options = array_keys( $input['options'] );
+		$options = array_keys( $input['options'] );
 
-					foreach ( $input['options'] as $value => $label ) {
+		foreach ( $input['options'] as $value => $label ) {
 
-						$count++;
+			$count++;
 
-						$checked = ( $input['value'] == $value ) ? ' checked="checked"' : null;
+			$checked = ( $value === $input['value'] ) ? ' checked="checked"' : null;
 
-						echo '
-							<input type="radio" id="' . $input['attr-id'] . '-' . $value . '" value="' . $value . '" name="' . $input['attr-name'] . '" class="check"' . $checked . ' />
+			echo '
+				<input type="radio" id="' . $input['attr-id'] . '-' . $value . '" value="' . $value . '" name="' . $input['attr-name'] . '" class="check"' . $checked . ' />
 
-							<label class="selectit" for="' . $input['attr-id'] . '-' . $value  . '"> 
-								' . $label . '
-							</label>
-						';
+				<label class="selectit" for="' . $input['attr-id'] . '-' . $value  . '"> 
+					' . $label . '
+				</label>
+			';
 
-						if ( $count !== count( $input['options'] ) ){
-							echo '<br />';
-						}
-
-					}
+			if ( $count !== count( $input['options'] ) ) {
+				echo '<br />';
+			}
+		}
 
 		echo '			
 				</td>
@@ -336,19 +350,21 @@ abstract class PadmaAdminMetaBoxAPI {
 		echo '
 			<tr>
 				<td>' .
-					wp_dropdown_pages(array(
-						'selected' => $input['value'],
-						'name' => $input['attr-name'],
-						'id' => $input['attr-id'],
-						'show_option_none' => '   ',
-						'sort_column' => 'menu_order, post_title',
-						'echo' => false,
-					)) . '
+					wp_dropdown_pages(
+						array(
+							'selected' => $input['value'],
+							'name' => $input['attr-name'],
+							'id' => $input['attr-id'],
+							'show_option_none' => '   ',
+							'sort_column' => 'menu_order, post_title',
+							'echo' => false,
+						)
+					);
+		echo '
 				</td>
 			</tr>
 		';
 
 	}
-
 
 }

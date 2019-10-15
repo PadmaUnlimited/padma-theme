@@ -59,6 +59,8 @@ define(['jquery', 'util.tour', 'helper.codeMirror', 'deps/url'], function($, tou
 
 				$('#tools-grid-manager').bind('click', function(){
 
+					console.log('here');
+
 					hidePanel();
 
 					openBox('grid-manager');

@@ -7966,6 +7966,7 @@ input.shortcode-anywhere{
 	}
 	div#menu.open{
 		height: auto;
+		overflow: visible;
 	}
 	div#menu #mobile-menu{
 	    display: block;	    

@@ -4,18 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Padma Unlimited 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
-"Last-Translator: Paola González <castellanitadeshuesada@gmail.com>\n"
+"Last-Translator: manfred <manfred@plasma.cr>\n"
 "Language-Team: Spanish (Costa Rica)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-08T15:21:50-05:00\n"
-"PO-Revision-Date: 2019-10-15 01:35+0000\n"
+"PO-Revision-Date: 2019-10-15 16:34+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es-CR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.0; wp-5.2.3"
+"X-Loco-Version: 2.3.0; wp-5.2.5-alpha"
 
 #. Theme Name of the theme
 msgid "Padma Unlimited"
@@ -72,8 +72,8 @@ msgid ""
 "block you wish to mirror the content from in the select box to the right."
 msgstr ""
 "Configure un bloque para reflejar otro bloque y su contenido. Esta opción es "
-"útil cuando se requiere compartir un bloque & mdash; como un encabezado & "
-"mdash; a través de varios diseños en su sitio. Seleccione el bloque para "
+"útil cuando se requiere compartir un bloque &mdash; como un encabezado "
+"&mdash; a través de varios diseños en su sitio. Seleccione el bloque para "
 "reflejar, en el cuadro de selección a la derecha.\n"
 
 #: library/abstract/api-block.php:453
@@ -397,7 +397,7 @@ msgstr ""
 
 #: library/admin/admin-meta-boxes.php:22
 msgid "&ndash; Do Not Use Shared Layout &ndash;"
-msgstr "& ndash; No utilice Diseño Compartido & ndash;"
+msgstr "&ndash; No utilice Diseño Compartido &ndash;"
 
 #: library/admin/admin-meta-boxes.php:56
 msgid "Hide Title"
@@ -405,7 +405,7 @@ msgstr "Ocultar Título"
 
 #: library/admin/admin-meta-boxes.php:58
 msgid "&ndash; Do Not Hide Title &ndash;"
-msgstr "& ndash; No Esconda el Título  &ndash;"
+msgstr "&ndash; No Esconda el Título  &ndash;"
 
 #: library/admin/admin-meta-boxes.php:60
 msgid "Hide on Single View"
@@ -441,8 +441,8 @@ msgid ""
 msgstr ""
 "Usando el título de página alternativo, puede anular el título que se "
 "muestra en el Bloque de Contenido de la página. Al hacer esto, puede tener "
-"un título de página más corto en el menú de navegación y <code> & lt; title "
-"& gt; </code>, pero puede tener un título más largo y más descriptivo en el "
+"un título de página más corto en el menú de navegación y <code> &lt;title&gt;"
+" </code>, pero puede tener un título más largo y más descriptivo en el "
 "contenido real de la página."
 
 #: library/admin/admin-meta-boxes.php:90 library/blocks/content/content.php:806
@@ -530,7 +530,7 @@ msgstr "Título"
 
 #: library/admin/admin-meta-boxes.php:174
 msgid "Custom <code>&lt;title&gt;</code> tag"
-msgstr "Etiqueta <code> & lt; title & gt; </code> personalizada"
+msgstr "Etiqueta <code> &lt; title &gt; </code> personalizada"
 
 #: library/admin/admin-meta-boxes.php:180 library/admin/pages/options.php:250 
 #: library/admin/pages/templates.php:59
@@ -539,7 +539,7 @@ msgstr "Descripción"
 
 #: library/admin/admin-meta-boxes.php:182
 msgid "Custom <code>&lt;meta&gt;</code> description"
-msgstr "Descripción  <code> & lt; meta & gt; </code> personalizada "
+msgstr "Descripción  <code> &lt;meta&gt; </code> personalizada "
 
 #: library/admin/admin-meta-boxes.php:188
 msgid "<code>noindex</code> this entry."
@@ -675,7 +675,7 @@ msgid ""
 msgstr ""
 "<strong> Configure los ajustes de SEO para esta página (Página de Inicio) en "
 "la pestaña de Configuración de Optimización del Motor de Búsqueda de Padma "
-"en <a href=\"%\" target=\"_blank\"> Padma & raquo; Configuración </a>. "
+"en <a href=\"%\" target=\"_blank\"> Padma &raquo; Configuración </a>. "
 "</strong>"
 
 #: library/admin/admin-pages.php:16
@@ -683,7 +683,7 @@ msgid ""
 "<p>You are now being redirected. If you are not redirected within 3 seconds, "
 "click <a href=\"%s\"><strong>here</strong></a>.</p>"
 msgstr ""
-"<p> Ahora está siendo redirigido. Si no es redirigido en 3 segundos, haga "
+"<p>Ahora está siendo redirigido. Si no es redirigido en 3 segundos, haga "
 "clic en <a href=\"%s\"> <strong> aquí </strong> </a>. </p>"
 
 #: library/admin/admin-write.php:55
@@ -1095,7 +1095,7 @@ msgstr ""
 msgid ""
 "Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
 msgstr ""
-"Marque esto si desea que el menú diga \"Padma\" en lugar de \"Padma% s\"\n"
+"Marque esto si desea que el menú diga \"Padma\" en lugar de \"Padma %s\"\n"
 " \n"
 
 #: library/admin/pages/options.php:143
@@ -1220,7 +1220,7 @@ msgstr ""
 "respecto a lo que están buscando. <strong> Consejo: </strong> una buena "
 "descripción tiene alrededor de 150 caracteres. <br /> <br /> <a href = "
 "\"http://www.seomoz.org/learn-seo/meta-description\" target = \"_blank\"> "
-"Obtenga más información sobre &lt; meta & gt; Descripciones &raquo;</a>"
+"Obtenga más información sobre &lt;meta&gt; Descripciones &raquo;</a>"
 
 #: library/admin/pages/options.php:261
 msgid ""
@@ -1420,8 +1420,8 @@ msgid ""
 "Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of "
 "the website. <strong>Do not place plain text in this!</strong>"
 msgstr ""
-"Cualquier cosa aquí se insertará antes de <code> & lt; / body & gt; </code> "
-"la etiquetadel sitio web. <strong> ¡No coloque texto plano en esto! </strong>"
+"Cualquier cosa aquí se insertará antes de <code> &lt;/body &gt; </code> la "
+"etiquetadel sitio web. <strong> ¡No coloque texto plano en esto! </strong>"
 
 #: library/admin/pages/options.php:507
 msgid "Tooltips"
@@ -2386,15 +2386,15 @@ msgstr "<p> Lo sentimos, no hubo contenido que coincida con su búsqueda. </p>"
 #: library/blocks/content/content-display.php:289
 msgid "Daily Archives: %s"
 msgstr ""
-"Archivos diarios:% s\n"
+"Archivos diarios: %s\n"
 
 #: library/blocks/content/content-display.php:292
 msgid "Monthly Archives: %s"
-msgstr "Archivos mensuales :% s"
+msgstr "Archivos mensuales : %s"
 
 #: library/blocks/content/content-display.php:295
 msgid "Yearly Archives: %s"
-msgstr "Archivos anuales: % s"
+msgstr "Archivos anuales: %s"
 
 #: library/blocks/content/content-display.php:298
 msgid "Blog Archives"
@@ -2403,12 +2403,12 @@ msgstr ""
 
 #: library/blocks/content/content-display.php:311
 msgid "Category Archives: %s"
-msgstr "Archivos de categoría:% s"
+msgstr "Archivos de categoría: %s"
 
 #: library/blocks/content/content-display.php:346 
 #: library/blocks/content/content-display.php:349
 msgid "Author Archives: %s"
-msgstr "Archivos del autor:% s"
+msgstr "Archivos del autor: %s"
 
 #: library/blocks/content/content-display.php:359
 msgid "Search Results for: %s"
@@ -2416,7 +2416,7 @@ msgstr "Resultados de Búsqueda para: %s"
 
 #: library/blocks/content/content-display.php:368
 msgid "Tag Archives: %s"
-msgstr "Archivo de etiquetas: % s"
+msgstr "Archivo de etiquetas: %s"
 
 #: library/blocks/content/content-display.php:565 
 #: library/blocks/listings/content-display.php:199
@@ -2453,11 +2453,11 @@ msgstr "Descartar respuesta"
 
 #: library/blocks/content/content-display.php:1017
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr "<span class = \"meta-nav\"> & larr; </span> Publicaciones anteriores"
+msgstr "<span class = \"meta-nav\"> &larr; </span> Publicaciones anteriores"
 
 #: library/blocks/content/content-display.php:1018
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Nuevas publicaciones <span class = \"meta-nav\"> & rarr; </span>"
+msgstr "Nuevas publicaciones <span class = \"meta-nav\"> &rarr; </span>"
 
 #: library/blocks/content/content-display.php:1212
 msgid "%s &ndash; Comments"
@@ -2465,11 +2465,11 @@ msgstr "%s &ndash; Comentarios"
 
 #: library/blocks/content/content-display.php:1221
 msgid "Respond to %s"
-msgstr "Responda a % s"
+msgstr "Responda a %s"
 
 #: library/blocks/content/content-display.php:1229
 msgid "View all posts by %s"
-msgstr "Ver todas las publicaciones por % s"
+msgstr "Ver todas las publicaciones por %s"
 
 #: library/blocks/content/content.php:16 
 #: library/blocks/custom-code/custom-code.php:43 
@@ -3900,7 +3900,7 @@ msgid ""
 "different, enter it here. Use %Y% for current year."
 msgstr ""
 "Si desea cambiar los derechos de autor en el pie de página para decir algo "
-"diferente, ingréselo aquí. Use% Y% para el año actual."
+"diferente, ingréselo aquí. Use %Y% para el año actual."
 
 #: library/blocks/footer/footer.php:294
 msgid "Hide a link to view the full site on mobile."
@@ -4637,7 +4637,7 @@ msgid ""
 msgstr ""
 "Para agregar elementos a este menú de navegación, vaya a <a href=\"%s\" "
 "target=\"_blank\">WordPress Admin &raquo; Appearance &raquo; Menus</a>."
-"Entonces, cree un menú y asígnelo a <em>% s </em> en el cuadro <strong> "
+"Entonces, cree un menú y asígnelo a <em>%s </em> en el cuadro <strong> "
 "Ubicaciones de temas </strong>."
 
 #: library/blocks/pin-board/pin-board.php:17
@@ -4703,7 +4703,7 @@ msgstr "Página Actual de Paginación"
 #: library/blocks/pin-board/pin-board.php:736
 msgid "&laquo; Previous Page"
 msgstr ""
-"& laquo; Página anterior\n"
+"&laquo; Página anterior\n"
 
 #: library/blocks/pin-board/pin-board.php:797
 msgid "Pin Setup"
@@ -5796,7 +5796,7 @@ msgid ""
 msgstr ""
 "Para agregar widgets a esta área de widgets, vaya a <a href=\"%s\" "
 "target=\"_blank\"> WordPress Admin & raquo; Appearance Widgets</a> y agregue "
-"los widgets al<em>%s &mdash; Layout: %s</em>."
+"los widgets al <em>%s &mdash; Layout: %s</em>."
 
 #: library/blocks/widget-area/widget-area.php:242
 msgid "Default Widgets"
@@ -5816,7 +5816,7 @@ msgid ""
 "default for the widget type, please enter <em>%default%</em>"
 msgstr ""
 "Este será el título que se muestra arriba del widget. Si desea utilizar el "
-"valor predeterminado para el tipo de widget, ingrese <em>% default% </em>"
+"valor predeterminado para el tipo de widget, ingrese <em>%default%</em>"
 
 #: library/blocks/widget-area/widget-area.php:294
 msgid "Make a Selection"
@@ -5927,7 +5927,7 @@ msgstr "Error: No se puede guardar la imagen con la clase WP_Image_Editor"
 
 #: library/common/parse-php.php:35
 msgid "<strong>Error while parsing PHP:</strong> %s"
-msgstr "<strong> Error al analizar PHP: </strong>% s"
+msgstr "<strong> Error al analizar PHP: </strong> %s"
 
 #: library/common/query.php:174
 msgid "&ndash; Default: Category &ndash;"
@@ -6068,11 +6068,11 @@ msgstr "Estilo Global"
 
 #: library/elements/default-elements.php:10
 msgid "&lt;body&gt;"
-msgstr "&lt;cuerpo&gt;"
+msgstr "&lt;body&gt;"
 
 #: library/elements/default-elements.php:19
 msgid "All &lt;p&gt; elements"
-msgstr "Todos&lt;p&gt; elementos"
+msgstr "Todos los elementos &lt;p&gt; "
 
 #: library/elements/default-elements.php:69
 msgid "Sub Headings"
@@ -6182,7 +6182,7 @@ msgstr "Restaura tu trabajo con instantáneas"
 
 #: library/visual-editor/display.php:275
 msgid "Minimize Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;"
-msgstr "Minimizar Pane l&lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;"
+msgstr "Minimizar Panel &lt;strong&gt;Shortcut: Ctrl + P&lt;/strong&gt;"
 
 #: library/visual-editor/display.php:291
 msgid "Toggle Inspector"
@@ -6274,8 +6274,8 @@ msgid ""
 "layout\">from \"%1$s\" layout</span>"
 msgstr ""
 "Este contenedor está reflejando los bloques en un contenedor <span class = "
-"\"wrapper-mirror-notice-alias\">% 1 $ s </span> <span class = \"wrapper-"
-"mirror-notice-layout\"> desde \"% 1 $ s \"layout </span>"
+"\"wrapper-mirror-notice-alias\">%1$s </span> <span class = \"wrapper-mirror-"
+"notice-layout\"> desde \"%1$s \"layout </span>"
 
 #: library/visual-editor/iframe-grid.php:33
 msgid "Mirroring can be disabled via Wrapper Options in the right-click menu"
@@ -6511,7 +6511,7 @@ msgstr "Opciones del Wrapper"
 
 #: library/wrappers/wrapper-options.php:19
 msgid "Grid &amp; Margins"
-msgstr "uadrícula &amp; Márgenes"
+msgstr "Cuadrícula &amp; Márgenes"
 
 #: library/wrappers/wrapper-options.php:20
 msgid "Sticky Positioning"
@@ -6519,7 +6519,7 @@ msgstr "Posicionamiento Fijo"
 
 #: library/wrappers/wrapper-options.php:21
 msgid "Mirroring &amp; Config"
-msgstr "Reflejar &amp; Config"
+msgstr "Reflejar &amp; Configuración"
 
 #: library/wrappers/wrapper-options.php:22
 msgid "Responsive"

@@ -138,7 +138,6 @@ class PadmaBlocks {
 			else
 				require_once PADMA_LIBRARY_DIR . $register_file;
 
-			//debug($register_file);
 		}
 
 	}

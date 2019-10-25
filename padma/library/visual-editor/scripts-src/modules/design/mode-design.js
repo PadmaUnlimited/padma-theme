@@ -1793,12 +1793,17 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			
 		}
 
-		propertyInputCallbackFilter = function(params){
+		propertyInputCallbackFilter = function(params,block){
 
+			var blockID = getBlockID(block);
+			var key_filter_value = 'visual-editor-design-filter-value-' + blockID;
+			var key_filter_type = 'visual-editor-design-filter-type-' + blockID;
 			var selector = params.selector;
 			var filter = params.value;
-			var value = 50;
 			var unit = '%';
+			var value = 50;
+			var min = 0;
+			var max = 100;
 
 			if( filter == 'blur' ){
 				unit = 'px';
@@ -1806,10 +1811,71 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			}else{
 				if( filter == 'hue-rotate' ){
 					unit = 'deg';
+					max = 360;
 				}
 			}
 
+			if( value < min ){
+				value = min;
+			}
+
+			if( value > max ){
+				value = max;
+			}
+
+			if(localStorage[key_filter_value] !== undefined && localStorage[key_filter_value] !== 'null'){
+				value = localStorage[key_filter_value];
+			}
+			
 			stylesheet.update_rule(selector, {"filter": filter + '(' + value + unit + ')'});
+			reloadBlockOptions(blockID);
+			localStorage[key_filter_type] = filter;	
+			
+		}
+
+		propertyInputCallbackFilterValue = function(params,block){
+
+			var blockID = getBlockID(block);
+			var key_filter_value = 'visual-editor-design-filter-value-' + blockID;
+			var key_filter_type = 'visual-editor-design-filter-type-' + blockID;
+			var value = params.value;
+			var selector = params.selector;
+			var filter = 'none'
+			var unit = '%';
+			var min = 0;
+			var max = 100;
+
+
+			if(localStorage[key_filter_type] !== undefined && localStorage[key_filter_type] !== 'null'){
+				filter = localStorage[key_filter_type];
+			}
+
+			if( filter == 'none' ){
+				return;
+			}
+
+			if( filter == 'blur' ){
+				unit = 'px';
+
+			}else{
+				if( filter == 'hue-rotate' ){
+					unit = 'deg';
+					max = 360;
+				}
+			}
+
+			if( value < min ){
+				value = min;
+			}
+
+			if( value > max ){
+				value = max;
+			}
+
+
+			stylesheet.update_rule(selector, {"filter": filter + '(' + value + unit + ')'});
+			reloadBlockOptions(blockID);
+			localStorage[key_filter_value] = value;
 			
 		}
 

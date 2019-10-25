@@ -7180,7 +7180,7 @@ ul.design-editor-box-content > li span.uncustomize-property:before {
 	width: auto;
 	text-indent: 0;
 	color: inherit;
-	font-size: 13px;
+	font-size: 14px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\78";
@@ -7586,6 +7586,7 @@ div.property .select-container select {
 	font-size: 13px;
 	width: 90px;
 	height: 22px;
+	line-height: 100%;
 }
 
 /* Unit Select */

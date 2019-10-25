@@ -810,7 +810,6 @@ class PadmaElementProperties {
 			),
 
 		/*	Animation	*/
-
 			'animation-name' => array(
 				'group' => 'Animation',
 				'name' 	=> 'CSS Animation',
@@ -1204,14 +1203,18 @@ class PadmaElementProperties {
 					'sepia' => 'Sepia',
 				),
 				//'callback' => 'reloadBlockOptions(block.id)',
-				'js-callback' 		=> 'propertyInputCallbackFilter(params);',
-				'complex-property' 	=> 'PadmaElementProperties::complex_property_filter'			
+				'js-callback' 		=> 'propertyInputCallbackFilter(params,block);',
+				'complex-property' 	=> 'PadmaElementProperties::complex_property_filter'
 			),
 
 			'filter-value' => array(
 				'group' => 'Filter',
 				'name' 	=> 'Value',
+				'max' 	=> 100,
+				'min' 	=> 0,
 				'type' 	=> 'integer',
+				'js-callback' 		=> 'propertyInputCallbackFilterValue(params,block);',
+				'complex-property' 	=> 'PadmaElementProperties::complex_property_filter'
 			),
 
 

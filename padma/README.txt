@@ -46,7 +46,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 * Released: On Dev
 
 Tested with WordPress 5.3 RC2
-Tested with ClassicPress 1.1.0
+Tested with ClassicPress 1.1.1
 Performance improvement (spl_autoload_register implementation)
 Fixed: Custom code block minor fix
 Fixed: Compatibility with Updater plugin auto update
@@ -63,6 +63,8 @@ Fixed: breakpoint issues with wrappers
 Fixed: Schema error when post date is not standard
 Fixed: Missing arrow.svg in slide-out menu was added
 Fixed: When a Content Block, set to Custom Query, choosing a specific Category of Posts, displays on the front end, the Older Posts button at the bottom of the page reloads the same posts.
+Fixed: Media Uploader css
+Fixed: Grid on Firefox
 New features on Content Block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

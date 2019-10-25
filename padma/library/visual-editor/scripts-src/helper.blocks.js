@@ -1371,6 +1371,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		return newBlock;
 	}
 
+
 	blockIntersectCheck = function(originBlock, container) {
 
 		if ( typeof container == 'undefined' || !container )
@@ -1544,7 +1545,6 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 	}
 
 
-
 	initiateBlockSettingsImport = function(args) {
 
 		var input = args.input;
@@ -1682,6 +1682,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 
 		}
 
+
 		importBlockSettings = function(importBlockSettings, blockID) {
 
 			/* Send the block settings data to the unsaved data */
@@ -1701,6 +1702,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				});
 
 		}
+
 
 	updateBlockMirrorStatus = function(input, block, value, updateTooltips) {
 		

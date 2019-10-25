@@ -835,9 +835,10 @@ define(['deps/chosen.jquery'], function(chosen) {
 
 			var exportURL = Padma.ajaxURL + '?' + $.param(params);
 
+			closeBox('grid-manager');
+			
 			return window.open(exportURL);
 
-			closeBox('grid-manager');
 
 		});
 		/* End Import/Export */

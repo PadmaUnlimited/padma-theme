@@ -68,6 +68,20 @@ wp_print_styles();
 	.media-frame-content {
 		top: 39px;
 	}
+	.media-frame-actions-heading{
+		display: none;
+	}
+	h2.media-attachments-filter-heading{}
+	label[for='media-attachment-date-filters']{
+		float: left;
+	    padding: 0;
+	    margin-top: 25px;
+	}
+	#media-attachment-date-filters{
+		float: left;
+	    margin-top: 15px;
+	    margin-left: 10px;
+	}
 </style>
 
 </head>

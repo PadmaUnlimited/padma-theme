@@ -72,6 +72,11 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 						resize: 'alignAllBlocksWithGuides'
 					});
 
+				/*	Initial reset the values of columnWidth and gutterWidth	*/
+					this._on($(window), {
+						load: 'resetGridCalculations'
+					});
+
 				/*	Detect click on blocks	*/
 					this._on(this.contents, {
 						click: 'selectBlock'

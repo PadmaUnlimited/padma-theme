@@ -39,6 +39,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 			}
 
 		}
+		
 
 		if ( val && toggle && typeof toggle == 'object' ) {
 
@@ -74,6 +75,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				/* Hide */				
 					if ( typeof toggle[val].hide == 'string' ) {
 
+
 						var toHide = input.parents(parentElement).find(toggle[val].hide)
 
 						toHide.find('*[data-toggle]').not(input).each(function() {
@@ -83,7 +85,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 						toHide.hide();
 
 					} else if ( typeof toggle[val].hide == 'object' ) {
-
+						
 						$.each(toggle[val].hide, function(index, value) {
 
 							var toHide = input.parents(parentElement).find(value);
@@ -100,7 +102,8 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 			} /* end if toggle.hasOwnProperty(val) */
 
-		} /* end if ( val && toggle && typeof toggle == 'object' ) */
+
+		}/* end if ( val && toggle && typeof toggle == 'object' ) */
 
 	}
 

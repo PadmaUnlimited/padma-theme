@@ -284,82 +284,107 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 					'inputs' => array(
 
 						array(
-						'type' => 'select',
-						'name' => 'breakpoint',
-						'label' => __('Set Breakpoint','padma'),
-						'options' => array(
-							'' => __('Off - No Breakpoint','padma'),
-							'custom' 	=> __('Custom Width','padma'),
-							'1920px' 	=> __('1920px - Very Large Screens','padma'),
-							'1824px' 	=> __('1824px - Large Screens','padma'),
-							'1224px' 	=> __('1224px - Desktop and Laptop','padma'),
-							'1024px' 	=> __('1024px - Popular Tablet Landscape','padma'),
-							'812px' 	=> __('812px - iPhone X Landscape','padma'),
-							'768px' 	=> __('768px - Popular Tablet Portrait','padma'),
-							'736px' 	=> __('736px - iPhone 6+ & 7+ & 8+ Landscape','padma'),
-							'667px' 	=> __('667px - iPhone 6 & 7 & 8 & Android Landscape','padma'),
-							'600px' 	=> __('600px - Popular Breakpoint in Padma','padma'),
-							'568px' 	=> __('568px - iPhone 5 Landscape','padma'),
-							'480px' 	=> __('480px - iPhone 3 & 4 Landscape','padma'),
-							'414px' 	=> __('414px - iPhone 6+ & 7+ & 8+ Landscape','padma'),
-							'375px' 	=> __('375px - iPhone 6 & 7 & 8 & X & Android Portrait','padma'),
-							'320px' 	=> __('320px - iPhone 3 & 4 & 5 & Android Portrait','padma'),
+							'type' => 'select',
+							'name' => 'breakpoint',
+							'label' => __('Set Breakpoint','padma'),
+							'options' => array(
+								'off' => __('Off - No Breakpoint','padma'),
+								'custom' 	=> __('Custom Width','padma'),
+								'1920px' 	=> __('1920px - Very Large Screens','padma'),
+								'1824px' 	=> __('1824px - Large Screens','padma'),
+								'1224px' 	=> __('1224px - Desktop and Laptop','padma'),
+								'1024px' 	=> __('1024px - Popular Tablet Landscape','padma'),
+								'812px' 	=> __('812px - iPhone X Landscape','padma'),
+								'768px' 	=> __('768px - Popular Tablet Portrait','padma'),
+								'736px' 	=> __('736px - iPhone 6+ & 7+ & 8+ Landscape','padma'),
+								'667px' 	=> __('667px - iPhone 6 & 7 & 8 & Android Landscape','padma'),
+								'600px' 	=> __('600px - Popular Breakpoint in Padma','padma'),
+								'568px' 	=> __('568px - iPhone 5 Landscape','padma'),
+								'480px' 	=> __('480px - iPhone 3 & 4 Landscape','padma'),
+								'414px' 	=> __('414px - iPhone 6+ & 7+ & 8+ Landscape','padma'),
+								'375px' 	=> __('375px - iPhone 6 & 7 & 8 & X & Android Portrait','padma'),
+								'320px' 	=> __('320px - iPhone 3 & 4 & 5 & Android Portrait','padma'),
+							),
+							'toggle'    => array(
+								'off' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'custom' => array(
+									'show' => array(
+										'#input-max-width'
+									),
+								),
+								'1920px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'1824px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'1224px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'1024px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'812px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'768px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'736px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'600px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'568px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'480px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'414px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'375px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								),
+								'320px' => array(
+									'hide' => array(
+										'#input-max-width'
+									),
+								)
+							),
+							'tooltip' => __('Select a screen width for these change to take effect.','padma'),
+							'default' => ''
 						),
-						'toggle'    => array(
-							'' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'custom' => array(
-								'show' => array(
-									'#input-max-width'
-								),
-							),
-							'1824px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'1224px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'1024px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'768px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'600px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'568px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'480px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							),
-							'320px' => array(
-								'hide' => array(
-									'#input-max-width'
-								),
-							)
-						),
-						'tooltip' => __('Select a screen width for these change to take effect.','padma'),
-						'default' => ''
-					),
 
 						array(
 							'type' => 'text',

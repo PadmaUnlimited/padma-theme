@@ -227,8 +227,9 @@ abstract class PadmaVisualEditorPanelAPI {
 				$input['value'] = PadmaOption::get($input['name'], $input['group'], $input['default']);
 
 		/* Setup Attributes */
+			$input_id = (isset($this->block) && $this->block) ? 'input-' . $this->block['id'] . '-' . $input['name'] : 'input-' . $input['group'] . '-' . $input['name'];
 			$attributes_array = array(
-				'id' => (isset($this->block) && $this->block) ? 'input-' . $this->block['id'] . '-' . $input['name'] : 'input-' . $input['group'] . '-' . $input['name'],
+				'id' => $input_id,				
 				'name' => $input['name'],
 				'data-group' => $input['group']
 			);
@@ -240,7 +241,7 @@ abstract class PadmaVisualEditorPanelAPI {
 				if ( padma_get('data-handler-callback', $input) )
 					$attributes_array['data-data-handler-callback'] = esc_attr('(function(args){' . $input['data-handler-callback'] . '})');
 
-			/* Set up toggle attribute */
+			/* Set up toggle attribute */				
 				if ( padma_get('toggle', $input) )
 					$attributes_array['data-toggle'] = esc_attr(json_encode($input['toggle']));
 
@@ -289,12 +290,12 @@ abstract class PadmaVisualEditorPanelAPI {
 
 	public function repeater($input) {
 
-
 		$repeater_sortable_class = padma_get('sortable', $input) ? ' repeater-sortable' : null;
 
 		echo '<div class="repeater' . $repeater_sortable_class . '" data-repeater-limit="' . padma_get('limit', $input, '0') . '">';
 
-			if ( $repeater_label = padma_get('label', $input) ) {
+			$repeater_label = padma_get('label', $input);
+			if( !empty($repeater_label) ) {
 
 				$this->render_input(array(
 					'name' => 'repeater-' . $input['name'] . '-heading',
@@ -372,7 +373,7 @@ abstract class PadmaVisualEditorPanelAPI {
 
 				foreach ( $input['inputs'] as $index => $input_options ) {
 
-					if( ! is_null($counter) && $counter !== 0 && $input['name'] != 'responsive-options'){
+					if( ! is_null($counter) && $counter !== 0 && $input['name'] != 'responsive-options' && $input['name'] !== 'responsive-wrapper-options'){
 						$input_options['name'] = $input_options['name'] . '-' . $counter;
 					}
 

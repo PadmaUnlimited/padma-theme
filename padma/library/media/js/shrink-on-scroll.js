@@ -10,10 +10,16 @@
 			
 			$.each(PadmaShrinkWrappers, function (selector, options) {
 
+				var height = $(selector).attr('data-org-height');				
+				if( typeof height == 'undefined' ){
+					height = $(selector).height();
+					$(selector).attr('data-org-height',height);					
+				}
+
 				var offset = $(selector).offset().top - $(window).scrollTop();
 				var ratio = options.shrink_ratio;
 				var shrink_images = options.shrink_images;
-				var shrink_elements = options.shrink_elements;
+				var shrink_elements = options.shrink_elements;				
 				var total = (height * ( ratio / 100));
 
 				if( ! $(selector).hasClass('is_stuck') ){
@@ -33,18 +39,14 @@
 				}
 				
 				
-				var height = $(selector).attr('data-org-height');				
-				if( typeof height == 'undefined' ){
-					height = $(selector).height();
-					$(selector).attr('data-org-height',height);					
-				}
+				
 
 				if( $('#wpadminbar').length > 0  ){
 					offset = offset - 32;
 				}
 
 				if( $(window).scrollTop() > 0 ){
-					
+
 					$(selector).css('height',total);
 					$('#spacer-'+selector.replace('#','')).css('height',total);
 				

@@ -50,7 +50,7 @@ Tested with ClassicPress 1.1.1
 Performance improvement (spl_autoload_register implementation)
 Fixed: Custom code block minor fix
 Fixed: Compatibility with Updater plugin auto update
-Fixed: PHP 7.3 Compatibility minor fix
+Fixed: PHP 7.3 and 7.4 Compatibility checks and minor fixes
 Fixed: Templates install minor bug
 Fixed: Query Filter option for custom taxonomies on content block for custom post types
 Fixed: PadmaElementAPI::register_element() minor fix, default properties missing

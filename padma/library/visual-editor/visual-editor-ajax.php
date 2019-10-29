@@ -123,9 +123,11 @@ class PadmaVisualEditorAJAX {
 
 		$options_json = padma_post( 'options' );
 
-		if ( get_magic_quotes_gpc() === 1 || function_exists('wp_magic_quotes') ) {
+		
+		if ( function_exists('wp_magic_quotes') ) {
 			$options_json = stripslashes( padma_post( 'options' ) );
-		}
+		}			
+		
 
 		$options = json_decode($options_json, ARRAY_A);
 

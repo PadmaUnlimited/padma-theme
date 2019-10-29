@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Padma Unlimited 1.1.50\n"
+"Project-Id-Version: Padma Unlimited 1.1.58\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-08T15:21:50-05:00\n"
+"POT-Creation-Date: 2019-10-29T10:17:40-05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -87,22 +87,22 @@ msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 
 #: library/abstract/api-block.php:691
-#: library/wrappers/wrapper-options.php:360
+#: library/wrappers/wrapper-options.php:385
 msgid "Select a screen width for these change to take effect."
 msgstr ""
 
 #: library/abstract/api-block.php:707
-#: library/wrappers/wrapper-options.php:376
+#: library/wrappers/wrapper-options.php:401
 msgid "Min Width (applies to screens that are wider than breakpoint)"
 msgstr ""
 
 #: library/abstract/api-block.php:708
-#: library/wrappers/wrapper-options.php:377
+#: library/wrappers/wrapper-options.php:402
 msgid "Max Width (applies to screens that are narrower than breakpoint)"
 msgstr ""
 
 #: library/abstract/api-block.php:716
-#: library/wrappers/wrapper-options.php:385
+#: library/wrappers/wrapper-options.php:410
 msgid "Adaptive Options"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgid "Import Block Settings"
 msgstr ""
 
 #: library/abstract/api-block.php:799
-#: library/wrappers/wrapper-options.php:435
+#: library/wrappers/wrapper-options.php:460
 msgid "Select File to Import"
 msgstr ""
 
@@ -166,7 +166,7 @@ msgid "Export Block Settings"
 msgstr ""
 
 #: library/abstract/api-block.php:836
-#: library/wrappers/wrapper-options.php:472
+#: library/wrappers/wrapper-options.php:497
 msgid "Download Export File"
 msgstr ""
 
@@ -174,35 +174,35 @@ msgstr ""
 msgid "Do Not Mirror"
 msgstr ""
 
-#: library/abstract/api-panel.php:440
+#: library/abstract/api-panel.php:441
 msgid "View Textarea"
 msgstr ""
 
-#: library/abstract/api-panel.php:458
+#: library/abstract/api-panel.php:459
 msgid "View Code Editor"
 msgstr ""
 
-#: library/abstract/api-panel.php:474
+#: library/abstract/api-panel.php:475
 msgid "View Editor"
 msgstr ""
 
-#: library/abstract/api-panel.php:594
+#: library/abstract/api-panel.php:595
 msgid "Hold Ctrl (Windows) or Command (Mac) to select multiple options."
 msgstr ""
 
-#: library/abstract/api-panel.php:647
+#: library/abstract/api-panel.php:648
 msgid "Choose Image"
 msgstr ""
 
-#: library/abstract/api-panel.php:670
+#: library/abstract/api-panel.php:671
 msgid "Choose Audio"
 msgstr ""
 
-#: library/abstract/api-panel.php:687
+#: library/abstract/api-panel.php:688
 msgid "Choose Video"
 msgstr ""
 
-#: library/abstract/api-panel.php:779
+#: library/abstract/api-panel.php:780
 #: library/admin/pages/templates.php:140
 msgid "Delete"
 msgstr ""
@@ -548,7 +548,7 @@ msgid "<strong>Please note:</strong> Enabling the responsive grid can cause styl
 msgstr ""
 
 #: library/admin/admin.php:498
-#: library/visual-editor/panels/grid/setup.php:149
+#: library/visual-editor/panels/grid/setup.php:81
 msgid "Enable Responsive Grid"
 msgstr ""
 
@@ -1032,179 +1032,171 @@ msgstr ""
 
 #: library/admin/pages/options.php:546
 #: library/admin/pages/options.php:551
-#: library/admin/pages/options.php:666
-#: library/admin/pages/options.php:671
 msgid "Automatic Updates"
 msgstr ""
 
 #: library/admin/pages/options.php:557
 #: library/admin/pages/options.php:561
-#: library/admin/pages/options.php:677
-#: library/admin/pages/options.php:681
 msgid "Disable Automatic Core Updates"
 msgstr ""
 
 #: library/admin/pages/options.php:565
-#: library/admin/pages/options.php:685
 msgid "By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin."
 msgstr ""
 
 #: library/admin/pages/options.php:569
 #: library/admin/pages/options.php:573
-#: library/admin/pages/options.php:689
-#: library/admin/pages/options.php:693
 msgid "Disable Automatic Plugin Updates"
 msgstr ""
 
 #: library/admin/pages/options.php:577
-#: library/admin/pages/options.php:697
 msgid "By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin."
 msgstr ""
 
-#: library/admin/pages/options.php:593
-#: library/admin/pages/options.php:598
+#: library/admin/pages/options.php:592
+#: library/admin/pages/options.php:597
 msgid "Caching &amp; Compression"
 msgstr ""
 
-#: library/admin/pages/options.php:604
+#: library/admin/pages/options.php:603
 msgid "Asset Caching"
 msgstr ""
 
-#: library/admin/pages/options.php:608
+#: library/admin/pages/options.php:607
 msgid "Disable Padma Caching"
 msgstr ""
 
-#: library/admin/pages/options.php:612
+#: library/admin/pages/options.php:611
 msgid "By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load."
 msgstr ""
 
-#: library/admin/pages/options.php:617
+#: library/admin/pages/options.php:616
 msgid "Dependency Query Variables"
 msgstr ""
 
-#: library/admin/pages/options.php:621
+#: library/admin/pages/options.php:620
 msgid "Remove Query Variables from Dependency URLs"
 msgstr ""
 
-#: library/admin/pages/options.php:625
+#: library/admin/pages/options.php:624
 msgid "To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files."
 msgstr ""
 
-#: library/admin/pages/options.php:630
-#: library/admin/pages/options.php:634
+#: library/admin/pages/options.php:629
+#: library/admin/pages/options.php:633
 msgid "Compatibility with mod_pagespeed"
 msgstr ""
 
-#: library/admin/pages/options.php:638
+#: library/admin/pages/options.php:637
 msgid "Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you."
 msgstr ""
 
-#: library/admin/pages/options.php:643
-#: library/admin/pages/options.php:647
+#: library/admin/pages/options.php:642
+#: library/admin/pages/options.php:646
 msgid "HTTP/2 Server Push"
 msgstr ""
 
-#: library/admin/pages/options.php:651
+#: library/admin/pages/options.php:650
 msgid "Enables WordPress to send a Link:<...> rel=\"prefetch\" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:712
-#: library/admin/pages/options.php:717
+#: library/admin/pages/options.php:665
+#: library/admin/pages/options.php:670
 msgid "Developer"
 msgstr ""
 
-#: library/admin/pages/options.php:723
+#: library/admin/pages/options.php:676
 msgid "Use Padma Developer version"
 msgstr ""
 
-#: library/admin/pages/options.php:727
+#: library/admin/pages/options.php:680
 msgid "Allow install testing or preview version"
 msgstr ""
 
-#: library/admin/pages/options.php:731
+#: library/admin/pages/options.php:684
 msgid "This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong> Once active this option will allow you to upgrade your website to the latest version."
 msgstr ""
 
-#: library/admin/pages/options.php:746
-#: library/admin/pages/options.php:751
+#: library/admin/pages/options.php:699
+#: library/admin/pages/options.php:704
 msgid "Debugging"
 msgstr ""
 
-#: library/admin/pages/options.php:757
+#: library/admin/pages/options.php:710
 msgid "Debug Mode"
 msgstr ""
 
-#: library/admin/pages/options.php:761
+#: library/admin/pages/options.php:714
 msgid "Enable Debug Mode"
 msgstr ""
 
-#: library/admin/pages/options.php:765
+#: library/admin/pages/options.php:718
 msgid "Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>."
 msgstr ""
 
-#: library/admin/pages/options.php:785
-#: library/admin/pages/options.php:790
-#: library/admin/pages/options.php:796
+#: library/admin/pages/options.php:738
+#: library/admin/pages/options.php:743
+#: library/admin/pages/options.php:749
 msgid "Plugin templates"
 msgstr ""
 
-#: library/admin/pages/options.php:800
+#: library/admin/pages/options.php:753
 msgid "Allow plugin templates"
 msgstr ""
 
-#: library/admin/pages/options.php:804
+#: library/admin/pages/options.php:757
 msgid "Allow load plugin templates related to Custom Post Types instead Padma Layout"
 msgstr ""
 
-#: library/admin/pages/options.php:820
-#: library/admin/pages/options.php:825
+#: library/admin/pages/options.php:773
+#: library/admin/pages/options.php:778
 msgid "Headway"
 msgstr ""
 
-#: library/admin/pages/options.php:831
+#: library/admin/pages/options.php:784
 msgid "Headway support"
 msgstr ""
 
-#: library/admin/pages/options.php:835
+#: library/admin/pages/options.php:788
 msgid "Enable Headway classes support"
 msgstr ""
 
-#: library/admin/pages/options.php:839
+#: library/admin/pages/options.php:792
 msgid "If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:855
-#: library/admin/pages/options.php:860
+#: library/admin/pages/options.php:808
+#: library/admin/pages/options.php:813
 msgid "Gutenberg"
 msgstr ""
 
-#: library/admin/pages/options.php:866
+#: library/admin/pages/options.php:819
 msgid "Display Padma Blocks in Gutenberg"
 msgstr ""
 
-#: library/admin/pages/options.php:870
+#: library/admin/pages/options.php:823
 msgid "Show Padma Blocks as Gutenberg Blocks"
 msgstr ""
 
-#: library/admin/pages/options.php:874
+#: library/admin/pages/options.php:827
 msgid "If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to \"Block Options > Anywhere\" to enable it. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:893
-#: library/admin/pages/options.php:898
+#: library/admin/pages/options.php:846
+#: library/admin/pages/options.php:851
 msgid "Responsive options"
 msgstr ""
 
-#: library/admin/pages/options.php:904
-#: library/admin/pages/options.php:908
+#: library/admin/pages/options.php:857
+#: library/admin/pages/options.php:861
 msgid "Allow mobile zooming"
 msgstr ""
 
-#: library/admin/pages/options.php:912
+#: library/admin/pages/options.php:865
 msgid "Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers."
 msgstr ""
 
-#: library/admin/pages/options.php:930
+#: library/admin/pages/options.php:883
 msgid "Save Changes"
 msgstr ""
 
@@ -1616,11 +1608,11 @@ msgstr ""
 msgid "The block class being registered does not exist."
 msgstr ""
 
-#: library/blocks/blocks.php:819
+#: library/blocks/blocks.php:818
 msgid "The Padma blocks array does not exist."
 msgstr ""
 
-#: library/blocks/blocks.php:833
+#: library/blocks/blocks.php:832
 msgid "The requested block type of '%s' does not exist. Please re-activate the block plugin or child theme if you wish to use this block again."
 msgstr ""
 
@@ -1795,86 +1787,86 @@ msgstr ""
 msgid "This post is password protected.  Please enter the password to view the comments."
 msgstr ""
 
-#: library/blocks/content/content-display.php:158
+#: library/blocks/content/content-display.php:163
 #: library/blocks/listings/content-display.php:68
 msgid "<p>Sorry, there was no content that matched your search.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:289
+#: library/blocks/content/content-display.php:294
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:292
+#: library/blocks/content/content-display.php:297
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:295
+#: library/blocks/content/content-display.php:300
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:298
+#: library/blocks/content/content-display.php:303
 msgid "Blog Archives"
 msgstr ""
 
-#: library/blocks/content/content-display.php:311
+#: library/blocks/content/content-display.php:316
 msgid "Category Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:346
-#: library/blocks/content/content-display.php:349
+#: library/blocks/content/content-display.php:351
+#: library/blocks/content/content-display.php:354
 msgid "Author Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:359
+#: library/blocks/content/content-display.php:364
 msgid "Search Results for: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:368
+#: library/blocks/content/content-display.php:373
 msgid "Tag Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:565
+#: library/blocks/content/content-display.php:575
 #: library/blocks/listings/content-display.php:199
 msgid "%s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:853
+#: library/blocks/content/content-display.php:863
 msgid "Pages:"
 msgstr ""
 
-#: library/blocks/content/content-display.php:894
+#: library/blocks/content/content-display.php:904
 msgid "Whoops!  Page Not Found"
 msgstr ""
 
-#: library/blocks/content/content-display.php:902
+#: library/blocks/content/content-display.php:912
 msgid "<p>Don't fret, you didn't do anything wrong.  It appears that the page you are looking for does not exist or has been moved elsewhere.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:904
+#: library/blocks/content/content-display.php:914
 msgid "<p>If you keep ending up here, please head back to our <a href=\"%s\">homepage</a> or try the search form below.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:979
+#: library/blocks/content/content-display.php:989
 msgid "Discard Reply"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1017
+#: library/blocks/content/content-display.php:1027
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1018
+#: library/blocks/content/content-display.php:1028
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1212
+#: library/blocks/content/content-display.php:1222
 msgid "%s &ndash; Comments"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1221
+#: library/blocks/content/content-display.php:1231
 msgid "Respond to %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:1229
+#: library/blocks/content/content-display.php:1239
 msgid "View all posts by %s"
 msgstr ""
 
@@ -2814,33 +2806,33 @@ msgstr ""
 msgid "If you wish to display the results of a supplemented SearchWP engine, please select the engine here."
 msgstr ""
 
-#: library/blocks/content/content.php:1668
+#: library/blocks/content/content.php:1669
 msgid "The selected post type does not have custom fields."
 msgstr ""
 
-#: library/blocks/content/content.php:1670
+#: library/blocks/content/content.php:1671
 msgid "There is not custom fields to show."
 msgstr ""
 
-#: library/blocks/content/content.php:1753
+#: library/blocks/content/content.php:1754
 msgid "&ndash; Do Not Fetch &ndash;"
 msgstr ""
 
-#: library/blocks/content/content.php:1777
+#: library/blocks/content/content.php:1781
 #: library/common/query.php:112
 msgid "No tags available"
 msgstr ""
 
-#: library/blocks/content/content.php:1845
+#: library/blocks/content/content.php:1849
 #: library/blocks/search/search.php:153
 msgid "&ndash; Select an Engine &ndash;"
 msgstr ""
 
-#: library/blocks/content/content.php:1877
+#: library/blocks/content/content.php:1881
 msgid "&ndash; Use Default Query &ndash;"
 msgstr ""
 
-#: library/blocks/content/content.php:1896
+#: library/blocks/content/content.php:1900
 msgid "&ndash; Use Default Layout &ndash;"
 msgstr ""
 
@@ -5054,57 +5046,57 @@ msgstr ""
 msgid "Show only modified options"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:83
+#: library/visual-editor/panels/grid/setup.php:15
 msgid "Responsive Grid"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:90
+#: library/visual-editor/panels/grid/setup.php:22
 msgid "<strong>Note:</strong> the content in the grid above will not reflect how your site actually looks.  The content inside the blocks is to give you a general reference while you wireframe and build the layout to your site.<br /><br />The settings below are <strong>global</strong> and are not customized on a per-layout basis."
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:92
+#: library/visual-editor/panels/grid/setup.php:24
 msgid "The Padma Responsive Grid allows the powerful grid in Padma Base to be custom-tailored depending on the device that the visitor is viewing the site from.  Please note: some sites may benefit from having the responsive grid enabled while other will not.  As the designer of the website, it is up to you to decide.  The responsive grid can be enabled or disabled at any time."
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:100
+#: library/visual-editor/panels/grid/setup.php:32
 msgid "Default Column Count"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:102
+#: library/visual-editor/panels/grid/setup.php:34
 msgid "The column count is the number of columns in the grid.  This is represented by the grey regions on the grid.<br /><br /><strong>This will NOT affect wrappers that are already created.  It only affects wrappers that are created after this setting is changed.</strong>"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:112
+#: library/visual-editor/panels/grid/setup.php:44
 msgid "Global Column Width"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:114
+#: library/visual-editor/panels/grid/setup.php:46
 #: library/wrappers/wrapper-options.php:75
 msgid "The column width is the amount of space inside of each column.  This is represented by the grey regions on the grid."
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:125
+#: library/visual-editor/panels/grid/setup.php:57
 msgid "Global Gutter Width"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:127
+#: library/visual-editor/panels/grid/setup.php:59
 #: library/wrappers/wrapper-options.php:88
 msgid "The gutter width is the amount of space between each column.  This is the space between each of the grey regions on the grid."
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:140
+#: library/visual-editor/panels/grid/setup.php:72
 msgid "Global Grid Width"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:151
+#: library/visual-editor/panels/grid/setup.php:83
 msgid "If Padma's responsive grid is enabled, the grid will automatically adjust depending on the visitor's device (computer, iPhone, iPad, etc).  Enabling the responsive grid can be extremely beneficial for some websites, but may not be wortbthile for other websites.  If the responsive grid is enabled, the user will always have the option to disable the responsive grid via a link in the footer block.<br /><br /><strong>Please Note:</strong> with the responsive grid enabled, the exact pixel widths of blocks may differ very slightly from when it is <em>disabled</em>."
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:157
+#: library/visual-editor/panels/grid/setup.php:89
 msgid "Responsive Video Resizing"
 msgstr ""
 
-#: library/visual-editor/panels/grid/setup.php:159
+#: library/visual-editor/panels/grid/setup.php:91
 msgid "If the Responsive Grid is enabled and the user visits the site when there are YouTube, Vimeo, or any other videos, then the videos will not resize properly unless then is checked."
 msgstr ""
 
@@ -5265,7 +5257,7 @@ msgid "Off - No Breakpoint"
 msgstr ""
 
 #: library/wrappers/wrapper-options.php:292
-#: library/wrappers/wrapper-options.php:367
+#: library/wrappers/wrapper-options.php:392
 msgid "Custom Width"
 msgstr ""
 
@@ -5325,43 +5317,43 @@ msgstr ""
 msgid "320px - iPhone 3 & 4 & 5 & Android Portrait"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:368
+#: library/wrappers/wrapper-options.php:393
 msgid "Add px value as well. eg: 600px"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:374
+#: library/wrappers/wrapper-options.php:399
 msgid "Min or Max width"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:391
+#: library/wrappers/wrapper-options.php:416
 msgid "Stretch blocks for mobile"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:393
+#: library/wrappers/wrapper-options.php:418
 msgid "Enable this option to make all blocks in this wrapper stretch the full wrapper width on smaller screens. Blocks placed side by side may not look good on smaller screens as they fight for the horizontal space. Setting this option makes each block go full width at the set break point."
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:399
+#: library/wrappers/wrapper-options.php:424
 msgid "Attempt to Center items"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:401
+#: library/wrappers/wrapper-options.php:426
 msgid "This will attempt to center the elements in this block at the set breakpoint. NOTE: This will not work for all elements but give it a try and if it works for you then great. More complex html like menus will require custom code."
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:407
+#: library/wrappers/wrapper-options.php:432
 msgid "Hide this wrapper"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:409
+#: library/wrappers/wrapper-options.php:434
 msgid "This will hide this wrapper for the set breakpoint."
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:429
-#: library/wrappers/wrapper-options.php:458
+#: library/wrappers/wrapper-options.php:454
+#: library/wrappers/wrapper-options.php:483
 msgid "Import Wrapper Settings"
 msgstr ""
 
-#: library/wrappers/wrapper-options.php:466
+#: library/wrappers/wrapper-options.php:491
 msgid "Export Wrapper Settings"
 msgstr ""

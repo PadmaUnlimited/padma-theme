@@ -1012,6 +1012,21 @@ class PadmaElementProperties {
 				'js-callback' => 'stylesheet.update_rule(selector, {"animation-play-state": params.value});',				
 			),
 
+
+			'animation-rule' => array(
+				'group' => 'Animation',
+				'name' 	=> 'When animate',
+				'type' 	=> 'select',
+				'options' => array(
+					'initial' => 'Initial',
+					'always' => 'Always',
+					'when-visible' => 'When visible',
+					'on-mouse-over' => 'On Mouse over',
+				),
+				'js-callback' => 'propertyInputCallbackAnimationRules(params,block);',
+			),
+			
+
 		/*	Transform	*/
 			'transform' => array(
 				'group' => 'Transform',
@@ -1322,6 +1337,21 @@ class PadmaElementProperties {
 			// Animation fix
 			if( isset($properties['animation-name']) && empty($properties['animation-duration']) ){
 				$properties['animation-duration'] = '1s';
+			}
+
+			// Animation fix for when animate
+			if( isset($properties['animation-rule']) ){
+
+				if( $properties['animation-rule'] === 'always' ){
+					$properties['animation-play-state'] = 'running';
+					unset($properties['animation-rule']);
+				}
+
+				if( $properties['animation-rule'] === 'when-visible' || $properties['animation-rule'] === 'on-mouse-over' ){
+					$properties['animation-play-state'] = 'paused';
+					unset($properties['animation-rule']);
+				}
+
 			}
 
 			//Loop through properties

@@ -1907,6 +1907,59 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 		}
 
+		propertyInputCallbackAnimationRules = function(params,block) {
+
+			var blockID = getBlockID(block);			
+			var rule = params.value;
+			var selector = params.selector;
+			
+			if ( !block ) {
+				return false;
+			}
+			
+			if( rule == 'initial' ){
+				return;
+			}
+
+			if( rule == 'always' ){
+				
+				stylesheet.update_rule(selector, {
+					'animation-play-state': 'running',
+				});
+
+				return;
+			}
+
+			if( rule == 'when-visible' || rule == 'on-mouse-over' ){
+
+				$i(selector).addClass(rule);				
+
+			}
+
+			var content = $.ajax(Padma.ajaxURL, {
+				async: false,
+				cache: false,
+				type: 'POST',
+				dataType: 'text',
+				data:{
+					security: Padma.security,
+					action: 'padma_visual_editor',
+					method: 'save_block_animation_rules',
+					block_id: blockID,
+					selector: selector,
+					rule: rule,
+				},
+				success: function(data) {
+					console.log(data);
+				}
+			}).done(function(data) {
+				console.log(data);
+			});
+	
+			
+
+		}
+
 
 		propertyInputCallbackTransform = function(params) {
 

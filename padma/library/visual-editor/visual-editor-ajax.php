@@ -325,7 +325,9 @@ class PadmaVisualEditorAJAX {
 				echo $block['settings'][$field];
 			}
 		}
+	
 	}
+
 
 	public static function method_save_block_editable_field_content() {
 
@@ -366,6 +368,28 @@ class PadmaVisualEditorAJAX {
 	}
 
 
+	public static function method_save_block_animation_rules() {
+
+		/* Go */
+		$block_id = padma_post('block_id');
+		$selector = padma_post('selector');
+		$rule = padma_post('rule');
+
+		if( empty($selector) || empty($rule) )
+			return;
+
+		// Load block data
+		$block = PadmaBlocksData::get_block($block_id);
+		
+		// Add animation rules
+		$block['settings']['animation-rules'][$selector] = $rule;
+
+		// Save new block data to database
+		return PadmaBlocksData::update_block($block_id, $block);
+
+	}
+
+
 	public static function method_load_block_options() {
 
 		$layout = padma_post('layout');
@@ -396,6 +420,8 @@ class PadmaVisualEditorAJAX {
 			$block['settings'] = is_array(padma_get('settings', $block)) ? array_merge($block['settings'], $unsaved_options) : $unsaved_options;
 
 		do_action('padma_block_options_' . $block['type'], $block, $layout);
+
+		debug($block);
 
 	}
 

@@ -21,6 +21,11 @@ class PadmaLayoutRenderer {
 		if ( !$this->blocks )
 			return $this->display_no_blocks_message();
 
+
+
+		/*	Add Animation rules to layout?	*/		
+		$animation_rules = array();
+
 		foreach ( $this->wrappers as $wrapper_id => $wrapper ) {
 
 			$wrapper_id_for_blocks 	= $wrapper_id;
@@ -38,10 +43,6 @@ class PadmaLayoutRenderer {
 
 			}
 
-			/*	Add Animation rules to layout?	*/
-			$add_animation_rules = false;
-			$animation_rules = array();
-
 			/* Grab blocks belonging to this wrapper */
 			$wrapper_blocks = array();
 
@@ -54,19 +55,14 @@ class PadmaLayoutRenderer {
 				if ( count($this->wrappers) === 1 && (padma_get('wrapper_id', $block) === null || padma_get('wrapper_id', $block) == 'wrapper-default' || !isset($this->wrappers[padma_get('wrapper_id', $block)])) )
 					$wrapper_blocks[$block_id] = $block;
 
-				if( !empty($block['settings']['animation-rules']) ){
-					$add_animation_rules = true;
+
+				// Add animation rules ?
+				if( !empty($block['settings']['animation-rules']) ){					
 					foreach ($block['settings']['animation-rules'] as $key => $value) {
 						$animation_rules[$key] = $value;
 					}					
 				}
 
-			}
-
-			if( $add_animation_rules ){
-				debug($animation_rules);
-				wp_enqueue_script( 'padma-animation-rules', padma_url() . '/library/media/js/animation-rules.js', array( 'jquery' ) );
-				wp_localize_script( 'padma-animation-rules', 'PadmaAnimationRulesSelectors', $animation_rules );
 			}
 
 			/* Setup wrapper classes */
@@ -127,6 +123,15 @@ class PadmaLayoutRenderer {
 
 				do_action('padma_after_wrapper');
 			/* End displaying wrapper */
+
+		}
+
+
+
+		if( !empty( $animation_rules ) ){
+					
+			wp_enqueue_script( 'padma-animation-rules', padma_url() . '/library/media/js/animation-rules.js', array( 'jquery' ) );
+			wp_localize_script( 'padma-animation-rules', 'PadmaAnimationRulesSelectors', $animation_rules );
 
 		}
 

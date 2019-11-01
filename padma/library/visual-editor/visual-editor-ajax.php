@@ -375,6 +375,8 @@ class PadmaVisualEditorAJAX {
 		$selector = padma_post('selector');
 		$rule = padma_post('rule');
 
+		debug($rule);
+
 		if( empty($selector) || empty($rule) )
 			return;
 
@@ -382,7 +384,11 @@ class PadmaVisualEditorAJAX {
 		$block = PadmaBlocksData::get_block($block_id);
 		
 		// Add animation rules
-		$block['settings']['animation-rules'][$selector] = $rule;
+		if( $rule === 'initial' ){
+			$block['settings']['animation-rules'][$selector] = 'running';
+		}else{
+			$block['settings']['animation-rules'][$selector] = $rule;
+		}
 
 		// Save new block data to database
 		return PadmaBlocksData::update_block($block_id, $block);

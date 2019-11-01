@@ -159,9 +159,9 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 			return null;
 			
 		if ( blockInfo === true )
-			return Padma.blockTypeURLs[blockType] + '/icon-white.png';
+			return Padma.blockTypeURLs[blockType] + '/icon-white.svg';
 			
-		return Padma.blockTypeURLs[blockType] + '/icon.png';
+		return Padma.blockTypeURLs[blockType] + '/icon.svg';
 		
 	}
 

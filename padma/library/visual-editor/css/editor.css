@@ -2193,7 +2193,7 @@ ul#panel-top li a:hover {
 
 ul#panel-top li span.block-type-icon {
 	text-indent: -9999px;
-	width: 16px;
+	width: 30px;
 	height: 100%;
 	opacity: 0.7;
 	background-image: url(../images/default-block-icon.png);
@@ -2202,6 +2202,7 @@ ul#panel-top li span.block-type-icon {
 	background-size: contain;
 	margin: 0 7px 0 -3px;
 	float: left;
+	background-size: contain;
 }
 
 ul#panel-top li span.close {
@@ -2492,22 +2493,62 @@ div.block-type-selector {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+div.block-type-selector div.block-type-selector-items {
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
 div.block-type-selector div.block-type {
-	cursor: pointer;
-	float: left;
-	width: 220px;
-	padding: 12px;
-	margin: 7px;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	color: #555555;
-	border: 1px solid #CCCCCC;
-	background: #F7F7F7;
-	-webkit-box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 0 rgba(0, 0, 0, 0.08);
-	box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 0 rgba(0, 0, 0, 0.08);
+	margin: 5px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    color: #555555;
+    border: 1px solid #CCCCCC;
+    -webkit-box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 0 rgba(0, 0, 0, 0.08);
+    background: #F7F7F7;
+    float: left;
+    width: 110px;
+    max-width: 110px;
+    height: 110px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-top: 15px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: move;
+}
+div.block-type-selector div.block-type:hover {
+    color: #c62040;
+}
+div.block-type-selector div.block-type .block-detail{
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+div.block-type-selector div.block-type .block-detail-name{
+    line-height: 130%;
+    font-size: 12px;
+    margin-top: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 div.block-type-selector div.block-type a{
 	text-decoration: none;
@@ -2515,9 +2556,9 @@ div.block-type-selector div.block-type a{
     display: block;
 }
 div.block-type-selector div.block-type:hover {
-	background: #FAFAFA;
-	border-color: #999999;
-	color: #222222;
+	background: #fff;
+	border-color: #c62040;
+	color: #c62040;
 }
 div.block-type-selector div.block-type:active {
 	background: #EEEEEE;

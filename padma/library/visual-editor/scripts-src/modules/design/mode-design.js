@@ -1917,23 +1917,26 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				return false;
 			}
 			
-			if( rule == 'initial' ){
-				return;
-			}
 
-			if( rule == 'always' ){
+			if( rule === 'always' ||  rule === 'initial' ){
 				
 				stylesheet.update_rule(selector, {
 					'animation-play-state': 'running',
 				});
 
-				return;
+				if( rule === 'always'){
+					$i(selector).addClass( 'animate-' + rule );
+				}
+
 			}
 
-			if( rule == 'when-visible' || rule == 'on-mouse-over' ){
+			if( rule === 'when-visible' || rule === 'on-mouse-over' ){
 
-				$i(selector).addClass(rule);				
+				stylesheet.update_rule(selector, {
+					'animation-play-state': 'paused',
+				});
 
+				$i(selector).addClass( 'animate-' + rule );
 			}
 
 			var content = $.ajax(Padma.ajaxURL, {

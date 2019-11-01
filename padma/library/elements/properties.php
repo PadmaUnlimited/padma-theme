@@ -1342,7 +1342,7 @@ class PadmaElementProperties {
 			// Animation fix for when animate
 			if( isset($properties['animation-rule']) ){
 
-				if( $properties['animation-rule'] === 'always' ){
+				if( $properties['animation-rule'] === 'always' || $properties['animation-rule'] === 'initial' ){
 					$properties['animation-play-state'] = 'running';
 					unset($properties['animation-rule']);
 				}

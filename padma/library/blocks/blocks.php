@@ -83,7 +83,6 @@ class PadmaBlocks {
 
 			$block = new $class();
 
-
 			if ( $block_type_data['block_type_url'] )
 				$block->block_type_url = untrailingslashit($block_type_data['block_type_url']);
 

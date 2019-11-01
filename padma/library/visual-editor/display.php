@@ -329,36 +329,66 @@ class PadmaVisualEditorDisplay {
 		}
 		echo '</ul>';
 		echo '</div>';
+		echo '<div class="block-type-selector-items">';
 
-				foreach ( $block_types as $block_type_id => $block_type ) {
+			foreach ( $block_types as $block_type_id => $block_type ) {
 
-					$filter_categories = '';
-					foreach ($block_type['categories'] as $key => $value) {
-						$filter_categories .= 'filter-' . $value . ' '; 
-					}
-
-
-					echo '
-						<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">
-							<h4 style="background-image: url(' . $block_type['url'] . '/icon.png);">' . $block_type['name'] . '</h4>
-
-							<div class="block-type-description">
-								<p>' . $block_type['description'] . '</p>
-							</div>
-						</div>
-					';
-
+				$filter_categories = '';
+				foreach ($block_type['categories'] as $key => $value) {
+					$filter_categories .= 'filter-' . $value . ' '; 
 				}
 
+				$icon = '/icon.svg';					
+				if( !file_exists( PADMA_LIBRARY_DIR . '/blocks/' . $block_type_id . '/' .  $icon) ){
+					$icon =  '/icon.png';
+				}
+
+				$icon = $block_type['url'] . $icon;
+				
+				echo '<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">';
+				echo '<div class="block-detail" style="background-image: url(' . $icon . ');">
+						<div class="block-detail-name" >' . $block_type['name'] . '</div>
+						</div>';
+						/*
+				echo '<div class="block-type-description">
+							<p>' . $block_type['description'] . '</p>
+						</div>';
+						*/
+				echo '</div>';
+				
+				/*
 				echo '
-					<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" data-hasqtip="71" oldtitle="Display an audio" title="" aria-describedby="qtip-71" style="">
-						<a target="_blank" href="https://www.padmaunlimited.com/how-to-get-more-blocks/">
-							<h4 style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">' . __('Get more blocks', 'padma') . '</h4>
-						</a>
+					<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">
+						<h4 style="background-image: url(' . $icon . ');">' . $block_type['name'] . '</h4>
+
 						<div class="block-type-description">
-							<p>' . __('Get more blocks', 'padma') . '</p>
+							<p>' . $block_type['description'] . '</p>
 						</div>
-					</div>';
+					</div>
+				';*/
+				
+
+			}
+
+			echo '<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" title="' . __('Get more blocks', 'padma') . '">';
+				echo '<div class="block-detail" style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">
+						<div class="block-detail-name" >
+							<a target="_blank" href="https://www.padmaunlimited.com/how-to-get-more-blocks/"> ' . __('Get more blocks', 'padma') .'</a>
+						</div>
+					</div>
+				</div>';
+				/*
+			echo '
+				<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" data-hasqtip="71" oldtitle="Display an audio" title="" aria-describedby="qtip-71" style="">
+					<a target="_blank" href="https://www.padmaunlimited.com/how-to-get-more-blocks/">
+						<h4 style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">' . __('Get more blocks', 'padma') . '</h4>
+					</a>
+					<div class="block-type-description">
+						<p>' . __('Get more blocks', 'padma') . '</p>
+					</div>
+				</div>';*/
+
+		echo '</div>';
 
 
 

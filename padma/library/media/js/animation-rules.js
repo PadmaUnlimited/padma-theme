@@ -25,12 +25,10 @@
 		$('.animate-always').css('animation-play-state','running');
 
 		// Animate only when mouse over		
-		$('.animate-on-mouse-over').mouseover(function(){
-			console.log('animating ... ');
+		$('.animate-on-mouse-over').mouseover(function(){			
 			$(this).css('animation-play-state','running');
-		});
-		$('.animate-on-mouse-over').mouseleave(function(){
-			console.log('stop!');
+		});		
+		$('.animate-on-mouse-over').mouseleave(function(){			
 			$(this).css('animation-play-state','paused');
 		});
 
@@ -42,7 +40,7 @@
 				$(this).css('animation-play-state','paused');
 			}
 		});
-		
+
 		window.onscroll = function(){
 			$('.animate-when-visible').each(function(){
 				if( is_visible( $(this)[0] ) ){

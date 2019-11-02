@@ -63,12 +63,20 @@ class PadmaSiteLogoBlock extends PadmaBlockAPI {
 
 class PadmaSiteLogoBlockOptions extends PadmaBlockOptionsAPI {
 
-	public $tabs = array(
-		'site-logo-content' => 'Content'
-	);
+	public $tabs;
+	public $inputs;
 
-	public $inputs = array(
-	);
+	function __construct($block_type_object){
+
+		parent::__construct($block_type_object);
+
+		$this->tabs = array(
+			'site-logo-content' => 'Content'
+		);
+
+		$this->inputs = array(
+		);
+	}
 
 	function modify_arguments($args = false) {
 

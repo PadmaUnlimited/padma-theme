@@ -156,7 +156,9 @@ class PadmaContactForm7BlockOptions extends PadmaBlockOptionsAPI {
 	public $sets;
 	public $inputs;
 
-	function __construct(){
+	function __construct($block_type_object){
+
+		parent::__construct($block_type_object);
 
 		$this->tabs = array(
 			'general' => 'General'

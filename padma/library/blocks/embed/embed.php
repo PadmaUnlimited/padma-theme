@@ -124,7 +124,9 @@ class PadmaEmbedBlockOptions extends PadmaBlockOptionsAPI {
 	public $tabs;
 	public $inputs;
 
-	function __construct(){
+	function __construct($block_type_object){
+
+		parent::__construct($block_type_object);
 
 		$this->tabs = array(
 			'embed-options' => __('Embed Options','padma')

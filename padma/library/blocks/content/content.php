@@ -785,7 +785,9 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 	public $tabs;	
 	public $inputs;
 
-	function __construct(){
+	function __construct($block_type_object){
+
+		parent::__construct($block_type_object);
 
 		$this->tab_notices = array(
 			'mode' => __('The content block is extremely versatile.  If the default mode is selected, it will do what you expect it to do.  For example, if you add this on a page, it will display that page\'s content.  If you add it on the Blog Index layout, it will list the posts like a normal blog template and if you add this box on a category layout, it will list posts of that category.  If you wish to change what the content block displays, change the mode to <em>Custom Query</em> and use the settings in the <em>Query Filters</em> tab.','padma'),

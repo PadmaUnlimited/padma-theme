@@ -216,7 +216,9 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 	public $inputs;
 
 
-	function __construct(){
+	function __construct($block_type_object){
+
+		parent::__construct($block_type_object);
 
 		$this->tabs = array(
 			'general' => 'General'

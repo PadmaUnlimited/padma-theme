@@ -791,7 +791,9 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 		public $tabs;
 		public $inputs;
 
-		function __construct(){
+		function __construct($block_type_object){
+
+			parent::__construct($block_type_object);
 
 			$this->tabs = array(
 				'pin-setup' 		=> __('Pin Setup','padma'),

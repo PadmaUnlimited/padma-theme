@@ -105,25 +105,36 @@ class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 
 class PadmaMailchimpForWPBlockOptions extends PadmaBlockOptionsAPI {
 
-	public $tabs = array(
-		'general' => 'General'
-	);
 
-	public $sets = array(
+	public $tabs;
+	public $sets;
+	public $inputs;
 
-	);
+	function __construct($block_type_object){
 
-	public $inputs = array(
-		'general' => array(
-			'form-id' => array(
-				'type' => 'select',
-				'name' => 'form-id',
-				'label' => 'Select form',
-				'options' => 'get_forms()',
-				'tooltip' => '',
-			),
-		)
-	);
+		parent::__construct($block_type_object);
+
+		$this->tabs = array(
+			'general' => 'General'
+		);
+
+		$this->sets = array(
+
+		);
+
+		$this->inputs = array(
+			'general' => array(
+				'form-id' => array(
+					'type' => 'select',
+					'name' => 'form-id',
+					'label' => 'Select form',
+					'options' => 'get_forms()',
+					'tooltip' => '',
+				),
+			)
+		);
+
+	}
 
 	public function modify_arguments($args = false) {
 	}

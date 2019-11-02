@@ -25,7 +25,7 @@ $padma_registry = array(
 	'PadmaAdminInputs' => 'admin/api-admin-inputs',
 
 	// API	
-	'PadmaPadmaBlockOptionsAPI' => 'api/api-block',
+	'PadmaBlockOptionsAPI' => 'api/api-block-options',
 	'PadmaChildThemeAPI' => 'api/api-child-theme',
 	'PadmaElementAPI' => 'api/api-element',
 

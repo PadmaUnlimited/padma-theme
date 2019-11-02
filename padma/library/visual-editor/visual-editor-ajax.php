@@ -375,7 +375,6 @@ class PadmaVisualEditorAJAX {
 		$selector = padma_post('selector');
 		$rule = padma_post('rule');
 
-		debug($rule);
 
 		if( empty($selector) || empty($rule) )
 			return;
@@ -426,8 +425,6 @@ class PadmaVisualEditorAJAX {
 			$block['settings'] = is_array(padma_get('settings', $block)) ? array_merge($block['settings'], $unsaved_options) : $unsaved_options;
 
 		do_action('padma_block_options_' . $block['type'], $block, $layout);
-
-		debug($block);
 
 	}
 

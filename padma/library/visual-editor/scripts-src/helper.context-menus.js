@@ -13,7 +13,7 @@
 		deactivateContextMenu(args.id);
 
 		/* Bind the right click on the element(s) */
-		var contextMenuOpenEvent = !Padma.touch ? 'contextmenu.contextMenu' + args.id : 'taphold.contextMenu' + args.id;
+		var contextMenuOpenEvent = !Padma.touch ? 'contextmenu.contextMenu' + args.id : 'taphold.contextMenu' + args.id;		
 
 		/* Get to binding! */
 		if ( args.isIframeElement ) {

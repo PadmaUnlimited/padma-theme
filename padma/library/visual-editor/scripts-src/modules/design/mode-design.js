@@ -3100,7 +3100,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			*/
 			$(document).on('click','#change-side-of-panel',function(){
 
-
 				$('body').toggleClass('panel-on-left');
 
 				if($('body').hasClass('panel-on-left')){

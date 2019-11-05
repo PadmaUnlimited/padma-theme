@@ -8056,3 +8056,76 @@ and (orientation : landscape) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : portrait) {  }
+
+@media only screen and (max-width : 768px) {
+	div#panel{
+		min-width: 100%;
+	}
+	div.panel .sub-tabs{
+		width: 100%;
+	    height: auto;
+		position: absolute;
+		z-index: 10;
+	}
+	div.sub-tabs-content-container{
+		width: 100%;
+	    position: relative;
+    	top: 70px;	
+	}
+	div.sub-tabs-content div.input{
+		margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 15px;
+	    overflow: hidden;
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+	}	
+	div.sub-tabs-content div.input .input-left{
+		width: 100%;
+		max-width: 100%;
+	}
+
+	div.sub-tabs-content{
+		display: inline-block;
+		height: calc(100% + 120px);
+	}
+	/*
+	div#panel #panel-top-container{}
+	div#panel #setup-tab{}
+	div.panel .sub-tabs,
+	div#panel #setup-tab .sub-tabs{
+	    width: 100%;
+	    height: auto;
+	}
+	div#panel #setup-tab .sub-tabs-content-container{
+	    width: 100%;
+    	overflow: scroll;
+	}
+	div#panel #setup-tab .sub-tabs li{}
+	div#panel #setup-tab .sub-tabs-content-container{}
+	
+	div#panel #setup-tab .sub-tabs-content-container div.input .input-right{
+		width: 100%;
+		max-width: 100%;
+	}
+	div#panel > div.panel{
+		min-width: 100%;
+		position: relative;
+	}
+	div.panel div.sub-tabs-content-container{
+		width: 100%;
+		position: absolute;
+    	top: 65px;
+	}
+	ul.sub-tabs{}
+	*/
+	ul.sub-tabs li:after{		
+		height: 0;
+		transition:  all 300ms;
+	}
+	ul.sub-tabs li.ui-state-active{}
+	ul.sub-tabs li.ui-state-active:after{
+		
+	}
+}

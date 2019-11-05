@@ -75,7 +75,6 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				/* Hide */				
 					if ( typeof toggle[val].hide == 'string' ) {
 
-
 						var toHide = input.parents(parentElement).find(toggle[val].hide)
 
 						toHide.find('*[data-toggle]').not(input).each(function() {

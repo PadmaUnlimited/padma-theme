@@ -82,6 +82,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 		
 		/* If the panel is set to close on layout switch, add a class to the tab itself so we can target it down the road */
 		tabLink.parent().addClass('tab-close-on-layout-switch');
+		
 				
 		return tab;
 		
@@ -262,8 +263,9 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 
 				$i('.block-selected').removeClass('block-selected block-hover');
 
-				if ( tabID.indexOf('block-') === 0 )
+				if ( tabID.indexOf('block-') === 0 ){
 					$i('#' + tabID).addClass('block-selected block-hover');
+				}
 
 			}
 		});

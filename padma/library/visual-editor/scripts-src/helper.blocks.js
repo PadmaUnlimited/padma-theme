@@ -576,8 +576,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				var blockID 				= getBlockID(block);
 				var blockType 				= getBlockType(block);	
 				var blockTypeNice 			= getBlockTypeNice(blockType);
-				var contextMenuClickEvent 	= !Padma.touch ? 'click' : 'tap';
-
+				var contextMenuClickEvent 	= !Padma.touch ? 'click' : 'touchstart';
 
 				/* Block options */
 					$('<li class="context-menu-block-options"><span>Open Block Options</span></li>').appendTo(contextMenu).on(contextMenuClickEvent, function() {

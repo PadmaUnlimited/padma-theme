@@ -316,7 +316,7 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 	/* BOXES */
 		setupStaticBoxes();
 
-		/* Make clicking box overlay close visible box for lazy people like me. */
+		/* Make clicking box overlay close visible box. */
 		$('#boxes').on('click', 'div.black-overlay', function(){
 
 			var id = $(this).attr('id').replace('black-overlay-', '');

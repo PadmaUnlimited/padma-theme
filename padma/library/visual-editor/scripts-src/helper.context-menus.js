@@ -108,7 +108,7 @@
 
 		};
 
-		var contextMenuClickEvent = !Padma.touch ? 'click' : 'tap';
+		var contextMenuClickEvent = !Padma.touch ? 'click' : 'touchstart';
 		contextMenu.delegate('span', contextMenuClickEvent, contextMenuItemClick);
 
 		/* Context menu positioning */

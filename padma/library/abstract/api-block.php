@@ -103,21 +103,27 @@ abstract class PadmaBlockAPI {
 			'name' 			=> $this->name,
 			'selector' 		=> '.block-type-' . $this->id,
 			'properties' 	=> array(
+									'fonts',
 									'background',
 									'borders',
-									'fonts',
+									'outlines',
 									'padding',
+									'margins',
 									'corners',
 									'box-shadow',
+									'lists',
+									'nudging',
 									'overflow',
 									'sizes',
 									'animation',
 									'transform',
-									'advanced',
 									'transition',
-									'outlines',
-									'filter'
+									'advanced',
+									'filter',
+									'flexbox'
 								),
+
+
 			));
 
 		if ( $this->allow_titles ) {

@@ -3086,7 +3086,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					$.getScript(Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/util.fonts-browser.js');
 
 					/* Load Google API */
-					$.getScript('//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+					//$.getScript('//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+					$.getScript(Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/deps/webfont-1.4.7.js');
 
 				} catch (exception) {}
 

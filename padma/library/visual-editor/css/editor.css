@@ -8070,7 +8070,7 @@ and (orientation : portrait) {  }
 	div.sub-tabs-content-container{
 		width: 100%;
 	    position: relative;
-    	top: 70px;	
+    	top: 40px;	
 	}
 	div.sub-tabs-content div.input{
 		margin-left: auto;
@@ -8080,6 +8080,9 @@ and (orientation : portrait) {  }
 		width: 100%;
 		height: auto;
 		box-sizing: border-box;
+		position: relative;
+	    float: none;
+	    clear: both;
 	}	
 	div.sub-tabs-content div.input .input-left{
 		width: 100%;
@@ -8088,38 +8091,12 @@ and (orientation : portrait) {  }
 
 	div.sub-tabs-content{
 		display: inline-block;
-		height: calc(100% + 120px);
-	}
-	/*
-	div#panel #panel-top-container{}
-	div#panel #setup-tab{}
-	div.panel .sub-tabs,
-	div#panel #setup-tab .sub-tabs{
-	    width: 100%;
-	    height: auto;
-	}
-	div#panel #setup-tab .sub-tabs-content-container{
-	    width: 100%;
-    	overflow: scroll;
-	}
-	div#panel #setup-tab .sub-tabs li{}
-	div#panel #setup-tab .sub-tabs-content-container{}
-	
-	div#panel #setup-tab .sub-tabs-content-container div.input .input-right{
-		width: 100%;
-		max-width: 100%;
-	}
-	div#panel > div.panel{
-		min-width: 100%;
 		position: relative;
+    	width: 100%;
+    	height: auto;
+    	overflow: auto;
+    	padding-bottom: 60px;
 	}
-	div.panel div.sub-tabs-content-container{
-		width: 100%;
-		position: absolute;
-    	top: 65px;
-	}
-	ul.sub-tabs{}
-	*/
 	ul.sub-tabs li:after{		
 		height: 0;
 		transition:  all 300ms;
@@ -8127,5 +8104,45 @@ and (orientation : portrait) {  }
 	ul.sub-tabs li.ui-state-active{}
 	ul.sub-tabs li.ui-state-active:after{
 		
+	}
+	ul.options-on-mobile{
+		max-height: 40px;
+		overflow: hidden;
+	}
+	ul.options-on-mobile li.touch-option:after{
+		content: '▼';
+	    display: block;
+	    float: right;
+	    position: absolute;
+	    height: 15px;
+	    top: 8px;
+	    right: 20px;
+	    font-size: 18px;
+	    opacity: 0.8;
+	}
+	ul.options-on-mobile.open li.touch-option:after{
+		content: '▲'		
+	}
+	ul.options-on-mobile.open{
+		max-height: initial;
+	}
+	div.sub-tabs-content div.input div.input-right,
+	div.sub-tabs-content div.input div.input-left{
+		width: 100%;
+	}
+	div.sub-tabs-content div.input-checkbox label{
+		margin-top: 0;
+	}
+	div.sub-tabs-content div.input label{
+		margin: 0;
+	}
+	div.sub-tabs-content div.input input.text{
+		margin: 0;
+	    width: 100%;
+	    box-sizing: border-box;
+	}
+	body.allow-saving .save-button-container{
+	    position: fixed;
+    	right: 0;
 	}
 }

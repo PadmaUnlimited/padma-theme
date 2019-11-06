@@ -114,7 +114,7 @@ class PadmaElementAPI {
 			'id' => null,
 			'name' => null,
 			'selector' => null,
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'margins', 'corners', 'box-shadow', 'lists', 'nudging', 'overflow', 'sizes', 'animation', 'transform', 'advanced', 'transition', 'outlines'),
+			'properties' => array('fonts', 'background', 'borders', 'outlines', 'padding', 'margins', 'corners', 'box-shadow', 'lists', 'nudging', 'overflow', 'sizes', 'animation', 'transform', 'transition', 'advanced', 'filter', 'flexbox'),
 			'states' => array(),
 			'instances' => array(),
 			'default-element' => false,

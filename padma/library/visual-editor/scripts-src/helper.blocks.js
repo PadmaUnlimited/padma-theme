@@ -1001,6 +1001,20 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				selectTab('sub-tab-config', $('div#block-' + blockID + '-tab'));
 				
 			}
+
+			if( Padma.touch ){
+				$('div#block-' + blockID + '-tab ul.sub-tabs').addClass('options-on-mobile')
+				$('div#block-' + blockID + '-tab ul.sub-tabs').prepend('<li id="sub-tab-mobile-menu" class="touch-option ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="-1" ><a class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-6">Options</a></li>');
+				$('div#block-' + blockID + '-tab ul.sub-tabs li:not(.touch-option)').removeClass('ui-state-active');
+				
+				$(document).on('click','ul.options-on-mobile li#sub-tab-mobile-menu',function(){
+					$(this).parent().toggleClass('open');
+				});
+
+				$(document).on('click','ul.options-on-mobile li:not(#sub-tab-mobile-menu)',function(){
+					$('ul.options-on-mobile').toggleClass('open');
+				});
+			}
 			
 		}
 

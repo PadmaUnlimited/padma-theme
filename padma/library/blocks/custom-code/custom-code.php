@@ -38,6 +38,7 @@ class PadmaCustomCodeBlock extends PadmaBlockAPI {
 
 
 	public function setup_elements() {
+
 		$this->register_block_element(array(
 			'id' => 'content',			
 			'name' => __('Content','padma'),

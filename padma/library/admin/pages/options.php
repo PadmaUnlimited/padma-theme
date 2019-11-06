@@ -677,7 +677,7 @@
 							'checkboxes' => array(
 								array(
 									'id' => 'use-developer-version',
-									'label' => __('Allow install testing or preview version','padma'),
+									'label' => __('Allow install Edge version','padma'),
 									'checked' => PadmaOption::get('use-developer-version', false, false)
 								)
 							),

@@ -12,7 +12,8 @@ function padma_register_structural_elements() {
 			'id'               => 'html',
 			'name'             => __('HTML Document','padma'),
 			'selector'         => 'html',
-			'disallow-nudging' => true
+			'disallow-nudging' => true,
+			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines', 'animation', 'scroll')
 		) );
 
 		PadmaElementAPI::register_element(array(

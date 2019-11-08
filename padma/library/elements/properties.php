@@ -4,6 +4,21 @@ class PadmaElementProperties {
 
 	protected static $properties = array(
 
+		/*	Smoth Scrolling	*/
+			'scroll-behavior' => array(
+				'group' => 'Scroll',
+				'name' => 'Scroll',
+				'type' => 'select',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"scroll-behavior": params.value});',
+				'options' => array(
+					'auto' => 'Auto',
+					'smooth' => 'Smooth',
+					'initial' => 'Initial',
+					'inherit' => 'Inherit',
+				),
+				'default' => 'initial'
+			),
+
 		/* 	Fonts */
 			'font-family' => array(
 				'group' 			=> 'Fonts',

@@ -7,6 +7,7 @@ abstract class PadmaBlockAPI {
 	public $name;	
 	public $block_type_url;
 	public $block_type_path;
+	public $block_type_icons_dir;
 	public $options_class 	= 'PadmaBlockOptionsAPI';		
 	public $fixed_height 	= false;	
 	public $html_tag 		= 'div';	
@@ -61,6 +62,7 @@ abstract class PadmaBlockAPI {
 			'name' => $this->name,
 			'url' => $this->block_type_url,
 			'path' => $this->block_type_path,
+			'icons-dir' => $this->block_type_icons_dir,
 			'class' => get_class($this),
 			'fixed-height' => $this->fixed_height,
 			'html-tag' => $this->html_tag,

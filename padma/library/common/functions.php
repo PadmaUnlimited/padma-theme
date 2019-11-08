@@ -750,7 +750,7 @@ function padma_register_admin_meta_padma_callback($class) {
  * @package Padma
  * @subpackage API
  **/
-function padma_register_block($class, $block_type_url = false, $block_type_path = null) {
+function padma_register_block($class, $block_type_url = false, $block_type_path = null, $block_type_icons_dir = null) {
 
 	global $padma_unregistered_block_types;
 
@@ -760,6 +760,7 @@ function padma_register_block($class, $block_type_url = false, $block_type_path 
 	$padma_unregistered_block_types[$class] = array(
 		'block_type_url'	=>	$block_type_url,
 		'block_type_path'	=>	$block_type_path,
+		'block_type_icons_dir'	=>	$block_type_icons_dir,
 	);
 
 	return true;

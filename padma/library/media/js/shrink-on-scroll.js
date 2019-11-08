@@ -7,6 +7,8 @@
 		})
 
 		window.onscroll = function(){
+
+			jQuery('#wrapper-wpm5dbcb291581b1').height()
 			
 			$.each(PadmaShrinkWrappers, function (selector, options) {
 
@@ -37,9 +39,7 @@
 					return;
 
 				}
-				
-				
-				
+								
 
 				if( $('#wpadminbar').length > 0  ){
 					offset = offset - 32;
@@ -47,7 +47,7 @@
 
 				if( $(window).scrollTop() > 0 ){
 
-					$(selector).css('height',total);
+					$(selector).css('max-height',total);
 					$('#spacer-'+selector.replace('#','')).css('height',total);
 				
 					padding = parseFloat($(selector).css('padding-top').replace('px',''));
@@ -64,7 +64,8 @@
 								$(this).attr('data-org-imgheight',img_height);					
 							}
 							img_height = img_height - padding;
-							$(this).css('height', (img_height * ( ratio / 100)) + 'px' )	;						
+							//$(this).css('max-height', (img_height * ( ratio / 100)) + 'px' )	;						
+							$(this).addClass('is_shrinked');
 						});
 
 					}
@@ -99,10 +100,11 @@
 
 				}else{
 
-					$(selector).css('height','');
+					$(selector).css('max-height','');
 					$('#spacer-'+selector.replace('#','')).css('height','');
 					if(shrink_images){
-						$(selector).find('img').css('height','');
+						//$(selector).find('img').css('max-height','');
+						$(selector).find('img').removeClass('is_shrinked');
 					}
 
 					if(shrink_elements){

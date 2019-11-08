@@ -1952,11 +1952,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					selector: selector,
 					rule: rule,
 				},
-				success: function(data) {
-					console.log(data);
+				success: function(data) {					
 				}
 			}).done(function(data) {
-				console.log(data);
 			});
 	
 			

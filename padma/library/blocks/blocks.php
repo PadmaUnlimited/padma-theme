@@ -89,6 +89,9 @@ class PadmaBlocks {
 			if ( $block_type_data['block_type_path'] )
 				$block->block_type_path = untrailingslashit($block_type_data['block_type_path']);
 
+			if ( $block_type_data['block_type_icons_dir'] )
+				$block->block_type_icons_dir = untrailingslashit($block_type_data['block_type_icons_dir']);
+
 
 			$block->register();
 

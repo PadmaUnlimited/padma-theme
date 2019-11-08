@@ -51,14 +51,17 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 			'selector' => 'a.banner-image',
 			'states' => array(
 				'Clicked' => 'a.banner-image:active',
-				'Hover' => 'a.banner-image:hover'
+				'Hover' => 'a.banner-image:hover',
 			)
 		));
 
 		$this->register_block_element(array(
 			'id' => 'banner-image-img',
 			'name' => __('Banner Image','padma'),
-			'selector' => 'a.banner-image img'
+			'selector' => 'a.banner-image img',
+			'states' => array(
+				'Shrinked' => 'a.banner-image img.is_shrinked',
+			)
 		));
 
 		$this->register_block_element(array(
@@ -121,6 +124,38 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 			}
 
 		}
+
+	}
+
+	
+	public static function dynamic_css( $block_id, $block, $original_block = null ) {
+
+		$selector = '#block-' . PadmaBlocksData::get_legacy_id($block);
+
+		/* If this block is a mirror, then pull the settings from the block that's mirroring that way the dimensions are correct */
+		if ( is_array( $original_block ) ) {
+
+			$block_id = $original_block['id'];
+			$block = $original_block;
+
+			$selector .= '.block-original-' . PadmaBlocksData::get_legacy_id($block);
+
+		}
+
+		
+		$css = $selector . ' {
+				max-height: 100%;
+				transition-property: all;
+				transition-duration: 500ms;
+				transition-timing-function: ease-out;
+			}';
+		$css .= $selector . ' img{
+				transition-property: all;
+				transition-duration: 500ms;
+				transition-timing-function: ease-out;
+			}';
+
+		return $css;
 
 	}
 

@@ -113,6 +113,7 @@
 					if(shrink_elements){
 						//$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
 						$(selector).find('nav').css('max-height','');
+						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').removeClass('is_shrinked');
 					}
 					$(selector).removeClass('is_shrinked');
 				}

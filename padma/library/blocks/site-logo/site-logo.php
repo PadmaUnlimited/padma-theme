@@ -40,9 +40,9 @@ class PadmaSiteLogoBlock extends PadmaBlockAPI {
 		$this->register_block_element(array(
 			'id' => 'site-logo-img',
 			'name' => __('Site Logo image','padma'),
-			'selector' => 'img.site-logo img',		
+			'selector' => 'img.site-logo',		
 			'states' => array(
-				'Shrinked' => 'img.site-logo img.is_shrinked',
+				'Shrinked' => 'img.site-logo.is_shrinked',
 			)
 		));
 

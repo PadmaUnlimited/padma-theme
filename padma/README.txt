@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.2.3
-Version: 1.1.64
+Version: 1.1.65
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.64
+= 1.1.65
 * Released: On Dev
 
 Tested with WordPress 5.3 RC2
@@ -93,6 +93,8 @@ Added Custom "Go to Top" text on footer block
 Added Shrink on scroll to wrappers options.
 Added option to show Padma Blocks as Gutenberg Blocks
 Added CSS Filter options to Visual Editor
+Added CSS Flexbox options to Visual Editor
+Added Smooth scrolling option to HTML tag in Visual Editor
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
 Updated Animate.css to 3.7.2
 Updated translations

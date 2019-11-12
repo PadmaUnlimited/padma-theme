@@ -32,7 +32,8 @@
 						$(selector).find('img').css('height','');
 					}
 					if(shrink_elements){
-						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');						
+						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');	
+						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').removeClass('is_shrinked');					
 						$(selector).find('nav').css('max-height','');
 					}
 					$(selector).removeClass('is_shrinked');
@@ -63,8 +64,7 @@
 								img_height = $(this).css('height').replace('px','');
 								$(this).attr('data-org-imgheight',img_height);					
 							}
-							img_height = img_height - padding;
-							//$(this).css('max-height', (img_height * ( ratio / 100)) + 'px' )	;						
+							img_height = img_height - padding;												
 							$(this).addClass('is_shrinked');
 						});
 
@@ -80,7 +80,8 @@
 								font_size = $(this).css('font-size').replace('px','');
 								$(this).attr('data-org-fontsize',font_size);					
 							}
-							$(this).css('font-size', (font_size * ( ratio / 100)) + 'px' )	;						
+							$(this).css('font-size', (font_size * ( ratio / 100)) + 'px' );
+							$(this).addClass('is_shrinked');
 						});
 
 						// Navs

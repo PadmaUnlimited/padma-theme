@@ -619,7 +619,9 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				',
 						'Hover' => 'ul.menu li > a:hover',
 						'Clicked' => 'ul.menu li > a:active',
-						'Dropdown Open' => 'ul.menu li.sfHover > a'
+						'Dropdown Open' => 'ul.menu li.sfHover > a',
+						'Shrinked' => 'ul.menu li.is_shrinked',
+			
 				)
 		) );
 
@@ -648,7 +650,8 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				',
 						'Hover' => 'ul.sub-menu li > a:hover',
 						'Clicked' => 'ul.sub-menu li > a:active',
-						'Dropdown Open' => 'ul.sub-menu li.sfHover > a'
+						'Dropdown Open' => 'ul.sub-menu li.sfHover > a',
+						'Shrinked' => 'ul.menu li.is_shrinked',
 				)
 		) );
 

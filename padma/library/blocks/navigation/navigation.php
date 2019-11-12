@@ -527,7 +527,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'name' => __('Menu Item Shrinked','padma'),
-			'selector' => 'ul.menu li'
+			'selector' => 'ul.menu li',
 			'states' => array(
 				'Shrinked' => 'ul.menu li.is_shrinked',
 			)

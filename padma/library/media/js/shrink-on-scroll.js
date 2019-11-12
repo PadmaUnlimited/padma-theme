@@ -32,7 +32,7 @@
 						$(selector).find('img').css('height','');
 					}
 					if(shrink_elements){
-						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');	
+						//$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');	
 						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').removeClass('is_shrinked');					
 						$(selector).find('nav').css('max-height','');
 					}
@@ -75,12 +75,14 @@
 
 						// Text
 						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').each(function(){
+							/*
 							var font_size = $(this).attr('data-org-fontsize');
 							if( typeof font_size == 'undefined' ){
 								font_size = $(this).css('font-size').replace('px','');
 								$(this).attr('data-org-fontsize',font_size);					
 							}
 							$(this).css('font-size', (font_size * ( ratio / 100)) + 'px' );
+							*/
 							$(this).addClass('is_shrinked');
 						});
 
@@ -109,7 +111,7 @@
 					}
 
 					if(shrink_elements){
-						$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
+						//$(selector).find('a, p, li, span, h1, h2, h3, h4, h5, h6').css('font-size','');
 						$(selector).find('nav').css('max-height','');
 					}
 					$(selector).removeClass('is_shrinked');

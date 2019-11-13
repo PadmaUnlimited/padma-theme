@@ -611,7 +611,7 @@ class PadmaContentBlockDisplay {
 			 *
 			 * Custom Fields "Above"
 			 *
-			 */
+			 */			
 			if(isset($this->block['custom-fields']['above']) && is_array($this->block['custom-fields']['above']) && count($this->block['custom-fields']['above'])>0){
 
 				echo '<div class="'. implode(' ', apply_filters('padma_content_custom_fields_class', array('custom-fields', 'custom-fields-above') ) )  .'">';

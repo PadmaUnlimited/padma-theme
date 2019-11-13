@@ -1,8 +1,8 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5.2.3
-Version: 1.1.66
+Tested up to: WordPress 5.3
+Version: 1.1.67
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,10 +42,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.66
+= 1.1.67
 * Released: On Dev
 
-Tested with WordPress 5.3 RC2
+Tested with WordPress 5.3
 Tested with ClassicPress 1.1.1
 Performance improvement (spl_autoload_register implementation)
 Fixed: Custom code block minor fix
@@ -75,6 +75,14 @@ New features on Content Block
 -- padma_content_custom_fields_field_tag
 -- padma_content_custom_fields_field_content
 -- padma_content_custom_fields_class
+New features on PinBoard Block
+- Added option to exclude current post from PinBoard block when custom query is used
+- Added: Custom Fields support, includes new filters:
+-- padma_pin_board_pin_custom_fields_group_tag
+-- padma_pin_board_pin_custom_fields_label_tag
+-- padma_pin_board_pin_custom_fields_field_tag
+-- padma_pin_board_pin_custom_fields_field_content
+-- padma_pin_board_pin_custom_fields_class
 New Option to upgrade and use Padma Edge version
 New Block: Site Logo
 New inline editor for certain fields on Visual Editor
@@ -82,7 +90,6 @@ Added toggle option to slider inputs (Block API)
 Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP version (useful to migrate from old php version sites)
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load
 Added better plugin templates support
-Added option to exclude current post from PinBoard block when custom query is used
 Added option to clear caché from Admin Bar
 Added Visual Editor Design options
 - Added Margin "auto" options

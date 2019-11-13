@@ -140,6 +140,10 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 			global $wp_query, $post;
 
+
+			// Get custom fields
+			$block['custom-fields'] = $this->get_custom_fields($block);
+
 			if ( padma_post('isAjax') ) {
 				$is_archive = padma_post( 'isArchive' );
 				$is_search 	= padma_post( 'isSearch' );
@@ -303,9 +307,55 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 					do_action('padma_before_pin_board_pin_open');
 
+					
+					// POST ID
+					$post_id 		= get_the_id();
+
 					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
 
 						do_action('padma_after_pin_board_pin_open');
+
+
+						/**
+						 *
+						 * Custom Fields "Above"
+						 *
+						 */
+						
+						if(isset($block['custom-fields']['above']) && is_array($block['custom-fields']['above']) && count($block['custom-fields']['above'])>0){
+							
+							echo '<div class="'. implode(' ', apply_filters('padma_pin_board_pin_custom_fields_class', array('custom-fields', 'custom-fields-above') ) )  .'">';
+
+
+							foreach ($block['custom-fields']['above'] as $post_type => $custom_fields) {
+
+								foreach ($custom_fields as $field_name => $label) {
+
+									$group_tag = apply_filters('padma_pin_board_pin_custom_fields_group_tag', 'div' );
+									$label_tag = apply_filters('padma_pin_board_pin_custom_fields_label_tag', 'label' );
+									$field_tag = apply_filters('padma_pin_board_pin_custom_fields_field_tag', 'div' );
+
+									$custom_field_content = get_post_meta($post_id,$field_name,true);
+									$custom_field_content = apply_filters('padma_pin_board_pin_custom_fields_field_content', $custom_field_content );
+
+									if($custom_field_content){
+
+										// open tag
+										echo '<' . $group_tag . ' class="custom-fields-group">';
+
+										if($label)
+											echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+
+										echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
+
+										// close tag
+										echo '</' . $group_tag . '>';										
+									}
+								}
+							}
+
+							echo '</div>';
+						}
 
 						/* Titles above */
 							if ( $show_titles && $titles_position == 'above') {
@@ -319,7 +369,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 								echo '</h3>' . "\n";
 
 							}
-						/* End Titles below */
+						/* End Titles above */
 
 						/* Thumbnail */
 							if ( has_post_thumbnail() && $show_images ) {
@@ -451,6 +501,51 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						/* Excerpts/Content */
 								do_action('padma_before_pin_content');
 
+
+								/**
+						 		 *
+								 * Custom Fields "Before Content"
+								 *
+								 */
+								if(isset($block['custom-fields']['before-content']) && is_array($block['custom-fields']['before-content']) && count($block['custom-fields']['before-content'])>0){
+
+									echo '<div class="'. implode(' ', apply_filters('padma_pin_board_pin_custom_fields_class', array('custom-fields', 'custom-fields-before-content') ) )  .'">';
+
+									foreach ($block['custom-fields']['before-content'] as $post_type => $custom_fields) {
+
+										foreach ($custom_fields as $field_name => $label) {
+
+											$group_tag = apply_filters('padma_pin_board_pin_custom_fields_group_tag', 'div' );
+											$label_tag = apply_filters('padma_pin_board_pin_custom_fields_label_tag', 'label' );
+											$field_tag = apply_filters('padma_pin_board_pin_custom_fields_field_tag', 'div' );
+
+											$custom_field_content = get_post_meta($post_id,$field_name,true);
+											$custom_field_content = apply_filters('padma_pin_board_pin_custom_fields_field_content', $custom_field_content );
+
+											if($custom_field_content){
+
+												// open tag
+												echo '<' . $group_tag . ' class="custom-fields-group">';
+
+												if($label)
+													echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+
+												echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
+
+												// close tag
+												echo '</' . $group_tag . '>';										
+											}
+										}
+									}
+
+									echo '</div>';
+								}
+								/**
+						 		 *
+								 * END Custom Fields "Before Content"
+								 *
+								 */
+
 								if ( ($show_text_when_no_image && !has_post_thumbnail()) || ($content_to_show && !$show_text_when_no_image)) {
 
 									echo '<div class="pin-board-pin-text entry-content">' . "\n";
@@ -466,6 +561,52 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 									echo '</div>' . "\n";
 
 								}
+
+
+								/**
+			 					 *
+								 * Custom Fields "Below"
+								 *
+								 */
+								if(isset($block['custom-fields']['below']) && is_array($block['custom-fields']['below']) && count($block['custom-fields']['below'])>0){
+
+									echo '<div class="'. implode(' ', apply_filters('padma_pin_board_pin_custom_fields_class', array('custom-fields', 'custom-fields-below') ) )  .'">';
+
+									foreach ($block['custom-fields']['below'] as $post_type => $custom_fields) {
+
+										foreach ($custom_fields as $field_name => $label) {
+
+											$group_tag = apply_filters('padma_pin_board_pin_custom_fields_group_tag', 'div' );
+											$label_tag = apply_filters('padma_pin_board_pin_custom_fields_label_tag', 'label' );
+											$field_tag = apply_filters('padma_pin_board_pin_custom_fields_field_tag', 'div' );
+
+											$custom_field_content = get_post_meta($post_id,$field_name,true);
+											$custom_field_content = apply_filters('padma_pin_board_pin_custom_fields_field_content', $custom_field_content );
+
+											if($custom_field_content){
+
+												// open tag
+												echo '<' . $group_tag . ' class="custom-fields-group">';
+
+												if($label)
+													echo '<'.$label_tag.'>'. $label . '</'.$label_tag.'>';
+
+												echo '<'.$field_tag.'>'. $custom_field_content . '</'.$field_tag.'>';
+
+												// close tag
+												echo '</' . $group_tag . '>';										
+											}
+										}
+									}
+
+									echo '</div>';
+								}
+
+								/**
+			 					 *
+								 * END Custom Fields "Below"
+								 *
+								 */
 
 								do_action('padma_after_pin_content');
 
@@ -528,6 +669,58 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 
 		/**
+		 *
+		 * Get custom fields
+		 *
+		 */
+		
+		function get_custom_fields($block){
+
+			$custom_fields_show = $custom_fields_label = $custom_fields_position = array();
+
+			foreach ($block['settings'] as $name => $value) {
+
+				$data = explode('-', $name);
+				$post_type = (!empty($data[3])) ? $data[3]: null;
+
+				if(is_null($post_type))
+					continue;
+
+				$custom_field = $name;
+				$custom_field = str_replace('custom-field-show-' . $post_type . '-', '' , $custom_field);
+				$custom_field = str_replace('custom-field-position-' . $post_type . '-', '' , $custom_field);
+				$custom_field = str_replace('custom-field-label-' . $post_type . '-', '' , $custom_field);
+
+				if ( strpos($name, 'custom-field-show') !== false ){				
+					if($value){
+						$custom_fields_show[$post_type][$custom_field] = $value;
+					}				
+				}
+
+				if ( strpos($name, 'custom-field-position') !== false )
+					$custom_fields_position[$post_type][$custom_field] = $value;
+
+				if ( strpos($name, 'custom-field-label') !== false )
+					$custom_fields_label[$post_type][$custom_field] = $value;
+
+			}
+
+			$data = array();
+
+			foreach ($custom_fields_position as $post_type => $custom_fields) {
+				foreach ($custom_fields as $field_name => $position) {
+					if($custom_fields_show[$post_type][$field_name]){
+						$label = $custom_fields_label[$post_type][$field_name];
+						$data[$position][$post_type][$field_name] = $label;					
+					}
+				}
+			}
+
+			return $data;
+		}
+
+
+		/**
 		 * Register elements to be edited by the Padma Design Editor
 		 **/
 
@@ -555,7 +748,11 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'id' 			=> 'pin-board-pin-thumbnail-link-img',
 				'name' 			=> __('Pin Thumbnail Image','padma'),
 				'selector' 		=> '.pin-board-pin-thumbnail a img',
+				'states' => array(
+					'Hover' => '.pin-board-pin-thumbnail a img:hover',
+				)
 			));
+
 
 			$this->register_block_element(array(
 				'id' 			=> 'pin-below-thumb',
@@ -802,6 +999,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'text' 				=> __('Text','padma'),
 				'meta' 				=> __('Meta','padma'),
 				'images' 			=> __('Images','padma'),
+				'custom-fields'		=> __('Custom Fields','padma'),
 				'effects' 			=> __('Effects','padma'),
 				'social' 			=> __('Social','padma')
 			);
@@ -908,7 +1106,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						'label' 	=> __('Post Type','padma'),
 						'tooltip' 	=> __('Choose a post type to display. If none are selected, it will automatically default to all.','padma'),
 						'default' 	=> 'any',
-						'options' 	=> 'get_post_types()'
+						'options' 	=> 'get_post_types()',
+						'callback' => 'reloadBlockOptions(block.id)'
 					),
 					'taxonomies' => array(
 						'type' 		=> 'select',
@@ -1132,6 +1331,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					)
 				),
 
+				'custom-fields' => array(),
+
 				'effects' => array(
 					'hover-focus' => array(
 						'type' => 'checkbox',
@@ -1195,6 +1396,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 
 		public function modify_arguments($args = false) {
+
 			$block = $args['block'];
 
 			$this->taxonomy_list 	= self::get_taxonomy_list();
@@ -1236,6 +1438,112 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 						$this->inputs[$tab_id][$input_id]['callback'] = $callback;
 					}
 				}
+			}
+
+
+			/**
+			 *
+			 * Custom Fields support
+			 *
+			 */
+
+
+			$post_types = $custom_fields = array();
+
+			if( !empty($this->block['settings']['mode']) && $this->block['settings']['mode'] == 'custom' ){
+
+				if( isset($this->block['settings']['post-type']) )
+					$post_types = $this->block['settings']['post-type'];
+				else
+					$post_types = array('post');
+
+			}else{
+				$post_types = get_post_types();
+			}
+
+			$custom_fields = PadmaQuery::get_meta($post_types);		
+
+			if(count($custom_fields)==0){
+
+				if($this->block['settings']['mode'] == 'custom')
+					$this->tab_notices['custom-fields'] = __('The selected post type does not have custom fields.','padma');
+				else
+					$this->tab_notices['custom-fields'] = __('There is not custom fields to show.','padma');
+
+			}else{
+
+				$inputs = array();
+
+				foreach ($custom_fields as $post_type => $fields) {
+
+					$heading = 'custom-fields-'.$post_type.'-heading';
+
+					$inputs[$heading] = array(
+						'name' => $heading,
+						'type' => 'heading',
+						'label' => 'Custom Fields for: "' . $post_type . '".'
+					);
+
+					foreach ($fields as $field_name => $posts_total) {
+
+						// Custom field name
+						$name = 'custom-field-show-' . $post_type . '-' . $field_name;
+
+						// Custom field position
+						$label = 'custom-field-label-' . $post_type . '-' . $field_name;					
+
+						// Custom field position
+						$position = 'custom-field-position-' . $post_type . '-' . $field_name;
+
+						// Custom field input
+						$inputs[$name] = array(
+							'type' => 'checkbox',
+							'name' => $name,
+							'label' => 'Show "' . $field_name .'"',
+							'tooltip' => 'Check this to allow show ' . $field_name,
+							'default' => false,
+							'toggle'    => array(
+								'false' => array(
+									'hide' => array(
+										'#input-' . $position,
+										'#input-' . $label
+									)
+								),
+								'true' => array(
+									'show' => array(
+										'#input-' . $position,
+										'#input-' . $label
+									)
+								)
+							)
+						);					
+
+						// Custom field label input
+						$inputs[$label] = array(
+							'type' => 'text',
+							'name' => $label,
+							'label' => '"'.$field_name .'" label',
+							'default' => '',
+						);
+
+						// Custom field position input
+						$inputs[$position] = array(
+							'type' => 'select',
+							'name' => $position,
+							'label' => '"'.$field_name .'" position',
+							'default' => 'below',
+							'options' => array(
+								'above' => 'Above',
+								'before-content' => 'Before content',
+								'below' => 'Below'
+							)
+						);
+
+					}
+				}
+
+				$this->inputs['custom-fields'] = $inputs;
+
 			}
 
 		}

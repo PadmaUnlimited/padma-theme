@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.3
-Version: 1.1.67
+Version: 1.1.68
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.67
+= 1.1.68
 * Released: On Dev
 
 Tested with WordPress 5.3
@@ -65,6 +65,7 @@ Fixed: Missing arrow.svg in slide-out menu was added
 Fixed: When a Content Block, set to Custom Query, choosing a specific Category of Posts, displays on the front end, the Older Posts button at the bottom of the page reloads the same posts.
 Fixed: Media Uploader css
 Fixed: Grid on Firefox
+Fixed: Headway compatibility load now on after_setup_theme hook
 New features on Content Block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title

@@ -660,6 +660,12 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 			$this->register_block_element(array(
 				'id' => 'custom-fields-div',
+				'name' => __('Custom Fields Image','padma'),
+				'selector' => '.custom-fields image',			
+			));
+
+			$this->register_block_element(array(
+				'id' => 'custom-fields-div',
 				'name' => __('Custom Fields Div','padma'),
 				'selector' => '.custom-fields div',			
 			));

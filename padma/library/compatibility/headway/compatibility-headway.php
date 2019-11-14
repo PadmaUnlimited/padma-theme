@@ -29,8 +29,12 @@ class PadmaCompatibilityHeadway {
 		require PADMA_LIBRARY_DIR . '/compatibility/headway/functions.php';	
 		require PADMA_LIBRARY_DIR . '/compatibility/headway/abstract.php';	
 
-		PadmaCompatibilityHeadway::padma_declare_headway_classes();
-		Headway::init();
+		add_action('after_setup_theme',function(){
+
+			PadmaCompatibilityHeadway::padma_declare_headway_classes();
+			Headway::init();
+
+		});
 
 	}
 
@@ -79,7 +83,6 @@ class PadmaCompatibilityHeadway {
 		foreach ($padmaClassArray as $padmaClass => $methods) {
 
 			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);
-
 			class_alias($padmaClass,$headwayClassName);
 
 		}

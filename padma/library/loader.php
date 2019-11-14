@@ -138,6 +138,6 @@ spl_autoload_register(function ($class) {
 		$file = dirname( __FILE__ ) . '/' . $file . '.php';
 
 	if ( file_exists( $file ) && strpos($class, 'Padma') == 0 )
-		include $file;
+		include_once $file;
 
 });

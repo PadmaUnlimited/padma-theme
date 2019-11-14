@@ -844,6 +844,88 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 				'selector' 		=> '.pin-board-pagination span.page-numbers.current',
 			));
 
+			/**
+			 *
+			 * Custom Fields
+			 *
+			 */
+			$this->register_block_element(array(
+				'id' => 'custom-fields',
+				'name' => __('Custom Fields Container','padma'),
+				'selector' => '.custom-fields',			
+			));
+			$this->register_block_element(array(
+				'id' => 'custom-fields-group',
+				'name' => __('Custom Fields Group','padma'),
+				'selector' => '.custom-fields-group',
+			));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-div',
+					'name' => __('Custom Fields Image','padma'),
+					'selector' => '.custom-fields image',			
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-div',
+					'name' => __('Custom Fields Div','padma'),
+					'selector' => '.custom-fields div',			
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-p',
+					'name' => __('Custom Fields text','padma'),
+					'selector' => '.custom-fields p',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-a',
+					'name' => __('Custom Fields Link','padma'),
+					'selector' => '.custom-fields a',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-h1',
+					'name' => __('Custom Fields H1','padma'),
+					'selector' => '.custom-fields h1',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-h2',
+					'name' => __('Custom Fields H2','padma'),
+					'selector' => '.custom-fields h2',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-h3',
+					'name' => __('Custom Fields H3','padma'),
+					'selector' => '.custom-fields h3',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-h4',
+					'name' => __('Custom Fields H4','padma'),
+					'selector' => '.custom-fields h4',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-h5',
+					'name' => __('Custom Fields H5','padma'),
+					'selector' => '.custom-fields h5',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-h6',
+					'name' => __('Custom Fields H6','padma'),
+					'selector' => '.custom-fields h6',
+				));
+
+				$this->register_block_element(array(
+					'id' => 'custom-fields-span',
+					'name' => __('Custom Fields span','padma'),
+					'selector' => '.custom-fields span',
+				));
+
 		}
 
 

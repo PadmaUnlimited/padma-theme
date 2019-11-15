@@ -689,6 +689,7 @@ class PadmaBlocks {
 			/* Use legacy ID if present */
 			$block['id'] = PadmaBlocksData::get_legacy_id( $block );
 
+
 			do_action('padma_before_block', $block);
 			do_action('padma_before_block_' . $block['id'], $block);
 

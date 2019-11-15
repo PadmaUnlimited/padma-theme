@@ -186,7 +186,7 @@ class PadmaGutenbergBlocks {
 
 	private static function render_js($block){
 
-		$block_name = ucfirst($block['type']) . ' > ';
+		$block_name = '';
 
 		if( !empty($block['settings']['alias']) )
 			$block_name .= $block['settings']['alias'];
@@ -204,14 +204,14 @@ class PadmaGutenbergBlocks {
 			        padding: '20px',
 			    };			 
 			    blocks.registerBlockType( 'padma/" . $block['type'] . "', {
-			        title: '".$block['type'].': ' . $block_name ."',
+			        title: '". $block_name ."',
 			        icon: 'universal-access-alt',
 			        category: '".$category."',
 			        edit: function() {
 			            return el(
 			                'div',
 			                {  },
-			                '[padma-block id=\'". $block['id'] ."\']'
+			                '" . do_shortcode("[padma-block id=\'". $block['id'] ."\']") . "'
 			            );
 			        },
 			        save: function() {

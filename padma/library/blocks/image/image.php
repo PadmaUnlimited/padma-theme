@@ -91,6 +91,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 
 	function content($block) {
 
+
 		//Display image if there is one
 		if ( $image_src = parent::get_setting($block, 'image') ) {
 
@@ -133,8 +134,6 @@ class PadmaImageBlock extends PadmaBlockAPI {
 					echo self::dynamic_css(false, $block);
 				echo '</style>';
 			}
-
-
 	}
 
 }

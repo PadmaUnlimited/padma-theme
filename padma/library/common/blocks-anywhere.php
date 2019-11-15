@@ -13,9 +13,12 @@ class PadmaBlocksAnywhere {
 	static function init() {
 
 		add_filter( 'padma_compiler_trigger_url', array( __CLASS__, 'add_current_layout' ) );
-		add_shortcode( 'padma-block', array( __CLASS__, 'create_block_shortcode' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
-		add_action( 'padma_blocks_anywhere', array( __CLASS__, 'create_block_shortcode' ) );
+		//add_action( 'padma_blocks_anywhere', array( __CLASS__, 'create_block_shortcode' ) );
+
+		add_shortcode( 'padma-block', array( __CLASS__, 'create_block_shortcode' ) );
+		
+		
 
 	}
 
@@ -28,21 +31,33 @@ class PadmaBlocksAnywhere {
 	}
 
 
-	static function create_block_shortcode( $atts ) {
+	static function create_block_shortcode( $atts = [], $content = null, $tag = '' ) {
 
 		global $post;
+		
+		// normalize attribute keys, lowercase
+	    $atts = array_change_key_case((array)$atts, CASE_LOWER);
+	 
+	    // override default attributes with user attributes
+	    $args = shortcode_atts([
+                     'id' => 'NULL',
+                ], $atts, $tag);
 
-		$this_post = $post;
-
-		extract( shortcode_atts( array(
-			'id' => '',
-			'post_id' => ''
-		), $atts ) );
+	
+		debug([
+			'atts' => $atts,
+			'args' => $args,
+			'id' => $id,
+			'content' => $content,
+			'tag' => $tag,
+		]);
 
 
 		ob_start();
 
 		$block = PadmaBlocksData::get_block( $id );
+
+
 
 		/*	Register IDs to use them later	*/
 		self::$blocks[] = $id;
@@ -83,6 +98,7 @@ class PadmaBlocksAnywhere {
 
 				}
 
+
 			PadmaBlocks::display_block( $block['id'] );
 
 			/* we reset the query again so that we can continue displaying the appropriate content */
@@ -91,7 +107,7 @@ class PadmaBlocksAnywhere {
 		}
 
 		$output_string = ob_get_contents();
-
+		
 		ob_end_clean();
 
 		if ( empty( $output_string ) )

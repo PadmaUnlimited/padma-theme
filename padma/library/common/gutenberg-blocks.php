@@ -197,10 +197,14 @@ class PadmaGutenbergBlocks {
 
 		$category = 'padma-' . $block['layout'];
 
+		/*
 		ob_start();
 		do_action('padma_block_content_' . $block['type'], $block);
 		$block_content = ob_get_contents();		
 		ob_end_clean();
+		*/
+
+
 
 
 		$blockStyle = array(
@@ -208,35 +212,59 @@ class PadmaGutenbergBlocks {
 	        'color' => '#fff',
 	        'padding' => '20px',
 		);
+		$blockStyle = json_encode($blockStyle);
 
-		//debug( json_encode($blockStyle) );
 
-		$js .= "( function( blocks, element) {				
+		$supports = array(
+			'customClassName' => 'false',
+			'className' => 'false',
+			'html' => 'true',
+		);
+		$supports = json_encode($supports);
+
+
+		$attributes = array(
+			'content' => array(
+					'type' => 'string',
+					'source' => 'html',
+				)
+		);
+		$attributes = json_encode($attributes);
+
+		$js .= '( function( blocks, element, __, components) {
+
 				var el = element.createElement;
 				var blockStyle =  " . $blockStyle . " ;			 
-			    blocks.registerBlockType( 'padma/" . $block['type'] . "', {
-			        title: '". $block_name ."',
-			        icon: 'universal-access-alt',
-			        category: '".$category."',
+
+			    blocks.registerBlockType( "padma/' . $block['type'] . '", {
+
+			        title: "'. $block_name .'",
+			        icon: "grid-view",
+			        keywords: [ "padma","'.$block_name.'" ],
+			        category: "'.$category.'",
+			        supports: ' . $supports . ',
+					attributes: ' . $attributes . ',									
 			        edit: function() {
-			            return el(
-			                'div',
-			                {  },
-			                '" . $block_content . "'
-			            );
-			        },
+			        	return el(
+			        		"div",
+			        		{},
+			        		"[padma-block id=\''. $block['id'] . '\']"
+			        	)
+			        	},
 			        save: function() {
 			            return el(
-			                'div',
+			                "div",
 			                {  },
-			              	'[padma-block id=\'". $block['id'] ."\']'
+			              	"[padma-block id=\''. $block['id'] . '\']"
 			            );
 			        },
 			    } );
 			}(
 			    window.wp.blocks,
-			    window.wp.element
-			) );";
+			    window.wp.element,
+			    window.wp.i18n,
+			    window.wp.components,
+			) );';
 
 		return $js;
 	}

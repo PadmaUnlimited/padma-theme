@@ -6,9 +6,7 @@
 			$(selector).addClass('shrink');
 		})
 
-		window.onscroll = function(){
-
-			jQuery('#wrapper-wpm5dbcb291581b1').height()
+		$(window).on('scroll',function(){
 			
 			$.each(PadmaShrinkWrappers, function (selector, options) {
 
@@ -119,7 +117,7 @@
 				}
 
 			});
-		}
+		});
 	}
 
 })(jQuery);

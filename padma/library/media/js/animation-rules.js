@@ -41,7 +41,7 @@
 			}
 		});
 
-		window.onscroll = function(){
+		$(window).on('scroll',function(){
 			$('.animate-when-visible').each(function(){
 				if( is_visible( $(this)[0] ) ){
 					$(this).css('animation-play-state','running');
@@ -49,7 +49,7 @@
 					$(this).css('animation-play-state','paused');
 				}
 			});
-		}
+		});
 
 		
 	}

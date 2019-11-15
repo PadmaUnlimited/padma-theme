@@ -34,7 +34,7 @@ class PadmaBlocksAnywhere {
 	static function create_block_shortcode( $atts = [], $content = null, $tag = '' ) {
 
 		global $post;
-		
+
 		// normalize attribute keys, lowercase
 	    $atts = array_change_key_case((array)$atts, CASE_LOWER);
 	 
@@ -43,15 +43,7 @@ class PadmaBlocksAnywhere {
                      'id' => 'NULL',
                 ], $atts, $tag);
 
-	
-		debug([
-			'atts' => $atts,
-			'args' => $args,
-			'id' => $id,
-			'content' => $content,
-			'tag' => $tag,
-		]);
-
+	    $id = $args['id'];
 
 		ob_start();
 

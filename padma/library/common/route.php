@@ -124,7 +124,9 @@ class PadmaRoute {
 				break;
 
 			case 'block-js':
-				PadmaGutenbergBlocks::block_js();
+				$PadmaGutenbergBlocks = new PadmaGutenbergBlocks();
+				$PadmaGutenbergBlocks->block_js();
+				//PadmaGutenbergBlocks::block_js();				
 				break;
 
 		}

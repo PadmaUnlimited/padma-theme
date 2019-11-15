@@ -184,7 +184,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 				$videoHTML .= '<source src="' . padma_format_url_ssl($video_ogg) . '" type="video/ogg">';
 
 			if(parent::get_setting($block, 'video-webm'))
-				$videoHTML .= '<source src="' . padma_format_url_ssl($video_ogg) . '" type="video/webm">';
+				$videoHTML .= '<source src="' . padma_format_url_ssl($video_webm) . '" type="video/webm">';
 
 			$videoHTML .= 'Your browser does not support the video tag.';
 			$videoHTML .= '</video></div>';

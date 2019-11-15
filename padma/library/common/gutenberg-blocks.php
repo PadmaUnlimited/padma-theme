@@ -181,10 +181,11 @@ class PadmaGutenbergBlocks {
 
 		echo self::render_js($block);
 
+
 	}
 
 
-	private static function render_js($block){
+	private function render_js($block){
 
 		$block_name = '';
 
@@ -196,13 +197,23 @@ class PadmaGutenbergBlocks {
 
 		$category = 'padma-' . $block['layout'];
 
-		$js = "( function( blocks, element) {				
+		ob_start();
+		do_action('padma_block_content_' . $block['type'], $block);
+		$block_content = ob_get_contents();		
+		ob_end_clean();
+
+
+		$blockStyle = array(
+			'backgroundColor' => '#900',
+	        'color' => '#fff',
+	        'padding' => '20px',
+		);
+
+		//debug( json_encode($blockStyle) );
+
+		$js .= "( function( blocks, element) {				
 				var el = element.createElement;
-				var blockStyle = {
-			        backgroundColor: '#900',
-			        color: '#fff',
-			        padding: '20px',
-			    };			 
+				var blockStyle =  " . $blockStyle . " ;			 
 			    blocks.registerBlockType( 'padma/" . $block['type'] . "', {
 			        title: '". $block_name ."',
 			        icon: 'universal-access-alt',
@@ -211,7 +222,7 @@ class PadmaGutenbergBlocks {
 			            return el(
 			                'div',
 			                {  },
-			                '" . do_shortcode("[padma-block id=\'". $block['id'] ."\']") . "'
+			                '" . $block_content . "'
 			            );
 			        },
 			        save: function() {

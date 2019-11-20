@@ -338,6 +338,8 @@ class PadmaVisualEditorDisplay {
 					$filter_categories .= 'filter-' . $value . ' '; 
 				}
 
+
+
 				$icon = '/icon.svg';
 				if( !file_exists($block_type['icons-dir'] . $icon) ){
 					if( !file_exists( PADMA_LIBRARY_DIR . '/blocks/' . $block_type_id . '/' .  $icon) ){
@@ -346,6 +348,10 @@ class PadmaVisualEditorDisplay {
 				}
 
 				$icon = $block_type['url'] . $icon;
+
+				if (!filter_var($icon, FILTER_VALIDATE_URL)){
+					$icon = $block_type['url'] . '/icon.png';
+				}
 				
 				echo '<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">';
 				echo '<div class="block-detail" style="background-image: url(' . $icon . ');">
@@ -363,16 +369,6 @@ class PadmaVisualEditorDisplay {
 						</div>
 					</div>
 				</div>';
-				/*
-			echo '
-				<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" data-hasqtip="71" oldtitle="Display an audio" title="" aria-describedby="qtip-71" style="">
-					<a target="_blank" href="https://www.padmaunlimited.com/how-to-get-more-blocks/">
-						<h4 style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">' . __('Get more blocks', 'padma') . '</h4>
-					</a>
-					<div class="block-type-description">
-						<p>' . __('Get more blocks', 'padma') . '</p>
-					</div>
-				</div>';*/
 
 		echo '</div>';
 

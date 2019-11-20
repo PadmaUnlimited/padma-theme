@@ -773,7 +773,7 @@ class PadmaBlocks {
 
 	public static function get_block_types() {
 
-		global $padma_block_types;
+		global $padma_block_types;		
 
 		if ( !isset($padma_block_types) || empty($padma_block_types) )
 			return null;

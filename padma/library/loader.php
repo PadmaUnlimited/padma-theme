@@ -128,16 +128,20 @@ $padma_registry = apply_filters('padma_class_registry', $padma_registry);
 
 spl_autoload_register(function ($class) {
 
-	global $padma_registry;
-	$file = '';
+	if( strpos($class, 'Padma') == 0  ){
 
-	if ( isset($padma_registry[$class]) )
-		$file = $padma_registry[$class];
+		global $padma_registry;
+		$file = '';
 
-	if(!is_file($file))
-		$file = dirname( __FILE__ ) . '/' . $file . '.php';
+		if ( isset($padma_registry[$class]) )
+			$file = $padma_registry[$class];
 
-	if ( file_exists( $file ) && strpos($class, 'Padma') == 0 )
-		include_once $file;
+		if(!is_file($file))
+			$file = dirname( __FILE__ ) . '/' . $file . '.php';
+
+		if ( file_exists( $file ) )
+			include_once $file;
+	}
+
 
 });

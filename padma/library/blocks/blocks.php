@@ -101,7 +101,6 @@ class PadmaBlocks {
 
 			}else{
 
-				debug('here ->' . $class);
 
 				if ( !class_exists($class) )
 					return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);

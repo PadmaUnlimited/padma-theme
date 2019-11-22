@@ -54,7 +54,10 @@ class PadmaVisualEditor {
         wp_enqueue_media();
 
 		padma_register_web_font_provider('PadmaTraditionalFonts');
-		padma_register_web_font_provider('PadmaGoogleFonts');
+
+		if( ! PadmaOption::get('do-not-use-google-fonts') ){
+			padma_register_web_font_provider('PadmaGoogleFonts');
+		}			
 
 
 	}

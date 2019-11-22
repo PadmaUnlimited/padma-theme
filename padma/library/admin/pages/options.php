@@ -6,6 +6,7 @@
 	<a class="nav-tab" href="#tab-advanced"><?php _e('Advanced','padma'); ?></a>
 	<a class="nav-tab" href="#tab-compatibility"><?php _e('Compatibility','padma'); ?></a>
 	<a class="nav-tab" href="#tab-mobile"><?php _e('Mobile','padma'); ?></a>
+	<a class="nav-tab" href="#tab-fonts"><?php _e('Fonts','padma'); ?></a>
 </h2>
 
 <?php do_action('padma_admin_save_message'); ?>
@@ -126,11 +127,7 @@
 					?>
 				</div>
 			</div>
-
 		</div>
-
-
-
 
 		<div class="big-tab" id="tab-seo-content">
 
@@ -435,9 +432,7 @@
 			<?php
 			}
 			?>
-
-		</div><!-- #tab-seo -->
-
+		</div>
 
 		<div class="big-tab" id="tab-scripts-content">
 
@@ -483,8 +478,7 @@
 					?>
 				</div>
 			</div>
-		</div><!-- #tab-scripts-content -->
-
+		</div>
 
 		<div class="big-tab" id="tab-visual-editor-content">
 
@@ -534,7 +528,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div class="big-tab" id="tab-advanced-content">
 
@@ -724,8 +717,6 @@
 					?>
 				</div>
 			</div>
-
-
 		</div>
 
 		<div class="big-tab" id="tab-compatibility-content">
@@ -833,7 +824,6 @@
 					?>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="big-tab" id="tab-mobile-content">
@@ -871,7 +861,43 @@
 					?>
 				</div>
 			</div>
+		</div>
 
+		<div class="big-tab" id="tab-fonts-content">
+
+			<!-- Responsive options -->
+			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
+				<div id="" class="postbox padma-admin-options-group">
+
+					<button type="button" class="handlediv" aria-expanded="false">
+						<span class="screen-reader-text"><?php _e('Fonts','padma'); ?></span>
+						<span class="toggle-indicator" aria-hidden="true"></span>
+					</button>
+
+
+					<h2 class="hndle"><span><?php _e('Fonts','padma'); ?></span></h2>
+
+					<?php
+					$form = array(
+						array(
+							'type' 	=> 'checkbox',
+							'label' => __('Google Fonts','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'do-not-use-google-fonts',
+									'label' 	=> __('Do not use Google Fonts','padma'),
+									'checked' 	=> PadmaOption::get('do-not-use-google-fonts', false, false)
+								)
+							),
+							'description' => __('If checked, Padma will not use Google Fonts.','padma')
+						)
+					);
+
+					PadmaAdminInputs::admin_field_generate($form);
+
+					?>
+				</div>
+			</div>
 		</div>
 
 

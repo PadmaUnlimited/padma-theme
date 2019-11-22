@@ -17,6 +17,9 @@ class PadmaWebFontsLoader {
 		if ( ! PadmaRoute::is_visual_editor_iframe( 'design' ) )
 			return;
 
+		if(PadmaOption::get('do-not-use-google-fonts'))
+			return;
+
 		wp_enqueue_script( 'webfont', padma_format_url_ssl( 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' ) );
 
 	}
@@ -40,6 +43,9 @@ class PadmaWebFontsLoader {
 
 
 	public static function google_fonts_stylesheet() {
+
+		if(PadmaOption::get('do-not-use-google-fonts'))
+			return;
 
 		$webfonts_in_use 	= self::google_check_if_should_load();
 		$webfonts_variants 	= array();

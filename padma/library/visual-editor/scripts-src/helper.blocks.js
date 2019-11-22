@@ -704,7 +704,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				var style = 'font-size: ' + element.css('font-size') + ';';
 					style += 'color: ' + element.css('color') + ';';
 					style += 'height: ' + element.css('height') + ';';
-					style += 'width: ' + element.css('width') + ';';
+					//style += 'width: ' + element.css('width') + ';';
 					style += 'text-align: ' + element.css('text-align') + ';';
 					style += 'background-color: ' + element.css('background-color') + ';';
 
@@ -744,11 +744,14 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				$i('#dynamic-inline-edit-'+blockID).remove();
 				refreshBlockContent(blockID);
 				reloadBlockOptions(blockID);
+
 			});
 
 
 			$i('body').delegate('.dynamic-inline-edit textarea','keydown',function(event){				
+				
 				var id = $i(this).attr('id').split('-')[3];
+				
 				if (event.keyCode == 13) {
 					$i('a[data-save*="'+id+'"]').click();
 				}else{

@@ -109,6 +109,9 @@
 .big-tab.big-tab-visible .padma-postbox-container{
 	display: block !important;
 }
+.big-tab .padma-admin-options-group.closed .handlediv .toggle-indicator:before{
+        content: "\f140";
+}
 .nav-tab-wrapper.big-tabs-tabs{
     margin-bottom: 15px;
 }

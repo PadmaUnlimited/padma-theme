@@ -642,11 +642,12 @@ body:not(.inspector-disabled) .inspector-element-selected {
 }
 
 .dynamic-inline-edit{
-	width: auto;
+	width: 100%;
     display: inline-block;  
 }
 .dynamic-inline-edit textarea{
-	max-width: calc(100% - 64px);
+	max-width: calc(100% - 60px);
+	width: calc(100% - 60px);
 	height: 100%;
     padding-left: 5px;
 	display: inline-block;
@@ -658,9 +659,10 @@ body:not(.inspector-disabled) .inspector-element-selected {
 }
 .dynamic-inline-edit a{
     display: inline-block;
-    width: auto;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 30px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
     padding-top: 5px;
     padding-bottom: 5px;
     cursor: pointer;

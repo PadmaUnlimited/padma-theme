@@ -745,25 +745,6 @@ function padma_register_admin_meta_padma_callback($class) {
 
 }
 
-/**
- * Padma blocks API.
- *
- * @package Padma
- * @subpackage API
- **/
-function padma_register_block($class, $block_type_url = false) {	
-	
-	global $padma_unregistered_block_types;
-	
-	if ( !is_array($padma_unregistered_block_types) )
-		$padma_unregistered_block_types = array();
-	
-	$padma_unregistered_block_types[$class] = $block_type_url;
-	
-	return true;
-
-}
-
 
 /**
  * Padma blocks API.
@@ -771,7 +752,7 @@ function padma_register_block($class, $block_type_url = false) {
  * @package Padma
  * @subpackage API
  **/
-function padma_register_block_complex($class, $block_type_url = false, $block_type_path = null, $block_type_icons_dir = null) {
+function padma_register_block($class, $block_type_url = false, $block_type_path = null, $block_type_icons_dir = null) {
 
 	global $padma_unregistered_block_types;
 

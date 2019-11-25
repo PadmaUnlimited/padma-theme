@@ -674,7 +674,7 @@
 									'checked' => PadmaOption::get('use-developer-version', false, false)
 								)
 							),
-							'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong> Once active this option will allow you to upgrade your website to the latest version.','padma')
+							'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.</strong> Once active this option will allow you to upgrade your website to the latest version.','padma')
 						)
 					);
 
@@ -708,7 +708,7 @@
 									'checked' => PadmaOption::get('debug-mode', false, false)
 								)
 							),
-							'description' => __('Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>.','padma')
+							'description' => __('Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved</strong>.','padma')
 						)
 					);
 

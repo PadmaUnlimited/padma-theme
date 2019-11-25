@@ -2,8 +2,20 @@
 
 	if ( typeof fontsToUse != 'undefined' ) {		
 		
+		var fonts = fontsToUse.split('|');
+		var last = fonts.length - 1;
+		var newFonts = '';
+
+		fonts[ last ] = fonts[ last ] + '&display=swap';
+
+		for (var i = 0; i < fonts.length; i++) {
+			newFonts += fonts[i];
+		}
+
 		WebFontConfig = {
-		    google: { families: [ fontsToUse ] }
+		    google: { 
+		    	families: [ newFonts ],		    	
+		    }
 		};
 		
 	    var wf = document.createElement('script');

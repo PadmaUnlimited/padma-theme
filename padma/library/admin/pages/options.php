@@ -865,7 +865,7 @@
 
 		<div class="big-tab" id="tab-fonts-content">
 
-			<!-- Responsive options -->
+			<!-- Fonts options -->
 			<div id="tab-general-content" class="postbox-container padma-postbox-container">		
 				<div id="" class="postbox padma-admin-options-group">
 
@@ -878,6 +878,7 @@
 					<h2 class="hndle"><span><?php _e('Fonts','padma'); ?></span></h2>
 
 					<?php
+
 					$form = array(
 						array(
 							'type' 	=> 'checkbox',
@@ -890,6 +891,25 @@
 								)
 							),
 							'description' => __('If checked, Padma will not use Google Fonts.','padma')
+						)
+					);
+
+					PadmaAdminInputs::admin_field_generate($form);
+
+
+
+					$form = array(
+						array(
+							'type' 	=> 'checkbox',
+							'label' => __('Load Google Fonts asynchronously','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'load-google-fonts-asynchronously',
+									'label' 	=> __('Load Google Fonts asynchronously','padma'),
+									'checked' 	=> PadmaOption::get('load-google-fonts-asynchronously', false, false)
+								)
+							),
+							'description' => __('If checked, Padma will load fonts asynchronously to avoid render blocking font when you use google fonts.','padma')
 						)
 					);
 

@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Padma Unlimited 1.1.70\n"
+"Project-Id-Version: Padma Unlimited 1.1.75\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T08:22:46-06:00\n"
+"POT-Creation-Date: 2019-11-22T15:02:26-06:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: padma\n"
@@ -98,9 +98,9 @@ msgstr ""
 #: library/admin/admin.php:269
 #: library/admin/admin.php:277
 #: library/admin/pages/options.php:5
-#: library/admin/pages/options.php:88
-#: library/admin/pages/options.php:496
-#: library/admin/pages/options.php:501
+#: library/admin/pages/options.php:89
+#: library/admin/pages/options.php:490
+#: library/admin/pages/options.php:495
 msgid "Visual Editor"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 #: library/admin/admin.php:271
 #: library/admin/admin.php:276
 #: library/admin/pages/getting-started.php:14
-#: library/admin/pages/options.php:93
+#: library/admin/pages/options.php:94
 msgid "Options"
 msgstr ""
 
@@ -141,8 +141,8 @@ msgstr ""
 
 #: library/admin/admin-bar.php:118
 #: library/admin/pages/options.php:4
+#: library/admin/pages/options.php:444
 #: library/admin/pages/options.php:449
-#: library/admin/pages/options.php:454
 msgid "Scripts/Analytics"
 msgstr ""
 
@@ -282,7 +282,7 @@ msgid "Set the position of the featured image for this entry."
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:172
-#: library/admin/pages/options.php:240
+#: library/admin/pages/options.php:237
 #: library/blocks/content/content.php:184
 #: library/blocks/content/content.php:966
 #: library/blocks/listings/block-options.php:266
@@ -296,7 +296,7 @@ msgid "Custom <code>&lt;title&gt;</code> tag"
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:180
-#: library/admin/pages/options.php:250
+#: library/admin/pages/options.php:247
 #: library/admin/pages/templates.php:59
 msgid "Description"
 msgstr ""
@@ -342,7 +342,7 @@ msgid "<code>noodp</code> links in this entry."
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:222
-#: library/admin/pages/options.php:339
+#: library/admin/pages/options.php:336
 msgid "NoODP is a specialized tag telling the engines not to grab a descriptive snippet about a page from the Open Directory Project (DMOZ) for display in the search results."
 msgstr ""
 
@@ -351,7 +351,7 @@ msgid "<code>noydir</code> links in this entry."
 msgstr ""
 
 #: library/admin/admin-meta-boxes.php:230
-#: library/admin/pages/options.php:352
+#: library/admin/pages/options.php:349
 msgid "NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use the Yahoo! Directory description of a page/site in the search results."
 msgstr ""
 
@@ -380,7 +380,7 @@ msgid "Open in Visual Editor"
 msgstr ""
 
 #: library/admin/admin.php:261
-#: library/admin/pages/options.php:83
+#: library/admin/pages/options.php:84
 msgid "Getting Started"
 msgstr ""
 
@@ -609,83 +609,89 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
-#: library/admin/pages/options.php:42
+#: library/admin/pages/options.php:9
+#: library/admin/pages/options.php:873
+#: library/admin/pages/options.php:878
+msgid "Fonts"
+msgstr ""
+
+#: library/admin/pages/options.php:43
 msgid "A favicon is the little image that sits next to your address in the favorites menu and on tabs.  If you do not know how to save an image as an icon you can go to <a href=\"http://www.favicon.cc/\" target=\"_blank\">favicon.cc</a> and draw or import an image."
 msgstr ""
 
-#: library/admin/pages/options.php:50
+#: library/admin/pages/options.php:51
 msgid "If you use any service like <a href=\"http://feedburner.google.com/\" target=\"_blank\">FeedBurner</a>, type the feed URL here."
 msgstr ""
 
-#: library/admin/pages/options.php:66
+#: library/admin/pages/options.php:67
 msgid "Admin Preferences"
 msgstr ""
 
-#: library/admin/pages/options.php:78
+#: library/admin/pages/options.php:79
 msgid "Default Admin Page"
 msgstr ""
 
-#: library/admin/pages/options.php:96
+#: library/admin/pages/options.php:97
 msgid "Select which admin page you would like to be directed to when you click on \"Padma\" in the WordPress Admin."
 msgstr ""
 
-#: library/admin/pages/options.php:100
+#: library/admin/pages/options.php:101
 msgid "Do not recommend plugin installation"
 msgstr ""
 
-#: library/admin/pages/options.php:104
+#: library/admin/pages/options.php:105
 msgid "Hide recommended plugin notice"
 msgstr ""
 
-#: library/admin/pages/options.php:108
+#: library/admin/pages/options.php:109
 msgid "If on, Padma will not recommend install \"Updater\" and \"Services\" plugin"
 msgstr ""
 
-#: library/admin/pages/options.php:112
+#: library/admin/pages/options.php:113
 msgid "Version Number"
 msgstr ""
 
-#: library/admin/pages/options.php:116
+#: library/admin/pages/options.php:117
 msgid "Hide Padma Version Number From Menu"
 msgstr ""
 
-#: library/admin/pages/options.php:120
+#: library/admin/pages/options.php:121
 msgid "Check this if you wish to have the Menu say \"Padma\" instead of \"Padma %s\""
 msgstr ""
 
-#: library/admin/pages/options.php:143
+#: library/admin/pages/options.php:140
 msgid "Padma has detected that you are using the All In One SEO pack plugin.  In order to reduce conflicts and save resources, Padma's SEO functionality has been disabled."
 msgstr ""
 
-#: library/admin/pages/options.php:147
+#: library/admin/pages/options.php:144
 msgid "Padma has detected that you are using Yoast's WordPress SEO plugin.  In order to reduce conflicts and save resources, Padma's SEO functionality has been disabled."
 msgstr ""
 
-#: library/admin/pages/options.php:151
+#: library/admin/pages/options.php:148
 msgid "Padma's SEO functionality is disabled."
 msgstr ""
 
-#: library/admin/pages/options.php:159
+#: library/admin/pages/options.php:156
 msgid "SEO Templates"
 msgstr ""
 
-#: library/admin/pages/options.php:199
+#: library/admin/pages/options.php:196
 msgid "Select a Template:"
 msgstr ""
 
-#: library/admin/pages/options.php:201
+#: library/admin/pages/options.php:198
 msgid "Blog Index"
 msgstr ""
 
-#: library/admin/pages/options.php:205
+#: library/admin/pages/options.php:202
 msgid "Front Page"
 msgstr ""
 
-#: library/admin/pages/options.php:218
+#: library/admin/pages/options.php:215
 msgid "Category"
 msgstr ""
 
-#: library/admin/pages/options.php:219
+#: library/admin/pages/options.php:216
 #: library/blocks/navigation/navigation.php:732
 #: library/blocks/search/search.php:17
 #: library/blocks/search/search.php:70
@@ -694,14 +700,14 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: library/admin/pages/options.php:220
+#: library/admin/pages/options.php:217
 #: library/blocks/content/content.php:965
 #: library/blocks/listings/block-options.php:265
 #: library/blocks/pin-board/pin-board.php:1249
 msgid "Date"
 msgstr ""
 
-#: library/admin/pages/options.php:221
+#: library/admin/pages/options.php:218
 #: library/admin/pages/templates.php:68
 #: library/blocks/content/content.php:938
 #: library/blocks/content/content.php:970
@@ -711,11 +717,11 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: library/admin/pages/options.php:222
+#: library/admin/pages/options.php:219
 msgid "Post Tag"
 msgstr ""
 
-#: library/admin/pages/options.php:223
+#: library/admin/pages/options.php:220
 #: library/blocks/content/content.php:921
 #: library/blocks/content/content.php:971
 #: library/blocks/listings/block-options.php:199
@@ -723,341 +729,353 @@ msgstr ""
 msgid "Post Type"
 msgstr ""
 
-#: library/admin/pages/options.php:224
+#: library/admin/pages/options.php:221
 #: library/blocks/pin-board/pin-board.php:1197
 msgid "Taxonomy"
 msgstr ""
 
-#: library/admin/pages/options.php:241
+#: library/admin/pages/options.php:238
 msgid "The title is the main text that describes the page. It is the single most important on-page SEO element (behind overall content).  The title appears at the top of the web browser when viewing the page, in browser tabs, search engine results, and external websites.  <strong>Tip:</strong> it is best that the title stays below 70 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-seo/title-tag\" target=\"_blank\">Learn more about Titles &raquo;</a>"
 msgstr ""
 
-#: library/admin/pages/options.php:251
+#: library/admin/pages/options.php:248
 msgid "Meta description tags, while not important to search engine rankings, are extremely important in gaining user click-through from search engine result pages (SERPs). These short paragraphs are your opportunity to advertise content to searchers and let them know exactly what the given page has with regard to what they’re looking for. <strong>Tip:</strong> a good description is around 150 characters.<br /><br /><a href=\"http://www.seomoz.org/learn-seo/meta-description\" target=\"_blank\">Learn more about &lt;meta&gt; Descriptions &raquo;</a>"
 msgstr ""
 
-#: library/admin/pages/options.php:261
+#: library/admin/pages/options.php:258
 msgid "You may use the following variables in the Title and Description inputs above:"
 msgstr ""
 
-#: library/admin/pages/options.php:264
+#: library/admin/pages/options.php:261
 msgid "Will retrieve the title of whatever post, archive, or page is being displayed."
 msgstr ""
 
-#: library/admin/pages/options.php:265
+#: library/admin/pages/options.php:262
 msgid "Will retrieve the name of the site. This can be set in <a href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
 msgstr ""
 
-#: library/admin/pages/options.php:267
+#: library/admin/pages/options.php:264
 msgid "Will retrieve the tagline/description of the site.  This can be set in <a href=\"%s\" target=\"_blank\">Settings &raquo; General</a>."
 msgstr ""
 
-#: library/admin/pages/options.php:269
+#: library/admin/pages/options.php:266
 msgid "Used only on taxonomy archives to display the term name."
 msgstr ""
 
-#: library/admin/pages/options.php:272
+#: library/admin/pages/options.php:269
 msgid "Advanced Options <span>Show &darr;</span>"
 msgstr ""
 
-#: library/admin/pages/options.php:279
+#: library/admin/pages/options.php:276
 msgid "Page Indexing"
 msgstr ""
 
-#: library/admin/pages/options.php:287
+#: library/admin/pages/options.php:284
 msgid "Index/NoIndex tells the engines whether the page should be crawled and kept in the engines' index for retrieval. If you check this box to opt for <code>noindex</code>, the page will be excluded from the engines.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
 msgstr ""
 
-#: library/admin/pages/options.php:292
+#: library/admin/pages/options.php:289
 msgid "Link Following"
 msgstr ""
 
-#: library/admin/pages/options.php:300
+#: library/admin/pages/options.php:297
 msgid "Follow/NoFollow tells the engines whether links on the page should be crawled. If you check this box to employ \"nofollow,\" the engines will disregard the links on the page both for discovery and ranking purposes.  <strong>Note:</strong> if you're not sure what this does, do not check this box."
 msgstr ""
 
-#: library/admin/pages/options.php:305
+#: library/admin/pages/options.php:302
 msgid "Page Archiving"
 msgstr ""
 
-#: library/admin/pages/options.php:309
+#: library/admin/pages/options.php:306
 msgid "Enable <code>noarchive</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:313
+#: library/admin/pages/options.php:310
 msgid "Noarchive is used to restrict search engines from saving a cached copy of the page. By default, the engines will maintain visible copies of all pages they indexed, accessible to searchers through the \"cached\" link in the search results.  Check this box to restrict search engines from storing cached copies of this page."
 msgstr ""
 
-#: library/admin/pages/options.php:318
+#: library/admin/pages/options.php:315
 #: library/blocks/pin-board/pin-board.php:1085
 msgid "Effects"
 msgstr ""
 
-#: library/admin/pages/options.php:322
+#: library/admin/pages/options.php:319
 msgid "Enable <code>nosnippet</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:326
+#: library/admin/pages/options.php:323
 msgid "Nosnippet informs the engines that they should refrain from displaying a descriptive block of text next to the page's title and URL in the search results."
 msgstr ""
 
-#: library/admin/pages/options.php:331
+#: library/admin/pages/options.php:328
 msgid "Open Directory Project"
 msgstr ""
 
-#: library/admin/pages/options.php:335
+#: library/admin/pages/options.php:332
 msgid "Enable <code>NoODP</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:344
+#: library/admin/pages/options.php:341
 msgid "Yahoo! Directory"
 msgstr ""
 
-#: library/admin/pages/options.php:348
+#: library/admin/pages/options.php:345
 msgid "Enable <code>NoYDir</code>"
 msgstr ""
 
-#: library/admin/pages/options.php:363
+#: library/admin/pages/options.php:360
 msgid "Unfamiliar with <em>Search Engine Optimization</em>?"
 msgstr ""
 
-#: library/admin/pages/options.php:363
+#: library/admin/pages/options.php:360
 msgid "Learn More"
 msgstr ""
 
-#: library/admin/pages/options.php:371
-#: library/admin/pages/options.php:376
+#: library/admin/pages/options.php:368
+#: library/admin/pages/options.php:373
 msgid "Content <code>nofollow</code> Links"
 msgstr ""
 
-#: library/admin/pages/options.php:386
+#: library/admin/pages/options.php:383
 msgid "Add nofollow To Comment Authors' URL"
 msgstr ""
 
-#: library/admin/pages/options.php:390
+#: library/admin/pages/options.php:387
 msgid "Adding nofollow to the comment authors' URLs will tell search engines to not visit their website and to stay on yours. Many bloggers frown upon this, which can sometimes discourage comments. Only enable this if you are 100% sure you know you want to."
 msgstr ""
 
-#: library/admin/pages/options.php:406
-#: library/admin/pages/options.php:411
+#: library/admin/pages/options.php:403
+#: library/admin/pages/options.php:408
 msgid "Disable Schema.org support"
 msgstr ""
 
-#: library/admin/pages/options.php:417
+#: library/admin/pages/options.php:414
 msgid "Disable microdata markup"
 msgstr ""
 
-#: library/admin/pages/options.php:421
+#: library/admin/pages/options.php:418
 msgid "Do not add ld+json data"
 msgstr ""
 
-#: library/admin/pages/options.php:425
+#: library/admin/pages/options.php:422
 msgid "Schema.org is a vocabulary of microdata markup that aims to make it easer for search crawlers to understand what's on a webpage."
 msgstr ""
 
-#: library/admin/pages/options.php:463
+#: library/admin/pages/options.php:458
 msgid "Header Scripts"
 msgstr ""
 
-#: library/admin/pages/options.php:474
+#: library/admin/pages/options.php:469
 msgid "Footer Scripts"
 msgstr ""
 
-#: library/admin/pages/options.php:475
+#: library/admin/pages/options.php:470
 msgid "Anything here will be inserted before the <code>&lt;/body&gt;</code> tag of the website. <strong>Do not place plain text in this!</strong>"
 msgstr ""
 
-#: library/admin/pages/options.php:507
+#: library/admin/pages/options.php:501
 msgid "Tooltips"
 msgstr ""
 
-#: library/admin/pages/options.php:511
+#: library/admin/pages/options.php:505
 msgid "Disable Tooltips in the Visual Editor"
 msgstr ""
 
-#: library/admin/pages/options.php:515
+#: library/admin/pages/options.php:509
 msgid "If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works."
 msgstr ""
 
-#: library/admin/pages/options.php:519
+#: library/admin/pages/options.php:513
 msgid "Editor Style"
 msgstr ""
 
-#: library/admin/pages/options.php:523
+#: library/admin/pages/options.php:517
 msgid "Disable Editor Style"
 msgstr ""
 
-#: library/admin/pages/options.php:527
+#: library/admin/pages/options.php:521
 msgid "By default, Padma will take any settings in the Design Editor and add them to <a href=\"http://codex.wordpress.org/TinyMCE\" target=\"_blank\">WordPress' TinyMCE editor</a> style.  Use this option to prevent that."
 msgstr ""
 
-#: library/admin/pages/options.php:546
-#: library/admin/pages/options.php:551
+#: library/admin/pages/options.php:539
+#: library/admin/pages/options.php:544
 msgid "Automatic Updates"
 msgstr ""
 
-#: library/admin/pages/options.php:557
-#: library/admin/pages/options.php:561
+#: library/admin/pages/options.php:550
+#: library/admin/pages/options.php:554
 msgid "Disable Automatic Core Updates"
 msgstr ""
 
-#: library/admin/pages/options.php:565
+#: library/admin/pages/options.php:558
 msgid "By default, Padma will attempt to update automatically, but if this option is checked automatic updates will not happen. This option requires Padma Updater plugin."
 msgstr ""
 
-#: library/admin/pages/options.php:569
-#: library/admin/pages/options.php:573
+#: library/admin/pages/options.php:562
+#: library/admin/pages/options.php:566
 msgid "Disable Automatic Plugin Updates"
 msgstr ""
 
-#: library/admin/pages/options.php:577
+#: library/admin/pages/options.php:570
 msgid "By default, Updater plugin will attempt to update Padma Plugins automatically, but if this option is checked automatic updates for plugins will not happen. This option requires Padma Updater plugin."
 msgstr ""
 
-#: library/admin/pages/options.php:592
-#: library/admin/pages/options.php:597
+#: library/admin/pages/options.php:585
+#: library/admin/pages/options.php:590
 msgid "Caching &amp; Compression"
 msgstr ""
 
-#: library/admin/pages/options.php:603
+#: library/admin/pages/options.php:596
 msgid "Asset Caching"
 msgstr ""
 
-#: library/admin/pages/options.php:607
+#: library/admin/pages/options.php:600
 msgid "Disable Padma Caching"
 msgstr ""
 
-#: library/admin/pages/options.php:611
+#: library/admin/pages/options.php:604
 msgid "By default, Padma will attempt to cache all CSS and JavaScript that it generates.  However, there may be rare circumstances where disabling the cache will help with certain issues.<br /><br /><em><strong>Important:</strong> Disabling the Padma cache will cause an <strong>increase in page load times</strong> and <strong>increase the strain your web server</strong> will undergo on every page load."
 msgstr ""
 
-#: library/admin/pages/options.php:616
+#: library/admin/pages/options.php:609
 msgid "Dependency Query Variables"
 msgstr ""
 
-#: library/admin/pages/options.php:620
+#: library/admin/pages/options.php:613
 msgid "Remove Query Variables from Dependency URLs"
 msgstr ""
 
-#: library/admin/pages/options.php:624
+#: library/admin/pages/options.php:617
 msgid "To leverage browser caching, Padma can tell WordPress to not put query variables on static assets such as CSS and JavaScript files."
 msgstr ""
 
-#: library/admin/pages/options.php:629
-#: library/admin/pages/options.php:633
+#: library/admin/pages/options.php:622
+#: library/admin/pages/options.php:626
 msgid "Compatibility with mod_pagespeed"
 msgstr ""
 
-#: library/admin/pages/options.php:637
+#: library/admin/pages/options.php:630
 msgid "Strips id and media attributes from stylesheet tags, allowing pagespeed to combine them properly. If you are not using mod_pagespeed on your server, this feature will not do anything for you."
 msgstr ""
 
-#: library/admin/pages/options.php:642
-#: library/admin/pages/options.php:646
+#: library/admin/pages/options.php:635
+#: library/admin/pages/options.php:639
 msgid "HTTP/2 Server Push"
 msgstr ""
 
-#: library/admin/pages/options.php:650
+#: library/admin/pages/options.php:643
 msgid "Enables WordPress to send a Link:<...> rel=\"prefetch\" header for every enqueued script and style as WordPress outputs them into the page source. Requires a web server that supports HTTP/2. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:665
-#: library/admin/pages/options.php:670
+#: library/admin/pages/options.php:658
+#: library/admin/pages/options.php:663
 msgid "Developer"
 msgstr ""
 
-#: library/admin/pages/options.php:676
+#: library/admin/pages/options.php:669
 msgid "Use Padma Developer version"
 msgstr ""
 
-#: library/admin/pages/options.php:680
+#: library/admin/pages/options.php:673
 msgid "Allow install Edge version"
 msgstr ""
 
-#: library/admin/pages/options.php:684
+#: library/admin/pages/options.php:677
 msgid "This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.<strong> Once active this option will allow you to upgrade your website to the latest version."
 msgstr ""
 
-#: library/admin/pages/options.php:699
-#: library/admin/pages/options.php:704
+#: library/admin/pages/options.php:692
+#: library/admin/pages/options.php:697
 msgid "Debugging"
 msgstr ""
 
-#: library/admin/pages/options.php:710
+#: library/admin/pages/options.php:703
 msgid "Debug Mode"
 msgstr ""
 
-#: library/admin/pages/options.php:714
+#: library/admin/pages/options.php:707
 msgid "Enable Debug Mode"
 msgstr ""
 
-#: library/admin/pages/options.php:718
+#: library/admin/pages/options.php:711
 msgid "Having Debug Mode enabled will allow the Padma Themes team to access the Visual Editor for support purposes, but <strong>will not allow changes to be saved<strong>."
 msgstr ""
 
-#: library/admin/pages/options.php:738
-#: library/admin/pages/options.php:743
-#: library/admin/pages/options.php:749
+#: library/admin/pages/options.php:729
+#: library/admin/pages/options.php:734
+#: library/admin/pages/options.php:740
 msgid "Plugin templates"
 msgstr ""
 
-#: library/admin/pages/options.php:753
+#: library/admin/pages/options.php:744
 msgid "Allow plugin templates"
 msgstr ""
 
-#: library/admin/pages/options.php:757
+#: library/admin/pages/options.php:748
 msgid "Allow load plugin templates related to Custom Post Types instead Padma Layout"
 msgstr ""
 
-#: library/admin/pages/options.php:773
-#: library/admin/pages/options.php:778
+#: library/admin/pages/options.php:764
+#: library/admin/pages/options.php:769
 msgid "Headway"
 msgstr ""
 
-#: library/admin/pages/options.php:784
+#: library/admin/pages/options.php:775
 msgid "Headway support"
 msgstr ""
 
-#: library/admin/pages/options.php:788
+#: library/admin/pages/options.php:779
 msgid "Enable Headway classes support"
 msgstr ""
 
-#: library/admin/pages/options.php:792
+#: library/admin/pages/options.php:783
 msgid "If on, Padma will attempt support all PHP classes related to Headway. This allows to you use blocks like Headway Rocket and similar. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:808
-#: library/admin/pages/options.php:813
+#: library/admin/pages/options.php:799
+#: library/admin/pages/options.php:804
 msgid "Gutenberg"
 msgstr ""
 
-#: library/admin/pages/options.php:819
+#: library/admin/pages/options.php:810
 msgid "Display Padma Blocks in Gutenberg"
 msgstr ""
 
-#: library/admin/pages/options.php:823
+#: library/admin/pages/options.php:814
 msgid "Show Padma Blocks as Gutenberg Blocks"
 msgstr ""
 
-#: library/admin/pages/options.php:827
+#: library/admin/pages/options.php:818
 msgid "If on, Padma will allow to use Padma Blocks as Gutenberg Blocks. Go to \"Block Options > Anywhere\" to enable it. <strong>Important:</strong> This feature is Experimental."
 msgstr ""
 
-#: library/admin/pages/options.php:846
-#: library/admin/pages/options.php:851
+#: library/admin/pages/options.php:836
+#: library/admin/pages/options.php:841
 msgid "Responsive options"
 msgstr ""
 
-#: library/admin/pages/options.php:857
-#: library/admin/pages/options.php:861
+#: library/admin/pages/options.php:847
+#: library/admin/pages/options.php:851
 msgid "Allow mobile zooming"
 msgstr ""
 
-#: library/admin/pages/options.php:865
+#: library/admin/pages/options.php:855
 msgid "Adds the viewport meta tag with zooming permission to give your users the ability to zoom in your website with mobile browsers."
 msgstr ""
 
-#: library/admin/pages/options.php:883
+#: library/admin/pages/options.php:884
+msgid "Google Fonts"
+msgstr ""
+
+#: library/admin/pages/options.php:888
+msgid "Do not use Google Fonts"
+msgstr ""
+
+#: library/admin/pages/options.php:892
+msgid "If checked, Padma will not use Google Fonts."
+msgstr ""
+
+#: library/admin/pages/options.php:909
 msgid "Save Changes"
 msgstr ""
 
@@ -1134,7 +1152,7 @@ msgid "Public"
 msgstr ""
 
 #: library/admin/pages/templates.php:117
-#: library/visual-editor/display.php:469
+#: library/visual-editor/display.php:465
 msgid "Padma Templates"
 msgstr ""
 
@@ -1604,15 +1622,16 @@ msgstr ""
 msgid "Bottom Right"
 msgstr ""
 
-#: library/blocks/blocks.php:82
+#: library/blocks/blocks.php:84
+#: library/blocks/blocks.php:106
 msgid "The block class being registered does not exist."
 msgstr ""
 
-#: library/blocks/blocks.php:821
+#: library/blocks/blocks.php:842
 msgid "The Padma blocks array does not exist."
 msgstr ""
 
-#: library/blocks/blocks.php:835
+#: library/blocks/blocks.php:856
 msgid "The requested block type of '%s' does not exist. Please re-activate the block plugin or child theme if you wish to use this block again."
 msgstr ""
 
@@ -4652,11 +4671,11 @@ msgstr ""
 msgid "Error: The meta box class being registered does not exist."
 msgstr ""
 
-#: library/common/functions.php:783
+#: library/common/functions.php:785
 msgid "Error: The box class being registered does not exist."
 msgstr ""
 
-#: library/common/functions.php:804
+#: library/common/functions.php:806
 msgid "Error: The panel class being registered does not exist."
 msgstr ""
 
@@ -4913,7 +4932,7 @@ msgid "The element ID is not registered."
 msgstr ""
 
 #: library/visual-editor/boxes/grid-manager.php:48
-#: library/visual-editor/display.php:450
+#: library/visual-editor/display.php:446
 msgid "Grid Manager"
 msgstr ""
 
@@ -4945,56 +4964,56 @@ msgstr ""
 msgid "The faded orange and purple are the margins and padding. These colors are only visible when the inspector is active."
 msgstr ""
 
-#: library/visual-editor/display.php:359
-#: library/visual-editor/display.php:362
+#: library/visual-editor/display.php:365
+#: library/visual-editor/display.php:368
 msgid "Get more blocks"
 msgstr ""
 
-#: library/visual-editor/display.php:453
+#: library/visual-editor/display.php:449
 msgid "Clear Cache"
 msgstr ""
 
-#: library/visual-editor/display.php:453
+#: library/visual-editor/display.php:449
 msgid "Disabled"
 msgstr ""
 
-#: library/visual-editor/display.php:465
+#: library/visual-editor/display.php:461
 msgid "Dashboard"
 msgstr ""
 
-#: library/visual-editor/display.php:466
+#: library/visual-editor/display.php:462
 msgid "Widgets"
 msgstr ""
 
-#: library/visual-editor/display.php:467
+#: library/visual-editor/display.php:463
 msgid "Menus"
 msgstr ""
 
-#: library/visual-editor/display.php:468
+#: library/visual-editor/display.php:464
 msgid "Padma Options"
 msgstr ""
 
-#: library/visual-editor/display.php:470
+#: library/visual-editor/display.php:466
 msgid "Padma Tools"
 msgstr ""
 
-#: library/visual-editor/display.php:471
+#: library/visual-editor/display.php:467
 msgid "Documentation"
 msgstr ""
 
-#: library/visual-editor/display.php:472
+#: library/visual-editor/display.php:468
 msgid "Support"
 msgstr ""
 
-#: library/visual-editor/display.php:473
+#: library/visual-editor/display.php:469
 msgid "Community"
 msgstr ""
 
-#: library/visual-editor/display.php:474
+#: library/visual-editor/display.php:470
 msgid "Get Involved"
 msgstr ""
 
-#: library/visual-editor/display.php:480
+#: library/visual-editor/display.php:476
 msgid "View Site"
 msgstr ""
 
@@ -5140,15 +5159,15 @@ msgstr ""
 msgid "Choose fonts, colors, and other styles"
 msgstr ""
 
-#: library/visual-editor/visual-editor.php:698
+#: library/visual-editor/visual-editor.php:701
 msgid "Unfortunately, the Padma Visual Editor does not work with Internet Explorer due to its lack of modern features."
 msgstr ""
 
-#: library/visual-editor/visual-editor.php:700
+#: library/visual-editor/visual-editor.php:703
 msgid "Please upgrade to a modern browser such as <a href=\"http://www.google.com/chrome\" target=\"_blank\">Google Chrome</a> or <a href=\"http://firefox.com\" target=\"_blank\">Mozilla Firefox</a>."
 msgstr ""
 
-#: library/visual-editor/visual-editor.php:702
+#: library/visual-editor/visual-editor.php:705
 msgid "If this message persists after upgrading to a modern browser, please visit our <a href=\"https://www.padmaunlimited.com/community/\" target=\"_blank\">Community</a>."
 msgstr ""
 

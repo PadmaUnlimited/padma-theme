@@ -60,12 +60,22 @@ class PadmaWebFontsLoader {
 			$webfonts_variants[$font] = self::google_fonts_get_style_variants($font);
 		}	
 
-		$font = implode( '|', array_filter($webfonts_in_use['google']) );
+		$fonts = implode( '|', array_filter($webfonts_in_use['google']) );
 
-		if(strlen($font) > 0 ){
-			$stylesheet_url = '//fonts.googleapis.com/css?display=swap&family=' . $font ;
-			echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
+		if(strlen($fonts) > 0 ){
+
+			if(PadmaOption::get('load-google-fonts-asynchronously')){
+
+				wp_enqueue_script('google-fonts-async', padma_url() . '/library/media/js/google-fonts-asynchronously.js', array('jquery'));
+				wp_localize_script( 'google-fonts-async', 'fontsToUse', $fonts );
+
+			}else{
+				$stylesheet_url = '//fonts.googleapis.com/css?display=swap&family=' . $fonts ;
+				echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
+			}
+
 		}
+
 
 	}
 	/* End Google Web Fonts */

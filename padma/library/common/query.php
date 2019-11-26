@@ -71,6 +71,9 @@ class PadmaQuery{
 	 */	
 	public static function get_categories($post_types = array('post')) {
 
+		if( ! is_array($post_types) )
+			$post_types = array($post_types);
+
 		$taxonomies = array();
 
 		if( is_array($post_types) && count($post_types) > 0){

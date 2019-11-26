@@ -89,6 +89,8 @@ New features on PinBoard Block
 New Option to upgrade and use Padma Edge version
 New Block: Site Logo
 New inline editor for certain fields on Visual Editor
+New features on PadmaQuery
+- PadmaQuery::get_tags() now support custom taxonomy parameter
 Added toggle option to slider inputs (Block API)
 Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP version (useful to migrate from old php version sites)
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load

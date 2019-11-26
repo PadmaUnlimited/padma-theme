@@ -104,10 +104,10 @@ class PadmaQuery{
 	 * Query tags
 	 *
 	 */
-	public static function get_tags() {
+	public static function get_tags($taxonomy = 'post_tag') {
 
 		$tag_options = array();
-		$tags_select_query = get_terms('post_tag');
+		$tags_select_query = get_terms($taxonomy);
 
 		foreach ($tags_select_query as $tag)
 			$tag_options[$tag->term_id] = $tag->name;

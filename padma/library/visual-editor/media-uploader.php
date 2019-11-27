@@ -37,7 +37,7 @@ wp_enqueue_media();
 
 $GLOBALS['wp_media_view_strings']['settings'] = $GLOBALS['wp_media_view_settings'];
 
-//wp_register_script( 'media-editor', padma_url() . '/library/visual-editor/scripts-src/deps/media-editor.js' );
+//wp_enqueue_script( 'media-editor', padma_url() . '/library/visual-editor/scripts-src/deps/media-editor.js', array( 'jquery' ) );
 wp_localize_script( 'media-editor', '_wpMediaViewsL10n', $GLOBALS['wp_media_view_strings'] );
 
 //wp_register_script( 'media-views', padma_url() . '/library/visual-editor/scripts-src/deps/media-views.js' );

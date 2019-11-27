@@ -682,11 +682,25 @@ class PadmaBlocks {
 		//Original block ID to be used in the Visual Editor
 		if ( PadmaRoute::is_visual_editor_iframe() ) {
 
+			if( isset($mirrored_block['id']) && !empty($mirrored_block['id']) ){
+				$mirrored_block_id = $mirrored_block['id'];
+			}else{
+				$mirrored_block_id = '';
+			}
+
+			if( isset($mirrored_block['layout']) && !empty($mirrored_block['layout']) ){
+				$mirrored_block_layout = $mirrored_block['layout'];
+			}else{
+				$mirrored_block_layout = '';
+			}
+
+
+
 			$block_data_attrs = implode(' ', array(
 				'data-id="' . str_replace('block-', '', $original_block_id) . '"',
 				'data-type="' . padma_get('type', $block) . '"',
-				'data-block-mirror="' . (isset($mirrored_block) ? $mirrored_block['id'] : '') . '"',
-				'data-block-mirror-layout-name="' . (isset($mirrored_block) ? PadmaLayout::get_name($mirrored_block['layout']) : '') . '"',
+				'data-block-mirror="' . $mirrored_block_id . '"',
+				'data-block-mirror-layout-name="' . $mirrored_block_layout . '"',
 				'data-grid-left="' . $original_block['position']['left'] . '"',
 				'data-grid-top="' . $original_block['position']['top'] . '"',
 				'data-width="' . $original_block['dimensions']['width'] . '"',

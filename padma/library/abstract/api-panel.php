@@ -376,8 +376,14 @@ abstract class PadmaVisualEditorPanelAPI {
 					if( ! is_null($counter) && $counter !== 0 && $input['name'] != 'responsive-options' && $input['name'] !== 'responsive-wrapper-options'){
 						$input_options['name'] = $input_options['name'] . '-' . $counter;
 					}
-
-					$input_value = padma_get($input_options['name'], $input['value'][$group_index], padma_get('default', $input_options));
+					
+					if( isset($input['value'][$group_index]) ){
+						$input_value_group_index = $input['value'][$group_index];
+					}else{
+						$input_value_group_index = '';
+					}
+					
+					$input_value = padma_get($input_options['name'], $input_value_group_index, padma_get('default', $input_options));
 
 					$this->render_input(array_merge($input_options, array(
 						'value' => $input_value

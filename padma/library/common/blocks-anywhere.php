@@ -208,6 +208,9 @@ class PadmaBlocksAnywhere {
 
 				$block = PadmaBlocksData::get_block( $block_id );
 
+				if( is_null($block) )
+					continue;				
+
 				$block_options = padma_get( $block['id'], PadmaBlocks::$block_actions['block-objects'] );
 				$original_block = null;
 

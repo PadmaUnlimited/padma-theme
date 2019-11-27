@@ -133,7 +133,7 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 			$video_ogg 	= parent::get_setting($block, 'video-ogg');
 			$video_webm = parent::get_setting($block, 'video-webm');
 
-			$videoHTML = '<div class="video"><video ';
+			$videoHTML = '<div class="video"><video playsinline ';
 
 			if(parent::get_setting($block, 'autoplay'))
 				$videoHTML .= ' autoplay';

@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.3
-Version: 1.1.78
+Version: 1.1.79
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.78
+= 1.1.79
 * Released: On Dev
 
 Tested with WordPress 5.3
@@ -66,7 +66,7 @@ Fixed: When a Content Block, set to Custom Query, choosing a specific Category o
 Fixed: Media Uploader css
 Fixed: Grid on Firefox
 Fixed: Headway compatibility load now on after_setup_theme hook
-Fixed: Video Block WebM missing url fixed
+Fixed: Video Block WebM missing url fixed and added playsinline rule for iphone
 Fixed: PadmaQuery::get_categories() change to convert parameter to array when parameter is not array
 New features on Content Block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)

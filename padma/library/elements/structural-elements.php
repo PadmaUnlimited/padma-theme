@@ -31,6 +31,7 @@ function padma_register_structural_elements() {
 			'name' => __('Wrapper','padma'),
 			'selector' => 'div.wrapper',
 			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines', 'animation')
+			
 		));
 
 	//Blocks

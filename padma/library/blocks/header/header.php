@@ -41,7 +41,8 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 			'selector' => 'span.banner a',
 			'states' => array(
 				'Hover' => 'span.banner a:hover',
-				'Clicked' => 'span.banner a:active'
+				'Clicked' => 'span.banner a:active',
+				'Shrinked' => 'span.banner a.is_shrinked',
 			)
 		));
 
@@ -52,6 +53,7 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 			'states' => array(
 				'Clicked' => 'a.banner-image:active',
 				'Hover' => 'a.banner-image:hover',
+				'Shrinked' => 'a.banner-image.is_shrinked',
 			)
 		));
 

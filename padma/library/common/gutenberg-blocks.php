@@ -187,7 +187,7 @@ class PadmaGutenbergBlocks {
 
 	private function render_js($block){
 
-		$block_name = '';
+		$block_name = '';		
 
 		if( !empty($block['settings']['alias']) )
 			$block_name .= $block['settings']['alias'];
@@ -196,15 +196,6 @@ class PadmaGutenbergBlocks {
 
 
 		$category = 'padma-' . $block['layout'];
-
-		/*
-		ob_start();
-		do_action('padma_block_content_' . $block['type'], $block);
-		$block_content = ob_get_contents();		
-		ob_end_clean();
-		*/
-
-
 
 
 		$blockStyle = array(
@@ -231,7 +222,7 @@ class PadmaGutenbergBlocks {
 		);
 		$attributes = json_encode($attributes);
 
-		$js .= '( function( blocks, element, __, components) {
+		$js = '( function( blocks, element, __, components) {
 
 				var el = element.createElement;
 				var blockStyle =  " . $blockStyle . " ;			 

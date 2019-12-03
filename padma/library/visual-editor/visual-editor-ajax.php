@@ -425,8 +425,6 @@ class PadmaVisualEditorAJAX {
 		if ( is_array($unsaved_options) )
 			$block['settings'] = is_array(padma_get('settings', $block)) ? array_merge($block['settings'], $unsaved_options) : $unsaved_options;
 
-		debug($block);
-
 		do_action('padma_block_options_' . $block['type'], $block, $layout);
 
 	}

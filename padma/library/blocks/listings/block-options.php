@@ -207,8 +207,7 @@ class PadmaListingsBlockOptions extends PadmaBlockOptionsAPI {
 							)
 						)
 					),
-					'callback' => '
-						reloadBlockOptions()'
+					'callback' => 'reloadBlockOptions()'
 				),
 
 				'post-taxonomy-filter' => array(

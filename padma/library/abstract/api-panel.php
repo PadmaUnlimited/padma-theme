@@ -180,10 +180,14 @@ abstract class PadmaVisualEditorPanelAPI {
 
 		public function create_inputs($tab) {
 
+
 			if ( isset($this->inputs[$tab]) && is_array($this->inputs[$tab]) ) {
 
+
+				
 				foreach ( $this->inputs[$tab] as $name => $input )
 					$this->render_input($input);
+				
 
 			}
 
@@ -219,12 +223,16 @@ abstract class PadmaVisualEditorPanelAPI {
 
 			if ( isset($this->wrapper) && $this->wrapper && !isset($input['value']) )
 				$input['value'] = PadmaWrappersData::get_wrapper_setting($this->wrapper, $input['name'], $input['default']);
+
 			else if ( isset($this->block) && $this->block && !isset($input['value']) )
 				$input['value'] = PadmaBlocksData::get_block_setting($this->block, $input['name'], $input['default']);
+
 			else if ( !isset($input['value']) && padma_get('template-option', $input, true) )
 				$input['value'] = PadmaSkinOption::get($input['name'], $input['group'], $input['default']);
+
 			else if ( !isset($input['value']) )
 				$input['value'] = PadmaOption::get($input['name'], $input['group'], $input['default']);
+			
 
 		/* Setup Attributes */
 			$input_id = (isset($this->block) && $this->block) ? 'input-' . $this->block['id'] . '-' . $input['name'] : 'input-' . $input['group'] . '-' . $input['name'];
@@ -258,8 +266,9 @@ abstract class PadmaVisualEditorPanelAPI {
 				$input['attributes'] = trim($input['attributes']);
 
 		/* If it's a repeater then handle it before it's handled as an input */
-			if ( $input['type'] == 'repeater' )
+			if ( $input['type'] == 'repeater' ){				
 				return $this->repeater($input);
+			}
 
 		/* Handle regular input */				
 			if ( method_exists($this, 'input_' . str_replace('-', '_', $input['type'])) ) {
@@ -307,37 +316,26 @@ abstract class PadmaVisualEditorPanelAPI {
 			}
 
 
-			/* If the value is non-existent then show an empty group. */
-				if ( !isset($input['value']) || !is_array($input['value']) || empty($input['value']) ) {
+			/* If the value is non-existent then show an empty group. */			
+				if ( !isset($input['value']) || !is_array($input['value']) || empty($input['value']) ) {					
 
-					$this->repeater_group(
-						array_merge($input, array(
-							'single' => true
-						)),
-						null,
-						1
-					);
+					$this->repeater_group( array_merge( $input, array(
+						'single' => true
+					)));
 
 			/* Values are valid, loop them. */
 				} else {
-
-					$counter = 0;
+					
 					foreach ( $input['value'] as $group_index => $value_group ) {
-
-						foreach ($input['inputs'] as $key => $value) {
-							if($value['type']=='wysiwyg'){
-								++$counter;
-								continue;
-							}
-						}
-
+						
 						if ( count($input['value']) === 1 ) {
 							$input['single'] = true;
 						}
-
-						$this->repeater_group( $input, $group_index, $counter );
+						
+						$this->repeater_group( $input, $group_index );
 
 					}
+
 
 				}
 
@@ -355,7 +353,7 @@ abstract class PadmaVisualEditorPanelAPI {
 	}
 
 
-		public function repeater_group($input, $group_index = null, $counter = null) {
+		public function repeater_group($input, $group_index = null) {
 
 			$classes = array('repeater-group');
 
@@ -373,10 +371,6 @@ abstract class PadmaVisualEditorPanelAPI {
 
 				foreach ( $input['inputs'] as $index => $input_options ) {
 
-					if( ! is_null($counter) && $counter !== 0 && $input['name'] != 'responsive-options' && $input['name'] !== 'responsive-wrapper-options'){
-						$input_options['name'] = $input_options['name'] . '-' . $counter;
-					}
-					
 					if( isset($input['value'][$group_index]) ){
 						$input_value_group_index = $input['value'][$group_index];
 					}else{

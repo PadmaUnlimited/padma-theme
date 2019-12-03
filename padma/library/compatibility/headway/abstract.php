@@ -98,8 +98,8 @@ trait HeadwayVisualEditorPanelAPITrait {
 	public function repeater($input){
 		parent::repeater($input);
 	}
-	public function repeater_group($input, $group_index = null, $counter = null) {
-		parent::repeater_group($input, $group_index, $counter = null);
+	public function repeater_group($input, $group_index = null) {
+		parent::repeater_group($input, $group_index);
 	}
 	public function input_checkbox($input){
 		parent::input_checkbox($input);

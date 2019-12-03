@@ -180,6 +180,9 @@ class PadmaSocialBlock extends PadmaBlockAPI {
 
 		}
 
+
+		debug($block);
+
 		echo '<div class="social-icons-container">';
 		echo '<ul class="social-icons">';
 

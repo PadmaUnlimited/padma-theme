@@ -297,7 +297,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				}
 
 				$(context).delegate('div.input-wysiwyg span.wysiwyg-open', 'click', function() {
-					
+
 					var wysiwygContainer = $(this).siblings('.wysiwyg-container');
 					
 					var inputContainerOffset = $(this).parents('.input').offset();
@@ -337,32 +337,32 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 							var setupCKEditor = function() {
 								
-                                                                var textArea = wysiwygContainer.find('textarea');
-                                                                var editorId = textArea.attr("id");
-                                                                var editor = CKEDITOR.replace( editorId, {
-                                                                    extraPlugins: 'imageuploader',
-                                                                    toolbarGroups: [
-                                                                            { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-                                                                            { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-                                                                            { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-                                                                            { name: 'forms', groups: [ 'forms' ] },
-                                                                            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                                                                            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                                                                            { name: 'links', groups: [ 'links' ] },
-                                                                            { name: 'insert', groups: [ 'insert' ] },
-                                                                            { name: 'styles', groups: [ 'styles' ] },
-                                                                            { name: 'colors', groups: [ 'colors' ] },
-                                                                            { name: 'tools', groups: [ 'tools' ] },
-                                                                            { name: 'others', groups: [ 'others' ] },
-                                                                            { name: 'about', groups: [ 'about' ] }
-                                                                    ],
+                                var textArea = wysiwygContainer.find('textarea')[0];
+                                var editor = CKEDITOR.replace( textArea, {
+                                    extraPlugins: 'imageuploader',
+                                    toolbarGroups: [
+                                            { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+                                            { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+                                            { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+                                            { name: 'forms', groups: [ 'forms' ] },
+                                            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                                            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+                                            { name: 'links', groups: [ 'links' ] },
+                                            { name: 'insert', groups: [ 'insert' ] },
+                                            { name: 'styles', groups: [ 'styles' ] },
+                                            { name: 'colors', groups: [ 'colors' ] },
+                                            { name: 'tools', groups: [ 'tools' ] },
+                                            { name: 'others', groups: [ 'others' ] },
+                                            { name: 'about', groups: [ 'about' ] }
+                                    ],
 
-                                                                    removeButtons: 'Save,Preview,NewPage,Print,Templates,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,RemoveFormat,BidiLtr,BidiRtl,Language,Flash,Styles,Font,Maximize,About'
-                                                                }); 
-                                                                editor.on('change', function() {
-                                                                   editor.updateElement();
-                                                                   dataHandleInput(textArea)
-                                                                });
+                                    removeButtons: 'Save,Preview,NewPage,Print,Templates,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,RemoveFormat,BidiLtr,BidiRtl,Language,Flash,Styles,Font,Maximize,About'
+                                });
+
+                                editor.on('change', function() {
+                                   editor.updateElement();
+                                   dataHandleInput(textArea)
+                                });
 
 								wysiwygContainer.data('setupCKEditor', true);
 
@@ -752,10 +752,11 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 
 					/* Clone repeater template */
 						var newGroup = groupTemplate.clone().hide().removeClass('repeater-group-template');
+						/*					
 						var nextCounter = repeater.find('.repeater-group:not(.repeater-group-template)').length + 1;
 						
 						// update input's attrs
-						newGroup.find('input,select,textarea').each(function(){
+						newGroup.find('textarea').each(function(){
 							
 							// id
 							var input_id = $(this).attr('id') + '-' + nextCounter;
@@ -764,7 +765,9 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 							// name
 							var input_name = $(this).attr('name') + '-' + nextCounter;
 							$(this).attr('name',input_name);
-						});
+
+						});*/
+						
 
 						newGroup.insertAfter(group).fadeIn(300);
 

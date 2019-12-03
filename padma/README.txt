@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.3
-Version: 1.1.80
+Version: 1.1.81
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.80
+= 1.1.81
 * Released: On Dev
 
 Tested with WordPress 5.3
@@ -68,6 +68,7 @@ Fixed: Grid on Firefox
 Fixed: Headway compatibility load now on after_setup_theme hook
 Fixed: Video Block WebM missing url fixed and added playsinline rule for iphone
 Fixed: PadmaQuery::get_categories() change to convert parameter to array when parameter is not array
+Fixed: Repeater issue with wysiwyg inputs
 New features on Content Block
 - Added: Custom Excerpts Length (Thanks to https://github.com/raydale)
 - Added: Custom Archive title
@@ -111,6 +112,7 @@ Added Shrink on scroll to wrappers options.
 Added option to show Padma Blocks as Gutenberg Blocks
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
 Updated Animate.css to 3.7.2
+Updated CKEditor to 4.13
 Updated Translations
 Updated Visual Editor for mobile usage
 Updated Visual Editor Design icons

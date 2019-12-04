@@ -43,13 +43,15 @@ class PadmaBlocksAnywhere {
                      'id' => 'NULL',
                 ], $atts, $tag);
 
+
 	    $id = $args['id'];
 
 		ob_start();
 
 		$block = PadmaBlocksData::get_block( $id );
-
-
+	    
+	    if( !$block )
+	    	return;
 
 		/*	Register IDs to use them later	*/
 		self::$blocks[] = $id;
@@ -101,8 +103,8 @@ class PadmaBlocksAnywhere {
 		$output_string = ob_get_contents();
 		
 		ob_end_clean();
-
-		if ( empty( $output_string ) )
+		
+		if ( strlen( $output_string ) == 0 )
 			return '<div class="alert alert-yellow">' . __('The padma block shortcut ID you have entered does not exist. Please enter a valid block ID!', 'padma') . '</div>';
 		else
 			return $output_string;

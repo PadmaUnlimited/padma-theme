@@ -766,10 +766,13 @@ abstract class PadmaVisualEditorPanelAPI {
 
 		}
 
+		$button_label = ( isset($input['button-label']) ? $input['button-label'] : 'File' );
+		$attributes = ( isset($input['attributes']) ? $input['attributes'] : '' );
+
 		echo '<div class="input-right">';
 
-			echo '<span class="button">' . $input['button-label'] . '</span>';
-			echo '<input type="file" ' . $input['attributes'] . ' />';
+			echo '<span class="button">' . $button_label . '</span>';
+			echo '<input type="file" ' . $attributes . ' />';
 
 			$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';
 
@@ -780,6 +783,24 @@ abstract class PadmaVisualEditorPanelAPI {
 			<span class="delete-file"' . $src_visibility . '>' . __('Delete','padma') . '</span>';
 
 		echo '</div><!-- .input-right -->';
+
+	}
+
+
+	public function input_json($input) {
+
+		$src_visibility = ( $input['value'] !== null && is_string($input['value']) ) ? '' : ' style="display:none;"';
+
+		echo '<div class="input-left"><label>' . $input['label'] . '</label></div><!-- .input-left -->';
+
+		$filepath = explode('/', $input['value']);
+		$filename = end($filepath);
+
+		echo '<div class="input-right"><span class="src"' . $src_visibility . '>' . $filename . '</span>
+		<span class="delete-json"' . $src_visibility . '>Delete</span>';
+
+		echo '<span class="button">' . __('Choose Json','padma') . '</span>';
+		echo '<input ' . $input['attributes'] . ' type="hidden" value="' . $input['value'] . '" /></div><!-- .input-right -->';
 
 	}
 

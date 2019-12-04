@@ -5699,6 +5699,16 @@ div.input-import-file input[type="file"] {
 	top: -99999px;
 	left: -99999px;
 }
+div.input-json input[type="file"],
+div.input-json input[type="text"] {
+	visibility: hidden;
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+}
+div.input-json .json-content{
+	display: none;
+}
 
 /* Buttons */
 div.input div.input-right:first-child:last-child .button {

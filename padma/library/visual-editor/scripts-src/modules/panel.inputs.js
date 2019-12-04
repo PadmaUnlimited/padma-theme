@@ -1,4 +1,4 @@
-define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader', 'util.video-uploader', 'util.audio-uploader'], function($, codeMirror, chosen) {
+define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader', 'util.video-uploader', 'util.audio-uploader', 'util.json-uploader'], function($, codeMirror, chosen) {
 
 	handleInputTogglesInContainer = function(container) {
 
@@ -948,6 +948,39 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					dataHandleInput(fileInput);
 					
 				});
+
+
+			/* JSON input Files */
+				$(context).delegate('div.input-json span.button', 'click', function() {
+					
+					var self = this;
+					
+					openJsonUploader(function(url, filename) {
+									
+						$(self).siblings('input').val(url);
+						$(self).siblings('span.src').show().text(filename);
+						$(self).siblings('span.delete-json').show();
+
+						dataHandleInput($(self).siblings('input'), url, {action: 'add'});	
+						
+					});
+
+				});
+				
+				$(context).delegate('div.input-json span.delete-json', 'click', function() {
+
+					if ( !confirm('Are you sure you wish to remove this json?') ) {
+						return false;
+					}
+
+					$(this).siblings('.src').hide();
+					$(this).hide();
+
+					$(this).siblings('input').val('');
+
+					dataHandleInput($(this).siblings('input'), '', {action: 'delete'});
+
+				});				
 
 		},
 

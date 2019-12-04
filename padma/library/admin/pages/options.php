@@ -674,7 +674,7 @@
 									'checked' => PadmaOption::get('use-developer-version', false, false)
 								)
 							),
-							'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.</strong> Once active this option will allow you to upgrade your website to the latest version.','padma')
+							'description' => __('This option is for developers, use this option only if you know what are you doing. Padma Theme and plugins will upgrade to testing version. <strong>Do NOT use on production sites.</strong> This option requires Padma Updater plugin. Once active this option will allow you to upgrade your website to the latest version.','padma')
 						)
 					);
 

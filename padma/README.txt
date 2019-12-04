@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.3
-Version: 1.1.81
+Version: 1.1.82
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 
-= 1.1.81
+= 1.1.82
 * Released: On Dev
 
 Tested with WordPress 5.3
@@ -92,6 +92,7 @@ New Block: Site Logo
 New inline editor for certain fields on Visual Editor
 New features on PadmaQuery
 - PadmaQuery::get_tags() now support custom taxonomy parameter
+New input_json input type added to Block API
 Added toggle option to slider inputs (Block API)
 Added constant PADMA_DISABLE_PHP_VERIFICATION, if true Padma will not verify PHP version (useful to migrate from old php version sites)
 Added 'font-display: swap' to Google Fonts to ensure text remains visible during webfont load

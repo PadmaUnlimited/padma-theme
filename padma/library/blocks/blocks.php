@@ -16,6 +16,7 @@ class PadmaBlocks {
 		'contact-form-7',
 		'content',
 		'custom-code',
+		'divider',
 		'embed',
 		'footer',
 		'gravity-forms',

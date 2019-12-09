@@ -50,15 +50,20 @@ class PadmaSchema {
 		$blog_id = (is_multisite()) ? get_current_blog_id(): 0;
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$site_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+		if( $site_image !== false){
+			$site_image = $site_image[0];
+		}
 
 
 		/**
 		 *
 		 * Article Image
 		 *
-		 */
-
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];			
+		 */		
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+		if( $image !== false){
+			$image = $image[0];
+		}
 
 
 
@@ -82,12 +87,12 @@ class PadmaSchema {
 							->url(site_url())
 							->logo(
 								Spatie\SchemaOrg\Schema::ImageObject()
-								->url($site_image[0])
+								->url($site_image)
 							)
 					);
 
-		if($site_image[0] && !$image){
-			$image = $site_image[0];	
+		if($site_image && !$image){
+			$image = $site_image;	
 		}
 
 		if($image)

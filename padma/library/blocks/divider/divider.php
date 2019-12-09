@@ -41,6 +41,7 @@ class PadmaDividerBlock extends PadmaBlockAPI {
 		$sec_color =  ( isset($block['settings']['secondary-color']) ) ? $block['settings']['secondary-color'] : '#73a6c0';
 		$bg_color =  ( isset($block['settings']['bg-color']) ) ? $block['settings']['bg-color'] : '#fff';
 
+		$attrs = array();
 		switch ($style) {
 
 			case 'style-1':
@@ -123,7 +124,7 @@ class PadmaDividerBlock extends PadmaBlockAPI {
 				$attrs['before']['-webkit-transform'] = 'translateX(-50%) rotate(45deg);';
 				$attrs['before']['transform'] = 'translateX(-50%) rotate(45deg);';
 				$attrs['before']['top'] = '-50px';				
-				$attrs['before']['background'] = $bg_color;
+				$attrs['before']['background'] = $main_color;
 
 				$attrs['after']['pointer-events'] = 'none';
 				$attrs['after']['position'] = 'absolute';

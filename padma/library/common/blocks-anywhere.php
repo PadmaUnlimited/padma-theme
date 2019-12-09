@@ -68,7 +68,12 @@ class PadmaBlocksAnywhere {
 
 		$layout_id = !empty( $post_id ) ? $post_id : padma_get_int( $block['layout'] );
 
-		if ( empty( $layout_id ) && $block['type'] == 'content' && $block['settings']['mode'] == 'default' ) {
+		if( isset($block['settings']['mode']) )
+			$mode = $block['settings']['mode'];
+		else
+			$mode = 'default';
+
+		if ( empty( $layout_id ) && $block['type'] == 'content' && $mode == 'default' ) {
 
 			echo '<div class="alert alert-red">' . __('This block does not have any post assigned. Please specify the post_id your would like to display as a shortcode parameter.', 'padma') . '</div>';
 

@@ -25,6 +25,7 @@ class PadmaBlocks {
 		'listings',
 		'mailchimp-for-wp',
 		'navigation',
+		'onepage-navigation',
 		'pin-board',
 		'search',
 		'slidedeck',

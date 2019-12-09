@@ -265,6 +265,9 @@ class Padma {
 			/*		Compatiblity with Divi Builder */
 			'compatibility/divi-builder/compatibility-divi-builder'	=> true,
 
+			/*		Compatiblity with Elementor */
+			//'compatibility/elementor/compatibility-elementor'	=> true,									 
+
 			/*		Compatiblity with aMember Plugin */
 			'compatibility/amember/compatibility-amember'	=> true,
 

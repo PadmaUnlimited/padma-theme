@@ -89,6 +89,8 @@ New features on PinBoard Block
 -- padma_pin_board_pin_custom_fields_class
 New Option to upgrade and use Padma Edge version
 New Block: Site Logo
+New Block: Divider
+New Block: OnePage Navigation
 New inline editor for certain fields on Visual Editor
 New features on PadmaQuery
 - PadmaQuery::get_tags() now support custom taxonomy parameter

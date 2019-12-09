@@ -49,8 +49,6 @@ class PadmaOnePageNavBlock extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 
-		debug($block);
-
 		$position = ( isset($block['settings']['position']) ) ? $block['settings']['position'] : 'right';
 		$border = ( isset($block['settings']['border']) ) ? $block['settings']['border'] : '50';
 		$css = '';
@@ -76,6 +74,8 @@ class PadmaOnePageNavBlock extends PadmaBlockAPI {
 			$css .= $rule . ':' . $value . ';';
 		}
 		$css .= '}';
+
+		$css .= '#block-' . $block_id . ' img { width: 25px; }';
 		return $css;
 		
 
@@ -123,6 +123,7 @@ class PadmaOnePageNavBlockOptions extends PadmaBlockOptionsAPI {
 						'right' => 'Right',
 					),
 				),
+				/*
 				'style' => array(
 					'type' => 'select',
 					'name' => 'style',
@@ -131,7 +132,7 @@ class PadmaOnePageNavBlockOptions extends PadmaBlockOptionsAPI {
 					'options' => array(
 						'style-1' => 'Style 1'
 					),
-				),
+				),*/
 				'border' => array(
 					'type' => 'integer',
 					'name' => 'border',
@@ -171,19 +172,47 @@ class PadmaOnePageNavBlockOptions extends PadmaBlockOptionsAPI {
 	function get_wrappers_lists() {
 
 		$wrappers 	= PadmaWrappersData::get_all_wrappers();
-		$current_layout_in_use 	= PadmaLayout::get_current_in_use();
-		$wrappers_lists = array();
+		$options 	= array('' => '&ndash; Select a wrapper &ndash;');
 
-		foreach ($wrappers as $wrappers_id => $wrappers_data) {
+		//If there are no wrappers to mirror, then just return the Do Not Mirror option.
+		if ( empty($wrappers) || !is_array($wrappers) )
+			return $options;
 
-			if( $wrappers_data['layout'] !== $current_layout_in_use )
+		foreach ( $wrappers as $wrapper_id => $wrapper ) {
+
+			/* If we can't get a name for the layout, then things probably aren't looking good.  Just skip this wrapper. */
+			if ( !($layout_name = PadmaLayout::get_name($wrapper['layout'])) )
 				continue;
 
-			$wrappers_lists[$wrappers_id] = ( isset($wrappers_data['settings']['alias']) ) ? $wrappers_data['settings']['alias'] : $wrappers_id;
+			/* Check for mirroring here */			
+			if ( PadmaWrappersData::is_wrapper_mirrored($wrapper) )
+				continue;
 			
+			$wrapper_alias = padma_get('alias', $wrapper['settings']) ? ' &ndash; ' . padma_get('alias', $wrapper['settings']) : null;
+
+			/* Build info that shows if wrapper is fixed or fluid since a wrapper may not have alias and that can be confusing if it just says "Wrapper - Some Layout" over and over */
+			$wrapper_info = array();
+
+			if ( padma_fix_data_type($wrapper['settings']['fluid']) )
+				$wrapper_info[] = 'Fluid';
+
+			if ( padma_fix_data_type($wrapper['settings']['fluid-grid']) )
+				$wrapper_info[] = 'Fluid Grid';
+
+			$wrapper_info_str = $wrapper_info ? ' &ndash; (' . implode( ', ', $wrapper_info ) . ')' : '';
+
+			if ( ! isset( $options[ $layout_name ] ) ) {
+				$options[ $layout_name ] = array();
+			}
+
+			//Get alias if it exists, otherwise use the default name
+			$options[$layout_name][$wrapper_id] = 'Wrapper' . $wrapper_alias . $wrapper_info_str;
+
 		}
-		return $wrappers_lists;
-		
+
+
+		return $options;
+
 	}
 
 }

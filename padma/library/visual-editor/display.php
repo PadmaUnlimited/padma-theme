@@ -331,6 +331,7 @@ class PadmaVisualEditorDisplay {
 		echo '</div>';
 		echo '<div class="block-type-selector-items">';
 
+			
 			foreach ( $block_types as $block_type_id => $block_type ) {
 
 				$filter_categories = '';
@@ -338,21 +339,22 @@ class PadmaVisualEditorDisplay {
 					$filter_categories .= 'filter-' . $value . ' '; 
 				}
 
+				$icon = '/icon.svg';				
+				if( is_array($block_type['icons']) && !empty($block_type['icons']) ){
+					
+					$icon = $block_type['icons']['url'] . $icon;
 
-
-				$icon = '/icon.svg';
-				if( !file_exists($block_type['icons-dir'] . $icon) ){
+				}else{
+					
 					if( !file_exists( PADMA_LIBRARY_DIR . '/blocks/' . $block_type_id . '/' .  $icon) ){
 						$icon =  '/icon.png';
+					}					
+					if (!filter_var($icon, FILTER_VALIDATE_URL)){
+						$icon = $block_type['url'] . '/icon.png';
 					}
 				}
-
-				$icon = $block_type['url'] . $icon;
-
-				if (!filter_var($icon, FILTER_VALIDATE_URL)){
-					$icon = $block_type['url'] . '/icon.png';
-				}
 				
+
 				echo '<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">';
 				echo '<div class="block-detail" style="background-image: url(' . $icon . ');">
 						<div class="block-detail-name" >' . $block_type['name'] . '</div>

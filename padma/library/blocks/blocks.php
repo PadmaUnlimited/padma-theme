@@ -86,15 +86,15 @@ class PadmaBlocks {
 					return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);
 
 				$block = new $class();
-
+				
 				if ( $block_type_data['block_type_url'] )
 					$block->block_type_url = untrailingslashit($block_type_data['block_type_url']);
 
 				if ( $block_type_data['block_type_path'] )
 					$block->block_type_path = untrailingslashit($block_type_data['block_type_path']);
 
-				if ( $block_type_data['block_type_icons_dir'] )
-					$block->block_type_icons_dir = untrailingslashit($block_type_data['block_type_icons_dir']);
+				if ( $block_type_data['block_type_icons'] )
+					$block->block_type_icons = $block_type_data['block_type_icons'];
 
 
 				$block->register();

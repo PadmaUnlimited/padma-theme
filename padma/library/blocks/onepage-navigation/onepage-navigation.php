@@ -81,16 +81,39 @@ class PadmaOnePageNavBlock extends PadmaBlockAPI {
 
 	}
 
+
+	public static function dynamic_js($block_id, $block) {
+
+		if ( !$block )
+			$block = PadmaBlocksData::get_block($block_id);
+
+		$js = '';
+		$js .= "jQuery(document).ready(function($) {";
+		$js	.= "jQuery(document).on( 'click','#block-". $block_id ." a', function( event ) {";
+		$js .= "$('#block-". $block_id." li').removeClass('current');";
+		$js .= "$(this).parent().addClass('current')";
+		$js .= "});";
+		$js .= "});";
+		
+		return $js;
+	}
+
 	function setup_elements() {
 		$this->register_block_element(array(
 			'id' => 'menu-item',
 			'name' => 'Item',
 			'selector' => 'ul li',
+			'states' => array(
+				'Selected' => 'ul li.current',
+			)
 		));
 		$this->register_block_element(array(
 			'id' => 'menu-image',
 			'name' => 'Image',
 			'selector' => 'ul li img',
+			'states' => array(
+				'Selected' => 'ul li.current img',
+			)
 		));
 	}
 

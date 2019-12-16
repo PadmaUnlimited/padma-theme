@@ -45,7 +45,10 @@ class PadmaCompatibilityWooCommerce {
 		if ( is_admin() )
 			return;
 
-		wp_enqueue_style('padma-storefront-wooc', padma_url() . '/library/compatibility/woocommerce/padma-storefront-wooc.css');
+		add_filter('padma_general_css',function($general_css_fragments){
+			$general_css_fragments['storefront-wooc'] = PADMA_LIBRARY_DIR . '/compatibility/woocommerce/padma-storefront-wooc.css';
+			return $general_css_fragments;
+		});		
 
 	}
 

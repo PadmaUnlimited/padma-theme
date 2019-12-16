@@ -18,7 +18,6 @@ class PadmaQuery{
 	 */
 	public static function get_posts($block){
 
-
 		$categories = PadmaBlockAPI::get_setting($block, 'categories', array());
 		$categories_mode = PadmaBlockAPI::get_setting($block, 'categories-mode', array());
 		$enable_tags = PadmaBlockAPI::get_setting($block, 'enable-tags', array());
@@ -49,7 +48,6 @@ class PadmaQuery{
 			'order' 			=> $order,			
 			'tag__in'          	=> $tags,
 			'author__in'   		=> $author,
-
 		);
 
 		if(count($byid_exclude)>0 && $byid_exclude[0] != '')

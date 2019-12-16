@@ -332,6 +332,11 @@ class PadmaVisualEditorDisplay {
 		echo '<div class="block-type-selector-items">';
 
 			
+			/*
+			usort( $block_types , function($a, $b){								
+				return strcmp($a["name"], $b["name"]);
+			});*/			
+
 			foreach ( $block_types as $block_type_id => $block_type ) {
 
 				$filter_categories = '';

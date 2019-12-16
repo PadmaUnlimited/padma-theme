@@ -9,7 +9,7 @@ class PadmaElementProperties {
 				'group' => 'Scroll',
 				'name' => 'Scroll',
 				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"scroll-behavior": params.value});',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"scroll-behavior": params.value});',	
 				'options' => array(
 					'auto' => 'Auto',
 					'smooth' => 'Smooth',
@@ -1642,7 +1642,6 @@ class PadmaElementProperties {
 		return $output;
 
 	}
-
 
 	public static function complex_property_filter($args) {
 

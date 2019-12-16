@@ -14,9 +14,9 @@ class PadmaOnePageNavBlock extends PadmaBlockAPI {
 	function __construct(){
 
 		$this->id = 'onepagenav';
-		$this->name = __('OnePageNav','padma');
+		$this->name = __('OnePage Navigation','padma');
 		$this->options_class = 'PadmaOnePageNavBlockOptions';
-		$this->description = __('','padma');
+		$this->description = __('Create a floating navigation menu.','padma');
 		$this->categories 	= array('core','navigation');
 		$this->inline_editable = array('block-title', 'block-subtitle');
 
@@ -24,6 +24,10 @@ class PadmaOnePageNavBlock extends PadmaBlockAPI {
 
 
 	function content($block) {
+
+		if( empty($block['settings']['nav-options']) ){
+			return;
+		}
 
 		$html = '<ul>';
 		foreach ($block['settings']['nav-options'] as $key => $link_options) {

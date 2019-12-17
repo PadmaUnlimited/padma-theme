@@ -18,6 +18,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 	static private $wp_nav_menu_cache = array();
 
 
+
 	function __construct(){
 
 		$this->id = 'navigation';
@@ -41,8 +42,9 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		if ( is_admin() ) {
 			return;
 		}
-		
+
 		wp_register_script( 'jquery-hoverintent', padma_url() . '/library/media/js/jquery.hoverintent.js', array( 'jquery' ));
+		wp_enqueue_style('padma-navigation-block', padma_url() . '/library/blocks/navigation/css/navigation.css');
 
 	}
 
@@ -64,9 +66,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 	public static function enqueue_action( $block_id, $block, $original_block = null ) {
 
-		$dependencies = $styles = $scripts = array();
-
-		$styles['navigation-block'] = PADMA_LIBRARY_DIR . '/blocks/navigation/css/navigation.css';
+		$dependencies = array();
 
 		/* Handle sub menus with super fish */
 		if ( self::does_menu_have_subs( $block ) ) {
@@ -87,52 +87,22 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			switch ( parent::get_setting($block, 'responsive-method', 'select') ) {
 
 
-				case 'vertical':					
-					$scripts['slicknav'] = PADMA_LIBRARY_DIR . '/media/js/jquery.slicknav.js';
-					$styles['slicknav'] = PADMA_LIBRARY_DIR . '/media/css/slicknav.css';
+				case 'vertical':
+					wp_enqueue_script( 'padma-slicknav', padma_url() . '/library/media/js/jquery.slicknav.js', array( 'jquery' ) );
+					wp_enqueue_style( 'padma-slicknav', padma_url() . '/library/media/css/slicknav.css' );
 					break;
 
-				case 'slide-out':					
-					$scripts['pushy'] = PADMA_LIBRARY_DIR . '/media/js/pushy.js';
-					$styles['pushy'] = PADMA_LIBRARY_DIR . '/media/css/pushy.css';										
+				case 'slide-out':
+					wp_enqueue_script( 'padma-pushy', padma_url() . '/library/media/js/pushy.js', array( 'jquery' ) );
+					wp_enqueue_style( 'padma-pushy', padma_url() . '/library/media/css/pushy.css' );
 					break;
 
 				default:
-					$scripts['selectnav'] = PADMA_LIBRARY_DIR . '/blocks/navigation/js/selectnav.js';					
+					wp_enqueue_script( 'padma-selectnav', padma_url() . '/library/blocks/navigation/js/selectnav.js', array( 'jquery' ) );
 					break;
 			}
 
 		}
-
-
-		/**
-		 *
-		 * Register Styles
-		 *
-		 */		
-		PadmaCompiler::register_file(array(
-			'name' => 'navigation-block-css',
-			'format' => 'css',
-			'fragments' => $styles,
-			'dependencies' => array(),
-			'enqueue' => true
-		));
-
-
-		/**
-		 *
-		 * Register Scripts
-		 *
-		 */
-		PadmaCompiler::register_file(array(
-			'name' => 'navigation-block-js',
-			'format' => 'js',
-			'fragments' => $scripts,
-			'dependencies' => array(),
-			'enqueue' => true
-		));
-		
-		
 
 	}
 

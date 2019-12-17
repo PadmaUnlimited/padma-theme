@@ -39,26 +39,10 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 			}
 
 			/* CSS */
-			PadmaCompiler::register_file(array(
-				'name' => 'pin-board-css',
-				'format' => 'css',
-				'fragments' => array(
-					PADMA_LIBRARY_DIR . '/blocks/pin-board/css/pin-board.css'	
-				),
-				'dependencies' => array(),
-				'enqueue' => true
-			));
+			wp_enqueue_style('padma-pin-board', padma_url() . '/library/blocks/pin-board/css/pin-board.css');
 
 			/* JS */
-			PadmaCompiler::register_file(array(
-				'name' => 'pin-board-js',
-				'format' => 'js',
-				'fragments' => array(
-					PADMA_LIBRARY_DIR . '/blocks/pin-board/js/pin-board.js'	
-				),
-				'dependencies' => array(),
-				'enqueue' => true
-			));			
+			wp_enqueue_script('padma-pin-board', padma_url() . '/library/blocks/pin-board/js/pin-board.js', array('jquery'));
 
 			/* Variables */
 			wp_localize_script('padma-pin-board', 'PadmaPinBoard', array(

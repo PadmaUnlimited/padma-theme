@@ -229,7 +229,7 @@ class PadmaHead {
 			/* JS */
 			if ( PadmaResponsiveGrid::is_active() && apply_filters('padma_responsive_fitvids', PadmaSkinOption::get('responsive-video-resizing', false, true)) ) {
 
-				wp_enqueue_script('fitvids', padma_url() . '/library/media/js/jquery.fitvids.js', array('jquery'));
+				wp_enqueue_script('fitvids', padma_url() . '/library/media/js/jquery.fitvids.js', array('jquery'), false, true);
 
 				PadmaCompiler::register_file(array(
 					'name' => 'responsive-grid-js',

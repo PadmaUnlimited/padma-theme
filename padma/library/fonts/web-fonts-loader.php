@@ -66,7 +66,7 @@ class PadmaWebFontsLoader {
 
 			if(PadmaOption::get('load-google-fonts-asynchronously')){
 
-				wp_enqueue_script('google-fonts-async', padma_url() . '/library/media/js/google-fonts-asynchronously.js', array('jquery'));
+				wp_enqueue_script('google-fonts-async', padma_url() . '/library/media/js/google-fonts-asynchronously.js', array('jquery'), false, true);
 				wp_localize_script( 'google-fonts-async', 'fontsToUse', $fonts );
 
 			}else{

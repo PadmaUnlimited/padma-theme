@@ -567,9 +567,9 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			'name' => __('Horizontal SlideOut Tag','padma'),
 			'selector' => '.nav-horizontal .pushy-menu-toggle',
 			'states' => array(
-					'Hover' => '.nav-horizontal .pushy-menu-toggle:hover', 
-					'Clicked' => '.nav-horizontal .pushy-menu-toggle:active'
-				)
+				'Hover' => '.nav-horizontal .pushy-menu-toggle:hover', 
+				'Clicked' => '.nav-horizontal .pushy-menu-toggle:active'
+			)
 		) );
 
 		$this->register_block_element( array(
@@ -585,9 +585,9 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			'name' => __('Horizontal SlideOut Icon Line','padma'),
 			'selector' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar',
 			'states' => array(
-					'Hover' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:hover', 
-					'Clicked' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:active'
-				)
+				'Hover' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:hover', 
+				'Clicked' => '.nav-horizontal .pushy-menu-toggle .pushy-menu-toggle-icon .pushy-menu-toggle-icon-bar:active'
+			)
 		) );
 
 		$this->register_pre_4_elements();

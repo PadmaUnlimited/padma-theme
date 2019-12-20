@@ -21,7 +21,7 @@ function padma_register_structural_elements() {
 			'id' => 'body',
 			'name' => __('Body','padma'),
 			'selector' => 'body',
-			'properties' => array('background', 'borders', 'padding'),
+			'properties' => array('background', 'borders', 'padding', 'fonts'),
 			'disallow-nudging' => true
 		));
 
@@ -30,7 +30,10 @@ function padma_register_structural_elements() {
 			'id' => 'wrapper',
 			'name' => __('Wrapper','padma'),
 			'selector' => 'div.wrapper',
-			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines', 'animation')
+			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines', 'animation'),
+			'states' => array(
+				'Shrinked' => 'div.wrapper.is_shrinked',
+			)
 			
 		));
 

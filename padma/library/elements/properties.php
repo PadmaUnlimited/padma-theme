@@ -722,7 +722,8 @@ class PadmaElementProperties {
 					'static' => 'Static',
 					'relative' => 'Relative',
 					'absolute' => 'Absolute',
-					'fixed' => 'Floating (Fixed)'
+					'fixed' => 'Floating (Fixed)',
+					'sticky' => 'Sticky'
 				),
 				'js-callback' => 'stylesheet.update_rule(params.selector, {"position": params.value});',
 			),

@@ -32,7 +32,7 @@ class Padma {
 			define('THEME_FRAMEWORK', 'padma');			
 		}
 		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.1.90');
+			define('PADMA_VERSION', '1.1.91');
 		}
 
 		/* Define directories */
@@ -49,6 +49,7 @@ class Padma {
 		}
 
 		PadmaSettings::set_enviroment();
+
 
 		/* Site URLs */
 		if(!defined('PADMA_SITE_URL')){
@@ -92,6 +93,7 @@ class Padma {
 		$wpdb->pu_wrappers 		= $wpdb->prefix . 'pu_wrappers';
 		$wpdb->pu_snapshots 	= $wpdb->prefix . 'pu_snapshots';
 		$wpdb->pu_layout_meta 	= $wpdb->prefix . 'pu_layout_meta';
+		
 
 		/* Handle child themes */
 		if ( get_template_directory_uri() !== get_stylesheet_directory_uri() ) {
@@ -137,7 +139,7 @@ class Padma {
 		add_action('after_setup_theme', array(__CLASS__, 'add_theme_support'), 1);
 
 		/* Setup */
-		add_action('after_setup_theme', array(__CLASS__, 'child_theme_setup'), 2);
+		add_action('after_setup_theme', array(__CLASS__, 'child_theme_setup'), 2);		
 		add_action('after_setup_theme', array(__CLASS__, 'load_dependencies'), 3);
 		add_action('after_setup_theme', array(__CLASS__, 'maybe_db_upgrade'));
 		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));
@@ -288,7 +290,7 @@ class Padma {
 		if ( PadmaRoute::is_visual_editor() || (defined('DOING_AJAX') && DOING_AJAX && strpos($_REQUEST['action'], 'padma') !== false ) )
 			$dependencies['visual-editor'] = true;
 
-		//Admin classes
+		//Admin classes		
 		if ( is_admin() )
 			$dependencies['admin'] = true;
 
@@ -317,6 +319,7 @@ class Padma {
 		add_theme_support( 'padma-dynamic-block-css' );
 		add_theme_support( 'padma-content-styling-css' );
 		add_theme_support( 'padma-animation-css' );
+		add_theme_support( 'screen-reader-css' );
 
 		/* WordPress Functionality */
 		add_theme_support( 'html5', array( 'caption' ) );

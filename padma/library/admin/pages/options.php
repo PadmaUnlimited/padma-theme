@@ -632,7 +632,7 @@
 
 						array(
 							'type' => 'checkbox',
-							'label' => __('HTTP/2 Server Push','padma','padma'),
+							'label' => __('HTTP/2 Server Push','padma'),
 							'checkboxes' => array(
 								array(
 									'id' => 'http2-server-push',

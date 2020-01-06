@@ -59,7 +59,7 @@ div.postbox div.alert {
 /* END ADMIN META BOXES */
 
 /* LIVE SEO PREVIEW */
-#seo-preview {
+#padma-seo-preview {
 	display: block;
 	background: #FFFFFF;
 	border: 1px solid #BBBBBB;
@@ -72,7 +72,7 @@ div.postbox div.alert {
 	clear: both;
 }
 
-#seo-preview h4 {
+#padma-seo-preview h4 {
 	text-decoration: underline;
 	color: #1111CC;
 	font-size: 16px;
@@ -81,7 +81,7 @@ div.postbox div.alert {
 	cursor: pointer;
 }
 
-#seo-preview p#seo-preview-description {
+#padma-seo-preview p#padma-seo-preview-description {
 	line-height: 16px;
 	margin: 2px 0 0;
 	font-size: 13px;
@@ -89,21 +89,21 @@ div.postbox div.alert {
 	cursor: pointer;
 }
 
-#seo-preview p#seo-preview-bottom {
+#padma-seo-preview p#padma-seo-preview-bottom {
 	color: #767676;
 	margin: 0;
 	font-size: 13px;
 }
 
-#seo-preview p#seo-preview-bottom span {
+#padma-seo-preview p#padma-seo-preview-bottom span {
 	color: #4272DB;
 }
 
-#seo-preview p#seo-preview-bottom span#seo-preview-url {
+#padma-seo-preview p#padma-seo-preview-bottom span#padma-seo-preview-url {
 	color: #0E774A;
 }
 
-h4#seo-preview-title {
+h4#padma-seo-preview-title {
 	color: #444444;
 	font-size: 14px;
 	font-weight: bold;
@@ -114,7 +114,7 @@ h4#seo-preview-title {
 	vertical-align: middle;
 }
 
-small#seo-preview-disclaimer {
+small#padma-seo-preview-disclaimer {
 	color: #777777;
 	margin: 5px 0 4px 12px;
 	float: left;

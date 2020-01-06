@@ -37,6 +37,7 @@ class PadmaMetaBoxTemplate extends PadmaAdminMetaBoxAPI {
 
 }
 
+
 padma_register_admin_meta_box('PadmaMetaBoxTitleControl');
 class PadmaMetaBoxTitleControl extends PadmaAdminMetaBoxAPI {
 
@@ -141,8 +142,9 @@ class PadmaMetaBoxPostThumbnail extends PadmaAdminMetaBoxAPI {
 }
 
 
-if ( !PadmaSEO::is_disabled() )
+if ( !PadmaSEO::is_disabled() ){
 	padma_register_admin_meta_box('PadmaMetaBoxSEO');
+}
 
 class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 
@@ -160,12 +162,13 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 		$this->priority = 'high';				
 
 		$this->inputs = array(
-
+			
 			'seo-preview' => array(
 				'id' => 'seo-preview',
 				'type' => 'seo-preview'
 			),
 
+			
 			'title' => array(
 				'id' => 'title',
 				'group' => 'seo',
@@ -181,7 +184,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 				'type' => 'textarea',
 				'description' => __('Custom <code>&lt;meta&gt;</code> description','padma')
 			),
-
+			
 			'noindex' => array(
 				'id' => 'noindex',
 				'group' => 'seo',
@@ -239,6 +242,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 			),
 
 		);
+		
 	}
 
 
@@ -251,14 +255,14 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 
 		echo '<h4 id="seo-preview-title">Search Engine Result Preview</h4>';
 
-			echo '<div id="seo-preview">';
+			echo '<div id="padma-seo-preview">';
 
 				echo '<h4 title="Click To Edit">' . get_bloginfo('name') . '</h4>';
 				echo '<p id="seo-preview-description" title="Click To Edit">' . $date_text . '<span id="text"></span></p>';
 
 				echo '<p id="seo-preview-bottom"><span id="seo-preview-url">' . str_replace('http://', '', home_url()) . '</span> - <span>Cached</span> - <span>Similar</span></p>';
-
-			echo '</div><!-- #seo-preview -->';
+		
+			echo '</div>';
 
 		echo '<small id="seo-preview-disclaimer">' . __('Remember, this is only a predicted search engine result preview.  There is no guarantee that it will look exactly this way.  However, it will look similar.','padma') . '</small>';
 

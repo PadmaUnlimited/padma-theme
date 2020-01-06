@@ -101,6 +101,9 @@ class PadmaHead {
 				if ( current_theme_supports('padma-block-basics-css') )
 					$general_css_fragments['block-basics.css'] = PADMA_LIBRARY_DIR . '/media/css/block-basics.css';
 
+				if ( current_theme_supports('screen-reader-css') )
+					$general_css_fragments['screen-reader.css'] = PADMA_LIBRARY_DIR . '/media/css/screen-reader.css';
+
 				if ( current_theme_supports('padma-content-styling-css') ) {
 
 					$general_css_fragments['content-styling.css'] = PADMA_LIBRARY_DIR . '/media/css/content-styling.css';

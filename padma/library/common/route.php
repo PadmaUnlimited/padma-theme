@@ -126,10 +126,9 @@ class PadmaRoute {
 			case 'block-js':
 					$PadmaGutenbergBlocks = new PadmaGutenbergBlocks();
 					$PadmaGutenbergBlocks->block_js();
-				add_action('init',function(){
-				});
+					add_action('init',function(){
+					});
 				break;
-
 		}
 
 		exit;

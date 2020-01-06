@@ -11,7 +11,7 @@ function padma_wc_breadcrumbs($breadcrumbs) {
 
 		if ( is_search() ) {
 
-			$breadcrumbs[] = __('Search results for &ldquo;', 'woocommerce') . get_search_query();
+			$breadcrumbs[] = __('Search results for &ldquo;', 'padma') . get_search_query();
 			$breadcrumbs[get_post_type_archive_link('product')] = $shop_name;
 
 		} else {
@@ -76,7 +76,7 @@ function padma_wc_breadcrumbs($breadcrumbs) {
 	/* Shop Tags */
 	if ( is_tax('product_tag') ) {
 
-		$breadcrumbs[] = __('Products tagged &ldquo;', 'pu_sf_wooc') . single_term_title('', false) . _x('&rdquo;', 'endquote', 'pu_sf_wooc');
+		$breadcrumbs[] = __('Products tagged &ldquo;', 'padma') . single_term_title('', false) . _x('&rdquo;', 'endquote', 'padma');
 
 	}
 	/* End Shop Taxonomy Archives */

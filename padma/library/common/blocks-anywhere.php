@@ -14,11 +14,7 @@ class PadmaBlocksAnywhere {
 
 		add_filter( 'padma_compiler_trigger_url', array( __CLASS__, 'add_current_layout' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
-		//add_action( 'padma_blocks_anywhere', array( __CLASS__, 'create_block_shortcode' ) );
-
 		add_shortcode( 'padma-block', array( __CLASS__, 'create_block_shortcode' ) );
-		
-		
 
 	}
 

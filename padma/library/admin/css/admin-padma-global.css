@@ -115,4 +115,15 @@
 .nav-tab-wrapper.big-tabs-tabs{
     margin-bottom: 15px;
 }
-.nav-tab-wrapper.big-tabs-tabs{
+.nav-tab-wrapper.big-tabs-tabs{}
+a.padma-admin-social-icon.first{
+    margin-left: 50px !important;    
+}
+a.padma-admin-social-icon{
+    display: inline-block;
+    margin-left: 0 !important;
+}
+a.padma-admin-social-icon img{
+    width: 50px;
+    padding-top: 5px;
+}

@@ -311,7 +311,7 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					// POST ID
 					$post_id 		= get_the_id();
 
-					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
+					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '" data-post-id="'. get_the_ID() .'">' . "\n";
 
 						do_action('padma_after_pin_board_pin_open');
 

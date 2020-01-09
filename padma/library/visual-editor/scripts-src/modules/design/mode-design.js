@@ -2668,7 +2668,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 					var blockID 	= getBlock($(inspectorElement))[0].dataset.id;
 					var blockType 	= getBlock($(inspectorElement))[0].dataset.type;
 
-					if(blockType == 'content'){
+					if( blockType == 'content' ){
 						
 						var elementId = $(inspectorElement).closest('article').attr('id');
 						if(elementId !== undefined){
@@ -2681,11 +2681,22 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 							refreshBlockContent(blockID);
 						});
 
+					}else if(  blockType == 'pin-board'  ){
+
+						var postId = $(inspectorElement).closest('div.pin-board-pin').data('post-id');
+						localStorage['visual-editor-block-post-data-' + blockID + '-0'] = postId;							
+
+						// Update block content
+						contentEditor.showEditor('content-editor', blockID, function(editor) {
+							refreshBlockContent(blockID);
+						});
+
+
 					}else{
 
 						showNotification({
 							id: 'no-supported',
-							message: 'Content editor currently supports post and pages only.',
+							message: 'Content editor currently supports content and pinBoard block only.',
 							closeTimer: 3000
 						});
 						

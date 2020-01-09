@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-22T15:02:26-06:00\n"
-"PO-Revision-Date: 2020-01-09 16:05+0000\n"
+"POT-Creation-Date: 2020-01-09T11:04:35-06:00\n"
+"PO-Revision-Date: 2020-01-09 18:16+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es-CR\n"
@@ -88,9 +88,13 @@ msgstr "Elegir Audio"
 msgid "Choose Video"
 msgstr "Elegir Vídeo"
 
-#: library/abstract/api-panel.php:780 library/admin/pages/templates.php:140
+#: library/abstract/api-panel.php:783 library/admin/pages/templates.php:140
 msgid "Delete"
 msgstr "Eliminar"
+
+#: library/abstract/api-panel.php:802
+msgid "Choose Json"
+msgstr "Elige Json"
 
 #: library/abstract/web-fonts-api.php:66
 msgid "Search "
@@ -146,7 +150,9 @@ msgstr "Plantillas"
 msgid "Options"
 msgstr "Opciones"
 
-#: library/admin/admin-bar.php:104 library/admin/pages/options.php:2
+#: library/admin/admin-bar.php:104 library/admin/pages/options.php:2 
+#: library/blocks/divider/divider.php:286 
+#: library/blocks/onepage-navigation/onepage-navigation.php:138
 msgid "General"
 msgstr "General"
 
@@ -202,28 +208,28 @@ msgstr ""
 msgid "&ndash; Do Not Use Shared Layout &ndash;"
 msgstr "&ndash; No utilice Diseño Compartido &ndash;"
 
-#: library/admin/admin-meta-boxes.php:56
+#: library/admin/admin-meta-boxes.php:57
 msgid "Hide Title"
 msgstr "Ocultar Título"
 
-#: library/admin/admin-meta-boxes.php:58
+#: library/admin/admin-meta-boxes.php:59
 msgid "&ndash; Do Not Hide Title &ndash;"
 msgstr "&ndash; No Esconda el Título  &ndash;"
 
-#: library/admin/admin-meta-boxes.php:60
+#: library/admin/admin-meta-boxes.php:61
 msgid "Hide on Single View"
 msgstr ""
 "Ocultar en Vista Única\n"
 
-#: library/admin/admin-meta-boxes.php:61
+#: library/admin/admin-meta-boxes.php:62
 msgid "Hide in Index and Archives"
 msgstr "Ocultar en Índice y Archivos"
 
-#: library/admin/admin-meta-boxes.php:62
+#: library/admin/admin-meta-boxes.php:63
 msgid "Hide on Single View, Index, and Archives"
 msgstr "Ocultar en Vista Única, Índice y Archivos"
 
-#: library/admin/admin-meta-boxes.php:64
+#: library/admin/admin-meta-boxes.php:65
 msgid ""
 "Choose whether or not you would like to hide the title for this entry.  This "
 "can be useful if you have advanced formatting in this entry."
@@ -231,11 +237,11 @@ msgstr ""
 "Elija si desea o no ocultar el título de esta entrada. Esto puede ser útil "
 "si tiene un formato avanzado en esta entrada."
 
-#: library/admin/admin-meta-boxes.php:69
+#: library/admin/admin-meta-boxes.php:70
 msgid "Alternate Title"
 msgstr "Título Alternativo"
 
-#: library/admin/admin-meta-boxes.php:71
+#: library/admin/admin-meta-boxes.php:72
 msgid ""
 "Using the alternate page title, you can override the title that's displayed "
 "in the Content Block of the page.  Doing this, you can have a shorter page "
@@ -248,16 +254,16 @@ msgstr ""
 " </code>, pero puede tener un título más largo y más descriptivo en el "
 "contenido real de la página."
 
-#: library/admin/admin-meta-boxes.php:90 library/blocks/content/content.php:814
+#: library/admin/admin-meta-boxes.php:91 library/blocks/content/content.php:814
 msgid "Display"
 msgstr "Mostrar"
 
-#: library/admin/admin-meta-boxes.php:94 
+#: library/admin/admin-meta-boxes.php:95 
 #: library/wrappers/wrapper-options.php:272
 msgid "Custom CSS Class(es)"
 msgstr "Clases de CSS Personalizadas"
 
-#: library/admin/admin-meta-boxes.php:96
+#: library/admin/admin-meta-boxes.php:97
 msgid ""
 "If you are familiar with <a href=\"http://www.w3schools.com/css/\" "
 "target=\"_blank\">CSS</a> and would like to style this entry by targeting a "
@@ -274,81 +280,81 @@ msgstr ""
 "(por ejemplo, una sola publicación o vista de página). Las clases se pueden "
 "separar con espacios y / o comas."
 
-#: library/admin/admin-meta-boxes.php:116 
-#: library/admin/admin-meta-boxes.php:122
+#: library/admin/admin-meta-boxes.php:117 
+#: library/admin/admin-meta-boxes.php:123
 msgid "Featured Image Position"
 msgstr "Posición de Imagen Destacada"
 
-#: library/admin/admin-meta-boxes.php:125
+#: library/admin/admin-meta-boxes.php:126
 msgid "Use Block Default"
 msgstr "Usar Bloque Predeterminado"
 
-#: library/admin/admin-meta-boxes.php:126 
+#: library/admin/admin-meta-boxes.php:127 
 #: library/blocks/content/content.php:1500
 msgid "Left of Title"
 msgstr "A la Izquierda del Título"
 
-#: library/admin/admin-meta-boxes.php:127 
+#: library/admin/admin-meta-boxes.php:128 
 #: library/blocks/content/content.php:1501
 msgid "Right of Title"
 msgstr "A la Derecha del Título"
 
-#: library/admin/admin-meta-boxes.php:128 
+#: library/admin/admin-meta-boxes.php:129 
 #: library/blocks/content/content.php:1502
 msgid "Left of Content"
 msgstr "A la Izquierda del Contenido"
 
-#: library/admin/admin-meta-boxes.php:129 
+#: library/admin/admin-meta-boxes.php:130 
 #: library/blocks/content/content.php:1503
 msgid "Right of Content"
 msgstr "A la Derecha del Contenido"
 
-#: library/admin/admin-meta-boxes.php:130 
+#: library/admin/admin-meta-boxes.php:131 
 #: library/blocks/content/content.php:1504
 msgid "Above Title"
 msgstr "Por encima del Título"
 
-#: library/admin/admin-meta-boxes.php:131 
+#: library/admin/admin-meta-boxes.php:132 
 #: library/blocks/content/content.php:1505
 msgid "Above Content"
 msgstr "Por encima del Contenido"
 
-#: library/admin/admin-meta-boxes.php:132 
+#: library/admin/admin-meta-boxes.php:133 
 #: library/blocks/content/content.php:1506
 msgid "Below Content"
 msgstr "Debajo del Contenido"
 
-#: library/admin/admin-meta-boxes.php:134
+#: library/admin/admin-meta-boxes.php:135
 msgid "Set the position of the featured image for this entry."
 msgstr "Establezca la posición de la imagen destacada para esta entrada."
 
-#: library/admin/admin-meta-boxes.php:172 library/admin/pages/options.php:237 
+#: library/admin/admin-meta-boxes.php:175 library/admin/pages/options.php:237 
 #: library/blocks/content/content.php:184 
 #: library/blocks/content/content.php:966 
-#: library/blocks/listings/block-options.php:266 
+#: library/blocks/listings/block-options.php:265 
 #: library/blocks/pin-board/pin-board.php:1250 
 #: library/blocks/widget-area/widget-area.php:271
 msgid "Title"
 msgstr "Título"
 
-#: library/admin/admin-meta-boxes.php:174
+#: library/admin/admin-meta-boxes.php:177
 msgid "Custom <code>&lt;title&gt;</code> tag"
 msgstr "Etiqueta <code> &lt; title &gt; </code> personalizada"
 
-#: library/admin/admin-meta-boxes.php:180 library/admin/pages/options.php:247 
+#: library/admin/admin-meta-boxes.php:183 library/admin/pages/options.php:247 
 #: library/admin/pages/templates.php:59
 msgid "Description"
 msgstr "Descripción"
 
-#: library/admin/admin-meta-boxes.php:182
+#: library/admin/admin-meta-boxes.php:185
 msgid "Custom <code>&lt;meta&gt;</code> description"
 msgstr "Descripción  <code> &lt;meta&gt; </code> personalizada "
 
-#: library/admin/admin-meta-boxes.php:188
+#: library/admin/admin-meta-boxes.php:191
 msgid "<code>noindex</code> this entry."
 msgstr "<code> noindex </code> esta entrada."
 
-#: library/admin/admin-meta-boxes.php:190
+#: library/admin/admin-meta-boxes.php:193
 msgid ""
 "Index/NoIndex tells the engines whether the entry should be crawled and kept "
 "in the engines' index for retrieval. If you check this box to opt for <code>"
@@ -361,11 +367,11 @@ msgstr ""
 "motores. <strong> Nota: </strong> si no está seguro de lo que hace, no "
 "marque esta casilla."
 
-#: library/admin/admin-meta-boxes.php:196
+#: library/admin/admin-meta-boxes.php:199
 msgid "<code>nofollow</code> links in this entry."
 msgstr "<code> nofollow </code> enlaces en esta entrada."
 
-#: library/admin/admin-meta-boxes.php:198
+#: library/admin/admin-meta-boxes.php:201
 msgid ""
 "Follow/NoFollow tells the engines whether links on the entry should be "
 "crawled. If you check this box to employ \"nofollow,\" the engines will "
@@ -379,11 +385,11 @@ msgstr ""
 "de ranking. <strong> Nota: </strong> si no está seguro de lo que hace, no "
 "marque esta casilla."
 
-#: library/admin/admin-meta-boxes.php:204
+#: library/admin/admin-meta-boxes.php:207
 msgid "<code>noarchive</code> links in this entry."
 msgstr " <code> noarchive </code> enlaces en esta entrada."
 
-#: library/admin/admin-meta-boxes.php:206
+#: library/admin/admin-meta-boxes.php:209
 msgid ""
 "Noarchive is used to restrict search engines from saving a cached copy of "
 "the entry. By default, the engines will maintain visible copies of all pages "
@@ -398,11 +404,11 @@ msgstr ""
 "casilla para restringir que los motores de búsqueda almacenen copias en "
 "caché de esta entrada."
 
-#: library/admin/admin-meta-boxes.php:212
+#: library/admin/admin-meta-boxes.php:215
 msgid "<code>nosnippet</code> links in this entry."
 msgstr "<code> nosnippet </code> enlaces en esta entrada."
 
-#: library/admin/admin-meta-boxes.php:214
+#: library/admin/admin-meta-boxes.php:217
 msgid ""
 "Nosnippet informs the engines that they should refrain from displaying a "
 "descriptive block of text next to the entry's title and URL in the search "
@@ -412,11 +418,11 @@ msgstr ""
 "texto descriptivo junto al título y la URL de la entrada en los resultados "
 "de búsqueda."
 
-#: library/admin/admin-meta-boxes.php:220
+#: library/admin/admin-meta-boxes.php:223
 msgid "<code>noodp</code> links in this entry."
 msgstr "<code> noodp </code> enlaces en esta entrada."
 
-#: library/admin/admin-meta-boxes.php:222 library/admin/pages/options.php:336
+#: library/admin/admin-meta-boxes.php:225 library/admin/pages/options.php:336
 msgid ""
 "NoODP is a specialized tag telling the engines not to grab a descriptive "
 "snippet about a page from the Open Directory Project (DMOZ) for display in "
@@ -426,11 +432,11 @@ msgstr ""
 "un fragmento descriptivo sobre una página del Open Directory Project (DMOZ) "
 "para mostrarla en los resultados de búsqueda.\n"
 
-#: library/admin/admin-meta-boxes.php:228
+#: library/admin/admin-meta-boxes.php:231
 msgid "<code>noydir</code> links in this entry."
 msgstr "<code> noydir </code> enlaces en esta entrada."
 
-#: library/admin/admin-meta-boxes.php:230 library/admin/pages/options.php:349
+#: library/admin/admin-meta-boxes.php:233 library/admin/pages/options.php:349
 msgid ""
 "NoYDir, like NoODP, is specific to Yahoo!, informing that engine not to use "
 "the Yahoo! Directory description of a page/site in the search results."
@@ -439,11 +445,11 @@ msgstr ""
 "debe usar Yahoo! Descripción del directorio de una página / sitio en los "
 "resultados de búsqueda."
 
-#: library/admin/admin-meta-boxes.php:236
+#: library/admin/admin-meta-boxes.php:239
 msgid "301 Permanent Redirect"
 msgstr " 301 Redirección Permanente"
 
-#: library/admin/admin-meta-boxes.php:238
+#: library/admin/admin-meta-boxes.php:241
 msgid ""
 "The 301 Permanent Redirect can be used to forward an old post or page to a "
 "new or different location.  If you ever move a page or change a page's "
@@ -460,7 +466,7 @@ msgstr ""
 "com/webmasters/bin/answer.py?hl=en&answer=93633\" target=\"_blank\"> 301 "
 "Redirects </a>. </em>"
 
-#: library/admin/admin-meta-boxes.php:263
+#: library/admin/admin-meta-boxes.php:267
 msgid ""
 "Remember, this is only a predicted search engine result preview.  There is "
 "no guarantee that it will look exactly this way.  However, it will look "
@@ -470,7 +476,7 @@ msgstr ""
 "previsto. No hay garantía de que se vea exactamente de esta manera. Sin "
 "embargo, se verá similar."
 
-#: library/admin/admin-meta-boxes.php:298
+#: library/admin/admin-meta-boxes.php:302
 msgid ""
 "<strong>Configure the SEO settings for this page (Front Page) in the Padma "
 "Search Engine Optimization settings tab in <a href=\"%\" target=\"_blank\">"
@@ -548,7 +554,7 @@ msgstr ""
 msgid "Enable Responsive Grid"
 msgstr "Habilitar Cuadrícula Responsiva"
 
-#: library/admin/admin.php:498 library/admin/partials/notices/support-us.php:31
+#: library/admin/admin.php:498 library/admin/partials/notices/support-us.php:32
 msgid "Dismiss"
 msgstr "Descartar"
 
@@ -959,7 +965,7 @@ msgid "Search"
 msgstr "Búsqueda"
 
 #: library/admin/pages/options.php:217 library/blocks/content/content.php:965 
-#: library/blocks/listings/block-options.php:265 
+#: library/blocks/listings/block-options.php:264 
 #: library/blocks/pin-board/pin-board.php:1249
 msgid "Date"
 msgstr "Fecha"
@@ -967,7 +973,7 @@ msgstr "Fecha"
 #: library/admin/pages/options.php:218 library/admin/pages/templates.php:68 
 #: library/blocks/content/content.php:938 
 #: library/blocks/content/content.php:970 
-#: library/blocks/listings/block-options.php:240 
+#: library/blocks/listings/block-options.php:239 
 #: library/blocks/pin-board/pin-board.php:790 
 #: library/blocks/pin-board/pin-board.php:1226
 msgid "Author"
@@ -1400,14 +1406,15 @@ msgstr "Permitir instalar versión de pruebas"
 msgid ""
 "This option is for developers, use this option only if you know what are you "
 "doing. Padma Theme and plugins will upgrade to testing version. <strong>Do "
-"NOT use on production sites.<strong> Once active this option will allow you "
-"to upgrade your website to the latest version."
+"NOT use on production sites.</strong> This option requires Padma Updater "
+"plugin. Once active this option will allow you to upgrade your website to "
+"the latest version."
 msgstr ""
 "Esta opción es para desarrolladores, use esta opción solo si sabe lo que "
-"está haciendo. Padma Theme y los Plugins se actualizarán a la versión de "
-"prueba. <strong> NO lo use en sitios de producción. <strong> Una vez "
-"activada, esta opción le permitirá actualizar su sitio web a la última "
-"versión."
+"está haciendo. Padma Theme y los plugins se actualizarán a la versión de "
+"prueba. <strong> NO lo use en sitios de producción. </strong> Esta opción "
+"requiere el plugin Padma Updater. Una vez activa, esta opción le permitirá "
+"actualizar su sitio web a la última versión."
 
 #: library/admin/pages/options.php:692 library/admin/pages/options.php:697
 msgid "Debugging"
@@ -1430,11 +1437,11 @@ msgstr ""
 msgid ""
 "Having Debug Mode enabled will allow the Padma Themes team to access the "
 "Visual Editor for support purposes, but <strong>will not allow changes to be "
-"saved<strong>."
+"saved</strong>."
 msgstr ""
-"Tener habilitado el Modo de depuración permitirá que el equipo de Padma "
-"Temas acceda al Editor visual para fines de soporte, pero <strong> no "
-"permitirá que los cambios se guarden <strong>."
+"Tener habilitado el Modo de Depuración permitirá que el equipo de Temas "
+"Padma acceda al Editor Visual para fines de soporte, pero <strong> no "
+"permitirá que se guarden los cambios </strong>.\n"
 
 #: library/admin/pages/options.php:729 library/admin/pages/options.php:734 
 #: library/admin/pages/options.php:740
@@ -1515,19 +1522,31 @@ msgstr ""
 "la capacidad de hacer zoom en su sitio web con navegadores móviles.\n"
 " \n"
 
-#: library/admin/pages/options.php:884
+#: library/admin/pages/options.php:885
 msgid "Google Fonts"
 msgstr "Fuentes de Google"
 
-#: library/admin/pages/options.php:888
+#: library/admin/pages/options.php:889
 msgid "Do not use Google Fonts"
 msgstr "No use Fuentes de Google"
 
-#: library/admin/pages/options.php:892
+#: library/admin/pages/options.php:893
 msgid "If checked, Padma will not use Google Fonts."
 msgstr "Si está marcado, Padma no usará Google Fonts."
 
-#: library/admin/pages/options.php:909
+#: library/admin/pages/options.php:904 library/admin/pages/options.php:908
+msgid "Load Google Fonts asynchronously"
+msgstr "Cargue fuentes de Google de forma asincrónica"
+
+#: library/admin/pages/options.php:912
+msgid ""
+"If checked, Padma will load fonts asynchronously to avoid render blocking "
+"font when you use google fonts."
+msgstr ""
+"Si está marcada, Padma cargará las fuentes de forma asincrónica para evitar "
+"el bloqueo de la fuente de renderizado cuando use las fuentes de Google."
+
+#: library/admin/pages/options.php:929
 msgid "Save Changes"
 msgstr "Guardar cambios"
 
@@ -1580,7 +1599,7 @@ msgstr "Versión"
 #: library/admin/pages/templates.php:78 library/blocks/image/image.php:19 
 #: library/blocks/image/image.php:37 library/blocks/image/image.php:169 
 #: library/blocks/slider/slider.php:250 library/blocks/social/social.php:63 
-#: library/blocks/social/social.php:420
+#: library/blocks/social/social.php:421
 msgid "Image"
 msgstr "Imagen"
 
@@ -1600,7 +1619,7 @@ msgstr "Privado"
 msgid "Public"
 msgstr "Público"
 
-#: library/admin/pages/templates.php:117 library/visual-editor/display.php:465
+#: library/admin/pages/templates.php:117 library/visual-editor/display.php:472
 msgid "Padma Templates"
 msgstr "Plantillas Padma"
 
@@ -1747,58 +1766,46 @@ msgid "Aim to collaborate?"
 msgstr "¿Desea colaborar?"
 
 #: library/admin/partials/notices/support-us.php:13
-msgid "Your support is vital for success…"
-msgstr "Su apoyo es vital para el éxito ..."
+msgid "Register to get even more plugins and blocks"
+msgstr "Regístrese para obtener aún más plugins y bloques"
 
 #: library/admin/partials/notices/support-us.php:15
-msgid "- Become a sponsor via Patron or PayPal"
-msgstr "- Conviértase en un patrocinador a través de Patron o PayPal"
-
-#: library/admin/partials/notices/support-us.php:16
 msgid "- Report errors in: https://www.padmaunlimited.com/bug-report/"
 msgstr "- Informar errores en: https://www.padmaunlimited.com/bug-report/"
 
-#: library/admin/partials/notices/support-us.php:17
+#: library/admin/partials/notices/support-us.php:16
 msgid "- Collaborate coding through GitHub"
 msgstr "- Colabora en la codificación a través de GitHub"
 
-#: library/admin/partials/notices/support-us.php:18
+#: library/admin/partials/notices/support-us.php:17
 msgid "- Suggest functionalities, blocks or plugins"
 msgstr "- Sugerir funcionalidades, bloques o plugins"
 
-#: library/admin/partials/notices/support-us.php:19
+#: library/admin/partials/notices/support-us.php:18
 msgid "- Join our social networks"
 msgstr ""
 "- Únase a nuestras redes sociales\n"
 " \n"
 
-#: library/admin/partials/notices/support-us.php:20
+#: library/admin/partials/notices/support-us.php:19
 msgid "- Share Padma Unlimited Builder with colleagues and friends"
 msgstr "- Comparta Padma Unlimited Builder con colegas y amigos"
 
-#: library/admin/partials/notices/support-us.php:21
+#: library/admin/partials/notices/support-us.php:20
 msgid "- Spread the word!"
 msgstr "Cuéntele a todos!"
 
-#: library/admin/partials/notices/support-us.php:23
+#: library/admin/partials/notices/support-us.php:22
 msgid "Let's build together!"
 msgstr "¡Construyamos juntos!"
 
-#: library/admin/partials/notices/support-us.php:24
+#: library/admin/partials/notices/support-us.php:23
 msgid "@PadmaTeam"
 msgstr "@PadmaTeam"
 
-#: library/admin/partials/notices/support-us.php:28
-msgid "Become a Patron"
-msgstr "Convertirse en Patrocinador"
-
-#: library/admin/partials/notices/support-us.php:29
-msgid "Other support options"
-msgstr "Otras opciones dee soporte"
-
-#: library/admin/partials/notices/support-us.php:30
-msgid "Join to our community"
-msgstr "Únase a nuestra comunidad"
+#: library/admin/partials/notices/support-us.php:27
+msgid "Register"
+msgstr "Registrar"
 
 #: library/api/api-block-options.php:68
 msgid ""
@@ -1879,7 +1886,7 @@ msgid "Add a url for the block title"
 msgstr "Agregue una URL para el título del bloque"
 
 #: library/api/api-block-options.php:221 library/blocks/image/image.php:234 
-#: library/blocks/social/social.php:462 library/blocks/social/social.php:537
+#: library/blocks/social/social.php:463 library/blocks/social/social.php:538
 msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 "Marque esta opción para abrir el enlace en una nueva ventana\n"
@@ -2143,59 +2150,59 @@ msgstr ""
 "proporcionadas"
 
 #: library/blocks/audio/audio.php:306 library/blocks/image/image.php:252 
-#: library/blocks/social/social.php:313 library/blocks/video/video.php:353
+#: library/blocks/social/social.php:314 library/blocks/video/video.php:353
 msgid "Top Left"
 msgstr "Arriba a la izquierda"
 
 #: library/blocks/audio/audio.php:307 library/blocks/image/image.php:253 
-#: library/blocks/social/social.php:314 library/blocks/video/video.php:354
+#: library/blocks/social/social.php:315 library/blocks/video/video.php:354
 msgid "Top Center"
 msgstr "Centro Superior"
 
 #: library/blocks/audio/audio.php:308 library/blocks/image/image.php:254 
-#: library/blocks/social/social.php:315 library/blocks/video/video.php:355
+#: library/blocks/social/social.php:316 library/blocks/video/video.php:355
 msgid "Top Right"
 msgstr "Arriba a la Derecha"
 
 #: library/blocks/audio/audio.php:309 library/blocks/image/image.php:255 
-#: library/blocks/social/social.php:316 library/blocks/video/video.php:356
+#: library/blocks/social/social.php:317 library/blocks/video/video.php:356
 msgid "Center Left"
 msgstr "Centro Izquierda"
 
 #: library/blocks/audio/audio.php:310 library/blocks/image/image.php:256 
-#: library/blocks/social/social.php:317 library/blocks/video/video.php:357
+#: library/blocks/social/social.php:318 library/blocks/video/video.php:357
 msgid "Center Center"
 msgstr "Centro Centro"
 
 #: library/blocks/audio/audio.php:311 library/blocks/image/image.php:257 
-#: library/blocks/social/social.php:318 library/blocks/video/video.php:358
+#: library/blocks/social/social.php:319 library/blocks/video/video.php:358
 msgid "Center Right"
 msgstr "Centro Derecha"
 
 #: library/blocks/audio/audio.php:312 library/blocks/image/image.php:258 
-#: library/blocks/social/social.php:319 library/blocks/video/video.php:359
+#: library/blocks/social/social.php:320 library/blocks/video/video.php:359
 msgid "Bottom Left"
 msgstr "Abajo a la Izquierda"
 
 #: library/blocks/audio/audio.php:313 library/blocks/image/image.php:259 
-#: library/blocks/social/social.php:320 library/blocks/video/video.php:360
+#: library/blocks/social/social.php:321 library/blocks/video/video.php:360
 msgid "Bottom Center"
 msgstr "Parte Inferior Central"
 
 #: library/blocks/audio/audio.php:314 library/blocks/image/image.php:260 
-#: library/blocks/social/social.php:321 library/blocks/video/video.php:361
+#: library/blocks/social/social.php:322 library/blocks/video/video.php:361
 msgid "Bottom Right"
 msgstr "Abajo a la Derecha"
 
-#: library/blocks/blocks.php:84 library/blocks/blocks.php:106
+#: library/blocks/blocks.php:86 library/blocks/blocks.php:108
 msgid "The block class being registered does not exist."
 msgstr "La clase de bloque que se está registrando no existe."
 
-#: library/blocks/blocks.php:842
+#: library/blocks/blocks.php:858
 msgid "The Padma blocks array does not exist."
 msgstr "La matriz de bloques Padma no existe."
 
-#: library/blocks/blocks.php:856
+#: library/blocks/blocks.php:872
 msgid ""
 "The requested block type of '%s' does not exist. Please re-activate the "
 "block plugin or child theme if you wish to use this block again."
@@ -2993,13 +3000,13 @@ msgid "Number of Posts"
 msgstr "Número de Publicaciones"
 
 #: library/blocks/content/content.php:954 
-#: library/blocks/listings/block-options.php:248 
+#: library/blocks/listings/block-options.php:247 
 #: library/blocks/pin-board/pin-board.php:1174
 msgid "Offset"
 msgstr "Offset"
 
 #: library/blocks/content/content.php:955 
-#: library/blocks/listings/block-options.php:249 
+#: library/blocks/listings/block-options.php:248 
 #: library/blocks/pin-board/pin-board.php:1175
 msgid ""
 "The offset is the number of entries or posts you would like to skip.  If the "
@@ -3009,19 +3016,19 @@ msgstr ""
 "offset es 1, se omitirá la primera publicación."
 
 #: library/blocks/content/content.php:962 
-#: library/blocks/listings/block-options.php:262 
+#: library/blocks/listings/block-options.php:261 
 #: library/blocks/pin-board/pin-board.php:1246
 msgid "Order By"
 msgstr "Ordenar Por"
 
 #: library/blocks/content/content.php:967 
-#: library/blocks/listings/block-options.php:267 
+#: library/blocks/listings/block-options.php:266 
 #: library/blocks/pin-board/pin-board.php:1251
 msgid "Random"
 msgstr "Aleatorio"
 
 #: library/blocks/content/content.php:968 
-#: library/blocks/listings/block-options.php:268
+#: library/blocks/listings/block-options.php:267
 msgid "Comment Count"
 msgstr "Conteo de Comentarios"
 
@@ -3030,7 +3037,7 @@ msgid "Custom Order"
 msgstr "Orden Personalizado"
 
 #: library/blocks/content/content.php:979 
-#: library/blocks/listings/block-options.php:276 
+#: library/blocks/listings/block-options.php:275 
 #: library/blocks/pin-board/pin-board.php:1241 
 #: library/blocks/pin-board/pin-board.php:1258
 msgid "Order"
@@ -3038,14 +3045,14 @@ msgstr "Ordenar"
 
 #: library/blocks/content/content.php:982 
 #: library/blocks/listings/block-options.php:99 
-#: library/blocks/listings/block-options.php:279 
+#: library/blocks/listings/block-options.php:278 
 #: library/blocks/pin-board/pin-board.php:1261
 msgid "Descending"
 msgstr "Descendente"
 
 #: library/blocks/content/content.php:983 
 #: library/blocks/listings/block-options.php:100 
-#: library/blocks/listings/block-options.php:280 
+#: library/blocks/listings/block-options.php:279 
 #: library/blocks/pin-board/pin-board.php:1262
 msgid "Ascending"
 msgstr "Ascendente"
@@ -3722,7 +3729,7 @@ msgstr "No hay campos personalizados para mostrar."
 msgid "&ndash; Do Not Fetch &ndash;"
 msgstr "&ndash; No buscar &ndash;"
 
-#: library/blocks/content/content.php:1789 library/common/query.php:112
+#: library/blocks/content/content.php:1789 library/common/query.php:113
 msgid "No tags available"
 msgstr "No hay etiquetas disponibles."
 
@@ -3815,6 +3822,34 @@ msgstr ""
 "El análisis de PHP está actualmente desactivado, para habilitar la ejecución "
 "de PHP, agregue: <br> <pre> define ('PADMA_DISABLE_PHP_PARSING', falso); "
 "</pre> <br> a su wp-config.php"
+
+#: library/blocks/divider/divider.php:17
+msgid "Divider"
+msgstr "Divisor"
+
+#: library/blocks/divider/divider.php:19
+msgid "Implement a design that makes use of well-divided sections."
+msgstr "Implemente un diseño que haga uso de secciones bien divididas."
+
+#: library/blocks/divider/divider.php:294
+msgid "Divider style"
+msgstr "Divisor de Estilo"
+
+#: library/blocks/divider/divider.php:353
+msgid "Divider height"
+msgstr "Divisor de altura"
+
+#: library/blocks/divider/divider.php:359
+msgid "Main color"
+msgstr "Color Principal"
+
+#: library/blocks/divider/divider.php:365
+msgid "Secondary color"
+msgstr "Color Secundario"
+
+#: library/blocks/divider/divider.php:371
+msgid "background color"
+msgstr "color de fondo"
 
 #: library/blocks/embed/embed.php:15
 msgid "Embed"
@@ -4004,27 +4039,27 @@ msgstr ""
 msgid "Site Title"
 msgstr "Título del Sitio"
 
-#: library/blocks/header/header.php:50
+#: library/blocks/header/header.php:51
 msgid "Banner/Logo Link"
 msgstr "Enace del Banner/ Logotipo"
 
-#: library/blocks/header/header.php:60
+#: library/blocks/header/header.php:62
 msgid "Banner Image"
 msgstr "Imagen del Banner"
 
-#: library/blocks/header/header.php:69
+#: library/blocks/header/header.php:71
 msgid "Site Tagline"
 msgstr "Lema del Sitio"
 
-#: library/blocks/header/header.php:184
+#: library/blocks/header/header.php:186
 msgid "Banner/Logo"
 msgstr "Banner/Logotipo"
 
-#: library/blocks/header/header.php:190
+#: library/blocks/header/header.php:192
 msgid "Automatically Resize Header Image"
 msgstr "Cambiar el Tamaño de la Imagen del Encabezado automáticamente"
 
-#: library/blocks/header/header.php:192
+#: library/blocks/header/header.php:194
 msgid ""
 "If you would like Padma to automatically scale and crop your header image to "
 "the correct dimensions, keep this checked.<br /><br /><em><strong>Important:"
@@ -4038,11 +4073,11 @@ msgstr ""
 "debe cargarse <strong> Desde la Computadora </strong>. <strong> NO </strong> "
 "<strong> Desde la URL </strong>. </em>"
 
-#: library/blocks/header/header.php:198
+#: library/blocks/header/header.php:200
 msgid "Hide Tagline"
 msgstr "Ocultar Lema"
 
-#: library/blocks/header/header.php:200
+#: library/blocks/header/header.php:202
 msgid ""
 "Check this to hide the tagline in your header.  The tagline will sit beneath "
 "your site title.<br /><br /><em><strong>Important:</strong> The tagline will "
@@ -4088,7 +4123,7 @@ msgstr ""
 "<strong> Desde la URL </strong>. </em>"
 
 #: library/blocks/image/image.php:185 library/blocks/slider/slider.php:280 
-#: library/blocks/social/social.php:428 library/blocks/social/social.php:503
+#: library/blocks/social/social.php:429 library/blocks/social/social.php:504
 msgid ""
 "This will be used as the \"title\" attribute for the image.  The title "
 "attribute is beneficial for SEO (Search Engine Optimization) and will allow "
@@ -4099,7 +4134,7 @@ msgstr ""
 "permitirá a sus visitantes mover el mouse sobre la imagen y leer sobre ella."
 
 #: library/blocks/image/image.php:192 library/blocks/slider/slider.php:287 
-#: library/blocks/social/social.php:435 library/blocks/social/social.php:510
+#: library/blocks/social/social.php:436 library/blocks/social/social.php:511
 msgid ""
 "This will be used as the \"alt\" attribute for the image.  The alt attribute "
 "is <em>hugely</em> beneficial for SEO (Search Engine Optimization) and for "
@@ -4110,8 +4145,8 @@ msgstr ""
 "de Búsqueda) y para accesibilidad general.\n"
 " \n"
 
-#: library/blocks/image/image.php:198 library/blocks/social/social.php:441 
-#: library/blocks/social/social.php:516
+#: library/blocks/image/image.php:198 library/blocks/social/social.php:442 
+#: library/blocks/social/social.php:517
 msgid "Link Image"
 msgstr "Imagen de Enlace"
 
@@ -4131,8 +4166,8 @@ msgstr ""
 msgid "Link image URL?"
 msgstr "Enlace imagen URL?"
 
-#: library/blocks/image/image.php:227 library/blocks/social/social.php:448 
-#: library/blocks/social/social.php:523
+#: library/blocks/image/image.php:227 library/blocks/social/social.php:449 
+#: library/blocks/social/social.php:524
 msgid "Set the URL for the image to link to"
 msgstr "Establezca la URL de la imagen para vincular a"
 
@@ -4292,11 +4327,11 @@ msgstr "Si se incluyen términos que tienen descendientes no vacíos."
 msgid "Filter Content"
 msgstr "Filtrar Contenido"
 
-#: library/blocks/listings/block-options.php:215
+#: library/blocks/listings/block-options.php:214
 msgid "Select Taxonomy to filter"
 msgstr "Seleccione Taxonomía para filtrar"
 
-#: library/blocks/listings/block-options.php:256
+#: library/blocks/listings/block-options.php:255
 msgid "Sort Content"
 msgstr "Ordenar Contenido"
 
@@ -4432,7 +4467,7 @@ msgid "Home Link"
 msgstr "Enlace de Inicio"
 
 #: library/blocks/navigation/navigation.php:733 
-#: library/blocks/social/social.php:328
+#: library/blocks/social/social.php:329
 msgid "Orientation"
 msgstr "Orientación"
 
@@ -4685,6 +4720,39 @@ msgstr ""
 "Entonces, cree un menú y asígnelo a <em>%s </em> en el cuadro <strong> "
 "Ubicaciones de temas </strong>."
 
+#: library/blocks/onepage-navigation/onepage-navigation.php:17
+msgid "OnePage Navigation"
+msgstr "OnePage Navigation"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:19
+msgid "Create a floating navigation menu."
+msgstr "Crea un menú de navegación flotante."
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:146
+msgid "Position"
+msgstr "Posición"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:166
+msgid "Distance from border (px)"
+msgstr "Distancia desde el borde (px)"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:172
+msgid "OnePage Nav"
+msgstr "OnePage Nav"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:178 
+#: library/elements/structural-elements.php:31
+msgid "Wrapper"
+msgstr "Wrapper"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:184
+msgid "Custom text"
+msgstr "Texto Personalizado"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:189
+msgid "Custom image"
+msgstr "Imagen personalizada"
+
 #: library/blocks/pin-board/pin-board.php:17
 msgid "Pin Board"
 msgstr "Pin Board"
@@ -4784,7 +4852,7 @@ msgid "Custom query"
 msgstr "Consulta personalizada"
 
 #: library/blocks/pin-board/pin-board.php:1113 
-#: library/blocks/social/social.php:301
+#: library/blocks/social/social.php:302
 msgid "Layout"
 msgstr "Layout"
 
@@ -5482,21 +5550,21 @@ msgstr "Último Icono"
 msgid "There are no icons to display."
 msgstr "No hay iconos para mostrar."
 
-#: library/blocks/social/social.php:254 library/blocks/social/social.php:570
+#: library/blocks/social/social.php:255 library/blocks/social/social.php:571
 msgid "Custom Icons"
 msgstr "Iconos personalizados"
 
-#: library/blocks/social/social.php:263
+#: library/blocks/social/social.php:264
 msgid "Icon Set"
 msgstr "Conjunto de Iconos"
 
-#: library/blocks/social/social.php:266
+#: library/blocks/social/social.php:267
 msgid "Select custom to add your own icons or select one of these sets"
 msgstr ""
 "Seleccione personalizado para agregar sus propios iconos o seleccione uno de "
 "estos conjuntos"
 
-#: library/blocks/social/social.php:302
+#: library/blocks/social/social.php:303
 msgid ""
 "Set the position of all icons in the block and the orientation before you "
 "add your icons."
@@ -5504,11 +5572,11 @@ msgstr ""
 "Establezca la posición de todos los iconos en el bloque y la orientación "
 "antes de agregar sus iconos."
 
-#: library/blocks/social/social.php:307
+#: library/blocks/social/social.php:308
 msgid "Position icons inside container"
 msgstr "Coloque los iconos dentro del contenedor"
 
-#: library/blocks/social/social.php:309
+#: library/blocks/social/social.php:310
 msgid ""
 "You can position the social icons in relation to the block using the "
 "positions provided"
@@ -5516,7 +5584,7 @@ msgstr ""
 "Puede colocar los iconos sociales en relación con el bloque utilizando las "
 "posiciones proporcionadas"
 
-#: library/blocks/social/social.php:352
+#: library/blocks/social/social.php:353
 msgid ""
 "Display articles on top of each other (vertical) or side by side as a grid "
 "(horizontal)"
@@ -5524,27 +5592,27 @@ msgstr ""
 "Muestre los artículos uno encima del otro (vertical) o uno al lado del otro "
 "como una cuadrícula (horizontal)"
 
-#: library/blocks/social/social.php:358
+#: library/blocks/social/social.php:359
 msgid "Horizontal Spacing"
 msgstr "Espaciado Horizontal"
 
-#: library/blocks/social/social.php:361
+#: library/blocks/social/social.php:362
 msgid "Set the px horizontal spacing between the icons."
 msgstr "Establece el espacio horizontal px entre los iconos."
 
-#: library/blocks/social/social.php:367
+#: library/blocks/social/social.php:368
 msgid "Vertical Spacing"
 msgstr "Espaciado Vertical"
 
-#: library/blocks/social/social.php:370
+#: library/blocks/social/social.php:371
 msgid "Set the px vertical spacing between the icons."
 msgstr "Establece el espacio vertical px entre los iconos."
 
-#: library/blocks/social/social.php:376
+#: library/blocks/social/social.php:377
 msgid "SVG Images"
 msgstr "Imágenes SVG"
 
-#: library/blocks/social/social.php:377
+#: library/blocks/social/social.php:378
 msgid ""
 "Allows you to upload SVG Images. Many icons come with SVG versions of the "
 "icons. Using an SVG means it is easier to size the icons. With images like ."
@@ -5555,19 +5623,19 @@ msgstr ""
 "Con imágenes como .png y .gif necesita dimensionarlas manualmente en un "
 "programa de gráficos."
 
-#: library/blocks/social/social.php:382
+#: library/blocks/social/social.php:383
 msgid "Use SVG?"
 msgstr "Usa SVG?"
 
-#: library/blocks/social/social.php:384
+#: library/blocks/social/social.php:385
 msgid "If you would like to upload SVG images check this option"
 msgstr "Si desea cargar imágenes SVG, marque esta opción"
 
-#: library/blocks/social/social.php:405
+#: library/blocks/social/social.php:406
 msgid "SVG Image Width"
 msgstr "Ancho de Imagen SVG"
 
-#: library/blocks/social/social.php:406
+#: library/blocks/social/social.php:407
 msgid ""
 "Set the width of all SVG's in the block. This also controls the width with a "
 "1:1 ratio"
@@ -5575,27 +5643,27 @@ msgstr ""
 "Establezca el ancho de todos los SVG en el bloque. Esto también controla el "
 "ancho con una relación 1: 1"
 
-#: library/blocks/social/social.php:415 library/blocks/social/social.php:489
+#: library/blocks/social/social.php:416 library/blocks/social/social.php:490
 msgid "Icons"
 msgstr "Iconos"
 
-#: library/blocks/social/social.php:446 library/blocks/social/social.php:521
+#: library/blocks/social/social.php:447 library/blocks/social/social.php:522
 msgid "Link URL?"
 msgstr "Vincular URL?"
 
-#: library/blocks/social/social.php:455 library/blocks/social/social.php:530
+#: library/blocks/social/social.php:456 library/blocks/social/social.php:531
 msgid "Set alternative text for the link"
 msgstr "Establecer texto alternativo para el enlace"
 
-#: library/blocks/social/social.php:460 library/blocks/social/social.php:535
+#: library/blocks/social/social.php:461 library/blocks/social/social.php:536
 msgid "New window?"
 msgstr "Nueva ventana?"
 
-#: library/blocks/social/social.php:467 library/blocks/social/social.php:542
+#: library/blocks/social/social.php:468 library/blocks/social/social.php:543
 msgid "Upload the images that you would like to add to the image block."
 msgstr "Cargue las imágenes que desea agregar al bloque de imágenes."
 
-#: library/blocks/social/social.php:494
+#: library/blocks/social/social.php:495
 msgid "Network"
 msgstr "Red"
 
@@ -5871,7 +5939,7 @@ msgstr ""
 msgid "Make a Selection"
 msgstr "Haga una selección"
 
-#: library/common/blocks-anywhere.php:71
+#: library/common/blocks-anywhere.php:74
 msgid ""
 "This block does not have any post assigned. Please specify the post_id your "
 "would like to display as a shortcode parameter."
@@ -5879,7 +5947,7 @@ msgstr ""
 "Este bloque no tiene ninguna publicación asignada. Especifique el post_id "
 "que desea mostrar como parámetro de código corto."
 
-#: library/common/blocks-anywhere.php:106
+#: library/common/blocks-anywhere.php:109
 msgid ""
 "The padma block shortcut ID you have entered does not exist. Please enter a "
 "valid block ID!"
@@ -5978,9 +6046,22 @@ msgstr "Error: No se puede guardar la imagen con la clase WP_Image_Editor"
 msgid "<strong>Error while parsing PHP:</strong> %s"
 msgstr "<strong> Error al analizar PHP: </strong> %s"
 
-#: library/common/query.php:174
+#: library/common/query.php:175
 msgid "&ndash; Default: Category &ndash;"
 msgstr "&ndash; Predeteminado: Categoría &ndash;"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:14
+msgid "Search results for &ldquo;"
+msgstr "Búsqueda de resultados para &ldquo;"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgid "Products tagged &ldquo;"
+msgstr "Productos etiquetados &ldquo;"
+
+#: library/compatibility/woocommerce/woocommerce-breadcrumbs.php:79
+msgctxt "endquote"
+msgid "&rdquo;"
+msgstr "&rdquo;"
 
 #: library/compatibility/woocommerce/woocommerce-design-elements.php:8
 msgid "Shop Title"
@@ -6191,11 +6272,7 @@ msgstr "Documento HTML"
 msgid "Body"
 msgstr "Cuerpo"
 
-#: library/elements/structural-elements.php:31
-msgid "Wrapper"
-msgstr "Wrapper"
-
-#: library/elements/structural-elements.php:39
+#: library/elements/structural-elements.php:43
 msgid "Individual block types and block elements"
 msgstr "Tipos de bloque individuales y elementos de bloque"
 
@@ -6217,7 +6294,7 @@ msgid "The element ID is not registered."
 msgstr "La ID del elemento no está registrada."
 
 #: library/visual-editor/boxes/grid-manager.php:48 
-#: library/visual-editor/display.php:446
+#: library/visual-editor/display.php:453
 msgid "Grid Manager"
 msgstr "Administrador de Cuadrícula"
 
@@ -6260,55 +6337,55 @@ msgstr ""
 "colores solo son visibles cuando el inspector está activo.\n"
 " \n"
 
-#: library/visual-editor/display.php:365 library/visual-editor/display.php:368
+#: library/visual-editor/display.php:372 library/visual-editor/display.php:375
 msgid "Get more blocks"
 msgstr "Consigue más bloques"
 
-#: library/visual-editor/display.php:449
+#: library/visual-editor/display.php:456
 msgid "Clear Cache"
 msgstr "Limpiar Cache"
 
-#: library/visual-editor/display.php:449
+#: library/visual-editor/display.php:456
 msgid "Disabled"
 msgstr "Deshabilitar"
 
-#: library/visual-editor/display.php:461
+#: library/visual-editor/display.php:468
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: library/visual-editor/display.php:462
+#: library/visual-editor/display.php:469
 msgid "Widgets"
 msgstr "Widgets"
 
-#: library/visual-editor/display.php:463
+#: library/visual-editor/display.php:470
 msgid "Menus"
 msgstr "Menús"
 
-#: library/visual-editor/display.php:464
+#: library/visual-editor/display.php:471
 msgid "Padma Options"
 msgstr "Opciones de Padma"
 
-#: library/visual-editor/display.php:466
+#: library/visual-editor/display.php:473
 msgid "Padma Tools"
 msgstr "Herramientas Padma"
 
-#: library/visual-editor/display.php:467
+#: library/visual-editor/display.php:474
 msgid "Documentation"
 msgstr "Documentación"
 
-#: library/visual-editor/display.php:468
+#: library/visual-editor/display.php:475
 msgid "Support"
 msgstr "Soporte"
 
-#: library/visual-editor/display.php:469
+#: library/visual-editor/display.php:476
 msgid "Community"
 msgstr "Comunidad"
 
-#: library/visual-editor/display.php:470
+#: library/visual-editor/display.php:477
 msgid "Get Involved"
 msgstr "Involucrarse"
 
-#: library/visual-editor/display.php:476
+#: library/visual-editor/display.php:483
 msgid "View Site"
 msgstr "Ver Sitio"
 

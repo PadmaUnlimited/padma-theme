@@ -43,25 +43,8 @@ defined('ABSPATH') or die("No script kiddies please!");
 				<a href="<?php echo home_url() . '/?visual-editor=true'; ?>" class="access-to-unlimited-editor"><span class="text"><?php _e('Access Padma | Unlimited Editor','padma'); ?></span><span class="line -right"></span><span class="line -top"></span><span class="line -left"></span><span class="line -bottom"></span></a>
 			</div>
 			<div class="box">
-				<h3><?php _e('If you like Padma | Unlimited','padma'); ?></h3>
-				<p><?php _e('Please consider to donate to our project','padma'); ?></p>
-				<table>
-					<tr>
-						<td>
-							<form style="text-align: center;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-								<input name="cmd" type="hidden" value="_s-xclick"><br>
-								<input name="encrypted" type="hidden" value="-----BEGIN PKCS7-----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-----END PKCS7----- "><br>
-								<input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" type="image"><br>
-								<img src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" alt="" width="1" height="1" border="0" class="jetpack-lazy-image--handled" data-lazy-loaded="1"><noscript>&lt;img src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" alt="" width="1" height="1" border="0" /&gt;</noscript>
-							</form>
-						</td>
-						<td>
-							<a href="https://www.patreon.com/bePatron?u=11838968">
-								<img src="https://www.padmaunlimited.com/wp-content/uploads/2018/09/become-a-patron.png">
-							</a>
-						</td>
-					</tr>
-				</table>
+				<h3><?php _e('Additional Blocks available!','padma'); ?></h3>
+				<a href="https://dashboard.padmaunlimited.com/login"><?php _e('Register to Padma Services to get access to additional Plugins and Blocks','padma'); ?></a>				
 			</div>
 		</div>
 	</div>

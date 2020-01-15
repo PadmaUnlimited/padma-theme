@@ -4,18 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Padma Unlimited 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
-"Last-Translator: Paola González <castellanitadeshuesada@gmail.com>\n"
+"Last-Translator: manfred <manfred@plasma.cr>\n"
 "Language-Team: Spanish (Costa Rica)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-01-09T11:04:35-06:00\n"
-"PO-Revision-Date: 2020-01-09 18:16+0000\n"
+"POT-Creation-Date: 2020-01-15T09:25:23-06:00\n"
+"PO-Revision-Date: 2020-01-15 15:30+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es-CR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.0; wp-5.2.3"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
 
 #. Theme Name of the theme
 msgid "Padma Unlimited"
@@ -186,7 +186,7 @@ msgid "Clear cache"
 msgstr ""
 "Limpiar cache\n"
 
-#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:85 
+#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:68 
 #: library/admin/pages/tools.php:7
 msgid "Reset"
 msgstr "Reiniciar"
@@ -567,7 +567,7 @@ msgid "Welcome"
 msgstr "Bienvenidos"
 
 #: library/admin/pages/getting-started.php:16 
-#: library/admin/pages/getting-started.php:93
+#: library/admin/pages/getting-started.php:76
 msgid "Need help?"
 msgstr "¿Necesita ayuda?"
 
@@ -665,33 +665,36 @@ msgid "Access Padma | Unlimited Editor"
 msgstr "Acceda al Editor Padma | Unlimited"
 
 #: library/admin/pages/getting-started.php:46
-msgid "If you like Padma | Unlimited"
-msgstr "Si le gusta Padma | Unlimited"
+msgid "Additional Blocks available!"
+msgstr "Additional Blocks available!"
 
 #: library/admin/pages/getting-started.php:47
-msgid "Please consider to donate to our project"
-msgstr "Por favor considere donar a nuestro proyecto"
+msgid ""
+"Register to Padma Services to get access to additional Plugins and Blocks"
+msgstr ""
+"Regístrese en Padma Services para obtener acceso a complementos y bloques "
+"adicionales"
 
-#: library/admin/pages/getting-started.php:72
+#: library/admin/pages/getting-started.php:55
 msgid "Padma | Options"
 msgstr "Padma | Opciones"
 
-#: library/admin/pages/getting-started.php:73
+#: library/admin/pages/getting-started.php:56
 msgid ""
 "Setup your Google Analytics, SEO, favicons and other more advanced settings."
 msgstr ""
 "Configure su Google Analytics, SEO, favicons y otras configuraciones más "
 "avanzadas."
 
-#: library/admin/pages/getting-started.php:75
+#: library/admin/pages/getting-started.php:58
 msgid "Padma | Tools"
 msgstr "Padma | Herramientas"
 
-#: library/admin/pages/getting-started.php:77
+#: library/admin/pages/getting-started.php:60
 msgid "System info."
 msgstr "Información del Sistema."
 
-#: library/admin/pages/getting-started.php:78
+#: library/admin/pages/getting-started.php:61
 msgid ""
 "You should provide this system information If you want to open a ticket or "
 "if you log a help request on the forums"
@@ -699,12 +702,12 @@ msgstr ""
 "Debe proporcionar esta información del sistema si desea abrir un tiquetet o "
 "si registra una solicitud de ayuda en los foros"
 
-#: library/admin/pages/getting-started.php:81 library/admin/pages/tools.php:6 
+#: library/admin/pages/getting-started.php:64 library/admin/pages/tools.php:6 
 #: library/admin/pages/tools.php:153
 msgid "Snapshots"
 msgstr "Instantáneas"
 
-#: library/admin/pages/getting-started.php:82
+#: library/admin/pages/getting-started.php:65
 msgid ""
 "Here you can delete the snapshots of Padma Theme Builder to free up some "
 "disk space."
@@ -712,7 +715,7 @@ msgstr ""
 "Aquí puede eliminar las instantáneas de Padma Theme Builder para liberar "
 "espacio en el disco."
 
-#: library/admin/pages/getting-started.php:86
+#: library/admin/pages/getting-started.php:69
 msgid ""
 "Instructions to reset your <strong>Padma | Unlimited</strong> WordPress "
 "Theme Builder installation."
@@ -720,7 +723,7 @@ msgstr ""
 "Instrucciones para restablecer su <strong> Padma |  Unlimited</strong> "
 "instalación del Constructor de Temas para WordPress."
 
-#: library/admin/pages/getting-started.php:94
+#: library/admin/pages/getting-started.php:77
 msgid ""
 "Padma | unlimited WordPress Theme Builder</strong> provides professional "
 "support and comprehensive documentation to help you bring your projects "
@@ -730,34 +733,34 @@ msgstr ""
 "proporciona soporte profesional y documentación completa para ayudarlo a dar "
 "vida a sus proyectos."
 
-#: library/admin/pages/getting-started.php:97
+#: library/admin/pages/getting-started.php:80
 msgid "Padma | Community"
 msgstr "Padma | Comunidad"
 
-#: library/admin/pages/getting-started.php:98
+#: library/admin/pages/getting-started.php:81
 msgid ""
 "Join to our great community, we help us each other across different channels."
 msgstr ""
 "Únase a nuestra gran comunidad, nos ayudamos mutuamente a través de "
 "diferentes canales."
 
-#: library/admin/pages/getting-started.php:99
+#: library/admin/pages/getting-started.php:82
 msgid "Facebook Page"
 msgstr "Página de Facebook"
 
-#: library/admin/pages/getting-started.php:100
+#: library/admin/pages/getting-started.php:83
 msgid "Facebook Users Group (English)"
 msgstr "Grupo de Usuarios de Facebook (Inglés)"
 
-#: library/admin/pages/getting-started.php:101
+#: library/admin/pages/getting-started.php:84
 msgid "Facebook Users Group (Español)"
 msgstr "Grupo de Usuarios de Facebook (Español)"
 
-#: library/admin/pages/getting-started.php:106
+#: library/admin/pages/getting-started.php:89
 msgid "Padma | Documentation"
 msgstr "Padma | Documentación"
 
-#: library/admin/pages/getting-started.php:107
+#: library/admin/pages/getting-started.php:90
 msgid ""
 "Register with us and get <strong>free access</strong> to our complete and "
 "comprehensive documentation. <a target=\"_blank\" href=\"https://docs."
@@ -767,11 +770,11 @@ msgstr ""
 "nuestra documentación completa. <a target=\"_blank\" href=\"https://docs."
 "padmaunlimited.com/\" rel=\"noopener\"> docs.padmaunlimited.com </a>"
 
-#: library/admin/pages/getting-started.php:114
+#: library/admin/pages/getting-started.php:97
 msgid "Padma | Unlimited Growth"
 msgstr "Padma | Unlimited Crecimiento"
 
-#: library/admin/pages/getting-started.php:115
+#: library/admin/pages/getting-started.php:98
 msgid ""
 "Develop, share and sale Templates & Custom Blocks. Working together will "
 "increase community growth possibilities. Design faster & Customize your "
@@ -783,11 +786,11 @@ msgstr ""
 "más rápido y Personalice su flujo de trabajo con herramientas útiles. No "
 "dude en invertir en otras áreas estratégicas para su negocio."
 
-#: library/admin/pages/getting-started.php:118
+#: library/admin/pages/getting-started.php:101
 msgid "Padma | Unlimited Templates"
 msgstr "Padma | Unlimited Plantillas"
 
-#: library/admin/pages/getting-started.php:119
+#: library/admin/pages/getting-started.php:102
 msgid ""
 "<strong>Padma | unlimited Templates</strong> minimize your project "
 "development process, streamlining the design stage leading a faster content "
@@ -797,11 +800,11 @@ msgstr ""
 "desarrollo de su proyecto, agilizando la etapa de diseño que conduce a una "
 "creación y carga de contenido más rápidas."
 
-#: library/admin/pages/getting-started.php:122
+#: library/admin/pages/getting-started.php:105
 msgid "Padma | Unlimited Blocks"
 msgstr "Padma | Unlimited Bloques"
 
-#: library/admin/pages/getting-started.php:123
+#: library/admin/pages/getting-started.php:106
 msgid ""
 "Extend the functionality of your Padma | unlimited WordPress Theme Builder "
 "installation by adding useful custom blocks to your Projects."
@@ -810,7 +813,7 @@ msgstr ""
 " Unlimited para WordPress al agregar útiles bloques personalizados a sus "
 "proyectos."
 
-#: library/admin/pages/getting-started.php:124
+#: library/admin/pages/getting-started.php:107
 msgid ""
 "Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, "
 "Templates on cloud, site monitor."
@@ -818,7 +821,7 @@ msgstr ""
 "Servicios: Documentación, Lifesaver (Migrar desde HTW / Blox), Child Theme, "
 "Plantillas en la nube, monitor del sitio."
 
-#: library/admin/pages/getting-started.php:125
+#: library/admin/pages/getting-started.php:108
 msgid ""
 "Shortcode block: integration & management of Woocommerce content. Contact "
 "form 7 & Gravity forms."
@@ -826,7 +829,7 @@ msgstr ""
 "Bloque Shortcode: integración y gestión de contenido de Woocommerce. "
 "Formulario de contacto 7 y Gravity Forms."
 
-#: library/admin/pages/getting-started.php:126
+#: library/admin/pages/getting-started.php:109
 msgid "Get into Padma Services to unlock the Padma Unlimited potential."
 msgstr ""
 "Ingrese a losPadma Services para desbloquear el potencial de Padma Unlimited"
@@ -6081,7 +6084,8 @@ msgstr "Ordenar"
 #: library/compatibility/woocommerce/woocommerce-design-elements.php:65 
 #: library/compatibility/woocommerce/woocommerce-design-elements.php:74 
 #: library/compatibility/woocommerce/woocommerce-design-elements.php:82 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:124
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:90 
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:132
 msgid "Storefront: WooCommerce"
 msgstr "Storefront: WooCommerce"
 
@@ -6102,71 +6106,83 @@ msgid "Product Listings: Onsale"
 msgstr "Listados de Productos: Onsale"
 
 #: library/compatibility/woocommerce/woocommerce-design-elements.php:81
+msgid "Product Listings: Price"
+msgstr "Lista de productos: Precio"
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:89
 msgid "Product Listings: Prices"
 msgstr "Listados de Productos: Precios"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:93
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:101
 msgid "Product Page: Name"
 msgstr ""
 "Página del Producto: Nombre\n"
 " \n"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:102
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:110
 msgid "Product Page: Image"
 msgstr "Página del Producto: Imagen"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:112
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:120
 msgid "Product Page: Price"
 msgstr "Página del producto: Precio"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:122
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:130
 msgid "Product Page: Short Description"
 msgstr "Página del Producto: Descripción Corta"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:131 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:141
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:139 
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:149
 msgid "Product Page: Button"
 msgstr "Página del Producto: Botón"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:143
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:151
 msgid "Storefront: WooCommerce Button"
 msgstr "Storefront: Botón de WooCommerce"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:151
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:159
 msgid "Product Page: Button text"
 msgstr "Página del Producto: Texto del Botón"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:161
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:169
 msgid "Product Page: Product Title"
 msgstr "Página del Producto: Título del Producto"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:171
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:179
 msgid "Product Page: Single Button"
 msgstr "Página del Producto: Botón Solo"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:181
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:189
 msgid "Product Page: Single Button Text"
 msgstr "Página del Producto: Texto del Botón Solo"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:191
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:199
 msgid "Product Page: Input Text"
 msgstr "Página del Producto: Texto de Entrada"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:201
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:209
 msgid "Product Page: Woocommerce Message"
 msgstr "Página del Producto: Mensaje de WooCommerce"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:214
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:222
 msgid "Related Products Container"
 msgstr "Contenedor de Productos Relacionados"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:223
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:231
 msgid "Related Products Heading"
 msgstr "Título de Productos Relacionados"
 
-#: library/compatibility/woocommerce/woocommerce-design-elements.php:233
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:241
 msgid "Related Product Container"
 msgstr "Contenedor de Producto Relacionado"
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:253
+msgid "Place order: Single Button"
+msgstr "Realizar pedido: Botón único"
+
+#: library/compatibility/woocommerce/woocommerce-design-elements.php:262
+msgid "Woocommerce Info"
+msgstr "Información de Woocommerce"
 
 #: library/display/display.php:57
 msgid "The Padma Grid is not supported in this Child Theme."

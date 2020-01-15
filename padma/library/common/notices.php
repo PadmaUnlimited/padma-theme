@@ -21,7 +21,7 @@ class PadmaNotices extends PadmaNotice{
 
 		self::notice( 'support-us', PADMA_LIBRARY_DIR . '/admin/partials/notices/support-us.php' );
 		self::$defer_delay      = 7 * DAY_IN_SECONDS;
-		self::$first_time_delay = 0;
+		self::$first_time_delay = 10 * MINUTE_IN_SECONDS; // 10 minutes
 
 		add_action( 'load-plugins.php', array( __CLASS__, 'defer_first_time' ));
 		add_action( 'admin_notices', array( __CLASS__, 'display_notice' ));

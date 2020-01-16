@@ -91,7 +91,6 @@ class PadmaImageBlock extends PadmaBlockAPI {
 
 	function content($block) {
 
-
 		//Display image if there is one
 		if ( $image_src = parent::get_setting($block, 'image') ) {
 
@@ -99,6 +98,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 			$alt = parent::get_setting($block, 'image-alt');
 			$title = parent::get_setting($block, 'image-title');
 			$target = parent::get_setting($block, 'link-target', false) ? $target = 'target="_blank"' : '';
+			$rel = parent::get_setting($block, 'link-rel', false) ? $rel = 'noreferrer' : '';
 
 			if ( parent::get_setting($block, 'resize-image', true) ) {
 
@@ -115,7 +115,7 @@ class PadmaImageBlock extends PadmaBlockAPI {
 
 			if ( $image_src = parent::get_setting($block, 'link-image', false) ) {
 
-				echo '<a href="' . $url . '" class="image" '.$target.'><img src="' . padma_format_url_ssl($image_url) . '" alt="' . $alt . '" title="' . $title . '" itemprop="contentURL"/></a>';
+				echo '<a href="' . $url . '" rel="' . $rel . '" class="image" '.$target.'><img src="' . padma_format_url_ssl($image_url) . '" alt="' . $alt . '" title="' . $title . '" itemprop="contentURL"/></a>';
 
 			} else {
 
@@ -208,13 +208,15 @@ class PadmaImageBlockOptions extends PadmaBlockOptionsAPI {
 						'true' => array(
 							'show' => array(
 								'#input-link-url',
-								'#input-link-target'
+								'#input-link-target',
+								'#input-link-rel'
 							)
 						),
 						'false' => array(
 							'hide' => array(
 								'#input-link-url',
-								'#input-link-target'
+								'#input-link-target',
+								'#input-link-rel'
 							)
 						)
 					)
@@ -233,6 +235,14 @@ class PadmaImageBlockOptions extends PadmaBlockOptionsAPI {
 					'type' => 'checkbox',
 					'tooltip' => __('If you would like to open the link in a new window check this option','padma'),
 					'default' => false,
+				),
+
+				'link-rel' => array(
+					'name' => 'link-rel',
+					'label' => 'Rel',
+					'type' => 'text',
+					'tooltip' => 'Here you can add value for the rel attribute. Example values: noreferrer, noopener, nofollow, lightbox',
+					'default' => 'noreferrer',
 				),
 
 				'position-heading' => array(

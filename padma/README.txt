@@ -114,6 +114,7 @@ Added Visual Editor Design options
 Added Custom "Go to Top" text on footer block
 Added Shrink on scroll to wrappers options.
 Added option to show Padma Blocks as Gutenberg Blocks
+Added Rel option for block title link
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
 Updated Animate.css to 3.7.2
 Updated CKEditor to 4.13

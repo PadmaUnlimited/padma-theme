@@ -195,13 +195,15 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 							'true' => array(
 								'show' => array(
 									'#input-block-title-link-url',
-									'#input-block-title-link-target'
+									'#input-block-title-link-target',
+									'#input-block-title-link-rel',
 								)
 							),
 							'false' => array(
 								'hide' => array(
 									'#input-block-title-link-url',
-									'#input-block-title-link-target'
+									'#input-block-title-link-target',
+									'#input-block-title-link-rel',
 								)
 							)
 						)
@@ -220,6 +222,13 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 						'label' => 'Open in a new window?',
 						'tooltip' => __('If you would like to open the link in a new window check this option','padma'),
 						'default' => false
+					);
+
+					$this->inputs['config']['block-title-link-rel'] = array(
+						'name' => 'block-title-link-rel',
+						'type'	=> 'text',
+							'tooltip' => 'Here you can add value for the rel attribute. Example values: noreferrer, noopener, nofollow, lightbox',
+							'default' => 'noreferrer',
 					);
 
 			}

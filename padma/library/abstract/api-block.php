@@ -198,6 +198,7 @@ abstract class PadmaBlockAPI {
 		$block_subtitle_tag      = padma_get( 'block-subtitle-tag', padma_get( 'settings', $block, array() ) );
 		$block_title_link_url    = padma_get( 'block-title-link-url', padma_get( 'settings', $block, array() ) );
 		$block_title_link_target = padma_get( 'block-title-link-target', $block_settings, false, true ) ? $target = ' target="_blank"' : '';
+		$block_title_link_rel 	 = padma_get( 'block-title-link-rel', $block_settings, 'noreferrer' );
 
 		if ( $block_title || $block_subtitle ) {
 
@@ -210,9 +211,9 @@ abstract class PadmaBlockAPI {
 			if ( $block_title ) {
 				if ( padma_get( 'block-title-link-check', $block_settings, false ) ) {
 					if($block_title_tag == ''){
-						echo '<h1 class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . '><span>' . padma_fix_data_type( $block_title ) . '</span></a></h1>';
+						echo '<h1 class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . ' rel="'.$block_title_link_rel.'"><span>' . padma_fix_data_type( $block_title ) . '</span></a></h1>';
 					}else{
-						echo '<'.$block_title_tag.' class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . '><span>' . padma_fix_data_type( $block_title ) . '</span></a></'.$block_title_tag.'>';
+						echo '<'.$block_title_tag.' class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . ' rel="'.$block_title_link_rel.'"><span>' . padma_fix_data_type( $block_title ) . '</span></a></'.$block_title_tag.'>';
 					}
 				} else {
 					if($block_title_tag == ''){

@@ -412,10 +412,11 @@ abstract class PadmaVisualEditorPanelAPI {
 	public function input_text($input) {
 
 		$readonly = ( isset($input['readonly']) && $input['readonly'] === true )  ? ' disabled' : null;
+		$label = ( isset($input['label']) )  ? $input['label'] : '';
 
 		echo '
 			<div class="input-left">
-				<label>' . $input['label'] . '</label>
+				<label>' . $label . '</label>
 			</div>
 
 			<div class="input-right">

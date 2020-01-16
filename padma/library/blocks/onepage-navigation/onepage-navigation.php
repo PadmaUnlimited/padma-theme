@@ -33,12 +33,11 @@ class PadmaOnePageNavBlock extends PadmaBlockAPI {
 		foreach ($block['settings']['nav-options'] as $key => $link_options) {
 			
 			$link_content = ( !empty($link_options['link-text']) ) ? $link_options['link-text'] : $link_options['wrapper'];
-			if( !empty( $link_options['link-image'] ) ){
-				$link_content = '<img src="' . $link_options['link-image'] . '">';
+			$img_alt = $link_options['link-alt'];
+			if( !empty( $link_options['link-image'] ) ){				
+				$link_content = '<img alt="'.$img_alt.'" src="' . $link_options['link-image'] . '">';
 			}
 			
-
-
 			$html .= '<li><a href="#wrapper-' . $link_options['wrapper'] . '">' . $link_content . '</a></li>';
 			
 		}
@@ -182,6 +181,11 @@ class PadmaOnePageNavBlockOptions extends PadmaBlockOptionsAPI {
 							'type' => 'text',
 							'name' => 'link-text',
 							'label' => __('Custom text','padma'),
+						),
+						array(
+							'type' => 'text',
+							'name' => 'link-alt',
+							'label' => __('Custom alt','padma'),
 						),
 						array(
 							'type' => 'image',							

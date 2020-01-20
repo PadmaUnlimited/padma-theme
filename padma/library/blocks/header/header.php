@@ -95,7 +95,9 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 
 			}
 
-			echo '<a href="' . home_url() . '" class="banner-image"><img src="' . padma_format_url_ssl($header_image_url) . '" alt="' . get_bloginfo('name') . '" /></a>';
+			$link = apply_filters('padma_header_link', home_url() );
+
+			echo '<a href="' . $link . '" class="banner-image"><img src="' . padma_format_url_ssl($header_image_url) . '" alt="' . get_bloginfo('name') . '" /></a>';
 
 			do_action('padma_after_header_link');
 
@@ -105,7 +107,9 @@ class PadmaHeaderBlock extends PadmaBlockAPI {
 
 			do_action('padma_before_header_link');
 
-			echo '<span class="banner" itemprop="headline"><a href="' . home_url() . '">' . get_bloginfo('name') . '</a></span>';
+			$link = apply_filters('padma_header_link', home_url() );
+
+			echo '<span class="banner" itemprop="headline"><a href="' . $link . '">' . get_bloginfo('name') . '</a></span>';
 
 			do_action('padma_after_header_link');
 

@@ -215,8 +215,6 @@ class PadmaDynamicStyle {
 				$wrapper_selector = 'div#wrapper-' . PadmaWrappers::format_wrapper_id($wrapper_id);
 			}
 
-			//debug($wrapper_settings);
-
 			/* Fixed Wrapper */
 				if ( !padma_get('fluid', $wrapper_settings, false, true) ) {
 

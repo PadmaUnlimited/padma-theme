@@ -934,6 +934,77 @@ class PadmaGridRenderer {
 
 		do_action('padma_grid_container_open', $this->wrapper);
 
+		//debug( json_encode($this->finalized_layout) );
+
+		foreach ( $this->finalized_layout as $row_index => $row ) {
+
+			echo '<section class="' . implode(' ',  array_unique(array_filter($row['classes']))) . '">';
+
+				do_action('padma_block_row_open', $this->wrapper);
+
+				foreach ( $row['columns'] as $column_index => $column ) {
+
+					echo '<section class="' . implode(' ', array_unique(array_filter($column['classes']))) . '">';
+
+					do_action('padma_block_column_open', $this->wrapper);
+
+					foreach ( $column['contents'] as $index => $block_or_sub_column ) {
+
+						if ( padma_get('type', $block_or_sub_column) == 'block' ) {
+
+							PadmaBlocks::display_block(padma_get('block', $block_or_sub_column), 'grid-renderer');
+
+						} elseif ( padma_get('type', $block_or_sub_column) == 'sub-column' ) {
+
+							echo '<section class="' . implode(' ', array_unique(array_filter($block_or_sub_column['classes']))) . '">';
+
+							do_action('padma_block_sub_column_open', $this->wrapper);
+
+							foreach ( $block_or_sub_column['blocks'] as $sub_block ){								
+								PadmaBlocks::display_block($sub_block, 'grid-renderer');
+							}
+
+							do_action('padma_block_sub_column_column', $this->wrapper);
+
+							echo '</section>';
+
+						}		
+
+					}
+
+					do_action('padma_block_column_close', $this->wrapper);
+
+					echo '</section>';
+
+				}
+
+				do_action('padma_block_row_close', $this->wrapper);
+
+			echo '</section>';
+
+		}		
+
+		do_action('padma_grid_container_close', $this->wrapper);
+
+		echo '</div>';
+
+	}
+
+	/**
+	 *
+	 * Grid CSS compilation
+	 *
+	 */	
+	public function render_grid_css() {
+
+		$this->process();
+
+		echo '<div class="grid-container clearfix">';
+
+		do_action('padma_grid_container_open', $this->wrapper);
+
+		//debug( json_encode($this->finalized_layout) );
+
 		foreach ( $this->finalized_layout as $row_index => $row ) {
 
 			echo '<section class="' . implode(' ',  array_unique(array_filter($row['classes']))) . '">';

@@ -108,21 +108,36 @@ class PadmaLayoutRenderer {
 			}
 
 			/* Display the wrapper */	
-			do_action('padma_before_wrapper');
+				do_action('padma_before_wrapper');
 
-			echo '<div id="wrapper-' . $wrapper_id . '" class="' . implode(' ', array_unique(array_filter($wrapper_classes))) . '" data-alias="' . esc_attr( padma_get( 'alias', padma_get( 'settings', $wrapper, array() )) ) . '"' . $wrapper_visual_editor_attributes . '>';
+				$use_css_grid = ( defined('PADMA_USE_CSS_GRID') && PADMA_USE_CSS_GRID === true ) ? true : false;
+
+				if( $use_css_grid ){
+					$wrapper_classes[] = 'css-grid';
+				}
+
+				$wrapper_classes = implode(' ', array_unique(array_filter($wrapper_classes)));
+				$wrapper_data_alias = esc_attr( padma_get( 'alias', padma_get( 'settings', $wrapper, array() )) );
+
+				echo '<div id="wrapper-' . $wrapper_id . '" class="' . $wrapper_classes . '" data-alias="' . $wrapper_data_alias . '"' . $wrapper_visual_editor_attributes . '>';
 
 					do_action('padma_wrapper_open');
 
 						$wrapper = new PadmaGridRenderer($wrapper_blocks, $wrapper_settings);
-						$wrapper->render_grid();
+						
+						if( $use_css_grid ){
+							$wrapper->render_grid_css();
+						}else{
+							$wrapper->render_grid();
+						}
 
 					do_action('padma_wrapper_close');
 
 				echo '</div>';
-
+				
 				do_action('padma_after_wrapper');
 			/* End displaying wrapper */
+
 
 		}
 

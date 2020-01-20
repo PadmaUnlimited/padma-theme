@@ -66,7 +66,7 @@ Fixed: When a Content Block, set to Custom Query, choosing a specific Category o
 Fixed: Media Uploader css
 Fixed: Grid on Firefox
 Fixed: Headway compatibility load now on after_setup_theme hook
-Fixed: Video Block WebM missing url fixed and added playsinline rule for iphone
+Fixed: Video Block WebM missing url fixed and added plays inline rule for iphone
 Fixed: PadmaQuery::get_categories() change to convert parameter to array when parameter is not array
 Fixed: Repeater issue with wysiwyg inputs
 New features on Content Block
@@ -102,7 +102,7 @@ Added 'font-display: swap' to Google Fonts to ensure text remains visible during
 Added option to load Google Fonts asynchronously
 Added option to do not use Google Fonts
 Added better plugin templates support
-Added option to clear caché from Admin Bar
+Added option to clear cache from Admin Bar
 Added Visual Editor Design options
 - Added Margin "auto" options
 - Added Bottom and Right options to Nudging
@@ -115,6 +115,7 @@ Added Custom "Go to Top" text on footer block
 Added Shrink on scroll to wrappers options.
 Added option to show Padma Blocks as Gutenberg Blocks
 Added Rel option for block title link
+Added new animation options like "Fill Mode", "Play State" and "When animate"
 Updated Constant PADMA_DISABLE_PHP_PARSING is false by default
 Updated Animate.css to 3.7.2
 Updated CKEditor to 4.13

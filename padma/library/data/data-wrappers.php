@@ -396,8 +396,6 @@ class PadmaWrappersData {
 		if (!is_array($wrapper))
 			$wrapper = PadmaWrappersData::get_wrapper($wrapper);
 
-		debug($wrapper);
-
 		return padma_get($option_name, padma_get('settings', $wrapper, array()), $default_value);
 
 	}

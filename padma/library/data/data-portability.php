@@ -43,6 +43,15 @@ class PadmaDataPortability {
 				return array('error' => 'This is not a valid Padma Template');
 			}
 
+			/**
+			 *
+			 * Grid CSS started with Padma 1.2.1+
+			 *
+			 */			
+			if(version_compare(padma_get('pu-version', $skin), '1.2.0', '<')){
+				PadmaSkinOption::set('grid-system', 'legacy');
+			}
+
 		}elseif (padma_get('bt-version', $skin)) {
 
 			if(version_compare(padma_get('bt-version', $skin), '1.0.0', '<')){

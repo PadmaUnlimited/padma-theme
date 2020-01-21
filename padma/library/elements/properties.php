@@ -1492,19 +1492,18 @@ class PadmaElementProperties {
 			}
 
 			// Animation fix for when animate
-			if( isset($properties['animation-rule']) ){
-
-				if( $properties['animation-rule'] === 'always' || $properties['animation-rule'] === 'initial' ){
-					$properties['animation-play-state'] = 'running';
-					unset($properties['animation-rule']);
-				}
-
-				if( $properties['animation-rule'] === 'when-visible' || $properties['animation-rule'] === 'on-mouse-over' ){
-					$properties['animation-play-state'] = 'paused';
-					unset($properties['animation-rule']);
-				}
-
+			if( isset($properties['animation-rule']) && ( $properties['animation-rule'] === 'always' || $properties['animation-rule'] === 'initial' ) ){
+				$properties['animation-play-state'] = 'running';
+				unset($properties['animation-rule']);
 			}
+
+			if( isset($properties['animation-rule']) && ( $properties['animation-rule'] === 'when-visible' || $properties['animation-rule'] === 'on-mouse-over' ) ){
+				$properties['animation-play-state'] = 'paused';
+				unset($properties['animation-rule']);
+			}
+
+
+			
 
 			//Loop through properties
 			foreach ( $properties as $property_id => $value ) {

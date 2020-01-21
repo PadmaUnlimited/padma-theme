@@ -182,8 +182,6 @@ abstract class PadmaVisualEditorPanelAPI {
 
 
 			if ( isset($this->inputs[$tab]) && is_array($this->inputs[$tab]) ) {
-
-
 				
 				foreach ( $this->inputs[$tab] as $name => $input )
 					$this->render_input($input);

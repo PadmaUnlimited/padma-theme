@@ -21,4 +21,10 @@ function padma_do_upgrade_121() {
         }
 
     }
+
+
+    if( PadmaSkinOption::get('grid-system') == '' ){
+        PadmaSkinOption::set('grid-system', 'css-grid');
+    }
+
 }

@@ -76,6 +76,12 @@ class PadmaLayoutRenderer {
 			$wrapper_gutter_width 	= PadmaWrappers::get_gutter_width($wrapper);
 			$wrapper_grid_system 	= PadmaWrappers::get_grid_system($wrapper);
 
+			//debug('grid -> ' . $wrapper_grid_system);
+			if( empty($wrapper_grid_system) ){
+				$wrapper_grid_system = 'legacy';
+			}
+
+
 			$wrapper_classes 		= array('wrapper');
 
 			$wrapper_classes[] 		= PadmaWrappers::is_independent_grid($wrapper) ? 'independent-grid' : null;
@@ -123,6 +129,8 @@ class PadmaLayoutRenderer {
 					do_action('padma_wrapper_open');
 
 						$wrapper = new PadmaGridRenderer($wrapper_blocks, $wrapper_settings);
+
+						//debug($wrapper_settings);
 						
 						if( $wrapper_grid_system == 'css-grid' ){
 							$wrapper->render_grid_css();

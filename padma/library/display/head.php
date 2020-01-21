@@ -116,7 +116,7 @@ class PadmaHead {
 				}
 
 			/* Block heights */
-				$general_css_fragments['dynamic-block-heights'] = array('PadmaDynamicStyle', 'block_heights');				
+				$general_css_fragments['dynamic-block-heights'] = array('PadmaDynamicStyle', 'block_heights');
 
 			/* Design Editor CSS */
 				if ( current_theme_supports('padma-design-editor') )
@@ -193,6 +193,7 @@ class PadmaHead {
 			if ( current_theme_supports('padma-grid') ) {
 
 				$fragments['dynamic-wrapper'] = array('PadmaDynamicStyle', 'wrapper');
+				$fragments['dynamic-blocks-width'] = array('PadmaDynamicStyle', 'block_widths');
 
 			}
 

@@ -31,8 +31,6 @@ class PadmaLayoutRenderer {
 			$wrapper_id_for_blocks 	= $wrapper_id;
 			$wrapper_settings 		= padma_get('settings', $wrapper, array());
 
-			debug($wrapper_settings);
-
 			/* Check if mirroring.  If mirroring, change wrapper ID to the wrapper being mirrored and preserve original ID for a later class */
 			if ( $wrapper_being_mirrored = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
 
@@ -113,8 +111,6 @@ class PadmaLayoutRenderer {
 			/* Display the wrapper */
 				do_action('padma_before_wrapper');
 
-				$use_css_grid = ( defined('PADMA_USE_CSS_GRID') && PADMA_USE_CSS_GRID === true ) ? true : false;
-
 				if( $wrapper_grid_system == 'css-grid' ){
 					$wrapper_classes[] = 'css-grid';
 				}
@@ -128,7 +124,7 @@ class PadmaLayoutRenderer {
 
 						$wrapper = new PadmaGridRenderer($wrapper_blocks, $wrapper_settings);
 						
-						if( $use_css_grid ){
+						if( $wrapper_grid_system == 'css-grid' ){
 							$wrapper->render_grid_css();
 						}else{
 							$wrapper->render_grid();

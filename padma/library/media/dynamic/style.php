@@ -215,8 +215,6 @@ class PadmaDynamicStyle {
 				$wrapper_selector = 'div#wrapper-' . PadmaWrappers::format_wrapper_id($wrapper_id);
 			}
 
-			//debug($wrapper_settings);
-
 			/* Fixed Wrapper */
 				if ( !padma_get('fluid', $wrapper_settings, false, true) ) {
 
@@ -349,6 +347,34 @@ class PadmaDynamicStyle {
 
 				}
 
+			/* Grid CSS */			
+			if ( padma_get('grid-system', $wrapper_settings, 'css-grid', true) == 'css-grid' ) {
+					
+					/* Wrapper */
+					$return .= $wrapper_selector . ' {
+						display: flex;
+					}';
+
+					/* grid-container */
+						
+						
+						$grid_template_columns = '';
+						$column_width = $wrapper_settings['column-width'] . 'px';
+						
+						/* Fluid */
+						if ( (padma_get('fluid', $wrapper_settings, false, true) && padma_get('fluid-grid', $wrapper_settings, false, true)) ) {
+							$column_width = 'auto';
+						}
+
+						for ($i=0; $i < $wrapper_settings['columns']; $i++) { 
+							$grid_template_columns .= ' ' . $column_width;
+						}					
+						$return .= $wrapper_selector . ' div.grid-container {
+							display: grid;
+							grid-template-columns: ' . $grid_template_columns . ';
+							grid-column-gap: ' . $wrapper_settings['gutter-width'] .'px;
+						}';
+			}
 		}
 
 		return $return;
@@ -665,6 +691,39 @@ class PadmaDynamicStyle {
 					}
 
 				}				
+				return $return;
+
+			}
+
+
+			static function block_widths() {
+
+				$layout_id = padma_get('layout-in-use');
+				$wrappers = PadmaWrappersData::get_wrappers_by_layout($layout_id);
+				$return = '';
+
+				foreach ($wrappers as $wrapper_id => $wrapper) {
+
+					if ( !isset($wrapper['settings']['grid-system']) || $wrapper['settings']['grid-system'] != 'css-grid' )
+						continue;
+
+					$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper( $layout_id, $wrapper_id );
+
+
+					foreach ( $wrapper_blocks as $block_id => $block ) {
+						
+						$start_position = $block['position']['left'] + 1;
+						$span_width = $block['dimensions']['width'];
+
+						$return .=  '#block-' . $block_id .' {
+							grid-column: ' . $start_position . ' / span ' . $span_width .';
+						}';
+					}
+
+				}
+
+
+
 				return $return;
 
 			}

@@ -3,29 +3,13 @@ class PadmaGridRenderer {
 
 
 	private $wrapper;
-
-
 	public $blocks = array();
-
-
 	private $layout = array();
-
-
 	private $rows = array();
-
-
 	private $columns = array();
-
-
 	private $column_positions = array();
-
-
 	private $section_classes = array();
-
-
 	private $column_top_tolerance = 30;
-
-
 	private $row_top_tolerance = 20;
 
 
@@ -934,8 +918,6 @@ class PadmaGridRenderer {
 
 		do_action('padma_grid_container_open', $this->wrapper);
 
-		//debug( json_encode($this->finalized_layout) );
-
 		foreach ( $this->finalized_layout as $row_index => $row ) {
 
 			echo '<section class="' . implode(' ',  array_unique(array_filter($row['classes']))) . '">';
@@ -990,6 +972,14 @@ class PadmaGridRenderer {
 
 	}
 
+
+
+	public function process_grid_css() {
+
+		$this->step_1_sort_blocks_by_position();
+
+	}
+
 	/**
 	 *
 	 * Grid CSS compilation
@@ -997,61 +987,17 @@ class PadmaGridRenderer {
 	 */	
 	public function render_grid_css() {
 
-		$this->process();
+		$this->process_grid_css();
 
 		echo '<div class="grid-container clearfix">';
 
 		do_action('padma_grid_container_open', $this->wrapper);
 
-		//debug( json_encode($this->finalized_layout) );
+		foreach ($this->blocks as $id => $block) {
 
-		foreach ( $this->finalized_layout as $row_index => $row ) {
+			PadmaBlocks::display_block( $block );
 
-			echo '<section class="' . implode(' ',  array_unique(array_filter($row['classes']))) . '">';
-
-				do_action('padma_block_row_open', $this->wrapper);
-
-				foreach ( $row['columns'] as $column_index => $column ) {
-
-					echo '<section class="' . implode(' ', array_unique(array_filter($column['classes']))) . '">';
-
-					do_action('padma_block_column_open', $this->wrapper);
-
-					foreach ( $column['contents'] as $index => $block_or_sub_column ) {
-
-						if ( padma_get('type', $block_or_sub_column) == 'block' ) {
-
-							PadmaBlocks::display_block(padma_get('block', $block_or_sub_column), 'grid-renderer');
-
-						} elseif ( padma_get('type', $block_or_sub_column) == 'sub-column' ) {
-
-							echo '<section class="' . implode(' ', array_unique(array_filter($block_or_sub_column['classes']))) . '">';
-
-							do_action('padma_block_sub_column_open', $this->wrapper);
-
-							foreach ( $block_or_sub_column['blocks'] as $sub_block ){								
-								PadmaBlocks::display_block($sub_block, 'grid-renderer');
-							}
-
-							do_action('padma_block_sub_column_column', $this->wrapper);
-
-							echo '</section>';
-
-						}		
-
-					}
-
-					do_action('padma_block_column_close', $this->wrapper);
-
-					echo '</section>';
-
-				}
-
-				do_action('padma_block_row_close', $this->wrapper);
-
-			echo '</section>';
-
-		}		
+		}
 
 		do_action('padma_grid_container_close', $this->wrapper);
 

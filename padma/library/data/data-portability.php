@@ -187,8 +187,8 @@ class PadmaDataPortability {
 									'fluid-grid' => padma_get('fluid-grid', $wrapper_data),
 									'columns' => padma_get('columns', $wrapper_data),
 									'column-width' => padma_get('column-width', $wrapper_data),
-									'gutter-width' => padma_get('gutter-width', $wrapper_data),
-									'use-independent-grid' => padma_get('use-independent-grid', $wrapper_data)
+									'gutter-width' => padma_get('gutter-width', $wrapper_data),									
+									'use-independent-grid' => padma_get('use-independent-grid', $wrapper_data),
 								);
 
 								$new_wrapper = PadmaWrappersData::add_wrapper($layout_id, $wrapper_data);

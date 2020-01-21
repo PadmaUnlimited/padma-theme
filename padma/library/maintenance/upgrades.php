@@ -1,7 +1,9 @@
 <?php
 class PadmaMaintenance {
 
-	public static $available_upgrades = array();
+	public static $available_upgrades = array(
+		'1.2.1'
+	);
 
 	/**
 	 * Over time, there may be issues to be corrected between updates or naming conventions to be changed between updates.

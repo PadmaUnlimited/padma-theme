@@ -219,7 +219,7 @@ class PadmaWrappersData {
 		}
 
 		wp_cache_set($cache_key, $wrapper);
-
+		debug($wrapper);
 		return $wrapper;
 
 	}

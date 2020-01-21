@@ -11,27 +11,22 @@ class PadmaWrappers {
 				'fluid-grid' => false,
 				'columns' => null,
 				'column-width' => null,
-				'gutter-width' => null
+				'gutter-width' => null,
+				'grid-system' => 'css-grid',
 			)
 		)
 	);
 
 	public static $default_wrapper_id = 'default';
-
 	public static $default_columns = 24;
-
 	public static $default_column_width = 20;
-
 	public static $default_gutter_width = 20;
-
+	public static $default_grid_system = 'css-grid';
 	public static $default_wrapper_margin_top = 30;
-
 	public static $default_wrapper_margin_bottom = 30;
-
-
 	public static $global_grid_column_width = null;
-
 	public static $global_grid_gutter_width = null;
+	public static $global_grid_system = 'css-grid';
 
 
 	public static function init() {
@@ -40,11 +35,13 @@ class PadmaWrappers {
 			self::$default_columns = PadmaSkinOption::get('columns', false, self::$default_columns);
 			self::$global_grid_column_width = PadmaSkinOption::get('column-width', false, self::$default_column_width);
 			self::$global_grid_gutter_width = PadmaSkinOption::get('gutter-width', false, self::$default_gutter_width);
+			self::$global_grid_system = PadmaSkinOption::get('grid-system', false, self::$global_grid_system);
 
 			self::$default_wrappers['default']['settings']['use-independent-grid'] = false;
 			self::$default_wrappers['default']['settings']['columns'] = self::$default_columns;
 			self::$default_wrappers['default']['settings']['column-width'] = self::$default_column_width;
 			self::$default_wrappers['default']['settings']['gutter-width'] = self::$default_gutter_width;
+			self::$default_wrappers['default']['settings']['grid-system'] = self::$default_grid_system;
 
 		/* Setup hooks */
 		add_action('padma_register_elements_instances', array(__CLASS__, 'register_wrapper_instances'), 11);
@@ -257,6 +254,13 @@ class PadmaWrappers {
 
 		return ($column_width * $columns) + (($columns - 1) * $gutter_width);
 
+	}
+
+	public static function get_grid_system($wrapper) {
+
+		$wrapper_settings = padma_get('settings', $wrapper, array());
+
+		return padma_get('use-independent-grid', $wrapper_settings, false, true) ? padma_get('grid-system', $wrapper_settings, false, true) : PadmaWrappers::$global_grid_system;
 	}
 
 

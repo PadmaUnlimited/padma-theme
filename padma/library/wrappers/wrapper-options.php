@@ -54,14 +54,16 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 								'show' => array(
 									'#input-column-width',
 									'#input-gutter-width',
-									'#input-grid-width'
+									'#input-grid-width',
+									'#input-grid-system'
 								)
 							),
 							'false' => array(
 								'hide' => array(
 									'#input-column-width',
 									'#input-gutter-width',
-									'#input-grid-width'
+									'#input-grid-width',
+									'#input-grid-system'
 								)
 							)
 						)
@@ -100,6 +102,17 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 						'name' => 'grid-width',
 						'label' => __('Grid Width','padma'),
 						'readonly' => true
+					),
+
+					'grid-system' => array(
+						'type' => 'select',
+						'options' => array(
+							'legacy' => 'Legacy',
+							'css-grid' => 'CSS Grid',
+						),					
+						'default' => 'css-grid',
+						'name' => 'grid-system',
+						'label' => __('Grid System','padma'),					
 					),
 
 				'wrapper-margins-heading' => array(
@@ -543,6 +556,7 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 		/* Grid Settings Defaults */
 			$this->inputs['setup']['column-width']['default'] = PadmaWrappers::$default_column_width; 
 			$this->inputs['setup']['gutter-width']['default'] = PadmaWrappers::$default_gutter_width; 
+			$this->inputs['setup']['grid-system']['default'] = PadmaWrappers::$default_grid_system; 
 		/* End Grid Settings Defaults */
 
 		/* Margins */

@@ -283,8 +283,8 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 					echo '<div class="pin-board-gutter-sizer"></div>' . "\n";
 					echo '<div class="pin-board-column-sizer"></div>' . "\n\n";
 
-
-				$current_post_id = $post->ID;
+				if( isset($post) )
+					$current_post_id = $post->ID;
 
 				while ( $wp_query->have_posts() ) {
 

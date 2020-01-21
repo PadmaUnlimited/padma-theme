@@ -66,8 +66,9 @@ class PadmaDynamicStyle {
 				}	
 			}
 
-
-			$selector 	= $element['selector'];
+			if( isset($element['selector']) )
+				$selector 	= $element['selector'];
+			
 			$nudging_properties = array('top', 'left', 'position', 'z-index');
 
 			//Continue to next element if the element/selector does not exist

@@ -43,15 +43,6 @@ class PadmaDataPortability {
 				return array('error' => 'This is not a valid Padma Template');
 			}
 
-			/**
-			 *
-			 * Grid CSS started with Padma 1.2.1+
-			 *
-			 */			
-			if(version_compare(padma_get('pu-version', $skin), '1.2.0', '<')){
-				PadmaSkinOption::set('grid-system', 'legacy');
-			}
-
 		}elseif (padma_get('bt-version', $skin)) {
 
 			if(version_compare(padma_get('bt-version', $skin), '1.0.0', '<')){
@@ -120,6 +111,25 @@ class PadmaDataPortability {
 			PadmaOption::$current_skin = $skin['id'];
 			PadmaLayoutOption::$current_skin = $skin['id'];
 
+
+
+		/**
+		 *
+		 * Grid CSS started with Padma 1.2.1+
+		 *
+		 */			
+			if(version_compare(padma_get('pu-version', $skin), '1.2.0', '<')){
+				
+				foreach ($skin['data_pu_wrappers'] as $key => $wrapper) {
+
+					if( empty($wrapper['settings']['grid-system']) ){
+						$skin['data_pu_wrappers'][$key]['settings']['grid-system'] = 'legacy';
+					}
+					
+				}
+
+			}
+		
 		/* Process the install */
 			if(isset($skin['pu-version'])){
 				$skin = self::process_install_skin($skin);
@@ -141,6 +151,7 @@ class PadmaDataPortability {
 			}elseif (!padma_get('hw-version', $skin) || version_compare(padma_get('hw-version', $skin), '3.7', '<') ) {
 				return array('error' => 'Headway templates from pre-3.7 versions are not supported');
 			}
+
 
 
 		/* Change $current_skin back just to be safe */

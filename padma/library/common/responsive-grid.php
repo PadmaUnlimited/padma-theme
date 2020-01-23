@@ -84,7 +84,11 @@ class PadmaResponsiveGrid {
 			return setcookie('padma-full-site', 1, time() + 60 * 60 * 24 * 7, '/');
 
 		if ( padma_get('full-site') == 'false' )
-			return setcookie('padma-full-site', false, time() - 3600, '/');			
+			return setcookie('padma-full-site', false, time() - 3600, '/');
+
+		// If there is not cookie, site should be showed normal
+		if( null == padma_get('full-site') )
+			return setcookie('padma-full-site', false, time() - 3600, '/');
 
 		return false;
 

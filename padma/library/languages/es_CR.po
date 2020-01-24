@@ -4,18 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Padma Unlimited 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/padma\n"
-"Last-Translator: manfred <manfred@plasma.cr>\n"
+"Last-Translator: Paola González <castellanitadeshuesada@gmail.com>\n"
 "Language-Team: Spanish (Costa Rica)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-01-15T09:25:23-06:00\n"
-"PO-Revision-Date: 2020-01-15 15:30+0000\n"
+"POT-Creation-Date: 2020-01-24T16:23:11-06:00\n"
+"PO-Revision-Date: 2020-01-24 23:20+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: padma\n"
 "Language: es-CR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.1; wp-5.3.2"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
 
 #. Theme Name of the theme
 msgid "Padma Unlimited"
@@ -56,43 +56,43 @@ msgid "Error: The block options class being registered does not exist."
 msgstr ""
 "Error: La clase de opciones de bloqueo que se está registrando no existe."
 
-#: library/abstract/api-panel.php:441
+#: library/abstract/api-panel.php:442
 msgid "View Textarea"
 msgstr ""
 "Ver \"Área de Texto\"\n"
 
-#: library/abstract/api-panel.php:459
+#: library/abstract/api-panel.php:460
 msgid "View Code Editor"
 msgstr ""
 "Ver Editor de Código\n"
 
-#: library/abstract/api-panel.php:475
+#: library/abstract/api-panel.php:476
 msgid "View Editor"
 msgstr "Ver Editor"
 
-#: library/abstract/api-panel.php:595
+#: library/abstract/api-panel.php:596
 msgid "Hold Ctrl (Windows) or Command (Mac) to select multiple options."
 msgstr ""
 "Mantenga presionada la tecla Ctrl (Windows) o Comando (Mac) para seleccionar "
 "varias opciones."
 
-#: library/abstract/api-panel.php:648
+#: library/abstract/api-panel.php:649
 msgid "Choose Image"
 msgstr "Elegir Imagen"
 
-#: library/abstract/api-panel.php:671
+#: library/abstract/api-panel.php:672
 msgid "Choose Audio"
 msgstr "Elegir Audio"
 
-#: library/abstract/api-panel.php:688
+#: library/abstract/api-panel.php:689
 msgid "Choose Video"
 msgstr "Elegir Vídeo"
 
-#: library/abstract/api-panel.php:783 library/admin/pages/templates.php:140
+#: library/abstract/api-panel.php:784 library/admin/pages/templates.php:140
 msgid "Delete"
 msgstr "Eliminar"
 
-#: library/abstract/api-panel.php:802
+#: library/abstract/api-panel.php:803
 msgid "Choose Json"
 msgstr "Elige Json"
 
@@ -152,7 +152,7 @@ msgstr "Opciones"
 
 #: library/admin/admin-bar.php:104 library/admin/pages/options.php:2 
 #: library/blocks/divider/divider.php:286 
-#: library/blocks/onepage-navigation/onepage-navigation.php:138
+#: library/blocks/onepage-navigation/onepage-navigation.php:137
 msgid "General"
 msgstr "General"
 
@@ -186,7 +186,7 @@ msgid "Clear cache"
 msgstr ""
 "Limpiar cache\n"
 
-#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:68 
+#: library/admin/admin-bar.php:163 library/admin/pages/getting-started.php:86 
 #: library/admin/pages/tools.php:7
 msgid "Reset"
 msgstr "Reiniciar"
@@ -566,8 +566,7 @@ msgstr "Abrir en el Editor Visual de Padma "
 msgid "Welcome"
 msgstr "Bienvenidos"
 
-#: library/admin/pages/getting-started.php:16 
-#: library/admin/pages/getting-started.php:76
+#: library/admin/pages/getting-started.php:16
 msgid "Need help?"
 msgstr "¿Necesita ayuda?"
 
@@ -575,224 +574,252 @@ msgstr "¿Necesita ayuda?"
 msgid "Unlimited growth"
 msgstr "Crecimiento Ilimitado"
 
-#: library/admin/pages/getting-started.php:24
+#: library/admin/pages/getting-started.php:25
 msgid "Welcome!"
 msgstr "Bienvenido!"
 
-#: library/admin/pages/getting-started.php:25
+#: library/admin/pages/getting-started.php:27
 msgid "Your <strong>Padma Theme Builder</strong> installation is ready."
 msgstr ""
 "Su instalación de <strong>Constructor de Temas de Padma </strong> está lista."
 
-#: library/admin/pages/getting-started.php:26
-msgid "You can start creating now!"
-msgstr "¡Puede comenzar a crear ahora!"
-
-#: library/admin/pages/getting-started.php:28
-msgid ""
-"If you want to hide this page just change the Default Admin Page in <a "
-"href=\"?page=padma-options\">Padma » Options</a>."
-msgstr ""
-"Si desea ocultar esta página, simplemente cambie la Página de Administración "
-"Predeterminada en <a href=\"?page=padma-options\"> Padma » Opciones </a>."
-
-#: library/admin/pages/getting-started.php:30
-msgid ""
-"Padma | unlimited - Core features in the WordPress dashboard / admin menu."
-msgstr ""
-"Padma | Unlimited - Funciones Principales en el panel de control de "
-"WordPress / menú de administración."
-
-#: library/admin/pages/getting-started.php:32
-msgid "Padma | unlimited - Welcome!"
-msgstr "Padma | Unlimited - Bienvenido!"
+#: library/admin/pages/getting-started.php:29
+msgid "Start creating now!"
+msgstr "¡Comienza a crear ahora!"
 
 #: library/admin/pages/getting-started.php:33
-msgid "(This page)"
-msgstr "(Esta página)"
-
-#: library/admin/pages/getting-started.php:34
 msgid ""
-"Get access to General Information, Documentation & Support for Padma | "
-"unlimited - WordPress Theme Builder."
+"To hide this page just change the Default Admin Page in <a href=\"?"
+"page=padma-options\">Padma » Options</a>."
 msgstr ""
-"Obtenga acceso a Información General, Documentación y Soporte para Padma | "
-"Unlimited - WordPress Constructor de Temas."
-
-#: library/admin/pages/getting-started.php:35
-msgid ""
-"Get access to blocks and templates to improve your Padma | unlimited Theme "
-"Builder."
-msgstr ""
-"Obtenga acceso a bloques y plantillas para mejorar su Constructor de Temas "
-"Padma | Unlimited."
+"Para ocultar esta página, simplemente cambie la Página de Administración "
+"Predeterminada en <a href=\"?page=padma-options\"> Padma »Opciones </a>."
 
 #: library/admin/pages/getting-started.php:37
 msgid ""
-"If you are new to Padma | unlimited, please read our <a href=\"https://docs."
-"padmaunlimited.com/\">Free WordPress Theme Builder Documentation</a>"
+"Padma | Unlimited - Core features in the WordPress dashboard / admin menu."
 msgstr ""
-"Si eres nuevo en Padma | Unlimted, por favor lea nuestra <a href=\"https:"
-"//docs.padmaunlimited.com/\"> Documentación gratuita de WordPress "
-"Constructor de Temas </a>"
+"Padma | Unlimited-  Funciones básicas en el escritorio de WordPress / menú "
+"de administración."
+
+#: library/admin/pages/getting-started.php:39
+msgid "Padma | Unlimited - Welcome!"
+msgstr "Padma | Unlimited - Bienvenidos!"
 
 #: library/admin/pages/getting-started.php:40
-msgid "Padma | unlimited Editor"
-msgstr "Editor Padma | Unlimited"
+msgid "(This page)"
+msgstr "(Esta página)"
 
 #: library/admin/pages/getting-started.php:41
-msgid ""
-"Padma | unlimited Editor is a powerful tool to design & customize your "
-"layouts and edit the visual style of your WordPress website through a "
-"graphical interface."
-msgstr ""
-"Editor Padma | Unlimited es una herramienta poderosa para diseñar y "
-"personalizar sus diseños y editar el estilo visual de su sitio web de "
-"WordPress a través de una interfaz gráfica."
+msgid "Get access to ►"
+msgstr "Obtenga acceso a ►"
 
 #: library/admin/pages/getting-started.php:42
 msgid ""
-"Learn more abou it in the document <a rel=\"noopener\" href=\"https://docs."
-"padmaunlimited.com/blog/basics/before-using-the-visual-editor/\">"
-"Introduction to the Padma | unlimited Editor.</a>"
+"General Information, Documentation and Support for <b>Padma</b> | Unlimited "
+"Theme Builder."
 msgstr ""
-"Obtenga más información al respecto en el documento <a rel=\"noopener\" "
-"href=\"https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-"
-"editor/\"> Introducción al Editor de Padma | Unlimited. </a>"
+"Información general, Documentación y Soporte para <b> Padma </b> | Unlimited "
+"Theme Builder."
 
 #: library/admin/pages/getting-started.php:43
-msgid "Access Padma | Unlimited Editor"
-msgstr "Acceda al Editor Padma | Unlimited"
+msgid ""
+"Blocks and templates to expand <b>Padma</b> | Unlimited Theme Builder "
+"possibilities."
+msgstr ""
+"Bloques y plantillas para expandir posibilidades de <b> Padma </b> | "
+"Unlimited Theme Builder \n"
 
-#: library/admin/pages/getting-started.php:46
+#: library/admin/pages/getting-started.php:47
+msgid "Padma starter users"
+msgstr ""
+"Usuarios principiantes de Padma\n"
+
+#: library/admin/pages/getting-started.php:49
+msgid ""
+"Please read Padma | Unlimited Theme Builder <a href=\"https://docs."
+"padmaunlimited.com/\">Documentation</a>."
+msgstr ""
+"Por favor lea Padma |  Unlimited Theme Builder <a href=\"https://docs."
+"padmaunlimited.com/\"> Documentación </a>."
+
+#: library/admin/pages/getting-started.php:54
+msgid "Padma | Unlimited Visual Editor"
+msgstr "Padma | Unlimited Editor Visual"
+
+#: library/admin/pages/getting-started.php:56
+msgid ""
+"Padma | Unlimited Visual Editor is a powerful tool to design WordPress "
+"website layouts and templates.  Easily customize almost every visual element "
+"of your websites through a graphical interface (Code can be added easily "
+"using the integrated code editor if required)."
+msgstr ""
+"El Editor Visual de Padma | Unlimited  es una herramienta poderosa para "
+"diseñar plantillas y diseños de sitios web de WordPress. Personalice "
+"fácilmente casi todos los elementos visuales de sus sitios web a través de "
+"una interfaz gráfica (el Código se puede agregar fácilmente usando el editor "
+"de código integrado si es necesario).\n"
+
+#: library/admin/pages/getting-started.php:58
+msgid ""
+"Learn more about the platform in the document <a rel=\"noopener\" "
+"href=\"https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-"
+"editor/\">\"Introduction to Padma | Unlimited Visual Editor\". </a>"
+msgstr ""
+"Obtenga más información sobre la plataforma en el documento <a "
+"rel=\"noopener\" href=\"https://docs.padmaunlimited.com/blog/basics/before-"
+"using-the-visual-editor/\"> \"Introducción al Editor Visual de Padma | "
+"Unlimited\". </a>"
+
+#: library/admin/pages/getting-started.php:60
+msgid "Access <b>Padma</b> | Unlimited Editor"
+msgstr "Accesar <b>Padma</b> | Unlimited Editor"
+
+#: library/admin/pages/getting-started.php:63
 msgid "Additional Blocks available!"
 msgstr "Additional Blocks available!"
 
-#: library/admin/pages/getting-started.php:47
+#: library/admin/pages/getting-started.php:64
+msgid ""
+"Padma dashboard allows users to manage their Padma | Unlimited installations."
+" Also, Discover Padma tiers subscription to access additional Plugins and "
+"Services."
+msgstr ""
+"El panel de control de Padma permite a los usuarios administrar sus "
+"instalaciones de Padma |  Unlimited. Además, descubra los niveles de "
+"suscripción de Padma para acceder Plugins y Servicios adicionales."
+
+#: library/admin/pages/getting-started.php:65
 msgid ""
 "Register to Padma Services to get access to additional Plugins and Blocks"
 msgstr ""
 "Regístrese en Padma Services para obtener acceso a complementos y bloques "
 "adicionales"
 
-#: library/admin/pages/getting-started.php:55
+#: library/admin/pages/getting-started.php:73
 msgid "Padma | Options"
 msgstr "Padma | Opciones"
 
-#: library/admin/pages/getting-started.php:56
+#: library/admin/pages/getting-started.php:74
 msgid ""
 "Setup your Google Analytics, SEO, favicons and other more advanced settings."
 msgstr ""
 "Configure su Google Analytics, SEO, favicons y otras configuraciones más "
 "avanzadas."
 
-#: library/admin/pages/getting-started.php:58
+#: library/admin/pages/getting-started.php:76
 msgid "Padma | Tools"
 msgstr "Padma | Herramientas"
 
-#: library/admin/pages/getting-started.php:60
+#: library/admin/pages/getting-started.php:78
 msgid "System info."
 msgstr "Información del Sistema."
 
-#: library/admin/pages/getting-started.php:61
+#: library/admin/pages/getting-started.php:79
 msgid ""
-"You should provide this system information If you want to open a ticket or "
-"if you log a help request on the forums"
+"To open a ticket or if you log a help request on the forums, please provide "
+"this system information."
 msgstr ""
-"Debe proporcionar esta información del sistema si desea abrir un tiquetet o "
-"si registra una solicitud de ayuda en los foros"
+"Para abrir un tiquete o si registra una solicitud de ayuda en los foros, "
+"proporcione esta información del sistema.\n"
 
-#: library/admin/pages/getting-started.php:64 library/admin/pages/tools.php:6 
+#: library/admin/pages/getting-started.php:82 library/admin/pages/tools.php:6 
 #: library/admin/pages/tools.php:153
 msgid "Snapshots"
 msgstr "Instantáneas"
 
-#: library/admin/pages/getting-started.php:65
+#: library/admin/pages/getting-started.php:83
 msgid ""
-"Here you can delete the snapshots of Padma Theme Builder to free up some "
-"disk space."
+"To free up some disk space, please delete Padma | Theme Builder snapshots."
 msgstr ""
-"Aquí puede eliminar las instantáneas de Padma Theme Builder para liberar "
-"espacio en el disco."
+"Para liberar algo de espacio en disco, elimine instantáneas de Padma | Theme "
+"Builder"
 
-#: library/admin/pages/getting-started.php:69
+#: library/admin/pages/getting-started.php:87
 msgid ""
-"Instructions to reset your <strong>Padma | Unlimited</strong> WordPress "
-"Theme Builder installation."
+"Instructions to reset your Padma | Unlimited WordPress Theme Builder "
+"installation."
 msgstr ""
-"Instrucciones para restablecer su <strong> Padma |  Unlimited</strong> "
-"instalación del Constructor de Temas para WordPress."
+"Instrucciones para restablecer la instalación de Padma |  Unlimited Theme "
+"Builder de WordPress"
 
-#: library/admin/pages/getting-started.php:77
+#: library/admin/pages/getting-started.php:94
+msgid "Help"
+msgstr "Ayuda"
+
+#: library/admin/pages/getting-started.php:95
 msgid ""
-"Padma | unlimited WordPress Theme Builder</strong> provides professional "
-"support and comprehensive documentation to help you bring your projects "
-"alive."
+"Padma | Unlimited Theme Builder provides professional support and "
+"comprehensive documentation to help you bring your projects alive."
 msgstr ""
-"Padma | Unlimited  Constructor de Temas para WordPress  </strong> "
-"proporciona soporte profesional y documentación completa para ayudarlo a dar "
-"vida a sus proyectos."
+"Padma | Unlimited Theme Builder proporciona soporte profesional y "
+"documentación completa para ayudarlo a dar vida a sus proyectos."
 
-#: library/admin/pages/getting-started.php:80
+#: library/admin/pages/getting-started.php:98
 msgid "Padma | Community"
 msgstr "Padma | Comunidad"
 
-#: library/admin/pages/getting-started.php:81
+#: library/admin/pages/getting-started.php:99
 msgid ""
-"Join to our great community, we help us each other across different channels."
+"Join our community, get involved and help each other across multiple "
+"channels."
 msgstr ""
-"Únase a nuestra gran comunidad, nos ayudamos mutuamente a través de "
-"diferentes canales."
+"Únase a nuestra comunidad, participe y ayúdense mutuamente a través de "
+"múltiples canales."
 
-#: library/admin/pages/getting-started.php:82
+#: library/admin/pages/getting-started.php:100
 msgid "Facebook Page"
 msgstr "Página de Facebook"
 
-#: library/admin/pages/getting-started.php:83
+#: library/admin/pages/getting-started.php:101
 msgid "Facebook Users Group (English)"
 msgstr "Grupo de Usuarios de Facebook (Inglés)"
 
-#: library/admin/pages/getting-started.php:84
+#: library/admin/pages/getting-started.php:102
 msgid "Facebook Users Group (Español)"
 msgstr "Grupo de Usuarios de Facebook (Español)"
 
-#: library/admin/pages/getting-started.php:89
+#: library/admin/pages/getting-started.php:107
 msgid "Padma | Documentation"
 msgstr "Padma | Documentación"
 
-#: library/admin/pages/getting-started.php:90
+#: library/admin/pages/getting-started.php:108
 msgid ""
-"Register with us and get <strong>free access</strong> to our complete and "
-"comprehensive documentation. <a target=\"_blank\" href=\"https://docs."
-"padmaunlimited.com/\" rel=\"noopener\">docs.padmaunlimited.com</a>"
+"Register with us and get free access to our in- depth documentation. <a "
+"target=\"_blank\" href=\"https://docs.padmaunlimited.com/\" rel=\"noopener\">"
+"docs.padmaunlimited.com</a>"
 msgstr ""
-"Regístrese con nosotros y obtenga <strong> acceso gratuito </strong> a "
-"nuestra documentación completa. <a target=\"_blank\" href=\"https://docs."
-"padmaunlimited.com/\" rel=\"noopener\"> docs.padmaunlimited.com </a>"
+"Regístrese con nosotros y obtenga acceso gratuito a nuestra documentación "
+"detallada. <a target=\"_blank\" href=\"https://docs.padmaunlimited.com/\" "
+"rel=\"noopener\"> docs.padmaunlimited.com </a>"
 
-#: library/admin/pages/getting-started.php:97
+#: library/admin/pages/getting-started.php:115
 msgid "Padma | Unlimited Growth"
 msgstr "Padma | Unlimited Crecimiento"
 
-#: library/admin/pages/getting-started.php:98
-msgid ""
-"Develop, share and sale Templates & Custom Blocks. Working together will "
-"increase community growth possibilities. Design faster & Customize your "
-"Workflow with useful tools. Don´t hesitate to invest in other strategic "
-"areas to your business."
+#: library/admin/pages/getting-started.php:116
+msgid "Develop, share and put on the market Templates and Custom Blocks."
 msgstr ""
-"Desarrolle, comparta y venda Plantillas y Bloques Personalizados. Trabajar "
-"juntos aumentará las posibilidades de crecimiento de la comunidad. Diseñe "
-"más rápido y Personalice su flujo de trabajo con herramientas útiles. No "
-"dude en invertir en otras áreas estratégicas para su negocio."
+"Desarrolle, comparta y ponga en el mercado Plantillas y Bloques "
+"Personalizados.\n"
 
-#: library/admin/pages/getting-started.php:101
+#: library/admin/pages/getting-started.php:117
+msgid "Working together will increase the community growth so, get involved!"
+msgstr ""
+"¡Trabajar juntos aumentará el crecimiento de la comunidad, así que participe!"
+
+#: library/admin/pages/getting-started.php:118
+msgid "Design faster and Customize your Workflow with useful tools."
+msgstr ""
+"Diseñe más rápido y Personalice su flujo de trabajo con herramientas útiles."
+
+#: library/admin/pages/getting-started.php:121
 msgid "Padma | Unlimited Templates"
 msgstr "Padma | Unlimited Plantillas"
 
-#: library/admin/pages/getting-started.php:102
+#: library/admin/pages/getting-started.php:122
 msgid ""
-"<strong>Padma | unlimited Templates</strong> minimize your project "
+"<strong>Padma | Unlimited Templates</strong> minimize your project "
 "development process, streamlining the design stage leading a faster content "
 "creation and upload."
 msgstr ""
@@ -800,20 +827,20 @@ msgstr ""
 "desarrollo de su proyecto, agilizando la etapa de diseño que conduce a una "
 "creación y carga de contenido más rápidas."
 
-#: library/admin/pages/getting-started.php:105
+#: library/admin/pages/getting-started.php:125
 msgid "Padma | Unlimited Blocks"
 msgstr "Padma | Unlimited Bloques"
 
-#: library/admin/pages/getting-started.php:106
+#: library/admin/pages/getting-started.php:126
 msgid ""
-"Extend the functionality of your Padma | unlimited WordPress Theme Builder "
+"Extend the functionality of your Padma | Unlimited WordPress Theme Builder "
 "installation by adding useful custom blocks to your Projects."
 msgstr ""
-"Amplíe la funcionalidad de la instalación del Constructor de Temas   Padma | "
-" Unlimited para WordPress al agregar útiles bloques personalizados a sus "
+"Amplíe la funcionalidad de la instalación de Padma |  Unlimited  Theme "
+"Builder de WordPress al agregar útiles bloques personalizados a sus "
 "proyectos."
 
-#: library/admin/pages/getting-started.php:107
+#: library/admin/pages/getting-started.php:127
 msgid ""
 "Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, "
 "Templates on cloud, site monitor."
@@ -821,15 +848,11 @@ msgstr ""
 "Servicios: Documentación, Lifesaver (Migrar desde HTW / Blox), Child Theme, "
 "Plantillas en la nube, monitor del sitio."
 
-#: library/admin/pages/getting-started.php:108
-msgid ""
-"Shortcode block: integration & management of Woocommerce content. Contact "
-"form 7 & Gravity forms."
-msgstr ""
-"Bloque Shortcode: integración y gestión de contenido de Woocommerce. "
-"Formulario de contacto 7 y Gravity Forms."
+#: library/admin/pages/getting-started.php:128
+msgid "Discover available Plugins and Blocks."
+msgstr "Descubra los Plugins y Bloques disponibles."
 
-#: library/admin/pages/getting-started.php:109
+#: library/admin/pages/getting-started.php:129
 msgid "Get into Padma Services to unlock the Padma Unlimited potential."
 msgstr ""
 "Ingrese a losPadma Services para desbloquear el potencial de Padma Unlimited"
@@ -1884,43 +1907,43 @@ msgid "Choose whether the block title should be a link or not"
 msgstr ""
 "Elija si el título del bloque debe ser un enlace o no\n"
 
-#: library/api/api-block-options.php:214
+#: library/api/api-block-options.php:216
 msgid "Add a url for the block title"
 msgstr "Agregue una URL para el título del bloque"
 
-#: library/api/api-block-options.php:221 library/blocks/image/image.php:234 
+#: library/api/api-block-options.php:223 library/blocks/image/image.php:236 
 #: library/blocks/social/social.php:463 library/blocks/social/social.php:538
 msgid "If you would like to open the link in a new window check this option"
 msgstr ""
 "Marque esta opción para abrir el enlace en una nueva ventana\n"
 
-#: library/api/api-block-options.php:351 
+#: library/api/api-block-options.php:360 
 #: library/wrappers/wrapper-options.php:385
 msgid "Select a screen width for these change to take effect."
 msgstr ""
 "Seleccione un ancho de pantalla para que este cambio surta efecto.\n"
 
-#: library/api/api-block-options.php:367 
+#: library/api/api-block-options.php:376 
 #: library/wrappers/wrapper-options.php:401
 msgid "Min Width (applies to screens that are wider than breakpoint)"
 msgstr ""
 "Ancho Mínimo (se aplica a pantallas que son más anchas que el punto de "
 "interrupción)"
 
-#: library/api/api-block-options.php:368 
+#: library/api/api-block-options.php:377 
 #: library/wrappers/wrapper-options.php:402
 msgid "Max Width (applies to screens that are narrower than breakpoint)"
 msgstr ""
 "Ancho máximo (se aplica a pantallas que son más estrechas que el punto de "
 "interrupción)"
 
-#: library/api/api-block-options.php:376 
+#: library/api/api-block-options.php:385 
 #: library/wrappers/wrapper-options.php:410
 msgid "Adaptive Options"
 msgstr ""
 "Opciones adaptativas\n"
 
-#: library/api/api-block-options.php:383
+#: library/api/api-block-options.php:392
 msgid ""
 "Disable the height for smaller screens if the block displays too high for "
 "smaller screens"
@@ -1928,15 +1951,15 @@ msgstr ""
 "Deshabilite la altura para pantallas más pequeñas si el bloque se muestra "
 "demasiado alto para pantallas más pequeñas"
 
-#: library/api/api-block-options.php:390
+#: library/api/api-block-options.php:399
 msgid "Attempt to center block elements"
 msgstr "Intento de centrar elementos de bloque"
 
-#: library/api/api-block-options.php:397
+#: library/api/api-block-options.php:406
 msgid "Griddify Lists"
 msgstr "Listas de cuadrícula"
 
-#: library/api/api-block-options.php:399
+#: library/api/api-block-options.php:408
 msgid ""
 "Any kind of list, such as categories, latest posts, even menus etc work fine "
 "on large screens in the sidebar. But on smaller screens where the sidebar "
@@ -1950,19 +1973,19 @@ msgstr ""
 "espacios en blanco. Esto colocará los elementos de la lista en 2 columnas "
 "una al lado de la otra."
 
-#: library/api/api-block-options.php:405
+#: library/api/api-block-options.php:414
 msgid "Hide this block"
 msgstr "Ocultar este bloque"
 
-#: library/api/api-block-options.php:407
+#: library/api/api-block-options.php:416
 msgid "This will hide this block for the set breakpoint."
 msgstr "Esto ocultará este bloque para el punto de interrupción establecido."
 
-#: library/api/api-block-options.php:422
+#: library/api/api-block-options.php:431
 msgid "Legacy Responsive Grid Block Hiding"
 msgstr "Ocultación de Bloque de Cuadrícula Resposiva heredada"
 
-#: library/api/api-block-options.php:424
+#: library/api/api-block-options.php:433
 msgid ""
 "If you have the responsive grid enabled and the user views your website on "
 "an iPhone (or equivalent device), the grid may be cluttered do to so many "
@@ -1979,38 +2002,38 @@ msgstr ""
 "la ocultación de bloque sensible no estará activa para este bloque. </strong>"
 "\n"
 
-#: library/api/api-block-options.php:446 
+#: library/api/api-block-options.php:455 
 #: library/wrappers/wrapper-options.php:23
 msgid "Import/Export"
 msgstr "Importado/ Exportado"
 
-#: library/api/api-block-options.php:453 library/api/api-block-options.php:482
+#: library/api/api-block-options.php:462 library/api/api-block-options.php:491
 msgid "Import Block Settings"
 msgstr "Importar Configuración de Bloque"
 
-#: library/api/api-block-options.php:459 
+#: library/api/api-block-options.php:468 
 #: library/wrappers/wrapper-options.php:460
 msgid "Select File to Import"
 msgstr "Seleccionar Archivo para Importar"
 
-#: library/api/api-block-options.php:466
+#: library/api/api-block-options.php:475
 msgid "Include Block Options"
 msgstr "Incluir Opciones de Bloque"
 
-#: library/api/api-block-options.php:474
+#: library/api/api-block-options.php:483
 msgid "Include Block Design"
 msgstr "Incluir Diseño de Bloque"
 
-#: library/api/api-block-options.php:490
+#: library/api/api-block-options.php:499
 msgid "Export Block Settings"
 msgstr "Exportar Configuración de Bloque"
 
-#: library/api/api-block-options.php:496 
+#: library/api/api-block-options.php:505 
 #: library/wrappers/wrapper-options.php:497
 msgid "Download Export File"
 msgstr "Descargar Archivo Exportado"
 
-#: library/api/api-block-options.php:509
+#: library/api/api-block-options.php:518
 msgid "Do Not Mirror"
 msgstr "No Reflejar"
 
@@ -2152,47 +2175,47 @@ msgstr ""
 "Puede colocar este audio en relación con el bloque utilizando las posiciones "
 "proporcionadas"
 
-#: library/blocks/audio/audio.php:306 library/blocks/image/image.php:252 
+#: library/blocks/audio/audio.php:306 library/blocks/image/image.php:262 
 #: library/blocks/social/social.php:314 library/blocks/video/video.php:353
 msgid "Top Left"
 msgstr "Arriba a la izquierda"
 
-#: library/blocks/audio/audio.php:307 library/blocks/image/image.php:253 
+#: library/blocks/audio/audio.php:307 library/blocks/image/image.php:263 
 #: library/blocks/social/social.php:315 library/blocks/video/video.php:354
 msgid "Top Center"
 msgstr "Centro Superior"
 
-#: library/blocks/audio/audio.php:308 library/blocks/image/image.php:254 
+#: library/blocks/audio/audio.php:308 library/blocks/image/image.php:264 
 #: library/blocks/social/social.php:316 library/blocks/video/video.php:355
 msgid "Top Right"
 msgstr "Arriba a la Derecha"
 
-#: library/blocks/audio/audio.php:309 library/blocks/image/image.php:255 
+#: library/blocks/audio/audio.php:309 library/blocks/image/image.php:265 
 #: library/blocks/social/social.php:317 library/blocks/video/video.php:356
 msgid "Center Left"
 msgstr "Centro Izquierda"
 
-#: library/blocks/audio/audio.php:310 library/blocks/image/image.php:256 
+#: library/blocks/audio/audio.php:310 library/blocks/image/image.php:266 
 #: library/blocks/social/social.php:318 library/blocks/video/video.php:357
 msgid "Center Center"
 msgstr "Centro Centro"
 
-#: library/blocks/audio/audio.php:311 library/blocks/image/image.php:257 
+#: library/blocks/audio/audio.php:311 library/blocks/image/image.php:267 
 #: library/blocks/social/social.php:319 library/blocks/video/video.php:358
 msgid "Center Right"
 msgstr "Centro Derecha"
 
-#: library/blocks/audio/audio.php:312 library/blocks/image/image.php:258 
+#: library/blocks/audio/audio.php:312 library/blocks/image/image.php:268 
 #: library/blocks/social/social.php:320 library/blocks/video/video.php:359
 msgid "Bottom Left"
 msgstr "Abajo a la Izquierda"
 
-#: library/blocks/audio/audio.php:313 library/blocks/image/image.php:259 
+#: library/blocks/audio/audio.php:313 library/blocks/image/image.php:269 
 #: library/blocks/social/social.php:321 library/blocks/video/video.php:360
 msgid "Bottom Center"
 msgstr "Parte Inferior Central"
 
-#: library/blocks/audio/audio.php:314 library/blocks/image/image.php:260 
+#: library/blocks/audio/audio.php:314 library/blocks/image/image.php:270 
 #: library/blocks/social/social.php:322 library/blocks/video/video.php:361
 msgid "Bottom Right"
 msgstr "Abajo a la Derecha"
@@ -4054,15 +4077,15 @@ msgstr "Imagen del Banner"
 msgid "Site Tagline"
 msgstr "Lema del Sitio"
 
-#: library/blocks/header/header.php:186
+#: library/blocks/header/header.php:190
 msgid "Banner/Logo"
 msgstr "Banner/Logotipo"
 
-#: library/blocks/header/header.php:192
+#: library/blocks/header/header.php:196
 msgid "Automatically Resize Header Image"
 msgstr "Cambiar el Tamaño de la Imagen del Encabezado automáticamente"
 
-#: library/blocks/header/header.php:194
+#: library/blocks/header/header.php:198
 msgid ""
 "If you would like Padma to automatically scale and crop your header image to "
 "the correct dimensions, keep this checked.<br /><br /><em><strong>Important:"
@@ -4076,11 +4099,11 @@ msgstr ""
 "debe cargarse <strong> Desde la Computadora </strong>. <strong> NO </strong> "
 "<strong> Desde la URL </strong>. </em>"
 
-#: library/blocks/header/header.php:200
+#: library/blocks/header/header.php:204
 msgid "Hide Tagline"
 msgstr "Ocultar Lema"
 
-#: library/blocks/header/header.php:202
+#: library/blocks/header/header.php:206
 msgid ""
 "Check this to hide the tagline in your header.  The tagline will sit beneath "
 "your site title.<br /><br /><em><strong>Important:</strong> The tagline will "
@@ -4165,28 +4188,28 @@ msgstr ""
 "Si desea vincular la imagen a una URL, active esta configuración. Debe "
 "agregar http: // primero"
 
-#: library/blocks/image/image.php:225
+#: library/blocks/image/image.php:227
 msgid "Link image URL?"
 msgstr "Enlace imagen URL?"
 
-#: library/blocks/image/image.php:227 library/blocks/social/social.php:449 
+#: library/blocks/image/image.php:229 library/blocks/social/social.php:449 
 #: library/blocks/social/social.php:524
 msgid "Set the URL for the image to link to"
 msgstr "Establezca la URL de la imagen para vincular a"
 
-#: library/blocks/image/image.php:232
+#: library/blocks/image/image.php:234
 msgid "Open in a new window?"
 msgstr "Abrir en una nueva ventana?"
 
-#: library/blocks/image/image.php:241
+#: library/blocks/image/image.php:251
 msgid "Position Image"
 msgstr "Posición de la Imagen"
 
-#: library/blocks/image/image.php:246
+#: library/blocks/image/image.php:256
 msgid "Position image inside container"
 msgstr "Posición de la imagen dentro del contenedor"
 
-#: library/blocks/image/image.php:248
+#: library/blocks/image/image.php:258
 msgid ""
 "You can position this image in relation to the block using the positions "
 "provided"
@@ -4731,28 +4754,32 @@ msgstr "OnePage Navigation"
 msgid "Create a floating navigation menu."
 msgstr "Crea un menú de navegación flotante."
 
-#: library/blocks/onepage-navigation/onepage-navigation.php:146
+#: library/blocks/onepage-navigation/onepage-navigation.php:145
 msgid "Position"
 msgstr "Posición"
 
-#: library/blocks/onepage-navigation/onepage-navigation.php:166
+#: library/blocks/onepage-navigation/onepage-navigation.php:165
 msgid "Distance from border (px)"
 msgstr "Distancia desde el borde (px)"
 
-#: library/blocks/onepage-navigation/onepage-navigation.php:172
+#: library/blocks/onepage-navigation/onepage-navigation.php:171
 msgid "OnePage Nav"
 msgstr "OnePage Nav"
 
-#: library/blocks/onepage-navigation/onepage-navigation.php:178 
+#: library/blocks/onepage-navigation/onepage-navigation.php:177 
 #: library/elements/structural-elements.php:31
 msgid "Wrapper"
 msgstr "Wrapper"
 
-#: library/blocks/onepage-navigation/onepage-navigation.php:184
+#: library/blocks/onepage-navigation/onepage-navigation.php:183
 msgid "Custom text"
 msgstr "Texto Personalizado"
 
-#: library/blocks/onepage-navigation/onepage-navigation.php:189
+#: library/blocks/onepage-navigation/onepage-navigation.php:188
+msgid "Custom alt"
+msgstr "Alt personalizado"
+
+#: library/blocks/onepage-navigation/onepage-navigation.php:193
 msgid "Custom image"
 msgstr "Imagen personalizada"
 

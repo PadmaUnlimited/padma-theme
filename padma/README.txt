@@ -43,7 +43,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 = 1.2.0
-* Released: Jan 28, 2020
+* Released: January 28, 2020
 
 Tested with WordPress 5.3.2
 Tested with ClassicPress 1.1.1

@@ -705,6 +705,10 @@ class PadmaDynamicStyle {
 
 				foreach ($wrappers as $wrapper_id => $wrapper) {
 
+					debug([
+						$wrapper
+					]);
+
 					if ( !isset($wrapper['settings']['grid-system']) || $wrapper['settings']['grid-system'] != 'css-grid' )
 						continue;
 

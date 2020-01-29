@@ -22,7 +22,18 @@ class PadmaMobileDetect {
 
 
 		self::$detect = new Mobile_Detect;
-		return ( self::$detect->isMobile() || self::$detect->isTablet() );
+
+		$isMobile = false;
+
+		if( method_exists('Mobile_Detect', 'isMobile') ){
+			$isMobile = self::$detect->isMobile();
+		}
+		
+		if( $isMobile === false && method_exists('Mobile_Detect', 'isTablet') ){
+			$isMobile = self::$detect->isTablet();
+		}
+
+		return $isMobile;
 
 	}
 }

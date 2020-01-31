@@ -398,10 +398,15 @@ class PadmaContentBlock extends PadmaBlockAPI {
 				));
 
 			$this->register_block_element(array(
+				'id' => 'post-thumbnail-contanier',
+				'name' => __('Featured Image Container','padma'),
+				'selector' => '.block-type-content a.post-thumbnail',				
+			));
+
+			$this->register_block_element(array(
 				'id' => 'post-thumbnail',
 				'name' => __('Featured Image','padma'),
-				'selector' => '.block-type-content a.post-thumbnail img',
-				'properties' => array('background', 'borders', 'padding', 'corners', 'box-shadow', 'animation', 'filter')
+				'selector' => '.block-type-content a.post-thumbnail img',				
 			));
 
 			$this->register_block_element(array(
@@ -1486,9 +1491,54 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'options' => array(
 						'entry' => __('Entry (Default)','padma'),
 						'media' => __('Attachment Page','padma'),
-						'none' => __('None','padma')
+						'none' => __('None','padma'),
+						'custom' => __('Custom','padma'),
+					),
+					'toggle'    => array(
+						'custom' => array(
+							'show' => array(
+								'#input-post-thumbnails-custom-link',
+								'#input-post-thumbnails-link-new-tab'
+							)
+						),
+						'entry' => array(
+							'show' => array(								
+								'#input-post-thumbnails-link-new-tab'
+							),
+							'hide' => array(
+								'#input-post-thumbnails-custom-link'
+							)
+						),
+						'media' => array(
+							'show' => array(								
+								'#input-post-thumbnails-link-new-tab'
+							),
+							'hide' => array(
+								'#input-post-thumbnails-custom-link'
+							)
+						),
+						'none' => array(
+							'hide' => array(
+								'#input-post-thumbnails-custom-link',
+								'#input-post-thumbnails-link-new-tab'
+							)
+						),
 					),
 					'tooltip' => __('By default, Padma will create a link around the featured image which links back to the post. Choose no link or to link to the image\'s attachment page instead.','padma')
+				),
+
+				'post-thumbnails-custom-link' => array(
+					'type' => 'text',
+					'label' => __('Custom Link','padma'),
+					'name' => 'post-thumbnails-custom-link',
+					'default' => '',
+				),
+
+				'post-thumbnails-link-new-tab' => array(
+					'type' => 'checkbox',
+					'label' => __('Open in new tab','padma'),
+					'name' => 'post-thumbnails-link-new-tab',
+					'default' => '',
 				),
 
 				'post-thumbnail-position' => array(

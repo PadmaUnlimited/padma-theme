@@ -1091,13 +1091,23 @@ class PadmaContentBlockDisplay {
 
 				$thumb_link = get_permalink();
 
+			} elseif( $thumbnail_link == 'custom' ){
+
+				$thumb_link = $this->get_setting( 'post-thumbnails-custom-link' );
+
 			} else {
 
 				$thumb_link = get_attachment_link( get_post_thumbnail_id() );
 
 			}
 
-			echo '<a href="' . $thumb_link . '" class="post-thumbnail post-thumbnail-' . $position . '">
+			$target = '';
+			if ( $this->get_setting( 'post-thumbnails-link-new-tab', false ) ){
+				$target = '_blank';
+			}
+
+
+			echo '<a href="' . $thumb_link . '" target="'.$target.'" class="post-thumbnail post-thumbnail-' . $position . '">
 				<img src="' . esc_url( $thumbnail_url ) . '" alt="' . the_title_attribute( 'echo=0' ) . '" width="' . $thumbnail_width . '" height="' . $thumbnail_height . '" itemprop="image" />
 			</a>';
 

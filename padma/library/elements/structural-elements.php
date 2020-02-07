@@ -33,6 +33,7 @@ function padma_register_structural_elements() {
 			'properties' => array('fonts', 'background', 'borders', 'padding', 'corners', 'box-shadow', 'sizes', 'advanced', 'transition', 'outlines', 'animation'),
 			'states' => array(
 				'Shrinked' => 'div.wrapper.is_shrinked',
+				'Stuck' => 'div.wrapper.is_stuck',
 			)
 			
 		));

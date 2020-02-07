@@ -122,7 +122,7 @@ class PadmaDataPortability {
 				$skin = self::convert_skin_hw_to_padma($skin);				
 				$skin = self::process_install_skin($skin);
 
-			// Headway themes support
+			// Blox theme support
 			}elseif (isset($skin['bt-version'])) {
 
 				$skin = self::convert_skin_blox_to_padma($skin);

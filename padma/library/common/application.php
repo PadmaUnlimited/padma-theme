@@ -32,7 +32,7 @@ class Padma {
 			define('THEME_FRAMEWORK', 'padma');			
 		}
 		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.2.3');
+			define('PADMA_VERSION', '1.2.4');
 		}
 
 		/* Define directories */
@@ -263,9 +263,6 @@ class Padma {
 
 			/*		Headway Classes support	*/
 			'compatibility/headway/compatibility-headway'	=> true,
-
-			/*		Compatiblity with Divi Builder */
-			'compatibility/divi-builder/compatibility-divi-builder'	=> true,
 
 			/*		Compatiblity with Elementor */
 			//'compatibility/elementor/compatibility-elementor'	=> true,									 

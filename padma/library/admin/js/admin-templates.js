@@ -118,7 +118,7 @@ jQuery(document).ready(function($) {
 
 							/* Check to be sure that the JSON file is a layout */
 							if ( skin['data-type'] != 'skin' ){
-								return alert('Cannot load template.  Please insure that the file is a valid Padma Template.');
+								return alert('Cannot load template. Please insure that the file is a valid Padma Template.');
 							}
 
 							/* Deactivate install template button */

@@ -50,7 +50,7 @@ define(['jquery'], function($) {
 		 	$('#customize-preview iframe#content').attr('width',320);
 		 }else{
 		 	$('#customize-preview iframe#content').removeAttr('width');
-		 }
+		 }		 
 		
 		 
 	}

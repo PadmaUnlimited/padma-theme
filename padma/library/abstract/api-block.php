@@ -281,7 +281,14 @@ abstract class PadmaBlockAPI {
 			if ( strpos(trim($selector_array[$selector_index]), '.block-type-') === 0 )
 				continue;
 
-			$selector_array[$selector_index] = $selector_prefix . trim($selector);
+
+			// Allow selector outsite the block
+			if( $selector[0] === '\\' ){			
+				$selector = str_replace('\\', '', $selector);				
+				$selector_array[$selector_index] = trim($selector);
+			}else{
+				$selector_array[$selector_index] = $selector_prefix . trim($selector);
+			}
 
 		}
 
@@ -323,7 +330,15 @@ abstract class PadmaBlockAPI {
 					if ( strpos(trim($state_selector_array[$selector_index]), '.block-type-') === 0 )
 						continue;
 
-					$state_selector_array[$selector_index] = $selector_prefix . trim($selector);
+					// Allow selector outsite the block
+					if( $selector[0] === '\\' ){			
+						$selector = str_replace('\\', '', $selector);						
+						$state_selector_array[$selector_index] = trim($selector);
+					}else{
+						$state_selector_array[$selector_index] = $selector_prefix . trim($selector);
+					}
+
+					
 
 				}
 

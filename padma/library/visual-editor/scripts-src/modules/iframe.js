@@ -262,8 +262,9 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			if ( Padma.touch )
 				Padma.iframe.contents().find('body').css('-webkit-touch-callout', 'none');
 
-			Padma.iframe.contents().find('body').delegate('a, input[type="submit"], button', 'click', function(event) {
+			Padma.iframe.contents().find('body').delegate('a, input[type="submit"], button, span', 'click', function(event) {
 
+				console.log($(this))
 				if ( $(this).hasClass('allow-click') )
 					return;
 

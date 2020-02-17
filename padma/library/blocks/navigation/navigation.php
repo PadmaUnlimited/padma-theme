@@ -135,6 +135,20 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 		}
 
+		// This run only when the VE just load, after the refreshBlock is not necesary
+		if( PadmaRoute::is_visual_editor_iframe() && parent::get_setting($block, 'responsive-method', 'select') == 'slide-out'){
+			
+			echo '<script type="text/javascript">';
+			echo $this->dynamic_js( $block['id'], $block );
+			echo '</script>';
+			
+			echo '<style>';
+			echo $this->dynamic_css( $block['id'], $block );
+			echo '</style>';
+		}
+		
+
+
 		$nav_classes = trim( implode( ' ', array_unique( $nav_classes ) ) );
 
 
@@ -250,7 +264,13 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 				break;
 
 			case 'slide-out':
+
+
 				$css .= "\n\n";
+
+				$css .= 'body.pushy-open-right .pushy-site-overlay {';
+				$css .= '	background-color:' . $block['settings']['slide-out-overlay-color'];
+				$css .= '}';
 
 				if ( $use_breakpoint ) {
 					$css .= '@media only screen and (max-width: ' . $breakpoint . 'px) {';
@@ -592,6 +612,36 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 		$this->register_pre_4_elements();
 
+		/**
+		 *
+		 * Pushy menu / Slide out
+		 *
+		 */
+		$this->register_block_element( array(
+			'name' => __('Slide-out: Overlay','padma'),			
+			'selector' => '\html > body > div.pushy-site-overlay',			
+		) );
+		$this->register_block_element( array(
+			'id' => 'slide-out-container',
+			'name' => __('Slide-out: Menu Container','padma'),			
+			'selector' => '\ul.pushy',
+		) );
+		
+		$this->register_block_element( array(
+			'name' => __('Slide-out: Menu Item','padma'),			
+			'selector' => '\ul.pushy li',
+		) );
+		
+		$this->register_block_element( array(
+			'name' => __('Slide-out: Menu Item Link','padma'),			
+			'selector' => '\ul.pushy li a',
+			'states' => array(
+				'Hover' => '\ul.pushy li a:hover', 				
+			)
+		) );
+		
+		
+
 	}
 
 
@@ -773,6 +823,7 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 							'hide' => array(
 								'#input-slide-out-menu-position',
 								'#input-responsive-select',
+								'#input-slide-out-overlay-color',
 							)
 						),
 						'slide-out' => array(
@@ -780,7 +831,8 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 								'#input-responsive-menu-label',
 								'#input-responsive-menu-label-position',
 								'#input-use-responsive-menu-breakpoint',
-								'#input-slide-out-menu-position'
+								'#input-slide-out-menu-position',
+								'#input-slide-out-overlay-color',
 							),
 							'hide' => array(
 								'#input-responsive-select',
@@ -795,7 +847,8 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 								'#input-responsive-menu-label-position',
 								'#input-use-responsive-menu-breakpoint',
 								'#input-responsive-menu-breakpoint',
-								'#input-slide-out-menu-position'
+								'#input-slide-out-menu-position',
+								'#input-slide-out-overlay-color',
 							)
 						)
 					)
@@ -870,6 +923,14 @@ class PadmaNavigationBlockOptions extends PadmaBlockOptionsAPI {
 					'label' => __('Responsive Select','padma'),
 					'default' => true,
 					'tooltip' => __('When enabled, your navigation will turn into a mobile-friendly select menu when your visitors are viewing your site on a mobile device (phones, not tablets).','padma')
+				),
+
+				'slide-out-overlay-color' => array(
+					'type' => 'colorpicker',
+					'name' => 'slide-out-overlay-color',
+					'label' => __('Overlay color','padma'),
+					'default' => '#000000',
+					'tooltip' => __('Overlay color when menu is open.','padma')
 				)
 			),
 

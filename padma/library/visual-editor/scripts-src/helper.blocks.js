@@ -760,8 +760,6 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 					}
 				}
 			});
-
-
 		}
 
 
@@ -835,8 +833,7 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				}
 			});
 
-			return $(block).qtip('api');
-						
+			return $(block).qtip('api');						
 		}
 
 

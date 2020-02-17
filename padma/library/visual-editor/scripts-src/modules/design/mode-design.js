@@ -2291,6 +2291,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						instanceOptions['instance'] = instanceValue['id'];
 						instanceOptions['name'] = instanceValue['name'];
 						instanceOptions['selector'] = instanceValue['selector'];
+						instanceOptions['tooltip'] = instanceValue['tooltip'];
 						instanceOptions['instances'] = {};
 
 						/* Filter instances to only be states of this instance */
@@ -2543,7 +2544,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 					var inspectorElementOptions = inspectorElement.data('inspectorElementOptions');
 
-					
 					if ( typeof inspectorElementOptions == 'object' ) {
 
 						$i('.inspector-element-hover').removeClass('inspector-element-hover');
@@ -2602,6 +2602,14 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						tooltipText += insideInstanceText;
 
 						tooltipText += '<small class="right-click-message">Right-click to style</small>';
+
+						
+						if ( typeof inspectorElementOptions.tooltip !== null ){
+							console.log(inspectorElementOptions.tooltip);
+							
+							tooltipText += '<small class="tooltip">'+inspectorElementOptions.tooltip+'</small>';
+
+						}
 
 						inspectorTooltip.set('content.text', tooltipText);
 

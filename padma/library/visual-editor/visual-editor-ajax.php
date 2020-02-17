@@ -558,7 +558,8 @@ class PadmaVisualEditorAJAX {
 				'instances' => padma_get('instances', $element_settings, array()),
 				'disallow-nudging' => padma_get('disallow-nudging', $element_settings, false),
 				'inspectable' => padma_get('inspectable', $element_settings),
-				'customized' => count( padma_get('properties', padma_get( $element_settings['id'], $customized_element_data), array()) ) ? true : false
+				'customized' => count( padma_get('properties', padma_get( $element_settings['id'], $customized_element_data), array()) ) ? true : false,
+				'tooltip' => $element_settings['tooltip'],
 			);
 
 			/* Loop through main element instances and add customized flag if necessary */

@@ -752,7 +752,8 @@ class PadmaVisualEditor {
 
 		echo '<script type="text/javascript">
 			/* Set the iframe as loaded for the iframe load checker */
-			document.getElementsByTagName("body")[0].className += " iframe-loaded";
+			//document.getElementsByTagName("body")[0].className += " iframe-loaded";
+			jQuery("body").addClass("iframe-loaded");
 		</script>';
 
 	}

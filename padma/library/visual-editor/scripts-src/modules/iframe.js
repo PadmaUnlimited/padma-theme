@@ -264,7 +264,6 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 			Padma.iframe.contents().find('body').delegate('a, input[type="submit"], button, span', 'click', function(event) {
 
-				console.log($(this))
 				if ( $(this).hasClass('allow-click') )
 					return;
 

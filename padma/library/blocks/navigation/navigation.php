@@ -267,9 +267,9 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 
 				$css .= "\n\n";
-
+				$overlay_color = ( !empty( $block['settings']['slide-out-overlay-color'] )) ? $block['settings']['slide-out-overlay-color']: 'rgba(0, 0, 0, 0.5)';
 				$css .= 'body.pushy-open-right .pushy-site-overlay {';
-				$css .= '	background-color:' . $block['settings']['slide-out-overlay-color'];
+				$css .= '	background-color:' . $overlay_color;
 				$css .= '}';
 
 				if ( $use_breakpoint ) {
@@ -619,17 +619,20 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		 */
 		$this->register_block_element( array(
 			'name' => __('Slide-out: Overlay','padma'),			
-			'selector' => '\html > body > div.pushy-site-overlay',			
+			'selector' => '\html > body > div.pushy-site-overlay',
+			'tooltip' => 'Warning: Apply style to this element affects all the instances'
 		) );
 		$this->register_block_element( array(
 			'id' => 'slide-out-container',
 			'name' => __('Slide-out: Menu Container','padma'),			
 			'selector' => '\ul.pushy',
+			'tooltip' => 'Warning: Apply style to this element affects all the instances'
 		) );
 		
 		$this->register_block_element( array(
 			'name' => __('Slide-out: Menu Item','padma'),			
 			'selector' => '\ul.pushy li',
+			'tooltip' => 'Warning: Apply style to this element affects all the instances'
 		) );
 		
 		$this->register_block_element( array(
@@ -637,7 +640,8 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			'selector' => '\ul.pushy li a',
 			'states' => array(
 				'Hover' => '\ul.pushy li a:hover', 				
-			)
+			),
+			'tooltip' => 'Warning: Apply style to this element affects all the instances'
 		) );
 		
 		

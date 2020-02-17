@@ -119,7 +119,8 @@ class PadmaElementAPI {
 			'instances' => array(),
 			'default-element' => false,
 			'supports-instances' => true,
-			'inspectable' => true
+			'inspectable' => true,
+			'tooltip' => null
 		);
 
 		$item = array_merge($defaults, $args);

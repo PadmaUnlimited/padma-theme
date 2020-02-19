@@ -556,7 +556,7 @@ class PadmaBlocks {
 					if ( !padma_get('supports-instances', $block_element_sub_element) )
 						continue;
 
-					/* Register instance */
+					/* Register instance */						
 						$instance_selector = str_replace('.block-type-' . $block['type'], '#block-' . $block_id_for_selector, $block_element_sub_element['selector']);
 
 						PadmaElementAPI::register_element_instance(array(
@@ -565,7 +565,8 @@ class PadmaBlocks {
 							'id' => $block_element_sub_element['id'] . '-block-' . $block['id'],
 							'name' => $name . ' &ndash; ' . $block_element_sub_element['name'],
 							'selector' => $instance_selector,
-							'layout' => $block['layout']
+							'layout' => $block['layout'],
+							'tooltip' => $block_element_sub_element['tooltip'],
 						));
 
 						/* Register instance states as instances */

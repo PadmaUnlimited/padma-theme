@@ -286,6 +286,7 @@ abstract class PadmaBlockAPI {
 			if( $selector[0] === '\\' ){			
 				$selector = str_replace('\\', '', $selector);				
 				$selector_array[$selector_index] = trim($selector);
+				$args['tooltip'] = 'Warning: Apply style to this element affects all the instances';
 			}else{
 				$selector_array[$selector_index] = $selector_prefix . trim($selector);
 			}

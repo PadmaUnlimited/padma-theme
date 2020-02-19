@@ -1,4 +1,4 @@
-define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history) {
+define(['modules/panel.inputs', 'helper.history', 'util.browser'], function(panelInputs, history, browser) {
 
 	getBlockByID = function(id) {
 
@@ -652,6 +652,11 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 		
 		bindBlockInlineEditor = function() {
 
+			if( browser.is_safari() || browser.is_midori() ){
+				console.log( 'bindBlockInlineEditor: Your browser does not support this feature' );
+				return false;
+			}
+
 			if ( Padma.touch )
 				return false;
 			
@@ -662,26 +667,41 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				$i('.dynamic-inline-edit .cancel-edit').click();
 
 				var element = $(event.target).closest('.inspector-element');				
-				var clases = element.attr('class').split(' ');
+				if( typeof element !== 'undefined'){
+					var clases = element.attr('class').split(' ');
+				}else{
+					var clases = [];
+				}
 				var editableFields = getBlockInlineEditableFields(this.closest('.block')).split(',');
 				var should_exit = false;
 
 
-				if(editableFields.length < 1){
+				if( editableFields.length < 1 ){
 					return false;
 				}				
 
-				// target contains a editable item class 
-				if( ! editableFields.some(r=> clases.includes(r)) ){
 
-					var element = $(event.target);
-					var clases = element.attr('class').split(' ');
+				// target contains a editable item class 
+				/*
+				if( ! editableFields.some(r=> clases.includes(r)) ){
 
 					if( ! editableFields.some(r=> clases.includes(r)) ){
 						should_exit = true;
 					}
-				}
+				}*/
+								
+				// target contains a editable item class (webkit version)				
+				$.grep(editableFields, function( field ){ 
 
+					if ( ! $.grep(editableFields, function(cls){  return cls == field }) ){
+						should_exit = true;
+					}
+					
+				});
+				
+				
+				
+				
 				var blockType 	= getBlock(element)[0].dataset.type;
 				if(blockType == 'content'){
 					showNotification({
@@ -695,8 +715,19 @@ define(['modules/panel.inputs', 'helper.history'], function(panelInputs, history
 				if(should_exit)
 					return;
 
+				//var field = editableFields.filter(o=> clases.includes(o))[0];
+				/*
+				(webkit version)
+				*/
+				var field = $.grep(editableFields, function(cls){
+					var a = $.grep(clases, function(_class){  
+						return cls == _class 
+					});
+					return a[0];
+				})[0];
+				
 
-				var field = editableFields.filter(o=> clases.includes(o))[0];					
+
 				var blockID = getBlockID(this);
 				var editableFieldValue = getBlockInlineEditableFieldValue(field,this);				
 

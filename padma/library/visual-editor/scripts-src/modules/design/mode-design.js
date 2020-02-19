@@ -2604,8 +2604,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 						tooltipText += '<small class="right-click-message">Right-click to style</small>';
 
 						
-						if ( typeof inspectorElementOptions.tooltip !== null ){
-							console.log(inspectorElementOptions.tooltip);
+
+						if ( typeof inspectorElementOptions.tooltip !== 'undefined' && inspectorElementOptions.tooltip !== null ){							
 							
 							tooltipText += '<small class="tooltip">'+inspectorElementOptions.tooltip+'</small>';
 

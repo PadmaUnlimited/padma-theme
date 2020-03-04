@@ -132,6 +132,47 @@ function padma_storefront_wc_register_elements() {
 			'description' => __('Storefront: WooCommerce','padma'),
 			'selector' => '.woocommerce .block-type-content div.product div.summary div[itemprop="description"]'
 		));
+
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-details',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Description','padma'),
+			'selector' => '.woocommerce .block-type-content div.product div.woocommerce-product-details__short-description'
+		));
+
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-out-of-stock',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description Stock','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Stock','padma'),
+			'selector' => '.woocommerce .block-type-content div.product .stock.out-of-stock'
+		));
+		
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-meta',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description Meta','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Meta','padma'),
+			'selector' => '.woocommerce .block-type-content div.product .product_meta'
+		));
+
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-meta-a',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description Meta Link','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Meta link','padma'),
+			'selector' => '.woocommerce .block-type-content div.product .product_meta a'
+		));
+		
 		PadmaElementAPI::register_element(array(
 			'group' => 'blocks',
 			'id' => 'block-content-wc-product-page-button',

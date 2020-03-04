@@ -42,6 +42,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 = 1.2.7
 * Released: On Dev
+Tested with WordPress 5.3.2
+Tested with ClassicPress 1.1.1
 Fixed: Envira Gallery Lite conflict due Mobile_Detect method
 Fixed: Divi Builder Compatibility (https://www.facebook.com/groups/padmaunlimitedEN/permalink/815837155586421/) 
 Fixed: Add styles to navigation block, slide-out method

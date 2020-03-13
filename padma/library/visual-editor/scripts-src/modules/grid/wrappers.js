@@ -444,7 +444,10 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 				/* Duplicate Wrapper and Blocks*/
 				$('<li class="context-menu-duplicate-wrapper-and-blocks"><span>Duplicate Wrapper and Blocks</span></li>').appendTo(contextMenu).on('click', function() {
 
+
 					var orgWrapper = wrapper.clone();
+					console.log(wrapper);
+					console.log(orgWrapper);
 
 					if(typeof isSavingAllowed == 'undefined'){
 						isSavingAllowed = false;
@@ -457,10 +460,23 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 							closable: true,
 							closeTimer: 5000
 						});
-					}else{
+					
+					}else{						
 						var newWrapper = addWrapper('bottom', orgWrapper.data('wrapper-settings'));
-						newWrapper.data('save-first',true);
+
+						newWrapper.data('wrapper-settings', orgWrapper.data('wrapper-settings'));
 						
+						var padding_top = wrapper.css('padding-top');
+						var padding_left = wrapper.css('padding-left');
+						var padding_right = wrapper.css('padding-right');
+						var padding_bottom = wrapper.css('padding-bottom');						
+
+						newWrapper.css('padding-top', padding_top);
+						newWrapper.css('padding-left', padding_left);
+						newWrapper.css('padding-right', padding_right);
+						newWrapper.css('padding-bottom', padding_bottom);
+
+						newWrapper.data('save-first',true);
 						wrapper.find('.block').each(function() {
 							duplicateBlockBetweenWrapper($(this),newWrapper);
 						});						

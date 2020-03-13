@@ -42,8 +42,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 = 1.2.9
 * Released: On Dev
+
 Tested with WordPress 5.3.3
 Tested with ClassicPress 1.1.1
+
 Fixed: Envira Gallery Lite conflict due Mobile_Detect method
 Fixed: Divi Builder Compatibility (https://www.facebook.com/groups/padmaunlimitedEN/permalink/815837155586421/) 
 Fixed: Add styles to navigation block, slide-out method
@@ -54,6 +56,14 @@ New option to edit add styles to stuck wrappers
 New features in Api Block
 - New outside the block CSS selector in register_block_element() to allow add styles through the Visual Editor to html when its outside the block html, just add \ before the selector. eg. $this->register_block_element( array( 'selector' =>  '\.pushy-site-overlay' ) );
 New Option: Show hidden wrappers on design mode
+Visual Editor Design mode: 
+- Deprecated "Text Underline"
+- Added Text Decoration Line
+- Added Text Decoration Color
+- Added Text Decoration Style
+- Added Word Spacing
+- Added Word Wrap
+- Added Writing Mode
 
 = 1.2.0
 * Released: January 28, 2020

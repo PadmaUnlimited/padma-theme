@@ -112,15 +112,78 @@ class PadmaElementProperties {
 				)
 			),
 
-			'text-decoration' => array(
+			'text-decoration-line' => array(
 				'group' => 'Fonts',
-				'name' => 'Text Underline',
+				'name' => 'Text Decoration Line',
 				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration": params.value});',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-line": params.value});',
 				'options' => array(
 					'none' => 'No Underline',
 					'underline' => 'Underline',
+					'overline' => 'Overline',
+					'line-through' => 'Line Through',
 				)
+			),
+
+			'text-decoration-color' => array(
+				'group' => 'Fonts',
+				'name' => 'Text Decoration Color',
+				'type' => 'color',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-color": params.value});',
+				'default' => '000000'
+			),
+
+			'text-decoration-style' => array(
+				'group' => 'Fonts',
+				'name' => 'Text Decoration Style',
+				'type' => 'select',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-style": params.value});',
+				'options' => array(
+					'none' => 'None',
+					'solid' => 'Solid',
+					'wavy' => 'Wavy',
+					'double' => 'Double',
+				)
+			),
+
+			'writing-mode' => array(
+				'group' => 'Fonts',
+				'name' => 'Writing Mode',
+				'type' => 'select',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"writing-mode": params.value});',
+				'options' => array(					
+					'horizontal-tb' => 'Horizontal from left to right',
+					'vertical-rl' => 'Vertically from top to bottom, horizontally from right to left',
+					'vertical-lr' => 'Vertically from top to bottom, horizontally from left to right',
+				)
+			),
+
+			'word-wrap' => array(
+				'group' => 'Fonts',
+				'name' => 'Word Wrap',
+				'type' => 'select',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"word-wrap": params.value + params.unit});',
+				'options' => array(					
+					'normal' => 'Normal',
+					'break-word' => 'Break word',
+				)
+			),
+
+			'word-spacing' => array(
+				'group' => 'Fonts',
+				'name' => 'Word Spacing',
+				'type' => 'integer',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"word-spacing": params.value});',
+				'unit' => 'px',
+				'options' => array(
+					'0' => '0',
+					'1' => '1px',
+					'2' => '2px',
+					'3' => '3px',
+					'-1' => '-1px',
+					'-2' => '-2px',
+					'-3' => '-3px'
+				)				
 			),
 
 		/* 	Fonts/Text Shadow */

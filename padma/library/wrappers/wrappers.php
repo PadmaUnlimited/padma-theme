@@ -78,7 +78,6 @@ class PadmaWrappers {
 
 			}
 
-
 		}
 
 		if ( !$sticky_wrappers ) {
@@ -87,7 +86,6 @@ class PadmaWrappers {
 
 		wp_enqueue_script( 'padma-sticky', padma_url() . '/library/media/js/sticky.js', array( 'jquery' ) );
 		wp_localize_script( 'padma-sticky', 'PadmaStickyWrappers', $sticky_wrappers );
-
 
 	}
 
@@ -130,7 +128,6 @@ class PadmaWrappers {
 
 
 	}
-
 
 	public static function format_wrapper_id($wrapper_id) {
 
@@ -258,9 +255,16 @@ class PadmaWrappers {
 
 	public static function get_grid_system($wrapper) {
 
+
+		$grid_system = 'css-grid';
 		$wrapper_settings = padma_get('settings', $wrapper, array());
 
-		return padma_get('use-independent-grid', $wrapper_settings, false, true) ? padma_get('grid-system', $wrapper_settings, false, true) : PadmaWrappers::$global_grid_system;
+		if( padma_get('use-independent-grid', $wrapper_settings, false, true) ){
+			$grid_system = padma_get('grid-system', $wrapper_settings, 'css-grid');			
+		}else{
+			$grid_system = PadmaWrappers::$global_grid_system;
+		}
+		return $grid_system;
 	}
 
 

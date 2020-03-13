@@ -21,7 +21,6 @@ class PadmaLayoutRenderer {
 		if ( !$this->blocks )
 			return $this->display_no_blocks_message();
 
-
 		/*	Add Animation rules to layout?	*/		
 		$animation_rules = array();
 
@@ -73,8 +72,14 @@ class PadmaLayoutRenderer {
 			$wrapper_columns 		= PadmaWrappers::get_columns($wrapper);
 			$wrapper_column_width 	= PadmaWrappers::get_column_width($wrapper);
 			$wrapper_gutter_width 	= PadmaWrappers::get_gutter_width($wrapper);
-			$wrapper_grid_system 	= PadmaWrappers::get_grid_system($wrapper);
+			
 
+			if( PadmaWrappers::is_independent_grid($wrapper) ){
+				$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+			}else{
+				$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
+			}
+			
 			$wrapper_classes 		= array('wrapper');
 
 			$wrapper_classes[] 		= PadmaWrappers::is_independent_grid($wrapper) ? 'independent-grid' : null;
@@ -123,7 +128,7 @@ class PadmaLayoutRenderer {
 
 						$wrapper = new PadmaGridRenderer($wrapper_blocks, $wrapper_settings);
 						
-						if( $wrapper_grid_system == 'css-grid' ){
+						if( 'css-grid' === $wrapper_grid_system ){
 							$wrapper->render_grid_css();
 						}else{
 							$wrapper->render_grid();

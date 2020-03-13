@@ -348,16 +348,22 @@ class PadmaDynamicStyle {
 
 				}
 
-			/* Grid CSS */			
-			if ( padma_get('grid-system', $wrapper_settings, 'css-grid', true) == 'css-grid' ) {
-					
+			/*		Grid CSS	*/
+				if( PadmaWrappers::is_independent_grid($wrapper) ){
+					$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+				}else{
+					$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
+				}
+
+				if( $wrapper_grid_system === 'css-grid' ){
+
 					/* Wrapper */
 					$return .= $wrapper_selector . ' {
 						display: flex;
 					}';
 
-					/* grid-container */
-						
+					
+					/* grid-container */						
 						
 						$grid_template_columns = '';
 						$column_width = $wrapper_settings['column-width'] . 'px';
@@ -367,15 +373,42 @@ class PadmaDynamicStyle {
 							$column_width = 'auto';
 						}
 
+						$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper( $layout_id, $wrapper_id );
+						foreach ( $wrapper_blocks as $block_id => $block ) {
+
+							$column_width = $wrapper_settings['column-width'];
+							$block_width = $block['dimensions']['width'];
+							$total_gaps = $column_width - 1;
+							$gap_width = $wrapper_settings['gutter-width'];
+
+							$block_column_width = ($column_width * $block_width) + ($total_gaps * $gap_width);
+
+
+							$grid_template_columns .= $block_column_width . 'px ';							
+							debug([
+								$block['dimensions']['width'],
+								$wrapper_settings['column-width'],
+								$grid_template_columns
+							]);
+						}
+						
+
+						
+						/*
+						$grid_template_columns = '';
 						for ($i=0; $i < $wrapper_settings['columns']; $i++) { 
 							$grid_template_columns .= ' ' . $column_width;
-						}					
+						}*/
 						$return .= $wrapper_selector . ' div.grid-container {
 							display: grid;
-							grid-template-columns: ' . $grid_template_columns . ';
+							grid-template-columns: repeat(' . $wrapper_settings['columns'] . ', 1fr);
 							grid-column-gap: ' . $wrapper_settings['gutter-width'] .'px;
 						}';
-			}
+						
+
+						//grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+				}
+
 		}
 
 		return $return;
@@ -705,15 +738,18 @@ class PadmaDynamicStyle {
 
 				foreach ($wrappers as $wrapper_id => $wrapper) {
 
-					debug([
-						$wrapper
-					]);
+					if( PadmaWrappers::is_independent_grid($wrapper) ){
+						$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+					}else{
+						$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
+					}
 
-					if ( !isset($wrapper['settings']['grid-system']) || $wrapper['settings']['grid-system'] != 'css-grid' )
+					if( $wrapper_grid_system === 'legacy' ){
 						continue;
-
+					}
+					
 					$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper( $layout_id, $wrapper_id );
-
+					
 
 					foreach ( $wrapper_blocks as $block_id => $block ) {
 						

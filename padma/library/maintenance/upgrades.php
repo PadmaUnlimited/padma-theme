@@ -2,7 +2,7 @@
 class PadmaMaintenance {
 
 	public static $available_upgrades = array(
-		'1.2.1'
+		'1.2.9'
 	);
 
 	/**

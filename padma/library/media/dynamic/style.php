@@ -336,8 +336,31 @@ class PadmaDynamicStyle {
 										text-align: center;
 									}';
 
-							if ( $hide_wrapper )
-								$return .= $wrapper_selector . ' { display: none!important; }';
+							if ( $hide_wrapper ){
+								
+								if ( padma_get('visual-editor-open') === 'true' && PadmaOption::get('show-hidden-wrappers-on-design-mode', false, false) ) {
+									$return .= $wrapper_selector . ' { opacity: 0.5; position: relative; }';
+									$return .= $wrapper_selector . ':before {
+										background-image: url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><line class="x-line" x1="0" y1="0" x2="100%" y2="100%" stroke="black" /><line class="x-line" x1="0" y1="100%" x2="100%" y2="0" stroke="black"/></svg>\');
+									    padding-top: 15px;
+									    content: "Hidden Wrapper";
+									    position: absolute;
+									    left: 0;
+									    right: 0;
+									    top: 0;
+									    bottom: 0;
+									    text-align: center;
+									    opacity: 0.3;
+									    display: inline-block;
+									    vertical-align: middle;
+									    line-height: normal;
+									    z-index: -1;
+									    color: #000;
+									}';
+								}else{
+									$return .= $wrapper_selector . ' { display: none!important;}';
+								}
+							}
 
 
 							$return .= '}'; //close media query

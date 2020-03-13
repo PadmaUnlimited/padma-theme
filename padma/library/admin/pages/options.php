@@ -519,6 +519,18 @@
 								)
 							),
 							'description' => __('By default, Padma will take any settings in the Design Editor and add them to <a href="http://codex.wordpress.org/TinyMCE" target="_blank">WordPress\' TinyMCE editor</a> style.  Use this option to prevent that.','padma')
+						),
+						array(
+							'type' => 'checkbox',
+							'label' => __('Show hidden wrappers on design mode','padma'),
+							'checkboxes' => array(
+								array(
+									'id' => 'show-hidden-wrappers-on-design-mode',
+									'label' => __('Show hidden wrappers on design mode','padma'),
+									'checked' => PadmaOption::get('show-hidden-wrappers-on-design-mode', false, false)
+								)
+							),
+							'description' => __('Show hidden wrappers on design mode. When configuring a breakpoint to hide the wrapper, this option will urge to Visual Editor to remain the wrapper visible to be styled.','padma')
 						)
 					);
 

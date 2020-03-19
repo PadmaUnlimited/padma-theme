@@ -145,6 +145,36 @@ function padma_storefront_wc_register_elements() {
 
 		PadmaElementAPI::register_element(array(
 			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-details-ul',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description List','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Description List','padma'),
+			'selector' => '.woocommerce .block-type-content div.product div.woocommerce-product-details__short-description ul'
+		));
+
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-details-ul-li',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description List Item','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Description List','padma'),
+			'selector' => '.woocommerce .block-type-content div.product div.woocommerce-product-details__short-description ul li'
+		));
+
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
+			'id' => 'block-content-wc-product-page-short-description-details-a',
+			'parent' => 'block-content',
+			'name' => __('Product Page: Short Description Link','padma'),
+			'indent-in-selector' => true,
+			'description' => __('Storefront: WooCommerce Description List','padma'),
+			'selector' => '.woocommerce .block-type-content div.product div.woocommerce-product-details__short-description a'
+		));
+
+		PadmaElementAPI::register_element(array(
+			'group' => 'blocks',
 			'id' => 'block-content-wc-product-page-short-description-out-of-stock',
 			'parent' => 'block-content',
 			'name' => __('Product Page: Short Description Stock','padma'),

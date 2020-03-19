@@ -740,6 +740,61 @@ class PadmaElementProperties {
 				'default' => 'disc'
 			),
 
+			'list-style-image' => array(
+				'group' => 'Lists',
+				'name' => 'Image',
+				'type' => 'image',
+				'js-callback' => 'propertyInputCallbackListImage(params);',
+				'default' => 'none'
+			),
+
+			'list-style-position' => array(
+				'group' => 'Lists',
+				'name' => 'Position',
+				'type' => 'select',
+				'default' => 'outside',
+				'options' => array(
+					'outside' => 'Outside',
+					'inside' => 'Inside',					
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"list-style-position": params.value});',
+			),
+
+
+			'list-style-type' => array(
+				'group' => 'Lists',
+				'name' => 'Type',
+				'type' => 'select',
+				'default' => 'disc',
+				'options' => array(
+					'disc' => 'Disc',
+					'armenian' => 'Armenian',
+					'circle' => 'Circle',
+					'cjk-ideographic' => 'CJK Ideographic',
+					'decimal' => 'Decimal',
+					'decimal-leading-zero' => 'Decimal Leading Zero',
+					'georgian' => 'Georgian',
+					'hebrew' => 'Hebrew',
+					'hiragana' => 'Hiragana',
+					'hiragana-iroha' => 'Hiragana Iroha',
+					'katakana' => 'Katakana',
+					'katakana-iroha' => 'Katakana Iroha',
+					'lower-alpha' => 'Lower alpha',
+					'lower-greek' => 'Lower greek',
+					'lower-latin' => 'Lower latin',
+					'lower-roman' => 'Lower roman',
+					'none' => 'none',
+					'square' => 'Square',
+					'upper-alpha' => 'Upper alpha',
+					'upper-greek' => 'Upper greek',
+					'upper-latin' => 'Upper latin',
+					'upper-roman' => 'Upper roman',
+					'initial' => 'Initial',
+					'inherit' => 'Inherit',					
+				),
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"list-style-position": params.value});',
+			),
+
 		/* 	Nudging */
 			'top' => array(
 				'group' => 'Nudging',

@@ -59,7 +59,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 				$.when(designEditorRequestElements(), designEditorRequestElementData())
 					.then(this.setupElementSelector);
 
-				this.bindElementSelector();
+				this.bindElementSelector();	
+				
 
 				this.setupTabs();
 
@@ -1893,6 +1894,20 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			
 		}
 
+		propertyInputCallbackListImage = function(params) {
+
+			var selector = params.selector;
+			var value = params.value;
+			var element = params.element;
+			
+			if ( value != 'none' ) {
+				stylesheet.update_rule(selector, {"list-style-image": 'url(' + value + ')'});
+			} else if ( value == 'none' ) {
+				stylesheet.update_rule(selector, {"list-style-image": 'none'});
+			}
+			
+		}
+
 
 		propertyInputCallbackAnimation = function(params) {
 
@@ -3261,6 +3276,11 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 			$('#toggle-inspector').bind('click', toggleInspector);
 
 			$i('.block').on('dblclick', designEditor.processElementDoubleClick);
+
+			$i(document).on('click', 'a, button',function(){
+				console.log('aqui');
+			})
+
 
 		},
 

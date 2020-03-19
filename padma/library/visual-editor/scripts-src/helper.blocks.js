@@ -668,7 +668,9 @@ define(['modules/panel.inputs', 'helper.history', 'util.browser'], function(pane
 
 				var element = $(event.target).closest('.inspector-element');				
 				if( typeof element !== 'undefined'){
-					var clases = element.attr('class').split(' ');
+					if( typeof element.attr('class') !== 'undefined' ){
+						var clases = element.attr('class').split(' ');
+					}
 				}else{
 					var clases = [];
 				}
@@ -701,15 +703,19 @@ define(['modules/panel.inputs', 'helper.history', 'util.browser'], function(pane
 				
 				
 				
-				
-				var blockType 	= getBlock(element)[0].dataset.type;
-				if(blockType == 'content'){
-					showNotification({
-						id: 'open-content-editor',
-						message: 'To edit Pages or Post content please right click the content block and use the option "Edit Content"',
-						closeTimer: 3000
-					});
+				if( typeof getBlock(element)[0] !== 'undefined' ){					
+					var blockType 	= getBlock(element)[0].dataset.type;
+					if(blockType == 'content'){
+						showNotification({
+							id: 'open-content-editor',
+							message: 'To edit Pages or Post content please right click the content block and use the option "Edit Content"',
+							closeTimer: 3000
+						});
+					}
+				}else{
+					should_exit = true;
 				}
+
 
 
 				if(should_exit)

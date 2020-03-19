@@ -27,6 +27,13 @@ class PadmaCompatibilityWooCommerce {
 		/* Add theme support for WooCommerce */
 		add_theme_support('woocommerce');
 
+		/**
+		 * https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)#enabling-the-gallery-in-themes-that-declare-wc-support
+		 */
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
+
 	}
 
 

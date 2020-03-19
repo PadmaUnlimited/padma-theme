@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.3
-Version: 1.2.9
+Version: 1.2.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.2.9
+= 1.2.10
 * Released: On Dev
 
 Tested with WordPress 5.3.3
@@ -64,6 +64,7 @@ Visual Editor Design mode:
 - Added Word Spacing
 - Added Word Wrap
 - Added Writing Mode
+Updated WooCommerce Compatibility
 
 = 1.2.0
 * Released: January 28, 2020

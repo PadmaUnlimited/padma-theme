@@ -3,6 +3,7 @@ global $wpdb, $post;
 ?>
 <h2 class="nav-tab-wrapper big-tabs-tabs">
 	<a class="nav-tab" href="#tab-system-info"><?php _e('System Info','padma'); ?></a>
+	<a class="nav-tab" href="#tab-replace-url"><?php _e('Replace URL','padma'); ?></a>
 	<a class="nav-tab" href="#tab-snapshots"><?php _e('Snapshots','padma'); ?></a>
 	<a class="nav-tab" href="#tab-reset"><?php _e('Reset','padma'); ?></a>
 </h2>
@@ -147,6 +148,30 @@ if ( is_array($active_plugins) && count($active_plugins) ) {
 		</div><!-- #system-info -->
 
 	</div><!-- #tab-system-info-content -->
+
+	<div class="big-tab" id="tab-replace-url-content">
+
+		<h3 class="title" style="margin-bottom: 10px;"><strong><?php _e('Replace URL','padma'); ?></strong></h3>
+
+		<p class="description">
+			<?php 
+				echo __('<strong>Important:</strong> It is strongly recommended that you <a target="_blank" href="https://codex.wordpress.org/WordPress_Backups">backup your database</a> before using Replace URL. This option will change only Padma settings.','padma'); 
+			?><br /><br />			
+		</p>
+
+		<form method="post" id="padma-replace-url">
+			
+			<input type="text" name="from" placeholder="https://old-url.com" class="">
+			<input type="text" name="to" placeholder="https://new-url.com" class="">
+
+			<input type="hidden" value="<?php echo wp_create_nonce( 'padma-replace-url-nonce' ); ?>" name="padma-replace-url-nonce" id="padma-replace-url-nonce" />
+			<br>
+			<input type="submit" value="Replace URL" class="button button-primary padma-medium-button" name="padma-replace-url" id="padma-replace-url" />
+		</form>
+		<!-- #reset -->
+
+	</div>
+
 
 	<div class="big-tab" id="tab-snapshots-content">
 

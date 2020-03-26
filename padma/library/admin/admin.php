@@ -27,6 +27,7 @@ class PadmaAdmin {
 		add_action('init', array(__CLASS__, 'form_action_save'), 12); // Init runs before admin_menu; admin_menu runs before admin_init
 		add_action('init', array(__CLASS__, 'form_action_reset'), 12);
 		add_action('init', array(__CLASS__, 'form_action_delete_snapshots'), 12);
+		add_action('init', array(__CLASS__, 'form_action_replace_url'), 12);
 
 		add_action('admin_menu', array(__CLASS__, 'add_menus'));
 
@@ -115,6 +116,40 @@ class PadmaAdmin {
 		$GLOBALS['padma_admin_save_message'] = 'Snapshots successfully deleted.';
 
 		return true;
+
+	}
+
+	public static function form_action_replace_url() {
+
+		global $wpdb;
+
+		if ( ! padma_post( 'padma-replace-url', false ) ) {
+			return false;
+		}
+		
+		if ( ! wp_verify_nonce( padma_post( 'padma-replace-url-nonce', false ), 'padma-replace-url-nonce' ) ) {
+
+			$GLOBALS['padma_admin_save_message'] = 'Security nonce did not match.';
+			return false;
+
+		}
+
+	
+		$from = ! empty( padma_post('from')) ? padma_post('from') : '';
+		$to = ! empty( padma_post('to')) ? padma_post('to') : '';
+
+		try {
+			if( padma_replace_urls( $from, $to ) ){
+				$GLOBALS['padma_admin_save_message'] = 'URL successfully replaced.';
+				return true;		
+			}else{
+				return false;
+			}
+
+		} catch ( \Exception $e ) {
+			wp_send_json_error( $e->getMessage() );
+			return false;
+		}
 
 	}
 

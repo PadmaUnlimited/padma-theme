@@ -406,18 +406,18 @@ if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 									if ( $image_click_action == 'post' ) {
 
 										echo '<a href="' . get_permalink() . '" class="post-thumbnail" title="' . $title_for_attribute . '">';
-											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" srcset="' . esc_attr( $srcset ) . '/>';
+											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" srcset="' . esc_attr( $srcset ) . '"/>';
 										echo '</a>' . "\n";
 
 									} elseif ($image_click_action == 'popup') {
 
 										echo '<a href="' . esc_url($full_image_url) . '" class="thickbox post-thumbnail" rel="pinboard-'.$block['id'].'" title="' . $title_for_attribute . '">';
-											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" srcset="' . esc_attr( $srcset ) . ' />';
+											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" srcset="' . esc_attr( $srcset ) . '"/>';
 										echo '</a>' . "\n";
 
 									} else {
 
-										echo '<a class="post-thumbnail"><img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '"  srcset="' . esc_attr( $srcset ) . ' /></a>' . "\n";
+										echo '<a class="post-thumbnail"><img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '"  srcset="' . esc_attr( $srcset ) . '" /></a>' . "\n";
 
 									}
 									if ( $show_pinterest_button || $show_twitter_button || $show_facebook_button ) {

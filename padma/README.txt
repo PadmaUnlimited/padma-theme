@@ -69,6 +69,7 @@ Visual Editor Design Options:
 - Added List style type
 - Added List style image
 - Added List style position
+- Added Text Direction
 Visual Editor Design mode, added navigation option
 Updated WooCommerce Compatibility
 PinBoard Block

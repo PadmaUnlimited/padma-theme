@@ -186,6 +186,18 @@ class PadmaElementProperties {
 				)				
 			),
 
+			'direction' => array(
+				'group' => 'Fonts',
+				'name' => 'Text Direction',
+				'type' => 'select',
+				'js-callback' => 'stylesheet.update_rule(params.selector, {"direction": params.value});',
+				'options' => array(					
+					'ltr' => 'Left to right',
+					'rtl' => 'Right to left',
+				),
+				'default' => 'ltr'
+			),
+
 		/* 	Fonts/Text Shadow */
 			'text-shadow-horizontal-offset' => array(
 				'group' => 'Fonts',
@@ -721,26 +733,6 @@ class PadmaElementProperties {
 			),
 
 		/* 	List Styling */
-			/*
-			'list-style' => array(
-				'group' => 'Lists',
-				'name' => 'List Style',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"list-style": params.value});',
-				'options' => array(
-					'none' => 'No Bullet/Style',
-					'disc' => 'Bullet',
-					'circle' => 'Circle',
-					'square' => 'Square',
-					'decimal' => 'Decimal Numbers (1., 2., etc)',
-					'lower-alpha' => 'Alphabetical (Lowercase)',
-					'upper-alpha' => 'Alphabetical (Uppercase)',
-					'lower-roman' => 'Roman Numerals (Lowercase)',
-					'upper-roman' => 'Roman Numerals (Uppercase)',
-				),
-				'default' => 'disc'
-			),*/
-
 			'list-style-image' => array(
 				'group' => 'Lists',
 				'name' => 'Image',

@@ -8051,7 +8051,7 @@ input.shortcode-anywhere{
 #mobile-menu{
 	display: none;
 }
-@media only screen and (max-width : 1260px) { 
+@media only screen and (max-width : 1410px) { 
 	div#menu{
 		overflow: hidden;
 		transition: height 500ms;

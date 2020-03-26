@@ -74,7 +74,18 @@
 
 			<?php do_action('padma_visual_editor_menu_mode_buttons'); ?>
 
-			<ul class="top-menu-nav">
+			<ul class="top-menu-nav">				
+				<li id="switch-edit-or-nav">
+					<span>Navigate</span>
+					<div class="toggle-mode">
+						<div class="toggle-switch">
+							<label class="switch">
+								<input type="checkbox" id="switch-navigation">
+								<div class="slider round"></div>
+							</label>
+						</div>
+					</div>
+				</li>
 				<li id="switch-mode">
 					<div class="toggle-mode">
 						<div class="icon light"></div>
@@ -121,7 +132,7 @@
 				'rand' 						=> rand(1, 999999)
 			), $layout_url);
 
-			echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes" sandbox="allow-same-origin allow-scripts"></iframe>';
+			echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes" sandbox="allow-same-origin allow-scripts" ></iframe>';
 
 			?>
 

@@ -1,34 +1,8 @@
 define(['jquery'], function($) {
 
-	mode: 'light',
-
 	/**
 	 *
-	 * Apply night mode
-	 *
-	 */	
-	applyNight = function (){
-		this.mode = 'night';
-		$( "body" ).addClass( "night" );
-		$( "iframe" ).contents().find("body").addClass("night");
-	}
-	
-
-	/**
-	 *
-	 * Apply light mode
-	 *
-	 */	
-	applyDay = function () {
-		this.mode = 'light';
-		$( "body" ).removeClass( "night" );
-		$( "iframe" ).contents().find("body").removeClass("night");
-	}
-
-
-	/**
-	 *
-	 * Create cookie
+	 * Create localstorage
 	 *
 	 */	
 	createCookie = function (name,value,days) {
@@ -44,7 +18,7 @@ define(['jquery'], function($) {
 
 	/**
 	 *
-	 * Read cookie
+	 * Read localstorage
 	 *
 	 */	
 	readCookie = function(name) {
@@ -61,7 +35,7 @@ define(['jquery'], function($) {
 
 	/**
 	 *
-	 * Erease cookie
+	 * Erease localstorage
 	 *
 	 */	
 	eraseCookie = function(name) {
@@ -79,16 +53,14 @@ define(['jquery'], function($) {
 
 			/**
 			 *
-			 * Read cookie
+			 * Read localstorage
 			 *
-			 */
-			if (readCookie("night") == "true") {
-				applyNight();
-				$('#switch-style').prop('checked', true);
+			 */			
+			if ( localStorage['visual-editor-enable-navigation'] == 'true') {				
+				$('#switch-navigation').prop('checked', true);
 				$('#switch-navigation').parent().find('.slider').addClass('on');
-			} else {
-				applyDay();
-				$('#switch-style').prop('checked', false);
+			} else {				
+				$('#switch-navigation').prop('checked', false);				
 			}
 
 			/**
@@ -96,22 +68,22 @@ define(['jquery'], function($) {
 			 * Add listener 
 			 *
 			 */
-			$('#switch-style').change(function() {
-			    if ($(this).is(':checked')) {
-			        applyNight();
-			        createCookie("night",true,999)
+			$('#switch-navigation').change(function() {				
+			    if ($(this).is(':checked')) {			        
+			        localStorage['visual-editor-enable-navigation'] = true;
 			        $(this).parent().find('.slider').addClass('on');
+			    
 			    } else {
-			        applyDay();
-			        eraseCookie("night")
+			        localStorage['visual-editor-enable-navigation'] = false;
 			        $(this).parent().find('.slider').removeClass('on');
 			    }
+			    //loadIframe(function(){});
 			});
 			
 		},
 
-		mode: function(){
-			return readCookie("night");
+		status: function(){
+			return localStorage['visual-editor-enable-navigation'];
 		}
 
 	}

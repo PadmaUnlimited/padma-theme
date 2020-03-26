@@ -1654,15 +1654,15 @@ span#logo {
 ul.top-menu-nav {
 	float: left;
 	margin: 0;
-	border-left: "1px solid rgba(255, 255, 255, .1)";
-	border-right: "1px solid rgba(0, 0, 0, .65)";
+	border-left: 1px solid rgba(255, 255, 255, .1);
+	border-right: 1px solid rgba(0, 0, 0, .65);
 }
 ul.top-menu-nav > li {
 	float: left;
 	height: 35px;
 	color: #8C8C8C;
-	border-left: "1px solid rgba(0, 0, 0, .65)";
-	border-right: "1px solid rgba(255, 255, 255, .1)";
+	border-left: 1px solid rgba(0, 0, 0, .65);
+	border-right: 1px solid rgba(255, 255, 255, .1);
 	/* Sub Menus */
 }
 ul.top-menu-nav > li > a,
@@ -1672,7 +1672,7 @@ ul.top-menu-nav > li > span {
 	height: 35px;
 	line-height: 35px;
 	padding: 0 15px;
-	display: block;
+	display: flex;
 	font-size: 13px;
 	color: #EEEEEE;
 }
@@ -2261,13 +2261,20 @@ ul#panel-top li.ui-state-active a {
 ul#panel-top li.ui-state-active span.close {
 	display: block;
 }
-/*	Switch mode option	*/
+/*	Switch options	*/
+ul.top-menu-nav > li#switch-edit-or-nav > span{
+	float: left;
+    padding: 0 5px;
+}
+ul.top-menu-nav > li#switch-edit-or-nav,
 ul.top-menu-nav > li#switch-mode {
 
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode,
 ul.top-menu-nav > li#switch-mode .toggle-mode{
 	width: 110px;
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .icon,
 ul.top-menu-nav > li#switch-mode .toggle-mode .icon{
 	display: inline-block;
     background-repeat: no-repeat;
@@ -2284,6 +2291,7 @@ ul.top-menu-nav > li#switch-mode .toggle-mode .icon.light{
 ul.top-menu-nav > li#switch-mode .toggle-mode .icon.night{
 	background-image: url(../images/switch-mode-night.png);
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch{
     height: 35px;
     width: 60px;	
@@ -2291,6 +2299,7 @@ ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch{
     float: left;
     text-align: center;
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch{
     position: relative;
     display: inline-block;
@@ -2298,13 +2307,16 @@ ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch{
     height: 19px;
     top: 8px;
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch #switch-navigation,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch #switch-style{
     display: none;
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch #switch-navigation:checked+.slider:before,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch #switch-style:checked+.slider:before {
     -webkit-transform: translateX(26px);
     transform: translateX(26px);
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch .slider,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider{
 	position: absolute;
     cursor: pointer;
@@ -2315,9 +2327,16 @@ ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider{
     background-color: #c3e4f7;
     border: 1px solid #c3e4f7;
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch .slider.on,
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.on{
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch .slider.round,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.round{
 	border-radius: 34px;
 }
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch .slider.round:before,
 ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.round:before{
 	background-color: #1aa2a1;
 	border-radius: 50%;
@@ -2328,6 +2347,14 @@ ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.rou
     width: 15px;
     left: 2px;
     bottom: 1px;
+}
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode .toggle-switch .switch .slider.round.on:before,
+ul.top-menu-nav > li#switch-mode .toggle-mode .toggle-switch .switch .slider.round.on:before{
+    background-color: #fff;
+}
+ul.top-menu-nav > li#switch-edit-or-nav .toggle-mode{
+	float: right;
+	width: auto;
 }
 
 /* Minimize */

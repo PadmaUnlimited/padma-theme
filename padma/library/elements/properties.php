@@ -721,6 +721,7 @@ class PadmaElementProperties {
 			),
 
 		/* 	List Styling */
+			/*
 			'list-style' => array(
 				'group' => 'Lists',
 				'name' => 'List Style',
@@ -738,7 +739,7 @@ class PadmaElementProperties {
 					'upper-roman' => 'Roman Numerals (Uppercase)',
 				),
 				'default' => 'disc'
-			),
+			),*/
 
 			'list-style-image' => array(
 				'group' => 'Lists',

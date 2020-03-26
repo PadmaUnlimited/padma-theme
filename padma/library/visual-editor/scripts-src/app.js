@@ -64,6 +64,7 @@ require(['jquery', 'util.loader'], function($) {
 		switchMode.init();
 	});
 
+
 	/* Load helpers all at once since they're used everywhere */
 	require(['helper.data', 'helper.blocks', 'helper.wrappers', 'helper.context-menus', 'helper.notifications', 'helper.boxes', 'helper.history'], function(data, blocks, wrappers, contextMenus, notifications, boxes, history) {
 		history.init();

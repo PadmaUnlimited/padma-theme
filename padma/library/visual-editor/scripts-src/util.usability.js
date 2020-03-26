@@ -153,15 +153,6 @@ define(['jquery', 'deps/mousetrap'], function($, mousetrap) {
 
 		require(['deps/jquery.ui.touchpunch', 'deps/jquery.taphold'], function() {});
 
-		/*	Panel tabs on mobile	*/
-		/*
-		$(document).on('click','#panel .sub-tabs li a',function(){
-
-			var idtab = $(this).attr('href');
-			$(this).parent().append($(idtab));
-			console.log(idtab);
-		});*/
-
 	}
 
 });

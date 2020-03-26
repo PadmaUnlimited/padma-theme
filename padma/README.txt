@@ -1,8 +1,8 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5.3
-Version: 1.2.11
+Tested up to: WordPress 5.4
+Version: 1.2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,34 +40,39 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.2.11
+= 1.2.12
 * Released: On Dev
 
-Tested with WordPress 5.3.3
-Tested with ClassicPress 1.1.1
+Tested with WordPress 5.4
+Tested with ClassicPress 1.1.2
 
 Fixed: Envira Gallery Lite conflict due Mobile_Detect method
 Fixed: Divi Builder Compatibility (https://www.facebook.com/groups/padmaunlimitedEN/permalink/815837155586421/) 
 Fixed: Add styles to navigation block, slide-out method
 Fixed: Webkit Compatibility
+
 New features on Content Block
-- Custom link to featured image
+ - Custom link to featured image
 New option to edit add styles to stuck wrappers
 New features in Api Block
-- New outside the block CSS selector in register_block_element() to allow add styles through the Visual Editor to html when its outside the block html, just add \ before the selector. eg. $this->register_block_element( array( 'selector' =>  '\.pushy-site-overlay' ) );
+ - New outside the block CSS selector in register_block_element() to allow add styles through the Visual Editor to html when its outside the block html, just add \ before the selector. eg. $this->register_block_element( array( 'selector' =>  '\.pushy-site-overlay' ) );
 New Option: Show hidden wrappers on design mode
-Visual Editor Design mode: 
+Visual Editor Design Options: 
+- Added Word Spacing
+- Added Word Wrap
+- Added Writing Mode
 - Deprecated "Text Underline"
 - Added Text Decoration Line
 - Added Text Decoration Color
 - Added Text Decoration Style
-- Added Word Spacing
-- Added Word Wrap
-- Added Writing Mode
+- Deprecated "List Style"
 - Added List style type
 - Added List style image
 - Added List style position
+Visual Editor Design mode, added navigation option
 Updated WooCommerce Compatibility
+PinBoard Block
+- Pins now use srcset for images
 
 = 1.2.0
 * Released: January 28, 2020

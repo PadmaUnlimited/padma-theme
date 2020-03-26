@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, interact) {
+define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.navigation', 'deps/colorpicker', 'helper.blocks', 'modules/grid/wrappers' ], function($, _, contentEditor, interact, navigation) {
 
 	/* DESIGN EDITOR ELEMENT LOADING */
 		designEditorRequestElements = function(forceReload) {
@@ -3100,6 +3100,34 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		}
 	/* END ELEMENT INFO */
 
+	/* NAVIGATION */
+		bindNavigationElements = function() {
+		
+			$i('body').on('click','a',function(){
+
+				if( navigation.status() == 'false' || typeof navigation.status() == 'undefined'){
+					return;
+				}
+				if ( typeof allowVECloseSwitch !== 'undefined' && allowVECloseSwitch === false ) {
+
+					if ( !confirm('You have unsaved changes, are you sure you want to switch layouts?') ) {
+						return false;
+					}
+
+				}
+
+				showIframeLoadingOverlay();				
+				var url = $i(this).attr('href');				
+				var callback = function(){
+					bindNavigationElements();				
+					addInspector();
+				}
+				loadIframe(callback, url)
+			});			
+
+		}
+	/* END NAVIGATION */
+
 	var modeDesign = {
 
 		init: function() {
@@ -3265,8 +3293,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 
 				}
 			});
-
-				
+			
 
 
 		},
@@ -3274,24 +3301,24 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'deps/c
 		bind: function() {
 
 			$('#toggle-inspector').bind('click', toggleInspector);
-
 			$i('.block').on('dblclick', designEditor.processElementDoubleClick);
-
-			$i(document).on('click', 'a, button',function(){
-				console.log('aqui');
-			})
-
 
 		},
 
 		iframeCallback: function() {
 
+			navigation.init();
+
 			bindBlockDimensionsTooltip();
-			bindBlockInlineEditor();
 			addInspector();
+			bindBlockInlineEditor();
 
 			/* Reset editor for layout switch */
 			designEditor.switchLayout();
+
+			// Enable navigation
+			bindNavigationElements();
+			
 
 		}
 	}

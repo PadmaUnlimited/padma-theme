@@ -857,3 +857,132 @@ function padma_validateDate($date, $format = 'Y-m-d H:i:s'){
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) == $date;
 }
+
+
+
+/**
+ * Replace URLs.
+ *
+ * Replace old URLs to new URLs. This method also updates all the Padma data.
+ *
+ * @param $from
+ * @param $to
+ *
+ * @return string
+ * @throws \Exception
+ */
+function padma_replace_urls( $from, $to ) {
+
+	global $wpdb;
+
+	$success = false;
+	$from = trim( $from );
+	$to = trim( $to );
+
+	if ( $from === $to ) {
+		$GLOBALS['padma_admin_save_message'] = __( 'The `from` and `to` URL\'s must be different', 'padma' ) ;
+	}
+
+	$is_valid_urls = ( filter_var( $from, FILTER_VALIDATE_URL ) && filter_var( $to, FILTER_VALIDATE_URL ) );
+
+	if ( ! $is_valid_urls ) {
+		$GLOBALS['padma_admin_save_message'] = __( 'The `from` and `to` URL\'s must be valid URL\'s', 'padma' ) ;		
+	}
+
+	
+	/**
+	 * Update all blocks settings
+	 */	
+	$blocks = PadmaBlocksData::get_all_blocks();
+	foreach ($blocks as $block) {
+
+		$block_id = $block['id'];
+		foreach ($block['settings'] as $setting_key => $setting_value) {
+			$block['settings'][$setting_key] = str_replace( $from , $to, $setting_value );
+		}
+
+		PadmaBlocksData::update_block( $block_id, $block );
+	}
+
+
+
+	/**
+	 * Update all style options
+	 */
+	$current_skin = PadmaTemplates::get_active_id();
+	$wp_options_prefix = 'pu_|template=' . PadmaOption::$current_skin . '|_';
+	
+	$options = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->options WHERE option_name LIKE '%s'", $wp_options_prefix . '%'), ARRAY_A);
+	
+	foreach ($options as $key => $option) {
+		$option_id 		= $option['option_id'];
+		$option_name 	= $option['option_name'];
+		$option_value	= maybe_unserialize($option['option_value']);
+
+		// Check each level 1 options
+		foreach ( $option_value as $key_level_1 => $value_level_1 ) {
+			
+			if( is_array($value_level_1) ){
+
+				// Check each level 2 options
+				foreach ( $value_level_1 as $key_level_2 => $value_level_2 ) {
+
+					if( is_array($value_level_2) ){
+
+						// Check each level 3 options
+						foreach ( $value_level_2 as $key_level_3 => $value_level_3 ) {
+
+							if( is_array($value_level_3) ){
+
+								// Check each level 4 options
+								foreach ( $value_level_3 as $key_level_4 => $value_level_4 ) {
+
+									if( is_array($value_level_4) ){
+										
+										// Check each level 5 options
+										foreach ( $value_level_4 as $key_level_5 => $value_level_5 ) {											
+											
+											if( is_array($value_level_5) ){
+
+												//
+
+											}else{
+												// Replace level 4 values
+												$option_value[ $key_level_1 ][ $key_level_2 ][ $key_level_3 ][ $key_level_4 ][ $key_level_5 ] = str_replace( $from , $to, $value_level_5 );
+											}
+										}
+
+									}else{
+										// Replace level 4 values
+										$option_value[ $key_level_1 ][ $key_level_2 ][ $key_level_3 ][ $key_level_4 ] = str_replace( $from , $to, $value_level_4 );
+									}
+
+								}
+							
+
+							}else{
+								// Replace level 3 values
+								$option_value[ $key_level_1 ][ $key_level_2 ][ $key_level_3 ] = str_replace( $from , $to, $value_level_3 );
+							}
+
+						}
+
+					}else{
+						// Replace level 2 values
+						$option_value[ $key_level_1 ][ $key_level_2 ] = str_replace( $from , $to, $value_level_2 );
+					}
+				}
+
+			}else{
+				// Replace level 1 values
+				$option_value[ $key_level_1 ] = str_replace( $from , $to, $value_level_1 );
+			}
+		}
+		update_option( $option_name, $option_value );
+		
+	}
+
+
+	$success = true;	
+	return $success;
+}

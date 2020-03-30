@@ -3117,7 +3117,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				}
 
 				showIframeLoadingOverlay();				
-				var url = $i(this).attr('href');				
+				var url = $i(this).attr('href');
 				var callback = function(){
 					bindNavigationElements();				
 					addInspector();

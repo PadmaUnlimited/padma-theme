@@ -321,75 +321,114 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 							'toggle'    => array(
 								'off' => array(
 									'hide' => array(
-										'#input-max-width'
+										'.input:not(#input-breakpoint)',										
 									),
 								),
 								'custom' => array(
 									'show' => array(
-										'#input-max-width'
+										'.input'
 									),
 								),
 								'1920px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'1824px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'1224px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'1024px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'812px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'768px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'736px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'600px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'568px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'480px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'414px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'375px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
 								),
 								'320px' => array(
+									'show' => array(
+										'.input'
+									),
 									'hide' => array(
 										'#input-max-width'
 									),
@@ -445,7 +484,20 @@ class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
 							'label' => __('Hide this wrapper','padma'),
 							'default' => false,
 							'tooltip' => __('This will hide this wrapper for the set breakpoint.','padma')
-						)
+						),
+
+						array(
+							'name' => 'grid-css-heading',
+							'type' => 'heading',
+							'label' => __('Grid CSS Options','padma')
+						),
+						array(
+							'type' => 'integer',							
+							'name' => 'grid-css-column-gap',
+							'label' => __('Column CSS gap for this breakpoint','padma'),
+							'unit' => 'px',
+							'default' => '0'
+						),
 
 					),
 					'sortable' => true,

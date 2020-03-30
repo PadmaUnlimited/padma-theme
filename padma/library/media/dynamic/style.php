@@ -732,8 +732,6 @@ class PadmaDynamicStyle {
 							grid-column: ' . $start_position . ' / span ' . $span_width .';
 						}';
 
-						debug($block);
-
 						$block_settings = padma_get('settings', $block, array());
 						$responsive_options = padma_get( 'responsive-options', $block_settings, array() );
 						$options 			= self::get_repeater_options( $responsive_options, 'breakpoint' );

@@ -169,7 +169,7 @@ class PadmaDisplay {
 		/* User Agents */
 			if ( !PadmaCompiler::is_plugin_caching() ) {
 
-				$user_agent = $_SERVER['HTTP_USER_AGENT'];
+				$user_agent = (isset($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] : '';
 
 				/* IE */
 				if ( $ie_version = padma_is_ie() ) {

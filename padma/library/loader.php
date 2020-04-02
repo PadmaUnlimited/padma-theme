@@ -32,7 +32,7 @@ $padma_registry = array(
 	// Blocks
 	'PadmaBlocks'	=> 'blocks/blocks',
 
-	// Common
+	// Common	
 	'Padma'	=> 'common/application',
 	'PadmaBlocksAnywhere'	=> 'common/blocks-anywhere',
 	'PadmaCapabilities'	=> 'common/capabilities',
@@ -77,7 +77,7 @@ $padma_registry = array(
 
 	// Display
 	'PadmaDisplay'	=> 'display/display',
-	'PadmaGridRenderer'	=> 'display/grid-renderer',
+	'PadmaGridRenderer'	=> 'display/grid-renderer',	
 	'PadmaHead'	=> 'display/head',
 	'PadmaLayoutRenderer'	=> 'display/layout-renderer',
 

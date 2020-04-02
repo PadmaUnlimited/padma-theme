@@ -47,7 +47,8 @@ class PadmaCompiler {
 			'footer-js' => true,
 			'enqueue' => true,
 			'iframe-cache' => false,
-			'output-inline' => false
+			'output-inline' => false,
+			'media'	=> 'all'
 		);
 
 		$args = array_merge($defaults, $args);
@@ -124,10 +125,20 @@ class PadmaCompiler {
 
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);		
 
-		if ( $cache[$file]['format'] == 'js' )
+		if ( $cache[$file]['format'] == 'js' ){
 			return wp_enqueue_script('padma-' . $file, self::get_url($file), false, false, false, $footer_js);
-		elseif ( $cache[$file]['format'] == 'css' )
-			return wp_enqueue_style('padma-' . $file, self::get_url($file));
+
+		}elseif ( $cache[$file]['format'] == 'css' ){
+
+			///debug($cache)			;
+			return wp_enqueue_style(
+				'padma-' . $file,
+				self::get_url($file),
+				array(),
+				null,
+				$cache[$file]['media']
+			);
+		}
 
 		return false;	
 

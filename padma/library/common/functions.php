@@ -312,9 +312,9 @@ function padma_resize_image($url, $width = null, $height = null, $crop = true, $
  **/
 function padma_is_ie($version_check = false) {
 
-	$agent = $_SERVER['HTTP_USER_AGENT'];
-
-	preg_match('/MSIE\s([\d.]+)/', $_SERVER['HTTP_USER_AGENT'], $matches);
+	$agent = ( isset($_SERVER['HTTP_USER_AGENT']) ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	
+	preg_match('/MSIE\s([\d.]+)/', $agent, $matches);
 
 	if ( count($matches) === 0 || !is_array($matches) )
 		return false;

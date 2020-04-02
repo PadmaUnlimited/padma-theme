@@ -131,3 +131,6 @@ div.pp_woocommerce .pp_content_container div#respond label {
 .block-type-widget-area .widget_layered_nav ul li.chosen a {
 	text-decoration: none;
 }
+.woocommerce .hidden{
+	display: none !important;
+}

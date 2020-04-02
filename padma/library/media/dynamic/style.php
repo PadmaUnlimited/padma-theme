@@ -738,7 +738,8 @@ class PadmaDynamicStyle {
 
 						if ( $options ) {
 							foreach ( $options as $option ) {
-
+								
+								$breakpoint_css = '';
 								$breakpoint = padma_fix_data_type( padma_get_search( 'blocks-breakpoint', $option, 'off' ) );
 								$max_width  = padma_fix_data_type( padma_get_search( 'max-width', $option, '' ) );
 								$column_count  = padma_fix_data_type( padma_get_search( 'grid-css-column-count', $option, $span_width ) );
@@ -751,13 +752,22 @@ class PadmaDynamicStyle {
 								$breakpoint_min_max = padma_fix_data_type( padma_get_search( 'breakpoint-min-or-max', $option, 'max' ) );
 
 								/* Output Responsive CSS */
-								$return .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
+								//$breakpoint_css .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
 
-								$return .= '#block-' . $block_id .'{
+								$breakpoint_css .= '#block-' . $block_id .'{
 									grid-column: ' . $column_start . ' / span ' . $column_count .';
 								}';
 
-								$return .= '}';
+								//$breakpoint_css .= '}';
+								
+
+
+								PadmaCompiler::register_file(array(
+									'name' => $breakpoint_min_max . '-' .$breakpoint,
+									'format' => 'css',
+									'fragments' => call_user_func(function() use ($breakpoint_css){ return $breakpoint_css;  }),
+									'media' => '(' . $breakpoint_min_max . '-width: ' . $breakpoint . ')'
+								));
 							}
 						}
 					}
@@ -769,6 +779,7 @@ class PadmaDynamicStyle {
 				return $return;
 
 			}
+
 
 	static function get_repeater_options($options, $default) {
 

@@ -200,6 +200,8 @@ class PadmaHead {
 			/* Include dynamic CSS from blocks such as navigation block or any block that has per-block CSS */
 			$fragments['dynamic-block-css'] = array('PadmaBlocks', 'output_block_dynamic_css');
 
+			debug($fragments);
+
 			return PadmaCompiler::register_file(array(
 				'name' => $css_name,
 				'format' => 'css',

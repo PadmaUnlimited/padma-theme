@@ -59,7 +59,9 @@ class PadmaCompiler {
 		if ( is_ssl() )
 			$args['name'] = $args['name'] . '-https';
 
-		$args['fragments'] 		= array_map('padma_change_to_unix_path', $args['fragments']);
+		if( is_array( $args['fragments']) )
+			$args['fragments'] 		= array_map('padma_change_to_unix_path', $args['fragments']);
+		
 		$args['dependencies'] 	= array_map('padma_change_to_unix_path', $args['dependencies']);
 
 		if ( !in_array($args['format'], self::$accepted_formats) )
@@ -93,7 +95,6 @@ class PadmaCompiler {
 
 
 			} else if ( $args['enqueue'] ) {
-
 				return self::enqueue_file($args['name'], $args['footer-js']);
 
 			}
@@ -130,7 +131,6 @@ class PadmaCompiler {
 
 		}elseif ( $cache[$file]['format'] == 'css' ){
 
-			///debug($cache)			;
 			return wp_enqueue_style(
 				'padma-' . $file,
 				self::get_url($file),
@@ -317,6 +317,8 @@ class PadmaCompiler {
 		foreach ( $fragments as $fragment_key => $fragment ) {
 
 
+				debug($fragment);
+
 			//Determine if it's a function or file
 			if ( !is_array($fragment) && strpos($fragment, '.') !== false && strpos($fragment, '()') === false && file_exists($fragment) ) {
 
@@ -327,8 +329,9 @@ class PadmaCompiler {
 				$data .= fread($temp_handler, filesize($fragment));
 				fclose($temp_handler);
 
-			//It's a function	
+			//It's a function
 			} else {
+
 
 				//Remove unneeded paratheses if is a string
 				if ( is_string($fragment) )

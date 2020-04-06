@@ -329,6 +329,10 @@ class PadmaDynamicStyle {
 
 					if ( $options ) {
 
+						$media_queries = PadmaSkinOption::get('padma-media-queries');
+						debug($media_queries);
+						
+
 						foreach ( $options as $option ) {
 
 							/* Responsive CSS - some magic to make the columns work with the smartphone setting */
@@ -339,10 +343,17 @@ class PadmaDynamicStyle {
 							if ( $max_width && $breakpoint == 'custom' )
 								$breakpoint = $max_width;
 
+
 							$breakpoint_min_max = padma_fix_data_type( padma_get_search( 'breakpoint-min-or-max', $option, 'max' ) );
 							$stretch            = padma_fix_data_type( padma_get_search( 'stretch', $option, false ) );
 							$auto_center        = padma_fix_data_type( padma_get_search( 'auto-center', $option, false ) );
 							$hide_wrapper       = padma_fix_data_type( padma_get_search( 'hide-wrapper', $option, false ) );
+
+							
+
+							$media_queries[ $breakpoint_min_max ][ $breakpoint ] = true;
+							PadmaSkinOption::set( 'padma-media-queries' , $media_queries );
+
 
 							/* Output Responsive CSS */
 							$return .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
@@ -731,45 +742,6 @@ class PadmaDynamicStyle {
 						$return .=  '#block-' . $block_id .' {
 							grid-column: ' . $start_position . ' / span ' . $span_width .';
 						}';
-
-						$block_settings = padma_get('settings', $block, array());
-						$responsive_options = padma_get( 'responsive-options', $block_settings, array() );
-						$options 			= self::get_repeater_options( $responsive_options, 'breakpoint' );
-
-						if ( $options ) {
-							foreach ( $options as $option ) {
-								
-								$breakpoint_css = '';
-								$breakpoint = padma_fix_data_type( padma_get_search( 'blocks-breakpoint', $option, 'off' ) );
-								$max_width  = padma_fix_data_type( padma_get_search( 'max-width', $option, '' ) );
-								$column_count  = padma_fix_data_type( padma_get_search( 'grid-css-column-count', $option, $span_width ) );
-								$column_start  = padma_fix_data_type( padma_get_search( 'grid-css-column-start', $option, $start_position ) );
-
-
-								if ( $max_width && $breakpoint == 'custom' )
-									$breakpoint = $max_width;
-
-								$breakpoint_min_max = padma_fix_data_type( padma_get_search( 'breakpoint-min-or-max', $option, 'max' ) );
-
-								/* Output Responsive CSS */
-								//$breakpoint_css .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
-
-								$breakpoint_css .= '#block-' . $block_id .'{
-									grid-column: ' . $column_start . ' / span ' . $column_count .';
-								}';
-
-								//$breakpoint_css .= '}';
-								
-
-
-								PadmaCompiler::register_file(array(
-									'name' => $breakpoint_min_max . '-' .$breakpoint,
-									'format' => 'css',
-									'fragments' => call_user_func(function() use ($breakpoint_css){ return $breakpoint_css;  }),
-									'media' => '(' . $breakpoint_min_max . '-width: ' . $breakpoint . ')'
-								));
-							}
-						}
 					}
 
 				}

@@ -84,6 +84,8 @@ class PadmaHead {
 
 		self::register_visual_editor_css();
 
+		self::media_queries();
+
 	}
 
 
@@ -117,6 +119,9 @@ class PadmaHead {
 
 			/* Block heights */
 				$general_css_fragments['dynamic-block-heights'] = array('PadmaDynamicStyle', 'block_heights');
+
+			/* Block widths	*/
+				$general_css_fragments['dynamic-block-widths'] = array('PadmaDynamicStyle', 'block_widths');
 
 			/* Design Editor CSS */
 				if ( current_theme_supports('padma-design-editor') )
@@ -193,14 +198,11 @@ class PadmaHead {
 			if ( current_theme_supports('padma-grid') ) {
 
 				$fragments['dynamic-wrapper'] = array('PadmaDynamicStyle', 'wrapper');
-				$fragments['dynamic-blocks-width'] = array('PadmaDynamicStyle', 'block_widths');
 
 			}
 
 			/* Include dynamic CSS from blocks such as navigation block or any block that has per-block CSS */
 			$fragments['dynamic-block-css'] = array('PadmaBlocks', 'output_block_dynamic_css');
-
-			debug($fragments);
 
 			return PadmaCompiler::register_file(array(
 				'name' => $css_name,
@@ -250,6 +252,89 @@ class PadmaHead {
 
 			}
 
+		}
+
+
+
+		public static function media_queries() {
+
+			$layout_id = padma_get('layout-in-use');
+			$wrappers = PadmaWrappersData::get_wrappers_by_layout($layout_id);
+
+			/**
+			 * Process Each Wrapper
+			 */
+
+			foreach ($wrappers as $wrapper_id => $wrapper) {
+
+
+				debug($wrapper);
+
+				if( PadmaWrappers::is_independent_grid($wrapper) ){
+					$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+				}else{
+					$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
+				}
+
+				if( $wrapper_grid_system === 'legacy' ){
+					continue;
+				}
+
+
+				/**
+				 * Process blocks in the wrapper
+				 */				
+				$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper( $layout_id, $wrapper_id );
+				
+
+				foreach ( $wrapper_blocks as $block_id => $block ) {
+					
+					$start_position = $block['position']['left'] + 1;
+					$span_width = $block['dimensions']['width'];
+
+					$return .=  '#block-' . $block_id .' {
+						grid-column: ' . $start_position . ' / span ' . $span_width .';
+					}';
+
+					$block_settings = padma_get('settings', $block, array());
+					$responsive_options = padma_get( 'responsive-options', $block_settings, array() );
+					$options 			= self::get_repeater_options( $responsive_options, 'breakpoint' );
+
+					if ( $options ) {
+						foreach ( $options as $option ) {
+							
+							$breakpoint_css = '';
+							$breakpoint = padma_fix_data_type( padma_get_search( 'blocks-breakpoint', $option, 'off' ) );
+							$max_width  = padma_fix_data_type( padma_get_search( 'max-width', $option, '' ) );
+							$column_count  = padma_fix_data_type( padma_get_search( 'grid-css-column-count', $option, $span_width ) );
+							$column_start  = padma_fix_data_type( padma_get_search( 'grid-css-column-start', $option, $start_position ) );
+
+
+							if ( $max_width && $breakpoint == 'custom' )
+								$breakpoint = $max_width;
+
+							$breakpoint_min_max = padma_fix_data_type( padma_get_search( 'breakpoint-min-or-max', $option, 'max' ) );
+
+							/* Output Responsive CSS */
+							//$breakpoint_css .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
+
+							$breakpoint_css .= '#block-' . $block_id .'{
+								grid-column: ' . $column_start . ' / span ' . $column_count .';
+							}';
+
+
+							PadmaCompiler::register_file(array(
+								'name' => $breakpoint_min_max . '-' .$breakpoint,
+								'format' => 'css',
+								'fragments' => $breakpoint_css,
+								'media' => '(' . $breakpoint_min_max . '-width: ' . $breakpoint . ')'
+							));
+							
+						}
+					}
+				}
+
+			}
 		}
 
 

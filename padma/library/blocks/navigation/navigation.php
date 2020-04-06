@@ -394,7 +394,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 					$js .= 'jQuery(document).ready(function($){
 
-						if ( typeof window.hwPushy != "function" )
+						if ( typeof window.PadmaPushy != "function" )
 							return false;
 
 
@@ -420,7 +420,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 
 						$("#wpadminbar").appendTo("body");
 
-						window.hwPushy();
+						window.PadmaPushy();
 
 						});' . "\n\n";
 
@@ -449,7 +449,6 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 			}
 
 		}
-
 		return $js;
 
 	}

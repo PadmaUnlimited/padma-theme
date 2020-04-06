@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.4
-Version: 1.2.16
+Version: 1.2.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.2.16
+= 1.2.17
 * Released: On Dev
 
 Tested with WordPress 5.4
@@ -50,6 +50,7 @@ Fixed: Envira Gallery Lite conflict due Mobile_Detect method
 Fixed: Divi Builder Compatibility (https://www.facebook.com/groups/padmaunlimitedEN/permalink/815837155586421/) 
 Fixed: Add styles to navigation block, slide-out method
 Fixed: Webkit Compatibility
+Fixed: Third level pushy menu issue
 
 New Tool: Replace URL
 New features on Content Block
@@ -75,6 +76,7 @@ Visual Editor Design mode, added navigation option
 Updated WooCommerce Compatibility
 PinBoard Block
 - Pins now use srcset for images
+Updated Pushy menu to v1.3.0
 
 = 1.2.0
 * Released: January 28, 2020

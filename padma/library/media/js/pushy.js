@@ -1,10 +1,14 @@
-/*! Pushy - v1.1.2 - 2016-3-1
+/*! Pushy - v1.3.0 - 2019-6-25
 * Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions.
 * https://github.com/christophery/pushy/
 * by Christopher Yee */
 
+/*
+	Modified by Padma Team 2020-04-06
+*/
+
 (function ($) {
-	window.hwPushy = function() {
+	window.PadmaPushy = function() {
 		var pushy = $('.pushy'), //menu css class
 			body = $('body'),
 			container = $('#whitewrap'), //container css class
@@ -23,6 +27,29 @@
 			submenuClosedClass = 'pushy-submenu-closed',
 			submenu = $(submenuClass);
 
+
+		/*
+		//check if menu-btn-class data attribute exists
+		if( typeof pushy.data('menu-btn-class') !== 'undefined' ){
+			var menuBtnClass = pushy.data('menu-btn-class'); //take user defined menu button CSS class
+		}else{
+			var menuBtnClass = '.menu-btn'; //set default menu button CSS class
+		}
+
+		//css classes to toggle the menu
+		var menuBtn = $(menuBtnClass + ', .pushy-link');
+
+		//css class to focus when menu is closed w/ esc key
+		var menuBtnFocus = $(menuBtnClass);
+		
+	    // check if container-selector data attribute exists
+	    var containerSelector = '#container';
+	    if (typeof pushy.data('container-selector') !== 'undefined') {
+	        containerSelector = pushy.data('container-selector');
+	    }
+	    var container = $(containerSelector);
+		*/
+
 		//close menu w/ esc key
 		$(document).keyup(function(e) {
 			//check if esc key is pressed
@@ -35,7 +62,8 @@
 					}else{
 						closePushyFallback();
 						opened = false; //set menu state
-					}					
+					}
+					
 					//focus on menu button after menu is closed
 					if(menuBtnFocus){
 						menuBtnFocus.focus();
@@ -87,6 +115,10 @@
 				push.animate({right: menuWidth}, menuSpeed);
 			}
 
+			//focus on link in menu
+			if(menuLinkFocus){
+				menuLinkFocus.focus();
+			}
 		}
 
 		function closePushyFallback(){
@@ -111,18 +143,20 @@
 			//hide submenu by default
 			$(submenuClass).addClass(submenuClosedClass);
 
-			$(submenuClass).on('click', function(){
+			$(submenuClass).on('click', function(e){
 		        var selected = $(this);
 
 		        if( selected.hasClass(submenuClosedClass) ) {
-		            //hide opened submenus
-		            $(submenuClass).addClass(submenuClosedClass).removeClass(submenuOpenClass);
+					//hide same-level opened submenus
+					selected.siblings(submenuClass).addClass(submenuClosedClass).removeClass(submenuOpenClass);
 		            //show submenu
-		            selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
+					selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
 		        }else{
 		            //hide submenu
 		            selected.addClass(submenuClosedClass).removeClass(submenuOpenClass);
-		        }
+				}
+				// prevent event to be triggered on parent
+				e.stopPropagation();
 		    });
 		}
 

@@ -1,4 +1,4 @@
-/*! Pushy - v1.0.0 - 2016-3-1
+/*! Pushy - v1.3.0 - 2019-6-25
 * Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions.
 * https://github.com/christophery/pushy/
 * by Christopher Yee */
@@ -11,49 +11,14 @@
   z-index: 9999;
   background: #191918;
   overflow: auto;
-  visibility: hidden;
   -webkit-overflow-scrolling: touch;
   /* enables momentum scrolling in iOS overflow elements */
 }
-
-.mode-grid .pushy, .mode-grid .pushy-site-overlay {
-  display: none !important
-}
-
-.admin-bar .pushy {
-  top: 32px;
-}
-
-@media screen and (max-width: 782px) {
-  .admin-bar .pushy {
-    top: 46px
-  }
-}
-
-.pushy-menu-toggle {
-  display: none;
-  vertical-align: middle;
-  float: right;
-  padding: 0.438em 0.625em 0.438em 0.625em;
-  line-height: 1.125em;
-  margin: 5px 5px 6px;
-  cursor: pointer;
-}
-
-.pushy-menu-toggle-left {
-  float: left;
-}
-
-.pushy-menu-toggle-center {
-  float: none;
-}
-
 .pushy a {
   display: block;
   color: #b3b3b1;
   padding: 15px 30px;
   text-decoration: none;
-  outline: 0;
 }
 .pushy a:hover {
   color: #FFF;
@@ -68,6 +33,10 @@
   right: 0;
 }
 
+.pushy-content {
+  visibility: hidden;
+}
+
 /* Menu Movement */
 .pushy-left {
   -webkit-transform: translate3d(-200px, 0, 0);
@@ -75,7 +44,7 @@
   transform: translate3d(-200px, 0, 0);
 }
 
-.pushy-open-left #whitewrap,
+.pushy-open-left #container,
 .pushy-open-left .push {
   -webkit-transform: translate3d(200px, 0, 0);
   -ms-transform: translate3d(200px, 0, 0);
@@ -88,7 +57,7 @@
   transform: translate3d(200px, 0, 0);
 }
 
-.pushy-open-right #whitewrap,
+.pushy-open-right #container,
 .pushy-open-right .push {
   -webkit-transform: translate3d(-200px, 0, 0);
   -ms-transform: translate3d(-200px, 0, 0);
@@ -101,21 +70,29 @@
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+.pushy-open-left .pushy-content,
+.pushy-open-right .pushy-content {
+  visibility: visible;
+}
 
 /* Menu Transitions */
-#whitewrap,
+#container,
 .pushy,
 .push {
   transition: transform 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
 }
 
+.pushy-content {
+  transition: visibility 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+}
+
 /* Site Overlay */
-.pushy-site-overlay {
+.site-overlay {
   display: none;
 }
 
-.pushy-open-left .pushy-site-overlay,
-.pushy-open-right .pushy-site-overlay {
+.pushy-open-left .site-overlay,
+.pushy-open-right .site-overlay {
   display: block;
   position: fixed;
   top: 0;
@@ -146,19 +123,33 @@
 }
 /* Submenu Appearance */
 .pushy-submenu {
+  /* Submenu Buttons */
   /* Submenu Icon */
 }
-.pushy-submenu ul {
+.pushy-submenu > ul {
   padding-left: 15px;
-  transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
-.pushy-submenu ul .pushy-link {
+.pushy-submenu > ul .pushy-link {
   transition: opacity 0.2s ease-in-out;
 }
-.pushy-submenu > a {
+.pushy-submenu button {
+  width: 100%;
+  color: #b3b3b1;
+  padding: 15px 30px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+}
+.pushy-submenu button:hover {
+  color: #FFF;
+}
+.pushy-submenu > a,
+.pushy-submenu > button {
   position: relative;
 }
-.pushy-submenu > a::after {
+.pushy-submenu > a::after,
+.pushy-submenu > button::after {
   content: '';
   display: block;
   height: 11px;
@@ -174,9 +165,10 @@
 }
 
 /* Submenu Movement */
-.pushy-submenu-closed ul {
+.pushy-submenu-closed > ul {
   max-height: 0;
   overflow: hidden;
+  visibility: hidden;
 }
 .pushy-submenu-closed .pushy-link {
   opacity: 0;
@@ -187,46 +179,14 @@
 }
 .pushy-submenu-open > ul {
   max-height: 1000px;
+  visibility: visible;
 }
 .pushy-submenu-open .pushy-link {
   opacity: 1;
 }
-.pushy-submenu-open > a::after {
+.pushy-submenu-open > a::after,
+.pushy-submenu-open > button::after {
   -webkit-transform: translateY(-50%) rotate(90deg);
   -ms-transform: translateY(-50%) rotate(90deg);
   transform: translateY(-50%) rotate(90deg);
-}
-
-.no-csstransforms3d .pushy-submenu-closed ul {
-  max-height: none;
-  display: none;
-}
-
-.pushy-menu-toggle-text {
-  float: left
-}
-
-.pushy-menu-toggle-icon {
-  float: left;
-  width: 1.125em;
-  height: 0.875em;
-  margin: 0.138em 0 0 0.438em;
-}
-
-.pushy-menu-toggle-icon-bar {
-  display: block;
-  width: 1.125em;
-  height: 1px;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  margin-top: 3px;
-}
-
-.pushy-menu-toggle-icon-bar:first-child {
-  margin-top: 0
-}
-
-.responsive-menu-align-center {
-  text-align: center
 }

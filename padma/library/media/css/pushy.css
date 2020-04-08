@@ -2,6 +2,9 @@
 * Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions.
 * https://github.com/christophery/pushy/
 * by Christopher Yee */
+/*
+  Modified by Padma Team 2020-04-06
+*/
 /* Menu Appearance */
 .pushy {
   position: fixed;
@@ -11,14 +14,49 @@
   z-index: 9999;
   background: #191918;
   overflow: auto;
+  visibility: hidden;
   -webkit-overflow-scrolling: touch;
   /* enables momentum scrolling in iOS overflow elements */
 }
+
+.mode-grid .pushy, .mode-grid .pushy-site-overlay {
+  display: none !important
+}
+
+.admin-bar .pushy {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  .admin-bar .pushy {
+    top: 46px
+  }
+}
+
+.pushy-menu-toggle {
+  display: none;
+  vertical-align: middle;
+  float: right;
+  padding: 0.438em 0.625em 0.438em 0.625em;
+  line-height: 1.125em;
+  margin: 5px 5px 6px;
+  cursor: pointer;
+}
+
+.pushy-menu-toggle-left {
+  float: left;
+}
+
+.pushy-menu-toggle-center {
+  float: none;
+}
+
 .pushy a {
   display: block;
   color: #b3b3b1;
   padding: 15px 30px;
   text-decoration: none;
+  outline: 0;
 }
 .pushy a:hover {
   color: #FFF;
@@ -44,7 +82,7 @@
   transform: translate3d(-200px, 0, 0);
 }
 
-.pushy-open-left #container,
+.pushy-open-left #whitewrap,
 .pushy-open-left .push {
   -webkit-transform: translate3d(200px, 0, 0);
   -ms-transform: translate3d(200px, 0, 0);
@@ -57,7 +95,7 @@
   transform: translate3d(200px, 0, 0);
 }
 
-.pushy-open-right #container,
+.pushy-open-right #whitewrap,
 .pushy-open-right .push {
   -webkit-transform: translate3d(-200px, 0, 0);
   -ms-transform: translate3d(-200px, 0, 0);
@@ -76,7 +114,7 @@
 }
 
 /* Menu Transitions */
-#container,
+#whitewrap,
 .pushy,
 .push {
   transition: transform 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
@@ -87,12 +125,12 @@
 }
 
 /* Site Overlay */
-.site-overlay {
+.pushy-site-overlay {
   display: none;
 }
 
-.pushy-open-left .site-overlay,
-.pushy-open-right .site-overlay {
+.pushy-open-left .pushy-site-overlay,
+.pushy-open-right .pushy-site-overlay {
   display: block;
   position: fixed;
   top: 0;

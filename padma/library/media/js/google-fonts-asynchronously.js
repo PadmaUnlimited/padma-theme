@@ -6,7 +6,7 @@
 		var last = fonts.length - 1;
 		var newFonts = '';
 
-		fonts[ last ] = fonts[ last ] + '&display=swap';
+		fonts[ last ] = fonts[ last ] + '&display=' + fontsDisplay;
 
 		for (var i = 0; i < fonts.length; i++) {
 			newFonts += fonts[i];

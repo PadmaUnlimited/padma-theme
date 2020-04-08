@@ -228,3 +228,37 @@
   -ms-transform: translateY(-50%) rotate(90deg);
   transform: translateY(-50%) rotate(90deg);
 }
+
+.no-csstransforms3d .pushy-submenu-closed ul {
+  max-height: none;
+  display: none;
+}
+
+.pushy-menu-toggle-text {
+  float: left
+}
+
+.pushy-menu-toggle-icon {
+  float: left;
+  width: 1.125em;
+  height: 0.875em;
+  margin: 0.138em 0 0 0.438em;
+}
+
+.pushy-menu-toggle-icon-bar {
+  display: block;
+  width: 1.125em;
+  height: 1px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 3px;
+}
+
+.pushy-menu-toggle-icon-bar:first-child {
+  margin-top: 0
+}
+
+.responsive-menu-align-center {
+  text-align: center
+}

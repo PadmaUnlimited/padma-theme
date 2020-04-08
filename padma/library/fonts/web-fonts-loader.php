@@ -64,13 +64,29 @@ class PadmaWebFontsLoader {
 
 		if(strlen($fonts) > 0 ){
 
+			$font_display = PadmaOption::get('google-fonts-display', false, 'swap');
+
+			/**
+			 * Preload Google Fonts
+			 */
+			if( PadmaOption::get('google-fonts-preload', false, false) ){
+
+				$stylesheet_url = '//fonts.googleapis.com/css?display=' . $font_display . '&family=' . $fonts ;
+				echo "<link rel='preload' href='$stylesheet_url' type='text/css' media='all' as='style'/>\n";				
+
+			}		
+
+
+
 			if(PadmaOption::get('load-google-fonts-asynchronously')){
 
 				wp_enqueue_script('google-fonts-async', padma_url() . '/library/media/js/google-fonts-asynchronously.js', array('jquery'), false, true);
 				wp_localize_script( 'google-fonts-async', 'fontsToUse', $fonts );
+				wp_localize_script( 'google-fonts-async', 'fontsDisplay', $font_display );
 
 			}else{
-				$stylesheet_url = '//fonts.googleapis.com/css?display=swap&family=' . $fonts ;
+
+				$stylesheet_url = '//fonts.googleapis.com/css?display=' . $font_display . '&family=' . $fonts ;
 				echo "<link rel='stylesheet' id='padma-google-fonts' href='$stylesheet_url' type='text/css' media='all' />\n";
 			}
 

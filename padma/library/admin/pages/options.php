@@ -909,7 +909,6 @@
 					PadmaAdminInputs::admin_field_generate($form);
 
 
-
 					$form = array(
 						array(
 							'type' 	=> 'checkbox',
@@ -922,6 +921,45 @@
 								)
 							),
 							'description' => __('If checked, Padma will load fonts asynchronously to avoid render blocking font when you use google fonts.','padma')
+						)
+					);
+
+					PadmaAdminInputs::admin_field_generate($form);
+
+
+					$form = array(
+						array(
+							'id' 		=> 'google-fonts-display',
+							'type' 	=> 'select',
+							'label' => __('Google Fonts Display Timeline','padma'),
+							'options' => array(								
+								'auto' 		=> 'Auto',
+								'block' 	=> 'Block',
+								'swap' 		=> 'Swap',
+								'fallback' 	=> 'Fallback',
+								'optional' 	=> 'Optional',								
+							),
+							'value' => PadmaOption::get('google-fonts-display', false, 'swap'),
+							'description' => __('Determines how a font face is displayed based on whether and when it is downloaded and ready to u','padma')
+						)
+					);
+
+					PadmaAdminInputs::admin_field_generate($form);
+
+
+					$form = array(
+						array(
+							'id' 		=> 'google-fonts-preload',
+							'type' 	=> 'checkbox',
+							'label' => __('Preload Google Fonts','padma'),
+							'checkboxes' => array(
+								array(
+									'id' 		=> 'google-fonts-preload',
+									'label' 	=> __('Preload Google Fonts','padma'),
+									'checked' 	=> PadmaOption::get('google-fonts-preload', false, false)
+								)
+							),
+							'description' => __('If on, this option will tell the web browser to fetch Google Fonts early','padma')
 						)
 					);
 

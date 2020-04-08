@@ -86,11 +86,40 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		$css = '';
 
+		$featured_image_as_background = parent::get_setting( $block, 'featured-image-as-background', false);
+		$overlay = parent::get_setting($block, 'featured-image-as-background-overlay');
+		$overlay = parent::get_setting($block, 'featured-image-as-background-overlay');
+		$overlay_hover = parent::get_setting($block, 'featured-image-as-background-overlay-hover', 'transparent');
+
+		if( !empty( $overlay ) && $featured_image_as_background ){
+
+			$css .= '#block-' . $block_id . ' article{';
+			$css .= 'position: relative;';
+			$css .= '}';
+
+			$css .= '#block-' . $block_id . ' *{';
+			$css .= 'position: relative;';
+			$css .= 'z-index: 2;';	
+			$css .= '}';
+
+			$css .= '#block-' . $block_id . ' article:before{';
+			$css .= 'content: " ";';
+			$css .= 'background-color: ' . $overlay . ';';	
+			$css .= 'position: absolute;';
+			$css .= 'top: 0;';
+			$css .= 'bottom: 0;';
+			$css .= 'left: 0;';
+			$css .= 'right: 0;';
+			$css .= 'z-index: 1;';
+			$css .= '}';
+			$css .= '#block-' . $block_id . ' article:hover:before{';
+			$css .= 'background-color: ' . $overlay_hover . ';';
+			$css .= '}';
+		}
+
 		if ( parent::get_setting($block, 'enable-column-layout') ) {
 
 			$gutter_width = parent::get_setting($block, 'post-gutter-width', '20');
-
-			$css = '';
 
 			if ( PadmaResponsiveGrid::is_enabled() ) {
 				$css .= '@media only screen and (min-width: ' . PadmaBlocksData::get_block_width($block) . 'px) {';
@@ -102,6 +131,7 @@ class PadmaContentBlock extends PadmaBlockAPI {
 					$css .= 'width: ' . self::width_as_percentage(self::get_column_width($block), $block) . '%;';
 
 				$css .= '}';
+
 
 			if ( PadmaResponsiveGrid::is_enabled() ) {
 				$css .= '}';
@@ -1481,6 +1511,32 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 					'name' => 'featured-image-as-background',
 					'label' => __('Use featured image as background','padma'),
 					'default' => false,
+					'toggle'    => array(
+						'true' => array(
+							'show' => array(
+								'#input-featured-image-as-background-overlay',
+							)
+						),
+						'false' => array(
+							'hide' => array(
+								'#input-featured-image-as-background-overlay'
+							)
+						),
+					),
+				),
+
+				'featured-image-as-background-overlay' => array(
+					'type' => 'colorpicker',
+					'name' => 'featured-image-as-background-overlay',
+					'label' => __('Featured image overlay','padma'),
+					'default' => '00000003',
+				),
+
+				'featured-image-as-background-overlay-hover' => array(
+					'type' => 'colorpicker',
+					'name' => 'featured-image-as-background-overlay-hover',
+					'label' => __('Featured image overlay hover','padma'),
+					'default' => '00000000',
 				),
 
 				'post-thumbnails-link' => array(

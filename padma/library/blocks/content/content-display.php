@@ -591,7 +591,6 @@ class PadmaContentBlockDisplay {
 
             $schema_itemtype = $post_type == 'post' ? 'Article' : 'CreativeWork';
 
-
 			if(	$this->get_setting('featured-image-as-background', false)){
 
 				$featured_image = apply_filters('padma_featured_image_src', wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full'));

@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.4
-Version: 1.2.18
+Version: 1.2.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.2.18
+= 1.2.19
 * Released: On Dev
 
 Tested with WordPress 5.4
@@ -55,6 +55,7 @@ Fixed: Third level pushy menu issue
 New Tool: Replace URL
 New features on Content Block
  - Custom link to featured image
+ - Custom overlay color when is used featured image as background
 New option to edit add styles to stuck wrappers
 New features in Api Block
  - New outside the block CSS selector in register_block_element() to allow add styles through the Visual Editor to html when its outside the block html, just add \ before the selector. eg. $this->register_block_element( array( 'selector' =>  '\.pushy-site-overlay' ) );

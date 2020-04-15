@@ -73,7 +73,9 @@ Visual Editor Design Options:
 - Added List style image
 - Added List style position
 - Added Text Direction
-New option to set Font Display in Google Fonts
+New options for Google Fonts
+- Option to set Font Display ( eg. swap)
+- Optino to preload Google Fonts
 Visual Editor Design mode, added navigation option
 Updated WooCommerce Compatibility
 PinBoard Block

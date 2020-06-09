@@ -339,7 +339,7 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 								
                                 var textArea = wysiwygContainer.find('textarea')[0];
                                 var editor = CKEDITOR.replace( textArea, {
-                                    extraPlugins: 'imageuploader',
+                                    /*extraPlugins: 'imageuploader',*/
                                     toolbarGroups: [
                                             { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
                                             { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },

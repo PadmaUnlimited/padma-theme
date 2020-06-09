@@ -446,8 +446,10 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 
 
 					var orgWrapper = wrapper.clone();
+					/*
 					console.log(wrapper);
 					console.log(orgWrapper);
+					*/
 
 					if(typeof isSavingAllowed == 'undefined'){
 						isSavingAllowed = false;

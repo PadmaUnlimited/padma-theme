@@ -1,7 +1,7 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5.4
+Tested up to: WordPress 5.4.1
 Version: 1.2.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,18 +40,16 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.2.19 - Edge Version
+= 1.2.20 - Edge Version
 * Released: On Dev
 
-Tested with WordPress 5.4
+Tested with WordPress 5.4.1
 Tested with ClassicPress 1.1.2
-
 Fixed: Envira Gallery Lite conflict due Mobile_Detect method
 Fixed: Divi Builder Compatibility (https://www.facebook.com/groups/padmaunlimitedEN/permalink/815837155586421/) 
 Fixed: Add styles to navigation block, slide-out method
 Fixed: Webkit Compatibility
 Fixed: Third level pushy menu issue
-
 New Tool: Replace URL
 New features on Content Block
  - Custom link to featured image
@@ -74,13 +72,14 @@ Visual Editor Design Options:
 - Added List style position
 - Added Text Direction
 New options for Google Fonts
-- Option to set Font Display ( eg. swap)
+- Option to set Font Display ( eg. swap )
 - Optino to preload Google Fonts
 Visual Editor Design mode, added navigation option
 Updated WooCommerce Compatibility
 PinBoard Block
 - Pins now use srcset for images
 Updated Pushy menu to v1.3.0
+Updated CKEditor to 4.14.0 (Security Update)
 
 = 1.2.0
 * Released: January 28, 2020

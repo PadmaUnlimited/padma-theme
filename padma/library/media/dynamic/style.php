@@ -351,7 +351,7 @@ class PadmaDynamicStyle {
 									    bottom: 0;
 									    text-align: center;
 									    opacity: 0.3;
-									    display: inline-block;
+									    display: inline-block !important;
 									    vertical-align: middle;
 									    line-height: normal;
 									    z-index: -1;

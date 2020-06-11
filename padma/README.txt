@@ -1,8 +1,8 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5.4.1
-Version: 1.3.0
+Tested up to: WordPress 5.4.2
+Version: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,7 +40,15 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.3.0 - Edge Version
+= 1.3.1 = 
+* Edge Version
+* Released: On dev
+Tested with WordPress 5.4.2
+Tested with ClassicPress 1.1.2
+Fixed: text-decoration and list-style missing CSS rules
+
+
+= 1.3.0 
 * Released: Jun 8, 2020
 
 Tested with WordPress 5.4.1
@@ -81,7 +89,7 @@ PinBoard Block
 Updated Pushy menu to v1.3.0
 Updated CKEditor to 4.14.0 (Security Update)
 
-= 1.2.0
+= 1.2.0 =
 * Released: January 28, 2020
 
 Tested with WordPress 5.3.2
@@ -166,7 +174,7 @@ Updated Block Selector Design
 
 
 
-= 1.1.0
+= 1.1.0 =
 * Released: April 24, 2019
 
 Fixed: Block hidden option on responsive
@@ -201,7 +209,7 @@ Added Blocks to Shortcode support (to use blocks anywhere)
 
 
 
-= 1.0.0
+= 1.0.0 =
 * Released: February 28, 2019
 
 Tested with WordPress 5.1
@@ -216,7 +224,7 @@ Admin support notice
 New option to prevent mirror Wrapper styles
 
 
-= 0.3.1
+= 0.3.1 =
 * Released: February 8, 2019
 
 Visual Editor Fixes
@@ -227,7 +235,7 @@ API Panel radio input support
 Vertical align added to design options
 
 
-= 0.3.0
+= 0.3.0 =
 * Released: January 24, 2019
 
 Tested with ClassicPress 1.0.0-beta2
@@ -240,14 +248,14 @@ Divi Builder Plugin compatibility update
 jQuery compatibility update
 
 
-= 0.2.2
+= 0.2.2 =
 * Released: January 10, 2019
 
 Tested with WordPress 5.0.3
 Added Import/Export option to wrappers.
 
 
-= 0.2.1
+= 0.2.1 =
 * Released: December 14, 2018
 
 Tested with WordPress 5.1 Alpha
@@ -256,7 +264,7 @@ Visual Editor Fixes
 - LiveCSS fixes
 
 
-= 0.2.0
+= 0.2.0 =
 * Released: December 11, 2018
 
 Tested with WordPress 5
@@ -285,7 +293,7 @@ Added Blox 1.0.X Templates support
 Improved Headway/Blox Templates support
 
 
-= 0.1.0
+= 0.1.0 =
 * Released: October 29, 2018
 
 Tested with WordPress 5 Beta 1
@@ -307,7 +315,7 @@ Footer new option to hide "Show full site" on mobile.
 WooCommerce compatibility update
 
 
-= 0.0.24
+= 0.0.24 =
 * Released: September 5, 2018
 Save on cloud updates
 Visual editor upgrades 
@@ -316,7 +324,7 @@ Visual editor upgrades
 Other fixes
 
 
-= 0.0.23
+= 0.0.23 =
 * Released: August 17, 2018
 
 Visual Editor fixes
@@ -330,7 +338,7 @@ Removed deprecated WordPress constants
 PHP 7+ Compatibility fix (Removed "The /e modifier" warning on preg_replace() function)
 
 
-= 0.0.22
+= 0.0.22 =
 * Released: Jul 31, 2018
 
 PHP 7.2 compatibility fixes
@@ -343,7 +351,7 @@ Live CSS Editor Fixes
 Visual Editor Fixes
 Child themes support Fixes
 
-= 0.0.21
+= 0.0.21 =
 * Released: Jun 11, 2018
 
 Several improves to Pinboard block 
@@ -351,7 +359,7 @@ Added Undo / Redo panel options
 CSS Animation Code Fix and improvements
 Added filter option for design options
 
-= 0.0.20
+= 0.0.20 =
 * Released: May 23, 2018
 
 Headway (3.7.0 to 3.8.9 templates support (not Headway 4.x)
@@ -361,7 +369,7 @@ Content Editor feature improvements
 New option for change the lateral panel of side in design mode
 Code fixes for PHP and Javascript
 
-= 0.0.19
+= 0.0.19 =
 * Released: April 30, 2018
 
 Added size properties to Design editor options for wrappers and blocks
@@ -377,7 +385,7 @@ Visual Editor favicon
 Web Fonts Library Updated
 
 
-= 0.0.18
+= 0.0.18 =
 * Released: April 3, 2018
 
 Solved 2 bug for navigation block

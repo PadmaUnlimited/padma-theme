@@ -1,7 +1,9 @@
 <?php
 class PadmaMaintenance {
 
-	public static $available_upgrades = array();
+	public static $available_upgrades = array(
+		'1.3.1'
+	);
 
 	/**
 	 * Over time, there may be issues to be corrected between updates or naming conventions to be changed between updates.
@@ -123,6 +125,7 @@ class PadmaMaintenance {
 		/* Update the version here. */
 		$padma_settings            = get_option( 'padma', array( 'version' => 0 ) );
 		$padma_settings['version'] = $version;
+		
 
 		update_option( 'padma', $padma_settings );
 		delete_option( 'padma_upgrading' );
@@ -148,10 +151,10 @@ class PadmaMaintenance {
 			Padma::db_dbdelta();
 			PadmaElementsData::merge_core_default_design_data();
 
-			if ( current_user_can('manage_options') ) {
-				wp_safe_redirect( admin_url() );
+			if ( current_user_can('manage_options') && !is_front_page() ) {
+				wp_safe_redirect( admin_url(), 302 );
 			} else {
-				wp_safe_redirect( home_url() );
+				wp_safe_redirect( home_url(), 302 );
 			}
 
 			die();

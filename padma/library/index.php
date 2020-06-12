@@ -1,2 +1,6 @@
 <?php
-/* Disallow directory browsing */
+/**
+ * Disallow directory browsing
+ *
+ * @package Padma
+ */

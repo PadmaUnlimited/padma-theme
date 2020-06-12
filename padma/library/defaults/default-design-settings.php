@@ -88,6 +88,7 @@ $padma_core_default_element_data = array(
 			'font-size' => '34',
 			'line-height' => '100',
 			'text-decoration' => 'none',
+			'text-decoration-line' => 'none',
 			'margin-top' => '20',
 			'margin-right' => '10',
 			'margin-bottom' => '0',
@@ -124,6 +125,7 @@ $padma_core_default_element_data = array(
 	'block-navigation-menu-item' => array(
 		'properties' => array(
 			'text-decoration' => 'none',
+			'text-decoration-line' => 'none',
 			'color' => '888888',
 			'capitalization' => 'uppercase',
 			'padding-right' => '15',
@@ -246,6 +248,7 @@ $padma_core_default_element_data = array(
 		'properties' => array(
 			'background-color' => 'eeeeee',
 			'text-decoration' => 'none',
+			'text-decoration-line' => 'none',
 			'border-top-left-radius' => '4',
 			'border-top-right-radius' => '4',
 			'border-bottom-right-radius' => '4',
@@ -266,6 +269,7 @@ $padma_core_default_element_data = array(
 		'properties' => array(
 			'background-color' => 'e1e1e1',
 			'text-decoration' => 'none',
+			'text-decoration-line' => 'none',
 			'border-top-left-radius' => '4',
 			'border-top-right-radius' => '4',
 			'border-bottom-right-radius' => '4',
@@ -338,6 +342,7 @@ $padma_core_default_element_data = array(
 			'font-size' => '12',
 			'background-color' => 'eeeeee',
 			'text-decoration' => 'none',
+			'text-decoration-line' => 'none',
 			'border-top-left-radius' => '4',
 			'border-top-right-radius' => '4',
 			'border-bottom-right-radius' => '4',
@@ -482,15 +487,15 @@ $padma_core_default_element_data = array(
 				'padding-top' => 15,
 				'padding-right' => 15,
 				'padding-left' => 15,
-
 				'font-size' => 18,
 				'line-height' => 120,
-
-				'text-decoration' => 'none'
+				'text-decoration' => 'none',
+				'text-decoration-line' => 'none',
 			),
 			'special-element-state' => array(
 				'hover' => array(
-					'text-decoration' => 'underline'
+					'text-decoration' => 'underline',
+					'text-decoration-line' => 'underline',
 				)
 			)
 		),
@@ -520,6 +525,7 @@ $padma_core_default_element_data = array(
 		'block-pin-board-pagination-button' => array(
 			'properties' => array(
 				'text-decoration' => 'none',
+				'text-decoration-line' => 'none',
 				'background-color' => 'eeeeee',
 
 				'border-top-left-radius' => 4,

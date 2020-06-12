@@ -311,11 +311,11 @@ class PadmaElementsData {
 
 
 		/**
-		 * Merge in default design data.  This will be ran upon save and upgrade to Padma 3.6
+		 * Merge in default design data.  This will be ran upon save and upgrade to Padma 1.0.0
 		 */
 		public static function merge_core_default_design_data() {
 
-			self::merge_default_design_data(PadmaElementsData::get_default_data(), 'core');
+			self::merge_default_design_data( PadmaElementsData::get_default_data(), 'core' );
 
 			self::merge_default_design_data( array(
 				'block-pin-board-pin'               => array(
@@ -398,12 +398,13 @@ class PadmaElementsData {
 
 				$merge_id = 'merged-default-design-data-' . strtolower(str_replace(array(' ', '-'), '_', $id));
 
+
 				/* Only merge if it hasn't been merged before. */
 				if ( !PadmaSkinOption::get($merge_id, 'general', false) ) {
 
 					$design_data = PadmaSkinOption::get('properties', 'design', array());
 					$design_data_with_defaults = padma_array_merge_recursive_simple($default_data, $design_data);
-
+					
 					PadmaSkinOption::set($merge_id, true, 'general');
 
 					return PadmaSkinOption::set('properties', $design_data_with_defaults, 'design');

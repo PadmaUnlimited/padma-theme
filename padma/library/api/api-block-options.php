@@ -23,7 +23,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 	}
 
 
-	public function display($block, $layout) {
+	public function display( $block, $layout ) {
 
 		//Set block properties
 		$this->block = $block;
@@ -77,7 +77,6 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		}
 
 	}
-
 
 	public function add_standard_block_config() {
 

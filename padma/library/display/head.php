@@ -127,7 +127,12 @@ class PadmaHead {
 
 				// There is headway support
 				if(PadmaOption::get('headway-support')){
-					$general_css_fragments[] = apply_filters('headway_general_css', $general_css_fragments);					
+					$general_css_fragments = apply_filters('headway_general_css', $general_css_fragments);					
+				}
+
+				// There is bloxtheme support
+				if (PadmaOption::get('bloxtheme-support')) {
+					$general_css_fragments = apply_filters('blox_general_css', $general_css_fragments);
 				}
 
 			/* Live CSS */

@@ -264,6 +264,9 @@ class Padma {
 			/*		Headway Classes support	*/
 			'compatibility/headway/compatibility-headway'	=> true,
 
+			/*		Blox Classes support	*/
+			'compatibility/blox/compatibility-blox'	=> true,
+
 			/*		Compatiblity with Elementor */
 			//'compatibility/elementor/compatibility-elementor'	=> true,									 
 
@@ -536,7 +539,7 @@ class Padma {
 
 		if(class_exists('PadmaUpdater')){
 
-			PadmaUpdater::updater(PadmaSettings::get('slug'),PADMA_DIR,true);
+			PadmaUpdater::updater( PadmaSettings::get('slug'), PADMA_DIR, true );
 
 		}
 

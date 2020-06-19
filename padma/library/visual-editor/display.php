@@ -157,6 +157,14 @@ class PadmaVisualEditorDisplay {
 
 		do_action('padma_visual_editor_scripts');
 
+		if (PadmaOption::get('headway-support')) {
+			do_action('headway_visual_editor_scripts');
+		}
+
+		if (PadmaOption::get('bloxtheme-support')) {
+			do_action('blox_visual_editor_scripts');
+		}
+
 		wp_print_scripts();
 
 		echo "\n";

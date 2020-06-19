@@ -135,9 +135,9 @@ abstract class PadmaVisualEditorPanelAPI {
 
 
 	public function panel_content($args = false) {
-
-		if ( $this->tabs && $this->inputs ) {
-
+		
+		if ( $this->tabs && $this->inputs ) {			
+		
 			echo '<ul class="sub-tabs" data-open-js-callback="' . esc_attr('(function(args){' . $this->open_js_callback . '})') . '">';
 
 				foreach ($this->tabs as $id => $name) {

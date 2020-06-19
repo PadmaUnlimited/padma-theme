@@ -67,6 +67,46 @@ abstract class HeadwayBlockAPI extends PadmaBlockAPI {
 	use HeadwayBlockAPITrait;
 }
 
+trait HeadwayBlockOptionsAPITrait
+{
+	public function __construct($block_type_object)
+	{
+		return parent::__construct($block_type_object);
+	}
+	public function register()
+	{
+		return parent::register();
+	}
+	public function display($block, $layout)
+	{
+		parent::display($block, $layout);
+	}
+	public function add_anywhere_tab($args)
+	{
+		parent::add_anywhere_tab($args);
+	}
+	public function add_standard_block_config()
+	{
+		parent::add_standard_block_config();
+	}
+	public function add_standard_block_responsive()
+	{
+		parent::add_standard_block_responsive();
+	}
+	public function add_standard_block_import_export()
+	{
+		parent::add_standard_block_import_export();
+	}
+	public function get_blocks_select_options_for_mirroring()
+	{
+		return parent::get_blocks_select_options_for_mirroring();
+	}
+}
+abstract class HeadwayBlockOptionsAPI extends PadmaBlockOptionsAPI
+{
+	use HeadwayBlockOptionsAPITrait;
+}
+
 trait HeadwayVisualEditorPanelAPITrait {
 	public function register(){
 		parent::register();
@@ -84,7 +124,7 @@ trait HeadwayVisualEditorPanelAPITrait {
 		parent::build_panel($id);
 	}
 	public function panel_content($args = false){
-
+		parent::panel_content($args);
 	}
 	public function sub_tab_content($id, $name = false){
 		parent::sub_tab_content($id, $name);

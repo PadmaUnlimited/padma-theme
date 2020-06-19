@@ -651,8 +651,19 @@ class PadmaVisualEditor {
 			Padma::set_autoload();
 
 			//This hook is used by cache flushing, plugins, etc.  Do not fire on preview save because it'll flush preview options
-			if ( !padma_get('ve-preview') )
+			if ( !padma_get('ve-preview') ){
+				
 				do_action('padma_visual_editor_save');
+
+				if (PadmaOption::get('headway-support')) {
+					do_action('headway_visual_editor_save');
+				}
+
+				if (PadmaOption::get('bloxtheme-support')) {
+					do_action('blox_visual_editor_save');
+				}
+			}
+				
 
 			/* Save snapshot if allowed */
 			if ( !defined('PADMA_DISABLE_AUTO_SNAPSHOT') || PADMA_DISABLE_AUTO_SNAPSHOT !== true ) {

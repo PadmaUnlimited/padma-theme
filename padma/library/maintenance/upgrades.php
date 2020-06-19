@@ -135,6 +135,14 @@ class PadmaMaintenance {
 		/* Flush caches */
 		do_action( 'padma_db_upgrade' );
 
+		if (PadmaOption::get('headway-support')) {
+			do_action('headway_db_upgrade');
+		}
+
+		if (PadmaOption::get('bloxtheme-support')) {
+			do_action('blox_db_upgrade');
+		}
+
 		Padma::set_autoload();
 
 		/* Run next upgrade if available */

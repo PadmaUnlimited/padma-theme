@@ -193,7 +193,17 @@ class PadmaCompiler {
 					$query_args['TB_iframe'] = 'true';
 				}
 
-				return apply_filters('padma_compiler_trigger_url', add_query_arg($query_args, home_url('/')));
+				$args = apply_filters('padma_compiler_trigger_url', add_query_arg($query_args, home_url('/')));
+
+				if (PadmaOption::get('headway-support')) {
+					$args = apply_filters('headway_compiler_trigger_url', $args );
+				}
+
+				if (PadmaOption::get('bloxtheme-support')) {
+					$args = apply_filters('blox_compiler_trigger_url', $args );
+				}
+
+				return $args;
 
 			}
 

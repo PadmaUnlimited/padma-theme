@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" style="background: #eee;">
+
 <head>
 
 	<meta charset="<?php bloginfo('charset'); ?>" />
@@ -10,13 +11,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 	<title>Visual Editor: Loading</title>
-	<link rel="shortcut icon" type="image/png" href="<?php echo padma_url() . "/library/visual-editor/images/logo.png"; ?>"/>
+	<link rel="shortcut icon" type="image/png" href="<?php echo padma_url() . "/library/visual-editor/images/logo.png"; ?>" />
 
-	<?php do_action('padma_visual_editor_head'); ?>
+	<?php
+
+		do_action('padma_visual_editor_head');
+
+		if (PadmaOption::get('headway-support')) {
+			do_action('headway_visual_editor_head');
+		}
+
+		if (PadmaOption::get('bloxtheme-support')) {
+			do_action('blox_visual_editor_head');
+		}
+		
+	?>
 
 </head><!-- /head -->
 
 <!-- This background color has been inlined to reduce the white flicker during loading. -->
+
 <body class="wp-core-ui visual-editor-open visual-editor-mode-<?php echo PadmaVisualEditor::get_current_mode() . ' ' . join(' ', get_body_class()); ?>" style="background: #1c1c1c;">
 
 	<?php do_action('padma_visual_editor_body_open'); ?>
@@ -74,7 +88,7 @@
 
 			<?php do_action('padma_visual_editor_menu_mode_buttons'); ?>
 
-			<ul class="top-menu-nav">				
+			<ul class="top-menu-nav">
 				<li id="switch-edit-or-nav">
 					<span>Navigate</span>
 					<div class="toggle-mode">
@@ -122,13 +136,13 @@
 
 			$layout_url = PadmaVisualEditor::get_current_mode() == 'grid' ? home_url() : PadmaLayout::get_url(PadmaLayout::get_current());
 
-	        $current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
+			$current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
 
 			$iframe_url = add_query_arg(array(
 				've-iframe' 				=> 'true',
 				've-layout' 				=> urlencode(PadmaLayout::get_current()),
-	            've-layout-customized' 		=> padma_get('customized', $current_layout_status, false) ? 'true' : 'false',
-	            've-iframe-mode' 			=> PadmaVisualEditor::get_current_mode(),
+				've-layout-customized' 		=> padma_get('customized', $current_layout_status, false) ? 'true' : 'false',
+				've-iframe-mode' 			=> PadmaVisualEditor::get_current_mode(),
 				'rand' 						=> rand(1, 999999)
 			), $layout_url);
 
@@ -151,7 +165,7 @@
 			</div>
 
 		</div>
-	</div>	
+	</div>
 	<!-- #iframe#content -->
 
 	<div id="panel">
@@ -178,18 +192,17 @@
 
 
 	<?php
-	if ( has_action('padma_visual_editor_side_panel') ) {
+	if (has_action('padma_visual_editor_side_panel')) {
 
 		echo '<div id="side-panel-container">
 
 			<div id="side-panel">';
 
-				do_action('padma_visual_editor_side_panel');
+		do_action('padma_visual_editor_side_panel');
 
 		echo '</div><!-- #side-panel -->
 		<span id="change-side-of-panel" title=""></span>
 		</div><!-- #side-panel-container -->';
-
 	}
 	?>
 
@@ -203,4 +216,5 @@
 	<div id="notification-center"></div>
 
 </body>
+
 </html>

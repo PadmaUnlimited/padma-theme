@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class GridSetupPanel extends PadmaVisualEditorPanelAPI {
 
 	public $id = 'setup';

@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 class PadmaContactForm7Block extends PadmaBlockAPI {
 
 	public $id;

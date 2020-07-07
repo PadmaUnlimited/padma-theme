@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 class PadmaWrappersData {
 
 
@@ -11,7 +14,7 @@ class PadmaWrappersData {
 			return false;
 
 		if ( $args['position'] === null || $args['position'] === false || $args['position'] === '' )
-			return new WP_Error('pu_add_wrapper_missing_position');
+			return new \WP_Error('pu_add_wrapper_missing_position');
 
 		//Figure out mirror ID
 		$mirror_id = padma_get('mirror-wrapper', padma_get('settings', $args, array()));

@@ -1,3 +1,8 @@
+<?php
+
+namespace Padma;
+
+?>
 <div id="content-selector-select">
 	<div id="content-selector-select-content">
 		<span id="currently-editing">Content to show:</span><span id="current-content"><?php echo get_the_title(); ?></span>

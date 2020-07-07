@@ -10,6 +10,8 @@
  * - Padma by Padma Unlimited Team - Padma Unlimited S.A.
  */
 
+namespace Padma;
+
 /* Prevent direct access to this file */
 if ( ! defined( 'WP_CONTENT_DIR' ) ) {
 	die( 'Please do not access this file directly.' );

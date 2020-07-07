@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 class PadmaPlugins{
 
 	public static function init() {

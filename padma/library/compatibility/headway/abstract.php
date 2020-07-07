@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 trait HeadwayAdminMetaBoxAPITrait {
 	public function register(){
 		parent::register();

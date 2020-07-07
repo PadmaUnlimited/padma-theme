@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaEmbedBlock extends PadmaBlockAPI {
 
 

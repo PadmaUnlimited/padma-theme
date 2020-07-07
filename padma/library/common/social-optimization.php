@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 class PadmaSocialOptimization {
 
 

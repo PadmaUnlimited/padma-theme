@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 function padma_content_block_editor_style() {
 
 	$body_bg = PadmaElementsData::get_property('block-content-entry-container', 'background-color', 'ffffff');	

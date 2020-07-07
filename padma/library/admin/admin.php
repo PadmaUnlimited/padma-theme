@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 class PadmaAdmin {
 
 	public static function init() {

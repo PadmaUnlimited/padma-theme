@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 class PadmaSiteLogoBlock extends PadmaBlockAPI {
 
 	public $id;

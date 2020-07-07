@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 $class_file = __DIR__ . '/audio.php';
 $icons = array(
 	'path' => __DIR__ . '/',

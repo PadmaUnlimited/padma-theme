@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 $class_file = __DIR__ . '/video.php';
 $icons = array(
 	'path' => __DIR__ . '/',

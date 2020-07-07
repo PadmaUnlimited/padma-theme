@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 padma_register_visual_editor_box('PadmaGridManagerBox');
 class PadmaGridManagerBox extends PadmaVisualEditorBoxAPI {
 

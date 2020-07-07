@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 
 	public $id;

@@ -1,3 +1,6 @@
+<?php
+namespace Padma;
+?>
 <!DOCTYPE HTML>
 <html lang="en" style="background: #eee;">
 <head>

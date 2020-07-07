@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 $class_file = __DIR__ . '/onepage-navigation.php';
 $icons = array(
 	'path' => __DIR__ . '/',

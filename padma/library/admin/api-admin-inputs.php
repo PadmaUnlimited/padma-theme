@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 class PadmaAdminInputs {	
 
 	public static function generate($inputs, $table_class = 'form-table') {

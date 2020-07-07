@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 abstract class PadmaBlockAPI {
 
 
@@ -167,7 +168,7 @@ abstract class PadmaBlockAPI {
 	public function options_panel($block, $layout) {
 
 		if ( !class_exists($this->options_class) )
-			return new WP_Error('block_options_class_does_not_exist', __('Error: The block options class being registered does not exist.', 'padma'), $this->options_class);
+			return new \WP_Error('block_options_class_does_not_exist', __('Error: The block options class being registered does not exist.', 'padma'), $this->options_class);
 
 		//Initiate options class
 		$options = new $this->options_class($this);

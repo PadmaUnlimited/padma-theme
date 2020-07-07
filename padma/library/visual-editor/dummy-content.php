@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaIframeDummyContent {
 
     public static function init() {

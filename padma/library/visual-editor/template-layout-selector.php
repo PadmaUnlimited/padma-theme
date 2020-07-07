@@ -1,3 +1,8 @@
+<?php
+
+namespace Padma;
+
+?>
 <div id="layout-selector-select">
 
 	<div id="layout-selector-select-content">

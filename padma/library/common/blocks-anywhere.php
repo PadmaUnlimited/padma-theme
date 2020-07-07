@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 /**
  *
  * Based on Headway Toolkit 1.1.2

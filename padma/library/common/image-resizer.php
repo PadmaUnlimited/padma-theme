@@ -21,6 +21,8 @@
  * @return str|array
  */
 
+namespace Padma;
+
 if(!class_exists('PadmaImageResize')) {
     class PadmaImageResize
     {
@@ -55,7 +57,7 @@ if(!class_exists('PadmaImageResize')) {
          */
         public function process( $url, $width = null, $height = null, $crop = null, $single = true, $upscale = false ) {
             // Validate inputs.
-            if ( ! $url || ( ! $width && ! $height ) ) return new WP_Error('aqua_resizer_invalid_image_url_or_size', __('Error: Invalid image URL or size inputs', 'padma'), __CLASS__);
+            if ( ! $url || ( ! $width && ! $height ) ) return new \WP_Error('aqua_resizer_invalid_image_url_or_size', __('Error: Invalid image URL or size inputs', 'padma'), __CLASS__);
 
             // Caipt'n, ready to hook.
             if ( true === $upscale ) add_filter( 'image_resize_dimensions', array($this, 'aq_upscale'), 10, 6 );
@@ -79,14 +81,14 @@ if(!class_exists('PadmaImageResize')) {
 
 
             // Check if $img_url is local.
-            if ( false === strpos( $url, $upload_url ) ) return new WP_Error('aqua_resizer_image_not_local', __('Error: Image not local', 'padma'), __CLASS__);
+            if ( false === strpos( $url, $upload_url ) ) return new \WP_Error('aqua_resizer_image_not_local', __('Error: Image not local', 'padma'), __CLASS__);
 
             // Define path of image.
             $rel_path = str_replace( $upload_url, '', $url );
             $img_path = $upload_dir . $rel_path;
 
             // Check if img path exists, and is an image indeed.
-            if ( ! file_exists( $img_path ) or ! getimagesize( $img_path ) ) return new WP_Error('aqua_resizer_image_not_accessible', __('Error: Image does not exist or not accessible', 'padma'), __CLASS__);;
+            if ( ! file_exists( $img_path ) or ! getimagesize( $img_path ) ) return new \WP_Error('aqua_resizer_image_not_accessible', __('Error: Image does not exist or not accessible', 'padma'), __CLASS__);;
 
             // Get image info.
             $info = pathinfo( $img_path );
@@ -111,7 +113,7 @@ if(!class_exists('PadmaImageResize')) {
 
                 if ( ! $dims || ( true == $crop && false == $upscale && ( $dst_w < $width || $dst_h < $height ) ) ) {
                     // Can't resize, so return false saying that the action to do could not be processed as planned.
-                    return new WP_Error('aqua_resizer_cannot_resize_check_upscale', __('Error: Cannot resize, check if $upscale is enabled', 'padma'), __CLASS__);
+                    return new \WP_Error('aqua_resizer_cannot_resize_check_upscale', __('Error: Cannot resize, check if $upscale is enabled', 'padma'), __CLASS__);
                 }
                 // Else check if cache exists.
                 elseif ( file_exists( $destfilename ) && getimagesize( $destfilename ) ) {
@@ -123,7 +125,7 @@ if(!class_exists('PadmaImageResize')) {
                     $editor = wp_get_image_editor( $img_path );
 
                     if ( is_wp_error( $editor ) || is_wp_error( $editor->resize( $width, $height, $crop ) ) )
-                        return new WP_Error('aqua_resizer_cannot_resize_with_wp_image_editor', __('Error: Cannot resize image with WP_Image_Editor class', 'padma'), __CLASS__);
+                        return new \WP_Error('aqua_resizer_cannot_resize_with_wp_image_editor', __('Error: Cannot resize image with WP_Image_Editor class', 'padma'), __CLASS__);
 
                     $resized_file = $editor->save();
 
@@ -131,7 +133,7 @@ if(!class_exists('PadmaImageResize')) {
                         $resized_rel_path = str_replace( $upload_dir, '', $resized_file['path'] );
                         $img_url = $upload_url . $resized_rel_path;
                     } else {
-                        return new WP_Error('aqua_resizer_unable_to_save_with_wp_image_editor', __('Error: Unable to save image with WP_Image_Editor class', 'padma'), __CLASS__);
+                        return new \WP_Error('aqua_resizer_unable_to_save_with_wp_image_editor', __('Error: Unable to save image with WP_Image_Editor class', 'padma'), __CLASS__);
                     }
 
                 }

@@ -7,6 +7,7 @@
  *
  **/
 
+namespace Padma;
 class Padma {
 
 
@@ -601,9 +602,10 @@ class Padma {
 		//Init everything after dependencies have been loaded
 		foreach($classes_to_init as $class){
 
-			if ( method_exists('Padma' . $class, 'init') ) {
+			if ( method_exists('Padma\Padma' . $class, 'init') ) {
 
-				call_user_func(array('Padma' . $class, 'init'));
+				error_log($class);
+				call_user_func( array( 'Padma\Padma' . $class, 'init' ) );
 
 			} else {
 

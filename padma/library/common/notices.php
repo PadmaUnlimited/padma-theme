@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaNotices extends PadmaNotice{
 
 

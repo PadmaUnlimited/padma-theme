@@ -1,146 +1,156 @@
 <?php
 
+namespace Padma;
+
 global $padma_registry;
 
 $padma_registry = array(
 
-	// Abstract
-	'PadmaAdminMetaBoxAPI' => 'abstract/class-api-admin-meta-box',
-	'PadmaNotice'	=> 'abstract/notice',
-	'PadmaBlockAPI'	=> 'abstract/api-block',
-	'PadmaVisualEditorBoxAPI' => 'abstract/api-box',
-	'PadmaVisualEditorPanelAPI' => 'abstract/api-panel',
-	'PadmaWebFontProvider' => 'abstract/web-fonts-api',
+	// Abstract.
+	'Padma\PadmaAdminMetaBoxAPI'            => 'abstract/class-api-admin-meta-box',
+	'Padma\PadmaNotice'                     => 'abstract/notice',
+	'Padma\PadmaBlockAPI'                   => 'abstract/api-block',
+	'Padma\PadmaVisualEditorBoxAPI'         => 'abstract/api-box',
+	'Padma\PadmaVisualEditorPanelAPI'       => 'abstract/api-panel',
+	'Padma\PadmaWebFontProvider'            => 'abstract/web-fonts-api',
 
-	// Admin
-	'PadmaAdmin'	=> 'admin/admin',
-	'PadmaAdminBar'	=> 'admin/admin-bar',
-	'PadmaMetaBoxTemplate'	=> 'admin/admin-meta-boxes',
-	'PadmaMetaBoxTitleControl'	=> 'admin/admin-meta-boxes',
-	'PadmaMetaBoxDisplay'	=> 'admin/admin-meta-boxes',
-	'PadmaMetaBoxPostThumbnail'	=> 'admin/admin-meta-boxes',
-	'PadmaMetaBoxSEO'	=> 'admin/admin-meta-boxes',
-	'PadmaAdminPages'	=> 'admin/admin-pages',
-	'PadmaAdminWrite'	=> 'admin/admin-write',
-	'PadmaAdminInputs' => 'admin/api-admin-inputs',
+	// Admin.
+	'Padma\PadmaAdmin'                      => 'admin/admin',
+	'Padma\PadmaAdminBar'                   => 'admin/admin-bar',
+	'Padma\PadmaMetaBoxTemplate'            => 'admin/admin-meta-boxes',
+	'Padma\PadmaMetaBoxTitleControl'        => 'admin/admin-meta-boxes',
+	'Padma\PadmaMetaBoxDisplay'             => 'admin/admin-meta-boxes',
+	'Padma\PadmaMetaBoxPostThumbnail'       => 'admin/admin-meta-boxes',
+	'Padma\PadmaMetaBoxSEO'                 => 'admin/admin-meta-boxes',
+	'Padma\PadmaAdminPages'                 => 'admin/admin-pages',
+	'Padma\PadmaAdminWrite'                 => 'admin/admin-write',
+	'Padma\PadmaAdminInputs'                => 'admin/api-admin-inputs',
 
-	// API	
-	'PadmaBlockOptionsAPI' => 'api/api-block-options',
-	'PadmaChildThemeAPI' => 'api/api-child-theme',
-	'PadmaElementAPI' => 'api/api-element',
+	// API.
+	'Padma\PadmaBlockOptionsAPI'            => 'api/api-block-options',
+	'Padma\PadmaChildThemeAPI'              => 'api/api-child-theme',
+	'Padma\PadmaElementAPI'                 => 'api/api-element',
 
-	// Blocks
-	'PadmaBlocks'	=> 'blocks/blocks',
+	// Blocks.
+	'Padma\PadmaBlocks'                     => 'blocks/blocks',
 
-	// Common
-	'Padma'	=> 'common/application',
-	'PadmaBlocksAnywhere'	=> 'common/blocks-anywhere',
-	'PadmaCapabilities'	=> 'common/capabilities',
-	'PadmaCompiler'	=> 'common/compiler',
-	'PadmaFeed'	=> 'common/feed',
-	'PadmaCapabilities'	=> 'common/capabilities',
-	'PadmaGutenbergBlocks'	=> 'common/gutenberg-blocks',
-	'PadmaHttp2ServerPush'	=> 'common/http2-server-push',
-	'PadmaImageResize'	=> 'common/image-resizer',
-	'PadmaLayout'	=> 'common/layout',
-	'PadmaNotices'	=> 'common/notices',
-	'PadmaPlugins'	=> 'common/plugins',
-	'PadmaQuery'	=> 'common/query',
-	'PadmaResponsiveGrid' => 'common/responsive-grid',
-	'PadmaRoute' => 'common/route',
-	'PadmaSchema' => 'common/schema',
-	'PadmaSeo' => 'common/seo',
-	'PadmaSettings' => 'common/settings',
-	'PadmaSocialOptimization' => 'common/social-optimization',
-	'PadmaTemplates' => 'common/templates',
-	'PadmaMobileDetect' => 'common/mobile-detect',
+	// Common.
+	'Padma\Padma'                           => 'common/application',
+	'Padma\PadmaBlocksAnywhere'             => 'common/blocks-anywhere',
+	'Padma\PadmaCapabilities'               => 'common/capabilities',
+	'Padma\PadmaCompiler'                   => 'common/compiler',
+	'Padma\PadmaFeed'                       => 'common/feed',
+	'Padma\PadmaCapabilities'               => 'common/capabilities',
+	'Padma\PadmaGutenbergBlocks'            => 'common/gutenberg-blocks',
+	'Padma\PadmaHttp2ServerPush'            => 'common/http2-server-push',
+	'Padma\PadmaImageResize'                => 'common/image-resizer',
+	'Padma\PadmaLayout'                     => 'common/layout',
+	'Padma\PadmaNotices'                    => 'common/notices',
+	'Padma\PadmaPlugins'                    => 'common/plugins',
+	'Padma\PadmaQuery'                      => 'common/query',
+	'Padma\PadmaResponsiveGrid'             => 'common/responsive-grid',
+	'Padma\PadmaRoute'                      => 'common/route',
+	'Padma\PadmaSchema'                     => 'common/schema',
+	'Padma\PadmaSeo'                        => 'common/seo',
+	'Padma\PadmaSettings'                   => 'common/settings',
+	'Padma\PadmaSocialOptimization'         => 'common/social-optimization',
+	'Padma\PadmaTemplates'                  => 'common/templates',
+	'Padma\PadmaMobileDetect'               => 'common/mobile-detect',
 
-	// Compatibility
-	'PadmaCompatibilityAmember'	=> 'compatibility/amember/compatibility-amember',
-	'PadmaCompatibilityDiviBuilder'	=> 'compatibility/divi-builder/compatibility-divi-builder',	
-	'PadmaCompatibilityHeadway'	=> 'compatibility/headway/compatibility-headway',
-	'HeadwayAdminMetaBoxAPI'	=> 'compatibility/headway/abstract',
-	'HeadwayBlockAPI'	=> 'compatibility/headway/abstract',
-	'HeadwayVisualEditorPanelAPI'	=> 'compatibility/headway/abstract',
-	'PadmaCompatibilityWooCommerce'	=> 'compatibility/woocommerce/compatibility-woocommerce',
-	'PadmaCompatibilityWpml'	=> 'compatibility/wpml/compatibility-wpml',
+	// Compatibility.
+	'Padma\PadmaCompatibilityAmember'       => 'compatibility/amember/compatibility-amember',
+	'Padma\PadmaCompatibilityDiviBuilder'   => 'compatibility/divi-builder/compatibility-divi-builder',
+	'Padma\PadmaCompatibilityHeadway'       => 'compatibility/headway/compatibility-headway',
+	'Padma\HeadwayAdminMetaBoxAPI'                => 'compatibility/headway/abstract',
+	'Padma\HeadwayBlockAPI'                       => 'compatibility/headway/abstract',
+	'Padma\HeadwayVisualEditorPanelAPI'           => 'compatibility/headway/abstract',
+	'Padma\PadmaCompatibilityWooCommerce'   => 'compatibility/woocommerce/compatibility-woocommerce',
+	'Padma\PadmaCompatibilityWpml'          => 'compatibility/wpml/compatibility-wpml',
 
-	// Data
-	'PadmaBlocksData'	=>	'data/data-blocks',
-	'PadmaElementsData'	=>	'data/data-elements',
-	'PadmaLayoutOption'	=>	'data/data-layout-options',
-	'PadmaOption'	=>	'data/data-options',
-	'PadmaDataPortability'	=>	'data/data-portability',
-	'PadmaSkinOption'	=>	'data/data-skin-options',
-	'PadmaDataSnapshots'	=>	'data/data-snapshots',
-	'PadmaWrappersData'	=>	'data/data-wrappers',
+	// Data.
+	'Padma\PadmaBlocksData'                 => 'data/data-blocks',
+	'Padma\PadmaElementsData'               => 'data/data-elements',
+	'Padma\PadmaLayoutOption'               => 'data/data-layout-options',
+	'Padma\PadmaOption'                     => 'data/data-options',
+	'Padma\PadmaDataPortability'            => 'data/data-portability',
+	'Padma\PadmaSkinOption'                 => 'data/data-skin-options',
+	'Padma\PadmaDataSnapshots'              => 'data/data-snapshots',
+	'Padma\PadmaWrappersData'               => 'data/data-wrappers',
 
-	// Display
-	'PadmaDisplay'	=> 'display/display',
-	'PadmaGridRenderer'	=> 'display/grid-renderer',
-	'PadmaHead'	=> 'display/head',
-	'PadmaLayoutRenderer'	=> 'display/layout-renderer',
+	// Display.
+	'Padma\PadmaDisplay'                    => 'display/display',
+	'Padma\PadmaGridRenderer'               => 'display/grid-renderer',
+	'Padma\PadmaHead'                       => 'display/head',
+	'Padma\PadmaLayoutRenderer'             => 'display/layout-renderer',
 
-	//Elements
-	'PadmaElements'	=> 'elements/elements',
-	'PadmaJSProperties'	=> 'elements/js-properties',
-	'PadmaElementProperties'	=> 'elements/properties',
-	'PadmaElementProperties'	=> 'elements/properties',
+	// Elements.
+	'Padma\PadmaElements'                   => 'elements/elements',
+	'Padma\PadmaJSProperties'               => 'elements/js-properties',
+	'Padma\PadmaElementProperties'          => 'elements/properties',
+	'Padma\PadmaElementProperties'          => 'elements/properties',
 
-	// Fonts
-	'PadmaGoogleFonts'	=>	'fonts/google-fonts',
-	'PadmaTraditionalFonts'	=>	'fonts/traditional-fonts',
-	'PadmaFonts'	=>	'fonts/traditional-fonts',
-	'PadmaWebFontsLoader'	=>	'fonts/web-fonts-loader',
+	// Fonts.
+	'Padma\PadmaGoogleFonts'                => 'fonts/google-fonts',
+	'Padma\PadmaTraditionalFonts'           => 'fonts/traditional-fonts',
+	'Padma\PadmaFonts'                      => 'fonts/traditional-fonts',
+	'Padma\PadmaWebFontsLoader'             => 'fonts/web-fonts-loader',
 
-	// Maintenance
-	'PadmaMaintenance'	=>	'maintenance/upgrades',
+	// Maintenance.
+	'Padma\PadmaMaintenance'                => 'maintenance/upgrades',
 
-	// Media
-	'PadmaResponsiveGridDynamicMedia'	=>	'media/dynamic/responsive-grid',
+	// Media.
+	'Padma\PadmaResponsiveGridDynamicMedia' => 'media/dynamic/responsive-grid',
 
-	// Visual Editor
-	'PadmaVisualEditorDisplay'	=>	'visual-editor/display',
-	'PadmaIframeDummyContent'	=>	'visual-editor/dummy-content',
-	'PadmaVisualEditorIframeGrid'	=>	'visual-editor/iframe-grid',
-	'PadmaLayoutSelector'	=>	'visual-editor/layout-selector',	
-	'PadmaVisualEditorPreview'	=>	'visual-editor/preview',
-	'PadmaVisualEditorAJAX'	=>	'visual-editor/visual-editor-ajax',
-	'PadmaVisualEditor'	=>	'visual-editor/visual-editor',	
-	'PadmaGridManagerBox'	=>	'visual-editor/boxes/grid-manager',
-	'PadmaSnapshotsBox'	=>	'visual-editor/boxes/snapshots',
-	'PadmaPropertyInputs'	=>	'visual-editor/panels/design/property-inputs',
-	'PadmaSidePanelDesignEditor'	=>	'visual-editor/panels/design/side-panel-design-editor',
-	'GridSetupPanel'	=>	'visual-editor/panels/grid/setup',
+	// Visual Editor.
+	'Padma\PadmaVisualEditorDisplay'        => 'visual-editor/display',
+	'Padma\PadmaIframeDummyContent'         => 'visual-editor/dummy-content',
+	'Padma\PadmaVisualEditorIframeGrid'     => 'visual-editor/iframe-grid',
+	'Padma\PadmaLayoutSelector'             => 'visual-editor/layout-selector',
+	'Padma\PadmaVisualEditorPreview'        => 'visual-editor/preview',
+	'Padma\PadmaVisualEditorAJAX'           => 'visual-editor/visual-editor-ajax',
+	'Padma\PadmaVisualEditor'               => 'visual-editor/visual-editor',
+	'Padma\PadmaGridManagerBox'             => 'visual-editor/boxes/grid-manager',
+	'Padma\PadmaSnapshotsBox'               => 'visual-editor/boxes/snapshots',
+	'Padma\PadmaPropertyInputs'             => 'visual-editor/panels/design/property-inputs',
+	'Padma\PadmaSidePanelDesignEditor'      => 'visual-editor/panels/design/side-panel-design-editor',
+	'Padma\GridSetupPanel'                  => 'visual-editor/panels/grid/setup',
 
-	// Widgets
-	'PadmaWidgets'	=>	'widgets/widgets',
+	// Widgets.
+	'Padma\PadmaWidgets'                    => 'widgets/widgets',
 
-	// Wrappers
-	'PadmaWrapperOptions'	=>	'wrappers/wrapper-options',
-	'PadmaWrappers'	=>	'wrappers/wrappers',
+	// Wrappers.
+	'Padma\PadmaWrapperOptions'             => 'wrappers/wrapper-options',
+	'Padma\PadmaWrappers'                   => 'wrappers/wrappers',
 
 );
 
-$padma_registry = apply_filters('padma_class_registry', $padma_registry);
+$padma_registry = apply_filters( 'padma_class_registry', $padma_registry );
 
+spl_autoload_register(
+	function ( $class ) {
 
-spl_autoload_register(function ($class) {
+		$namespace = 'Padma';
 
-	if( strpos($class, 'Padma') == 0  ){
+		if ( strpos( $class, $namespace ) !== 0 ) {
+			return;
+		}
 
-		global $padma_registry;
-		$file = '';
+		if ( strpos( $class, 'Padma' ) === 0 ) {
 
-		if ( isset($padma_registry[$class]) )
-			$file = $padma_registry[$class];
+			global $padma_registry;
+			$file = '';
 
-		if(!is_file($file))
-			$file = dirname( __FILE__ ) . '/' . $file . '.php';
+			if ( isset( $padma_registry[ $class ] ) ) {
+				$file = $padma_registry[ $class ];
+			}
 
-		if ( file_exists( $file ) )
-			include_once $file;
+			if ( ! is_file( $file ) ) {
+				$file = dirname( __FILE__ ) . '/' . $file . '.php';
+			}
+
+			if ( file_exists( $file ) ) {
+				include_once $file;
+			}
+		}
 	}
-
-
-});
+);

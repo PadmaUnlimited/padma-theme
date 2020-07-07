@@ -8,6 +8,7 @@
  *
  * @param $string
  */
+
 function padma_maybe_unserialize($string) {
 
 	if ( is_serialized( $string ) ) {
@@ -290,9 +291,9 @@ function padma_resize_image($url, $width = null, $height = null, $crop = true, $
 	if ( !$url )
 		return null;
 
-	Padma::load('common/image-resizer');
+	Padma\Padma::load('common/image-resizer');
 
-	$PadmaImageResize 	= PadmaImageResize::getInstance();
+	$PadmaImageResize 	= Padma\PadmaImageResize::getInstance();
 	$resized_image 		= $PadmaImageResize->process($url, $width, $height, $crop, false, $upscale);
 
 	if ( is_wp_error($resized_image) )
@@ -736,7 +737,7 @@ function padma_register_admin_meta_box($class = null) {
 function padma_register_admin_meta_padma_callback($class) {
 
 	if ( !class_exists($class) )
-		return new WP_Error('meta_padma_class_does_not_exist', __('Error: The meta box class being registered does not exist.', 'padma'), $class);
+		return new \WP_Error('meta_padma_class_does_not_exist', __('Error: The meta box class being registered does not exist.', 'padma'), $class);
 
 	$meta_box = new $class();
 	$meta_box->register();
@@ -782,7 +783,7 @@ function padma_register_visual_editor_box($class) {
 function padma_register_visual_editor_box_callback($class) {
 
 	if ( !class_exists($class) )
-		return new WP_Error('box_class_does_not_exist', __('Error: The box class being registered does not exist.', 'padma'), $class);
+		return new \WP_Error('box_class_does_not_exist', __('Error: The box class being registered does not exist.', 'padma'), $class);
 
 	$box = new $class();
 	$box->register();
@@ -803,7 +804,7 @@ function padma_register_visual_editor_panel($class) {
 function padma_register_visual_editor_panel_callback($class) {
 
 	if ( !class_exists($class) )
-		return new WP_Error('panel_class_does_not_exist', __('Error: The panel class being registered does not exist.', 'padma'), $class);
+		return new \WP_Error('panel_class_does_not_exist', __('Error: The panel class being registered does not exist.', 'padma'), $class);
 
 	$panel = new $class();
 	$panel->register();
@@ -893,7 +894,7 @@ function padma_replace_urls( $from, $to ) {
 	/**
 	 * Update all blocks settings
 	 */	
-	$blocks = PadmaBlocksData::get_all_blocks();
+	$blocks = Padma\PadmaBlocksData::get_all_blocks();
 	foreach ($blocks as $block) {
 
 		$block_id = $block['id'];
@@ -901,7 +902,7 @@ function padma_replace_urls( $from, $to ) {
 			$block['settings'][$setting_key] = str_replace( $from , $to, $setting_value );
 		}
 
-		PadmaBlocksData::update_block( $block_id, $block );
+		Padma\PadmaBlocksData::update_block( $block_id, $block );
 	}
 
 

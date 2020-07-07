@@ -7,6 +7,8 @@
  * @author Clay Griffiths
  **/
 
+namespace Padma;
+
 class PadmaLayoutOption {
 
 

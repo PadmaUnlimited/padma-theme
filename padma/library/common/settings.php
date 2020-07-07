@@ -7,6 +7,7 @@
  *
  **/
 
+namespace Padma;
 class PadmaSettings {
 
 	private static $settings = array(

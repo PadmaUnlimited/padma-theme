@@ -8,6 +8,8 @@
  * @subpackage   Padma/footer
  */
 
+namespace Padma;
+
 /** Prevent direct access to this file */
 
 if ( ! defined( 'WP_CONTENT_DIR' ) ) {

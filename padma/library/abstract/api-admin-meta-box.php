@@ -5,6 +5,8 @@
  * @since 1.0.0
  * @package Padma/library
  */
+
+namespace Padma;
 abstract class PadmaAdminMetaBoxAPI {
 
 	/**

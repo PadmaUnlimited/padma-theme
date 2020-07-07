@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 global $post;
 global $padma_comments_template_args;
 

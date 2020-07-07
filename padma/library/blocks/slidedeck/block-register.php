@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 if ( isset($GLOBALS['SlideDeckPlugin']) && is_object($GLOBALS['SlideDeckPlugin']) ){
 	$class_file = __DIR__ . '/slidedeck.php';
 	$icons = array(

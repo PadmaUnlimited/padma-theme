@@ -10,6 +10,8 @@
  * - Padma by Padma Unlimited Team - Padma Unlimited S.A.
  */
 
+namespace Padma;
+
 /**
  * Automatic Updates
  * Must go before Padma::init();

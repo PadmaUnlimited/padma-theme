@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaVideoBlock extends PadmaBlockAPI {
 
 	public $id;

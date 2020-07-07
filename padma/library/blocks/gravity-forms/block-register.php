@@ -1,5 +1,6 @@
 <?php
 
+namespace Padma;
 //Check that Gravity Forms is even enabled
 if ( class_exists('RGForms')){
 	$class_file = __DIR__ . '/gravity-forms.php';

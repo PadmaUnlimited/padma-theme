@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaSocialBlock extends PadmaBlockAPI {
 
 	public $id;

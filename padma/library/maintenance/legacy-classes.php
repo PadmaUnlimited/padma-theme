@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaElementsData_Upgrade34 {
 
 	/* Mass Get */
@@ -62,7 +64,7 @@ class PadmaElementsData_Upgrade34 {
 
 		//Make sure the element is registered
 		if ( ! isset( PadmaElementAPI::$elements[ $element_id ] ) ) {
-			return new WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
+			return new \WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
 		}
 
 		//Set vars up and get stuff from database
@@ -92,7 +94,7 @@ class PadmaElementsData_Upgrade34 {
 
 		//Make sure the element is registered
 		if ( ! isset( PadmaElementAPI::$elements[ $element_id ] ) ) {
-			return new WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
+			return new \WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
 		}
 
 		//Set vars up and get stuff from database
@@ -177,7 +179,7 @@ class PadmaElementsData_Upgrade34 {
 
 			//Make sure the element is registered
 			if ( ! isset( PadmaElementAPI::$elements[ $element_id ] ) ) {
-				return new WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
+				return new \WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
 			}
 
 			//Set vars up and get stuff from database
@@ -210,7 +212,7 @@ class PadmaElementsData_Upgrade34 {
 
 		//Make sure the element is registered
 		if ( ! isset( PadmaElementAPI::$elements[ $element_id ] ) ) {
-			return new WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
+			return new \WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
 		}
 
 		//Set vars up and get stuff from database
@@ -241,7 +243,7 @@ class PadmaElementsData_Upgrade34 {
 
 		//Make sure the element is registered
 		if ( ! isset( PadmaElementAPI::$elements[ $element_id ] ) ) {
-			return new WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
+			return new \WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
 		}
 
 		//Set vars up and get stuff from database
@@ -267,7 +269,7 @@ class PadmaElementsData_Upgrade34 {
 
 		//Make sure the element is registered
 		if ( ! isset( PadmaElementAPI::$elements[ $element_id ] ) ) {
-			return new WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
+			return new \WP_Error( 'element_not_registered', __( 'The element ID is not registered.', 'padma' ), $element_id );
 		}
 
 		$group = PadmaElementAPI::$elements[ $element_id ]['group'];

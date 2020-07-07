@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 padma_register_admin_meta_box('PadmaMetaBoxTemplate');
 class PadmaMetaBoxTemplate extends PadmaAdminMetaBoxAPI {
 

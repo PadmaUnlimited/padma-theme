@@ -9,6 +9,7 @@
 
 */
 
+namespace Padma;
 /**
  * The abstract class for creating admin notices.
  *

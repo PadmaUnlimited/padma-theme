@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaMobileDetect {
 
 	protected static $detect;
@@ -21,7 +23,7 @@ class PadmaMobileDetect {
 			require_once PADMA_LIBRARY_DIR . '/common/lib/Mobile_Detect.php';
 
 
-		self::$detect = new Mobile_Detect;
+		self::$detect = new \Mobile_Detect;
 
 		$isMobile = false;
 

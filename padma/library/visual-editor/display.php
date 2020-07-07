@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaVisualEditorDisplay {
 
 
@@ -188,10 +190,12 @@ class PadmaVisualEditorDisplay {
 
 		//Gather the URLs for the block types
 		$block_types = PadmaBlocks::get_block_types();
+		debug($block_types);
 		$block_type_urls = array();
 
-		foreach ( $block_types as $block_type => $block_type_options )
+		foreach ( $block_types as $block_type => $block_type_options ){
 			$block_type_urls[$block_type] = $block_type_options['url'];
+		}
 
 		$current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
 

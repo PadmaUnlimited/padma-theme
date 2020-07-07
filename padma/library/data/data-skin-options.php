@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaSkinOption {
 
 
@@ -7,7 +9,7 @@ class PadmaSkinOption {
 		/* Set skins option flag */
 		PadmaOption::$is_skin_option = true;
 
-		$result = call_user_func_array(array('PadmaOption', $method), $args);
+		$result = call_user_func_array(array('Padma\PadmaOption', $method), $args);
 
 		/* Remove skin option flag */
 		PadmaOption::$is_skin_option = false;

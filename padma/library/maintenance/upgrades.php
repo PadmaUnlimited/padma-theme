@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaMaintenance {
 
 	public static $available_upgrades = array(

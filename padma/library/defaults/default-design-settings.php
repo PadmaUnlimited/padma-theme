@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 global $padma_core_default_element_data;
 
 $padma_core_default_element_data = array(

@@ -1,4 +1,7 @@
 <?php
+
+namespace Padma;
+
 if ( !class_exists('PadmaPinBoardCoreBlock') ) {
 
 	class PadmaPinBoardCoreBlock extends PadmaBlockAPI {

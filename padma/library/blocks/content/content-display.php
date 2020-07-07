@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaContentBlockDisplay {
 
 	var $count = 0;			

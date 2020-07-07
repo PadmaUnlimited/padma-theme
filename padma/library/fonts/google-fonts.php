@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaGoogleFonts extends PadmaWebFontProvider {
 
 

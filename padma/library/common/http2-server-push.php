@@ -5,6 +5,8 @@
  *
  */
 
+namespace Padma;
+
 class PadmaHttp2ServerPush {
 
 	private $http2_script_srcs = array();

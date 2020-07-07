@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaVisualEditorPreview {
 
 	public static function remove_preview_options() {

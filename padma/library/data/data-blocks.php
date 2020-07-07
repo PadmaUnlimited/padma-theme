@@ -1,4 +1,6 @@
 <?php
+
+namespace Padma;
 class PadmaBlocksData {
 
 
@@ -11,13 +13,13 @@ class PadmaBlocksData {
 			return false;
 
 		if ( !padma_get('type', $args) )
-			return new WP_Error('pu_add_block_missing_type');
+			return new \WP_Error('pu_add_block_missing_type');
 
 		if ( !is_array($args['dimensions']) && !is_serialized($args['dimensions']) )
-			return new WP_Error('pu_add_block_missing_dimensions');
+			return new \WP_Error('pu_add_block_missing_dimensions');
 
 		if ( !is_array($args['position']) && !is_serialized($args['position']) )
-			return new WP_Error('pu_add_block_missing_position');
+			return new \WP_Error('pu_add_block_missing_position');
 
 		/* Make sure the arrays are all unserialized */
 		$args['position'] = padma_maybe_unserialize($args['position']);

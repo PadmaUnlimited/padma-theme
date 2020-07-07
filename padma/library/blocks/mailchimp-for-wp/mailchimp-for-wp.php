@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaMailchimpForWPBlock extends PadmaBlockAPI {
 
 	public $id;

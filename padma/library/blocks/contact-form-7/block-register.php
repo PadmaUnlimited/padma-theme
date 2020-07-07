@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 $class_file = __DIR__ . '/contact-form-7.php';
 $icons = array(
 	'path' => __DIR__ . '/',

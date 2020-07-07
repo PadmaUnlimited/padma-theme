@@ -1,5 +1,7 @@
 <?php
 
+namespace Padma;
+
 class PadmaTextBlock extends PadmaBlockAPI {
 
 

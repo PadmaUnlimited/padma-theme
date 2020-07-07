@@ -4,7 +4,7 @@ global $padma_comments_template_args;
 
 echo '<div id="comments">';
 
-	if ( !post_password_required() ) { 
+	if ( ! post_password_required() ) { 
 
 		if ( have_comments() ) {
 
@@ -51,7 +51,7 @@ echo '<div id="comments">';
 
 				if ( is_single() ) {
 
-					$comments_closed = apply_filters('padma_comments_closed', __('Sorry, comments are closed for this post.', 'padma'));
+					$comments_closed = apply_filters( 'padma_comments_closed', __( 'Sorry, comments are closed for this post.', 'padma' ) );
 
 					echo '<p class="comments-closed">' . $comments_closed . '</p>';
 

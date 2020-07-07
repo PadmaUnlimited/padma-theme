@@ -1,7 +1,6 @@
 <?php
 class PadmaElementsData_Upgrade34 {
 
-
 	/* Mass Get */
 	public static function get_all_elements() {
 

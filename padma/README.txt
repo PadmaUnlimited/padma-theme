@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 = 1.3.1 = 
 * Edge Version
-* Released: On dev
+* Released: Jun 12, 2020
 Tested with WordPress 5.4.2
 Tested with ClassicPress 1.1.2
 Fixed: text-decoration and list-style missing CSS rules

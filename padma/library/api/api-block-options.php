@@ -25,6 +25,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 
 	public function display( $block, $layout ) {
 
+		debug($block);
 		//Set block properties
 		$this->block = $block;
 

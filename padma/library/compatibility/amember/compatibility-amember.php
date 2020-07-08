@@ -7,7 +7,7 @@ class PadmaCompatibilityAMember {
 	/**
 	 * Constructor
 	 */
-	private function __construct() {
+	public function __construct() {
 
 	}
 

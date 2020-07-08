@@ -189,8 +189,7 @@ class PadmaVisualEditorDisplay {
 		global $wp_scripts;
 
 		//Gather the URLs for the block types
-		$block_types = PadmaBlocks::get_block_types();
-		debug($block_types);
+		$block_types = PadmaBlocks::get_block_types();		
 		$block_type_urls = array();
 
 		foreach ( $block_types as $block_type => $block_type_options ){
@@ -313,9 +312,7 @@ class PadmaVisualEditorDisplay {
 
 	public static function block_type_selector() {
 
-		$block_types = PadmaBlocks::get_block_types();
-
-
+		$block_types = PadmaBlocks::get_block_types();		
 
 		echo "\n". '<div class="block-type-selector block-type-selector-original" style="display: none;">' . "\n";
 

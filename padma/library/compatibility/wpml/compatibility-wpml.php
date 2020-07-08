@@ -6,7 +6,7 @@ class PadmaCompatibilityWPML {
 	/**
 	 * Constructor
 	 */
-	private function __construct() {
+	public function __construct() {
 
 	}
 

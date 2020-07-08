@@ -604,7 +604,12 @@ class Padma {
 
 			if ( method_exists('Padma\Padma' . $class, 'init') ) {
 
-				error_log($class);
+				/*
+				$classname = 'Padma\Padma' . $class;
+				$object = new $classname();
+				$object->init();
+				*/
+
 				call_user_func( array( 'Padma\Padma' . $class, 'init' ) );
 
 			} else {

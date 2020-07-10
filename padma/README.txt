@@ -51,7 +51,7 @@ Woocommerce compatibility improvement
 
 = 1.3.1 = 
 * Edge Version
-* Released: Jun 11, 2020
+* Released: Jun 12, 2020
 Tested with WordPress 5.4.2
 Tested with ClassicPress 1.1.2
 Fixed: text-decoration and list-style missing CSS rules

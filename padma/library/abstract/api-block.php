@@ -79,8 +79,9 @@ abstract class PadmaBlockAPI {
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));
 
 		//Run init method if it exists
-		if ( method_exists($this, 'init') )
+		if ( method_exists($this, 'init') ) {
 			$this->init();
+		}
 
 		//Run setup_elements if it exists
 		if ( method_exists($this, 'setup_elements') )
@@ -282,8 +283,8 @@ abstract class PadmaBlockAPI {
 				continue;
 
 
-			// Allow selector outsite the block
-			if( $selector[0] === '\\' ){			
+			// Allow selector outsite the block			
+			if( strlen($selector) > 0 && $selector[0] === '\\' ){			
 				$selector = str_replace('\\', '', $selector);				
 				$selector_array[$selector_index] = trim($selector);
 				$args['tooltip'] = 'Warning: Apply style to this element affects all the instances';

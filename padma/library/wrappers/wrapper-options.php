@@ -1,6 +1,8 @@
 <?php
+/**
+ * Wrapper options class
+ */
 class PadmaWrapperOptions extends PadmaVisualEditorPanelAPI {
-
 
 
 	public $id;

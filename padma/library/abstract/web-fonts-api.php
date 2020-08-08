@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Padma Web font Provider class
+ */
 abstract class PadmaWebFontProvider {
 
 

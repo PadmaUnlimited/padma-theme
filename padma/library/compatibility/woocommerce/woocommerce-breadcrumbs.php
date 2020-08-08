@@ -1,17 +1,17 @@
 <?php
-add_filter('padma_breadcrumbs', 'padma_wc_breadcrumbs');
-function padma_wc_breadcrumbs($breadcrumbs) {
+add_filter( 'padma_breadcrumbs', 'padma_wc_breadcrumbs' );
+function padma_wc_breadcrumbs( $breadcrumbs ) {
 
 	/* Product Archive Page */
-	if ( is_post_type_archive('product') && get_option('page_on_front') !== wc_get_page_id('shop') ) {
+	if ( is_post_type_archive( 'product' ) && get_option( 'page_on_front' ) !== wc_get_page_id( 'shop' ) ) {
 
-		$shop_page_id = wc_get_page_id('shop');
+		$shop_page_id = wc_get_page_id( 'shop' );
 
 		$shop_name = $shop_page_id ? get_the_title($shop_page_id) : ucwords(get_option('woocommerce_shop_slug'));
 
 		if ( is_search() ) {
 
-			$breadcrumbs[] = __('Search results for &ldquo;', 'padma') . get_search_query();
+			$breadcrumbs[] = __( 'Search results for &ldquo;', 'padma' ) . get_search_query();
 			$breadcrumbs[get_post_type_archive_link('product')] = $shop_name;
 
 		} else {

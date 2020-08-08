@@ -71,8 +71,9 @@ abstract class PadmaVisualEditorPanelAPI {
 		add_action('padma_visual_editor_panel_top_tabs', array($this, 'panel_link'));
 		add_action('padma_visual_editor_content', array($this, 'build_panel'));
 
-		if ( method_exists($this, 'init') )
+		if ( method_exists($this, 'init') ) {
 			$this->init();
+		}
 
 	}
 

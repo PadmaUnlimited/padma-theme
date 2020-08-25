@@ -79,7 +79,7 @@ abstract class PadmaBlockAPI {
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));
 
 		//Run init method if it exists
-		if ( method_exists($this, 'init') ) {
+		if ( method_exists( $this, 'init' ) ) {
 			$this->init();
 		}
 

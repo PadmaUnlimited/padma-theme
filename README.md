@@ -23,7 +23,6 @@ We are looking for people eager to participate in the improvement and growth of 
 Patrons.<br>
 We believe in mutual cooperation to maintain, improve and keep Padma Unlimited Theme Builder free for everyone.
 If you value this philosophy and believe that our framework can bring real value to your projects, please consider to become part of the Padma Unlimited journey, support us!
-https://www.patreon.com/padmaunlimited
 <br>
 <br>
 Sponsors.<br>

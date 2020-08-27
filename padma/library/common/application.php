@@ -28,11 +28,11 @@ class Padma {
 		$GLOBALS['padma_default_element_data'] = array();
 
 		/* Define simple constants */
-		if(!defined('THEME_FRAMEWORK')){
-			define('THEME_FRAMEWORK', 'padma');			
+		if ( ! defined( 'THEME_FRAMEWORK' ) ) {
+			define( 'THEME_FRAMEWORK', 'padma' );
 		}
-		if(!defined('PADMA_VERSION')){
-			define('PADMA_VERSION', '1.3.3');
+		if ( ! defined( 'PADMA_VERSION' ) ) {
+			define( 'PADMA_VERSION', '1.3.4' );
 		}
 
 		/* Define directories */
@@ -534,7 +534,7 @@ class Padma {
 	 **/
 	public static function initiate_updater() {
 
-		if(class_exists('PadmaUpdater')){
+		if ( class_exists( 'PadmaUpdater' ) ) {
 
 			PadmaUpdater::updater(PadmaSettings::get('slug'),PADMA_DIR,true);
 

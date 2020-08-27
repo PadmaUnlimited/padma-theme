@@ -101,12 +101,12 @@
 							'label' => __('Do not recommend plugin installation','padma'),
 							'checkboxes' => array(
 								array(
-									'id' 		=> 'do-not-recommend-plugin-installation',
-									'label' 	=> __('Hide recommended plugin notice','padma'),
-									'checked' 	=> PadmaOption::get('do-not-recommend-plugin-installation', false, false)
+									'id'      => 'do-not-recommend-plugin-installation',
+									'label'   => __( 'Hide recommended plugin notice', 'padma' ),
+									'checked' => PadmaOption::get('do-not-recommend-plugin-installation', false, false),
 								)
 							),
-							'description' => __('If on, Padma will not recommend install "Updater" and "Services" plugin','padma')
+							'description' => __('If on, Padma will not recommend install "Updater" and "Advanced" plugin', 'padma' ),
 						),
 						array(
 							'type' => 'checkbox',

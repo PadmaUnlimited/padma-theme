@@ -27,9 +27,9 @@ class PadmaContentBlockDisplay {
 	/**
 	 * Created this function to make the call a little shorter.
 	 **/
-	function get_setting($setting, $default = null) {
+	function get_setting( $setting, $default = null ) {
 
-		return PadmaBlockAPI::get_setting($this->block, $setting, $default);
+		return PadmaBlockAPI::get_setting( $this->block, $setting, $default );
 
 	}
 

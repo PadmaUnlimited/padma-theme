@@ -4,12 +4,14 @@
  *
  * @package Padma
  * @author Padma Unlimited Team
- *
  **/
-
 class Padma {
 
-
+	/**
+	 * Loades classes.
+	 *
+	 * @var array
+	 */
 	public static $loaded_classes = array();
 
 
@@ -17,9 +19,7 @@ class Padma {
 	 * Let's get Padma on the road!  We'll define constants here, run the setup function and do a few other fun things.
 	 *
 	 * @return void
-	 *
 	 **/
-
 	public static function init() {
 
 		global $wpdb;
@@ -32,144 +32,152 @@ class Padma {
 			define( 'THEME_FRAMEWORK', 'padma' );
 		}
 		if ( ! defined( 'PADMA_VERSION' ) ) {
-			define( 'PADMA_VERSION', '1.3.5' );
+			define( 'PADMA_VERSION', '1.3.6' );
 		}
 
 		/* Define directories */
-		if(!defined('PADMA_DIR')){
-			define('PADMA_DIR', get_template_directory());			
+		if ( ! defined( 'PADMA_DIR' ) ) {
+			define( 'PADMA_DIR', get_template_directory() );
 		}
-		if(!defined('PADMA_LIBRARY_DIR')){
-			define('PADMA_LIBRARY_DIR', padma_change_to_unix_path(PADMA_DIR . '/library'));
+		if ( ! defined( 'PADMA_LIBRARY_DIR' ) ) {
+			define( 'PADMA_LIBRARY_DIR', padma_change_to_unix_path( PADMA_DIR . '/library' ) );
 		}
 
-		/* Dev Params	*/
-		if(file_exists(PADMA_LIBRARY_DIR . '/dev-env.php')){
+		/* Dev Params */
+		if ( file_exists( PADMA_LIBRARY_DIR . '/dev-env.php' ) ) {
 			require_once PADMA_LIBRARY_DIR . '/dev-env.php';
 		}
 
 		PadmaSettings::set_enviroment();
 
-
 		/* Site URLs */
-		if(!defined('PADMA_SITE_URL')){
-			define('PADMA_SITE_URL', 'http://www.padmaunlimited.com/');
+		if ( ! defined( 'PADMA_SITE_URL' ) ) {
+			define( 'PADMA_SITE_URL', 'http://www.padmaunlimited.com/' );
 		}
-		if(!defined('PADMA_API_URL')){
-			define('PADMA_API_URL', 'https://api.padmaunlimited.com/');
+		if ( ! defined( 'PADMA_API_URL' ) ) {
+			define( 'PADMA_API_URL', 'https://api.padmaunlimited.com/' );
 		}
-		if(!defined('PADMA_CDN_URL')){			
-			define('PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/');			
+		if ( ! defined( 'PADMA_CDN_URL' ) ) {
+			define( 'PADMA_CDN_URL', 'https://cdn.padmaunlimited.com/' );
 		}
-		if(!defined('PADMA_DASHBOARD_URL')){
-			define('PADMA_DASHBOARD_URL', 'https://dashboard.padmaunlimited.com/');			
+		if ( ! defined( 'PADMA_DASHBOARD_URL' ) ) {
+			define( 'PADMA_DASHBOARD_URL', 'https://dashboard.padmaunlimited.com/' );
 		}
-		if(!defined('PADMA_EXTEND_URL')){			
-			define('PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend');
+		if ( ! defined( 'PADMA_EXTEND_URL' ) ) {
+			define( 'PADMA_EXTEND_URL', PADMA_SITE_URL . 'extend' );
 		}
-
-
 
 		/* Skins */
-		if(!defined('PADMA_DEFAULT_SKIN')){
-			define('PADMA_DEFAULT_SKIN', 'base');
+		if ( ! defined( 'PADMA_DEFAULT_SKIN' ) ) {
+			define( 'PADMA_DEFAULT_SKIN', 'base' );
 		}
-
 
 		/**
 		 *
 		 * Parse PHP
 		 *
-		 *	https://www.facebook.com/groups/padmaunlimitedEN/permalink/641292209707584/
-		 * 	https://www.facebook.com/groups/padmaunlimitedES/permalink/383744532348603/
-		 *
+		 * English: https://www.facebook.com/groups/padmaunlimitedEN/permalink/641292209707584/
+		 * Español: https://www.facebook.com/groups/padmaunlimitedES/permalink/383744532348603/
 		 */
-		if(!defined('PADMA_DISABLE_PHP_PARSING')){			
-			define('PADMA_DISABLE_PHP_PARSING', false);
+		if ( ! defined( 'PADMA_DISABLE_PHP_PARSING' ) ) {
+			define( 'PADMA_DISABLE_PHP_PARSING', false );
 		}
 
 		/* MySQL Table names */
-		$wpdb->pu_blocks 		= $wpdb->prefix . 'pu_blocks';
-		$wpdb->pu_wrappers 		= $wpdb->prefix . 'pu_wrappers';
-		$wpdb->pu_snapshots 	= $wpdb->prefix . 'pu_snapshots';
-		$wpdb->pu_layout_meta 	= $wpdb->prefix . 'pu_layout_meta';
-		
+		$wpdb->pu_blocks      = $wpdb->prefix . 'pu_blocks';
+		$wpdb->pu_wrappers    = $wpdb->prefix . 'pu_wrappers';
+		$wpdb->pu_snapshots   = $wpdb->prefix . 'pu_snapshots';
+		$wpdb->pu_layout_meta = $wpdb->prefix . 'pu_layout_meta';
 
 		/* Handle child themes */
 		if ( get_template_directory_uri() !== get_stylesheet_directory_uri() ) {
 
-			if(!defined('PADMA_CHILD_THEME_ACTIVE')){
-				define('PADMA_CHILD_THEME_ACTIVE', true);
+			if ( ! defined( 'PADMA_CHILD_THEME_ACTIVE' ) ) {
+				define( 'PADMA_CHILD_THEME_ACTIVE', true );
 			}
-			if(!defined('PADMA_CHILD_THEME_DIR')){
-				define('PADMA_CHILD_THEME_DIR', get_stylesheet_directory());				
+			if ( ! defined( 'PADMA_CHILD_THEME_DIR' ) ) {
+				define( 'PADMA_CHILD_THEME_DIR', get_stylesheet_directory() );
 			}
 		} else {
-			if(!defined('PADMA_CHILD_THEME_ACTIVE')){
-				define('PADMA_CHILD_THEME_ACTIVE', false);				
+			if ( ! defined( 'PADMA_CHILD_THEME_ACTIVE' ) ) {
+				define( 'PADMA_CHILD_THEME_ACTIVE', false );
 			}
-			if(!defined('PADMA_CHILD_THEME_DIR')){				
-				define('PADMA_CHILD_THEME_DIR', null);
+			if ( ! defined( 'PADMA_CHILD_THEME_DIR' ) ) {
+				define( 'PADMA_CHILD_THEME_DIR', null );
 			}
 		}
 
 		/* Handle uploads directory and cache */
 		$uploads = wp_upload_dir();
 
-		if(!defined('PADMA_UPLOADS_DIR')){
-			define('PADMA_UPLOADS_DIR', padma_change_to_unix_path($uploads['basedir'] . '/padma'));
+		if ( ! defined( 'PADMA_UPLOADS_DIR' ) ) {
+			define( 'PADMA_UPLOADS_DIR', padma_change_to_unix_path( $uploads['basedir'] . '/padma' ) );
 		}
-		if(!defined('PADMA_CACHE_DIR')){
-			define('PADMA_CACHE_DIR', padma_change_to_unix_path(PADMA_UPLOADS_DIR . '/cache'));
+		if ( ! defined( 'PADMA_CACHE_DIR' ) ) {
+			define( 'PADMA_CACHE_DIR', padma_change_to_unix_path( PADMA_UPLOADS_DIR . '/cache' ) );
 		}
 
 		/* Make directories if they don't exist */
-		if ( !is_dir(PADMA_UPLOADS_DIR) )
-			wp_mkdir_p(PADMA_UPLOADS_DIR);
+		if ( ! is_dir( PADMA_UPLOADS_DIR ) ) {
+			wp_mkdir_p( PADMA_UPLOADS_DIR );
+		}
 
-		if ( !is_dir(PADMA_CACHE_DIR) )
-			wp_mkdir_p(PADMA_CACHE_DIR);
+		if ( ! is_dir( PADMA_CACHE_DIR ) ) {
+			wp_mkdir_p( PADMA_CACHE_DIR );
+		}
 
 		self::add_index_files_to_uploads();
 
 		/* Load locale */
-		load_theme_textdomain('padma', padma_change_to_unix_path(PADMA_LIBRARY_DIR . '/languages'));
+		load_theme_textdomain( 'padma', padma_change_to_unix_path( PADMA_LIBRARY_DIR . '/languages' ) );
 
 		/* Add support for WordPress features */
-		add_action('after_setup_theme', array(__CLASS__, 'add_theme_support'), 1);
+		add_action( 'after_setup_theme', array( __CLASS__, 'add_theme_support' ), 1 );
 
 		/* Setup */
-		add_action('after_setup_theme', array(__CLASS__, 'child_theme_setup'), 2);		
-		add_action('after_setup_theme', array(__CLASS__, 'load_dependencies'), 3);
-		add_action('after_setup_theme', array(__CLASS__, 'maybe_db_upgrade'));
-		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));
+		add_action( 'after_setup_theme', array( __CLASS__, 'child_theme_setup' ), 2 );
+		add_action( 'after_setup_theme', array( __CLASS__, 'load_dependencies' ), 3 );
+		add_action( 'after_setup_theme', array( __CLASS__, 'maybe_db_upgrade' ) );
+		add_action( 'after_setup_theme', array( __CLASS__, 'initiate_updater' ) );
 
+		// Activation hook.
+		add_action( 'after_switch_theme', array( __CLASS__, 'activate' ) );
 
-		// Activation hook
-		add_action('after_switch_theme', array(__CLASS__, 'activate' ));
-
-		// Deactivation hook
-		add_action( 'switch_theme', array(__CLASS__, 'deactivate' ));
-
-	}
-
-
-	public static function activate(){
-
-		// Allow automatic Theme Updates
-		add_option('padma-disable-automatic-core-updates','0','','no');
-		add_option('padma-disable-automatic-plugin-updates','0','','no');
+		// Deactivation hook.
+		add_action( 'switch_theme', array( __CLASS__, 'deactivate' ) );
 
 	}
 
-	public static function deactivate(){
+	/**
+	 * Activation method
+	 *
+	 * @return void
+	 */
+	public static function activate() {
 
-		delete_option('padma-disable-automatic-core-updates');
-		delete_option('padma-disable-automatic-plugin-updates');
+		// Allow automatic Theme Updates.
+		add_option( 'padma-disable-automatic-core-updates', '0', '', 'no' );
+		add_option( 'padma-disable-automatic-plugin-updates', '0', '', 'no' );
 
 	}
 
+	/**
+	 * Deactivation method
+	 *
+	 * @return void
+	 */
+	public static function deactivate() {
 
+		delete_option( 'padma-disable-automatic-core-updates' );
+		delete_option( 'padma-disable-automatic-plugin-updates' );
+
+	}
+
+	/**
+	 * Add index to uploads.
+	 *
+	 * @return void
+	 */
 	public static function add_index_files_to_uploads() {
 
 		$content = '<?php' . "\n" .
@@ -178,7 +186,7 @@ class Padma {
 		$uploads_index = trailingslashit( PADMA_UPLOADS_DIR ) . 'index.php';
 		$cache_index = trailingslashit( PADMA_CACHE_DIR ) . 'index.php';
 
-		if ( ! is_file( $uploads_index  ) ) {
+		if ( ! is_file( $uploads_index ) ) {
 
 			$file_handle = @fopen( $uploads_index, 'w' );
 			@fwrite( $file_handle, $content );
@@ -201,50 +209,49 @@ class Padma {
 	 * Loads all of the required core classes and initiates them.
 	 *
 	 * Dependency array setup: class (string) => init (bool)
-	 *
 	 **/
 	public static function load_dependencies() {
 
-		//Load route right away so we can optimize dependency loading below
-		Padma::load(array('common/route' => true));
+		// Load route right away so we can optimize dependency loading below.
+		self::load( array( 'common/route' => true ) );
 
-		//Core loading set
+		// Core loading set.
 		$dependencies = array(
 
-			// abstract
+			// abstract.
 			'abstract/notice',
 			'abstract/api-panel',
 			'abstract/web-fonts-api',
 
 			'defaults/default-design-settings',
 
-			'data/data-options' 			=> 'Option',
-			'data/data-layout-options' 		=> 'LayoutOption',
+			'data/data-options'                           => 'Option',
+			'data/data-layout-options'                    => 'LayoutOption',
 			'data/data-skin-options',
 			'data/data-blocks',
 			'data/data-wrappers',
 			'data/data-snapshots',
-			'common/layout' 				=> true,
-			'common/capabilities' 			=> true,
-			'common/responsive-grid' 		=> true,
-			'common/schema' 				=> true,
-			'common/seo' 					=> true,
-			'common/social-optimization' 	=> true,
-			'common/feed' 					=> true,
-			'common/compiler' 				=> true,
-			'common/plugins' 				=> true,
+			'common/layout'                               => true,
+			'common/capabilities'                         => true,
+			'common/responsive-grid'                      => true,
+			'common/schema'                               => true,
+			'common/seo'                                  => true,
+			'common/social-optimization'                  => true,
+			'common/feed'                                 => true,
+			'common/compiler'                             => true,
+			'common/plugins'                              => true,
 			'common/templates',
-			'common/http2-server-push'		=> true,
-			'common/blocks-anywhere'		=> true,
-			'admin/admin-bar' 				=> true,
-			'blocks' 						=> true,
-			'wrappers' 						=> true,
-			'elements' 						=> true,
-			'fonts/web-fonts-loader' 		=> true,
+			'common/http2-server-push'                    => true,
+			'common/blocks-anywhere'                      => true,
+			'admin/admin-bar'                             => true,
+			'blocks'                                      => true,
+			'wrappers'                                    => true,
+			'elements'                                    => true,
+			'fonts/web-fonts-loader'                      => true,
 			'fonts/traditional-fonts',
 			'fonts/google-fonts',
-			'display' 						=> true,
-			'widgets' 						=> true,
+			'display'                                     => true,
+			'widgets'                                     => true,
 
 			/*
 				Query Class
@@ -253,48 +260,49 @@ class Padma {
 
 			/*
 				Notices
-			*/			
-			'common/notices' 		=> true,
+			*/
+			'common/notices'                              => true,
 
-			/*	
+			/*
 				Compatiblity
 			*/
 			'compatibility/woocommerce/compatibility-woocommerce' => 'CompatibilityWooCommerce',
 
-			/*		Headway Classes support	*/
-			'compatibility/headway/compatibility-headway'	=> true,
+			/* Headway Classes support */
+			'compatibility/headway/compatibility-headway' => true,
 
-			/*		Compatiblity with Elementor */
+			/* Compatiblity with Elementor */
 			//'compatibility/elementor/compatibility-elementor'	=> true,									 
 
-			/*		Compatiblity with aMember Plugin */
-			'compatibility/amember/compatibility-amember'	=> true,
+			/* Compatiblity with aMember Plugin */
+			'compatibility/amember/compatibility-amember' => true,
 
-			/*		Compatiblity with  WPML Multilingual CMS Plugin */
-			'compatibility/wpml/compatibility-wpml'	=> true,
+			/* Compatiblity with  WPML Multilingual CMS Plugin */
+			'compatibility/wpml/compatibility-wpml'       => true,
 
-			/*	Gutenberg Compatibility	*/
-			'common/gutenberg-blocks'	=> true,
+			/* Gutenberg Compatibility */
+			'common/gutenberg-blocks'                     => true,
 
 		);
 
-		//Child theme API
-		if ( PADMA_CHILD_THEME_ACTIVE === true )
+		// Child theme API.
+		if ( PADMA_CHILD_THEME_ACTIVE === true ) {
 			$dependencies['api/api-child-theme'] = 'ChildThemeAPI';
+		}
 
-
-		//Visual editor classes
-		if ( PadmaRoute::is_visual_editor() || (defined('DOING_AJAX') && DOING_AJAX && strpos($_REQUEST['action'], 'padma') !== false ) )
+		// Visual editor classes.
+		if ( PadmaRoute::is_visual_editor() || ( defined( 'DOING_AJAX' ) && DOING_AJAX && strpos( $_REQUEST['action'], 'padma' ) !== false ) ) {
 			$dependencies['visual-editor'] = true;
+		}
 
-		//Admin classes		
-		if ( is_admin() )
+		// Admin classes.
+		if ( is_admin() ) {
 			$dependencies['admin'] = true;
+		}
 
-
-		// Load stuff now
-		Padma::load(apply_filters('padma_dependencies', $dependencies));
-		do_action('padma_setup');
+		// Load stuff now.
+		self::load( apply_filters( 'padma_dependencies', $dependencies ) );
+		do_action( 'padma_setup' );
 
 	}
 
@@ -328,8 +336,7 @@ class Padma {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'custom-logo' );
 
-
-		/*	Gutenberg	*/
+		/* Gutenberg */
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'editor-styles' );
 		add_theme_support( 'wp-block-styles' );
@@ -341,19 +348,23 @@ class Padma {
 
 		/* Loop Standard by PluginBuddy */
 		require_once PADMA_LIBRARY_DIR . '/resources/dynamic-loop.php';
-		add_theme_support('loop-standard');
+		add_theme_support( 'loop-standard' );
 
 	}
 
 
 	/**
-	 **/
+	 * Child theme support
+	 *
+	 * @return bool
+	 */
 	public static function child_theme_setup() {
 
-		if ( !PADMA_CHILD_THEME_ACTIVE )
+		if ( ! PADMA_CHILD_THEME_ACTIVE ) {
 			return false;
+		}
 
-		do_action('padma_setup_child_theme');		
+		do_action( 'padma_setup_child_theme' );
 
 	}
 
@@ -365,42 +376,46 @@ class Padma {
 
 		global $wpdb;
 
-		$padma_settings = get_option('padma', array('version' => 0));
-		$db_version 	= $padma_settings['version'];
+		$padma_settings = get_option( 'padma', array( 'version' => 0 ) );
+		$db_version     = $padma_settings['version'];
 
 		/* If this is a fresh install then we need to merge in the default design editor settings */
-			if ( $db_version === 0 && !get_option('padma_option_group_general') ) {
+		if ( 0 === $db_version && ! get_option( 'padma_option_group_general' ) ) {
 
-				PadmaElementsData::merge_core_default_design_data();
+			PadmaElementsData::merge_core_default_design_data();
 
-				self::db_dbdelta();
+			self::db_dbdelta();
 
-				/* Update the version here. */
-				$padma_settings = get_option('padma', array('version' => 0));
-				$padma_settings['version'] = PADMA_VERSION;
+			/* Update the version here. */
+			$padma_settings            = get_option( 'padma', array( 'version' => 0 ) );
+			$padma_settings['version'] = PADMA_VERSION;
 
-				update_option('padma', $padma_settings);
+			update_option( 'padma', $padma_settings );
 
-				return $padma_settings;
+			return $padma_settings;
 
-			}
+		}
 
 		/* If the version in the database is already up to date, then there are no upgrade functions to be ran. */
-		if ( version_compare($db_version, PADMA_VERSION, '>=') ) {
-			if ( get_option('padma_upgrading') ) {
-				delete_option('padma_upgrading');
+		if ( version_compare( $db_version, PADMA_VERSION, '>=' ) ) {
+			if ( get_option( 'padma_upgrading' ) ) {
+				delete_option( 'padma_upgrading' );
 			}
 
 			return false;
 		}
 
-		Padma::load('maintenance/upgrades');
+		self::load( 'maintenance/upgrades' );
 
 		return PadmaMaintenance::do_upgrades();
 
 	}
 
-
+	/**
+	 * Drop tables method
+	 *
+	 * @return void
+	 */
 	public static function db_drop_tables() {
 
 		global $wpdb;
@@ -413,11 +428,16 @@ class Padma {
 
 	}
 
+	/**
+	 * DB Delta method
+	 *
+	 * @return void
+	 */
 	public static function db_dbdelta() {
 
 		global $wpdb;
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 		$charset_collate = '';
 
@@ -444,8 +464,7 @@ class Padma {
 					  KEY type (type)
 					) $charset_collate;";
 
-		dbDelta($pu_blocks_sql);
-
+		dbDelta( $pu_blocks_sql );
 
 		$pu_wrappers_sql = "CREATE TABLE $wpdb->pu_wrappers (
 					  id char(20) NOT NULL,
@@ -459,8 +478,7 @@ class Padma {
 					  KEY layout (layout)
 					) $charset_collate;";
 
-		dbDelta($pu_wrappers_sql);
-
+		dbDelta( $pu_wrappers_sql );
 
 		$pu_layout_meta_sql = "CREATE TABLE $wpdb->pu_layout_meta (
 					  meta_id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -472,8 +490,7 @@ class Padma {
 					  KEY template (layout)
 					) $charset_collate;";
 
-		dbDelta($pu_layout_meta_sql);
-
+		dbDelta( $pu_layout_meta_sql );
 
 		$pu_snapshots_sql = "CREATE TABLE $wpdb->pu_snapshots (
 					  id int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -490,9 +507,9 @@ class Padma {
 					  KEY template (template)
 					) $charset_collate;";
 
-		dbDelta($pu_snapshots_sql);
+		dbDelta( $pu_snapshots_sql );
 
-		if ( function_exists('maybe_convert_table_to_utf8mb4') ) {
+		if ( function_exists( 'maybe_convert_table_to_utf8mb4' ) ) {
 
 			maybe_convert_table_to_utf8mb4( $wpdb->pu_blocks );
 			maybe_convert_table_to_utf8mb4( $wpdb->pu_wrappers );
@@ -503,28 +520,41 @@ class Padma {
 
 	}
 
-
-	public static function set_autoload($template = null) {
+	/**
+	 * Set autoload
+	 *
+	 * @param object $template Template to load.
+	 * @return void
+	 */
+	public static function set_autoload( $template = null ) {
 
 		global $wpdb;
 
-		if ( !$template ) {
+		if ( ! $template ) {
 			$template = PadmaOption::$current_skin;
 		}
 
 		$wpdb->query( "UPDATE $wpdb->options SET autoload = 'no' WHERE option_name LIKE 'padma_%'" );
 
-		$wpdb->update( $wpdb->options, array(
-			'autoload' => 'yes'
-		), array(
-			'option_name' => 'padma_option_group_general'
-		) );
+		$wpdb->update(
+			$wpdb->options,
+			array(
+				'autoload' => 'yes',
+			),
+			array(
+				'option_name' => 'padma_option_group_general',
+			)
+		);
 
-		$wpdb->update( $wpdb->options, array(
-			'autoload' => 'yes'
-		), array(
-			'option_name' => 'pu_|template=' . $template . '|_option_group_general'
-		) );
+		$wpdb->update(
+			$wpdb->options,
+			array(
+				'autoload' => 'yes',
+			),
+			array(
+				'option_name' => 'pu_|template=' . $template . '|_option_group_general',
+			)
+		);
 
 	}
 
@@ -536,97 +566,104 @@ class Padma {
 
 		if ( class_exists( 'PadmaUpdater' ) ) {
 
-			PadmaUpdater::updater(PadmaSettings::get('slug'),PADMA_DIR,true);
+			PadmaUpdater::updater( PadmaSettings::get( 'slug' ), PADMA_DIR, true );
 
 		}
 
 	}
 
-
 	/**
 	 * Here's our function to load classes and files when needed from the library.
-	 **/
-	public static function load($classes, $init = false) {
+	 *
+	 * @param array   $classes Classes to load.
+	 * @param boolean $init load the class?.
+	 * @return void
+	 */
+	public static function load( $classes, $init = false ) {
 
-		//Build in support to either use array or a string
-		if ( !is_array($classes) ) {
-			$load[$classes] = $init;
+		// Build in support to either use array or a string.
+		if ( ! is_array( $classes ) ) {
+			$load[ $classes ] = $init;
 		} else {
 			$load = $classes;
 		}
 
 		$classes_to_init = array();
 
-		//Remove already loaded classes from the array
-		foreach ( Padma::$loaded_classes as $class ) {
-			unset($load[$class]);
+		// Remove already loaded classes from the array.
+		foreach ( self::$loaded_classes as $class ) {
+			unset( $load[ $class ] );
 		}
 
 		foreach ( $load as $file => $init ) {
 
-
-			//Check if only value is used instead of both key and value pair
-			if ( is_numeric($file) ){
+			// Check if only value is used instead of both key and value pair.
+			if ( is_numeric( $file ) ) {
 				$file = $init;
 				$init = false;
 			}
 
-			//Add the class to the main variable so we know that it has been loaded
-			Padma::$loaded_classes[] = $file;
+			// Add the class to the main variable so we know that it has been loaded.
+			self::$loaded_classes[] = $file;
 
-			//Set up init, if init is true, just figure out the class name from filename.  If argument is string, use that.
-			if ( $init === true ) {
+			// Set up init, if init is true, just figure out the class name from filename.  If argument is string, use that.
+			if ( true === $init ) {
 
-				$class = array_reverse(explode('/', str_replace('.php', '', $file)));
+				$class = array_reverse( explode( '/', str_replace( '.php', '', $file ) ) );
 
-				//Check for hyphens/underscores and CamelCase it
-				$class = str_replace(' ', '', ucwords(str_replace('-', ' ', str_replace('_', ' ', $class[0]))));
+				// Check for hyphens/underscores and CamelCase it.
+				$class = str_replace( ' ', '', ucwords( str_replace( '-', ' ', str_replace( '_', ' ', $class[0] ) ) ) );
 
 				$classes_to_init[] = $class;
 
-			} else if ( is_string($init) ) {
+			} elseif ( is_string( $init ) ) {
 
 				$classes_to_init[] = $init;
 
-			}else {
+			} else {
 
-				//Handle anything and automatically insert .php if need be
-				if ( strpos($file, '/') !== false )
+				// Handle anything and automatically insert .php if need be.
+				if ( strpos( $file, '/' ) !== false ) {
 					require_once PADMA_LIBRARY_DIR . '/' . $file . '.php';
-
+				}
 			}
-
 		}
 
-		//Init everything after dependencies have been loaded
-		foreach($classes_to_init as $class){
+		// Init everything after dependencies have been loaded.
+		foreach ( $classes_to_init as $class ) {
 
-			if ( method_exists('Padma' . $class, 'init') ) {
+			if ( method_exists( 'Padma' . $class, 'init' ) ) {
 
-				call_user_func(array('Padma' . $class, 'init'));
+				call_user_func( array( 'Padma' . $class, 'init' ) );
 
 			} else {
 
-				trigger_error('Padma' . $class . '::init is not a valid method', E_USER_WARNING);
+				trigger_error( 'Padma' . $class . '::init is not a valid method', E_USER_WARNING );
 
 			}
-
 		}
-
 	}
 
-
+	/**
+	 * Get method
+	 *
+	 * @return mixed
+	 */
 	public static function get() {
-		_deprecated_function(__FUNCTION__, '3.1.3', 'padma_get()');
+		_deprecated_function( __FUNCTION__, '1.0.0', 'padma_get()' );
 		$args = func_get_args();
-		return call_user_func_array('padma_get', $args);
+		return call_user_func_array( 'padma_get', $args );
 	}
 
-
+	/**
+	 * Post method
+	 *
+	 * @return mixed
+	 */
 	public static function post() {
-		_deprecated_function(__FUNCTION__, '3.1.3', 'padma_post()');
+		_deprecated_function( __FUNCTION__, '1.0.0', 'padma_post()' );
 		$args = func_get_args();
-		return call_user_func_array('padma_post', $args);
+		return call_user_func_array( 'padma_post', $args );
 	}
 
 }

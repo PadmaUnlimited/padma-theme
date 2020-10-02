@@ -91,12 +91,16 @@ class PadmaCompatibilityWooCommerce {
 				$general_css_fragments['storefront-wooc'] = PADMA_LIBRARY_DIR . '/compatibility/woocommerce/padma-storefront-wooc.css';
 				return $general_css_fragments;
 			}
-		);		
+		);
 
 	}
 
 
-
+	/**
+	 * Disallow edit of shop page
+	 *
+	 * @return void
+	 */
 	public static function disallow_edit_of_shop_page() {
 
 		add_filter( 'padma_layout_selector_no_edit_item_single-page-' . wc_get_page_id( 'shop' ), '__return_true' );

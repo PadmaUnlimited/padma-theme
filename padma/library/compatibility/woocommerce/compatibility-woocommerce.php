@@ -1,7 +1,16 @@
 <?php
+
+/**
+ * Padma Compatibility with WooCommerce.
+ */
 class PadmaCompatibilityWooCommerce {
 
 
+	/**
+	 * Init class
+	 *
+	 * @return void
+	 */
 	public static function init() {
 
 		/* Check requirements */
@@ -37,21 +46,31 @@ class PadmaCompatibilityWooCommerce {
 
 	}
 
-
+	/**
+	 * Check is Woocommer is installed and active
+	 *
+	 * @return bool
+	 */
 	public static function check_requirements() {
 
 		/**
 		 * Is multisite?
 		 */
-		if ( function_exists('is_multisite') && is_multisite() ) {
-			if ( function_exists('is_plugin_active') && !is_plugin_active('woocommerce/woocommerce.php') ) {
+		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+
+			/**
+			 * Woocommerce is active?
+			 */
+			if ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 				return true;
-			}else{
+			} else {
 				return false;
 			}
 		} else {
-
-			if ( ! in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins') ), true) ) {
+			/**
+			 * Woocommerce is active?
+			 */
+			if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 				return true;
 			} else {
 				return false;

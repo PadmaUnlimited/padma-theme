@@ -49,6 +49,8 @@ Tested with WooCommerce 4.5.3
 Woocommerce compatibility improvement
 PHP Compatibility fix
 Added Padma Advanced recomendation
+New filter 'padma_compiler_trigger_args' to modify URl parameters
+
 
 
 

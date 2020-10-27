@@ -39,7 +39,6 @@ class PadmaAdminBar {
 										home_url())
 		));
 
-
 		//Visual Editor
 		$wp_admin_bar->add_menu(array(
 			'parent' 	=> 'padma',

@@ -229,8 +229,13 @@ class PadmaQuery{
 					foreach ( get_post_meta($post_id) as $custom_field_name => $custom_field_values) {
 
 						//Note: the if test excludes values for WordPress internally maintained custom keys such as _edit_last and _edit_lock.
-					    if ( '_' == $custom_field_name{0} )
-					        continue;
+						debug([
+							$custom_field_name,
+							$custom_field_name[0]
+						]);
+					    if ( '_' == $custom_field_name[0] ) {
+							continue;
+						}
 
 						foreach ($custom_field_values as $key => $value) {
 

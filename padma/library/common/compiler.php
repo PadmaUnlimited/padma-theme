@@ -193,6 +193,7 @@ class PadmaCompiler {
 					$query_args['TB_iframe'] = 'true';
 				}
 
+				$query_args = apply_filters( 'padma_compiler_trigger_args', $query_args );
 				return apply_filters('padma_compiler_trigger_url', add_query_arg($query_args, home_url('/')));
 
 			}

@@ -322,11 +322,11 @@ class PadmaLayout {
 		} elseif ( is_404() ) {
 
 			$current_layout[] = 'four04';
-
-			if ( method_exists( $sitepress, 'get_current_language' ) ) {
-				$current_layout[] = 'four04' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+			if ( ! is_null( $sitepress ) ) {
+				if ( method_exists( $sitepress, 'get_current_language' ) ) {
+					$current_layout[] = 'four04' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+				}
 			}
-
 		}		
 
 		//I think we're finally done.

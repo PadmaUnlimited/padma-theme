@@ -12,8 +12,6 @@ class PadmaAdmin {
 			'admin/admin-pages',
 			'admin/api-admin-inputs'
 		));
-
-
 	}
 
 

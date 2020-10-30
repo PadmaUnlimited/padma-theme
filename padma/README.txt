@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.5
-Version: 1.3.6
+Version: 1.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.3.6 = 
+= 1.3.7 = 
 * Edge Version
 * Released: On dev
 Tested with WordPress 5.5.1
@@ -50,6 +50,8 @@ Woocommerce compatibility improvement
 PHP Compatibility fix
 Added Padma Advanced recomendation
 New filter 'padma_compiler_trigger_args' to modify URl parameters
+Design Mode updates
+- Added "spread" to box shadow
 
 
 

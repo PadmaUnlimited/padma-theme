@@ -99,7 +99,7 @@ class PadmaVisualEditor {
 
 	}
 
-
+	
 	public static function ajax_error_handler($errno, $errstr, $errfile, $errline) {
 
 		if ( !defined( 'E_STRICT' ) )

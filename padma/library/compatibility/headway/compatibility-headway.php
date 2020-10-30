@@ -38,19 +38,24 @@ class PadmaCompatibilityHeadway {
 
 	}
 
+	/**
+	 * Headway constants.
+	 *
+	 * @return void
+	 */
 	public static function padma_define_headway_constants(){
 
-		define('HEADWAY_VERSION', 				"3.8.9");
-		define('HEADWAY_DIR', 					PADMA_DIR);
-		define('HEADWAY_LIBRARY_DIR', 			PADMA_LIBRARY_DIR);
-		define('HEADWAY_SITE_URL', 				PADMA_SITE_URL);
-		define('HEADWAY_DASHBOARD_URL', 		PADMA_DASHBOARD_URL);
-		define('HEADWAY_EXTEND_URL', 			PADMA_EXTEND_URL);
-		define('HEADWAY_DEFAULT_SKIN', 			PADMA_DEFAULT_SKIN);
-		define('HEADWAY_CHILD_THEME_ACTIVE', 	PADMA_CHILD_THEME_ACTIVE);
-		define('HEADWAY_CHILD_THEME_DIR', 		PADMA_CHILD_THEME_DIR);
-		define('HEADWAY_UPLOADS_DIR', 			PADMA_UPLOADS_DIR);
-		define('HEADWAY_CACHE_DIR', 			PADMA_CACHE_DIR);	
+		define( 'HEADWAY_VERSION', '3.8.9' );
+		define( 'HEADWAY_DIR', PADMA_DIR );
+		define( 'HEADWAY_LIBRARY_DIR', PADMA_LIBRARY_DIR );
+		define( 'HEADWAY_SITE_URL', PADMA_SITE_URL );
+		define( 'HEADWAY_DASHBOARD_URL', PADMA_DASHBOARD_URL );
+		define( 'HEADWAY_EXTEND_URL', PADMA_EXTEND_URL );
+		define( 'HEADWAY_DEFAULT_SKIN', PADMA_DEFAULT_SKIN );
+		define( 'HEADWAY_CHILD_THEME_ACTIVE', PADMA_CHILD_THEME_ACTIVE );
+		define( 'HEADWAY_CHILD_THEME_DIR', PADMA_CHILD_THEME_DIR );
+		define( 'HEADWAY_UPLOADS_DIR', PADMA_UPLOADS_DIR );
+		define( 'HEADWAY_CACHE_DIR', PADMA_CACHE_DIR );	
 
 	}
 

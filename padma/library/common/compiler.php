@@ -197,9 +197,7 @@ class PadmaCompiler {
 				return apply_filters('padma_compiler_trigger_url', add_query_arg($query_args, home_url('/')));
 
 			}
-
 		}
-
 	}
 
 
@@ -208,7 +206,7 @@ class PadmaCompiler {
 	 * 
 	 * @return bool
 	 **/
-	public static function cache_file($file) {
+	public static function cache_file( $file ) {
 
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);
 

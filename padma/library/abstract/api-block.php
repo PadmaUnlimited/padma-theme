@@ -10,7 +10,7 @@ abstract class PadmaBlockAPI {
 	public $block_type_icons;
 	public $options_class 	= 'PadmaBlockOptionsAPI';		
 	public $fixed_height 	= false;	
-	public $html_tag 		= 'div';	
+	public $html_tag 		= 'div';
 	public $attributes 		= array();
 	public $description 	= false;
 	public $allow_titles 	= true;

@@ -11,7 +11,7 @@ global $padma_registry;
 $padma_registry = array(
 
 	// Abstract.
-	'PadmaAdminMetaBoxAPI'            => 'abstract/class-api-admin-meta-box',
+	'PadmaAdminMetaBoxAPI'            => 'abstract/api-admin-meta-box',
 	'PadmaNotice'                     => 'abstract/notice',
 	'PadmaBlockAPI'                   => 'abstract/api-block',
 	'PadmaVisualEditorBoxAPI'         => 'abstract/api-box',

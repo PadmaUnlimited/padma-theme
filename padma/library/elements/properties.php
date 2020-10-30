@@ -711,6 +711,16 @@ class PadmaElementProperties {
 				'default' => 0
 			),
 
+			'box-shadow-spread' => array(
+				'group' => 'Box Shadow',
+				'name' => 'Spread',
+				'type' => 'integer',
+				'unit' => 'px',
+				'js-callback' => 'propertyInputCallbackShadow(params);',
+				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
+				'default' => 0
+			),
+
 			'box-shadow-color' => array(
 				'group' => 'Box Shadow',
 				'name' => 'Color',
@@ -1824,6 +1834,7 @@ class PadmaElementProperties {
 		$shadow_hoffset = isset($properties[$shadow_type . '-horizontal-offset']) ? $properties[$shadow_type . '-horizontal-offset'] : '0';
 		$shadow_voffset = isset($properties[$shadow_type . '-vertical-offset']) ? $properties[$shadow_type . '-vertical-offset'] : '0';
 		$shadow_blur 	= isset($properties[$shadow_type . '-blur']) ? $properties[$shadow_type . '-blur'] : '0';
+		$shadow_spread 	= isset($properties[$shadow_type . '-spread']) ? $properties[$shadow_type . '-spread'] : '0';
 		$shadow_inset 	= (padma_get($shadow_type . '-position', $properties, 'outside') == 'inset') ? ' inset' : null;
 
 		$shadow_hoffset_unit = '';
@@ -1838,7 +1849,16 @@ class PadmaElementProperties {
 		if(is_numeric($shadow_blur))
 			$shadow_blur_unit = 'px';
 
-		return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . $shadow_hoffset_unit . ' ' . $shadow_voffset . $shadow_voffset_unit . ' ' . $shadow_blur . $shadow_blur_unit . $shadow_inset . ';';
+		$shadow_spread_unit = '';
+		if(is_numeric($shadow_spread))
+			$shadow_spread_unit = 'px';
+
+		if ( 'box-shadow' === $shadow_type ) {
+			return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . $shadow_hoffset_unit . ' ' . $shadow_voffset . $shadow_voffset_unit . ' ' . $shadow_blur . $shadow_blur_unit . ' ' . $shadow_spread . $shadow_spread_unit . $shadow_inset . ';';
+		} else {
+			return $shadow_type . ': ' . $shadow_color . ' ' . $shadow_hoffset . $shadow_hoffset_unit . ' ' . $shadow_voffset . $shadow_voffset_unit . ' ' . $shadow_blur . $shadow_blur_unit . $shadow_inset . ';';
+		}
+		
 
 	}
 

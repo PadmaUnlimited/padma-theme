@@ -103,8 +103,9 @@ class PadmaCompatibilityWooCommerce {
 	 */
 	public static function disallow_edit_of_shop_page() {
 
-		add_filter( 'padma_layout_selector_no_edit_item_single-page-' . wc_get_page_id( 'shop' ), '__return_true' );
-
+		if ( function_exists( 'wc_get_page_id' ) ) {
+			add_filter( 'padma_layout_selector_no_edit_item_single-page-' . wc_get_page_id( 'shop' ), '__return_true' );
+		}
 	}
 
 }

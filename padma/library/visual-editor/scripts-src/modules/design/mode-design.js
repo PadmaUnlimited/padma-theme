@@ -92,8 +92,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				/* Load in elements */
 					$('#design-editor-element-selector').empty();					
 					
-					$.each(Padma.elementGroups, function(groupID, groupInfo) {
-
+				
+					for (const [groupID, groupInfo] of Object.entries(Padma.elementGroups)) {
+					
 						var groupNode = $('<li id="element-group-' + groupID + '" class="element-group has-children">\
 											<span class="element-group-name">' + groupInfo.name + '</span>\
 											<span class="element-expander"></span>\
@@ -106,14 +107,18 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 						groupNode.appendTo('#design-editor-element-selector');
 
-					});
+					};
 
-					$.each(Padma.elements, designEditor.addElementToSelector);
+					
+					for (const [elementID, elementSettings] of Object.entries(Padma.elements)) {
+						designEditor.addElementToSelector(elementID, elementSettings)
+					}
 
 					/* Move each element to its appropriate parent */
-						$('#design-editor-element-selector li.element').each(function() {
+						var elements = document.querySelectorAll('#design-editor-element-selector li.element');
+						Array.prototype.forEach.call(elements, function (el, i) {
 
-							var parentID = $(this).data('parent');
+							var parentID = $(el).data('parent');
 
 							if ( !parentID )
 								return;
@@ -131,10 +136,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 								}
 
 							/* Move element to its parent */
-								$(this).appendTo(parentElement.find('> ul.children-elements'));
+								$(el).appendTo(parentElement.find('> ul.children-elements'));
 
 							/* If this element is customized then put the customized children flag on its parent */
-								if ( $(this).hasClass('customized-element') )
+								if ( $(el).hasClass('customized-element') )
 									parentElement.addClass('had-customized-children');
 
 
@@ -142,9 +147,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 					/* End moving each element to its parent */
 
 				/* Add instances and states */
-					$('#design-editor-element-selector li.element').each(function() {
-						designEditor.addElementStates($(this));
-						designEditor.addElementInstances($(this));
+					var elements = document.querySelectorAll('#design-editor-element-selector li.element');
+					Array.prototype.forEach.call(elements, function (el, i) {
+						designEditor.addElementStates($(el));
+						designEditor.addElementInstances($(el));
 					});
 				/* End loading in elements */
 
@@ -169,10 +175,11 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 					var callback = function($el) {
 
-						if ( $el.hasClass('element-instances-container') ) {
-							return $el.find('> ul > li.element').each(function () {
-								callback($(this));
-							});
+						if ( $el.hasClass('element-instances-container') ) {							
+							var elements = $el.find('> ul > li.element');
+							return Array.prototype.forEach.call(elements, function (el, i) {
+								callback($(el));
+							});							
 						} else if ( !$el.data('selector') ) {
 							return;
 						}
@@ -181,8 +188,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 							$el.addClass('element-in-layout');
 
-							$el.find('> ul > li.element').each(function() {
-								callback($(this));
+							var elements = $el.find('> ul > li.element')
+							Array.prototype.forEach.call(elements, function (el, i) {
+								callback($(el));
 							});
 
 							/* Show all states of element */
@@ -199,8 +207,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 					};
 
-					$('#design-editor-element-selector > .element-group > ul.group-elements > li.element').each(function() {
-						callback($(this));
+					var elements = document.querySelectorAll('#design-editor-element-selector > .element-group > ul.group-elements > li.element');
+					Array.prototype.forEach.call(elements, function (el, i) {
+						callback($(el));
 					});
 
 				}
@@ -308,10 +317,11 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 						elementNode.addClass('instances-visible');
 
-						$.each(instancesArray, function(key, instance) {
+
+						Array.prototype.forEach.call(instancesArray, function (instance, key) {
 
 							/* Build instance name */
-								var id = instance.id;
+								var id = instance.id;								
 								var instanceName = instance.name;
 
 								if ( typeof instance['state-of'] != 'undefined' && instance['state-of'] )
@@ -367,8 +377,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 						elementNode.addClass('states-visible');
 
-						$.each(states, function(stateID, stateInfo) {
-
+						for (const [stateID, stateInfo] of Object.entries(states)) {
+							
 							/* Add instance to tree */
 								var stateNode = $('<li id="element-state-' + stateID + '-for-' + elementID + '" data-element-id="' + elementID + '" data-state-id="' + stateID + '" data-selector="' + stateInfo.selector + '" class="element element-state">\
 										<span class="element-name">' + stateInfo.name + '</span>\
@@ -380,7 +390,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 									selector: stateInfo.selector
 								});
 
-						});
+						};
 					/* End add states loop */
 
 				}
@@ -2137,9 +2147,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 			var currentShadow = $i(selector).css(shadowType) || false;
 									
 			//If the current shadow isn't set, then create an empty template to work off of.
-			if ( currentShadow == false || currentShadow == 'none' )
-				currentShadow = 'rgba(0, 0, 0, 0) 0 0 0';
-			
+			if ( currentShadow == false || currentShadow == 'none' ) {
+				currentShadow = 'rgba(0, 0, 0, 0) 0 0 0 0';
+			}
+
 			//Remove all spaces inside rgba, rgb, and hsb colors and also remove all px
 			var shadowFragments = currentShadow.replace(/, /g, ',').replace(/px/g, '').split(' ');
 			
@@ -2147,7 +2158,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 			var shadowHOffset = $('li[data-property-id="' + shadowType + '-horizontal-offset' + '"] input').val() || shadowFragments[1];
 			var shadowVOffset = $('li[data-property-id="' + shadowType + '-vertical-offset' + '"] input').val() || shadowFragments[2];
 			var shadowBlur = $('li[data-property-id="' + shadowType + '-blur' + '"] input').val() || shadowFragments[3];
-			var shadowInset = $('li[data-property-id="' + shadowType + '-position' + '"] input').val() || shadowFragments[4];
+			var shadowSpread = $('li[data-property-id="' + shadowType + '-spread' + '"] input').val() || shadowFragments[4];
+			var shadowInset = $('li[data-property-id="' + shadowType + '-position' + '"] input').val() || shadowFragments[5];
 			
 			switch ( property ) {
 				
@@ -2162,6 +2174,10 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				case shadowType + '-blur':
 					shadowBlur = value || 0;
 				break;
+				
+				case shadowType + '-spread':
+					shadowSpread = value || 0;
+					break;
 				
 				case shadowType + '-inset':
 					shadowInset = value;
@@ -2183,7 +2199,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				shadowInset = '';
 			}
 
-			var shadow = shadowColor + ' ' + shadowHOffset + 'px ' + shadowVOffset + 'px ' + shadowBlur + 'px' + shadowInset;
+			var shadow = shadowColor + ' ' + shadowHOffset + 'px ' + shadowVOffset + 'px ' + shadowBlur + 'px ' + shadowSpread + 'px' + shadowInset;
 
 			var properties = {};
 			
@@ -2205,7 +2221,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				if ( typeof Padma.elements == 'undefined' )
 					return $.when(designEditorRequestElements()).then(addInspector);
 
-				
 				$.each(Padma.elements, function(elementID, elementSettings) {
 
 					if ( !elementSettings['inspectable'] )

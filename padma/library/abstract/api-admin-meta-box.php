@@ -163,7 +163,7 @@ abstract class PadmaAdminMetaBoxAPI {
 				$input['default'] = null;
 			}
 
-			$input['attr-id'] = $this->id . '-' . $input['id'];
+			$input['attr-id']   = $this->id . '-' . $input['id'];
 			$input['attr-name'] = $this->id . '[' . $input['group'] . '][' . $input['id'] . ']';
 
 			$global = 'template' === $input['id'] ? false : true;
@@ -332,7 +332,7 @@ abstract class PadmaAdminMetaBoxAPI {
 				</label>
 			';
 
-			if ( $count !== count( $input['options'] ) ) {
+			if ( count( $input['options'] ) !== $count ) {
 				echo '<br />';
 			}
 		}
@@ -345,6 +345,12 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
+	/**
+	 * Pages function.
+	 *
+	 * @param array $input Input.
+	 * @return void
+	 */
 	protected function input_pages( $input ) {
 
 		echo '
@@ -352,12 +358,12 @@ abstract class PadmaAdminMetaBoxAPI {
 				<td>' .
 					wp_dropdown_pages(
 						array(
-							'selected' => $input['value'],
-							'name' => $input['attr-name'],
-							'id' => $input['attr-id'],
+							'selected'         => $input['value'],
+							'name'             => $input['attr-name'],
+							'id'               => $input['attr-id'],
 							'show_option_none' => '   ',
-							'sort_column' => 'menu_order, post_title',
-							'echo' => false,
+							'sort_column'      => 'menu_order, post_title',
+							'echo'             => false,
 						)
 					);
 		echo '

@@ -8,8 +8,8 @@ class PadmaElementAPI {
 
 	public static function init() {
 
-		add_action('padma_visual_editor_ajax_pre_get_design_editor_elements', array(__CLASS__, 'register_elements_hook'));
-		add_action('padma_visual_editor_ajax_pre_get_design_editor_elements', array(__CLASS__, 'register_elements_instances_hook'));
+		add_action( 'padma_visual_editor_ajax_pre_get_design_editor_elements', array( __CLASS__, 'register_elements_hook' ) );
+		add_action( 'padma_visual_editor_ajax_pre_get_design_editor_elements', array( __CLASS__, 'register_elements_instances_hook' ) );
 
 		add_action('padma_before_get_block_styling', array(__CLASS__, 'register_elements_hook'));
 		add_action('padma_before_get_block_styling', array(__CLASS__, 'register_elements_instances_hook'));

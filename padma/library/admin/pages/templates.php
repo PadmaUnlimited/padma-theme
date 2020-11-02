@@ -43,81 +43,10 @@
 		</p>
 	</form>
 </div>
-<div id="save-on-cloud" style="display: none;">
-	<h3><?php _e('Save Template on Cloud','padma'); ?></h3>
-	<p><?php _e('Fill out the information below to export all design settings, layouts, and blocks as a Padma Template','padma'); ?></p>
-
-	<form id="save-template-on-cloud-form">
-		<table class="form-table">
-			<tbody>
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-name"><?php _e('Name','padma'); ?></label></th>
-				<td><input id="template-save-on-cloud-name" type="text" name="skin-save-on-cloud-info[name]" class="regular-text" /></td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-description"><?php _e('Description','padma'); ?></label></th>
-				<td><input id="template-save-on-cloud-description" type="text" name="skin-save-on-cloud-info[description]" class="regular-text" /></td>
-			</tr>
-
-			<?php
-			$current_user = wp_get_current_user();
-			?>
-
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-author"><?php _e('Author','padma'); ?></label></th>
-				<td><input id="template-save-on-cloud-author" type="text" name="skin-save-on-cloud-info[author]" class="regular-text" value="<?php echo $current_user->display_name; ?>" /></td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-version"><?php _e('Version','padma'); ?></label></th>
-				<td><input id="template-save-on-cloud-version" type="text" name="skin-save-on-cloud-info[version]" placeholder="e.g. 1.0" class="medium-text" /></td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-image"><?php _e('Image','padma'); ?></label></th>
-				<td>
-					<button id="template-save-on-cloud-image-button" class="button-secondary">
-						<span class="wp-media-buttons-icon"></span>
-						<?php _e('Select Image','padma'); ?>
-					</button>
-					<input id="template-save-on-cloud-image" type="hidden" name="skin-save-on-cloud-info[image-url]" class="medium-text" />
-					<img src="" id="template-save-on-cloud-image-preview" style="display: none;" />
-				</td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-visibility"><?php _e('Visibility','padma'); ?></label><br><small> <?php _e('(Private: Only for me, Public: Available to sell in market)','padma'); ?></small></th>
-				<td><select id="template-save-on-cloud-visibility" name="skin-save-on-cloud-info[visibility]" class="medium-text">
-					<option value='private'><?php _e('Private','padma'); ?></option>
-					<option value='public'><?php _e('Public','padma'); ?></option>
-				</select>
-			</tr>
-
-			<!--
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-price">Price (USD)</label></th>
-				<td><input id="template-save-on-cloud-price" type="text" name="skin-save-on-cloud-info[price]" placeholder="19" class="medium-text" /></td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row"><label for="template-save-on-cloud-preview">Preview URL</label></th>
-				<td><input id="template-save-on-cloud-preview" type="text" name="skin-save-on-cloud-info[preview]" placeholder="" class="medium-text" /></td>
-			</tr>
-			-->
-			</tbody>
-		</table>
-
-		<p class="submit">
-			<input type="submit" name="save-template-on-cloud" id="save-template-on-cloud-submit" class="button button-primary" value="<?php _e('Save Template on Cloud','padma'); ?>">
-		</p>
-	</form>
-</div>
 
 <h2><?php _e('Padma Templates','padma'); ?>
 	<a href="#" class="add-new-h2" id="install-template"><?php _e('Install Template','padma'); ?></a>
 	<a href="#TB_inline?width=500&height=600&inlineId=export-template" class="add-new-h2 thickbox" id="export-template"><?php _e('Export Current Template','padma'); ?></a>
-	<a href="#TB_inline?width=500&height=600&inlineId=save-on-cloud" class="add-new-h2 thickbox" id="export-template"><?php _e('Save Template on Cloud','padma'); ?></a>
 </h2>
 
 <div id="padma-admin-notifications"></div>

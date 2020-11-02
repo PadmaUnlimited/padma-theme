@@ -836,55 +836,6 @@ class PadmaVisualEditorAJAX {
 
 			}
 
-
-		/* Save Skin on Cloud */
-			public static function method_save_skin_on_cloud() {
-
-				if(class_exists('padmaServices')){
-
-					Padma::load('data/data-portability');
-					parse_str(padma_post('skin-info'), $skin_info);
-
-					$skin 	= PadmaDataPortability::export_skin($skin_info['skin-save-on-cloud-info'],true);
-
-					$templateData = array(
-						'name' 			=> $skin_info['skin-save-on-cloud-info']['name'],
-						'description' 	=> $skin_info['skin-save-on-cloud-info']['description'],
-						'author' 		=> $skin_info['skin-save-on-cloud-info']['author'],
-						'version' 		=> $skin_info['skin-save-on-cloud-info']['version'],
-						'image' 		=> $skin_info['skin-save-on-cloud-info']['image-url'],
-						'visibility' 	=> $skin_info['skin-save-on-cloud-info']['visibility'],
-						'price' 		=> $skin_info['skin-save-on-cloud-info']['price'],
-						'preview' 		=> $skin_info['skin-save-on-cloud-info']['preview'],
-					);					
-
-					$padmaServices = new padmaServices();
-					$response = $padmaServices->saveTemplateOnCloud($skin,$templateData);
-					if($response) {
-						$response = (array)$response;
-						if($response['error']){
-							return self::json_encode(array(
-								'error' => $response['error']
-							));
-						}else{
-							return self::json_encode(array(
-								'ok' => 'Template saved.'
-							));
-						}
-					}else{
-						return self::json_encode(array(
-							'error' => 'Error saving template.'
-						));
-					}
-
-				}else{
-					return self::json_encode(array(
-						'error' => 'Padma Services is not installed.'
-					));
-				}
-
-			}
-
 			public static function method_install_skin() {
 
 				Padma::load('data/data-portability');

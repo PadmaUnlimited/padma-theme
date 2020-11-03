@@ -338,6 +338,15 @@ class PadmaElementProperties {
 				'default' => '0.5'
 			),
 
+			'background-overlay' => array(
+				'group' => 'Background',
+				'name' => '&nbsp;&ndash; Color overlay',
+				'type' => 'color',
+				'js-callback' => 'propertyInputCallbackBackgroundOverlay(params);',
+				'complex-property' => 'PadmaElementProperties::complex_property_background_overlay',
+				'default' => '80000000',
+			),
+
 		/* 	Borders */
 			'border-color' => array(
 				'group' => 'Borders',
@@ -1967,6 +1976,15 @@ class PadmaElementProperties {
 		return;
 	}
 
+	/**
+	 * Add a overlay color between background and block content.
+	 *
+	 * @param string $args
+	 * @return void
+	 */
+	public static function complex_property_background_overlay( $args ) {
+		debug( $args );
+	}
 
 	public static function get_effects_list($args){
 

@@ -1,10 +1,17 @@
 <?php
+/**
+ * Properties class
+ */
 class PadmaElementProperties {
 
-
+	/**
+	 * Properties to design mode.
+	 *
+	 * @var array
+	 */
 	protected static $properties = array(
 
-		/*	Smoth Scrolling	*/
+		/* Smoth Scrolling */
 			'scroll-behavior' => array(
 				'group' => 'Scroll',
 				'name' => 'Scroll',
@@ -16,16 +23,16 @@ class PadmaElementProperties {
 					'initial' => 'Initial',
 					'inherit' => 'Inherit',
 				),
-				'default' => 'initial'
+				'default' => 'initial',
 			),
 
-		/* 	Fonts */
+		/* Fonts */
 			'font-family' => array(
-				'group' 			=> 'Fonts',
-				'name' 				=> 'Font Family',
-				'type' 				=> 'font-family-select',
-				'js-callback' 		=> 'propertyInputCallbackFontFamily(params);',
-				'complex-property' 	=> 'PadmaElementProperties::complex_property_font_family'
+				'group'         => 'Fonts',
+				'name'          => 'Font Family',
+				'type'          => 'font-family-select',
+				'js-callback'   => 'propertyInputCallbackFontFamily(params);',
+				'complex-property' => 'PadmaElementProperties::complex_property_font_family',
 			),
 
 			'font-size' => array(

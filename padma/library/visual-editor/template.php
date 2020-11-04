@@ -11,8 +11,19 @@
 
 	<title>Visual Editor: Loading</title>
 	<link rel="shortcut icon" type="image/png" href="<?php echo padma_url() . "/library/visual-editor/images/logo.png"; ?>"/>
+	<?php
 
-	<?php do_action('padma_visual_editor_head'); ?>
+		do_action('padma_visual_editor_head');
+
+		if (PadmaOption::get('headway-support')) {
+			do_action('headway_visual_editor_head');
+		}
+
+		if (PadmaOption::get('bloxtheme-support')) {
+			do_action('blox_visual_editor_head');
+		}
+
+	?>
 
 </head><!-- /head -->
 

@@ -88,8 +88,9 @@ class PadmaCompatibilityHeadway {
 		foreach ($padmaClassArray as $padmaClass => $methods) {
 
 			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);
-			class_alias($padmaClass,$headwayClassName);
-
+			if ( ! class_exists( $headwayClassName ) ) {
+				class_alias($padmaClass, $headwayClassName);
+			}
 		}
 	}	
 }

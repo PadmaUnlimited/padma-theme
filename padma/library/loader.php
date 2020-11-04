@@ -65,9 +65,20 @@ $padma_registry = array(
 	'PadmaCompatibilityAmember'       => 'compatibility/amember/compatibility-amember',
 	'PadmaCompatibilityDiviBuilder'   => 'compatibility/divi-builder/compatibility-divi-builder',
 	'PadmaCompatibilityHeadway'       => 'compatibility/headway/compatibility-headway',
+	'PadmaCompatibilityBlox'          => 'compatibility/blox/compatibility-blox',
+
 	'HeadwayAdminMetaBoxAPI'          => 'compatibility/headway/abstract',
+	'BloxAdminMetaBoxAPI'             => 'compatibility/blox/abstract',
+
 	'HeadwayBlockAPI'                 => 'compatibility/headway/abstract',
+	'BloxBlockAPI'                    => 'compatibility/blox/abstract',
+
+	'HeadwayBlockOptionsAPI'          => 'compatibility/headway/abstract',
+	'BloxBlockOptionsAPI'             => 'compatibility/blox/abstract',
+
 	'HeadwayVisualEditorPanelAPI'     => 'compatibility/headway/abstract',
+	'BloxVisualEditorPanelAPI'        => 'compatibility/blox/abstract',
+
 	'PadmaCompatibilityWooCommerce'   => 'compatibility/woocommerce/compatibility-woocommerce',
 	'PadmaCompatibilityWpml'          => 'compatibility/wpml/compatibility-wpml',
 

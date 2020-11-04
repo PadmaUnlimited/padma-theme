@@ -130,6 +130,11 @@ class PadmaHead {
 					$general_css_fragments[] = apply_filters('headway_general_css', $general_css_fragments);					
 				}
 
+				// There is bloxtheme support
+				if (PadmaOption::get('bloxtheme-support')) {
+					$general_css_fragments = apply_filters('blox_general_css', $general_css_fragments);
+				}
+
 			/* Live CSS */
 				if ( current_theme_supports('padma-live-css') && PadmaSkinOption::get('live-css') )
 					$general_css_fragments['dynamic-live-css'] = array('PadmaDynamicStyle', 'live_css');

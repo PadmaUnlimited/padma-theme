@@ -211,6 +211,7 @@ function ITStylesheet(args, action) {
 		var selectors = [];
 		
 		for(var i = 0; i < raw_rules.length; i++) {
+			console.log(raw_rules[i])
 			declarations[raw_rules[i].selectorText] = this._get_rule_declarations_object(raw_rules[i]);
 			selectors.push(raw_rules[i].selectorText);
 		}
@@ -226,6 +227,7 @@ function ITStylesheet(args, action) {
 	}
 	
 	this._get_rule_declarations_object = function(rule_or_node) {
+
 		var declarations = {};
 		
 		var style_obj;
@@ -239,6 +241,7 @@ function ITStylesheet(args, action) {
 		for(var i = 0; i < style_obj.length; i++)
 			properties.push(style_obj[i]);
 		properties.sort();
+
 		
 		for(var i = 0; i < properties.length; i++) {
 			var property = this._get_property_standard_name(properties[i]);
@@ -254,6 +257,7 @@ function ITStylesheet(args, action) {
 	
 	
 	this.get_rule_index = function(selector) {
+
 		if('undefined' === typeof selector)
 			return false;
 			
@@ -268,10 +272,12 @@ function ITStylesheet(args, action) {
 			return selector;
 
 		for(var i = 0; i < this.rules.length; i++) {
-			if(typeof this.rules[i].selectorText == 'string' && this.rules[i].selectorText.toLowerCase() == selector.toLowerCase())
+			
+			if(typeof this.rules[i].selectorText == 'string' && this.rules[i].selectorText.toLowerCase().replace('::',':') == selector.toLowerCase()){
 				indexes.push(i);
+			}
 		}
-				
+		
 		if(indexes.length !== 0){
 			return indexes[indexes.length-1];
 		}
@@ -280,6 +286,7 @@ function ITStylesheet(args, action) {
 	}
 	
 	this.get_rule = function(selector) {
+
 		if('undefined' === typeof selector)
 			return false;
 		
@@ -299,8 +306,9 @@ function ITStylesheet(args, action) {
 	this.update_rule = function(selectors_raw, declarations, split_selectors) {	
 
 
-		if(('undefined' === typeof this.rules) || ('undefined' === typeof selectors_raw))
+		if(('undefined' === typeof this.rules) || ('undefined' === typeof selectors_raw)){
 			return false;
+		}
 		if('undefined' === typeof declarations )
 			declarations = {};
 		if('undefined' === typeof split_selectors)
@@ -311,7 +319,6 @@ function ITStylesheet(args, action) {
 		} else {
 			var selectors = new Array(selectors_raw);
 		}
-		
 
 		var rules = [];
 		
@@ -323,19 +330,18 @@ function ITStylesheet(args, action) {
 			
 			var rule = this.get_rule(selector);
 
-
-
 			try {
 				if(false === rule) {
 					var rule_index = this.rules.length;
 					string_declarations = ('string' === typeof declarations) ? declarations : this._get_style_from_declarations(declarations);
-
 					
-					if(this.stylesheet.addRule)
-						this.stylesheet.addRule(selector, string_declarations, rule_index);
-					else
+					window.tmp = this.stylesheet;
+					
+					if (this.stylesheet.insertRule){
 						this.stylesheet.insertRule(selector + ' {' + string_declarations + '}', rule_index);
-					
+					}else{
+						this.stylesheet.addRule(selector, string_declarations, rule_index);
+					}
 					rule = this.rules[rule_index];
 				}
 				else {

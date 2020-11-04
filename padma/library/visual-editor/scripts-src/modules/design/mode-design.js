@@ -2135,6 +2135,52 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 			
 		}
 
+		propertyInputCallbackBackgroundOverlay = function( params ) {
+
+			var selector = params.selector;
+			var value = params.value;
+			var element = params.element;
+			var property = params.property;
+
+			if ( value === 'none' || value == null ) {
+				
+				stylesheet.update_rule(selector, {
+					'position': 'initial',
+					'z-index': 'initial',
+				});
+				stylesheet.update_rule(selector + ' * ', {
+					'position': 'initial',
+					'z-index': 'initial',
+				});
+				stylesheet.update_rule(selector + ':before', {
+					'content': '',
+				});
+				
+			} else {
+				stylesheet.update_rule(selector, {
+					'position': 'relative',
+					'z-index': '0',
+				});
+				stylesheet.update_rule(selector + ' * ', {
+					'position': 'relative',
+					'z-index': '2',
+				});
+				stylesheet.update_rule(selector+':before', {
+					'content': '" "',
+					'display': 'block',
+					'background-color': value,
+					'position': 'absolute',
+					'top': '0',
+					'left': '0',
+					'right': '0',
+					'bottom': '0',
+					'z-index': '1',
+				});
+			}
+			
+			
+		}
+
 		propertyInputCallbackShadow = function(params) {
 		
 			var selector = params.selector;

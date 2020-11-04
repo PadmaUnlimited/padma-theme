@@ -47,8 +47,9 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 	public static function add_comment_class_to_all_types($classes) {
 
-		if ( !is_array($classes) )
+		if ( !is_array($classes) ){
 			$classes = implode(' ', trim($classes));
+		}
 
 		$classes[] = 'comment';
 

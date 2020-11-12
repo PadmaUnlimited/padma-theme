@@ -1,41 +1,54 @@
 <?php
-
+/**
+ * Headway Compatibility Headway
+ */
 class PadmaCompatibilityHeadway {
 
-
+	/**
+	 * Init Method
+	 *
+	 * @return void
+	 */
 	public static function init() {
 
-		if(!PadmaOption::get('headway-support'))
+		if ( ! PadmaOption::get( 'headway-support' ) ) {
 			return;
+		}
 
 		self::load();
-
 	}
 
-	public static function load(){
+	/**
+	 * Load
+	 *
+	 * @return void
+	 */
+	public static function load() {
 
 		$GLOBALS['headway_default_element_data'] = $GLOBALS['padma_default_element_data'];
 
-		PadmaCompatibilityHeadway::padma_define_headway_constants();
+		self::padma_define_headway_constants();
 
-		Padma::load(array(
-			'abstract/api-admin-meta-box',
-			'abstract/api-box',
-			'admin/admin-write' => true,
-			'admin/admin-pages',
-			'admin/api-admin-inputs'
-		));
+		Padma::load(
+			array(
+				'abstract/api-admin-meta-box',
+				'abstract/api-box',
+				'admin/admin-write' => true,
+				'admin/admin-pages',
+				'admin/api-admin-inputs',
+			)
+		);
 
-		require PADMA_LIBRARY_DIR . '/compatibility/headway/functions.php';	
-		require PADMA_LIBRARY_DIR . '/compatibility/headway/abstract.php';	
+		require PADMA_LIBRARY_DIR . '/compatibility/headway/functions.php';
+		require PADMA_LIBRARY_DIR . '/compatibility/headway/abstract.php';
 
-		add_action('after_setup_theme',function(){
-
-			PadmaCompatibilityHeadway::padma_declare_headway_classes();
-			Headway::init();
-
-		});
-
+		add_action(
+			'after_setup_theme',
+			function() {
+				PadmaCompatibilityHeadway::padma_declare_headway_classes();
+				Headway::init();
+			}
+		);
 	}
 
 	/**
@@ -55,42 +68,47 @@ class PadmaCompatibilityHeadway {
 		define( 'HEADWAY_CHILD_THEME_ACTIVE', PADMA_CHILD_THEME_ACTIVE );
 		define( 'HEADWAY_CHILD_THEME_DIR', PADMA_CHILD_THEME_DIR );
 		define( 'HEADWAY_UPLOADS_DIR', PADMA_UPLOADS_DIR );
-		define( 'HEADWAY_CACHE_DIR', PADMA_CACHE_DIR );	
-
+		define( 'HEADWAY_CACHE_DIR', PADMA_CACHE_DIR );
 	}
 
+	/**
+	 * Declare Headway Classes
+	 *
+	 * @return void
+	 */
+	public static function padma_declare_headway_classes() {
 
-	public static function padma_declare_headway_classes(){
+		$padma_core_classes = array(
+			'PadmaUpdater',
+			'PadmaLifeSaver',
+			'PadmaLifeSaver\helpers\Plugin',
+			'PadmaLifeSaver\helpers\json',
+			'PadmaAdminMetaBoxAPI',
+			'PadmaBlockAPI',
+			'PadmaVisualEditorBoxAPI',
+			'PadmaVisualEditorPanelAPI',
+		);
 
-		$padmaClassArray = array();
+		$padma_classes_array = array();
 
-		foreach (get_declared_classes() as $key => $padmaClass) {
+		foreach ( get_declared_classes() as $key => $padma_class ) {
 
-			if (strpos($padmaClass, 'Padma') !== false) {
+			if ( strpos( $padma_class, 'Padma' ) !== false ) {
 
-				if(
-					$padmaClass == 'PadmaUpdater' ||
-					$padmaClass == 'PadmaLifeSaver' ||
-					$padmaClass == 'PadmaLifeSaver\helpers\Plugin' ||
-					$padmaClass == 'PadmaLifeSaver\helpers\json' ||
-					$padmaClass == 'PadmaAdminMetaBoxAPI' ||
-					$padmaClass == 'PadmaBlockAPI' ||
-					$padmaClass == 'PadmaVisualEditorBoxAPI' ||
-					$padmaClass == 'PadmaVisualEditorPanelAPI' 
-					)
+				if ( in_array( $padma_class, $padma_core_classes, true ) ) {
 					continue;
+				}
 
-				$padmaClassArray[$padmaClass] = get_class_methods($padmaClass);
-
+				$padma_classes_array[ $padma_class ] = get_class_methods( $padma_class );
 			}
 		}
 
-		foreach ($padmaClassArray as $padmaClass => $methods) {
+		foreach ( $padma_classes_array as $padma_class => $methods ) {
 
-			$headwayClassName 	= str_replace('Padma', 'Headway', $padmaClass);
-			if ( ! class_exists( $headwayClassName ) ) {
-				class_alias($padmaClass, $headwayClassName);
+			$headway_classname = str_replace( 'Padma', 'Headway', $padma_class );
+			if ( ! class_exists( $headway_classname ) ) {
+				class_alias( $padma_class, $headway_classname );
 			}
 		}
-	}	
+	}
 }

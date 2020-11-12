@@ -63,6 +63,12 @@ abstract class PadmaAdminMetaBoxAPI {
 	 **/
 	protected $post_type_supports_id;
 
+
+	/**
+	 * Register Meta Box
+	 *
+	 * @return bool
+	 */
 	public function register() {
 
 		/**
@@ -100,6 +106,11 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
+	/**
+	 * Init method
+	 *
+	 * @return void
+	 */
 	public function init() {
 
 		/**
@@ -122,6 +133,11 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
+	/**
+	 * Box Method
+	 *
+	 * @return void
+	 */
 	public function box() {
 
 		global $post;
@@ -194,6 +210,12 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
+	/**
+	 * Save method
+	 *
+	 * @param int $post_ID Post ID.
+	 * @return mixed
+	 */
 	public function save( $post_ID ) {
 
 		/* Don't try saving meta if it's an autosave */
@@ -226,7 +248,7 @@ abstract class PadmaAdminMetaBoxAPI {
 
 				PadmaLayoutOption::set( $post_ID, $input, $value, $global, $group );
 
-				if ('template' === $input  ) {
+				if ( 'template' === $input ) {
 					PadmaLayout::clear_status_transient();
 				}
 			}
@@ -234,13 +256,22 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
-	protected function modify_arguments( $post = false ) {
+	/**
+	 * Modify Arguments
+	 *
+	 * @param boolean $post Post to work in.
+	 * @return void
+	 */
+	protected function modify_arguments( $post = false ) {}
 
-	}
 
-
+	/**
+	 * Input text
+	 *
+	 * @param object $input Input data.
+	 * @return void
+	 */
 	protected function input_text( $input ) {
-
 		echo '
 			<tr>
 				<td>
@@ -248,12 +279,16 @@ abstract class PadmaAdminMetaBoxAPI {
 				</td>
 			</tr>
 		';
-
 	}
 
 
+	/**
+	 * Input textare
+	 *
+	 * @param object $input Input data.
+	 * @return void
+	 */
 	protected function input_textarea( $input ) {
-
 		echo '
 	 		<tr>
 				<td>
@@ -261,10 +296,15 @@ abstract class PadmaAdminMetaBoxAPI {
 				</td>
 			</tr>
 		';
-
 	}
 
 
+	/**
+	 * Input checkbox
+	 *
+	 * @param object $input Input data.
+	 * @return void
+	 */
 	protected function input_checkbox( $input ) {
 
 		$checked = ( true === $input['value'] && '0' !== $input['value'] ) ? ' checked' : null;
@@ -278,10 +318,15 @@ abstract class PadmaAdminMetaBoxAPI {
 					</label>
 				</td>
 			</tr>';
-
 	}
 
 
+	/**
+	 * Input select
+	 *
+	 * @param object $input Input data.
+	 * @return void
+	 */
 	protected function input_select( $input ) {
 
 		echo '
@@ -308,6 +353,12 @@ abstract class PadmaAdminMetaBoxAPI {
 	}
 
 
+	/**
+	 * Input radio
+	 *
+	 * @param object $input Input data.
+	 * @return void
+	 */
 	protected function input_radio( $input ) {
 
 		echo '

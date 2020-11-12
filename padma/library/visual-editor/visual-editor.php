@@ -142,6 +142,8 @@ class PadmaVisualEditor {
 
 	public static function save($options, $current_layout = false, $mode = false) {
 
+		debug( $options );
+
 		set_error_handler(array(__CLASS__, "ajax_error_handler"));
 
 		$output = array(

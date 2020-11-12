@@ -3153,12 +3153,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 			return $('span.design-editor-selection-details');
 
 		}
-
-		sanitizeElementName = function(elementName) {
-
-			return $.trim(elementName.escapeHTML());
-
-		}
 	/* END ELEMENT INFO */
 
 	/* NAVIGATION */

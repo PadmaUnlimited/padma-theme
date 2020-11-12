@@ -1,6 +1,6 @@
 <?php
 
-class PadmaAdminInputs {	
+class PadmaAdminInputs {
 
 	public static function generate($inputs, $table_class = 'form-table') {
 
@@ -12,8 +12,9 @@ class PadmaAdminInputs {
 
 				$row_count++;
 
-				if ( !method_exists(__CLASS__, 'input_' . $input['type']) )
+				if ( ! method_exists( __CLASS__, 'input_' . $input['type'] ) ) {
 					continue;
+				}
 
 				$tooltip = (isset($input['tooltip']) && $input['tooltip']) ? '<span class="label-tooltip" title="' . esc_attr($input['tooltip']) . '"></span>' : null;
 				$description = (isset($input['description']) && $input['description']) ? '<p class="description">' . $input['description'] . '</p>' : null;

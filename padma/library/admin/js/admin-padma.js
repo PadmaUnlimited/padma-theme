@@ -12,8 +12,7 @@ function openTabAdmin(evt, option) {
 	evt.currentTarget.firstElementChild.className += " padma-admin-border-red";
 }
 (function($) {
-$(document).ready(function() {
-
+document.addEventListener('DOMContentLoaded', function () {
 
 	showNotification = function(args) {
 
@@ -208,16 +207,14 @@ $(document).ready(function() {
 
 
 	/* Tooltips */
-		if ( typeof $().qtip === 'function' ) {
+		if ( typeof $().jBox === 'function' ) {
 			
-			$('label span.label-tooltip').qtip({
-				style: {
-					classes: 'qtip-padma'
-				},
+			$('label span.label-tooltip').jBox( 'Tooltip', {
+				addClass: 'jbox-padma',
 				position: {
-					my: 'bottom left',
-					at: 'top right'
-				}
+					x: 'left',
+					y: 'center'
+				},
 			});
 			
 		}
@@ -232,21 +229,18 @@ $(document).ready(function() {
 	/* System Info */
 	if ( $('textarea#system-info-textarea').length > 0 ) {
 		
-		$('textarea#system-info-textarea').qtip({
-			style: {
-				classes: 'qtip-padma'
-			},
+		$('textarea#system-info-textarea').jBox( 'Tooltip', {
+			addClass: 'jbox-padma',
 			position: {
-				my: 'bottom center',
-				at: 'top center'
-			}
+				x: 'left',
+				y: 'center'
+			},
 		});
+
 	
-		$('textarea#system-info-textarea').bind('mouseup', function() {
+		$('textarea#system-info-textarea').on('mouseup', function() {
 		
-			$(this)
-				.focus()
-				.select();
+			$(this).triggerHandler( "focus" ).select();
 			
 		});
 		
@@ -273,9 +267,9 @@ $(document).ready(function() {
 					} else {
 
 						if ( value == 1 ) {
-							$(this).attr('checked', true);
+							$(this).prop('checked', true);
 						} else {
-							$(this).attr('checked', false);
+							$(this).prop('checked', false);
 						}
 
 					}

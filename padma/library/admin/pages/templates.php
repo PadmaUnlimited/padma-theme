@@ -72,51 +72,6 @@
 
 			</div>
 		<!-- /ko -->
-
-		<?php 
-		if(class_exists('padmaServices')){
-
-			$padmaServices 	= new padmaServices();
-			$padmaServices->setToken(get_option('padma_service_token'));
-			$data 	= $padmaServices->getDashboardData();
-
-			if( is_array($data->templates) && count($data->templates) > 0){
-				echo '<hr class="templates">';
-				echo '<h3>' . __('Templates available on your Padma Services Account','padma') . '</h3>';
-
-				foreach ($data->templates as $key => $template) {
-
-						$template 	= (array)$template;
-						$id 		= $template['id'];
-						$name 		= $template['name'];
-						$screenshot = $template['image'];
-
-						?>
-
-						<div class="theme padma-template" tabindex="0">
-
-							<div class="theme-screenshot">
-								<span class="template-loading-indicator"></span>
-								<img src="<?php echo $screenshot; ?>" alt="" />
-							</div>
-
-							<h3 class="theme-name" id="padma-name"><span><?php _e('Available: ','padma'); ?></span><?php echo $name; ?></h3>
-
-							<div class="theme-actions">
-								<a class="button button-primary install-cloud-template" id="template-<?php echo $id; ?>" data-token="<?php echo get_option('padma_service_token'); ?>" href="#"><?php _e('Install','padma'); ?></a>
-							</div>
-
-						</div>
-
-					<?php
-				} // foreach
-
-				echo '<hr class="templates">';
-			}
-		}
-
-		?>
-
 		<div class="theme add-new-theme" id="add-blank-template">
 			<a href="#">
 				<div class="theme-screenshot"><span></span></div>

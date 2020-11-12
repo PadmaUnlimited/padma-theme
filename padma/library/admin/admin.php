@@ -370,34 +370,40 @@ class PadmaAdmin {
 			'security' 			=> wp_create_nonce('padma-visual-editor-ajax'),				
 		));
 
-        /* General Padma admin CSS/JS */
-		if ( strpos(padma_get('page'), 'padma') !== false ) {
+		/**
+		 * General Padma admin CSS/JS
+		 */
+		if ( false !== strpos( padma_get( 'page' ), 'padma' ) ) {
 
-			wp_enqueue_script('padma_jquery_scrollto', padma_url() . '/library/admin/js/jquery.scrollto.js', array('jquery'));
-			wp_enqueue_script('padma_jquery_tabby', padma_url() . '/library/admin/js/jquery.tabby.js', array('jquery'));
-			wp_enqueue_script('padma_jquery_qtip', padma_url() . '/library/admin/js/jquery.qtip.js', array('jquery'));
-            wp_enqueue_script('padma_admin_js', padma_url() . '/library/admin/js/admin-padma.js', array('jquery', 'padma_jquery_qtip'));
+			wp_enqueue_script( 'padma_jquery_scrollto', padma_url() . '/library/admin/js/jquery.scrollto.js', array( 'jquery' ), PADMA_VERSION, true );
+			wp_enqueue_script( 'padma_jquery_tabby', padma_url() . '/library/admin/js/jquery.tabby.js', array( 'jquery' ), PADMA_VERSION, true );
+			wp_enqueue_script( 'padma_jquery_jbox', padma_url() . '/library/visual-editor/scripts/deps/jBox/dist/jBox.all.js', array( 'jquery' ), PADMA_VERSION, true );
+			wp_enqueue_script( 'padma_admin_js', padma_url() . '/library/admin/js/admin-padma.js', array( 'jquery', 'padma_jquery_jbox' ), PADMA_VERSION, true );
 
-            wp_enqueue_style('padma_admin', padma_url() . '/library/admin/css/admin-padma.css');
-			wp_enqueue_style('padma_alerts', padma_url() . '/library/media/css/alerts.css');
+			wp_enqueue_style( 'padma_admin', padma_url() . '/library/admin/css/admin-padma.css', array(), PADMA_VERSION, 'all' );
+			wp_enqueue_style( 'padma_alerts', padma_url() . '/library/media/css/alerts.css', array(), PADMA_VERSION, 'all' );
+			wp_enqueue_style( 'padma_jbox_css', padma_url() . '/library/visual-editor/scripts/deps/jBox/dist/jBox.all.css', array(), PADMA_VERSION, 'all' );
 
 		}
 
 		/* Templates */
-		if ( padma_get('page') == 'padma-templates' ) {
+		if ( padma_get( 'page' ) === 'padma-templates' ) {
 
-			wp_enqueue_script('padma_knockout', padma_url() . '/library/admin/js/knockout.js', array('jquery'));
-			wp_enqueue_script('padma_admin_templates', padma_url() . '/library/admin/js/admin-templates.js', array('jquery'));
+			wp_enqueue_script( 'padma_knockout', padma_url() . '/library/admin/js/knockout.js', array( 'jquery' ), PADMA_VERSION, true );
+			wp_enqueue_script( 'padma_admin_templates', padma_url() . '/library/admin/js/admin-templates.js', array( 'jquery' ), PADMA_VERSION, true );
 
-			wp_localize_script('padma_admin_templates', 'Padma', array(
-
-				'ajaxURL' 			=> admin_url('admin-ajax.php'),
-				'apiURL' 			=> PADMA_API_URL,
-				'security' 			=> wp_create_nonce('padma-visual-editor-ajax'),
-				'templates' 		=> PadmaTemplates::get_all(),
-				'templateActive' 	=> PadmaTemplates::get_active(),
-				'viewModels' 		=> array()
-			));
+			wp_localize_script(
+				'padma_admin_templates',
+				'Padma',
+				array(
+					'ajaxURL'        => admin_url( 'admin-ajax.php' ),
+					'apiURL'         => PADMA_API_URL,
+					'security'       => wp_create_nonce( 'padma-visual-editor-ajax' ),
+					'templates'      => PadmaTemplates::get_all(),
+					'templateActive' => PadmaTemplates::get_active(),
+					'viewModels'     => array(),
+				)
+			);
 
 			add_thickbox();
 			wp_enqueue_media();

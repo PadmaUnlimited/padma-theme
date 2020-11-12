@@ -6,7 +6,8 @@ require.config({
 
 		/* jQuery Plugins */
 		jqueryUI: 'deps/jquery.ui',
-		qtip: 'deps/jquery.qtip'
+		qtip: 'deps/jquery.qtip',
+		jbox: 'deps/jBox/dist/jBox.all',
 	},
 	shim: {
 	    underscore: {

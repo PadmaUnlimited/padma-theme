@@ -207,7 +207,7 @@
 	display: none !important;
 }
 
-.qtip-content {
+.jbox-content {
 	position: relative;
 	padding: 5px 9px;
 	overflow: hidden;
@@ -218,21 +218,21 @@
 	overflow: hidden;
 }
 
-.qtip-content strong {
+.jbox-content strong {
 	font-weight: bold;
 }
 
-.qtip-content em {
+.jbox-content em {
 	font-style: italic;
 }
 
-.qtip-content ul {
+.jbox-content ul {
 	margin: 5px 0;
 	padding: 0 5px 0 30px;
 	list-style: disc;
 }
 
-.qtip-titlebar {
+.jbox-titlebar {
 	position: relative;
 	min-height: 14px;
 	padding: 5px 35px 5px 10px;
@@ -242,12 +242,12 @@
 	font-weight: bold;
 }
 
-.qtip-titlebar + .qtip-content {
+.jbox-titlebar + .jbox-content {
 	border-top-width: 0 !important;
 }
 
 /*! Default close button class */
-.qtip-titlebar .ui-state-default {
+.jbox-titlebar .ui-state-default {
 	position: absolute;
 	right: 4px;
 	top: 50%;
@@ -258,25 +258,25 @@
 	border-style: solid;
 }
 
-* html .qtip-titlebar .ui-state-default {
+* html .jbox-titlebar .ui-state-default {
 	top: 16px;
 }
 
 /* IE fix */
-.qtip-titlebar .ui-icon,
-.qtip-icon .ui-icon {
+.jbox-titlebar .ui-icon,
+.jbox-icon .ui-icon {
 	display: block;
 	text-indent: -1000em;
 }
 
-.qtip-icon,
-.qtip-icon .ui-icon {
+.jbox-icon,
+.jbox-icon .ui-icon {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
 
-.qtip-icon .ui-icon {
+.jbox-icon .ui-icon {
 	width: 18px;
 	height: 14px;
 	text-align: center;
@@ -285,7 +285,7 @@
 }
 
 /* Tips plugin */
-.qtip .qtip-tip {
+.qtip .jbox-tip {
 	margin: 0 auto;
 	overflow: hidden;
 	background: transparent;
@@ -293,8 +293,8 @@
 	z-index: 10;
 }
 
-.qtip .qtip-tip,
-.qtip .qtip-tip * {
+.qtip .jbox-tip,
+.qtip .jbox-tip * {
 	position: absolute;
 	line-height: 0.1px !important;
 	font-size: 0.1px !important;
@@ -303,13 +303,13 @@
 	border: 0 dashed transparent;
 }
 
-.qtip .qtip-tip canvas {
+.qtip .jbox-tip canvas {
 	top: 0;
 	left: 0;
 }
 
 /* Padma Tooltips */
-div.qtip-padma div.qtip-content {
+div.jbox-padma div.jbox-content {
 	background: #313131;
 	color: #DDDDDD;
 	border: none;
@@ -322,18 +322,18 @@ div.qtip-padma div.qtip-content {
 }
 
 /* Element Selector */
-div.qtip-padma-element-selector div.qtip-content {
+div.jbox-padma-element-selector div.jbox-content {
 	background: #57595A;
 	padding: 3px 6px;
 }
 
 /* Inspector */
-div.qtip-inspector-tooltip {
+div.jbox-inspector-tooltip {
 	opacity: 0.8 !important;
 	pointer-events: none;
 }
 
-div.qtip-inspector-tooltip span.inspector-tooltip-instance {
+div.jbox-inspector-tooltip span.inspector-tooltip-instance {
 	display: block;
 	text-align: center;
 	font-size: 11px;
@@ -341,7 +341,7 @@ div.qtip-inspector-tooltip span.inspector-tooltip-instance {
 	line-height: 14px;
 }
 
-div.qtip-inspector-tooltip small.right-click-message {
+div.jbox-inspector-tooltip small.right-click-message {
 	display: block;
 	text-align: center;
 	opacity: 0.7;
@@ -351,17 +351,17 @@ div.qtip-inspector-tooltip small.right-click-message {
 }
 
 /* Block Dimensions */
-div.qtip-block-dimensions {
+div.jbox-block-dimensions {
 	opacity: 0.8 !important;
 }
 
-div.qtip-block-dimensions div.qtip-content,
-div.qtip-block-dimensions div.qtip-content * {
+div.jbox-block-dimensions div.jbox-content,
+div.jbox-block-dimensions div.jbox-content * {
 	font-size: 11px;
 	line-height: 17px;
 }
 
-div.qtip-block-dimensions div.qtip-content div.block-info {
+div.jbox-block-dimensions div.jbox-content div.block-info {
 	text-align: center;
 	font-size: 12px;
 	font-weight: 500;
@@ -369,7 +369,7 @@ div.qtip-block-dimensions div.qtip-content div.block-info {
 	margin: 0 0 3px;
 }
 
-div.qtip-block-dimensions div.qtip-content span.block-info-type {
+div.jbox-block-dimensions div.jbox-content span.block-info-type {
 	background-image: url(../images/default-block-icon.png);
 	background-position: 50%;
 	background-size: 65%;
@@ -380,11 +380,11 @@ div.qtip-block-dimensions div.qtip-content span.block-info-type {
 	margin: 0 4px -5px 0;
 }
 
-div.qtip-block-dimensions div.qtip-content span.main-block-info-mirrored {
+div.jbox-block-dimensions div.jbox-content span.main-block-info-mirrored {
 	opacity: 0.5;
 }
 
-div.qtip-block-dimensions div.qtip-content span.block-info-mirroring {
+div.jbox-block-dimensions div.jbox-content span.block-info-mirroring {
 	display: inline-block;
 	background: rgba(255, 255, 255, 0.2);
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
@@ -394,17 +394,17 @@ div.qtip-block-dimensions div.qtip-content span.block-info-mirroring {
 	clear: both;
 }
 
-div.qtip-block-dimensions div.qtip-content span.block-dimensions-separator {
+div.jbox-block-dimensions div.jbox-content span.block-dimensions-separator {
 	font-size: 13px;
 	opacity: 0.8;
 }
 
-div.qtip-block-dimensions div.qtip-content small {
+div.jbox-block-dimensions div.jbox-content small {
 	font-size: 10px;
 }
 
-div.qtip-block-dimensions span.block-fluid-height-message,
-div.qtip-block-dimensions span.right-click-message {
+div.jbox-block-dimensions span.block-fluid-height-message,
+div.jbox-block-dimensions span.right-click-message {
 	display: block;
 	text-align: center;
 	opacity: 0.7;
@@ -2477,8 +2477,8 @@ div.sub-tabs-content {
 
 /* Visual Editor Sub Tabs Content Input Tooltips */
 div.sub-tabs-content div.tooltip-button {
-	width: 17px;
-	height: 16px;
+	width: 20px;
+	height: 20px;
 	display: block;
 	cursor: pointer;
 	float: left;
@@ -3145,7 +3145,7 @@ div.notification-success {
 
 /* Tour */
 /* Tour Tooltips */
-.qtip-tour {
+.jbox-tour {
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -3153,7 +3153,7 @@ div.notification-success {
 	max-width: 350px;
 }
 
-.qtip-tour .qtip-content {
+.jbox-tour .jbox-content {
 	padding: 15px 15px 60px;
 	/* Bottom padding for button container */
 	position: relative;
@@ -3164,12 +3164,12 @@ div.notification-success {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.075);
 }
 
-.qtip-tour .qtip-content * {
+.jbox-tour .jbox-content * {
 	font-size: inherit;
 }
 
-.qtip-tour .qtip-content p,
-.qtip-tour .qtip-content ul {
+.jbox-tour .jbox-content p,
+.jbox-tour .jbox-content ul {
 	line-height: 18px;
 	font-size: 13px;
 	margin: 0 0 13px;
@@ -3178,19 +3178,19 @@ div.notification-success {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.qtip-tour .qtip-content ul li {
+.jbox-tour .jbox-content ul li {
 	margin: 0 0 4px;
 }
 
-.qtip-tour .qtip-content a {
+.jbox-tour .jbox-content a {
 	color: #DC511E;
 }
 
-.qtip-tour .qtip-content a:hover {
+.jbox-tour .jbox-content a:hover {
 	text-decoration: none;
 }
 
-.qtip-tour .qtip-titlebar {
+.jbox-tour .jbox-titlebar {
 	position: relative;
 	margin: -1px -1px 0;
 	padding: 15px 18px 14px 20px;
@@ -3202,11 +3202,11 @@ div.notification-success {
 	background: #2EA2CC;
 }
 
-.qtip-tour .qtip-tip {
+.jbox-tour .jbox-tip {
 	background-color: #2EA2CC;
 }
 
-.qtip-tour .qtip-titlebar .qtip-icon {
+.jbox-tour .jbox-titlebar .jbox-icon {
 	border: none;
 	right: 11px;
 	width: 18px;
@@ -3217,7 +3217,7 @@ div.notification-success {
 	cursor: pointer;
 }
 
-.qtip-tour .qtip-titlebar .qtip-icon .ui-icon-close {
+.jbox-tour .jbox-titlebar .jbox-icon .ui-icon-close {
 	color: rgba(255, 255, 255, 0.6);
 	text-indent: -9999px;
 	-webkit-transition: color 150ms linear;
@@ -3225,7 +3225,7 @@ div.notification-success {
 	transition: color 150ms linear;
 }
 
-.qtip-tour .qtip-titlebar .qtip-icon .ui-icon-close:before {
+.jbox-tour .jbox-titlebar .jbox-icon .ui-icon-close:before {
 	font-family: "padma-ve";
 	font-style: normal;
 	font-weight: normal;
@@ -3243,11 +3243,11 @@ div.notification-success {
 	content: "\58";
 }
 
-.qtip-tour .qtip-titlebar .qtip-icon .ui-icon-close:hover {
+.jbox-tour .jbox-titlebar .jbox-icon .ui-icon-close:hover {
 	color: rgba(255, 255, 255, 0.85);
 }
 
-.qtip-tour .qtip-titlebar .ui-state-hover {
+.jbox-tour .jbox-titlebar .ui-state-hover {
 	border-color: #AAAAAA;
 	color: #111111;
 }
@@ -3407,7 +3407,7 @@ ul.context-menu li:hover > ul {
 }
 
 /* Design Editor Inspector */
-#qtip-inspector {
+#jbox-inspector {
 	white-space: nowrap;
 }
 

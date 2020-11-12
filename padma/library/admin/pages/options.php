@@ -499,9 +499,9 @@
 							'label' => __('Tooltips', 'padma'),
 							'checkboxes' => array(
 								array(
-									'id' => 'disable-visual-editor-tooltips',
-									'label' => __('Disable Tooltips in the Visual Editor', 'padma'),
-									'checked' => PadmaOption::get('disable-visual-editor-tooltips', false, false)
+									'id'      => 'disable-visual-editor-tooltips',
+									'label'   => __('Disable Tooltips in the Visual Editor', 'padma'),
+									'checked' => PadmaOption::get( 'disable-visual-editor-tooltips', false, false ),
 								)
 							),
 							'description' => __('If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works.', 'padma')

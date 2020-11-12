@@ -89,21 +89,15 @@ class PadmaVisualEditorDisplay {
 
 
 	public static function require_js() {
-
-		$script_folder = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? 'scripts-src' : 'scripts-src';
-
-		wp_enqueue_script('padma-editor', padma_url() . '/library/visual-editor/' . $script_folder . '/deps/require-and-jquery.js');
-
+		wp_enqueue_script( 'padma-editor', padma_url() . '/library/visual-editor/scripts/deps/require.js', array(), PADMA_VERSION, false );
 	}
 
 
 	public static function require_js_attr( $tag, $handle, $src ) {
 
-		$script_folder = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'scripts-src' : 'scripts-src';
+		if ( false !== strpos( $src, 'require.js' ) ) {
 
-		if ( false !== strpos( $src, 'require-and-jquery.js' ) ) {
-
-			return "<script type='text/javascript' id='padma-editor' src='{$src}' data-main='" . padma_url() . "/library/visual-editor/{$script_folder}/app.js'></script>";
+			return "<script type='text/javascript' id='padma-editor' src='{$src}' data-main='" . padma_url() . "/library/visual-editor/scripts/app.js'></script>";
 
 		}
 
@@ -219,7 +213,7 @@ class PadmaVisualEditorDisplay {
 			'siteName' => get_bloginfo('name'),
 			'siteDescription' => get_bloginfo('description'),
 			'padmaURL' => get_template_directory_uri(),
-			'scriptFolder' => ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'scripts-src' : 'scripts-src',
+			'scriptFolder' => 'scripts',
 			'siteURL' => site_url(),
 			'homeURL' => home_url(),
 			'adminURL' => admin_url(),

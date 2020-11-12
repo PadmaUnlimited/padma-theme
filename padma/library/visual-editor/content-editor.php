@@ -22,7 +22,7 @@
 	 * CSS and JS for content editor
 	 *
 	 */
-	wp_enqueue_script('padma_content_editor', padma_url() . '/library/visual-editor/scripts-src/modules/design/content-editor.js', array('jquery', 'padma_jquery_qtip'));
+	wp_enqueue_script('padma_content_editor', padma_url() . '/library/visual-editor/scripts/modules/design/content-editor.js', array('jquery', 'padma_jquery_qtip'));
 	wp_enqueue_style('padma_content_editor', padma_url() . '/library/visual-editor/css/content-editor.css');
 	wp_enqueue_style('padma_content_editor', padma_url() . '/library/visual-editor/css/editor.css');
 

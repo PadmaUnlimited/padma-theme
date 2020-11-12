@@ -5,7 +5,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <?php
 
-	$baseURL 	= padma_url() . '/library/visual-editor/' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? 'scripts-src' : 'scripts-src');
+	$baseURL 	= padma_url() . '/library/visual-editor/scripts';
 	$mode 		= $_GET['mode'];
 
 	if($mode == 'html'){

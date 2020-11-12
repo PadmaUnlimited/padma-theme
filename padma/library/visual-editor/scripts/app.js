@@ -1,8 +1,8 @@
 require.config({
 	paths: {
 		knockout: 'deps/knockout',
-
 		underscore: 'deps/underscore',
+		jquery: 'jquery.min',
 
 		/* jQuery Plugins */
 		jqueryUI: 'deps/jquery.ui',

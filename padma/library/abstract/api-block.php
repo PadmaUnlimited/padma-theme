@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * API Block Class
+ */
 abstract class PadmaBlockAPI {
 
 

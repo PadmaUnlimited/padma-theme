@@ -133,7 +133,7 @@ class PadmaSearchBlockOptions extends PadmaBlockOptionsAPI {
 		);
 	}
 
-	public function modify_arguments( $args ) {
+	public function modify_arguments( $args = false ) {
 
 		if ( class_exists( 'SWP_Query' ) ) {
 

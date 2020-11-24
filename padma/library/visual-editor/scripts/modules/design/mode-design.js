@@ -2277,19 +2277,30 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 				/* Build element hover tooltip */
 				if ( typeof refresh == 'undefined' || refresh !== true ) {
-					/*
+					
+					jBox = jBoxWrapper( $i );
 					new jBox('Mouse', {
-						attach: '#current-layout',
+						attach: $i('body'),
 						theme: 'TooltipDark',
-						content: 'I will follow you'
-					});*/
+						content: 'I will follow you',
+						addClass: 'jbox-padma jbox-inspector-tooltip',
+					});
 
+					/*
 					new jBox( 'Mouse', {
 						attach: $i('body'),
 						theme: 'TooltipDark',
 						addClass: 'jbox-padma jbox-inspector-tooltip',
-						pointer: true,
+						reposition: true,
+						repositionOnOpen: true,
+						repositionOnContent: true,
 						pointTo: 'target',
+						
+						adjustTracker: true,
+						holdPosition: false,
+						draggable: true,						
+						pointer: true,
+						
 						reposition: true,
 						repositionOnOpen: true,
 						repositionOnContent: true,
@@ -2297,10 +2308,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 							x: 'center',
 							y: 'center'
 						},
-						//trigger: 'mouseenter',
-						
-						onCreated: function () {
-
+						onCreated: function () {							
 							delete inspectorElement;
 							delete inspectorTooltip;
 							delete inspectorElementOptions;
@@ -2312,55 +2320,12 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 							} else {
 								disableInspector();
 							}
-
+						},
+						onPosition: function(){
+							console.log(this.event)
+							console.log(this.options)
 						}
-					})/*
-					$i('body').qtip({
-						id: '',						
-						style: {
-							classes: 'qtip-padma qtip-inspector-tooltip'
-						},
-						position: {
-							target: 'mouse',
-							my: 'bottom left',
-							at: 'top right',
-							container: $i('body'),
-							viewport: $i('#padma-tooltip-container'),
-							effect: false,
-							adjust: {
-								x: 0,
-								y: 0,
-								method: 'flipinvert'
-							}
-						},
-						content: {
-							text: 'Hover over an element.'
-						},
-						show: {
-							event: false,
-							ready: true
-						},
-						hide: false,						
-						events: {
-							
-							render: function(event, api) {
-								
-								delete inspectorElement;
-								delete inspectorTooltip;
-								delete inspectorElementOptions;
-
-								inspectorTooltip = api;								
-								
-								if ( !$('#toggle-inspector').hasClass('inspector-disabled') ) {									
-									enableInspector();
-								} else {
-									disableInspector();
-								}
-
-							}
-						}
-					});
-					*/
+					})*/
 				}
 
 			}
@@ -2410,8 +2375,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 						/* Filter instances to only be states of this instance */
 						$.each(value['instances'], function(index, instance) {
 
-							if ( instance['state-of'] == instanceID )
+							if ( instance['state-of'] == instanceID ) {
 								instanceOptions['instances'][index] = instance;
+							}
 
 						});
 
@@ -2728,9 +2694,24 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 							tooltipText += '<small class="tooltip">'+inspectorElementOptions.tooltip+'</small>';
 
 						}
+						/*
+						inspectorTooltip.event = {
+							mouseTarget: {
+								top: event.originalEvent.offsetX,
+								left: event.originalEvent.offsetY,
+							}
+						};*/
 						inspectorTooltip.setContent(tooltipText);
+						/*
+						inspectorTooltip.position({
+							mouseTarget: {
+								top: event.originalEvent.offsetX,
+								left: event.originalEvent.offsetY,
+							}
+						});
 						inspectorTooltip.options.target = inspectorElement;
-						inspectorTooltip.options.attach = inspectorElement;
+						*/
+						//inspectorTooltip.options.attach = inspectorElement;
 
 					}
 

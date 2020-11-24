@@ -46,34 +46,110 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		$this->add_standard_block_config();
 		$this->add_standard_block_import_export();
 
-		if ( PadmaResponsiveGrid::is_enabled() )
+		if ( PadmaResponsiveGrid::is_enabled() ) {
 			$this->add_standard_block_responsive();
+		}
 
-		$this->add_anywhere_tab($args);
+		$this->add_developer_tab($args);
 
 		//Display it
 		$this->panel_content($args);
 
 	}
 
-	public function add_anywhere_tab($args){
+	/**
+	 * Add developer tab to VE panel
+	 *
+	 * @param array $args Args to panel tab.
+	 * @return void
+	 */
+	public function add_developer_tab( $args ) {
 
-		if ( !isset($this->tabs) )
+		if ( ! isset( $this->tabs ) ) {
 			$this->tabs = array();
+		}
 
-		//Add the tab
-		$this->tabs['anywhere'] = 'Anywhere';
-		$shortcode_txt = "[padma-block id='" . $args['block']['id'] ."']";
+		// Add the developer tab.
+		$this->tabs['developer']         = 'Developer';
+		$shortcode_txt                   = '[padma-block id=\'' . $args['block']['id'] . '\']';
+		$this->tab_notices['developer']  = __( '<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p>', 'padma' );
+		$this->tab_notices['developer'] .= '<input class="shortcode-anywhere" value="' . $shortcode_txt . '">';
 
-		$this->tab_notices['anywhere'] = __('<strong>Use this block anywhere.</strong><p>To insert this block into your post or page use this shortcode:<p>','padma').'<input class="shortcode-anywhere" value="'.$shortcode_txt.'">';
-
-		if(PadmaOption::get('padma-blocks-as-gutenberg-blocks')){
+		if ( PadmaOption::get( 'padma-blocks-as-gutenberg-blocks' ) ) {
 			$this->inputs['anywhere']['show-as-gutenberg-block'] = array(
-					'name' => 'show-as-gutenberg-block',
-					'type' => 'checkbox',
-					'label' => 'Show as Gutenberg Block',
-					'default' => false
-				);
+				'name' => 'show-as-gutenberg-block',
+				'type' => 'checkbox',
+				'label' => 'Show as Gutenberg Block',
+				'default' => false
+			);
+		}
+
+		$hooks = array (
+			'padma_before_block' => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Before the block open.', 'padma' ),
+			),
+			'padma_before_block_' . $args['block']['id'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Before THIS block open.', 'padma' ),
+			),
+			'padma_block_open' => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Just after the block open tag.', 'padma' ),
+			),
+			'padma_block_open_' . $args['block']['id'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Just after THIS block open tag', 'padma' ),
+			),
+			'padma_block_content_open' => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Before the content', 'padma' ),
+			),
+			'padma_block_content_open_' . $args['block']['id'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Before THIS block content', 'padma' ),
+			),
+			'padma_block_content_' . $args['block']['type'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'When this block type run', 'padma' ),
+			),
+			'padma_block_content_close' => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'After block content.', 'padma' ),
+			),
+			'padma_block_content_close_' . $args['block']['id'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'After THIS block content', 'padma' ),
+			),
+			'padma_block_close' => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Before the block close.', 'padma' ),
+			),
+			'padma_block_close_' . $args['block']['id'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Before THIS block close.', 'padma' ),
+			),
+			'padma_block_open' => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Just after the block close.', 'padma' ),
+			),
+			'padma_block_open_' . $args['block']['id'] => array(
+				'params'      => array( '$block' ),
+				'description' => __( 'Just after THIS block close', 'padma' ),
+			),
+		);
+
+		$hooks = apply_filters( 'padma_developer_tab_hooks', $hooks );
+
+		$this->tab_notices['developer'] .= '<br><hr><br>';
+		foreach ( $hooks as $name => $args ) {
+
+			$example = apply_filters( 'padma_developer_tab_hook_example', __( 'Please install Padma Advanced plugin to see the example.', 'padma' ), $name, $args );
+
+			/* translators:  %1$s: Hook name. %2$s: Hook description. */
+			$this->tab_notices['developer'] .= '<br>';
+			$this->tab_notices['developer'] .= sprintf( __( '<strong>%1$s</strong>: %2$s<pre class="language-php"><code class="language-php">%3$s</code></pre>', 'padma' ), $name, $args['description'], $example );
+
 		}
 
 	}

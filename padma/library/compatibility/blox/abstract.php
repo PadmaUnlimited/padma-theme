@@ -81,9 +81,9 @@ trait BloxBlockOptionsAPITrait
 	{
 		parent::display($block, $layout);
 	}
-	public function add_anywhere_tab($args)
+	public function add_developer_tab($args)
 	{
-		parent::add_anywhere_tab($args);
+		parent::add_developer_tab($args);
 	}
 	public function add_standard_block_config()
 	{

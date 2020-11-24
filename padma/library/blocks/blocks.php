@@ -728,12 +728,12 @@ class PadmaBlocks {
 			$block['id'] = PadmaBlocksData::get_legacy_id( $block );
 
 
-			do_action('padma_before_block', $block);
-			do_action('padma_before_block_' . $block['id'], $block);
+			do_action( 'padma_before_block', $block );
+			do_action( 'padma_before_block_' . $block['id'], $block );
 
 			echo '<' . $block_tag . ' id="block-' . $block_id_for_id_attr . '" class="' . implode(' ', array_filter(apply_filters('padma_block_class', $block_classes, $block))) . '"' . $block_style_attr . $block_data_attrs . self::block_attr( $block_type_settings ) . '>';
 
-				do_action('padma_block_open', $block);
+				do_action('padma_block_open', $block );
 				do_action('padma_block_open_' . $block['id'], $block);
 
 				echo '<div class="block-content">';

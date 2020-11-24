@@ -22,7 +22,7 @@ class PadmaBlocksAnywhere {
 	/* we add the current layout to the compiler uncached files so that we can call it using padma_get('current-layout') later on */
 	static function add_current_layout( $url ) {
 
-	    return add_query_arg( array( 'current-layout' => PadmaLayout::get_current() ), $url );
+		return add_query_arg( array( 'current-layout' => PadmaLayout::get_current() ), $url );
 
 	}
 

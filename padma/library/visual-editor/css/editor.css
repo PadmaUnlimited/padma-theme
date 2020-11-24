@@ -8195,3 +8195,11 @@ and (orientation : portrait) {  }
 .language-php{
 	user-select: text;
 }
+pre.language-php{
+    overflow: hidden;
+    height: 0;
+    transition: all 1s ease;
+}
+pre.language-php.active{
+	height: auto;
+}

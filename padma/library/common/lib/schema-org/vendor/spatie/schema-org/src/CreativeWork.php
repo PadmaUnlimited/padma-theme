@@ -2,20 +2,22 @@
 
 namespace Spatie\SchemaOrg;
 
+use \Spatie\SchemaOrg\Contracts\CreativeWorkContract;
+use \Spatie\SchemaOrg\Contracts\ThingContract;
+
 /**
  * The most generic kind of creative work, including books, movies, photographs,
  * software programs, etc.
  *
  * @see http://schema.org/CreativeWork
  *
- * @mixin \Spatie\SchemaOrg\Thing
  */
-class CreativeWork extends BaseType
+class CreativeWork extends BaseType implements CreativeWorkContract, ThingContract
 {
     /**
      * The subject matter of the content.
      *
-     * @param Thing|Thing[] $about
+     * @param \Spatie\SchemaOrg\Contracts\ThingContract|\Spatie\SchemaOrg\Contracts\ThingContract[] $about
      *
      * @return static
      *
@@ -48,7 +50,7 @@ class CreativeWork extends BaseType
      * understand all the intellectual content of a resource. Expected values
      * include:  auditory, tactile, textual, visual.
      *
-     * @param string|string[] $accessModeSufficient
+     * @param \Spatie\SchemaOrg\Contracts\ItemListContract|\Spatie\SchemaOrg\Contracts\ItemListContract[] $accessModeSufficient
      *
      * @return static
      *
@@ -145,7 +147,7 @@ class CreativeWork extends BaseType
     /**
      * Specifies the Person that is legally accountable for the CreativeWork.
      *
-     * @param Person|Person[] $accountablePerson
+     * @param \Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $accountablePerson
      *
      * @return static
      *
@@ -157,10 +159,29 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * An additional type for the item, typically used for adding more specific
+     * types from external vocabularies in microdata syntax. This is a
+     * relationship between something and a class that the thing is in. In RDFa
+     * syntax, it is better to use the native RDFa syntax - the 'typeof'
+     * attribute - for multiple types. Schema.org tools may have only weaker
+     * understanding of extra types, in particular those defined externally.
+     *
+     * @param string|string[] $additionalType
+     *
+     * @return static
+     *
+     * @see http://schema.org/additionalType
+     */
+    public function additionalType($additionalType)
+    {
+        return $this->setProperty('additionalType', $additionalType);
+    }
+
+    /**
      * The overall rating, based on a collection of reviews or ratings, of the
      * item.
      *
-     * @param AggregateRating|AggregateRating[] $aggregateRating
+     * @param \Spatie\SchemaOrg\Contracts\AggregateRatingContract|\Spatie\SchemaOrg\Contracts\AggregateRatingContract[] $aggregateRating
      *
      * @return static
      *
@@ -169,6 +190,20 @@ class CreativeWork extends BaseType
     public function aggregateRating($aggregateRating)
     {
         return $this->setProperty('aggregateRating', $aggregateRating);
+    }
+
+    /**
+     * An alias for the item.
+     *
+     * @param string|string[] $alternateName
+     *
+     * @return static
+     *
+     * @see http://schema.org/alternateName
+     */
+    public function alternateName($alternateName)
+    {
+        return $this->setProperty('alternateName', $alternateName);
     }
 
     /**
@@ -189,7 +224,7 @@ class CreativeWork extends BaseType
      * A media object that encodes this CreativeWork. This property is a synonym
      * for encoding.
      *
-     * @param MediaObject|MediaObject[] $associatedMedia
+     * @param \Spatie\SchemaOrg\Contracts\MediaObjectContract|\Spatie\SchemaOrg\Contracts\MediaObjectContract[] $associatedMedia
      *
      * @return static
      *
@@ -203,7 +238,7 @@ class CreativeWork extends BaseType
     /**
      * An intended audience, i.e. a group for whom something was created.
      *
-     * @param Audience|Audience[] $audience
+     * @param \Spatie\SchemaOrg\Contracts\AudienceContract|\Spatie\SchemaOrg\Contracts\AudienceContract[] $audience
      *
      * @return static
      *
@@ -217,7 +252,7 @@ class CreativeWork extends BaseType
     /**
      * An embedded audio object.
      *
-     * @param AudioObject|AudioObject[] $audio
+     * @param \Spatie\SchemaOrg\Contracts\AudioObjectContract|\Spatie\SchemaOrg\Contracts\AudioObjectContract[]|\Spatie\SchemaOrg\Contracts\ClipContract|\Spatie\SchemaOrg\Contracts\ClipContract[]|\Spatie\SchemaOrg\Contracts\MusicRecordingContract|\Spatie\SchemaOrg\Contracts\MusicRecordingContract[] $audio
      *
      * @return static
      *
@@ -233,7 +268,7 @@ class CreativeWork extends BaseType
      * in that HTML 5 provides a special mechanism for indicating authorship via
      * the rel tag. That is equivalent to this and may be used interchangeably.
      *
-     * @param Organization|Organization[]|Person|Person[] $author
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $author
      *
      * @return static
      *
@@ -275,7 +310,7 @@ class CreativeWork extends BaseType
     /**
      * Fictional person connected with a creative work.
      *
-     * @param Person|Person[] $character
+     * @param \Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $character
      *
      * @return static
      *
@@ -290,7 +325,7 @@ class CreativeWork extends BaseType
      * A citation or reference to another creative work, such as another
      * publication, web page, scholarly article, etc.
      *
-     * @param CreativeWork|CreativeWork[]|string|string[] $citation
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|string|string[] $citation
      *
      * @return static
      *
@@ -304,7 +339,7 @@ class CreativeWork extends BaseType
     /**
      * Comments, typically from users.
      *
-     * @param Comment|Comment[] $comment
+     * @param \Spatie\SchemaOrg\Contracts\CommentContract|\Spatie\SchemaOrg\Contracts\CommentContract[] $comment
      *
      * @return static
      *
@@ -335,7 +370,7 @@ class CreativeWork extends BaseType
      * The location depicted or described in the content. For example, the
      * location in a photograph or painting.
      *
-     * @param Place|Place[] $contentLocation
+     * @param \Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[] $contentLocation
      *
      * @return static
      *
@@ -349,7 +384,7 @@ class CreativeWork extends BaseType
     /**
      * Official rating of a piece of content&#x2014;for example,'MPAA PG-13'.
      *
-     * @param Rating|Rating[]|string|string[] $contentRating
+     * @param \Spatie\SchemaOrg\Contracts\RatingContract|\Spatie\SchemaOrg\Contracts\RatingContract[]|string|string[] $contentRating
      *
      * @return static
      *
@@ -363,7 +398,7 @@ class CreativeWork extends BaseType
     /**
      * A secondary contributor to the CreativeWork or Event.
      *
-     * @param Organization|Organization[]|Person|Person[] $contributor
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $contributor
      *
      * @return static
      *
@@ -377,7 +412,7 @@ class CreativeWork extends BaseType
     /**
      * The party holding the legal copyright to the CreativeWork.
      *
-     * @param Organization|Organization[]|Person|Person[] $copyrightHolder
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $copyrightHolder
      *
      * @return static
      *
@@ -407,7 +442,7 @@ class CreativeWork extends BaseType
      * The creator/author of this CreativeWork. This is the same as the Author
      * property for CreativeWork.
      *
-     * @param Organization|Organization[]|Person|Person[] $creator
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $creator
      *
      * @return static
      *
@@ -463,6 +498,37 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * A description of the item.
+     *
+     * @param string|string[] $description
+     *
+     * @return static
+     *
+     * @see http://schema.org/description
+     */
+    public function description($description)
+    {
+        return $this->setProperty('description', $description);
+    }
+
+    /**
+     * A sub property of description. A short description of the item used to
+     * disambiguate from other, similar items. Information from other properties
+     * (in particular, name) may be necessary for the description to be useful
+     * for disambiguation.
+     *
+     * @param string|string[] $disambiguatingDescription
+     *
+     * @return static
+     *
+     * @see http://schema.org/disambiguatingDescription
+     */
+    public function disambiguatingDescription($disambiguatingDescription)
+    {
+        return $this->setProperty('disambiguatingDescription', $disambiguatingDescription);
+    }
+
+    /**
      * A link to the page containing the comments of the CreativeWork.
      *
      * @param string|string[] $discussionUrl
@@ -479,7 +545,7 @@ class CreativeWork extends BaseType
     /**
      * Specifies the Person who edited the CreativeWork.
      *
-     * @param Person|Person[] $editor
+     * @param \Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $editor
      *
      * @return static
      *
@@ -492,8 +558,12 @@ class CreativeWork extends BaseType
 
     /**
      * An alignment to an established educational framework.
+     * 
+     * This property should not be used where the nature of the alignment can be
+     * described using a simple property, for example to express that a resource
+     * [[teaches]] or [[assesses]] a competency.
      *
-     * @param AlignmentObject|AlignmentObject[] $educationalAlignment
+     * @param \Spatie\SchemaOrg\Contracts\AlignmentObjectContract|\Spatie\SchemaOrg\Contracts\AlignmentObjectContract[] $educationalAlignment
      *
      * @return static
      *
@@ -523,7 +593,7 @@ class CreativeWork extends BaseType
      * A media object that encodes this CreativeWork. This property is a synonym
      * for associatedMedia.
      *
-     * @param MediaObject|MediaObject[] $encoding
+     * @param \Spatie\SchemaOrg\Contracts\MediaObjectContract|\Spatie\SchemaOrg\Contracts\MediaObjectContract[] $encoding
      *
      * @return static
      *
@@ -564,7 +634,7 @@ class CreativeWork extends BaseType
     /**
      * A media object that encodes this CreativeWork.
      *
-     * @param MediaObject|MediaObject[] $encodings
+     * @param \Spatie\SchemaOrg\Contracts\MediaObjectContract|\Spatie\SchemaOrg\Contracts\MediaObjectContract[] $encodings
      *
      * @return static
      *
@@ -579,7 +649,7 @@ class CreativeWork extends BaseType
      * A creative work that this work is an
      * example/instance/realization/derivation of.
      *
-     * @param CreativeWork|CreativeWork[] $exampleOfWork
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[] $exampleOfWork
      *
      * @return static
      *
@@ -633,7 +703,7 @@ class CreativeWork extends BaseType
      * A person or organization that supports (sponsors) something through some
      * kind of financial contribution.
      *
-     * @param Organization|Organization[]|Person|Person[] $funder
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $funder
      *
      * @return static
      *
@@ -662,7 +732,7 @@ class CreativeWork extends BaseType
      * Indicates an item or CreativeWork that is part of this item, or
      * CreativeWork (in some sense).
      *
-     * @param CreativeWork|CreativeWork[] $hasPart
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[] $hasPart
      *
      * @return static
      *
@@ -688,12 +758,45 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * The identifier property represents any kind of identifier for any kind of
+     * [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides
+     * dedicated properties for representing many of these, either as textual
+     * strings or as URL (URI) links. See [background
+     * notes](/docs/datamodel.html#identifierBg) for more details.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\PropertyValueContract|\Spatie\SchemaOrg\Contracts\PropertyValueContract[]|string|string[] $identifier
+     *
+     * @return static
+     *
+     * @see http://schema.org/identifier
+     */
+    public function identifier($identifier)
+    {
+        return $this->setProperty('identifier', $identifier);
+    }
+
+    /**
+     * An image of the item. This can be a [[URL]] or a fully described
+     * [[ImageObject]].
+     *
+     * @param \Spatie\SchemaOrg\Contracts\ImageObjectContract|\Spatie\SchemaOrg\Contracts\ImageObjectContract[]|string|string[] $image
+     *
+     * @return static
+     *
+     * @see http://schema.org/image
+     */
+    public function image($image)
+    {
+        return $this->setProperty('image', $image);
+    }
+
+    /**
      * The language of the content or performance or used in an action. Please
      * use one of the language codes from the [IETF BCP 47
      * standard](http://tools.ietf.org/html/bcp47). See also
      * [[availableLanguage]].
      *
-     * @param Language|Language[]|string|string[] $inLanguage
+     * @param \Spatie\SchemaOrg\Contracts\LanguageContract|\Spatie\SchemaOrg\Contracts\LanguageContract[]|string|string[] $inLanguage
      *
      * @return static
      *
@@ -709,7 +812,7 @@ class CreativeWork extends BaseType
      * SoftwareApplication. The most specific child type of InteractionCounter
      * should be used.
      *
-     * @param InteractionCounter|InteractionCounter[] $interactionStatistic
+     * @param \Spatie\SchemaOrg\Contracts\InteractionCounterContract|\Spatie\SchemaOrg\Contracts\InteractionCounterContract[] $interactionStatistic
      *
      * @return static
      *
@@ -750,11 +853,10 @@ class CreativeWork extends BaseType
     }
 
     /**
-     * A resource that was used in the creation of this resource. This term can
-     * be repeated for multiple sources. For example,
-     * http://example.com/great-multiplication-intro.html.
+     * A resource from which this work is derived or from which it is a
+     * modification or adaption.
      *
-     * @param CreativeWork|CreativeWork[]|Product|Product[]|string|string[] $isBasedOn
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|\Spatie\SchemaOrg\Contracts\ProductContract|\Spatie\SchemaOrg\Contracts\ProductContract[]|string|string[] $isBasedOn
      *
      * @return static
      *
@@ -770,7 +872,7 @@ class CreativeWork extends BaseType
      * be repeated for multiple sources. For example,
      * http://example.com/great-multiplication-intro.html.
      *
-     * @param CreativeWork|CreativeWork[]|Product|Product[]|string|string[] $isBasedOnUrl
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|\Spatie\SchemaOrg\Contracts\ProductContract|\Spatie\SchemaOrg\Contracts\ProductContract[]|string|string[] $isBasedOnUrl
      *
      * @return static
      *
@@ -799,7 +901,7 @@ class CreativeWork extends BaseType
      * Indicates an item or CreativeWork that this item, or CreativeWork (in
      * some sense), is part of.
      *
-     * @param CreativeWork|CreativeWork[] $isPartOf
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|string|string[] $isPartOf
      *
      * @return static
      *
@@ -844,7 +946,7 @@ class CreativeWork extends BaseType
      * A license document that applies to this content, typically indicated by
      * URL.
      *
-     * @param CreativeWork|CreativeWork[]|string|string[] $license
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|string|string[] $license
      *
      * @return static
      *
@@ -859,7 +961,7 @@ class CreativeWork extends BaseType
      * The location where the CreativeWork was created, which may not be the
      * same as the location depicted in the CreativeWork.
      *
-     * @param Place|Place[] $locationCreated
+     * @param \Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[] $locationCreated
      *
      * @return static
      *
@@ -874,7 +976,7 @@ class CreativeWork extends BaseType
      * Indicates the primary entity described in some page or other
      * CreativeWork.
      *
-     * @param Thing|Thing[] $mainEntity
+     * @param \Spatie\SchemaOrg\Contracts\ThingContract|\Spatie\SchemaOrg\Contracts\ThingContract[] $mainEntity
      *
      * @return static
      *
@@ -886,10 +988,26 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * Indicates a page (or other CreativeWork) for which this thing is the main
+     * entity being described. See [background
+     * notes](/docs/datamodel.html#mainEntityBackground) for details.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|string|string[] $mainEntityOfPage
+     *
+     * @return static
+     *
+     * @see http://schema.org/mainEntityOfPage
+     */
+    public function mainEntityOfPage($mainEntityOfPage)
+    {
+        return $this->setProperty('mainEntityOfPage', $mainEntityOfPage);
+    }
+
+    /**
      * A material that something is made from, e.g. leather, wool, cotton,
      * paper.
      *
-     * @param Product|Product[]|string|string[] $material
+     * @param \Spatie\SchemaOrg\Contracts\ProductContract|\Spatie\SchemaOrg\Contracts\ProductContract[]|string|string[] $material
      *
      * @return static
      *
@@ -904,7 +1022,7 @@ class CreativeWork extends BaseType
      * Indicates that the CreativeWork contains a reference to, but is not
      * necessarily about a concept.
      *
-     * @param Thing|Thing[] $mentions
+     * @param \Spatie\SchemaOrg\Contracts\ThingContract|\Spatie\SchemaOrg\Contracts\ThingContract[] $mentions
      *
      * @return static
      *
@@ -916,11 +1034,30 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * The name of the item.
+     *
+     * @param string|string[] $name
+     *
+     * @return static
+     *
+     * @see http://schema.org/name
+     */
+    public function name($name)
+    {
+        return $this->setProperty('name', $name);
+    }
+
+    /**
      * An offer to provide this item&#x2014;for example, an offer to sell a
      * product, rent the DVD of a movie, perform a service, or give away tickets
-     * to an event.
+     * to an event. Use [[businessFunction]] to indicate the kind of transaction
+     * offered, i.e. sell, lease, etc. This property can also be used to
+     * describe a [[Demand]]. While this property is listed as expected on a
+     * number of common types, it can be used in others. In that case, using a
+     * second type, such as Product or a subtype of Product, can clarify the
+     * nature of the offer.
      *
-     * @param Offer|Offer[] $offers
+     * @param \Spatie\SchemaOrg\Contracts\DemandContract|\Spatie\SchemaOrg\Contracts\DemandContract[]|\Spatie\SchemaOrg\Contracts\OfferContract|\Spatie\SchemaOrg\Contracts\OfferContract[] $offers
      *
      * @return static
      *
@@ -946,10 +1083,25 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * Indicates a potential Action, which describes an idealized action in
+     * which this thing would play an 'object' role.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\ActionContract|\Spatie\SchemaOrg\Contracts\ActionContract[] $potentialAction
+     *
+     * @return static
+     *
+     * @see http://schema.org/potentialAction
+     */
+    public function potentialAction($potentialAction)
+    {
+        return $this->setProperty('potentialAction', $potentialAction);
+    }
+
+    /**
      * The person or organization who produced the work (e.g. music album,
      * movie, tv/radio series etc.).
      *
-     * @param Organization|Organization[]|Person|Person[] $producer
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $producer
      *
      * @return static
      *
@@ -965,7 +1117,7 @@ class CreativeWork extends BaseType
      * producer. Another party (a seller) may offer those services or goods on
      * behalf of the provider. A provider may also serve as the seller.
      *
-     * @param Organization|Organization[]|Person|Person[] $provider
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $provider
      *
      * @return static
      *
@@ -979,7 +1131,7 @@ class CreativeWork extends BaseType
     /**
      * A publication event associated with the item.
      *
-     * @param PublicationEvent|PublicationEvent[] $publication
+     * @param \Spatie\SchemaOrg\Contracts\PublicationEventContract|\Spatie\SchemaOrg\Contracts\PublicationEventContract[] $publication
      *
      * @return static
      *
@@ -993,7 +1145,7 @@ class CreativeWork extends BaseType
     /**
      * The publisher of the creative work.
      *
-     * @param Organization|Organization[]|Person|Person[] $publisher
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $publisher
      *
      * @return static
      *
@@ -1017,7 +1169,7 @@ class CreativeWork extends BaseType
      * sometimes related information (e.g. indicating a [[funder]]) can be
      * expressed using schema.org terminology.
      *
-     * @param CreativeWork|CreativeWork[]|string|string[] $publishingPrinciples
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|string|string[] $publishingPrinciples
      *
      * @return static
      *
@@ -1032,7 +1184,7 @@ class CreativeWork extends BaseType
      * The Event where the CreativeWork was recorded. The CreativeWork may
      * capture all or part of the event.
      *
-     * @param Event|Event[] $recordedAt
+     * @param \Spatie\SchemaOrg\Contracts\EventContract|\Spatie\SchemaOrg\Contracts\EventContract[] $recordedAt
      *
      * @return static
      *
@@ -1047,7 +1199,7 @@ class CreativeWork extends BaseType
      * The place and time the release was issued, expressed as a
      * PublicationEvent.
      *
-     * @param PublicationEvent|PublicationEvent[] $releasedEvent
+     * @param \Spatie\SchemaOrg\Contracts\PublicationEventContract|\Spatie\SchemaOrg\Contracts\PublicationEventContract[] $releasedEvent
      *
      * @return static
      *
@@ -1061,7 +1213,7 @@ class CreativeWork extends BaseType
     /**
      * A review of the item.
      *
-     * @param Review|Review[] $review
+     * @param \Spatie\SchemaOrg\Contracts\ReviewContract|\Spatie\SchemaOrg\Contracts\ReviewContract[] $review
      *
      * @return static
      *
@@ -1075,7 +1227,7 @@ class CreativeWork extends BaseType
     /**
      * Review of the item.
      *
-     * @param Review|Review[] $reviews
+     * @param \Spatie\SchemaOrg\Contracts\ReviewContract|\Spatie\SchemaOrg\Contracts\ReviewContract[] $reviews
      *
      * @return static
      *
@@ -1084,6 +1236,22 @@ class CreativeWork extends BaseType
     public function reviews($reviews)
     {
         return $this->setProperty('reviews', $reviews);
+    }
+
+    /**
+     * URL of a reference Web page that unambiguously indicates the item's
+     * identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or
+     * official website.
+     *
+     * @param string|string[] $sameAs
+     *
+     * @return static
+     *
+     * @see http://schema.org/sameAs
+     */
+    public function sameAs($sameAs)
+    {
+        return $this->setProperty('sameAs', $sameAs);
     }
 
     /**
@@ -1106,7 +1274,7 @@ class CreativeWork extends BaseType
     /**
      * The Organization on whose behalf the creator was working.
      *
-     * @param Organization|Organization[] $sourceOrganization
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[] $sourceOrganization
      *
      * @return static
      *
@@ -1118,6 +1286,22 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * The "spatial" property can be used in cases when more specific properties
+     * (e.g. [[locationCreated]], [[spatialCoverage]], [[contentLocation]]) are
+     * not known to be appropriate.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[] $spatial
+     *
+     * @return static
+     *
+     * @see http://schema.org/spatial
+     */
+    public function spatial($spatial)
+    {
+        return $this->setProperty('spatial', $spatial);
+    }
+
+    /**
      * The spatialCoverage of a CreativeWork indicates the place(s) which are
      * the focus of the content. It is a subproperty of
      *       contentLocation intended primarily for more technical and detailed
@@ -1125,7 +1309,7 @@ class CreativeWork extends BaseType
      *       areas that the dataset describes: a dataset of New York weather
      * would have spatialCoverage which was the place: the state of New York.
      *
-     * @param Place|Place[] $spatialCoverage
+     * @param \Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[] $spatialCoverage
      *
      * @return static
      *
@@ -1141,7 +1325,7 @@ class CreativeWork extends BaseType
      * or financial contribution. e.g. a sponsor of a Medical Study or a
      * corporate sponsor of an event.
      *
-     * @param Organization|Organization[]|Person|Person[] $sponsor
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $sponsor
      *
      * @return static
      *
@@ -1150,6 +1334,37 @@ class CreativeWork extends BaseType
     public function sponsor($sponsor)
     {
         return $this->setProperty('sponsor', $sponsor);
+    }
+
+    /**
+     * A CreativeWork or Event about this Thing.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|\Spatie\SchemaOrg\Contracts\EventContract|\Spatie\SchemaOrg\Contracts\EventContract[] $subjectOf
+     *
+     * @return static
+     *
+     * @see http://schema.org/subjectOf
+     */
+    public function subjectOf($subjectOf)
+    {
+        return $this->setProperty('subjectOf', $subjectOf);
+    }
+
+    /**
+     * The "temporal" property can be used in cases where more specific
+     * properties
+     * (e.g. [[temporalCoverage]], [[dateCreated]], [[dateModified]],
+     * [[datePublished]]) are not known to be appropriate.
+     *
+     * @param \DateTimeInterface|\DateTimeInterface[]|string|string[] $temporal
+     *
+     * @return static
+     *
+     * @see http://schema.org/temporal
+     */
+    public function temporal($temporal)
+    {
+        return $this->setProperty('temporal', $temporal);
     }
 
     /**
@@ -1212,10 +1427,10 @@ class CreativeWork extends BaseType
 
     /**
      * Approximate or typical time it takes to work with or through this
-     * learning resource for the typical intended target audience, e.g. 'P30M',
-     * 'P1H25M'.
+     * learning resource for the typical intended target audience, e.g. 'PT30M',
+     * 'PT1H25M'.
      *
-     * @param Duration|Duration[] $timeRequired
+     * @param \Spatie\SchemaOrg\Contracts\DurationContract|\Spatie\SchemaOrg\Contracts\DurationContract[] $timeRequired
      *
      * @return static
      *
@@ -1231,7 +1446,7 @@ class CreativeWork extends BaseType
      * regional differences and technical requirements of a target market, or
      * that translates during some event.
      *
-     * @param Organization|Organization[]|Person|Person[] $translator
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $translator
      *
      * @return static
      *
@@ -1257,6 +1472,20 @@ class CreativeWork extends BaseType
     }
 
     /**
+     * URL of the item.
+     *
+     * @param string|string[] $url
+     *
+     * @return static
+     *
+     * @see http://schema.org/url
+     */
+    public function url($url)
+    {
+        return $this->setProperty('url', $url);
+    }
+
+    /**
      * The version of the CreativeWork embodied by a specified resource.
      *
      * @param float|float[]|int|int[]|string|string[] $version
@@ -1273,7 +1502,7 @@ class CreativeWork extends BaseType
     /**
      * An embedded video object.
      *
-     * @param VideoObject|VideoObject[] $video
+     * @param \Spatie\SchemaOrg\Contracts\ClipContract|\Spatie\SchemaOrg\Contracts\ClipContract[]|\Spatie\SchemaOrg\Contracts\VideoObjectContract|\Spatie\SchemaOrg\Contracts\VideoObjectContract[] $video
      *
      * @return static
      *
@@ -1288,7 +1517,7 @@ class CreativeWork extends BaseType
      * Example/instance/realization/derivation of the concept of this creative
      * work. eg. The paperback edition, first edition, or eBook.
      *
-     * @param CreativeWork|CreativeWork[] $workExample
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[] $workExample
      *
      * @return static
      *

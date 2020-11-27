@@ -50,7 +50,7 @@ require(['jquery', 'util.loader'], function($) {
 	/* Init tour */
 	require(['util.tour'], function (tour) {
 
-		if ( Padma.ranTour[Padma.mode] == false && Padma.ranTour.legacy == false ) {
+		if ( Padma.ranTour[ Padma.mode ] == false && Padma.ranTour.legacy == false ) {
 			tour.start();
 		}
 

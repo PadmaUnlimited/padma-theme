@@ -1,81 +1,120 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
+
+/**
+ * Padma Layout main class.
+ */
 class PadmaLayout {
 
 
+	/**
+	 * URL separator.
+	 *
+	 * @var string
+	 */
 	public static $sep = '||';
 
 
+	/**
+	 * Init Method
+	 *
+	 * @return void
+	 */
 	public static function init() {
 
-		add_action('padma_flush_cache', array(__CLASS__, 'clear_status_transient'));
+		add_action( 'padma_flush_cache', array( __CLASS__, 'clear_status_transient' ) );
 
 	}
 
-
+	/**
+	 * Clear transient status.
+	 *
+	 * @return void
+	 */
 	public static function clear_status_transient() {
 
-		delete_transient('pu_customized_layouts_template_' . PadmaOption::$current_skin);
-		delete_transient('pu_layouts_with_templates_template_' . PadmaOption::$current_skin);
+		delete_transient( 'pu_customized_layouts_template_' . PadmaOption::$current_skin );
+		delete_transient( 'pu_layouts_with_templates_template_' . PadmaOption::$current_skin );
 
 	}
 
 
-	public static function format_old_id($old_id) {
+	/**
+	 * Format old IDs
+	 *
+	 * @param string $old_id Old format ID.
+	 * @return string
+	 */
+	public static function format_old_id( $old_id ) {
 
-		$layout_fragments = explode('-', $old_id);
-		$last_layout_fragment = end($layout_fragments);
+		$layout_fragments     = explode( '-', $old_id );
+		$last_layout_fragment = end( $layout_fragments );
 
 		/* Don't touch template IDs */
-		if ( strpos($old_id, 'template-') === 0 )
+		if ( strpos( $old_id, 'template-' ) === 0 ) {
 			return $old_id;
+		}
 
 		/* If only a numeric ID is provided then turn it into new format */
-		if ( is_numeric($old_id) || is_numeric($last_layout_fragment) ) {
+		if ( is_numeric( $old_id ) || is_numeric( $last_layout_fragment ) ) {
 
-			$post_id = is_numeric($old_id) ? $old_id : $last_layout_fragment;
+			$post_id = is_numeric( $old_id ) ? $old_id : $last_layout_fragment;
 
-			$post = get_post($post_id);
+			$post = get_post( $post_id );
 
 			if ( $post ) {
 
-				return implode(self::$sep, array(
-					'single',
-					$post->post_type,
-					$post_id
-				));
-
+				return implode(
+					self::$sep,
+					array(
+						'single',
+						$post->post_type,
+						$post_id,
+					)
+				);
 			}
-
 		}
 
 		/* Replace underscores with separator */
-		$old_id = str_replace(array(
-			'single_',
-			'archive_',
-			'post_type_',
-			'post_tag_'
-		), array(
-			'single' . self::$sep,
-			'archive' . self::$sep,
-			'post_type' . self::$sep,
-			'post_tag' . self::$sep
-		), $old_id);
+		$old_id = str_replace(
+			array(
+				'single_',
+				'archive_',
+				'post_type_',
+				'post_tag_',
+			),
+			array(
+				'single' . self::$sep,
+				'archive' . self::$sep,
+				'post_type' . self::$sep,
+				'post_tag' . self::$sep,
+			),
+			$old_id
+		);
 
 		/* Change all hyphens to separator */
-		return str_replace('-', self::$sep, $old_id);
+		return str_replace( '-', self::$sep, $old_id );
 
 	}
 
 
 	/**
 	 * Check if layout exists via PadmaLayout::get_name()
-	 **/
-	public static function exists($layout_id) {
+	 *
+	 * @param string $layout_id Layout ID.
+	 * @return bool
+	 */
+	public static function exists( $layout_id ) {
 
-		$name = self::get_name($layout_id);
+		$name = self::get_name( $layout_id );
 
-		if ( !$name || $name == '(No Title)' || strpos($name, '(Unregistered Post Type: ') === 0 )
+		if ( ! $name || '(No Title)' === $name || strpos( $name, '(Unregistered Post Type: ' ) === 0 ) {
 			return false;
+		}
 
 		return true;
 
@@ -84,119 +123,122 @@ class PadmaLayout {
 
 	/**
 	 * Returns current layout
-	 * 
+	 *
 	 * @return mixed
 	 **/
 	public static function get_current() {
 
-		//If the user is viewing the site through the iframe and the mode is set to Layout, then display that exact layout.
-		if ( padma_get('ve-layout') && (PadmaRoute::is_visual_editor_iframe() || PadmaRoute::is_visual_editor()) ) 
-			return urldecode(padma_get('ve-layout'));
+		// If the user is viewing the site through the iframe and the mode is set to Layout, then display that exact layout.
+		if ( padma_get( 've-layout' ) && ( PadmaRoute::is_visual_editor_iframe() || PadmaRoute::is_visual_editor() ) ) {
+			return urldecode( padma_get( 've-layout' ) );
+		}
 
 		$current_hierarchy = self::get_current_hierarchy();
 
-		return apply_filters('padma_current_layout', end($current_hierarchy));
-
+		return apply_filters( 'padma_current_layout', end( $current_hierarchy ) );
 	}
 
 
 	/**
 	 * Traverses up the hierarchy tree to figure out which layout is being used.
-	 * 
+	 *
+	 * @param boolean $visual_editor_force Force to use visual editor.
 	 * @return mixed
-	 **/
-	public static function get_current_in_use($visual_editor_force = false) {
+	 */
+	public static function get_current_in_use( $visual_editor_force = false ) {
 
-		//If the user is viewing the site through the iframe and the mode is set to Layout, then display that exact layout.
-			if ( padma_get('ve-layout') && !$visual_editor_force ) {
+		// If the user is viewing the site through the iframe and the mode is set to Layout, then display that exact layout.
+		if ( padma_get( 've-layout' ) && ! $visual_editor_force ) {
 
-                if ( PadmaRoute::is_visual_editor_iframe('grid') || (PadmaRoute::is_visual_editor() && padma_get('visual-editor-mode') == 'grid') ) {
-                    return padma_get('ve-layout');
-                }
+			if ( PadmaRoute::is_visual_editor_iframe( 'grid' ) || ( PadmaRoute::is_visual_editor() && padma_get( 'visual-editor-mode' ) === 'grid' ) ) {
+				return padma_get( 've-layout' );
+			}
 
-                if ( PadmaRoute::is_visual_editor_iframe('design') ) {
+			if ( PadmaRoute::is_visual_editor_iframe( 'design' ) ) {
 
-                    if ( strpos(padma_get('ve-layout'), 'template-') === 0 || padma_get('ve-layout-customized') == 'true' ) {
+				if ( strpos( padma_get( 've-layout' ), 'template-' ) === 0 || padma_get( 've-layout-customized' ) === 'true' ) {
 
-                        return padma_get('ve-layout');
-
-                    }
-
-                }
-
-			} 
-
-		//Get hierarchy
-		$hierarchy = array_reverse(self::get_current_hierarchy());
-
-		//Loop through entire hierarchy to find which one is customized or has a template
-		foreach ( $hierarchy as $layout ) {
-
-			$status = self::get_status($layout);
-
-			//If the layout isn't customized or using a template, skip to next, otherwise we return the current layout in the next line.
-			if ( $status['customized'] === false && $status['template'] === false )
-				continue;
-
-			//If the layout has a template assigned to it, use the template.  Templates will take precedence over customized status.
-			if ( $status['template'] )
-				return 'template-' . $status['template'];
-
-			//If it's a customized layout, then use the layout itself after making sure there are blocks on the layout
-			if ( $status['customized'] )
-				return $layout;
-
+					return padma_get( 've-layout' );
+				}
+			}
 		}
 
-		//If there's still not a customized layout, loop through the top-level layouts and find the first one that's customized.
+		// Get hierarchy.
+		$hierarchy = array_reverse( self::get_current_hierarchy() );
+
+		// Loop through entire hierarchy to find which one is customized or has a template.
+		foreach ( $hierarchy as $layout ) {
+
+			$status = self::get_status( $layout );
+
+			// If the layout isn't customized or using a template, skip to next, otherwise we return the current layout in the next line.
+			if ( false === $status['customized'] && false === $status['template'] ) {
+				continue;
+			}
+
+			// If the layout has a template assigned to it, use the template.  Templates will take precedence over customized status.
+			if ( $status['template'] ) {
+				return 'template-' . $status['template'];
+			}
+
+			// If it's a customized layout, then use the layout itself after making sure there are blocks on the layout.
+			if ( $status['customized'] ) {
+				return $layout;
+			}
+		}
+
+		// If there's still not a customized layout, loop through the top-level layouts and find the first one that's customized.
 		$top_level_layouts = array(
 			'index',
 			'single',
 			'archive',
-			'four04'
+			'four04',
 		);
 
-		if ( get_option('show_on_front') == 'page' )
+		if ( get_option( 'show_on_front' ) === 'page' ) {
 			$top_level_layouts[] = 'front_page';
+		}
 
 		foreach ( $top_level_layouts as $top_level_layout ) {
 
-			$status = self::get_status($top_level_layout);
+			$status = self::get_status( $top_level_layout );
 
-			if ( $status['customized'] === false && $status['template'] === false )
+			if ( false === $status['customized'] && false === $status['template'] ) {
 				continue;
+			}
 
-			//If the layout has a template assigned to it, use the template.  Templates will take precedence over customized status.
-			if ( $status['template'] )
+			// If the layout has a template assigned to it, use the template.  Templates will take precedence over customized status.
+			if ( $status['template'] ) {
 				return 'template-' . $status['template'];
+			}
 
-			//If it's a customized layout and the layout has blocks, then use the layout itself
-			if ( $status['customized'] && count(PadmaBlocksData::get_blocks_by_layout($top_level_layout)) > 0 )
+			// If it's a customized layout and the layout has blocks, then use the layout itself.
+			if ( $status['customized'] && count( PadmaBlocksData::get_blocks_by_layout( $top_level_layout ) ) > 0 ) {
 				return $top_level_layout;
-
+			}
 		}
 
-		//If there STILL isn't a customized layout, just return the top level of the current layout.
-		return apply_filters('padma_current_layout_in_use', end($hierarchy));
+		// If there STILL isn't a customized layout, just return the top level of the current layout.
+		return apply_filters( 'padma_current_layout_in_use', end( $hierarchy ) );
 
 	}
 
 
 	/**
 	 * Returns name of the current layout being viewed.
-	 * 
+	 *
 	 * @return string
 	 **/
 	public static function get_current_name() {
 
-		return self::get_name(self::get_current());
+		return self::get_name( self::get_current() );
 
 	}
 
 
 	/**
-	 * Returns the current hierarchy. 
-	 * 
+	 * Returns the current hierarchy.
+	 *
 	 * @return array
 	 **/
 	public static function get_current_hierarchy() {
@@ -204,26 +246,25 @@ class PadmaLayout {
 		/* WPML Front page/Blog compatibility */
 		global $sitepress;
 
-		if ( !empty($GLOBALS['padma_current_hierarchy']) ) {
-			return apply_filters('padma_current_layout_hierarchy', $GLOBALS['padma_current_hierarchy']);
+		if ( ! empty( $GLOBALS['padma_current_hierarchy'] ) ) {
+			return apply_filters( 'padma_current_layout_hierarchy', $GLOBALS['padma_current_hierarchy'] );
 		}
 
-        if ( PadmaRoute::is_visual_editor() && padma_get( 've-layout' ) ) {
-            return explode(PadmaLayout::$sep, urldecode(padma_get('ve-layout')));
-        }
+		if ( PadmaRoute::is_visual_editor() && padma_get( 've-layout' ) ) {
+			return explode( self::$sep, urldecode( padma_get( 've-layout' ) ) );
+		}
 
 		$current_layout = array();
 		$queried_object = get_queried_object();
 
-		//Now the fun begins
-		if ( is_home() || ( get_option( 'show_on_front' ) == 'posts' && is_front_page() ) ) {
+		// Now the fun begins.
+		if ( is_home() || ( get_option( 'show_on_front' ) === 'posts' && is_front_page() ) ) {
 
 			$current_layout[] = 'index';
 
-			if ( method_exists( $sitepress, 'get_current_language' ) ) {
+			if ( ! is_null( $sitepress ) && method_exists( $sitepress, 'get_current_language' ) ) {
 				$current_layout[] = 'index' . self::$sep . 'wpml_' . $sitepress->get_current_language();
 			}
-
 		} elseif ( is_front_page() && ! is_home() ) {
 
 			$current_layout[] = 'front_page';

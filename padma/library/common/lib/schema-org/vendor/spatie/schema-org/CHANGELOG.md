@@ -2,6 +2,82 @@
 
 All Notable changes to `schema-org` will be documented in this file.
 
+## 2.16.0 - 2020-08-27
+
+- Upgrade to schema.org:v8
+
+## 2.15.0 - 2020-08-27
+
+Generated files with new JSON-LD source - some methods have been dropped which aren't part of the corresponding types but were listed in old RDFa - it's not a breaking release because of the same schema.org version and changes only because of schema file inconsistencies.
+
+## 2.14.1 - 2020-06-10
+
+- fix `\BadMethodCallException` message thrown in `\Spatie\SchemaOrg\Graph`
+- fix `\Spatie\SchemaOrg\Graph` docblock `@method` annotations
+
+## 2.14.0 - 2020-06-03
+
+- add identifiers to `\Spatie\SchemaOrg\Graph` nodes [#124](https://github.com/spatie/schema-org/pull/124)
+
+## 2.13.0 - 2020-04-17
+
+- RDFa update
+
+## 2.12.1 - 2020-03-17
+
+- fix after malformed RDFa import [twitter.com/ScreamingDev](https://twitter.com/ScreamingDev/status/1239859471335243779)
+
+## 2.12.0 - 2020-01-23
+
+- RDFa update
+
+## 2.11.1 - 2019-11-18
+
+- Fix types to implement their own contract
+
+## 2.11.0 - 2019-11-18
+
+- Use contracts as type-hints in doc-blocks
+
+## 2.10.0 - 2019-11-12
+
+- Add PHP 7.4 support
+- Fix `Graph` magic call
+- RDFa update
+
+## 2.9.0 - 2019-10-06
+
+- Drop PHP 7.2 support
+
+## 2.8.0 - 2019-10-06
+
+- Drop PHP 7.1 support
+
+## 2.7.0 - 2019-10-06
+
+- Drop PHP 7.0 support
+
+## 2.6.0 - 2019-09-26
+- Fix identifier serialization
+
+## 2.5.0 - 2019-09-25
+- Add reflection support
+
+## 2.4.0 - 2019-09-25
+- RDFa update
+
+## 2.3.0 - 2019-08-07
+- Fix null values
+
+## 2.2.1 - 2019-05-28
+- Fix pending Types
+
+## 2.2.0 - 2019-05-28
+- RDFa update
+
+## 2.1.0 - 2019-01-18
+- Add `Graph` support
+
 ## 2.0.3 - 2018-10-18
 - Convert invalid objects that have a `__toString` method to strings
 

@@ -31,6 +31,8 @@
 }
 .padma-postbox-container > .padma-admin-options-group > h2.hndle{
     margin-bottom: 0px !important;
+    width: calc( 100% - 64px );
+    display: inline-block;
 }
 
 .padma-admin-options-group .handlediv .toggle-indicator:before{

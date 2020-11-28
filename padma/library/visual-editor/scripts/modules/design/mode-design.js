@@ -779,18 +779,20 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 						/* Live CSS */
 						elementName.append('<span class="element-name-button element-name-button-live-css tooltip" title="Edit in Live CSS"></span>');
 
-						elementName.find('.tooltip').each(function() {
-							$(this).jBox('Mouse', {
-								addClass: 'jbox-padma jbox-padma-element-selector',
-								position: {
-									viewport: $(window),
-									x: 'left',
-									y: 'center'
-								},
-								reposition: true,
-								repositionOnOpen: true,
-								repositionOnContent: true,
-							});
+						elementName.find('.tooltip').qtip({
+							style: {
+								classes: 'qtip-padma qtip-padma-element-selector',
+								tip: false
+							},
+							position: {
+								my: 'bottom left',
+								at: 'top center',
+								viewport: $(window),
+								adjust: {
+									y: -5,
+									method: 'flipinvert'
+								}
+							},
 						});
 
 						link.addClass('element-name-has-buttons');
@@ -814,7 +816,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 					/* Remove buttons */
 						link.children('.element-name').find('.element-name-button').each(function() {
-							//$(this).qtip('api').destroy(true);
+							$(this).qtip('api').destroy(true);
 							$(this).remove();
 						});
 
@@ -1253,7 +1255,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 										
 			$('body').addClass('side-panel-hidden');
 
-			//setTimeout(repositionTooltips, 400);
+			setTimeout(repositionTooltips, 400);
 
 			/* Change arrow to pointing left arrow */
 			$('#design-editor-toggle span').text('eee');
@@ -1273,7 +1275,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 					
 			$('body').removeClass('side-panel-hidden');
 
-			//setTimeout(repositionTooltips, 400);
+			setTimeout(repositionTooltips, 400);
 
 			/* Change arrow to pointing right arrow */
 			$('#design-editor-toggle span').text('iii');
@@ -2277,55 +2279,53 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 				/* Build element hover tooltip */
 				if ( typeof refresh == 'undefined' || refresh !== true ) {
-					
-					jBox = jBoxWrapper( $i );
-					new jBox('Mouse', {
-						attach: $i('body'),
-						theme: 'TooltipDark',
-						content: 'I will follow you',
-						addClass: 'jbox-padma jbox-inspector-tooltip',
-					});
 
-					/*
-					new jBox( 'Mouse', {
-						attach: $i('body'),
-						theme: 'TooltipDark',
-						addClass: 'jbox-padma jbox-inspector-tooltip',
-						reposition: true,
-						repositionOnOpen: true,
-						repositionOnContent: true,
-						pointTo: 'target',
-						
-						adjustTracker: true,
-						holdPosition: false,
-						draggable: true,						
-						pointer: true,
-						
-						reposition: true,
-						repositionOnOpen: true,
-						repositionOnContent: true,
-						position: {
-							x: 'center',
-							y: 'center'
+					$i('body').qtip({
+						id: '',						
+						style: {
+							classes: 'qtip-padma qtip-inspector-tooltip'
 						},
-						onCreated: function () {							
-							delete inspectorElement;
-							delete inspectorTooltip;
-							delete inspectorElementOptions;
-
-							inspectorTooltip = this;
-
-							if (!$('#toggle-inspector').hasClass('inspector-disabled')) {
-								enableInspector();
-							} else {
-								disableInspector();
+						position: {
+							target: 'mouse',
+							my: 'bottom left',
+							at: 'top right',
+							container: $i('body'),
+							viewport: $i('#padma-tooltip-container'),
+							effect: false,
+							adjust: {
+								x: 0,
+								y: 0,
+								method: 'flipinvert'
 							}
 						},
-						onPosition: function(){
-							console.log(this.event)
-							console.log(this.options)
+						content: {
+							text: 'Hover over an element.'
+						},
+						show: {
+							event: false,
+							ready: true
+						},
+						hide: false,						
+						events: {
+							
+							render: function(event, api) {
+								
+								delete inspectorElement;
+								delete inspectorTooltip;
+								delete inspectorElementOptions;
+
+								inspectorTooltip = api;								
+								
+								if ( !$('#toggle-inspector').hasClass('inspector-disabled') ) {									
+									enableInspector();
+								} else {
+									disableInspector();
+								}
+
+							}
 						}
-					})*/
+					});
+
 				}
 
 			}
@@ -2464,7 +2464,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 				$i('.inspector-element-hover').removeClass('inspector-element-hover');
 				$i('body').removeClass('disable-block-hover').addClass('inspector-disabled'); 
-				//$i('.block').qtip('enable');
+				$i('.block').qtip('enable');
 
 				$(inspectorTooltip.elements.tooltip).hide();
 				hideNotification('inspector');
@@ -2694,28 +2694,17 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 							tooltipText += '<small class="tooltip">'+inspectorElementOptions.tooltip+'</small>';
 
 						}
-						/*
-						inspectorTooltip.event = {
-							mouseTarget: {
-								top: event.originalEvent.offsetX,
-								left: event.originalEvent.offsetY,
-							}
-						};*/
-						inspectorTooltip.setContent(tooltipText);
-						/*
-						inspectorTooltip.position({
-							mouseTarget: {
-								top: event.originalEvent.offsetX,
-								left: event.originalEvent.offsetY,
-							}
-						});
-						inspectorTooltip.options.target = inspectorElement;
-						*/
-						//inspectorTooltip.options.attach = inspectorElement;
+
+						inspectorTooltip.set('content.text', tooltipText);
 
 					}
 
 				}
+				
+				
+				inspectorTooltip.show();
+				inspectorTooltip.set('position.target', 'mouse');
+				
 
 				inspectorTooltip.show();
 			}
@@ -2751,7 +2740,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 					$(this).data('element-options', inspectorElement.data('inspectorElementOptions'));
 
 				/* Disable inspector tooltip */
-					//$(inspectorTooltip.elements.tooltip).hide();
+					$(inspectorTooltip.elements.tooltip).hide();
 					Padma.inspectorDisabled = true;
 
 			}

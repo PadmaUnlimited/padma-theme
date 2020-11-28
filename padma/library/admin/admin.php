@@ -375,14 +375,13 @@ class PadmaAdmin {
 		 */
 		if ( false !== strpos( padma_get( 'page' ), 'padma' ) ) {
 
-			wp_enqueue_script( 'padma_jquery_scrollto', padma_url() . '/library/admin/js/jquery.scrollto.js', array( 'jquery' ), PADMA_VERSION, true );
-			wp_enqueue_script( 'padma_jquery_tabby', padma_url() . '/library/admin/js/jquery.tabby.js', array( 'jquery' ), PADMA_VERSION, true );
-			wp_enqueue_script( 'padma_jquery_jbox', padma_url() . '/library/visual-editor/scripts/deps/jBox/dist/jBox.all.js', array( 'jquery' ), PADMA_VERSION, true );
-			wp_enqueue_script( 'padma_admin_js', padma_url() . '/library/admin/js/admin-padma.js', array( 'jquery', 'padma_jquery_jbox' ), PADMA_VERSION, true );
+			wp_enqueue_script('padma_jquery_scrollto', padma_url() . '/library/admin/js/jquery.scrollto.js', array('jquery'));
+			wp_enqueue_script('padma_jquery_tabby', padma_url() . '/library/admin/js/jquery.tabby.js', array('jquery'));
+			wp_enqueue_script('padma_jquery_qtip', padma_url() . '/library/admin/js/jquery.qtip.js', array('jquery'));
+            wp_enqueue_script('padma_admin_js', padma_url() . '/library/admin/js/admin-padma.js', array('jquery', 'padma_jquery_qtip'));
 
-			wp_enqueue_style( 'padma_admin', padma_url() . '/library/admin/css/admin-padma.css', array(), PADMA_VERSION, 'all' );
-			wp_enqueue_style( 'padma_alerts', padma_url() . '/library/media/css/alerts.css', array(), PADMA_VERSION, 'all' );
-			wp_enqueue_style( 'padma_jbox_css', padma_url() . '/library/visual-editor/scripts/deps/jBox/dist/jBox.all.css', array(), PADMA_VERSION, 'all' );
+            wp_enqueue_style('padma_admin', padma_url() . '/library/admin/css/admin-padma.css');
+			wp_enqueue_style('padma_alerts', padma_url() . '/library/media/css/alerts.css');
 
 		}
 

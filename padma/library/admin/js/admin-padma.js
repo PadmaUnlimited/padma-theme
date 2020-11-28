@@ -207,14 +207,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	/* Tooltips */
-		if ( typeof $().jBox === 'function' ) {
+		if ( typeof $().qtip === 'function' ) {
 			
-			$('label span.label-tooltip').jBox( 'Tooltip', {
-				addClass: 'jbox-padma',
-				position: {
-					x: 'left',
-					y: 'center'
+			$('label span.label-tooltip').qtip({
+				style: {
+					classes: 'qtip-padma'
 				},
+				position: {
+					my: 'bottom left',
+					at: 'top right'
+				}
 			});
 			
 		}
@@ -229,16 +231,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	/* System Info */
 	if ( $('textarea#system-info-textarea').length > 0 ) {
 		
-		$('textarea#system-info-textarea').jBox( 'Tooltip', {
-			addClass: 'jbox-padma',
-			position: {
-				x: 'left',
-				y: 'center'
+		$('textarea#system-info-textarea').qtip({
+			style: {
+				classes: 'qtip-padma'
 			},
+			position: {
+				my: 'bottom center',
+				at: 'top center'
+			}
 		});
 
 	
-		$('textarea#system-info-textarea').on('mouseup', function() {
+		$('textarea#system-info-textarea').bind('mouseup', function() {
 		
 			$(this).triggerHandler( "focus" ).select();
 			

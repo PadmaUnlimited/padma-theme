@@ -78,7 +78,7 @@ abstract class PadmaVisualEditorPanelAPI {
 	}
 
 
-	public function modify_arguments($args) {
+	public function modify_arguments( $args = false ) {
 
 		//Allow developers to modify the properties of the class and use functions since doing a property 
 		//outside of a function will not allow you to.

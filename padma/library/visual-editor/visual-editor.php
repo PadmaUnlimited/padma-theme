@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Visual Editor Main Class
+ */
 class PadmaVisualEditor {
 
 
@@ -10,8 +13,9 @@ class PadmaVisualEditor {
 
 	public static function init() {
 
-		if ( !PadmaCapabilities::can_user_visually_edit() )
+		if ( ! PadmaCapabilities::can_user_visually_edit() ) {
 			return;
+		}
 
 		//If no child theme is active or if a child theme IS active and the grid is supported, use the grid mode.
 		if ( current_theme_supports('padma-grid') )
@@ -25,14 +29,15 @@ class PadmaVisualEditor {
 
 		PadmaSettings::set_visual_editor_settings();
 
-		//Put in action so we can run top level functions
-		do_action('padma_visual_editor_init');
+		// Put in action so we can run top level functions.
+		do_action( 'padma_visual_editor_init' );
 
-		//Visual Editor AJAX		
+		// Visual Editor AJAX.
 		add_action('wp_ajax_padma_visual_editor', array(__CLASS__, 'ajax'));
 
-		if ( PadmaOption::get('debug-mode') )
+		if ( PadmaOption::get('debug-mode') ) {
 			add_action('wp_ajax_nopriv_padma_visual_editor', array(__CLASS__, 'ajax'));
+		}
 
 		//Cache rejection
 		global $cache_rejected_uri;

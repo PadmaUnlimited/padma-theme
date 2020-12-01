@@ -152,9 +152,8 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 		
 		
 		setupStaticBoxes = function() {
-					
-			$('div.box').each(function() {
-			
+			$('div.box').each(function () {
+
 				/* Fetch settings */
 				var draggable = puBoolean($(this).attr('draggable'));
 				var closable = puBoolean($(this).attr('closable'));
@@ -163,10 +162,10 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 				var width = $(this).attr('width');
 				var height = $(this).attr('height');
 				var minWidth = $(this).attr('min_width');
-				var minHeight = $(this).attr('min_height');			
-							
+				var minHeight = $(this).attr('min_height');
+
 				var id = $(this).attr('id').replace('box-', '');
-																			
+
 				setupBox(id, {
 					draggable: draggable,
 					closable: closable,
@@ -177,7 +176,7 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 					minWidth: minWidth,
 					minHeight: minHeight
 				});
-				
+
 				/* Remove settings attributes */
 				$(this).attr('draggable', null);
 				$(this).attr('closable', null);
@@ -187,9 +186,8 @@ define(['modules/iframe', 'deps/jquery.pep'], function(iframe) {
 				$(this).attr('height', null);
 				$(this).attr('min_width', null);
 				$(this).attr('min_height', null);
-				
+
 			});
-			
 		}
 		
 		

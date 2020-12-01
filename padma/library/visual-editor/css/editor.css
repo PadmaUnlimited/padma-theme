@@ -2108,7 +2108,7 @@ div#panel {
 	background: #EEEEEE;
 	z-index: 7;
 }
-div#panel pre{
+div#panel pre:not(.language-php){
 	background-color: rgba(220, 220, 220, 0.8);
     padding: 5px 20px;
     width: auto;
@@ -8191,4 +8191,15 @@ and (orientation : portrait) {  }
 	    position: fixed;
     	right: 0;
 	}
+}
+.language-php{
+	user-select: text;
+}
+pre.language-php{
+    overflow: hidden;
+    height: 0;
+    transition: all 1s ease;
+}
+pre.language-php.active{
+	height: auto;
 }

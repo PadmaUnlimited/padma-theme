@@ -419,37 +419,37 @@ function padma_array_insert(array &$array, array $insert, $position) {
 }
 
 
-function padma_array_key_neighbors($array, $findKey, $valueOnly = true) {
-
-	if ( ! array_key_exists($findKey, $array))
-		return FALSE;
+function padma_array_key_neighbors( $array, $find_key, $value_only = true ) {
 
 	$select = $previous = $next = NULL;
 
-	foreach($array as $key => $value) {
+	if ( ! array_key_exists( $find_key, $array ) ) {
+		return FALSE;
+	}
 
-		$thisValue = $valueOnly ? $value : array($key => $value);
+	foreach ( $array as $key => $value ) {
 
-		if ($key === $findKey) {
-			$select = $thisValue;
+		$this_value = $value_only ? $value : array( $key => $value );
+
+		if ( $key === $find_key ) {
+			$select = $this_value;
 			continue;
 		}
 
-		if ($select !== NULL) {
-			$next = $thisValue;
+		if ( null !== $select ) {
+			$next = $this_value;
 			break;
 		}
 
-		$previous = $thisValue;
+		$previous = $this_value;
 
 	}
 
 	return array(
-		'prev' => $previous,
+		'prev'    => $previous,
 		'current' => $select,
-		'next' => $next
+		'next'    => $next,
 	);
-
 }
 
 

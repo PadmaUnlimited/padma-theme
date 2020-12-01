@@ -6,7 +6,8 @@ require.config({
 
 		/* jQuery Plugins */
 		jqueryUI: 'deps/jquery.ui',
-		qtip: 'deps/jquery.qtip'
+		qtip: 'deps/jquery.qtip',
+		jbox: 'deps/jBox/dist/jBox.all',
 	},
 	shim: {
 	    underscore: {
@@ -49,7 +50,7 @@ require(['jquery', 'util.loader'], function($) {
 	/* Init tour */
 	require(['util.tour'], function (tour) {
 
-		if ( Padma.ranTour[Padma.mode] == false && Padma.ranTour.legacy == false ) {
+		if ( Padma.ranTour[ Padma.mode ] == false && Padma.ranTour.legacy == false ) {
 			tour.start();
 		}
 

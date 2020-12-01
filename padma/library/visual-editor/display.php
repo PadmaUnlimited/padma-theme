@@ -105,7 +105,7 @@ class PadmaVisualEditorDisplay {
 
 	}
 
-
+	
 	public static function enqueue_styles() {
 
 		$styles = array(
@@ -113,10 +113,11 @@ class PadmaVisualEditorDisplay {
 			'open-sans',
 			'dashicons',
 			'padma_visual_editor' => padma_url() . '/library/visual-editor/css/editor.css',
-			'padma_visual_editor_night' => padma_url() . '/library/visual-editor/css/editor-night.css',			
+			'padma_visual_editor_night' => padma_url() . '/library/visual-editor/css/editor-night.css',
+			'padma_jbox' => padma_url() . '/library/visual-editor/scripts/deps/jBox/dist/jBox.all.css',
 		);
 
-		wp_enqueue_multiple_styles($styles);
+		wp_enqueue_multiple_styles( $styles );
 	}
 
 
@@ -244,7 +245,7 @@ class PadmaVisualEditorDisplay {
 
 			'responsiveGrid' => PadmaResponsiveGrid::is_enabled(),
 
-			'touch' => PadmaMobileDetect::isMobile(),
+			'touch' => PadmaMobileDetect::is_mobile(),
 
 			'layouts' => json_encode(array(
 				'pages' => PadmaLayoutSelector::get_basic_pages(),
@@ -252,7 +253,7 @@ class PadmaVisualEditorDisplay {
 			)),
 
 
-			'snapshots' => PadmaDataSnapshots::list_snapshots(),
+			'snapshots'  => PadmaDataSnapshots::list_snapshots(),
 
 			'viewModels' => array(),
 
@@ -266,7 +267,6 @@ class PadmaVisualEditorDisplay {
 
 
 	public static function panel_top_right() {
-
 
 		/**
 		 *

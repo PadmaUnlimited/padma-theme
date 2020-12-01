@@ -12,8 +12,7 @@ function openTabAdmin(evt, option) {
 	evt.currentTarget.firstElementChild.className += " padma-admin-border-red";
 }
 (function($) {
-$(document).ready(function() {
-
+document.addEventListener('DOMContentLoaded', function () {
 
 	showNotification = function(args) {
 
@@ -241,12 +240,11 @@ $(document).ready(function() {
 				at: 'top center'
 			}
 		});
+
 	
 		$('textarea#system-info-textarea').bind('mouseup', function() {
 		
-			$(this)
-				.focus()
-				.select();
+			$(this).triggerHandler( "focus" ).select();
 			
 		});
 		
@@ -273,9 +271,9 @@ $(document).ready(function() {
 					} else {
 
 						if ( value == 1 ) {
-							$(this).attr('checked', true);
+							$(this).prop('checked', true);
 						} else {
-							$(this).attr('checked', false);
+							$(this).prop('checked', false);
 						}
 
 					}

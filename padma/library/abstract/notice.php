@@ -1,13 +1,13 @@
 <?php
-
-/*
-	Based on Class Shortcodes_Ultimate_Notice
-	Plugin URI: https://getshortcodes.com/
- 	Version: 5.2.0
- 	Author: Vladimir Anokhin
- 	Author URI: https://vanokhin.com/
-
-*/
+/**
+ * Based on Class Shortcodes_Ultimate_Notice
+ * Plugin URI: https://getshortcodes.com/
+ * Version: 5.2.0
+ * Author: Vladimir Anokhin
+ * Author URI: https://vanokhin.com/
+ *
+ * @package padma
+ */
 
 /**
  * The abstract class for creating admin notices.
@@ -85,10 +85,10 @@ abstract class PadmaNotice {
 	 *
 	 * @since  1.0.0
 	 * @access protected
-	 * @param string  $notice_id     The ID of the notice.
-	 * @param string  $template_file The full path to the notice template file.
+	 * @param string $notice_id     The ID of the notice.
+	 * @param string $template_file The full path to the notice template file.
 	 */
-	public static function notice($notice_id, $template_file){
+	public static function notice( $notice_id, $template_file ){
 
 		self::$notice_id        = $notice_id;
 		self::$template_file    = $template_file;
@@ -104,21 +104,19 @@ abstract class PadmaNotice {
 	 *
 	 * @since  1.0.0
 	 */
-	abstract static function display_notice();
+	abstract public static function display_notice();
 
 	/**
 	 * Include template file.
 	 *
 	 * @since  1.0.0
 	 * @access protected
-	 * @param mixed   $data The data to pass to the template.
 	 */
-	protected function include_template( $data = null ) {
+	protected static function include_template() {
 
 		if ( file_exists( self::$template_file ) ) {
 			include self::$template_file;
 		}
-
 	}
 
 	/**
@@ -126,23 +124,19 @@ abstract class PadmaNotice {
 	 *
 	 * @since  1.0.0
 	 * @access protected
-	 * @param string  $status New status. Can be 'dismissed' or 'deferred'
+	 * @param string $status New status. Can be 'dismissed' or 'deferred'.
 	 */
 	protected static function update_notice_status( $status ) {
 
 		$dismissed = self::get_dismissed_notices();
 		$id        = self::$notice_id;
 
-		if ( $status === 'dismissed' ) {
-			$dismissed[$id] = true;
-		}
-
-		elseif ( $status === 'deferred' ) {
-			$dismissed[$id] = time() + (int) self::$defer_delay;
-		}
-
-		elseif ( is_numeric( $status ) ) {
-			$dismissed[$id] = time() + (int) $status;
+		if ( 'dismissed' === $status ) {
+			$dismissed[ $id ] = true;
+		} elseif ( 'deferred' === $status ) {
+			$dismissed[ $id ] = time() + (int) self::$defer_delay;
+		} elseif ( is_numeric( $status ) ) {
+			$dismissed[ $id ] = time() + (int) $status;
 		}
 
 		update_option( self::$option_name, $dismissed );
@@ -195,18 +189,20 @@ abstract class PadmaNotice {
 	 *
 	 * @since  1.0.0
 	 * @access protected
-	 * @param bool    $defer    Defer the notice instead of dismissing.
-	 * @param string  $redirect Custom redirect URL.
-	 * @return string           The admin url.
+	 * @param bool   $defer    Defer the notice instead of dismissing.
+	 * @param string $redirect Custom redirect URL.
+	 * @return string The admin url.
 	 */
-	protected function get_dismiss_link( $defer = false, $redirect = '' ) {
+	protected static function get_dismiss_link( $defer = false, $redirect = '' ) {
 
-		$link = admin_url( sprintf(
+		$link = admin_url(
+			sprintf(
 				'admin-post.php?action=%s&nonce=%s&id=%s',
 				'padma_dismiss_notice',
 				wp_create_nonce( 'padma_dismiss_notice' ),
 				self::$notice_id
-			) );
+			)
+		);
 
 		if ( $defer ) {
 			$link = add_query_arg( 'defer', 1, $link );

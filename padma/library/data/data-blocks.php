@@ -1,8 +1,17 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
+
+/**
+ * Block Data main class.
+ */
 class PadmaBlocksData {
 
 
-	public static function add_block($layout_id, $args) {
+	public static function add_block( $layout_id, $args ) {
 
 		global $wpdb;
 
@@ -579,12 +588,15 @@ class PadmaBlocksData {
 	}
 
 
-	public static function get_block_name($block) {
+	public static function get_block_name( $block ) {
 
-		$block = self::get_block($block);
+		$block = self::get_block( $block );
 
-		//Create the default name by using the block type and ID
-		$default_name = PadmaBlocks::block_type_nice($block['type']);
+		// Create the default name by using the block type and ID.
+		$default_name = '';
+		if ( ! is_null( $block ) ) {
+			$default_name = PadmaBlocks::block_type_nice( $block['type'] );
+		}
 
 		return padma_get('alias', padma_get('settings', $block, array()), $default_name);
 
@@ -611,14 +623,21 @@ class PadmaBlocksData {
 	}
 
 
-	public static function get_block_height($block) {
+	/**
+	 * Get Block Height
+	 *
+	 * @param array $block
+	 * @return void
+	 */
+	public static function get_block_height( $block ) {
 
 		$block = self::get_block($block);
 
-		$block_grid_height = padma_get('height', $block['dimensions'], null);
+		$block_grid_height = padma_get( 'height', $block['dimensions'], null );
 
-		if ( $block_grid_height === null )
+		if ( $block_grid_height === null ) {
 			return null;
+		}
 
 		return $block_grid_height;
 

@@ -122,7 +122,6 @@ trait BloxVisualEditorPanelAPITrait {
 		parent::build_panel($id);
 	}
 	public function panel_content($args = false){
-		debug('A');
 		parent::panel_content($args);
 	}
 	public function sub_tab_content($id, $name = false){

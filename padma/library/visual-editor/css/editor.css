@@ -2555,7 +2555,8 @@ div.block-type-selector div.block-type {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    cursor: move;
+	cursor: move;
+	position: relative;
 }
 div.block-type-selector div.block-type:hover {
     color: #c62040;
@@ -8202,4 +8203,15 @@ pre.language-php{
 }
 pre.language-php.active{
 	height: auto;
+}
+#get-more-blocks a{
+	    width: 100%;
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+	right: 0;
+	padding-top: 72px;
 }

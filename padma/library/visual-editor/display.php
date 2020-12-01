@@ -332,13 +332,7 @@ class PadmaVisualEditorDisplay {
 		}
 		echo '</ul>';
 		echo '</div>';
-		echo '<div class="block-type-selector-items">';
-
-			
-			/*
-			usort( $block_types , function($a, $b){								
-				return strcmp($a["name"], $b["name"]);
-			});*/			
+		echo '<div class="block-type-selector-items">';	
 
 			foreach ( $block_types as $block_type_id => $block_type ) {
 
@@ -349,33 +343,30 @@ class PadmaVisualEditorDisplay {
 
 				$icon = '/icon.svg';				
 				if( is_array($block_type['icons']) && !empty($block_type['icons']) ){
-					
 					$icon = $block_type['icons']['url'] . $icon;
 
 				}else{
-					
-					if( !file_exists( PADMA_LIBRARY_DIR . '/blocks/' . $block_type_id . '/' .  $icon) ){
+
+					if( ! file_exists( PADMA_LIBRARY_DIR . '/blocks/' . $block_type_id . '/' .  $icon) ){
 						$icon =  '/icon.png';
 					}					
+
 					if (!filter_var($icon, FILTER_VALIDATE_URL)){
 						$icon = $block_type['url'] . '/icon.png';
 					}
 				}
-				
 
 				echo '<div id="block-type-' . $block_type_id . '" class="block-type '.$filter_categories.'" title="' . $block_type['description'] . '">';
 				echo '<div class="block-detail" style="background-image: url(' . $icon . ');">
 						<div class="block-detail-name" >' . $block_type['name'] . '</div>
 						</div>';
 				echo '</div>';
-								
-
 			}
 
 			echo '<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" title="' . __('Get more blocks', 'padma') . '">';
-				echo '<div class="block-detail" style="background-image: url('.get_template_directory_uri().'/library/media/img/get-more-blocks.svg);">
+				echo '<div class="block-detail" style="background-image: url(' . get_template_directory_uri() . '/library/media/img/get-more-blocks.svg);">
 						<div class="block-detail-name" >
-							<a target="_blank" href="https://dashboard.padmaunlimited.com/login"> ' . __('Get more blocks', 'padma') .'</a>
+							<a target="_blank" href="https://wordpress.org/plugins/padma-advanced/"> ' . __('Get more blocks', 'padma') .'</a>
 						</div>
 					</div>
 				</div>';

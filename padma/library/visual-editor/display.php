@@ -245,7 +245,7 @@ class PadmaVisualEditorDisplay {
 
 			'responsiveGrid' => PadmaResponsiveGrid::is_enabled(),
 
-			'touch' => PadmaMobileDetect::isMobile(),
+			'touch' => PadmaMobileDetect::is_mobile(),
 
 			'layouts' => json_encode(array(
 				'pages' => PadmaLayoutSelector::get_basic_pages(),
@@ -267,7 +267,6 @@ class PadmaVisualEditorDisplay {
 
 
 	public static function panel_top_right() {
-
 
 		/**
 		 *

@@ -1,39 +1,45 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
+
+/**
+ * Mobile detetion class
+ */
 class PadmaMobileDetect {
 
+	/**
+	 * Detect device
+	 *
+	 * @var Mobile_Detect
+	 */
 	protected static $detect;
 
-	function __construct(){
+	/**
+	 * Detect Mobile
+	 *
+	 * @return boolean
+	 */
+	public static function is_mobile() {
 
-
-	}
-
-	public static function init() {
-
-
-
-	}
-
-	public static function isMobile(){
-
-
-		if( !class_exists('Mobile_Detect'))
+		if ( ! class_exists( 'Mobile_Detect' ) ) {
 			require_once PADMA_LIBRARY_DIR . '/common/lib/Mobile_Detect.php';
-
-
-		self::$detect = new Mobile_Detect;
-
-		$isMobile = false;
-
-		if( method_exists('Mobile_Detect', 'isMobile') ){
-			$isMobile = self::$detect->isMobile();
-		}
-		
-		if( $isMobile === false && method_exists('Mobile_Detect', 'isTablet') ){
-			$isMobile = self::$detect->isTablet();
 		}
 
-		return $isMobile;
+		self::$detect = new Mobile_Detect();
 
+		$is_mobile = false;
+
+		if ( method_exists( 'Mobile_Detect', 'isMobile' ) ) {
+			$is_mobile = self::$detect->isMobile();
+		}
+
+		if ( false === $is_mobile && method_exists( 'Mobile_Detect', 'isTablet' ) ) {
+			$is_mobile = self::$detect->isTablet();
+		}
+
+		return $is_mobile;
 	}
 }

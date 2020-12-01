@@ -1,7 +1,12 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
 
 /**
- * API Block Class
+ * Block API main class.
  */
 abstract class PadmaBlockAPI {
 

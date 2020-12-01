@@ -1,38 +1,35 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "c868322a87deb87124bba7d7434926e6",
     "content-hash": "ed2e0c205a9021ac39110e5156b16aa9",
     "packages": [
         {
             "name": "spatie/schema-org",
-            "version": "2.1.0",
+            "version": "2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "16b51d49fe5f29db94ce153d9a0fc9d9c381b2b4"
+                "reference": "31f1fd54584d98b50026ecb17fe7067384ec209a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/16b51d49fe5f29db94ce153d9a0fc9d9c381b2b4",
-                "reference": "16b51d49fe5f29db94ce153d9a0fc9d9c381b2b4",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/31f1fd54584d98b50026ecb17fe7067384ec209a",
+                "reference": "31f1fd54584d98b50026ecb17fe7067384ec209a",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "ext-json": "*",
+                "php": "^7.3"
             },
             "require-dev": {
-                "graham-campbell/analyzer": "^1.1",
-                "larapack/dd": "^1.1",
+                "graham-campbell/analyzer": "^2.3",
                 "league/flysystem": "^1.0",
-                "phpunit/phpunit": "^6.0",
-                "scrutinizer/ocular": "^1.5",
+                "phpunit/phpunit": "^8.0",
                 "symfony/console": "^3.2",
-                "symfony/css-selector": "^3.2",
-                "symfony/dom-crawler": "^3.2",
+                "tightenco/collect": "^7.25",
                 "twig/twig": "^1.28"
             },
             "type": "library",
@@ -51,6 +48,12 @@
                     "email": "sebastian@spatie.be",
                     "homepage": "https://spatie.be",
                     "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A fluent builder Schema.org types and ld+json generator",
@@ -59,7 +62,21 @@
                 "schema-org",
                 "spatie"
             ],
-            "time": "2019-01-18 09:39:08"
+            "support": {
+                "issues": "https://github.com/spatie/schema-org/issues",
+                "source": "https://github.com/spatie/schema-org/tree/master"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-27T16:55:28+00:00"
         }
     ],
     "packages-dev": [],
@@ -69,5 +86,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

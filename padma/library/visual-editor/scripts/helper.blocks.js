@@ -458,8 +458,9 @@ define(['modules/panel.inputs', 'helper.history', 'util.browser'], function(pane
 
 			if ( typeof window.frames['content'].jQuery != 'undefined' && window.frames['content'].jQuery('#block-' + getBlockID(settings.blockElement)).html(content).length ) {
 
-				if ( Padma.mode == 'design' )
+				if ( Padma.mode == 'design' ) {
 					refreshInspector();
+				}
 
 				return window.frames['content'].jQuery('#block-' + getBlockID(settings.blockElement));
 
@@ -468,8 +469,9 @@ define(['modules/panel.inputs', 'helper.history', 'util.browser'], function(pane
 			/* Re-initiate inspector to make sure the block elements are still editable */
 			blockContent.html(content);
 
-			if ( Padma.mode == 'design' )
+			if ( Padma.mode == 'design' ) {
 				refreshInspector();
+			}
 
 			return blockContent;
 

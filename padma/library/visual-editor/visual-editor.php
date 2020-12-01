@@ -145,21 +145,21 @@ class PadmaVisualEditor {
 	}
 
 
-	public static function save($options, $current_layout = false, $mode = false) {
+	public static function save( $options, $current_layout = false, $mode = false ) {
 
-		debug( $options );
-
-		set_error_handler(array(__CLASS__, "ajax_error_handler"));
+		set_error_handler( array( __CLASS__, 'ajax_error_handler' ) );
 
 		$output = array(
-			'errors' => array()
+			'errors' => array(),
 		);
 
-		if ( !$current_layout )
-			$current_layout = padma_post('layout');
+		if ( ! $current_layout ) {
+			$current_layout = padma_post( 'layout' );
+		}
 
-		if ( !$mode )
-			$mode = padma_post('mode');
+		if ( ! $mode ) {
+			$mode = padma_post( 'mode' );
+		}
 
 		$blocks 				= isset($options['blocks']) ? $options['blocks'] : null;
 		$wrappers 				= isset($options['wrappers']) ? $options['wrappers'] : null;

@@ -40,6 +40,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
+= 1.3.9.php8 =
+* Fixes for PHP 8 Compatibility
+* Schema updated ( 2.1.0 => 2.16.0 )
+
 = 1.3.8 = 
 * Edge Version
 * Released: On dev

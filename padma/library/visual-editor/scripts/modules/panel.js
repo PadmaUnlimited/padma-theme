@@ -142,7 +142,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 			$('div#panel').css(panelCSS).addClass('panel-hidden');
 			$('div#iframe-container').css(iframeCSS);
 
-			setTimeout(repositionTooltips, 400);
+			//setTimeout(repositionTooltips, 400);
 
 		$('body').addClass('panel-hidden');
 
@@ -173,7 +173,7 @@ define(['jquery', 'jqueryUI', 'deps/jquery.cookie', 'util.tooltips', 'modules/pa
 			$('div#panel').css(panelCSS).removeClass('panel-hidden');
 			$('div#iframe-container').css(iframeCSS);
 
-			setTimeout(repositionTooltips, 400);
+			//setTimeout(repositionTooltips, 400);
 
 		$('body').removeClass('panel-hidden');
 

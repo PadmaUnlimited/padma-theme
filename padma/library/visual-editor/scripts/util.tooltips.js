@@ -1,4 +1,4 @@
-define(['jquery', 'qtip'], function($) {
+define(['jquery', 'jbox' ], function($) {
 
 	setupTooltips = function(location) {
 	
@@ -16,23 +16,23 @@ define(['jquery', 'qtip'], function($) {
 
 
 		var tooltipOptions = {
-			style: {
-				classes: 'qtip-padma'
-			},
-			show: {
-				delay: 10,
-				solo: true,
-				event: 'mouseenter'
-			},
+			theme: 'TooltipDark',
+			addClass: 'jbox-padma',
 			position: {
-				my: 'bottom left',
-				at: 'top center',
 				viewport: $(window),
-				effect: false
+				x: 'left',
+				y: 'center'
 			},
-			hide: {
-				effect: false
-			}
+			trigger: 'mouseenter',
+			outside: 'xy',
+			offset: { 
+				x: -10, 
+				y: 0
+			},
+			maxWidth: 800,
+			reposition: true,
+			repositionOnOpen: true,
+			repositionOnContent: true,
 		}
 		
 		if ( location == 'iframe' ) {
@@ -51,28 +51,27 @@ define(['jquery', 'qtip'], function($) {
 		// Tooltips for panel
 		if(location === false){
 			tooltipOptions.position.viewport = '';
-			tooltipElement('.sub-tabs-content .tooltip-button').qtip(tooltipOptions);			
+			tooltipElement('.sub-tabs-content .tooltip-button').jBox('Tooltip', tooltipOptions);
+
 		}
 
-
-
-		tooltipElement('div.tooltip-button:not([data-hasqtip]), .tooltip:not([data-hasqtip])').qtip(tooltipOptions);
+		tooltipElement('div.tooltip-button:not([data-hasqtip]), .tooltip:not([data-hasqtip])').jBox('Tooltip', tooltipOptions);
 		
-		tooltipElement('.tooltip-bottom-right:not([data-hasqtip])').qtip($.extend(true, {}, tooltipOptions, { 
-		   position: {
+		tooltipElement('.tooltip-bottom-right:not([data-hasqtip])').jBox('Tooltip', $.extend( true, {}, tooltipOptions, {
+			position: {
 				my: 'bottom right',
 				at: 'top center'
-		   }
+			}
 		}));
-		
-		tooltipElement('.tooltip-top-right:not([data-hasqtip])').qtip($.extend(true, {}, tooltipOptions, { 
-		   position: {
+
+		tooltipElement('.tooltip-top-right:not([data-hasqtip])').jBox('Tooltip', $.extend(true, {}, tooltipOptions, {
+			position: {
 				my: 'top right',
 				at: 'bottom center'
-		   }
+			}
 		}));
 		
-		tooltipElement('.tooltip-top-left:not([data-hasqtip])').qtip($.extend(true, {}, tooltipOptions, { 
+		tooltipElement('.tooltip-top-left:not([data-hasqtip])').jBox('Tooltip', $.extend(true, {}, tooltipOptions, { 
 		   position: {
 				my: 'top left',
 				at: 'bottom center'
@@ -82,32 +81,32 @@ define(['jquery', 'qtip'], function($) {
 		   }
 		}));
 		
-		tooltipElement('.tooltip-left:not([data-hasqtip])').qtip($.extend(true, {}, tooltipOptions, { 
+		tooltipElement('.tooltip-left:not([data-hasqtip])').jBox('Tooltip', $.extend(true, {}, tooltipOptions, { 
 		   position: {
 				my: 'left center',
 				at: 'right center'
 		   }
 		}));
 		
-		tooltipElement('.tooltip-right:not([data-hasqtip])').qtip($.extend(true, {}, tooltipOptions, { 
+		tooltipElement('.tooltip-right:not([data-hasqtip])').jBox('Tooltip', $.extend(true, {}, tooltipOptions, { 
 		   position: {
 				my: 'right center',
 				at: 'left center'
 		   }
 		}));
 
-		tooltipElement('.tooltip-top:not([data-hasqtip])').qtip($.extend(true, {}, tooltipOptions, { 
+		tooltipElement('.tooltip-top:not([data-hasqtip])').jBox('Tooltip', $.extend(true, {}, tooltipOptions, { 
 		   position: {
 				my: 'top center',
 				at: 'bottom center'
 		   }
 		}));
 		
-		
+		/*
 		var iframeScrollTooltipReposition = function() {
 			
 
-			/* Flood Control */
+			// Flood Control
 			if ( $i('.qtip:visible').length === 0 || typeof iframeScrollTooltipRepositionFloodTimeout != 'undefined' )
 				return;
 			
@@ -124,15 +123,17 @@ define(['jquery', 'qtip'], function($) {
 
 		Padma.iframe.contents().unbind('scroll', iframeScrollTooltipReposition);		
 		Padma.iframe.contents().bind('scroll', iframeScrollTooltipReposition);
-
+		*/
 		
 	}
 	
-
+	/*	
 	repositionTooltips = function() {
+
+		if ( $i('.qtip:visible').length > 0 ) {
+			//$i('.qtip:visible').qtip('reposition');
+		}
 		
-		$i('.qtip:visible').qtip('reposition');
-		
-	}
+	}*/
 
 });

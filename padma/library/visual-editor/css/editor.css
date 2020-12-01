@@ -2477,8 +2477,8 @@ div.sub-tabs-content {
 
 /* Visual Editor Sub Tabs Content Input Tooltips */
 div.sub-tabs-content div.tooltip-button {
-	width: 17px;
-	height: 16px;
+	width: 20px;
+	height: 20px;
 	display: block;
 	cursor: pointer;
 	float: left;

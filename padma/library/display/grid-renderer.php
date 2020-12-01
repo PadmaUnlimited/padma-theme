@@ -1,4 +1,13 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
+
+/**
+ * GRID main class.
+ */
 class PadmaGridRenderer {
 
 
@@ -28,8 +37,7 @@ class PadmaGridRenderer {
 
 	private $row_top_tolerance = 20;
 
-
-	public function __construct($blocks, $wrapper) {
+	public function __construct( $blocks = array(), $wrapper) {
 
 		$this->blocks_unsorted = $blocks;
 		$this->blocks = $blocks;
@@ -40,47 +48,47 @@ class PadmaGridRenderer {
 
 	private function step_1_sort_blocks_by_position() {
 
-		//Sort blocks array from top/left blocks to bottom/right
-		@uasort($this->blocks, array(__CLASS__, 'uasort_blocks_by_top_to_left'));
-
+		// Sort blocks array from top/left blocks to bottom/right.
+		uasort( $this->blocks, array( __CLASS__, 'uasort_blocks_by_top_to_left' ) );
 	}
 
 
-		private function uasort_blocks_by_top_to_left($a, $b) {
+	private function uasort_blocks_by_top_to_left( $a, $b ) {
 
-			$a_chunk = array_chunk($a, 1);
-			$b_chunk = array_chunk($b, 1);
+		$a_chunk = ( is_array( $a ) ) ? array_chunk( $a, 1 ) : array();
+		$b_chunk = ( is_array( $b ) ) ? array_chunk( $b, 1 ) : array();
 
-			if ( is_array($a) && isset($a_chunk[0][0]) && is_string($a_chunk[0][0]) )
-				$a = $a_chunk[0][0];
-
-			if ( is_array($b) && isset($b_chunk[0][0]) && is_string($b_chunk[0][0]) )
-				$b = $b_chunk[0][0];
-
-			if ( is_string($a) )
-				$a = $this->blocks_unsorted[$a];
-
-			if ( is_string($b) )
-				$b = $this->blocks_unsorted[$b];
-
-			$a_top = $a['position']['top'];
-			$a_left = $a['position']['left'];
-
-			$b_top = $b['position']['top'];
-			$b_left = $b['position']['left'];
-
-			//If they're the same, which they probably won't be
-			if ( $a_top === $b_top && $a_left === $b_left )
-				return 0;
-
-			//If top is the same, figure out left position
-			if ( $a_top === $b_top ) 
-				return ($a_left < $b_left) ? -1 : 1;
-
-			//If top is the different
-			return ($a_top < $b_top) ? -1 : 1;
-
+		if ( is_array( $a ) && isset( $a_chunk[0][0] ) && is_string( $a_chunk[0][0] ) ) {
+			$a = $a_chunk[0][0];
 		}
+
+		if ( is_array($b) && isset($b_chunk[0][0]) && is_string($b_chunk[0][0]) )
+			$b = $b_chunk[0][0];
+
+		if ( is_string($a) )
+			$a = $this->blocks_unsorted[$a];
+
+		if ( is_string($b) )
+			$b = $this->blocks_unsorted[$b];
+
+		$a_top = $a['position']['top'];
+		$a_left = $a['position']['left'];
+
+		$b_top = $b['position']['top'];
+		$b_left = $b['position']['left'];
+
+		//If they're the same, which they probably won't be
+		if ( $a_top === $b_top && $a_left === $b_left )
+			return 0;
+
+		//If top is the same, figure out left position
+		if ( $a_top === $b_top ) 
+			return ($a_left < $b_left) ? -1 : 1;
+
+		//If top is the different
+		return ($a_top < $b_top) ? -1 : 1;
+
+	}
 
 
 	private function step_2_build_rows() {
@@ -253,11 +261,12 @@ class PadmaGridRenderer {
 			/* END BATSHIT INSANE STUFF */		
 
 			/* Sort the columns by block position */
-			@uasort($this->columns[$column_id], array(__CLASS__, 'uasort_blocks_by_top_to_left'));
+			uasort( $this->columns[ $column_id ], array( __CLASS__, 'uasort_blocks_by_top_to_left' ) );
 
 			/* Remove the keys from the sub columns and blocks (even though they shouldn't exist) */
-			if ( isset($this->columns[$column_id]) )
-				$this->columns[$column_id] = array_values($this->columns[$column_id]);
+			if ( isset( $this->columns[ $column_id ] ) ) {
+				$this->columns[ $column_id ] = array_values( $this->columns[ $column_id ] );
+			}
 
 		}		
 

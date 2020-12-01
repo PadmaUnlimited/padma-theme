@@ -1,39 +1,81 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
 
+/**
+ * Content block main class.
+ */
 class PadmaContentBlock extends PadmaBlockAPI {
 
-
+	/**
+	 * Block ID
+	 *
+	 * @var string
+	 */
 	public $id;
+
+	/**
+	 * Block Name
+	 *
+	 * @var string
+	 */
 	public $name;
+
+	/**
+	 * Block options class
+	 *
+	 * @var String
+	 */
 	public $options_class;
+
+	/**
+	 * Block Description
+	 *
+	 * @var string
+	 */
 	public $description;
+
+	/**
+	 * Block Categories
+	 *
+	 * @var array
+	 */
 	public $categories;
 
 
-	function __construct(){
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
 
-		$this->id = 'content';	
-		$this->name = __('Content','padma');
+		$this->id            = 'content';	
+		$this->name          = __( 'Content', 'padma' );
 		$this->options_class = 'PadmaContentBlockOptions';
-		$this->description 	= __('Main content area to show the current page\'s content or the latest posts.  This is considered the "Loop" in other themes.','padma');
-		$this->categories = array('core','content');
-
+		$this->description 	 = __( 'Main content area to show the current page\'s content or the latest posts.  This is considered the "Loop" in other themes.', 'padma' );
+		$this->categories    = array( 'core', 'content' );
 	}		
 
-
-	function init() {
+	/**
+	 * Init Method
+	 *
+	 * @return void
+	 */
+	public function init() {
 
 		/* Load dependencies */
 		require_once PADMA_LIBRARY_DIR . '/blocks/content/content-display.php';
 
 		/* Set up the comments template */
-		add_filter('comments_template', array(__CLASS__, 'add_blank_comments_template'), 5);
+		add_filter( 'comments_template', array(__CLASS__, 'add_blank_comments_template'), 5);
 
 		/* Set up editor style */
-		add_filter('mce_css', array(__CLASS__, 'add_editor_style'));
+		add_filter( 'mce_css', array(__CLASS__, 'add_editor_style'));
 
 		/* Add .comment class to all pingbacks */
-		add_filter('comment_class', array(__CLASS__, 'add_comment_class_to_all_types'));
+		add_filter( 'comment_class', array(__CLASS__, 'add_comment_class_to_all_types'));
 
 	}
 
@@ -1663,8 +1705,13 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 		);
 	}
 
-
-	function modify_arguments($args = false) {
+	/**
+	 * Modify arguments method.
+	 *
+	 * @param boolean $args Arguments
+	 * @return void
+	 */
+	public function modify_arguments( $args = false ) {
 
 		global $pluginbuddy_loopbuddy;
 
@@ -1780,10 +1827,11 @@ class PadmaContentBlockOptions extends PadmaBlockOptionsAPI {
 
 		if(count($custom_fields)==0){
 
-			if($this->block['settings']['mode'] == 'custom-query')
+			if ( isset( $this->block['settings']['mode'] ) && $this->block['settings']['mode'] == 'custom-query') {
 				$this->tab_notices['custom-fields'] = __('The selected post type does not have custom fields.','padma');
-			else
+			} else {
 				$this->tab_notices['custom-fields'] = __('There is not custom fields to show.','padma');
+			}
 
 		}else{
 

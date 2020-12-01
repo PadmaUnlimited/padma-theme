@@ -2264,13 +2264,15 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 		/* INSPECTOR INIT */
 			addInspector = function(refresh) {
 
-				if ( typeof Padma.elements == 'undefined' )
-					return $.when(designEditorRequestElements()).then(addInspector);
+				if ( typeof Padma.elements == 'undefined' ) {
+					return $.when( designEditorRequestElements() ).then( addInspector );
+				}
 
-				$.each(Padma.elements, function(elementID, elementSettings) {
+				$.each( Padma.elements, function(elementID, elementSettings) {
 
-					if ( !elementSettings['inspectable'] )
+					if ( ! elementSettings['inspectable'] ) {
 						return;
+					}
 					addInspectorProcessElement(elementSettings);
 
 				});
@@ -2373,8 +2375,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 						/* Filter instances to only be states of this instance */
 						$.each(value['instances'], function(index, instance) {
 
-							if ( instance['state-of'] == instanceID )
+							if ( instance['state-of'] == instanceID ) {
 								instanceOptions['instances'][index] = instance;
+							}
 
 						});
 
@@ -2400,18 +2403,19 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 			enableInspector = function() {
 
 
-				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
+				if ( Padma.mode != 'design' || ! Padma.designEditorSupport ) {
 					return false;
+				}
 
 				Padma.inspectorDisabled = false;
 				Padma.disableBlockDimensions = true;
 
 				$i('body').addClass('disable-block-hover').removeClass('inspector-disabled');
-
+				/*
 				$i('.block[data-hasqtip]').each(function() {
 					var api = $(this).qtip('api');
 					api.destroy();
-				});
+				});*/
 				
 				inspectorTooltip.show();
 
@@ -2449,8 +2453,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 			disableInspector = function() {
 
-				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
+				if ( Padma.mode != 'design' || !Padma.designEditorSupport ) {
 					return false;
+				}
 
 				Padma.inspectorDisabled = true;
 
@@ -2482,11 +2487,13 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 			toggleInspector = function() {
 
-				if ( Padma.mode != 'design' || !Padma.designEditorSupport )
+				if ( Padma.mode != 'design' || !Padma.designEditorSupport ) {
 					return false;
+				}
 
-				if ( $('#toggle-inspector').hasClass('inspector-disabled') )
+				if ( $('#toggle-inspector').hasClass('inspector-disabled') ) {
 					return enableInspector();
+				}
 
 				disableInspector();
 
@@ -2607,8 +2614,9 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				var targetInspectorElement = $(event.target);
 
 				
-				if ( !targetInspectorElement.hasClass('inspector-element') )
+				if ( !targetInspectorElement.hasClass('inspector-element') ) {
 					targetInspectorElement = targetInspectorElement.parents('.inspector-element').first();
+				}
 
 				/* Only change tooltip content if the hovered element isn't the existing inspector element */
 				if (typeof inspectorElement == 'undefined' || !targetInspectorElement.is(inspectorElement) ) {
@@ -2698,6 +2706,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				inspectorTooltip.set('position.target', 'mouse');
 				
 
+				inspectorTooltip.show();
 			}
 		/* END INSPECTOR TOOLTIP */
 
@@ -2942,7 +2951,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 							var block = getBlock(inspectorElement);
 							var blockID = getBlockID(block);
 							var blockType = getBlockTypeNice(getBlockType(block));
-
 							var blockOptionsNode = $('<li class="inspector-context-menu-block-options"><span>Open Block Options</span></li>').appendTo(contextMenu);
 
 						}

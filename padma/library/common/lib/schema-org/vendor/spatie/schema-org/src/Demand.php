@@ -2,6 +2,10 @@
 
 namespace Spatie\SchemaOrg;
 
+use \Spatie\SchemaOrg\Contracts\DemandContract;
+use \Spatie\SchemaOrg\Contracts\IntangibleContract;
+use \Spatie\SchemaOrg\Contracts\ThingContract;
+
 /**
  * A demand entity represents the public, not necessarily binding, not
  * necessarily exclusive, announcement by an organization or person to seek a
@@ -10,14 +14,13 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Demand
  *
- * @mixin \Spatie\SchemaOrg\Intangible
  */
-class Demand extends BaseType
+class Demand extends BaseType implements DemandContract, IntangibleContract, ThingContract
 {
     /**
      * The payment method(s) accepted by seller for this offer.
      *
-     * @param LoanOrCredit|LoanOrCredit[]|PaymentMethod|PaymentMethod[] $acceptedPaymentMethod
+     * @param \Spatie\SchemaOrg\Contracts\LoanOrCreditContract|\Spatie\SchemaOrg\Contracts\LoanOrCreditContract[]|\Spatie\SchemaOrg\Contracts\PaymentMethodContract|\Spatie\SchemaOrg\Contracts\PaymentMethodContract[] $acceptedPaymentMethod
      *
      * @return static
      *
@@ -29,10 +32,29 @@ class Demand extends BaseType
     }
 
     /**
+     * An additional type for the item, typically used for adding more specific
+     * types from external vocabularies in microdata syntax. This is a
+     * relationship between something and a class that the thing is in. In RDFa
+     * syntax, it is better to use the native RDFa syntax - the 'typeof'
+     * attribute - for multiple types. Schema.org tools may have only weaker
+     * understanding of extra types, in particular those defined externally.
+     *
+     * @param string|string[] $additionalType
+     *
+     * @return static
+     *
+     * @see http://schema.org/additionalType
+     */
+    public function additionalType($additionalType)
+    {
+        return $this->setProperty('additionalType', $additionalType);
+    }
+
+    /**
      * The amount of time that is required between accepting the offer and the
      * actual usage of the resource or service.
      *
-     * @param QuantitativeValue|QuantitativeValue[] $advanceBookingRequirement
+     * @param \Spatie\SchemaOrg\Contracts\QuantitativeValueContract|\Spatie\SchemaOrg\Contracts\QuantitativeValueContract[] $advanceBookingRequirement
      *
      * @return static
      *
@@ -44,9 +66,23 @@ class Demand extends BaseType
     }
 
     /**
+     * An alias for the item.
+     *
+     * @param string|string[] $alternateName
+     *
+     * @return static
+     *
+     * @see http://schema.org/alternateName
+     */
+    public function alternateName($alternateName)
+    {
+        return $this->setProperty('alternateName', $alternateName);
+    }
+
+    /**
      * The geographic area where a service or offered item is provided.
      *
-     * @param AdministrativeArea|AdministrativeArea[]|GeoShape|GeoShape[]|Place|Place[]|string|string[] $areaServed
+     * @param \Spatie\SchemaOrg\Contracts\AdministrativeAreaContract|\Spatie\SchemaOrg\Contracts\AdministrativeAreaContract[]|\Spatie\SchemaOrg\Contracts\GeoShapeContract|\Spatie\SchemaOrg\Contracts\GeoShapeContract[]|\Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[]|string|string[] $areaServed
      *
      * @return static
      *
@@ -61,7 +97,7 @@ class Demand extends BaseType
      * The availability of this item&#x2014;for example In stock, Out of stock,
      * Pre-order, etc.
      *
-     * @param ItemAvailability|ItemAvailability[] $availability
+     * @param \Spatie\SchemaOrg\Contracts\ItemAvailabilityContract|\Spatie\SchemaOrg\Contracts\ItemAvailabilityContract[] $availability
      *
      * @return static
      *
@@ -105,7 +141,7 @@ class Demand extends BaseType
     /**
      * The place(s) from which the offer can be obtained (e.g. store locations).
      *
-     * @param Place|Place[] $availableAtOrFrom
+     * @param \Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[] $availableAtOrFrom
      *
      * @return static
      *
@@ -119,7 +155,7 @@ class Demand extends BaseType
     /**
      * The delivery method(s) available for this offer.
      *
-     * @param DeliveryMethod|DeliveryMethod[] $availableDeliveryMethod
+     * @param \Spatie\SchemaOrg\Contracts\DeliveryMethodContract|\Spatie\SchemaOrg\Contracts\DeliveryMethodContract[] $availableDeliveryMethod
      *
      * @return static
      *
@@ -135,7 +171,7 @@ class Demand extends BaseType
      * component of a bundle (TypeAndQuantityNode). The default is
      * http://purl.org/goodrelations/v1#Sell.
      *
-     * @param BusinessFunction|BusinessFunction[] $businessFunction
+     * @param \Spatie\SchemaOrg\Contracts\BusinessFunctionContract|\Spatie\SchemaOrg\Contracts\BusinessFunctionContract[] $businessFunction
      *
      * @return static
      *
@@ -151,7 +187,7 @@ class Demand extends BaseType
      * leaving the warehouse or being prepared for pickup, in case the delivery
      * method is on site pickup.
      *
-     * @param QuantitativeValue|QuantitativeValue[] $deliveryLeadTime
+     * @param \Spatie\SchemaOrg\Contracts\QuantitativeValueContract|\Spatie\SchemaOrg\Contracts\QuantitativeValueContract[] $deliveryLeadTime
      *
      * @return static
      *
@@ -163,9 +199,40 @@ class Demand extends BaseType
     }
 
     /**
+     * A description of the item.
+     *
+     * @param string|string[] $description
+     *
+     * @return static
+     *
+     * @see http://schema.org/description
+     */
+    public function description($description)
+    {
+        return $this->setProperty('description', $description);
+    }
+
+    /**
+     * A sub property of description. A short description of the item used to
+     * disambiguate from other, similar items. Information from other properties
+     * (in particular, name) may be necessary for the description to be useful
+     * for disambiguation.
+     *
+     * @param string|string[] $disambiguatingDescription
+     *
+     * @return static
+     *
+     * @see http://schema.org/disambiguatingDescription
+     */
+    public function disambiguatingDescription($disambiguatingDescription)
+    {
+        return $this->setProperty('disambiguatingDescription', $disambiguatingDescription);
+    }
+
+    /**
      * The type(s) of customers for which the given offer is valid.
      *
-     * @param BusinessEntityType|BusinessEntityType[] $eligibleCustomerType
+     * @param \Spatie\SchemaOrg\Contracts\BusinessEntityTypeContract|\Spatie\SchemaOrg\Contracts\BusinessEntityTypeContract[] $eligibleCustomerType
      *
      * @return static
      *
@@ -179,7 +246,7 @@ class Demand extends BaseType
     /**
      * The duration for which the given offer is valid.
      *
-     * @param QuantitativeValue|QuantitativeValue[] $eligibleDuration
+     * @param \Spatie\SchemaOrg\Contracts\QuantitativeValueContract|\Spatie\SchemaOrg\Contracts\QuantitativeValueContract[] $eligibleDuration
      *
      * @return static
      *
@@ -195,7 +262,7 @@ class Demand extends BaseType
      * offer or price specification is valid. This allows e.g. specifying that a
      * certain freight charge is valid only for a certain quantity.
      *
-     * @param QuantitativeValue|QuantitativeValue[] $eligibleQuantity
+     * @param \Spatie\SchemaOrg\Contracts\QuantitativeValueContract|\Spatie\SchemaOrg\Contracts\QuantitativeValueContract[] $eligibleQuantity
      *
      * @return static
      *
@@ -213,7 +280,7 @@ class Demand extends BaseType
      * 
      * See also [[ineligibleRegion]].
      *
-     * @param GeoShape|GeoShape[]|Place|Place[]|string|string[] $eligibleRegion
+     * @param \Spatie\SchemaOrg\Contracts\GeoShapeContract|\Spatie\SchemaOrg\Contracts\GeoShapeContract[]|\Spatie\SchemaOrg\Contracts\PlaceContract|\Spatie\SchemaOrg\Contracts\PlaceContract[]|string|string[] $eligibleRegion
      *
      * @return static
      *
@@ -230,7 +297,7 @@ class Demand extends BaseType
      * to express free shipping above a certain order volume, or to limit the
      * acceptance of credit cards to purchases to a certain minimal amount.
      *
-     * @param PriceSpecification|PriceSpecification[] $eligibleTransactionVolume
+     * @param \Spatie\SchemaOrg\Contracts\PriceSpecificationContract|\Spatie\SchemaOrg\Contracts\PriceSpecificationContract[] $eligibleTransactionVolume
      *
      * @return static
      *
@@ -315,10 +382,43 @@ class Demand extends BaseType
     }
 
     /**
+     * The identifier property represents any kind of identifier for any kind of
+     * [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides
+     * dedicated properties for representing many of these, either as textual
+     * strings or as URL (URI) links. See [background
+     * notes](/docs/datamodel.html#identifierBg) for more details.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\PropertyValueContract|\Spatie\SchemaOrg\Contracts\PropertyValueContract[]|string|string[] $identifier
+     *
+     * @return static
+     *
+     * @see http://schema.org/identifier
+     */
+    public function identifier($identifier)
+    {
+        return $this->setProperty('identifier', $identifier);
+    }
+
+    /**
+     * An image of the item. This can be a [[URL]] or a fully described
+     * [[ImageObject]].
+     *
+     * @param \Spatie\SchemaOrg\Contracts\ImageObjectContract|\Spatie\SchemaOrg\Contracts\ImageObjectContract[]|string|string[] $image
+     *
+     * @return static
+     *
+     * @see http://schema.org/image
+     */
+    public function image($image)
+    {
+        return $this->setProperty('image', $image);
+    }
+
+    /**
      * This links to a node or nodes indicating the exact quantity of the
      * products included in the offer.
      *
-     * @param TypeAndQuantityNode|TypeAndQuantityNode[] $includesObject
+     * @param \Spatie\SchemaOrg\Contracts\TypeAndQuantityNodeContract|\Spatie\SchemaOrg\Contracts\TypeAndQuantityNodeContract[] $includesObject
      *
      * @return static
      *
@@ -330,28 +430,9 @@ class Demand extends BaseType
     }
 
     /**
-     * The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the
-     * GeoShape for the geo-political region(s) for which the offer or delivery
-     * charge specification is not valid, e.g. a region where the transaction is
-     * not allowed.
-     * 
-     * See also [[eligibleRegion]].
-     *
-     * @param GeoShape|GeoShape[]|Place|Place[]|string|string[] $ineligibleRegion
-     *
-     * @return static
-     *
-     * @see http://schema.org/ineligibleRegion
-     */
-    public function ineligibleRegion($ineligibleRegion)
-    {
-        return $this->setProperty('ineligibleRegion', $ineligibleRegion);
-    }
-
-    /**
      * The current approximate inventory level for the item or items.
      *
-     * @param QuantitativeValue|QuantitativeValue[] $inventoryLevel
+     * @param \Spatie\SchemaOrg\Contracts\QuantitativeValueContract|\Spatie\SchemaOrg\Contracts\QuantitativeValueContract[] $inventoryLevel
      *
      * @return static
      *
@@ -367,7 +448,7 @@ class Demand extends BaseType
      * the condition of the product or service, or the products or services
      * included in the offer.
      *
-     * @param OfferItemCondition|OfferItemCondition[] $itemCondition
+     * @param \Spatie\SchemaOrg\Contracts\OfferItemConditionContract|\Spatie\SchemaOrg\Contracts\OfferItemConditionContract[] $itemCondition
      *
      * @return static
      *
@@ -379,9 +460,13 @@ class Demand extends BaseType
     }
 
     /**
-     * The item being offered.
+     * An item being offered (or demanded). The transactional nature of the
+     * offer or demand is documented using [[businessFunction]], e.g. sell,
+     * lease etc. While several common expected types are listed explicitly in
+     * this definition, others can be used. Using a second type, such as Product
+     * or a subtype of Product, can clarify the nature of the offer.
      *
-     * @param Product|Product[]|Service|Service[] $itemOffered
+     * @param \Spatie\SchemaOrg\Contracts\AggregateOfferContract|\Spatie\SchemaOrg\Contracts\AggregateOfferContract[]|\Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|\Spatie\SchemaOrg\Contracts\EventContract|\Spatie\SchemaOrg\Contracts\EventContract[]|\Spatie\SchemaOrg\Contracts\MenuItemContract|\Spatie\SchemaOrg\Contracts\MenuItemContract[]|\Spatie\SchemaOrg\Contracts\ProductContract|\Spatie\SchemaOrg\Contracts\ProductContract[]|\Spatie\SchemaOrg\Contracts\ServiceContract|\Spatie\SchemaOrg\Contracts\ServiceContract[]|\Spatie\SchemaOrg\Contracts\TripContract|\Spatie\SchemaOrg\Contracts\TripContract[] $itemOffered
      *
      * @return static
      *
@@ -390,6 +475,22 @@ class Demand extends BaseType
     public function itemOffered($itemOffered)
     {
         return $this->setProperty('itemOffered', $itemOffered);
+    }
+
+    /**
+     * Indicates a page (or other CreativeWork) for which this thing is the main
+     * entity being described. See [background
+     * notes](/docs/datamodel.html#mainEntityBackground) for details.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|string|string[] $mainEntityOfPage
+     *
+     * @return static
+     *
+     * @see http://schema.org/mainEntityOfPage
+     */
+    public function mainEntityOfPage($mainEntityOfPage)
+    {
+        return $this->setProperty('mainEntityOfPage', $mainEntityOfPage);
     }
 
     /**
@@ -408,10 +509,39 @@ class Demand extends BaseType
     }
 
     /**
+     * The name of the item.
+     *
+     * @param string|string[] $name
+     *
+     * @return static
+     *
+     * @see http://schema.org/name
+     */
+    public function name($name)
+    {
+        return $this->setProperty('name', $name);
+    }
+
+    /**
+     * Indicates a potential Action, which describes an idealized action in
+     * which this thing would play an 'object' role.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\ActionContract|\Spatie\SchemaOrg\Contracts\ActionContract[] $potentialAction
+     *
+     * @return static
+     *
+     * @see http://schema.org/potentialAction
+     */
+    public function potentialAction($potentialAction)
+    {
+        return $this->setProperty('potentialAction', $potentialAction);
+    }
+
+    /**
      * One or more detailed price specifications, indicating the unit price and
      * delivery or payment charges.
      *
-     * @param PriceSpecification|PriceSpecification[] $priceSpecification
+     * @param \Spatie\SchemaOrg\Contracts\PriceSpecificationContract|\Spatie\SchemaOrg\Contracts\PriceSpecificationContract[] $priceSpecification
      *
      * @return static
      *
@@ -423,10 +553,26 @@ class Demand extends BaseType
     }
 
     /**
+     * URL of a reference Web page that unambiguously indicates the item's
+     * identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or
+     * official website.
+     *
+     * @param string|string[] $sameAs
+     *
+     * @return static
+     *
+     * @see http://schema.org/sameAs
+     */
+    public function sameAs($sameAs)
+    {
+        return $this->setProperty('sameAs', $sameAs);
+    }
+
+    /**
      * An entity which offers (sells / leases / lends / loans) the services /
      * goods.  A seller may also be a provider.
      *
-     * @param Organization|Organization[]|Person|Person[] $seller
+     * @param \Spatie\SchemaOrg\Contracts\OrganizationContract|\Spatie\SchemaOrg\Contracts\OrganizationContract[]|\Spatie\SchemaOrg\Contracts\PersonContract|\Spatie\SchemaOrg\Contracts\PersonContract[] $seller
      *
      * @return static
      *
@@ -469,6 +615,34 @@ class Demand extends BaseType
     }
 
     /**
+     * A CreativeWork or Event about this Thing.
+     *
+     * @param \Spatie\SchemaOrg\Contracts\CreativeWorkContract|\Spatie\SchemaOrg\Contracts\CreativeWorkContract[]|\Spatie\SchemaOrg\Contracts\EventContract|\Spatie\SchemaOrg\Contracts\EventContract[] $subjectOf
+     *
+     * @return static
+     *
+     * @see http://schema.org/subjectOf
+     */
+    public function subjectOf($subjectOf)
+    {
+        return $this->setProperty('subjectOf', $subjectOf);
+    }
+
+    /**
+     * URL of the item.
+     *
+     * @param string|string[] $url
+     *
+     * @return static
+     *
+     * @see http://schema.org/url
+     */
+    public function url($url)
+    {
+        return $this->setProperty('url', $url);
+    }
+
+    /**
      * The date when the item becomes valid.
      *
      * @param \DateTimeInterface|\DateTimeInterface[] $validFrom
@@ -500,7 +674,7 @@ class Demand extends BaseType
     /**
      * The warranty promise(s) included in the offer.
      *
-     * @param WarrantyPromise|WarrantyPromise[] $warranty
+     * @param \Spatie\SchemaOrg\Contracts\WarrantyPromiseContract|\Spatie\SchemaOrg\Contracts\WarrantyPromiseContract[] $warranty
      *
      * @return static
      *

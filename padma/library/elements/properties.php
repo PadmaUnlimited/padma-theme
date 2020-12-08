@@ -337,7 +337,7 @@ class PadmaElementProperties {
 				'step' => '0.1',
 				'default' => '0.5'
 			),
-
+			/*
 			'background-overlay' => array(
 				'group' => 'Background',
 				'name' => '&nbsp;&ndash; Color overlay',
@@ -345,7 +345,7 @@ class PadmaElementProperties {
 				'js-callback' => 'propertyInputCallbackBackgroundOverlay(params);',
 				'complex-property' => 'PadmaElementProperties::complex_property_background_overlay',
 				'default' => '80000000',
-			),
+			),*/
 
 		/* 	Borders */
 			'border-color' => array(
@@ -1956,8 +1956,9 @@ class PadmaElementProperties {
 		$id = explode('-',$selector)[1];
 		$id = explode(' ',$id)[0];
 
-		if($id)
+		if ( $id ) {
 			$block = PadmaBlocksData::get_block($id);
+		}
 
 		$path 		= PADMA_LIBRARY_DIR . '/visual-editor/effects-css/' . $effect . '.txt';					
 		$selector 	= preg_replace('/\ img/', '', $selector);
@@ -1982,9 +1983,10 @@ class PadmaElementProperties {
 	 * @param string $args
 	 * @return void
 	 */
+	/*
 	public static function complex_property_background_overlay( $args ) {
 		debug( $args );
-	}
+	}*/
 
 	public static function get_effects_list($args){
 

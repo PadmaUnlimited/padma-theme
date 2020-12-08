@@ -591,10 +591,10 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 				$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 
 				/* Remove the events */
-				$(document).unbind('mousedown', fontBrowserClose);
-				Padma.iframe.contents().unbind('mousedown', fontBrowserClose);
+				$(document).off('mousedown', fontBrowserClose);
+				Padma.iframe.contents().off('mousedown', fontBrowserClose);
 				
-				$(window).unbind('resize', fontBrowserClose);
+				$(window).off('resize', fontBrowserClose);
 				
 			}
 
@@ -616,10 +616,10 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 		$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 		
 		/* Remove the events */
-		$(document).unbind('mousedown', fontBrowserClose);
-		Padma.iframe.contents().unbind('mousedown', fontBrowserClose);
+		$(document).off('mousedown', fontBrowserClose);
+		Padma.iframe.contents().off('mousedown', fontBrowserClose);
 		
-		$(window).unbind('resize', fontBrowserClose);
+		$(window).off('resize', fontBrowserClose);
 		
 	}
 /* End opening and closing functions */

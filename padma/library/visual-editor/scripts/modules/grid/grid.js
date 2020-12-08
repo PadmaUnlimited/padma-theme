@@ -177,7 +177,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			this.element
 				.removeClass("ui-grid ui-grid-disabled")
 				.removeData("grid")
-				.unbind(".grid");
+				.off(".grid");
 			this._mouseDestroy();
 
 			/* Destroy block resizing and draggables */
@@ -451,7 +451,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			}
 
 			/* Handle dimensions tooltip */
-			if ( !$.support.touch ) {
+			if ( ! Padma.touch ) {
 
 				this.helper.qtip('option', 'hide.delay', 10000);
 				this.helper.qtip('option', 'show.delay', 10);
@@ -1006,7 +1006,7 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 							block.resizable('destroy');
 							destinationContainer.parents('.wrapper').padmaGrid('initResizable', block);
 
-							$.pep.unbind(block);
+							$.pep.off(block);
 							destinationContainer.parents('.wrapper').padmaGrid('initDraggable', block);
 
 						/* Do block intersect check */

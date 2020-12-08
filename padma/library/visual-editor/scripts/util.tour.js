@@ -308,7 +308,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 									$('.qtip-tour').triggerHandler('next');
 									event.preventDefault();
 
-									$(this).unbind('click', nextHandlerCallback);
+									$(this).off('click', nextHandlerCallback);
 
 								}
 

@@ -50,13 +50,15 @@ class PadmaCompiler {
 			'output-inline' => false
 		);
 
-		$args = array_merge($defaults, $args);
+		$args = array_merge( $defaults, $args );
 
-		if ( !$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin) )
+		if ( !$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin) ) {
 			$cache = array();
+		}
 
-		if ( is_ssl() )
+		if ( is_ssl() ) {
 			$args['name'] = $args['name'] . '-https';
+		}
 
 		$args['fragments'] 		= array_map('padma_change_to_unix_path', $args['fragments']);
 		$args['dependencies'] 	= array_map('padma_change_to_unix_path', $args['dependencies']);
@@ -120,14 +122,15 @@ class PadmaCompiler {
 	 * 
 	 * @return string
 	 **/
-	public static function enqueue_file($file, $footer_js = true) {
+	public static function enqueue_file( $file, $footer_js = true ) {
 
 		$cache = get_transient('pu_compiler_template_' . PadmaOption::$current_skin);		
 
-		if ( $cache[$file]['format'] == 'js' )
+		if ( $cache[$file]['format'] == 'js' ) {
 			return wp_enqueue_script('padma-' . $file, self::get_url($file), false, false, false, $footer_js);
-		elseif ( $cache[$file]['format'] == 'css' )
+		} elseif ( $cache[$file]['format'] == 'css' ) {
 			return wp_enqueue_style('padma-' . $file, self::get_url($file));
+		}
 
 		return false;	
 

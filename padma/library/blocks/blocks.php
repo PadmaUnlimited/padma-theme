@@ -498,8 +498,9 @@ class PadmaBlocks {
 				'enqueue' => false
 			));
 
-			if ( strlen((string)self::output_block_dynamic_js($current_layout_in_use)) > 0 )
+			if ( strlen((string)self::output_block_dynamic_js($current_layout_in_use)) > 0 ) {
 				wp_enqueue_script($script_name, PadmaCompiler::get_url($script_name), array('jquery'));
+			}
 
 		}
 	/* End Dynamic JS */

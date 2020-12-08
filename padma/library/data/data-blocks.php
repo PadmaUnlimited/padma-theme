@@ -11,79 +11,93 @@
 class PadmaBlocksData {
 
 
+	/**
+	 * Add Block
+	 *
+	 * @param string $layout_id Layout ID.
+	 * @param array  $args Params for the block.
+	 * @return mixed
+	 */
 	public static function add_block( $layout_id, $args ) {
 
 		global $wpdb;
 
 		/* Validate input */
-		if ( !$args || !is_array($args) )
+		if ( ! $args || ! is_array( $args ) ) {
 			return false;
+		}
 
-		if ( !padma_get('type', $args) )
-			return new WP_Error('pu_add_block_missing_type');
+		if ( ! padma_get( 'type', $args ) ) {
+			return new WP_Error( 'pu_add_block_missing_type' );
+		}
 
-		if ( !is_array($args['dimensions']) && !is_serialized($args['dimensions']) )
-			return new WP_Error('pu_add_block_missing_dimensions');
+		if ( ! is_array( $args['dimensions'] ) && ! is_serialized( $args['dimensions'] ) ) {
+			return new WP_Error( 'pu_add_block_missing_dimensions' );
+		}
 
-		if ( !is_array($args['position']) && !is_serialized($args['position']) )
-			return new WP_Error('pu_add_block_missing_position');
+		if ( ! is_array( $args['position'] ) && ! is_serialized( $args['position'] ) ) {
+			return new WP_Error( 'pu_add_block_missing_position' );
+		}
 
 		/* Make sure the arrays are all unserialized */
-		$args['position'] = padma_maybe_unserialize($args['position']);
-		$args['dimensions'] = padma_maybe_unserialize($args['dimensions']);
-		$args['settings'] = padma_maybe_unserialize($args['settings']);
+		$args['position']   = padma_maybe_unserialize( $args['position'] );
+		$args['dimensions'] = padma_maybe_unserialize( $args['dimensions'] );
+		$args['settings']   = padma_maybe_unserialize( $args['settings'] );
 
-		//Figure out mirror ID
-		$mirror_id = padma_get('mirror-block', padma_get('settings', $args, array()));
+		// Figure out mirror ID.
+		$mirror_id = padma_get( 'mirror-block', padma_get( 'settings', $args, array() ) );
 
-		//Unset old mirror ID
-		if ( isset($args['settings']['mirror-block']) )
-			unset($args['settings']['mirror-block']);
+		// Unset old mirror ID.
+		if ( isset( $args['settings']['mirror-block'] ) ) {
+			unset( $args['settings']['mirror-block'] );
+		}
 
-		//Build insert args
-		$random_prefix = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 2)), 0, 2);
+		// Build insert args.
+		$random_prefix = substr( str_shuffle( str_repeat( "0123456789abcdefghijklmnopqrstuvwxyz", 2 ) ), 0, 2);
 
 		$insert_args = array(
-			'id' => uniqid('b' . strtolower(substr($random_prefix, 0, 2))),
-			'template' => padma_get('template', $args, PadmaOption::$current_skin),
-			'layout' => $layout_id,
-			'type' => $args['type'],
-			'wrapper_id' => padma_get('wrapper', $args),
-			'position' => padma_maybe_serialize($args['position']),
-			'dimensions' => padma_maybe_serialize($args['dimensions']),
-			'settings' => padma_maybe_serialize(padma_get('settings', $args, array())),
-			'mirror_id' => $mirror_id
+			'id'         => uniqid( 'b' . strtolower( substr( $random_prefix, 0, 2 ) ) ),
+			'template'   => padma_get( 'template', $args, PadmaOption::$current_skin ),
+			'layout'     => $layout_id,
+			'type'       => $args['type'],
+			'wrapper_id' => padma_get( 'wrapper', $args ),
+			'position'   => padma_maybe_serialize( $args['position'] ),
+			'dimensions' => padma_maybe_serialize( $args['dimensions'] ),
+			'settings'   => padma_maybe_serialize( padma_get( 'settings', $args, array() ) ),
+			'mirror_id'  => $mirror_id,
 		);
 
-
-		//Is a pre-defined ID required?
-		if ( $insert_id = padma_get( 'insert_id', $args ) )
+		// Is a pre-defined ID required?
+		if ( $insert_id = padma_get( 'insert_id', $args ) ) {
 			$insert_args['id'] = $insert_id;
+		}
 
-		if ( $legacy_id = padma_get( 'legacy_id', $args ) )
+		if ( $legacy_id = padma_get( 'legacy_id', $args ) ) {
 			$insert_args['legacy_id'] = $legacy_id;
+		}
 
-		//Run the query
-		$wpdb->insert($wpdb->pu_blocks, $insert_args);
+		// Run the query.
+		$wpdb->insert( $wpdb->pu_blocks, $insert_args );
 
-		//All done. Spit back ID of newly created block.
+		// All done. Spit back ID of newly created block.
 		return $insert_args['id'];
 
 	}
 
 
-	public static function update_block($block_id, $args) {
+	public static function update_block( $block_id, $args ) {
 
 		global $wpdb;
 
-		$block_to_be_updated = self::get_block($block_id);
+		$block_to_be_updated = self::get_block( $block_id );
 
 		/* Make sure block exists */
-		if ( !$block_to_be_updated )
+		if ( ! $block_to_be_updated ) {
 			return null;
+		}
 
 		/* Map old args */
-			if ( isset($args['wrapper']) ) {
+			if ( isset( $args['wrapper'] ) ) {
 
 				$args['wrapper_id'] = $args['wrapper'];
 				unset($args['wrapper']);

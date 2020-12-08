@@ -70,8 +70,8 @@
 
 					hideNotification(args.id);
 
-					$(document).unbind('.notification_' + args.id);
-					$i('html').unbind('.notification_' + args.id);
+					$(document).off('.notification_' + args.id);
+					$i('html').off('.notification_' + args.id);
 
 				}
 

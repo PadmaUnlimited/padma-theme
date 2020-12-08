@@ -45,7 +45,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 			}
 
 			iframe.contents().find('*')
-				.unbind()
+				.off()
 				.remove();
 
 		iframe[0].src = iframeURL;

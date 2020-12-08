@@ -2134,7 +2134,7 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 			}
 			
 		}
-
+		/*
 		propertyInputCallbackBackgroundOverlay = function( params ) {
 
 			var selector = params.selector;
@@ -2176,10 +2176,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 					'bottom': '0',
 					'z-index': '1',
 				});
-			}
-			
-			
-		}
+			}	
+		}*/
 
 		propertyInputCallbackShadow = function(params) {
 		
@@ -2469,15 +2467,15 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 				$(inspectorTooltip.elements.tooltip).hide();
 				hideNotification('inspector');
 
-				$i('html').unbind('mousemove', inspectorMouseMove);
+				$i('html').off('mousemove', inspectorMouseMove);
 
 				deactivateContextMenu('inspector');
 
 				setupBlockContextMenu();
 				setupWrapperContextMenu();
 
-				Padma.iframe.contents().find('body').unbind('keydown', inspectorNudging);
-				Padma.iframe.unbind('keydown', inspectorNudging);
+				Padma.iframe.contents().find('body').off('keydown', inspectorNudging);
+				Padma.iframe.off('keydown', inspectorNudging);
 
 				removeInspectorVisibleBoxModal();
 

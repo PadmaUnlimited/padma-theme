@@ -27,8 +27,9 @@ abstract class PadmaWebFontProvider {
 		add_action('padma_fonts_browser_tabs', array($this, 'tab'));
 		add_action('padma_fonts_browser_content', array($this, 'content'));
 
-		if ( $this->load_with_ajax )
+		if ( $this->load_with_ajax ) {
 			add_action('padma_fonts_ajax_list_fonts_' . $this->id, array($this, 'list_fonts'));
+		}
 
 	}
 
@@ -43,16 +44,17 @@ abstract class PadmaWebFontProvider {
 	public function content() {
 
 		$attrs = array(
-			'search' 	=> $this->search ? 'true' : 'false',
-			'sorting' 	=> (is_array($this->sorting_options) && !empty($this->sorting_options)) ? 'true' : 'false',
-			'provider' 	=> $this->webfont_provider ? $this->webfont_provider : 'false',
-			'ajax' 		=> $this->load_with_ajax ? 'true' : 'false'
+			'search'   => $this->search ? 'true' : 'false',
+			'sorting'  => (is_array($this->sorting_options) && !empty($this->sorting_options)) ? 'true' : 'false',
+			'provider' => $this->webfont_provider ? $this->webfont_provider : 'false',
+			'ajax' 	   => $this->load_with_ajax ? 'true' : 'false'
 		);
 
 		echo '<div id="' . $this->id . '-fonts" class="tab-content font-provider-tab-content" data-font-allow-search="' . $attrs['search'] . '" data-font-allow-sorting="' . $attrs['sorting'] . '" data-font-webfont-provider="' . $attrs['provider'] . '" data-font-load-with-ajax="' . $attrs['ajax'] . '">';
 
-			if ( $this->search )
+			if ( $this->search ) {
 				$this->content_search();
+			}
 
 			$this->content_fonts_list();
 
@@ -77,7 +79,7 @@ abstract class PadmaWebFontProvider {
 
 	      		echo '</select></div><!-- .select-container -->';
 
-	      	}
+			}
 
 		echo '</form>';
 
@@ -99,17 +101,15 @@ abstract class PadmaWebFontProvider {
 
 
 	/* Retrieves the fonts from the provider */
-	public function query_fonts($sortby) {
-
+	public function query_fonts( $sortby ) {
 		return array(
 			array(
-				'id' 		=> 'font-family',
-				'name' 		=> 'Font Family',
-				'stack' 	=> 'font family',
-				'variants' 	=> 'variants',
-			)
+				'id'       => 'font-family',
+				'name'     => 'Font Family',
+				'stack'    => 'font family',
+				'variants' => 'variants',
+			),
 		);
-
 	}
 
 

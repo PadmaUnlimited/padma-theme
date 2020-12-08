@@ -26,8 +26,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		$('div#content-selector-select')
 			.removeClass('content-selector-visible');
 
-		$(document).unbind('mousedown', hideContentSelector);
-		Padma.iframe.contents().unbind('mousedown', hideContentSelector);
+		$(document).off('mousedown', hideContentSelector);
+		Padma.iframe.contents().off('mousedown', hideContentSelector);
 		
 		return $('div#content-selector-select');
 

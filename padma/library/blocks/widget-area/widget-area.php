@@ -1,4 +1,10 @@
 <?php
+/**
+ * Padma Theme main function file
+ *
+ * @since 1.0.0
+ * @package Padma/library
+ */
 
 class PadmaWidgetAreaBlock extends PadmaBlockAPI {
 

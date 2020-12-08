@@ -25,8 +25,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 		$('div#layout-selector-select')
 			.removeClass('layout-selector-visible');
 
-		$(document).unbind('mousedown', hideLayoutSelector);
-		Padma.iframe.contents().unbind('mousedown', hideLayoutSelector);
+		$(document).off('mousedown', hideLayoutSelector);
+		Padma.iframe.contents().off('mousedown', hideLayoutSelector);
 		
 		return $('div#layout-selector-select');
 

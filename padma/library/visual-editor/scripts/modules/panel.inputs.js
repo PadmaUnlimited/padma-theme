@@ -234,10 +234,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 						$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 
 						/* Remove the events */
-						$(document).unbind('mousedown', textareaClose);
-						Padma.iframe.contents().unbind('mousedown', textareaClose);
+						$(document).off('mousedown', textareaClose);
+						Padma.iframe.contents().off('mousedown', textareaClose);
 						
-						$(window).unbind('resize', textareaClose);
+						$(window).off('resize', textareaClose);
 						
 					}
 					
@@ -259,10 +259,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 					
 					/* Remove the events */
-					$(document).unbind('mousedown', textareaClose);
-					Padma.iframe.contents().unbind('mousedown', textareaClose);
+					$(document).off('mousedown', textareaClose);
+					Padma.iframe.contents().off('mousedown', textareaClose);
 					
-					$(window).unbind('resize', textareaClose);
+					$(window).off('resize', textareaClose);
 					
 				}
 			
@@ -398,10 +398,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 						$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 
 						/* Remove the events */
-						$(document).unbind('mousedown', wysiwygClose);
-						Padma.iframe.contents().unbind('mousedown', wysiwygClose);
+						$(document).off('mousedown', wysiwygClose);
+						Padma.iframe.contents().off('mousedown', wysiwygClose);
 						
-						$(window).unbind('resize', wysiwygClose);
+						$(window).off('resize', wysiwygClose);
 						
 					}
 
@@ -429,10 +429,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 					
 					/* Remove the events */
-					$(document).unbind('mousedown', wysiwygClose);
-					Padma.iframe.contents().unbind('mousedown', wysiwygClose);
+					$(document).off('mousedown', wysiwygClose);
+					Padma.iframe.contents().off('mousedown', wysiwygClose);
 					
-					$(window).unbind('resize', wysiwygClose);
+					$(window).off('resize', wysiwygClose);
 					
 				}
 
@@ -579,10 +579,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 					$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 
 					/* Remove the events */
-					$(document).unbind('mousedown', multiSelectClose);
-					Padma.iframe.contents().unbind('mousedown', multiSelectClose);
+					$(document).off('mousedown', multiSelectClose);
+					Padma.iframe.contents().off('mousedown', multiSelectClose);
 					
-					$(window).unbind('resize', multiSelectClose);
+					$(window).off('resize', multiSelectClose);
 					
 				}
 				
@@ -604,10 +604,10 @@ define(['jquery', 'helper.codeMirror', 'deps/chosen.jquery', 'deps/colorpicker',
 				$('div.sub-tabs-content-container').css('overflow-y', 'auto');
 				
 				/* Remove the events */
-				$(document).unbind('mousedown', multiSelectClose);
-				Padma.iframe.contents().unbind('mousedown', multiSelectClose);
+				$(document).off('mousedown', multiSelectClose);
+				Padma.iframe.contents().off('mousedown', multiSelectClose);
 				
-				$(window).unbind('resize', multiSelectClose);
+				$(window).off('resize', multiSelectClose);
 				
 			}
 			

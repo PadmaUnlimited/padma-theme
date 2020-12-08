@@ -21,7 +21,7 @@
 		<div class="big-tab" id="tab-general-content">
 
 			<!-- General -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -60,7 +60,7 @@
 			</div>
 
 			<!-- Admin Preferences -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -359,7 +359,7 @@
 
 
 				<!-- Content <code>nofollow</code> Links -->
-				<div id="tab-general-content" class="postbox-container padma-postbox-container">
+				<div class="postbox-container padma-postbox-container">
 					<div id="" class="postbox padma-admin-options-group">
 
 						<button type="button" class="handlediv" aria-expanded="false">
@@ -394,7 +394,7 @@
 
 
 				<!-- Disable Schema.org support -->
-				<div id="tab-general-content" class="postbox-container padma-postbox-container">
+				<div class="postbox-container padma-postbox-container">
 					<div id="" class="postbox padma-admin-options-group">
 
 						<button type="button" class="handlediv" aria-expanded="false">
@@ -435,7 +435,7 @@
 		<div class="big-tab" id="tab-scripts-content">
 
 			<!-- Scripts/Analytics -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -481,7 +481,7 @@
 		<div class="big-tab" id="tab-visual-editor-content">
 
 			<!-- Visual Editor -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -542,7 +542,7 @@
 		<div class="big-tab" id="tab-advanced-content">
 
 			<!-- Advanced -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -588,7 +588,7 @@
 			</div>
 
 			<!-- Caching &amp; Compression -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -661,7 +661,7 @@
 			</div>
 
 			<!-- Developer -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -695,7 +695,7 @@
 			</div>
 
 			<!-- Debugging -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -732,7 +732,7 @@
 		<div class="big-tab" id="tab-compatibility-content">
 
 			<!-- Plugin templates -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -767,7 +767,7 @@
 
 
 			<!-- Headway -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -802,7 +802,7 @@
 
 
 			<!-- Bloxtheme -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -837,7 +837,7 @@
 
 
 			<!-- Gutenberg -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -874,7 +874,7 @@
 		<div class="big-tab" id="tab-mobile-content">
 
 			<!-- Responsive options -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">
@@ -911,7 +911,7 @@
 		<div class="big-tab" id="tab-fonts-content">
 
 			<!-- Fonts options -->
-			<div id="tab-general-content" class="postbox-container padma-postbox-container">
+			<div class="postbox-container padma-postbox-container">
 				<div id="" class="postbox padma-admin-options-group">
 
 					<button type="button" class="handlediv" aria-expanded="false">

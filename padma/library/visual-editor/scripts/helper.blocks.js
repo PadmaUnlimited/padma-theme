@@ -1222,10 +1222,11 @@ define(['modules/panel.inputs', 'helper.history', 'util.browser'], function(pane
 
 					block.remove();
 
-					$('.wrapper').unbind('mousedown', hideBlankBlockTypeSelector);
+					$('.wrapper').off('mousedown', hideBlankBlockTypeSelector);
 
-					$(document).unbind('keyup.esc', hideBlankBlockTypeSelector);
-					$i('html').unbind('keyup.esc', hideBlankBlockTypeSelector);
+					$(document).off('keyup.esc', hideBlankBlockTypeSelector);
+
+					$i('html').off('keyup.esc', hideBlankBlockTypeSelector);
 
 				}
 

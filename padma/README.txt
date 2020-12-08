@@ -42,8 +42,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 = 1.3.9 =
 * Fixes for PHP 8 Compatibility
-* Schema updated ( 2.1.0 => 2.16.0 )
+* Schema updated ( 2.1.0 => 2.16.0 ) Requieres php 7.3+
 * Coding standard updates.
+* Padma Updater is now part of the core
 
 
 = 1.3.8 = 

@@ -569,12 +569,14 @@ class Padma {
 	 **/
 	public static function initiate_updater() {
 
-		if ( class_exists( 'PadmaUpdater' ) ) {
-
-			PadmaUpdater::updater( PadmaSettings::get( 'slug' ), PADMA_DIR, true );
-
+		if ( ! class_exists( 'Puc_v4_Factory' ) ) {
+			require_once PADMA_LIBRARY_DIR . '/common/lib/plugin-update-checker/plugin-update-checker.php';
 		}
 
+		/**
+		 * Update theme.
+		 */
+		PadmaCoreUpdater::updater( PadmaSettings::get( 'slug' ), PADMA_DIR, true );
 	}
 
 	/**

@@ -574,34 +574,9 @@ class Padma {
 		}
 
 		/**
-		 * Start updater
-		 */
-		add_action( 'plugins_loaded', array( 'PadmaUpdater', 'init' ), 1 );
-
-		/**
 		 * Update theme.
 		 */
-		PadmaUpdater::updater( PadmaSettings::get( 'slug' ), PADMA_DIR, true );
-
-		/**
-		 * Update plugins
-		 */
-		add_filter(
-			'auto_update_plugin',
-			function ( $update, $item ) {
-				if ( get_option( 'padma-disable-automatic-plugin-updates' ) ) {
-					return false;
-				}
-
-				if ( in_array( $item->slug, PadmaUpdater::plugins(), true ) ) {
-					return true;
-				} else {
-					return $update; // Else, use the normal API response to decide whether to update or not.
-				}
-			},
-			10,
-			2
-		);
+		PadmaCoreUpdater::updater( PadmaSettings::get( 'slug' ), PADMA_DIR, true );
 	}
 
 	/**

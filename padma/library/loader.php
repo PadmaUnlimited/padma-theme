@@ -60,7 +60,7 @@ $padma_registry = array(
 	'PadmaSocialOptimization'         => 'common/social-optimization',
 	'PadmaTemplates'                  => 'common/templates',
 	'PadmaMobileDetect'               => 'common/mobile-detect',
-	'PadmaUpdater'                    => 'common/updater',
+	'PadmaCoreUpdater'                => 'common/core-updater',
 
 	// Compatibility.
 	'PadmaCompatibilityAmember'       => 'compatibility/amember/compatibility-amember',

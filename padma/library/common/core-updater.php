@@ -11,61 +11,12 @@
  */
 class PadmaCoreUpdater {
 
-
 	/**
 	 *
 	 * Detect CMS
 	 */
 	private static function detect_cms() {
 		return ( function_exists( 'classicpress_version_short' ) ) ? 'ClassicPress' : 'WordPress';
-	}
-
-
-	/**
-	 *
-	 * Padma Plugins
-	 */
-	public static function plugins() {
-		return array(
-			'padma-content-slider',
-			'padma-example',
-			'padma-filter-gallery',
-			'padma-gallery',
-			'padma-lifesaver',
-			'padma-lottiefiles',
-			'padma-post-slider',
-			'padma-services',
-			'padma-shortcode-block',
-			'padma-slider-revolution',
-			'padma-sociable',
-			'padma-store',
-			'padma-visual-elements',
-			'padma-updater',
-		);
-	}
-
-
-	/**
-	 *
-	 * Update Padma plugins
-	 */
-	private static function update_padma_plugins() {
-
-		foreach ( self::plugins() as $key => $slug ) {
-			$path = ABSPATH . 'wp-content/plugins/' . $slug;
-			self::updater( $slug, $path, false );
-		}
-	}
-
-	/**
-	 *
-	 * Is a Padma Plugin?
-	 *
-	 * @param string $slug Plugin Slug.
-	 * @return boolean
-	 */
-	public static function is_padma_plugin( $slug ) {
-		return in_array( $slug, self::plugins(), true );
 	}
 
 	/**

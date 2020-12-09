@@ -26,7 +26,7 @@ abstract class BaseType implements Type, ArrayAccess, JsonSerializable
 
     public function setProperty(string $property, $value)
     {
-        if ($value !== null) {
+        if ($value !== null && $value !== '') {
             $this->properties[$property] = $value;
         }
 
@@ -59,6 +59,14 @@ abstract class BaseType implements Type, ArrayAccess, JsonSerializable
     public function getProperties(): array
     {
         return $this->properties;
+    }
+
+    /**
+     * @return ReferencedType|static
+     */
+    public function referenced()
+    {
+        return new ReferencedType($this);
     }
 
     public function offsetExists($offset)

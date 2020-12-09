@@ -1,5 +1,5 @@
 {
     "require": {
-        "spatie/schema-org": "^2.1"
+        "spatie/schema-org": "^3.2.1"
     }
 }

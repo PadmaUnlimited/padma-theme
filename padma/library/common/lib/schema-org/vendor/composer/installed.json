@@ -2,32 +2,32 @@
     "packages": [
         {
             "name": "spatie/schema-org",
-            "version": "2.16.0",
-            "version_normalized": "2.16.0.0",
+            "version": "3.2.1",
+            "version_normalized": "3.2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "31f1fd54584d98b50026ecb17fe7067384ec209a"
+                "reference": "3b22822c19b1c6e4a889ea7af3b8cc76ca8fc622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/31f1fd54584d98b50026ecb17fe7067384ec209a",
-                "reference": "31f1fd54584d98b50026ecb17fe7067384ec209a",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/3b22822c19b1c6e4a889ea7af3b8cc76ca8fc622",
+                "reference": "3b22822c19b1c6e4a889ea7af3b8cc76ca8fc622",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.3"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
-                "graham-campbell/analyzer": "^2.3",
-                "league/flysystem": "^1.0",
-                "phpunit/phpunit": "^8.0",
-                "symfony/console": "^3.2",
-                "tightenco/collect": "^7.25",
-                "twig/twig": "^1.28"
+                "graham-campbell/analyzer": "^3.0.4",
+                "illuminate/collections": "^8.16.1",
+                "league/flysystem": "^1.1.3",
+                "phpunit/phpunit": "^9.4.3",
+                "symfony/console": "^3.4.47",
+                "twig/twig": "^1.44.1"
             },
-            "time": "2020-08-27T16:55:28+00:00",
+            "time": "2020-11-28T22:51:55+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -61,7 +61,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/schema-org/issues",
-                "source": "https://github.com/spatie/schema-org/tree/master"
+                "source": "https://github.com/spatie/schema-org/tree/3.2.1"
             },
             "funding": [
                 {

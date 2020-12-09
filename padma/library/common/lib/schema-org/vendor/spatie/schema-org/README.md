@@ -6,7 +6,7 @@
 [![StyleCI](https://styleci.io/repos/74684096/shield?branch=master)](https://styleci.io/repos/74684096)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/schema-org.svg?style=flat-square)](https://packagist.org/packages/spatie/schema-org)
 
-`spatie/schema-org` provides a fluent builder for **all** Schema.org types and their properties. The code in `src` is generated from Schema.org's [JSOSN-LD standards file](https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/7.04/schema.jsonld), so it provides objects and methods for the entire core vocabulary. The classes and methods are also fully documented as a quick reference.
+`spatie/schema-org` provides a fluent builder for **all** Schema.org types and their properties. The code in `src` is generated from Schema.org's [JSON-LD standards file](https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/9.0/schemaorg-all-https.jsonld), so it provides objects and methods for the entire core vocabulary. The classes and methods are also fully documented as a quick reference.
 
 ```php
 use Spatie\SchemaOrg\Schema;
@@ -22,7 +22,7 @@ echo $localBusiness->toScript();
 ```html
 <script type="application/ld+json">
 {
-    "@context": "http:\/\/schema.org",
+    "@context": "https:\/\/schema.org",
     "@type": "LocalBusiness",
     "name": "Spatie",
     "email": "info@spatie.be",
@@ -36,9 +36,7 @@ echo $localBusiness->toScript();
 
 ## Support us
 
-Learn how to create a package like this one, by watching our premium video course:
-
-[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/schema-org.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/schema-org)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -99,13 +97,13 @@ I recommend double checking your structured data with [Google's structured data 
 
 ### Enumerations
 
-As of v1.6.0, all [Enumeration](http://schema.org/Enumeration) child types are available as classes with constants.
+As of v1.6.0, all [Enumeration](https://schema.org/Enumeration) child types are available as classes with constants.
 
 ```php
 Schema::book()->bookFormat(Spatie\SchemaOrg\BookFormatType::Hardcover);
 ```
 
-There's no full API documentation for types and properties. You can refer to [the source](https://github.com/spatie/schema-org/tree/master/src) or to [the schema.org website](http://schema.org).
+There's no full API documentation for types and properties. You can refer to [the source](https://github.com/spatie/schema-org/tree/master/src) or to [the schema.org website](https://schema.org).
 
 If you don't want to break the chain of a large schema object, you can use the `if` method to conditionally modify the schema.
 
@@ -161,7 +159,7 @@ $localBusiness->addProperties(['name' => 'value', 'foo' => 'bar']);
 Context and type can be retrieved with the `getContext` and `getType` methods.
 
 ```php
-$localBusiness->getContext(); // 'http://schema.org'
+$localBusiness->getContext(); // 'https://schema.org'
 $localBusiness->getType(); // 'LocalBusiness'
 ```
 
@@ -260,6 +258,54 @@ echo json_encode($graph);
     ]
 }
 ```
+
+### Multi Typed Entities
+
+Schema.org allows [multi typed entities](https://github.com/schemaorg/schemaorg/wiki/How-to-use-Multi-Typed-Entities-or-MTEs) - to use them with this package you can use the `MultiTypedEntity` class - which works similar to the graph.
+
+```php
+$mte = new MultiTypedEntity();
+$mte->hotelRoom()->name('The Presidential Suite');
+$mte->product()->offers(
+    Schema::offer()
+        ->name('One Night')
+        ->price(100000.00)
+        ->priceCurrency('USD')
+);
+$mte->product(function (Product $product) {
+    $product->aggregateRating(
+        Schema::aggregateRating()
+            ->bestRating(5)
+            ->worstRating(4)
+    );
+});
+
+echo json_encode($mte);
+```
+
+```json
+{
+   "@context":"https:\/\/schema.org",
+   "@type":[
+      "HotelRoom",
+      "Product"
+   ],
+   "name":"The Presidential Suite",
+   "offers":{
+      "@type":"Offer",
+      "name":"One Night",
+      "price":100000,
+      "priceCurrency":"USD"
+   },
+   "aggregateRating":{
+      "@type":"AggregateRating",
+      "bestRating":5,
+      "worstRating":4
+   }
+}
+```
+
+There isn't a real rule in place how the properties are merged. It only uses `array_merge()` behind the scenes. So you should avoid defining the same property on different types in the MTE or be sure that all properties hold the same value that it's not important which property is used at the end.
 
 ## Known Issues
 

@@ -29,12 +29,12 @@ if ( (defined('DOING_AJAX') && DOING_AJAX) || $pagenow === 'themes.php' ) {
 
 
 /* Check PHP */
-} elseif (  version_compare(PHP_VERSION, '7.0', '<') ) {
+} elseif (  version_compare( PHP_VERSION, '7.3', '<' ) ) {
 
 	$message = '
 		<span style="text-align: center;font-size: 26px;width: 100%;display: block;margin-bottom: 20px;">Error</span>' . sprintf( __('
 
-		Padma requires PHP 7.0 or higher, as does WordPress 3.4 and higher.  You are running PHP %s.<br /><br />
+		Padma requires PHP 7.3 or higher, as does WordPress 3.4 and higher.  You are running PHP %s.<br /><br />
 
 		Please deactivate Padma by going to <a href="%s">Appearance &raquo; Themes</a> and choosing a difference theme until your PHP has been updated to 7.0 or higher.<br /><br />
 

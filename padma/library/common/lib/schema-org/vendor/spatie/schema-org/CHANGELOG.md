@@ -2,6 +2,26 @@
 
 All Notable changes to `schema-org` will be documented in this file.
 
+## 3.2.1 - 2020-11-28
+
+- add support for PHP 8
+
+## 3.2.0 - 2020-11-05
+
+- add `\Spatie\SchemaOrg\ReferencedType` to reference types in schemas and graphs - [#155](https://github.com/spatie/schema-org/pull/155)
+
+## 3.1.1 - 2020-10-22
+
+- fix empty string property values - [#153](https://github.com/spatie/schema-org/pull/153)
+
+## 3.1.0 - 2020-10-07
+
+- add Multi-Typed-Entity support `\Spatie\SchemaOrg\MultiTypedEntity` - [#148](https://github.com/spatie/schema-org/pull/148)
+
+## 3.0.0 - 2020-08-27
+
+- Upgrade to schema.org:v9 which includes all extensions
+
 ## 2.16.0 - 2020-08-27
 
 - Upgrade to schema.org:v8

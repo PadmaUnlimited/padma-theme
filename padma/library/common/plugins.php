@@ -14,8 +14,6 @@ class PadmaPlugins{
 			return;
 		}
 
-		require_once get_template_directory() . '/library/common/lib/class-tgm-plugin-activation.php';
-
 		add_action( 'tgmpa_register', array(__CLASS__,'padma_register_required_plugins'));
 
 	}
@@ -31,20 +29,12 @@ class PadmaPlugins{
 		 * If the source is NOT from the .org repo, then source is also required.
 		 */
 		$plugins = array(
-
 			array(
 				'name'         => 'Padma Advanced', // The plugin name.
 				'slug'         => 'padma-advanced', // The plugin slug (typically the folder name).
 				//'source'       => 'https://cdn.padmaunlimited.com/software/?action=download&slug=padma-services', // The plugin source.
 				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
 				'external_url' => 'https://www.padmaunlimited.com/plugins/padma-advanced', // If set, overrides default API URL and points to an external URL.
-			),
-			array(
-				'name'         => 'Padma Updater', // The plugin name.
-				'slug'         => 'padma-updater', // The plugin slug (typically the folder name).
-				'source'       => 'https://cdn.padmaunlimited.com/software/?action=download&slug=padma-updater', // The plugin source.
-				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
-				'external_url' => 'https://www.padmaunlimited.com/plugins/padma-updater', // If set, overrides default API URL and points to an external URL.
 			),
 		);
 

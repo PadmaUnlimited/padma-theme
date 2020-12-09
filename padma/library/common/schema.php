@@ -20,7 +20,6 @@ class PadmaSchema {
 		if ( PadmaOption::get( 'disable-schema-support' ) ) {
 			return;
 		}
-		require_once PADMA_LIBRARY_DIR . '/common/lib/schema-org/vendor/autoload.php';
 	}
 
 

@@ -24,10 +24,6 @@ class PadmaMobileDetect {
 	 */
 	public static function is_mobile() {
 
-		if ( ! class_exists( 'Mobile_Detect' ) ) {
-			require_once PADMA_LIBRARY_DIR . '/common/lib/Mobile_Detect.php';
-		}
-
 		self::$detect = new Mobile_Detect();
 
 		$is_mobile = false;

@@ -1,0 +1,8 @@
+{
+    "require": {
+        "yahnis-elsts/plugin-update-checker": "^4.10",
+        "spatie/schema-org": "^3.2",
+        "tgmpa/tgm-plugin-activation": "^2.6",
+        "mobiledetect/mobiledetectlib": "^2.8"
+    }
+}

@@ -1,5 +1,11 @@
 <?php
 /**
+ * Design CSS properties main file.
+ *
+ * @package Padma
+ */
+
+/**
  * Properties class
  */
 class PadmaElementProperties {
@@ -12,456 +18,503 @@ class PadmaElementProperties {
 	protected static $properties = array(
 
 		/* Smoth Scrolling */
-			'scroll-behavior' => array(
-				'group' => 'Scroll',
-				'name' => 'Scroll',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"scroll-behavior": params.value});',	
-				'options' => array(
-					'auto' => 'Auto',
-					'smooth' => 'Smooth',
-					'initial' => 'Initial',
-					'inherit' => 'Inherit',
-				),
-				'default' => 'initial',
+		'scroll-behavior' => array(
+			'group' => 'Scroll',
+			'name' => 'Scroll',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"scroll-behavior": params.value});',
+			'options' => array(
+				'auto' => 'Auto',
+				'smooth' => 'Smooth',
+				'initial' => 'Initial',
+				'inherit' => 'Inherit',
 			),
+			'default' => 'initial',
+		),
 
 		/* Fonts */
-			'font-family' => array(
-				'group'         => 'Fonts',
-				'name'          => 'Font Family',
-				'type'          => 'font-family-select',
-				'js-callback'   => 'propertyInputCallbackFontFamily(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_font_family',
+		'font-family' => array(
+			'group'         => 'Fonts',
+			'name'          => 'Font Family',
+			'type'          => 'font-family-select',
+			'js-callback'   => 'propertyInputCallbackFontFamily(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_font_family',
+		),
+
+		'font-size' => array(
+			'group' => 'Fonts',
+			'name' => 'Font Size',
+			'type' => 'integer',
+			'default' => '12',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"font-size": params.value + params.unit});',
+			'unit' => array(),
+		),
+
+		'color' => array(
+			'group' => 'Fonts',
+			'name' => 'Font Color',
+			'type' => 'color',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"color": params.value});',
+			'default' => '000000',
+		),
+
+		'line-height' => array(
+			'group' => 'Fonts',
+			'name' => 'Line Height',
+			'type' => 'integer',
+			'default' => 100,
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"line-height": params.value + params.unit});',
+			'unit' => array( 'default' => '%' ),
+		),
+
+		'font-styling' => array(
+			'group' => 'Fonts',
+			'name' => 'Font Styling',
+			'type' => 'select',
+			'options' => array(
+				'normal' => 'Normal',
+				'light' => 'Light',
+				'bold' => 'Bold',
+				'italic' => 'Italic',
+				'bold-italic' => 'Bold Italic',
 			),
+			'js-callback' => 'propertyInputCallbackFontStyling(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_font_styling',
+		),
 
-			'font-size' => array(
-				'group' => 'Fonts',
-				'name' => 'Font Size',
-				'type' => 'integer',
-				'default' => '12',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"font-size": params.value + params.unit});',
-				'unit' => array(),
+		'text-align' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Alignment',
+			'type' => 'select',
+			'options' => array(
+				'left' => 'Left',
+				'center' => 'Center',
+				'right' => 'Right',
+				'justify' => 'Justify',
 			),
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-align": params.value});',
+		),
 
-			'color' => array(
-				'group' => 'Fonts',
-				'name' => 'Font Color',
-				'type' => 'color',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"color": params.value});',
-				'default' => '000000'
+		'text-align-last' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Alignment Last',
+			'type' => 'select',
+			'options' => array(
+				'auto'    => 'Auto',
+				'start'   => 'Start',
+				'end'     => 'End',
+				'left'    => 'Left',
+				'right'   => 'Right',
+				'center'  => 'Center',
+				'justify' => 'Justify',
 			),
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-align-last": params.value});',
+		),
 
-			'line-height' => array(
-				'group' => 'Fonts',
-				'name' => 'Line Height',
-				'type' => 'integer',
-				'default' => 100,
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"line-height": params.value + params.unit});',
-				'unit' => array('default' => '%')
+		'text-indent' => array(
+			'group' => 'Fonts',
+			'name' => 'Text indent',
+			'type' => 'integer',
+			'default' => '0',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-indent": params.value + params.unit});',
+			'unit' => array(),
+		),
+
+		'capitalization' => array(
+			'group' => 'Fonts',
+			'name' => 'Capitalization',
+			'type' => 'select',
+			'options' => array(
+				'none' => 'Normal',
+				'uppercase' => 'Uppercase',
+				'lowercase' => 'Lowercase',
+				'small-caps' => 'Small Caps',
 			),
+			'js-callback' => 'propertyInputCallbackCapitalization(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_capitalization',
+		),
 
-			'font-styling' => array(
-				'group' => 'Fonts',
-				'name' => 'Font Styling',
-				'type' => 'select',
-				'options' => array(
-					'normal' => 'Normal',
-					'light' => 'Light',
-					'bold' => 'Bold',
-					'italic' => 'Italic',
-					'bold-italic' => 'Bold Italic'
-				),
-				'js-callback' => 'propertyInputCallbackFontStyling(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_font_styling'
+		'letter-spacing' => array(
+			'group' => 'Fonts',
+			'name' => 'Letter Spacing',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"letter-spacing": params.value + params.unit});',
+			'unit' => 'px',
+			'options' => array(
+				'0' => '0',
+				'1' => '1px',
+				'2' => '2px',
+				'3' => '3px',
+				'-1' => '-1px',
+				'-2' => '-2px',
+				'-3' => '-3px',
 			),
+		),
 
-			'text-align' => array(
-				'group' => 'Fonts',
-				'name' => 'Text Alignment',
-				'type' => 'select',
-				'options' => array(
-					'left' => 'Left',
-					'center' => 'Center',
-					'right' => 'Right'
-				),
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-align": params.value});'
+		'text-decoration-line' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Decoration Line',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-line": params.value});',
+			'options' => array(
+				'none' => 'No Underline',
+				'underline' => 'Underline',
+				'overline' => 'Overline',
+				'line-through' => 'Line Through',
 			),
+		),
 
-			'capitalization' => array(
-				'group' => 'Fonts',
-				'name' => 'Capitalization',
-				'type' => 'select',
-				'options' => array(
-					'none' => 'Normal',
-					'uppercase' => 'Uppercase',
-					'lowercase' => 'Lowercase',
-					'small-caps' => 'Small Caps',
-				),
-				'js-callback' => 'propertyInputCallbackCapitalization(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_capitalization'
+		'text-decoration-color' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Decoration Color',
+			'type' => 'color',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-color": params.value});',
+			'default' => '000000'
+		),
+
+		'text-decoration-style' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Decoration Style',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-style": params.value});',
+			'options' => array(
+				'none' => 'None',
+				'solid' => 'Solid',
+				'wavy' => 'Wavy',
+				'double' => 'Double',
 			),
+		),
 
-			'letter-spacing' => array(
-				'group' => 'Fonts',
-				'name' => 'Letter Spacing',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"letter-spacing": params.value + params.unit});',
-				'unit' => 'px',
-				'options' => array(
-					'0' => '0',
-					'1' => '1px',
-					'2' => '2px',
-					'3' => '3px',
-					'-1' => '-1px',
-					'-2' => '-2px',
-					'-3' => '-3px'
-				)
+		'text-overflow' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Overflow',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-overflow": params.value});',
+			'options' => array(
+				'clip' => 'Clip',
+				'ellipsis' => 'Ellipsis',
+				'string' => 'String',
+				'initial' => 'Initial',
+				'inherit' => 'Inherit',
 			),
+		),
 
-			'text-decoration-line' => array(
-				'group' => 'Fonts',
-				'name' => 'Text Decoration Line',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-line": params.value});',
-				'options' => array(
-					'none' => 'No Underline',
-					'underline' => 'Underline',
-					'overline' => 'Overline',
-					'line-through' => 'Line Through',
-				)
+		'white-space' => array(
+			'group' => 'Fonts',
+			'name' => 'White Space',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"white-space": params.value});',
+			'options' => array(
+				'normal' => 'Normal',
+				'nowrap' => 'Nowrap',
+				'pre'    => 'Pre',
+				'pre-line' => 'Pre-line',
+				'pre-wrap' => 'Pre-wrap',
+				'initial' => 'Initial',
+				'inherit' => 'Inherit',
 			),
+		),
 
-			'text-decoration-color' => array(
-				'group' => 'Fonts',
-				'name' => 'Text Decoration Color',
-				'type' => 'color',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-color": params.value});',
-				'default' => '000000'
+		'writing-mode' => array(
+			'group' => 'Fonts',
+			'name' => 'Writing Mode',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"writing-mode": params.value});',
+			'options' => array(					
+				'horizontal-tb' => 'Horizontal from left to right',
+				'vertical-rl' => 'Vertically from top to bottom, horizontally from right to left',
+				'vertical-lr' => 'Vertically from top to bottom, horizontally from left to right',
 			),
+		),
 
-			'text-decoration-style' => array(
-				'group' => 'Fonts',
-				'name' => 'Text Decoration Style',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"text-decoration-style": params.value});',
-				'options' => array(
-					'none' => 'None',
-					'solid' => 'Solid',
-					'wavy' => 'Wavy',
-					'double' => 'Double',
-				)
+		'word-wrap' => array(
+			'group' => 'Fonts',
+			'name' => 'Word Wrap',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"word-wrap": params.value + params.unit});',
+			'options' => array(					
+				'normal' => 'Normal',
+				'break-word' => 'Break word',
 			),
+		),
 
-			'writing-mode' => array(
-				'group' => 'Fonts',
-				'name' => 'Writing Mode',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"writing-mode": params.value});',
-				'options' => array(					
-					'horizontal-tb' => 'Horizontal from left to right',
-					'vertical-rl' => 'Vertically from top to bottom, horizontally from right to left',
-					'vertical-lr' => 'Vertically from top to bottom, horizontally from left to right',
-				)
+		'word-spacing' => array(
+			'group' => 'Fonts',
+			'name' => 'Word Spacing',
+			'type' => 'integer',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"word-spacing": params.value});',
+			'unit' => 'px',
+			'options' => array(
+				'0' => '0',
+				'1' => '1px',
+				'2' => '2px',
+				'3' => '3px',
+				'-1' => '-1px',
+				'-2' => '-2px',
+				'-3' => '-3px',
+			),		
+		),
+
+		'direction' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Direction',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"direction": params.value});',
+			'options' => array(					
+				'ltr' => 'Left to right',
+				'rtl' => 'Right to left',
 			),
+			'default' => 'ltr',
+		),
 
-			'word-wrap' => array(
-				'group' => 'Fonts',
-				'name' => 'Word Wrap',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"word-wrap": params.value + params.unit});',
-				'options' => array(					
-					'normal' => 'Normal',
-					'break-word' => 'Break word',
-				)
+		/* Fonts/Text Shadow */
+		'text-shadow-horizontal-offset' => array(
+			'group' => 'Fonts',
+			'name' => 'Shadow: Horizontal Offset',
+			'type' => 'integer',
+			'unit' => array(),
+			'js-callback' => 'propertyInputCallbackShadow(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_shadow',
+			'default' => 0,
+		),
+
+		'text-shadow-vertical-offset' => array(
+			'group' => 'Fonts',
+			'name' => 'Shadow: Vertical Offset',
+			'type' => 'integer',
+			'unit' => array(),
+			'js-callback' => 'propertyInputCallbackShadow(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_shadow',
+			'default' => 0,
+		),
+
+		'text-shadow-blur' => array(
+			'group' => 'Fonts',
+			'name' => 'Shadow: Blur',
+			'type' => 'integer',
+			'unit' => array(),
+			'js-callback' => 'propertyInputCallbackShadow(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_shadow',
+			'default' => 0,
+		),
+
+		'text-shadow-color' => array(
+			'group' => 'Fonts',
+			'name' => 'Shadow: Color',
+			'type' => 'color',
+			'js-callback' => 'propertyInputCallbackShadow(params);',
+			'complex-property' => 'PadmaElementProperties::complex_property_shadow',
+			'default' => '000000',
+		),
+
+		/* Background */
+		'background-color' => array(
+			'group' => 'Background',
+			'name' => 'Color',
+			'type' => 'color',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"background-color": params.value});',
+			'default' => 'ffffff',
+		),
+
+		'background-image' => array(
+			'group' => 'Background',
+			'name' => 'Image',
+			'type' => 'image',
+			'js-callback' => 'propertyInputCallbackBackgroundImage(params);',
+			'default' => 'none',
+		),
+
+		'background-repeat' => array(
+			'group' => 'Background',
+			'name' => '&nbsp;&ndash; Repeat',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"background-repeat": params.value});',
+			'options' => array(
+				'repeat' => 'Tile',
+				'no-repeat' => 'No Tiling',
+				'repeat-x' => 'Tile Horizontally',
+				'repeat-y' => 'Tile Vertically',
 			),
+		),
 
-			'word-spacing' => array(
-				'group' => 'Fonts',
-				'name' => 'Word Spacing',
-				'type' => 'integer',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"word-spacing": params.value});',
-				'unit' => 'px',
-				'options' => array(
-					'0' => '0',
-					'1' => '1px',
-					'2' => '2px',
-					'3' => '3px',
-					'-1' => '-1px',
-					'-2' => '-2px',
-					'-3' => '-3px'
-				)				
+		'background-position' => array(
+			'group' => 'Background',
+			'name' => '&nbsp;&ndash; Position',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"background-position": params.value});',
+			'options' => array(
+				'left top' => 'Left Top',
+				'left center' => 'Left Center',
+				'left bottom' => 'Left Bottom',
+				'right top' => 'Right Top',
+				'right center' => 'Right Center',
+				'right bottom' => 'Right Bottom',
+				'center top' => 'Center Top',
+				'center center' => 'Center Center',
+				'center bottom' => 'Center Bottom',
 			),
+		),
 
-			'direction' => array(
-				'group' => 'Fonts',
-				'name' => 'Text Direction',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"direction": params.value});',
-				'options' => array(					
-					'ltr' => 'Left to right',
-					'rtl' => 'Right to left',
-				),
-				'default' => 'ltr'
+		'background-attachment' => array(
+			'group' => 'Background',
+			'name' => '&nbsp;&ndash; Behavior',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"background-attachment": params.value});',
+			'options' => array(
+				'scroll' => 'Stay at top of document (Scroll)',
+				'fixed' => 'Stay in same position as you scroll (Fixed)',
 			),
+		),
 
-		/* 	Fonts/Text Shadow */
-			'text-shadow-horizontal-offset' => array(
-				'group' => 'Fonts',
-				'name' => 'Shadow: Horizontal Offset',
-				'type' => 'integer',
-				'unit' => array(),
-				'js-callback' => 'propertyInputCallbackShadow(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
-				'default' => 0
+		'background-size' => array(
+			'group' => 'Background',
+			'name' => '&nbsp;&ndash; Size',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"background-size": params.value});',
+			'options' => array(
+				'auto' => 'Default',
+				'cover' => 'Cover &ndash; Scales the background image so that the smallest dimension reaches the maximum width/height of the element.',
+				'contain' => 'Contain &ndash; Ensures that the entire background-image will display by showing the image at a scaled size.',
 			),
+		),
 
-			'text-shadow-vertical-offset' => array(
-				'group' => 'Fonts',
-				'name' => 'Shadow: Vertical Offset',
-				'type' => 'integer',
-				'unit' => array(),
-				'js-callback' => 'propertyInputCallbackShadow(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
-				'default' => 0
+		'background-parallax' => array(
+			'group' => 'Background',
+			'name' => '&nbsp;&ndash; Parallax',
+			'type' => 'select',
+			'js-callback' => '',
+			'js-property' => true,
+			'options' => array(
+				'disable' => 'Disable',
+				'enable' => 'Enable',
 			),
+		),
 
-			'text-shadow-blur' => array(
-				'group' => 'Fonts',
-				'name' => 'Shadow: Blur',
-				'type' => 'integer',
-				'unit' => array(),
-				'js-callback' => 'propertyInputCallbackShadow(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
-				'default' => 0
+		'background-parallax-ratio' => array(
+			'group' => 'Background',
+			'name' => '&nbsp;&ndash; Parallax Ratio',
+			'type' => 'integer',
+			'js-callback' => '',
+			'js-property' => true,
+			'step' => '0.1',
+			'default' => '0.5',
+		),
+
+		/* Borders */
+		'border-color' => array(
+			'group' => 'Borders',
+			'name' => 'Border Color',
+			'type' => 'color',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"border-color": params.value});',
+			'default' => '000000',
+		),
+
+		'border-style' => array(
+			'group' => 'Borders',
+			'name' => 'Border Style',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"border-style": params.value});',
+			'options' => array(
+				'none' => 'Hidden',
+				'solid' => 'Solid',
+				'dashed' => 'Dashed',
+				'dotted' => 'Dotted',
+				'double' => 'Double',
+				'groove' => 'Grooved',
+				'inset' => 'Inset',
+				'outset' => 'Outset',
+				'ridge' => 'Ridged',
 			),
+		),
 
-			'text-shadow-color' => array(
-				'group' => 'Fonts',
-				'name' => 'Shadow: Color',
-				'type' => 'color',
-				'js-callback' => 'propertyInputCallbackShadow(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_shadow',
-				'default' => '000000'
+		'border-width' => array(
+			'group' => 'Borders',
+			'name' => 'Border Width',
+			'type' => 'box-model',
+			'position' => 'sides',
+			'lockable' => true,
+
+			'box-model-inputs' => array(
+				'border-top-width',
+				'border-right-width',
+				'border-bottom-width',
+				'border-left-width',
 			),
+		),
 
-		/* 	Background */
-			'background-color' => array(
-				'group' => 'Background',
-				'name' => 'Color',
-				'type' => 'color',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"background-color": params.value});',
-				'default' => 'ffffff'
+		'border-top-width' => array(
+			'group' => 'Borders',
+			'name' => 'Top Border Width',
+			'type' => 'integer',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"border-top-width": params.value + params.unit});',
+			'unit' => array(),
+			'display' => false,
+			'lockable' => true,
+			'default' => 0,
+		),
+
+		'border-right-width' => array(
+			'group' => 'Borders',
+			'name' => 'Right Border Width',
+			'type' => 'integer',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"border-right-width": params.value + params.unit});',
+			'unit' => array(),
+			'display' => false,
+			'lockable' => true,
+			'default' => 0,
+		),
+
+		'border-bottom-width' => array(
+			'group' => 'Borders',
+			'name' => 'Bottom Border Width',
+			'type' => 'integer',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"border-bottom-width": params.value + params.unit});',
+			'unit' => array(),
+			'display' => false,
+			'lockable' => true,
+			'default' => 0,
+		),
+
+		'border-left-width' => array(
+			'group' => 'Borders',
+			'name' => 'Left Border Width',
+			'type' => 'integer',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"border-left-width": params.value + params.unit});',
+			'unit' => array(),
+			'display' => false,
+			'lockable' => true,
+			'default' => 0,
+		),
+
+		/* Outline */
+		'outline-color' => array(
+			'group' => 'Outlines',
+			'name' => 'Outline Color',
+			'type' => 'color',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-color": params.value});',
+			'default' => '000000',
+		),
+
+		'outline-style' => array(
+			'group' => 'Outlines',
+			'name' => 'Outline Style',
+			'type' => 'select',
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-style": params.value});',
+			'options' => array(
+				'none' => 'None',
+				'hidden' => 'Hidden',
+				'solid' => 'Solid',
+				'dashed' => 'Dashed',
+				'dotted' => 'Dotted',
+				'double' => 'Double',
+				'groove' => 'Grooved',
+				'inset' => 'Inset',
+				'outset' => 'Outset',
+				'ridge' => 'Ridged',
+				'initial' => 'Initial',
+				'inherit' => 'Inherit',
 			),
-
-			'background-image' => array(
-				'group' => 'Background',
-				'name' => 'Image',
-				'type' => 'image',
-				'js-callback' => 'propertyInputCallbackBackgroundImage(params);',
-				'default' => 'none'
-			),
-
-			'background-repeat' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Repeat',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"background-repeat": params.value});',
-				'options' => array(
-					'repeat' => 'Tile',
-					'no-repeat' => 'No Tiling',
-					'repeat-x' => 'Tile Horizontally',
-					'repeat-y' => 'Tile Vertically'
-				)
-			),
-
-			'background-position' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Position',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"background-position": params.value});',
-				'options' => array(
-					'left top' => 'Left Top',
-					'left center' => 'Left Center',
-					'left bottom' => 'Left Bottom',
-					'right top' => 'Right Top',
-					'right center' => 'Right Center',
-					'right bottom' => 'Right Bottom',
-					'center top' => 'Center Top',
-					'center center' => 'Center Center',
-					'center bottom' => 'Center Bottom'
-				)
-			),
-
-			'background-attachment' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Behavior',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"background-attachment": params.value});',
-				'options' => array(
-					'scroll' => 'Stay at top of document (Scroll)',
-					'fixed' => 'Stay in same position as you scroll (Fixed)'
-				)
-			),
-
-			'background-size' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Size',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"background-size": params.value});',
-				'options' => array(
-					'auto' => 'Default',
-					'cover' => 'Cover &ndash; Scales the background image so that the smallest dimension reaches the maximum width/height of the element.',
-					'contain' => 'Contain &ndash; Ensures that the entire background-image will display by showing the image at a scaled size.'
-				)
-			),
-
-			'background-parallax' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Parallax',
-				'type' => 'select',
-				'js-callback' => '',
-				'js-property' => true,
-				'options' => array(
-					'disable' => 'Disable',
-					'enable' => 'Enable'
-				)
-			),
-
-			'background-parallax-ratio' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Parallax Ratio',
-				'type' => 'integer',
-				'js-callback' => '',
-				'js-property' => true,
-				'step' => '0.1',
-				'default' => '0.5'
-			),
-			/*
-			'background-overlay' => array(
-				'group' => 'Background',
-				'name' => '&nbsp;&ndash; Color overlay',
-				'type' => 'color',
-				'js-callback' => 'propertyInputCallbackBackgroundOverlay(params);',
-				'complex-property' => 'PadmaElementProperties::complex_property_background_overlay',
-				'default' => '80000000',
-			),*/
-
-		/* 	Borders */
-			'border-color' => array(
-				'group' => 'Borders',
-				'name' => 'Border Color',
-				'type' => 'color',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"border-color": params.value});',
-				'default' => '000000'
-			),
-
-			'border-style' => array(
-				'group' => 'Borders',
-				'name' => 'Border Style',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"border-style": params.value});',
-				'options' => array(
-					'none' => 'Hidden',
-					'solid' => 'Solid',
-					'dashed' => 'Dashed',
-					'dotted' => 'Dotted',
-					'double' => 'Double',
-					'groove' => 'Grooved',
-					'inset' => 'Inset',
-					'outset' => 'Outset',
-					'ridge' => 'Ridged'
-				)
-			),
-
-			'border-width' => array(
-				'group' => 'Borders',
-				'name' => 'Border Width',
-				'type' => 'box-model',
-				'position' => 'sides',
-				'lockable' => true,
-
-				'box-model-inputs' => array(
-					'border-top-width',
-					'border-right-width',
-					'border-bottom-width',
-					'border-left-width'
-				)
-			),
-
-				'border-top-width' => array(
-					'group' => 'Borders',
-					'name' => 'Top Border Width',
-					'type' => 'integer',
-					'js-callback' => 'stylesheet.update_rule(params.selector, {"border-top-width": params.value + params.unit});',
-					'unit' => array(),
-					'display' => false,
-					'lockable' => true,
-					'default' => 0
-				),
-
-				'border-right-width' => array(
-					'group' => 'Borders',
-					'name' => 'Right Border Width',
-					'type' => 'integer',
-					'js-callback' => 'stylesheet.update_rule(params.selector, {"border-right-width": params.value + params.unit});',
-					'unit' => array(),
-					'display' => false,
-					'lockable' => true,
-					'default' => 0
-				),
-
-				'border-bottom-width' => array(
-					'group' => 'Borders',
-					'name' => 'Bottom Border Width',
-					'type' => 'integer',
-					'js-callback' => 'stylesheet.update_rule(params.selector, {"border-bottom-width": params.value + params.unit});',
-					'unit' => array(),
-					'display' => false,
-					'lockable' => true,
-					'default' => 0
-				),
-
-				'border-left-width' => array(
-					'group' => 'Borders',
-					'name' => 'Left Border Width',
-					'type' => 'integer',
-					'js-callback' => 'stylesheet.update_rule(params.selector, {"border-left-width": params.value + params.unit});',
-					'unit' => array(),
-					'display' => false,
-					'lockable' => true,
-					'default' => 0
-				),
-
-		/* 	Outline */
-			'outline-color' => array(
-				'group' => 'Outlines',
-				'name' => 'Outline Color',
-				'type' => 'color',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-color": params.value});',
-				'default' => '000000'
-			),
-
-			'outline-style' => array(
-				'group' => 'Outlines',
-				'name' => 'Outline Style',
-				'type' => 'select',
-				'js-callback' => 'stylesheet.update_rule(params.selector, {"outline-style": params.value});',
-				'options' => array(
-					'none' => 'None',
-					'hidden' => 'Hidden',
-					'solid' => 'Solid',
-					'dashed' => 'Dashed',
-					'dotted' => 'Dotted',
-					'double' => 'Double',
-					'groove' => 'Grooved',
-					'inset' => 'Inset',
-					'outset' => 'Outset',
-					'ridge' => 'Ridged',
-					'initial' => 'Initial',
-					'inherit' => 'Inherit',
-				)				 
-			),
+		),
 
 			'outline-width' => array(
 				'group' => 'Outlines',

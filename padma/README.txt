@@ -58,7 +58,12 @@ PHP Compatibility fix
 Added Padma Advanced recomendation
 New filter 'padma_compiler_trigger_args' to modify URl parameters
 Design Mode updates
-- Added "spread" to box shadow
+- Added "Spread" to box shadow
+- Added "Justify" to Text Align
+- Added "Text Align Last"
+- Added "Text Indent"
+- Added "Text Overflow"
+- Added "White Space"
 
 
 = 1.3.1 = 

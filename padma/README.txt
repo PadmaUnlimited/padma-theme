@@ -50,9 +50,9 @@ Fixes for PHP 8 Compatibility
 Schema updated ( 2.1.0 => 3.2.1 ) Requieres php 7.3+
 Coding standard updates.
 Padma Updater is now part of the core
-Tested with WordPress 5.5.3
+Tested with WordPress 5.6
 Tested with ClassicPress 1.2.0
-Tested with WooCommerce 4.5.3
+Tested with WooCommerce 4.8
 Woocommerce compatibility improvement
 PHP Compatibility fix
 Added Padma Advanced recomendation

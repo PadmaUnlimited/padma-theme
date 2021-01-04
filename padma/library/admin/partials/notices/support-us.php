@@ -10,7 +10,6 @@
 			<p><?php _e( 'Hello', 'padma' ); ?>,</p>
 			<p><?php _e( 'Our team has been working really hard to bring this powerful tool to you. We hope you like it.', 'padma' ); ?></p>
 			<h4><?php _e( 'Aim to collaborate?', 'padma' ); ?></h4>
-			<p><?php _e( 'Register to get even more plugins and blocks', 'padma' ); ?></p>
 			<ul>				
 				<li><?php _e( '- Report errors in: https://www.padmaunlimited.com/bug-report/', 'padma' ); ?></li>
 				<li><?php _e( '- Collaborate coding through GitHub', 'padma' ); ?></li>

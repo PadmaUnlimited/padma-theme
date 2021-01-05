@@ -1,7 +1,20 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
+
+/**
+ * Elements Main Class
+ */
 class PadmaElements {
 
-
+	/**
+	 * Init method
+	 *
+	 * @return void
+	 */
 	public static function init() {
 
 		Padma::load(array(

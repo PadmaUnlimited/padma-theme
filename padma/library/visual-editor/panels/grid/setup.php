@@ -71,7 +71,17 @@ class GridSetupPanel extends PadmaVisualEditorPanelAPI {
 					'name' => 'grid-width',
 					'label' => __('Global Grid Width','padma'),
 					'readonly' => true
-				)
+				),
+				'grid-system' => array(
+					'type' => 'select',
+					'options' => array(
+						'legacy' => 'Legacy',
+						'css-grid' => 'CSS Grid',
+					),					
+					'default' => 'css-grid',
+					'name' => 'grid-system',
+					'label' => __('Grid System','padma'),					
+				),
 			),
 
 			'responsive-grid' => array(

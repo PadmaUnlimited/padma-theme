@@ -75,6 +75,12 @@ class PadmaLayoutRenderer {
 			$wrapper_column_width 	= PadmaWrappers::get_column_width($wrapper);
 			$wrapper_gutter_width 	= PadmaWrappers::get_gutter_width($wrapper);
 
+			if( PadmaWrappers::is_independent_grid($wrapper) ){
+				$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+			}else{
+				$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
+			}
+
 			$wrapper_classes 		= array('wrapper');
 
 			$wrapper_classes[] 		= PadmaWrappers::is_independent_grid($wrapper) ? 'independent-grid' : null;
@@ -110,12 +116,23 @@ class PadmaLayoutRenderer {
 			/* Display the wrapper */	
 			do_action('padma_before_wrapper');
 
-			echo '<div id="wrapper-' . $wrapper_id . '" class="' . implode(' ', array_unique(array_filter($wrapper_classes))) . '" data-alias="' . esc_attr( padma_get( 'alias', padma_get( 'settings', $wrapper, array() )) ) . '"' . $wrapper_visual_editor_attributes . '>';
+			if( $wrapper_grid_system == 'css-grid' ){
+				$wrapper_classes[] = 'css-grid';
+			}
 
-					do_action('padma_wrapper_open');
+			$wrapper_classes = implode(' ', array_unique(array_filter($wrapper_classes)));
+			$wrapper_data_alias = esc_attr( padma_get( 'alias', padma_get( 'settings', $wrapper, array() )) );
+
+			echo '<div id="wrapper-' . $wrapper_id . '" class="' . $wrapper_classes . '" data-alias="' . $wrapper_data_alias . '"' . $wrapper_visual_editor_attributes . '>';
+
+				do_action('padma_wrapper_open');
 
 						$wrapper = new PadmaGridRenderer($wrapper_blocks, $wrapper_settings);
-						$wrapper->render_grid();
+						if( 'css-grid' === $wrapper_grid_system ) {
+							$wrapper->render_grid_css();
+						}else{
+							$wrapper->render_grid();
+						}
 
 					do_action('padma_wrapper_close');
 

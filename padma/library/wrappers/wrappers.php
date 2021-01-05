@@ -1,61 +1,139 @@
 <?php
+/**
+ * Padma Unlimited Theme.
+ *
+ * @package padma
+ */
+
+/**
+ * Wrapper Main Class
+ */
 class PadmaWrappers {
 
-
+	/**
+	 * Default Wrapper settings.
+	 *
+	 * @var array
+	 */
 	public static $default_wrappers = array(
 		'default' => array(
-			'id' => 'default',
+			'id'       => 'default',
 			'position' => 0,
 			'settings' => array(
-				'fluid' => false,
-				'fluid-grid' => false,
-				'columns' => null,
+				'fluid'        => false,
+				'fluid-grid'   => false,
+				'columns'      => null,
 				'column-width' => null,
-				'gutter-width' => null
-			)
-		)
+				'gutter-width' => null,
+				'grid-system'  => 'css-grid',
+			),
+		),
 	);
 
+	/**
+	 * Default wrapper ID.
+	 *
+	 * @var string
+	 */
 	public static $default_wrapper_id = 'default';
 
+	/**
+	 * Default wrapper columns count.
+	 *
+	 * @var integer
+	 */
 	public static $default_columns = 24;
 
+	/**
+	 * Default wrapper column width
+	 *
+	 * @var integer
+	 */
 	public static $default_column_width = 20;
 
+	/**
+	 * Default wrapper gutter width
+	 *
+	 * @var integer
+	 */
 	public static $default_gutter_width = 20;
 
+	/**
+	 * Default wrapper grid system
+	 *
+	 * @var string
+	 */
+	public static $default_grid_system = 'css-grid';
+
+	/**
+	 * Default wrapper margin top
+	 *
+	 * @var integer
+	 */
 	public static $default_wrapper_margin_top = 30;
 
+	/**
+	 * Default wrapper margin bottom
+	 *
+	 * @var integer
+	 */
 	public static $default_wrapper_margin_bottom = 30;
 
-
+	/**
+	 * Default wrapper column width
+	 *
+	 * @var int
+	 */
 	public static $global_grid_column_width = null;
 
+	/**
+	 * Default wrapper gutter width
+	 *
+	 * @var int
+	 */
 	public static $global_grid_gutter_width = null;
 
+	/**
+	 * Default wrapper global grid system
+	 *
+	 * @var string
+	 */
+	public static $global_grid_system = 'css-grid';
 
+
+	/**
+	 * Init method.
+	 *
+	 * @return void
+	 */
 	public static function init() {
 
 		/* Set defaults */
-			self::$default_columns = PadmaSkinOption::get('columns', false, self::$default_columns);
-			self::$global_grid_column_width = PadmaSkinOption::get('column-width', false, self::$default_column_width);
-			self::$global_grid_gutter_width = PadmaSkinOption::get('gutter-width', false, self::$default_gutter_width);
+		self::$default_columns          = PadmaSkinOption::get( 'columns', false, self::$default_columns );
+		self::$global_grid_column_width = PadmaSkinOption::get( 'column-width', false, self::$default_column_width );
+		self::$global_grid_gutter_width = PadmaSkinOption::get( 'gutter-width', false, self::$default_gutter_width );
+		self::$global_grid_system       = PadmaSkinOption::get( 'grid-system', false, self::$global_grid_system );
 
-			self::$default_wrappers['default']['settings']['use-independent-grid'] = false;
-			self::$default_wrappers['default']['settings']['columns'] = self::$default_columns;
-			self::$default_wrappers['default']['settings']['column-width'] = self::$default_column_width;
-			self::$default_wrappers['default']['settings']['gutter-width'] = self::$default_gutter_width;
+		self::$default_wrappers['default']['settings']['use-independent-grid'] = false;
+		self::$default_wrappers['default']['settings']['columns']              = self::$default_columns;
+		self::$default_wrappers['default']['settings']['column-width']         = self::$default_column_width;
+		self::$default_wrappers['default']['settings']['gutter-width']         = self::$default_gutter_width;
+		self::$default_wrappers['default']['settings']['grid-system']          = self::$default_grid_system;
 
 		/* Setup hooks */
-		add_action('padma_register_elements_instances', array(__CLASS__, 'register_wrapper_instances'), 11);
-		add_action('padma_wrapper_options', array(__CLASS__, 'options_panel'), 10, 2);
+		add_action( 'padma_register_elements_instances', array( __CLASS__, 'register_wrapper_instances' ), 11 );
+		add_action( 'padma_wrapper_options', array( __CLASS__, 'options_panel' ), 10, 2 );
 
-		add_action('wp_head', array(__CLASS__, 'sticky_wrapper_js'));
-		add_action('wp_head', array(__CLASS__, 'shrink_wrapper_js'));
+		add_action( 'wp_head', array( __CLASS__, 'sticky_wrapper_js' ) );
+		add_action( 'wp_head', array( __CLASS__, 'shrink_wrapper_js' ) );
 
 	}
 
-
+	/**
+	 * Manage Javascript for sticky wrappers.
+	 *
+	 * @return bool
+	 */
 	public static function sticky_wrapper_js() {
 
 		$layout_wrappers = PadmaWrappersData::get_wrappers_by_layout( PadmaLayout::get_current_in_use() );
@@ -63,37 +141,37 @@ class PadmaWrappers {
 
 		foreach ( $layout_wrappers as $wrapper ) {
 
-            if ( $mirrored_wrapper = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
-                $original_wrapper = $wrapper;
+			if ( $mirrored_wrapper = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
+				$original_wrapper = $wrapper;
 
-                $wrapper = $mirrored_wrapper;
-                $wrapper['id'] = padma_get('id', $original_wrapper);
-                $wrapper['legacy_id'] = padma_get('legacy_id', $original_wrapper);
-            }
-
-			$wrapper_settings = padma_get('settings', $wrapper, array());
-
-			if ( padma_get('enable-sticky-positioning', $wrapper_settings) ) {
-
-				$sticky_wrappers['#wrapper-' . PadmaWrappersData::get_legacy_id( $wrapper )] = array(
-					'offset_top' => padma_get( 'sticky-position-top-offset', $wrapper_settings, 0 )
-				);
-
+				$wrapper              = $mirrored_wrapper;
+				$wrapper['id']        = padma_get( 'id', $original_wrapper ) ;
+				$wrapper['legacy_id'] = padma_get( 'legacy_id', $original_wrapper );
 			}
 
+			$wrapper_settings = padma_get( 'settings', $wrapper, array() );
 
+			if ( padma_get( 'enable-sticky-positioning', $wrapper_settings ) ) {
+
+				$sticky_wrappers[ '#wrapper-' . PadmaWrappersData::get_legacy_id( $wrapper )] = array(
+					'offset_top' => padma_get( 'sticky-position-top-offset', $wrapper_settings, 0 ),
+				);
+			}
 		}
 
-		if ( !$sticky_wrappers ) {
+		if ( ! $sticky_wrappers ) {
 			return false;
 		}
 
-		wp_enqueue_script( 'padma-sticky', padma_url() . '/library/media/js/sticky.js', array( 'jquery' ) );
+		wp_enqueue_script( 'padma-sticky', padma_url() . '/library/media/js/sticky.js', array( 'jquery' ), PADMA_VERSION, true );
 		wp_localize_script( 'padma-sticky', 'PadmaStickyWrappers', $sticky_wrappers );
-
-
 	}
 
+	/**
+	 * Manage Javascript for shrink wrappers.
+	 *
+	 * @return bool
+	 */
 	public static function shrink_wrapper_js() {
 
 		$layout_wrappers = PadmaWrappersData::get_wrappers_by_layout( PadmaLayout::get_current_in_use() );
@@ -101,13 +179,13 @@ class PadmaWrappers {
 
 		foreach ( $layout_wrappers as $wrapper ) {
 
-            if ( $mirrored_wrapper = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
-                $original_wrapper = $wrapper;
+			if ( $mirrored_wrapper = PadmaWrappersData::get_wrapper_mirror($wrapper) ) {
+				$original_wrapper = $wrapper;
 
-                $wrapper = $mirrored_wrapper;
-                $wrapper['id'] = padma_get('id', $original_wrapper);
-                $wrapper['legacy_id'] = padma_get('legacy_id', $original_wrapper);
-            }
+				$wrapper              = $mirrored_wrapper;
+				$wrapper['id']        = padma_get( 'id', $original_wrapper );
+				$wrapper['legacy_id'] = padma_get( 'legacy_id', $original_wrapper );
+			}
 
 			$wrapper_settings = padma_get('settings', $wrapper, array());
 
@@ -259,6 +337,19 @@ class PadmaWrappers {
 
 	}
 
+	public static function get_grid_system($wrapper) {
+
+
+		$grid_system = 'css-grid';
+		$wrapper_settings = padma_get('settings', $wrapper, array());
+
+		if( padma_get('use-independent-grid', $wrapper_settings, false, true) ){
+			$grid_system = padma_get('grid-system', $wrapper_settings, 'css-grid');			
+		}else{
+			$grid_system = PadmaWrappers::$global_grid_system;
+		}
+		return $grid_system;
+	}
 
 	public static function options_panel($wrapper, $layout) {
 

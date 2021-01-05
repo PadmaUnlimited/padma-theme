@@ -69,11 +69,12 @@ class PadmaDynamicStyle {
 
 			$nudging_properties = array('top', 'left', 'position', 'z-index');
 
-			//Continue to next element if the element/selector does not exist
-			if ( !isset($element['selector']) || $element['selector'] === false )
+			// Continue to next element if the element/selector does not exist.
+			if ( ! isset( $element['selector'] ) || $element['selector'] === false ) {
 				continue;
-			else
-				$selector 	= $element['selector'];
+			} else {
+				$selector = $element['selector'];
+			}
 
 
 			/* Regular Element */
@@ -211,9 +212,15 @@ class PadmaDynamicStyle {
 
 			/* Set up variables for wrapper */
 			if ( padma_get('file') == 've-iframe-grid-dynamic' && padma_get('visual-editor-open') ) {
-				$wrapper_selector = 'div#wrapper-' . PadmaWrappers::format_wrapper_id($wrapper['original-id']);
+				$wrapper_selector = 'div#wrapper-' . PadmaWrappers::format_wrapper_id( $wrapper['original-id'] );
 			} else {
-				$wrapper_selector = 'div#wrapper-' . PadmaWrappers::format_wrapper_id($wrapper_id);
+				$wrapper_selector = 'div#wrapper-' . PadmaWrappers::format_wrapper_id( $wrapper_id );
+			}
+
+			if ( PadmaWrappers::is_independent_grid($wrapper) ){
+				$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+			}else{
+				$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
 			}
 
 			/* Fixed Wrapper */
@@ -299,6 +306,26 @@ class PadmaDynamicStyle {
 			/* Responsive Break Points */
 				if ( !PadmaRoute::is_visual_editor_iframe('grid') && !(padma_get( 'file' ) == 've-iframe-grid-dynamic') ) {
 
+					/*		Grid CSS	*/
+					if ( $wrapper_grid_system === 'css-grid' ) {
+
+						/* Wrapper */
+						$return .= $wrapper_selector . ' {
+							display: flex;
+						}';
+
+
+						/* grid-container */						
+						$column_width = $wrapper_settings['column-width'] . 'px';
+
+						$return .= $wrapper_selector . ' div.grid-container {
+							display: grid;
+							grid-template-columns: repeat(' . $wrapper_settings['columns'] . ', 1fr);
+							grid-column-gap: ' . $wrapper_settings['gutter-width'] . 'px;
+							overflow: hidden;
+						}';
+					}
+
 					$responsive_options = padma_get( 'responsive-wrapper-options', $wrapper_settings, array() );
 					$options 			= self::get_repeater_options( $responsive_options, 'breakpoint' );
 
@@ -321,6 +348,13 @@ class PadmaDynamicStyle {
 
 							/* Output Responsive CSS */
 							$return .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
+
+							if ( $wrapper_grid_system === 'css-grid') {
+								$return .= $wrapper_selector . ' > div.grid-container {
+										grid-column-gap: ' . $option['grid-css-column-gap'] . 'px;
+									}';
+							}
+
 
 							if ( $stretch )
 								$return .= $wrapper_selector . ' .column {
@@ -690,6 +724,74 @@ class PadmaDynamicStyle {
 				return $return;
 
 			}
+
+	public static function block_widths() {
+
+		$layout_id = padma_get('layout-in-use');
+		$wrappers = PadmaWrappersData::get_wrappers_by_layout($layout_id);
+		$return = '';
+
+		foreach ($wrappers as $wrapper_id => $wrapper) {
+
+			if( PadmaWrappers::is_independent_grid($wrapper) ){
+				$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
+			}else{
+				$wrapper_grid_system = PadmaSkinOption::get('grid-system', false, 'css-grid');
+			}
+
+			if( $wrapper_grid_system === 'legacy' ){
+				continue;
+			}
+
+			$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper( $layout_id, $wrapper_id );
+
+
+			foreach ( $wrapper_blocks as $block_id => $block ) {
+
+				$start_position = $block['position']['left'] + 1;
+				$span_width = $block['dimensions']['width'];
+
+				$return .=  '#block-' . $block_id .' {
+					grid-column: ' . $start_position . ' / span ' . $span_width .';
+				}';
+
+				$block_settings = padma_get('settings', $block, array());
+				$responsive_options = padma_get( 'responsive-options', $block_settings, array() );
+				$options 			= self::get_repeater_options( $responsive_options, 'breakpoint' );
+
+				if ( $options ) {
+					foreach ( $options as $option ) {
+
+						$breakpoint = padma_fix_data_type( padma_get_search( 'blocks-breakpoint', $option, 'off' ) );
+						$max_width  = padma_fix_data_type( padma_get_search( 'max-width', $option, '' ) );
+						$column_count  = padma_fix_data_type( padma_get_search( 'grid-css-column-count', $option, $span_width ) );
+						$column_start  = padma_fix_data_type( padma_get_search( 'grid-css-column-start', $option, $start_position ) );
+
+
+						if ( $max_width && $breakpoint == 'custom' )
+							$breakpoint = $max_width;
+
+						$breakpoint_min_max = padma_fix_data_type( padma_get_search( 'breakpoint-min-or-max', $option, 'max' ) );
+
+						/* Output Responsive CSS */
+						$return .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
+
+						$return .= '#block-' . $block_id .'{
+							grid-column: ' . $column_start . ' / span ' . $column_count .';
+						}';
+
+						$return .= '}';
+					}
+				}
+			}
+
+		}
+
+
+
+		return $return;
+
+	}
 
 	static function get_repeater_options($options, $default) {
 

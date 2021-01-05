@@ -997,5 +997,34 @@ class PadmaGridRenderer {
 
 	}
 
+	public function process_grid_css() {
 
+		$this->step_1_sort_blocks_by_position();
+
+	}
+
+	/**
+	 *
+	 * Grid CSS compilation
+	 *
+	 */	
+	public function render_grid_css() {
+
+		$this->process_grid_css();
+
+		echo '<div class="grid-container clearfix">';
+
+		do_action('padma_grid_container_open', $this->wrapper);
+
+		foreach ($this->blocks as $id => $block) {
+
+			PadmaBlocks::display_block( $block );
+
+		}
+
+		do_action('padma_grid_container_close', $this->wrapper);
+
+		echo '</div>';
+
+	}
 }

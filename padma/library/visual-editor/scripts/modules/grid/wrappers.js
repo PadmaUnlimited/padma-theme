@@ -545,7 +545,8 @@ define(['util.custommouse', 'qtip', 'helper.data', 'modules/grid/wrapper-inputs'
 			var wrapperSettings = $.extend({}, {
 				'fluid': false,
 				'fluid-grid': false,
-				'use-independent-grid': false
+				'use-independent-grid': false,
+				'grid-system': 'css-grid'
 			}, wrapperSettings);
 
 			if ( typeof wrapperSettings['fluid'] != 'boolean' ) {

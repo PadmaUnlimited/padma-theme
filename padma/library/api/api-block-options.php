@@ -490,8 +490,24 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 					'label' => __('Hide this block','padma'),
 					'default' => false,
 					'tooltip' => __('This will hide this block for the set breakpoint.','padma')
-				)
-
+				),
+				array(
+					'name' => 'grid-css-heading',
+					'type' => 'heading',
+					'label' => __('Grid CSS Options','padma')
+				),
+				array(
+					'type' => 'select',
+					'name' => 'grid-css-column-count',
+					'label' => 'Column count for this breakpoint',
+					'options' => 'get_block_column_count_options()'
+				),
+				array(
+					'type' => 'select',
+					'name' => 'grid-css-column-start',
+					'label' => 'Start column for this breakpoint',
+					'options' => 'get_block_column_start_options()'
+				),
 			),
 			'sortable' => true,
 			'limit' => false,
@@ -637,6 +653,37 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 		}
 
 		return $options;
+
+	}
+
+	public function get_block_column_count_options(){
+
+
+		$column_count 			= array();		
+		$wrapper 				= PadmaWrappersData::get_wrapper( $this->block['wrapper_id'] );
+		$max_wrapper_columns 	= $wrapper['settings']['columns'];
+		for ( $i = 1; $i <= $max_wrapper_columns; $i++) {
+			if ( $i == 1)
+				$column_count[ $i ] = $i . ' column';
+			else
+				$column_count[ $i ] = $i . ' columns';
+		}
+
+		return $column_count;
+
+	}
+
+	public function get_block_column_start_options(){
+
+
+		$column_count 			= array();		
+		$wrapper 				= PadmaWrappersData::get_wrapper( $this->block['wrapper_id'] );
+		$max_wrapper_columns 	= $wrapper['settings']['columns'];
+		for ( $i = 1; $i <= $max_wrapper_columns; $i++) { 
+			$column_count[ $i ] = 'Column ' . $i;
+		}
+
+		return $column_count;
 
 	}
 

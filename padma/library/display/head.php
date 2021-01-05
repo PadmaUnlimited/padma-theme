@@ -198,6 +198,7 @@ class PadmaHead {
 			if ( current_theme_supports('padma-grid') ) {
 
 				$fragments['dynamic-wrapper'] = array('PadmaDynamicStyle', 'wrapper');
+				$fragments['dynamic-blocks-width'] = array('PadmaDynamicStyle', 'block_widths');
 
 			}
 

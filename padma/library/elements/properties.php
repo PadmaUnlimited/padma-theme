@@ -33,15 +33,15 @@ class PadmaElementProperties {
 		),
 
 		/* Fonts */
-		'font-family' => array(
-			'group'         => 'Fonts',
-			'name'          => 'Font Family',
-			'type'          => 'font-family-select',
-			'js-callback'   => 'propertyInputCallbackFontFamily( params );',
+		'font-family'                   => array(
+			'group'            => 'Fonts',
+			'name'             => 'Font Family',
+			'type'             => 'font-family-select',
+			'js-callback'      => 'propertyInputCallbackFontFamily( params );',
 			'complex-property' => 'PadmaElementProperties::complex_property_font_family',
 		),
 
-		'font-size' => array(
+		'font-size'                     => array(
 			'group' => 'Fonts',
 			'name' => 'Font Size',
 			'type' => 'integer',
@@ -831,13 +831,13 @@ class PadmaElementProperties {
 		),
 
 
-		'list-style-type' => array(
-			'group' => 'Lists',
-			'name' => 'Type',
-			'type' => 'select',
-			'default' => 'disc',
-			'options' => array(
-				'disc' => 'Disc',
+		'list-style-type'               => array(
+			'group'       => 'Lists',
+			'name'        => 'Type',
+			'type'        => 'select',
+			'default'     => 'disc',
+			'options'     => array(
+				'disc'   => 'Disc',
 				'armenian' => 'Armenian',
 				'circle' => 'Circle',
 				'cjk-ideographic' => 'CJK Ideographic',
@@ -947,14 +947,14 @@ class PadmaElementProperties {
 		),
 		'min-width' => array(
 			'group' => 'Sizes',
-			'name'  => 'Min width',
+			'name'  => 'Min Width',
 			'type'  => 'integer',
 			'unit'  => array(),
 			'js-callback' => 'stylesheet.update_rule( params.selector, {"min-width": params.value + params.unit});',
 		),
 		'max-width' => array(
 			'group' => 'Sizes',
-			'name'  => 'Max width',
+			'name'  => 'Max Width',
 			'type'  => 'integer',
 			'unit'  => array(),
 			'js-callback' => 'stylesheet.update_rule( params.selector, {"max-width": params.value + params.unit});',
@@ -968,14 +968,14 @@ class PadmaElementProperties {
 		),
 		'min-height' => array(
 			'group' => 'Sizes',
-			'name'  => 'Min-height',
+			'name'  => 'Min Height',
 			'type'  => 'integer',
 			'unit'  => array(),
 			'js-callback' => 'stylesheet.update_rule( params.selector, {"min-height": params.value + params.unit});',
 		),
 		'max-height' => array(
 			'group' => 'Sizes',
-			'name'  => 'Max-height',
+			'name'  => 'Max Height',
 			'type'  => 'integer',
 			'unit'  => array(),
 			'js-callback' => 'stylesheet.update_rule( params.selector, {"max-height": params.value + params.unit});',
@@ -1606,6 +1606,88 @@ class PadmaElementProperties {
 			'type' => 'integer',
 			'default' => '0',
 		),
+
+		/* Grid CSS */
+		'column-gap' => array(
+			'group' => 'Grid',
+			'name'  => 'Column gap',
+			'type'  => 'integer',
+			'unit'  => array(),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"column-gap": params.value + params.unit});',
+		),
+		'row-gap' => array(
+			'group' => 'Grid',
+			'name'  => 'Row gap',
+			'type'  => 'integer',
+			'unit'  => array(),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"row-gap": params.value + params.unit});',
+		),
+		'justify-items' => array(
+			'group' => 'Grid',
+			'name'  => 'Justify items',
+			'type'  => 'select',
+			'options'  => array(
+				'start'   => 'Start',
+				'end'     => 'End',
+				'center'  => 'Center',
+				'stretch' => 'Stretch',
+			),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"justify-items": params.value});',
+		),
+		'align-items' => array(
+			'group' => 'Grid',
+			'name'  => 'Align items',
+			'type'  => 'select',
+			'options'  => array(
+				'start'   => 'Start',
+				'end'     => 'End',
+				'center'  => 'Center',
+				'stretch' => 'Stretch',
+			),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"align-items": params.value});',
+		),
+		'justify-content' => array(
+			'group' => 'Grid',
+			'name'  => 'Justify content',
+			'type'  => 'select',
+			'options'  => array(
+				'start'   => 'Start',
+				'end'     => 'End',
+				'center'  => 'Center',
+				'stretch' => 'Stretch',
+				'space-around' => 'Space around',
+				'space-between' => 'Space between',
+				'space-evenly' => 'Space evenly',
+			),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"justify-content": params.value});',
+		),
+		'align-content' => array(
+			'group' => 'Grid',
+			'name'  => 'Align content',
+			'type'  => 'select',
+			'options'  => array(
+				'start'   => 'Start',
+				'end'     => 'End',
+				'center'  => 'Center',
+				'stretch' => 'Stretch',
+				'space-around' => 'Space around',
+				'space-between' => 'Space between',
+				'space-evenly' => 'Space evenly',
+			),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"align-content": params.value});',
+		),
+		'grid-auto-flow' => array(
+			'group' => 'Grid',
+			'name'  => 'Grid auto flow',
+			'type'  => 'select',
+			'options'  => array(
+				'row'   => 'Row',
+				'column'   => 'Column',
+				'dense'   => 'Dense',
+			),
+			'js-callback' => 'stylesheet.update_rule( params.selector, {"align-content": params.value});',
+		),
+
 	);
 
 	/**

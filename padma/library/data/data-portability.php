@@ -111,6 +111,21 @@ class PadmaDataPortability {
 			PadmaOption::$current_skin = $skin['id'];
 			PadmaLayoutOption::$current_skin = $skin['id'];
 
+		/**
+		 *
+		 * Grid CSS started with Padma 1.3.9+
+		 *
+		 */			
+			if(version_compare(padma_get('pu-version', $skin), '1.3.9', '<')){
+
+				foreach ($skin['data_pu_wrappers'] as $key => $wrapper) {
+					if( empty($wrapper['settings']['grid-system']) ){
+						$skin['data_pu_wrappers'][$key]['settings']['grid-system'] = 'legacy';
+					}
+
+				}
+			}
+
 		/* Process the install */
 			if(isset($skin['pu-version'])){
 				$skin = self::process_install_skin($skin);
@@ -188,7 +203,7 @@ class PadmaDataPortability {
 									'columns' => padma_get('columns', $wrapper_data),
 									'column-width' => padma_get('column-width', $wrapper_data),
 									'gutter-width' => padma_get('gutter-width', $wrapper_data),
-									'use-independent-grid' => padma_get('use-independent-grid', $wrapper_data)
+									'use-independent-grid' => padma_get('use-independent-grid', $wrapper_data),
 								);
 
 								$new_wrapper = PadmaWrappersData::add_wrapper($layout_id, $wrapper_data);

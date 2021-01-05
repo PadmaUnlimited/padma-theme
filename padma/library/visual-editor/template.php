@@ -133,14 +133,15 @@
 
 			$layout_url = PadmaVisualEditor::get_current_mode() == 'grid' ? home_url() : PadmaLayout::get_url(PadmaLayout::get_current());
 
-	        $current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
+			$current_layout_status = PadmaLayout::get_status(PadmaLayout::get_current());
 
-			$iframe_url = add_query_arg(array(
-				've-iframe' 				=> 'true',
-				've-layout' 				=> urlencode(PadmaLayout::get_current()),
-	            've-layout-customized' 		=> padma_get('customized', $current_layout_status, false) ? 'true' : 'false',
-	            've-iframe-mode' 			=> PadmaVisualEditor::get_current_mode(),
-				'rand' 						=> rand(1, 999999)
+			$iframe_url = add_query_arg(
+				array(
+					've-iframe'            => 'true',
+					've-layout'            => urlencode(PadmaLayout::get_current()),
+					've-layout-customized' => padma_get('customized', $current_layout_status, false) ? 'true' : 'false',
+					've-iframe-mode'       => PadmaVisualEditor::get_current_mode(),
+					'rand'                 => rand(1, 999999)
 			), $layout_url);
 
 			echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes" sandbox="allow-same-origin allow-scripts" ></iframe>';

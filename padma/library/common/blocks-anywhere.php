@@ -46,8 +46,9 @@ class PadmaBlocksAnywhere {
 
 		$block = PadmaBlocksData::get_block( $id );
 	    
-	    if( !$block )
-	    	return;
+	    if( !$block ) {
+			return;
+		}
 
 		/*	Register IDs to use them later	*/
 		self::$blocks[] = $id;

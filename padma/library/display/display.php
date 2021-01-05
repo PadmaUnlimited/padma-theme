@@ -248,8 +248,9 @@ class PadmaDisplay {
 		$c[] = 'layout-' . str_replace(PadmaLayout::$sep, '-', PadmaLayout::get_current());
 		$c[] = 'layout-using-' . str_replace( PadmaLayout::$sep, '-', PadmaLayout::get_current_in_use());
 
-		if ( PadmaRoute::is_visual_editor_iframe() )
+		if ( PadmaRoute::is_visual_editor_iframe() ) {
 			$c[] = 've-iframe';
+		}
 
 		if ( padma_get('ve-iframe-mode') && PadmaRoute::is_visual_editor_iframe() )
 			$c[] = 'visual-editor-mode-' . padma_get('ve-iframe-mode');
@@ -303,13 +304,9 @@ class PadmaDisplay {
 
 	public static function body_close() {
 
-
-		do_action('padma_whitewrap_close');
-		echo '</div>';		
-		do_action('padma_body_close');
+		do_action( 'padma_whitewrap_close' );
+		echo '</div>';
+		do_action( 'padma_body_close' );
 		echo '</body>';
-
 	}
-
-
 }

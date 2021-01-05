@@ -49,7 +49,7 @@ class PadmaVisualEditor {
 		$cache_rejected_uri[] = 'visual\-editor\=true';
 		$cache_rejected_uri[] = 've\-iframe\=true';
 
-		//Iframe handling
+		// iframe handling.
 		add_action('padma_body_close', array(__CLASS__, 'iframe_load_flag'));
 		add_action('padma_grid_iframe_footer', array(__CLASS__, 'iframe_load_flag'));
 

@@ -102,24 +102,29 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 	public static function add_editor_style($css) {
 
-		if ( PadmaOption::get('disable-editor-style', false, false) )
+		if ( PadmaOption::get( 'disable-editor-style', false, false ) ) {
 			return $css;
+		}
 
-		if ( !current_theme_supports('editor-style') )
+		if ( ! current_theme_supports( 'editor-style' ) ) {
 			return $css;
+		}
 
-		if ( !current_theme_supports('padma-design-editor') )
+		if ( ! current_theme_supports( 'padma-design-editor' ) ) {
 			return $css;
+		}
 
-		PadmaCompiler::register_file(array(
-			'name' => 'editor-style',
-			'format' => 'css',
-			'fragments' => array(
-				'padma_content_block_editor_style'
-			),
-			'dependencies' => array(PADMA_LIBRARY_DIR . '/blocks/content/editor-style.php'),
-			'enqueue' => false
-		));
+		PadmaCompiler::register_file(
+			array(
+				'name' => 'editor-style',
+				'format' => 'css',
+				'fragments' => array(
+					'padma_content_block_editor_style',
+				),
+				'dependencies' => array( PADMA_LIBRARY_DIR . '/blocks/content/editor-style.php' ),
+				'enqueue' => false,
+			)
+		);
 
 		return $css . ',' . PadmaCompiler::get_url('editor-style');
 

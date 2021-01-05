@@ -222,10 +222,11 @@ function padma_fix_data_type($data) {
 
 	if ( is_numeric($data) ) {
 
-		if ( floatval($data) == intval($data) )
+		if ( (float)$data === (int) $data ) {
 			return (int)$data;
-		else
+		} else {
 			return (float)$data;
+		}
 
 	} elseif ( $data === 'true' ) {
 

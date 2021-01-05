@@ -56,24 +56,24 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 
 	waitForIframeLoad = function(callback, iframeEl) {
 		
-		if ( typeof iframeEl == 'undefined' || !iframeEl )
+		if ( typeof iframeEl == 'undefined' || !iframeEl ) {
 			var iframeEl = Padma.iframe;
+		}
 
 		/* Setup timeout */
-			if ( typeof iframeTimeout == 'undefined' )
-				iframeTimeout = setTimeout(iframe.loadTimeout, 40000);
+		if ( typeof iframeTimeout == 'undefined' ) {
+			iframeTimeout = setTimeout( iframe.loadTimeout, 40000 );
+		}
 
 		/* Check if iframe body has iframe-loaded class which is added via inline script in the footer of the iframe */
-			if ( typeof iframeEl == 'undefined' || iframeEl.contents().find('body.iframe-loaded').length != 1 ) {
-
-				return setTimeout(function() {
-					waitForIframeLoad(callback, iframeEl);
-				}, 100);
-
-			}
+		if ( typeof iframeEl == 'undefined' || iframeEl.contents().find('body.iframe-loaded').length != 1 ) {
+			return setTimeout(function() {
+				waitForIframeLoad(callback, iframeEl);
+			}, 100);
+		}
 
 		/* Cancel out timeout callback */
-			clearTimeout(iframeTimeout);
+		clearTimeout(iframeTimeout);
 
 		return iframe.loadCallback(callback);
 

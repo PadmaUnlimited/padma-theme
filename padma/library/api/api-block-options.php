@@ -8,7 +8,7 @@ class PadmaBlockOptionsAPI extends PadmaVisualEditorPanelAPI {
 	public $block_id 	= false;
 
 
-	public function __construct($block_type_object) {
+	public function __construct( $block_type_object ) {
 
 		/* Accept the block type as an argument that way its properties are available for use in this class */
 		$this->block_type_object = $block_type_object;

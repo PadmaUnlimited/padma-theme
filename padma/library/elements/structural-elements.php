@@ -61,7 +61,7 @@ function padma_register_structural_elements() {
 		array(
 			'group'      => 'structure',
 			'id'         => 'wrapper-container',
-			'name'       => __( 'Wrapper Container', 'padma' ),
+			'name'       => __( 'Grid Container', 'padma' ),
 			'selector'   => 'div.wrapper.css-grid .grid-container',
 			'properties' => array( 'grid' ),
 		)

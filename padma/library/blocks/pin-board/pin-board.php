@@ -129,7 +129,7 @@ if ( ! class_exists( 'PadmaPinBoardCoreBlock' ) ) {
 				$block = PadmaBlocksData::get_block( $block_id );
 			}
 
-			$infinite_scroll = intval( parent::get_setting( $block, 'infinite-scroll', true ) );
+			$infinite_scroll = (int) parent::get_setting( $block, 'infinite-scroll', true );
 
 			$js = "
 			jQuery( document ).ready( function() {
@@ -1105,13 +1105,13 @@ if ( ! class_exists( 'PadmaPinBoardCoreBlock' ) ) {
 				    return 'about a minute ago';
 
 				} elseif ( $delta >= 120 && $delta <= (60*60 ) ) {
-				    return strval( round(( $delta/60 ),0 ) ) . ' minutes ago';
+				    return (string)( round(( $delta/60 ),0 ) ) . ' minutes ago';
 
 				} elseif ( $delta >= (60*60 ) && $delta <= (120*60 ) ) {
 				    return 'about an hour ago';
 
 				} elseif ( $delta >= (120*60 ) && $delta <= (24*60*60 ) ) {
-				    return strval( round(( $delta/3600 ),0 ) ) . ' hours ago';
+				    return (string)( round(( $delta/3600 ),0 ) ) . ' hours ago';
 
 				}
 

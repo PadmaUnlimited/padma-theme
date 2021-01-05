@@ -258,8 +258,9 @@ class PadmaHead {
 
 		public static function register_visual_editor_css() {
 
-			if ( !PadmaRoute::is_visual_editor_iframe() )
+			if ( ! PadmaRoute::is_visual_editor_iframe() ) {
 				return;
+			}
 
 			wp_enqueue_style('padma-ve-iframe', padma_url() . '/library/visual-editor/css/iframe.css');
 

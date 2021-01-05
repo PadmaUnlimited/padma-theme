@@ -11,8 +11,8 @@
 abstract class PadmaBlockAPI {
 
 
-	public $id;	
-	public $name;	
+	public $id;
+	public $name;
 	public $block_type_url;
 	public $block_type_path;
 	public $block_type_icons;

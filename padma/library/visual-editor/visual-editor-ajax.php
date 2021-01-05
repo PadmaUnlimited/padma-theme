@@ -6,14 +6,15 @@ class PadmaVisualEditorAJAX {
 
 		header('content-type:application/json');
 
-		if ( padma_get('callback') )
+		if ( padma_get('callback') ) {
 			echo padma_get('callback') . '(';
+		}
 
 		echo json_encode($data);
 
-		if ( padma_get('callback') )
+		if ( padma_get('callback') ) {
 			echo ')';
-
+		}
 	}
 
 

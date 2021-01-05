@@ -64,14 +64,13 @@ Design Mode updates
 - Added "Text Indent"
 - Added "Text Overflow"
 - Added "White Space"
-
+Typecasting functions intval(), strval(), floatval() have been removed from Core in favor of direct typecasting (int), (string) and (float)
 
 = 1.3.1 = 
 * Released: Jun 12, 2020
 Tested with WordPress 5.4.2
 Tested with ClassicPress 1.1.2
 Fixed: text-decoration and list-style missing CSS rules
-
 
 = 1.3.0 
 * Released: Jun 8, 2020

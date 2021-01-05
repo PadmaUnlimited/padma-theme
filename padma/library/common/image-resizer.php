@@ -168,11 +168,11 @@ if(!class_exists('PadmaImageResize')) {
             $new_h = $dest_h;
 
             if ( ! $new_w ) {
-                $new_w = intval( $new_h * $aspect_ratio );
+                $new_w = (int)( $new_h * $aspect_ratio );
             }
 
             if ( ! $new_h ) {
-                $new_h = intval( $new_w / $aspect_ratio );
+                $new_h = (int)( $new_w / $aspect_ratio );
             }
 
             $size_ratio = max( $new_w / $orig_w, $new_h / $orig_h );

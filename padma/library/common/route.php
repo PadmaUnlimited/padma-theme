@@ -216,13 +216,14 @@ class PadmaRoute {
 	}
 
 
-	public static function is_visual_editor_iframe($mode = null) {
+	public static function is_visual_editor_iframe( $mode = null ) {
 
-		if ( !padma_get('ve-iframe') || !PadmaCapabilities::can_user_visually_edit() )
+		if ( ! padma_get('ve-iframe') || ! PadmaCapabilities::can_user_visually_edit() )
 			return false;
 
-		if ( $mode )
+		if ( $mode ) {
 			return padma_get('ve-iframe-mode') == $mode;
+		}
 
 		return true;
 

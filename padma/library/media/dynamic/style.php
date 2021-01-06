@@ -370,8 +370,7 @@ class PadmaDynamicStyle {
 										text-align: center;
 									}';
 
-							if ( $hide_wrapper ){
-								
+							if ( $hide_wrapper ) {
 								if ( padma_get('visual-editor-open') === 'true' && PadmaOption::get('show-hidden-wrappers-on-design-mode', false, false) ) {
 									$return .= $wrapper_selector . ' { opacity: 0.5; position: relative; }';
 									$return .= $wrapper_selector . ':before {

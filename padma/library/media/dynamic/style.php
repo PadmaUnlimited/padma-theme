@@ -349,9 +349,14 @@ class PadmaDynamicStyle {
 							/* Output Responsive CSS */
 							$return .= '@media screen and (' . $breakpoint_min_max . '-width: ' . $breakpoint . ' ) { ';
 
-							if ( $wrapper_grid_system === 'css-grid') {
+							if ( $wrapper_grid_system === 'css-grid' ) {
+								if ( ! empty( $option['grid-css-column-gap'] ) ) {
+									$grid_css_column_gap = $option['grid-css-column-gap'];
+								} else {
+									$grid_css_column_gap = 10;
+								}
 								$return .= $wrapper_selector . ' > div.grid-container {
-										grid-column-gap: ' . $option['grid-css-column-gap'] . 'px;
+										grid-column-gap: ' . $grid_css_column_gap . 'px;
 									}';
 							}
 
@@ -390,20 +395,17 @@ class PadmaDynamicStyle {
 									    z-index: -1;
 									    color: #000;
 									}';
-								}else{
-									$return .= $wrapper_selector . ' { display: none!important;}';
+								} else {
+									if ( padma_get( 'visual-editor-mode' ) !== 'grid' ) {
+										$return .= $wrapper_selector . ' { display: none!important;}';
+									}
 								}
 							}
-
-
 							$return .= '}'; //close media query
 
 						}
-
 					}
-
 				}
-
 		}
 
 		return $return;

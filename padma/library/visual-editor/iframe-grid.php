@@ -172,7 +172,7 @@ class PadmaVisualEditorIframeGrid {
 			),
 			'dependencies' => array(
 				PADMA_LIBRARY_DIR . '/media/dynamic/style.php'
-			)
+			),
 		));
 
 	}

@@ -99,21 +99,22 @@ function padma_url() {
  **/
 function padma_get($name, $array = false, $default = null, $fix_data_type = false) {
 
-	if ( $array === false )
+	if ( false === $array ) {
 		$array = $_GET;
-
+	}
 
 	if ( (is_string($name) || is_numeric($name)) && !is_float($name) ) {
 
-		if ( is_array($array) && isset($array[$name]) )
+		if ( is_array($array) && isset($array[$name]) ) {
 			$result = $array[$name];
-		elseif ( is_object($array) && isset($array->$name) )
+		} elseif ( is_object($array) && isset($array->$name) ) {
 			$result = $array->$name;
-
+		}
 	}
 
-	if ( !isset($result) )
+	if ( ! isset( $result ) ) {
 		$result = $default;
+	}
 
 	return !$fix_data_type ? $result : padma_fix_data_type($result);	
 
@@ -197,7 +198,8 @@ function padma_format_url_ssl($url) {
  **/
 function padma_get_current_url() {
 
-	$prefix = padma_get('HTTPS', $_SERVER) != 'on' ? 'http://' : 'https://';
+	debug($_SERVER);
+	$prefix = padma_get( 'HTTPS', $_SERVER ) !== 'on' ? 'http://' : 'https://';
 	$http_host = !isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['HTTP_X_FORWARDED_HOST'];
 
 	return $prefix . $http_host . $_SERVER['REQUEST_URI'];
@@ -877,17 +879,24 @@ function padma_replace_urls( $from, $to ) {
 	global $wpdb;
 
 	$success = false;
-	$from = trim( $from );
-	$to = trim( $to );
+	$from    = trim( $from );
+	$to      = trim( $to );
+
+	if ( empty( $from ) || empty( $to ) ) {
+		$GLOBALS['padma_admin_save_message'] = __( 'Empty URL given.', 'padma' ) ;
+		return;
+	}
 
 	if ( $from === $to ) {
 		$GLOBALS['padma_admin_save_message'] = __( 'The `from` and `to` URL\'s must be different', 'padma' ) ;
+		return;
 	}
 
 	$is_valid_urls = ( filter_var( $from, FILTER_VALIDATE_URL ) && filter_var( $to, FILTER_VALIDATE_URL ) );
 
 	if ( ! $is_valid_urls ) {
-		$GLOBALS['padma_admin_save_message'] = __( 'The `from` and `to` URL\'s must be valid URL\'s', 'padma' ) ;		
+		$GLOBALS['padma_admin_save_message'] = __( 'The `from` and `to` URL\'s must be valid URL\'s', 'padma' ) ;
+		return;
 	}
 
 	

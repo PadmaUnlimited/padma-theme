@@ -269,8 +269,10 @@ class PadmaLayout {
 
 			$current_layout[] = 'front_page';
 
-			if ( method_exists( $sitepress, 'get_current_language' ) ) {
-				$current_layout[] = 'front_page' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+			if ( ! is_null( $sitepress ) ) {
+				if ( method_exists( $sitepress, 'get_current_language' ) ) {
+					$current_layout[] = 'front_page' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+				}
 			}
 
 		} elseif ( is_singular() ) {

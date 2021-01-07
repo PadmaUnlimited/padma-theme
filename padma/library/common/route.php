@@ -24,8 +24,9 @@ class PadmaRoute {
 	 **/
 	public static function remove_parsing_hooks() {
 
-		if ( !self::is_visual_editor() && !self::is_visual_editor_iframe() )
+		if ( !self::is_visual_editor() && !self::is_visual_editor_iframe() ) {
 			return;
+		}
 
 		remove_all_actions('parse_query');
 		remove_all_actions('parse_request');

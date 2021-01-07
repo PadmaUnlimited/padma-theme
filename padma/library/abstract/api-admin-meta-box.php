@@ -5,6 +5,10 @@
  * @since 1.0.0
  * @package Padma/library
  */
+
+/**
+ * Metabox API main class
+ */
 abstract class PadmaAdminMetaBoxAPI {
 
 	/**
@@ -24,7 +28,7 @@ abstract class PadmaAdminMetaBoxAPI {
 	/**
 	 * Array containing all of the inputs
 	 *
-	 *  @var string $inputs
+	 *  @var array $inputs
 	 * */
 	protected $inputs;
 
@@ -313,8 +317,8 @@ abstract class PadmaAdminMetaBoxAPI {
 			<tr>
 				<td colspan="2">
 					<label class="selectit" for="' . $input['attr-id'] . '"> 
-						<input type="hidden" id="' . $input['attr-id'] . '-hidden" value="false" name="' . $input['attr-name']. '" />
-						<input type="checkbox" id="' . $input['attr-id'] . '" value="true" name="' . $input['attr-name']. '" class="check"' . $checked . ' /> ' . $input['name'] . '
+						<input type="hidden" id="' . $input['attr-id'] . '-hidden" value="false" name="' . $input['attr-name'] . '" />
+						<input type="checkbox" id="' . $input['attr-id'] . '" value="true" name="' . $input['attr-name'] . '" class="check"' . $checked . ' /> ' . $input['name'] . '
 					</label>
 				</td>
 			</tr>';
@@ -378,7 +382,7 @@ abstract class PadmaAdminMetaBoxAPI {
 			echo '
 				<input type="radio" id="' . $input['attr-id'] . '-' . $value . '" value="' . $value . '" name="' . $input['attr-name'] . '" class="check"' . $checked . ' />
 
-				<label class="selectit" for="' . $input['attr-id'] . '-' . $value  . '"> 
+				<label class="selectit" for="' . $input['attr-id'] . '-' . $value . '"> 
 					' . $label . '
 				</label>
 			';

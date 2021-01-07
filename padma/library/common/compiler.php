@@ -63,8 +63,9 @@ class PadmaCompiler {
 		$args['fragments'] 		= array_map('padma_change_to_unix_path', $args['fragments']);
 		$args['dependencies'] 	= array_map('padma_change_to_unix_path', $args['dependencies']);
 
-		if ( !in_array($args['format'], self::$accepted_formats) )
+		if ( !in_array($args['format'], self::$accepted_formats) ) {
 			wp_die('<strong>' . $args['format'] .'</strong> is not an accepted filetype for the PadmaCompiler class.');
+		}
 
 		/* Prep possibly already cached settings for comparison */
 			$already_cached = isset($cache[$args['name']]) ? $cache[$args['name']] : array();
@@ -183,6 +184,10 @@ class PadmaCompiler {
 
 				if ( PadmaRoute::is_visual_editor_iframe() ) {
 					$query_args['visual-editor-open'] = 'true';
+				}
+
+				if ( PadmaRoute::is_grid() ) {
+					$query_args['visual-editor-mode'] = 'grid';
 				}
 
 				if ( PadmaRoute::is_visual_editor_iframe() && padma_get('ve-preview') )

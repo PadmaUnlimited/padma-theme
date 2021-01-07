@@ -83,10 +83,10 @@ abstract class PadmaBlockAPI {
 			'inline-editable-equivalences' => $this->inline_editable_equivalences
 		);
 
-		//Add the element for the block itself
+		// Add the element for the block itself.
 		add_action('padma_register_elements', array($this, 'setup_main_block_element'));
 
-		//Run init method if it exists
+		// Run init method if it exists.
 		if ( method_exists( $this, 'init' ) ) {
 			$this->init();
 		}

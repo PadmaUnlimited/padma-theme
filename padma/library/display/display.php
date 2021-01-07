@@ -6,8 +6,9 @@ class PadmaDisplay {
 
 	public static function init() {
 
-		if ( is_admin() )
+		if ( is_admin() ) {
 			return;
+		}
 
 		Padma::load(array(
 			'display/head' => true,
@@ -49,7 +50,7 @@ class PadmaDisplay {
 
 		if ( current_theme_supports('padma-grid') ) {
 
-			$layout = new PadmaLayoutRenderer;
+			$layout = new PadmaLayoutRenderer();
 			$layout->display();
 
 		} else {
@@ -65,93 +66,95 @@ class PadmaDisplay {
 	 * 
 	 * If the template file isn't Padma's index.php, then fetch the contents and put them into the Content Block 
 	 **/
-		public static function handle_plugin_template() {
+	public static function handle_plugin_template() {
 
-
-			if ( !self::is_plugin_template() )
-				return false;
-
-			add_action('padma_whitewrap_open', array(__CLASS__, 'padma_whitewrap_open_ob_start'));
-			add_action('wp_footer', array(__CLASS__, 'padma_close_ob_get_clean'), -99999);
-
-		}
-
-
-		public static function is_plugin_template() {
-
-			global $template;
-
-			/* Replace backslashes with forward slashes for Windows compatibility */
-			if ( strpos(str_replace('\\', '/', $template), WP_PLUGIN_DIR) !== false || !$template )
-				return true;
-
+		if ( ! self::is_plugin_template() ) {
 			return false;
-
 		}
 
+		add_action('padma_whitewrap_open', array(__CLASS__, 'padma_whitewrap_open_ob_start'));
+		add_action('wp_footer', array(__CLASS__, 'padma_close_ob_get_clean'), -99999);
 
-			public static function padma_whitewrap_open_ob_start() {
-
-				ob_start();
-
-			}
+	}
 
 
-			public static function padma_close_ob_get_clean() {
+	public static function is_plugin_template() {
 
-				self::$plugin_template_generic_content = ob_get_clean();
+		global $template;
 
-				/* Hook generic content */
-					add_action('generic_content', array(__CLASS__, 'display_generic_content'));
+		/* Replace backslashes with forward slashes for Windows compatibility */
+		if ( strpos(str_replace('\\', '/', $template), WP_PLUGIN_DIR) !== false || !$template )
+			return true;
 
-				/* Display grid in between header and footer */
-					self::grid();
+		return false;
 
-			}
-
-
-				public static function display_generic_content() {
-
-					echo self::$plugin_template_generic_content;
-
-				}
+	}
 
 
-		/**
-		 *
-		 * This methond allow to load the plugin template into the content block, the template need to be related to a CPT
-		 *
-		 */
+	public static function padma_whitewrap_open_ob_start() {
+		ob_start();
+	}
 
-		public static function load_plugin_template($template){
 
-			global $post;
+	public static function padma_close_ob_get_clean() {
 
-		    if (!$post)
-		        return $template;
+		self::$plugin_template_generic_content = ob_get_clean();
 
-		    $template_id = get_post_meta($post->ID, '_wp_page_template', true);
+		/* Hook generic content */
+			add_action('generic_content', array(__CLASS__, 'display_generic_content'));
 
-		    if(!$template_id)
-		    	return $template;
+		/* Display grid in between header and footer */
+			self::grid();
 
-			if(!PadmaOption::get('allow-plugin-templates', false))
-				return $template;
+	}
 
-			if(!PadmaDisplay::is_plugin_template())
-				return $template;
 
-			if(!file_exists($template))		
-				return $template;
+	public static function display_generic_content() {
+		echo self::$plugin_template_generic_content;
+	}
 
-			add_action('padma_whitewrap_open', array(__CLASS__, 'padma_whitewrap_open_ob_start'));
-			add_action('wp_footer', array(__CLASS__, 'padma_close_ob_get_clean'), -99999);
 
-			load_template( $template );
+	/**
+	 *
+	 * This methond allow to load the plugin template into the content block, the template need to be related to a CPT
+	 *
+	 * @param mixed $template Plugin template.
+	 * @return mixed
+	 */
+	public static function load_plugin_template( $template ) {
 
+		global $post;
+
+		if ( ! $post ) {
 			return $template;
-
 		}
+
+		$template_id = get_post_meta( $post->ID, '_wp_page_template', true );
+
+		if ( ! $template_id ) {
+			return $template;
+		}
+
+		if ( ! PadmaOption::get( 'allow-plugin-templates', false ) ) {
+			return $template;
+		}
+
+		if ( ! self::is_plugin_template() ) {
+			return $template;
+		}
+
+		if ( ! file_exists( $template ) ) {
+			return $template;
+		}
+
+		add_action( 'padma_whitewrap_open', array( __CLASS__, 'padma_whitewrap_open_ob_start' ) );
+		add_action( 'wp_footer', array( __CLASS__, 'padma_close_ob_get_clean' ), -99999 );
+
+		load_template( $template );
+
+		return $template;
+
+	}
 
 	/* End Plugin Template Handling System */
 

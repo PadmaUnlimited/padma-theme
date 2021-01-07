@@ -117,27 +117,26 @@ class PadmaAdmin {
 
 	}
 
+	/**	
+	 * Replace URL
+	 */
 	public static function form_action_replace_url() {
-
-		global $wpdb;
 
 		if ( ! padma_post( 'padma-replace-url', false ) ) {
 			return false;
 		}
-		
+
 		if ( ! wp_verify_nonce( padma_post( 'padma-replace-url-nonce', false ), 'padma-replace-url-nonce' ) ) {
 
 			$GLOBALS['padma_admin_save_message'] = 'Security nonce did not match.';
 			return false;
-
 		}
 
-	
 		$from = ! empty( padma_post( 'from' ) ) ? padma_post( 'from' ) : '';
-		$to = ! empty( padma_post( 'to' ) ) ? padma_post( 'to' ) : '';
+		$to   = ! empty( padma_post( 'to' ) ) ? padma_post( 'to' ) : '';
 
 		try {
-			if( padma_replace_urls( $from, $to ) ){
+			if ( padma_replace_urls( $from, $to ) ) {
 				$GLOBALS['padma_admin_save_message'] = 'URL successfully replaced.';
 				return true;		
 			}else{

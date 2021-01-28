@@ -317,7 +317,7 @@ class PadmaDynamicStyle {
 
 						/* Wrapper notice mirrored in Grid VE */
 						$return .= $wrapper_selector . ' .wrapper-mirror-notice{
-							grid-column: 2 / span ' . $wrapper_settings['columns'] . ';
+							grid-column: 1 / span ' . $wrapper_settings['columns'] . ';
 						}';
 
 						/* grid-container */

@@ -241,8 +241,9 @@ class PadmaDynamicStyle {
 						}
 
 					/* Grid */
-						if ( padma_get('file') != 've-iframe-grid-dynamic' || !padma_get('visual-editor-open') )
+						if ( padma_get('file') != 've-iframe-grid-dynamic' || !padma_get('visual-editor-open') ) {
 							$return .= PadmaResponsiveGrid::is_enabled() ? self::responsive_grid($wrapper) : self::fixed_grid($wrapper);
+						}
 
 			/* Fluid Wrapper */
 				} else {
@@ -314,8 +315,12 @@ class PadmaDynamicStyle {
 							display: flex;
 						}';
 
+						/* Wrapper notice mirrored in Grid VE */
+						$return .= $wrapper_selector . ' .wrapper-mirror-notice{
+							grid-column: 2 / span ' . $wrapper_settings['columns'] . ';
+						}';
 
-						/* grid-container */						
+						/* grid-container */
 						$column_width = $wrapper_settings['column-width'] . 'px';
 
 						$return .= $wrapper_selector . ' div.grid-container {

@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.5
-Version: 1.3.10
+Version: 1.3.11
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 7.3
@@ -43,7 +43,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.3.10 =
+= 1.3.11 =
 * Edge Version
 * Released: On dev
 Fixes for PHP 8 Compatibility

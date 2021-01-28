@@ -186,11 +186,15 @@ class PadmaVisualEditorDisplay {
 		global $wp_scripts;
 
 		// Gather the URLs for the block types.
-		$block_types = PadmaBlocks::get_block_types();
+		$block_types     = PadmaBlocks::get_block_types();
 		$block_type_urls = array();
 
-		foreach ( $block_types as $block_type => $block_type_options )
-			$block_type_urls[$block_type] = $block_type_options['url'];
+		if ( ! is_array( $block_types ) ) {
+			$block_types = array();
+		}
+		foreach ( $block_types as $block_type => $block_type_options ) {
+			$block_type_urls[ $block_type ] = $block_type_options['url'];
+		}
 
 		$current_layout_status = PadmaLayout::get_status( PadmaLayout::get_current() );
 
@@ -322,12 +326,19 @@ class PadmaVisualEditorDisplay {
 		echo '<ul class="block-type-selector-filter-categories">';
 		echo '<li><a class="active" data-filter="all">All</a></li>';
 
-		foreach ( PadmaBlocks::get_registered_blocks_categories() as $categorie => $blocks ) {
-			echo '<li><a class="" data-filter="'.$categorie.'">' . ucfirst( str_replace( '-', ' ', $categorie ) ) . '</a></li>';
+		$categories = PadmaBlocks::get_registered_blocks_categories();
+		if ( is_array( $categories ) ) {
+			foreach ( $categories as $categorie => $blocks ) {
+				echo '<li><a class="" data-filter="'.$categorie.'">' . ucfirst( str_replace( '-', ' ', $categorie ) ) . '</a></li>';
+			}
 		}
 		echo '</ul>';
 		echo '</div>';
 		echo '<div class="block-type-selector-items">';
+
+		if ( ! is_array( $block_types ) ) {
+			$block_types = array();
+		}
 
 			foreach ( $block_types as $block_type_id => $block_type ) {
 

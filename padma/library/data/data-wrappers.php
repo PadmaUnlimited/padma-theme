@@ -285,23 +285,27 @@ class PadmaWrappersData {
 		/* Build cache key */
 		$cache_key = 'pu_all_wrappers';
 
-		if ( $include_styling )
+		if ( $include_styling ) {
 			$cache_key .= '_with_styling';
+		}
 
-		if ( $mirrored_only )
+		if ( $mirrored_only ) {
 			$cache_key .= '_mirrored_only';
+		}
 
 		/* Check cache */
 		$wrappers_from_cache = wp_cache_get($cache_key);
 
-		if ( $wrappers_from_cache !== false )
+		if ( $wrappers_from_cache !== false ) {
 			return $wrappers_from_cache;
+		}
 
 		/* Not cached... Retrieve all wrappers  */
 		$query = "SELECT * FROM $wpdb->pu_wrappers WHERE template = '%s'";
 
-		if ( $mirrored_only )
+		if ( $mirrored_only ) {
 			$query .= " AND mirror_id <> ''";
+		}
 
 		$wrapper_query = $wpdb->get_results($wpdb->prepare($query, PadmaOption::$current_skin), ARRAY_A);
 
@@ -358,7 +362,6 @@ class PadmaWrappersData {
 
 	}
 
-
 	public static function is_wrapper_mirrored($wrapper) {
 
 		$wrapper = self::get_wrapper($wrapper);
@@ -370,7 +373,6 @@ class PadmaWrappersData {
 
 	}
 
-
 	public static function get_wrapper_mirror($wrapper) {
 
 		$wrapper = self::get_wrapper($wrapper);
@@ -381,7 +383,6 @@ class PadmaWrappersData {
 		return false;
 
 	}
-
 
 	public static function wrapper_exists($id) {
 

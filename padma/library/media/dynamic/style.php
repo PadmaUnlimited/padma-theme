@@ -732,7 +732,14 @@ class PadmaDynamicStyle {
 		$wrappers = PadmaWrappersData::get_wrappers_by_layout($layout_id);
 		$return = '';
 
-		foreach ($wrappers as $wrapper_id => $wrapper) {
+		foreach ( $wrappers as $wrapper_id => $wrapper ) {
+			if ( ! empty( $wrapper['mirror_id'] ) ) {
+				$id = $wrapper['mirror_id'];
+				$wrappers[ $id ] = PadmaWrappersData::get_wrapper( $id );
+			}
+		}
+
+		foreach ( $wrappers as $wrapper_id => $wrapper) {
 
 			if( PadmaWrappers::is_independent_grid($wrapper) ){
 				$wrapper_grid_system = PadmaWrappers::get_grid_system($wrapper);	
@@ -743,16 +750,24 @@ class PadmaDynamicStyle {
 			if( $wrapper_grid_system === 'legacy' ){
 				continue;
 			}
-
-			$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper( $layout_id, $wrapper_id );
-
-
+			
+			$wrapper_blocks = PadmaBlocksData::get_blocks_by_wrapper_id( $wrapper_id );	
+			foreach ( $wrapper_blocks as $block_id => $block ) {
+				if ( ! empty( $block['mirror_id'] ) ) {
+					$wrapper_blocks[ $block_id ] = PadmaBlocksData::get_block( $block['mirror_id'] );
+				}
+			}
 			foreach ( $wrapper_blocks as $block_id => $block ) {
 
 				$start_position = $block['position']['left'] + 1;
 				$span_width = $block['dimensions']['width'];
 
-				$return .=  '#block-' . $block_id .' {
+				$selector = '#block-' . $block_id;
+				if ( $block_id !== $block['id'] ) {
+					$selector .= ', #block-' . $block['id'];
+				}
+
+				$return .=  $selector . '{
 					grid-column: ' . $start_position . ' / span ' . $span_width .';
 				}';
 

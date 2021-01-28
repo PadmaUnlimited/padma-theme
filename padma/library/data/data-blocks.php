@@ -386,6 +386,39 @@ class PadmaBlocksData {
 	}
 
 
+	public static function get_blocks_by_wrapper_id( $wrapper_id ) {
+
+		global $wpdb;
+
+		/* Build cache key */
+		$cache_key = 'pu_blocks_by_wrapper_id' . $wrapper_id;
+
+		/* Check cache */
+		$wrapper_blocks = wp_cache_get($cache_key);
+
+		if ( $wrapper_blocks === false ) {
+
+			/* Retrieve all blocks from layout */
+				$query_string = $wpdb->prepare("SELECT * FROM $wpdb->pu_blocks WHERE wrapper_id = '%s'", $wrapper_id);
+
+				$wrapper_blocks_query = $wpdb->get_results($query_string, ARRAY_A);
+
+			/* Change results array into associative */
+				$wrapper_blocks = array();
+
+				foreach ( $wrapper_blocks_query as $wrapper_block ) {
+					$wrapper_blocks[$wrapper_block['id']] = array_map('padma_maybe_unserialize', $wrapper_block);
+				}
+
+			wp_cache_set($cache_key, $wrapper_blocks);
+
+		}
+
+		return $wrapper_blocks;
+
+	}
+
+
 		public static function get_block_styling($block) {
 
 			do_action('padma_before_get_block_styling');
@@ -477,12 +510,14 @@ class PadmaBlocksData {
 
 		foreach ( $layout_blocks as $block_id => $block ) {
 
-			if ( padma_get('wrapper_id', $block, PadmaWrappers::$default_wrapper_id) === $wrapper_id )
+			if ( padma_get('wrapper_id', $block, PadmaWrappers::$default_wrapper_id) === $wrapper_id ) {
 				$wrapper_blocks[$block_id] = $block;
-
+			}
+			
 			/* If there's only one wrapper and the block does not have a proper ID or is default, move it to that wrapper */
-			if ( count($layout_wrappers) === 1 && (padma_get('wrapper_id', $block) === null || padma_get('wrapper_id', $block) == 'wrapper-default') )
+			if ( count($layout_wrappers) === 1 && (padma_get('wrapper_id', $block) === null || padma_get('wrapper_id', $block) == 'wrapper-default') ) {
 				$wrapper_blocks[$block_id] = $block;
+			}
 
 		}
 

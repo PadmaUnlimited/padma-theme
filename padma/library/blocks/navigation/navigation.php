@@ -349,7 +349,7 @@ class PadmaNavigationBlock extends PadmaBlockAPI {
 		/* SelectNav */
 		if ( PadmaResponsiveGrid::is_active() && parent::get_setting( $block, 'responsive-select', true ) ) {
 
-			if ( padma_get('padma-trigger') == 'load-block-content' ) {
+			if ( padma_get( 'padma-trigger' ) === 'load-block-content' ) {
 				$js .= 'jQuery(document).ready(function($){
 					$(".pushy").remove();						
 					$(".pushy-site-overlay").remove();

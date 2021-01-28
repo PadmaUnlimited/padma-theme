@@ -195,7 +195,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		}
 
 
-	public function render_input($input) {
+	public function render_input( $input = array() ) {
 
 		//Fill defaults
 		$defaults = array(
@@ -204,10 +204,10 @@ abstract class PadmaVisualEditorPanelAPI {
 			'callback' => null
 		);
 
-		//Merge defaults
-		$input = array_merge($defaults, $input);
+		// Merge defaults.
+		$input = array_merge( $defaults, $input );
 
-		//Fix up inputs
+		// Fix up inputs.
 		$input = $this->parse_function_args($input);
 
 

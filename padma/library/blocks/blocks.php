@@ -77,53 +77,54 @@ class PadmaBlocks {
 
 		foreach ( $padma_unregistered_block_types as $class => $block_type_data ) {
 
-			if( is_array($block_type_data) ){
+			if ( is_array( $block_type_data ) ){
 
-				// Add this class and path to global class padma_registry to be loaded in loader.php
-				$padma_registry = array_merge($padma_registry, array($class => $block_type_data['block_type_path']));
+				// Add this class and path to global class padma_registry to be loaded in loader.php .
+				$padma_registry = array_merge( $padma_registry, array( $class => $block_type_data['block_type_path'] ) );
 
-				if ( !class_exists($class) )
-					return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);
+				if ( ! class_exists( $class ) ) {
+					return new WP_Error( 'block_class_does_not_exist', __( 'The block class being registered does not exist.', 'padma' ), $class );
+				}
 
 				$block = new $class();
-				
-				if ( $block_type_data['block_type_url'] )
-					$block->block_type_url = untrailingslashit($block_type_data['block_type_url']);
 
-				if ( $block_type_data['block_type_path'] )
-					$block->block_type_path = untrailingslashit($block_type_data['block_type_path']);
+				if ( $block_type_data['block_type_url'] ) {
+					$block->block_type_url = untrailingslashit( $block_type_data['block_type_url'] );
+				}
 
-				if ( $block_type_data['block_type_icons'] )
+				if ( $block_type_data['block_type_path'] ) {
+					$block->block_type_path = untrailingslashit( $block_type_data['block_type_path'] );
+				}
+
+				if ( $block_type_data['block_type_icons'] ) {
 					$block->block_type_icons = $block_type_data['block_type_icons'];
-
+				}
 
 				$block->register();
 
-				unset($block);
+				unset( $block );
 
-			}else{
+			} else {
 
-
-				if ( !class_exists($class) )
-					return new WP_Error('block_class_does_not_exist', __('The block class being registered does not exist.', 'padma'), $class);
+				if ( ! class_exists( $class ) ) {
+					return new WP_Error( 'block_class_does_not_exist', __( 'The block class being registered does not exist.', 'padma' ), $class );
+				}
 
 				$block = new $class();
 
-				// Before Padma 1.2.0: block_type_url = block_type_data
-				if ( $block_type_data )
-					$block->block_type_url = untrailingslashit($block_type_data);
+				// Before Padma 1.2.0: block_type_url = block_type_data.
+				if ( $block_type_data ) {
+					$block->block_type_url = untrailingslashit( $block_type_data );
+				}
 
 				$block->register();
 
-				unset($block);
+				unset( $block );
 
 			}
-
-
 		}
-		unset($padma_unregistered_block_types);
+		unset( $padma_unregistered_block_types );
 		return true;
-
 	}
 
 
@@ -181,6 +182,10 @@ class PadmaBlocks {
 
 		/* Build the cache */
 			$block_types = self::get_block_types();
+
+			if ( ! is_array( $block_types ) ) {
+				$block_types = array();
+			}
 
 			foreach ( $block_types as $block_type => $block_type_options ) {
 

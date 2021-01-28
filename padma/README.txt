@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.5
-Version: 1.3.9
+Version: 1.3.10
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 7.3
@@ -43,7 +43,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.3.9 =
+= 1.3.10 =
 * Edge Version
 * Released: On dev
 Fixes for PHP 8 Compatibility
@@ -65,6 +65,7 @@ Design Mode updates
 - Added "Text Overflow"
 - Added "White Space"
 Typecasting functions intval(), strval(), floatval() have been removed from Core in favor of direct typecasting (int), (string) and (float)
+Added Grid CSS support to wrappers
 
 = 1.3.1 = 
 * Released: Jun 12, 2020

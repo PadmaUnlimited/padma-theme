@@ -33,76 +33,81 @@ abstract class PadmaBlockAPI {
 
 	protected $show_content_in_grid = false;
 
-
-	/* System Methods (DO NOT EXTEND OR MODIFY) */
+	/**
+	 * System Methods (DO NOT EXTEND OR MODIFY).
+	 * return void
+	 */
 	public function register() {
 
 		global $padma_block_types;
 
-		//If the Padma blocks array doesn't exist, create it.
-		if ( !is_array($padma_block_types) )
+		// If the Padma blocks array doesn't exist, create it.
+		if ( ! is_array( $padma_block_types ) ) {
 			$padma_block_types = array();
+		}
 
-		// Inline editable fields
-		// PadmaAudioBlock::inline_editable
-		// example 1:
-		// 	public $inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
-		// example 2:
-		// 	public $inline_editable = array('block-title', 'block-subtitle', array('title' => 'su-box-title'));	
-
+		/**
+		 * Inline editable fields
+		 * PadmaAudioBlock::inline_editable
+		 * example 1:
+		 * public $inline_editable = array('block-title', 'block-subtitle', 'prefix-text', 'separator');
+		 * example 2:
+		 * public $inline_editable = array('block-title', 'block-subtitle', array('title' => 'su-box-title'));
+		 */
 		$inline_editable_fields = array();
 
-		if(is_array($this->inline_editable)){
-			foreach ($this->inline_editable as $key => $editable_field_and_class) {
-				if(is_array($editable_field_and_class)){
-					foreach ($editable_field_and_class as $field => $css_class) {
-						$inline_editable_fields[] = $css_class;						
+		if ( is_array( $this->inline_editable ) ) {
+			foreach ( $this->inline_editable as $key => $editable_field_and_class ) {
+				if ( is_array( $editable_field_and_class ) ) {
+					foreach ( $editable_field_and_class as $field => $css_class ) {
+						$inline_editable_fields[] = $css_class;
 					}
-				}else{
+				} else {
 					$inline_editable_fields[] = $editable_field_and_class;
 				}
 			}
 		}
 
 		// Add block to array.  This array will be used for checking if certain blocks exist, the block type selector and so on.
-		// Floating blocks are created on the fly, it change the id so DO NOT use css or js based on the id
-		$padma_block_types[$this->id] = array(
-			'name' => $this->name,
-			'url' => $this->block_type_url,
-			'path' => $this->block_type_path,
-			'icons' => $this->block_type_icons,
-			'class' => get_class($this),
-			'fixed-height' => $this->fixed_height,
-			'html-tag' => $this->html_tag,
-			'attributes' => $this->attributes,
-			'show-content-in-grid' => $this->show_content_in_grid,
-			'allow-titles' => $this->allow_titles,
-			'description' => $this->description,
-			'categories' => $this->categories,			
-			'inline-editable' => implode(',', $inline_editable_fields),
-			'inline-editable-equivalences' => $this->inline_editable_equivalences
+		// Floating blocks are created on the fly, it change the id so DO NOT use css or js based on the id.
+		$padma_block_types[ $this->id ] = array(
+			'name'                         => $this->name,
+			'url'                          => $this->block_type_url,
+			'path'                         => $this->block_type_path,
+			'icons'                        => $this->block_type_icons,
+			'class'                        => get_class( $this ),
+			'fixed-height'                 => $this->fixed_height,
+			'html-tag'                     => $this->html_tag,
+			'attributes'                   => $this->attributes,
+			'show-content-in-grid'         => $this->show_content_in_grid,
+			'allow-titles'                 => $this->allow_titles,
+			'description'                  => $this->description,
+			'categories'                   => $this->categories,
+			'inline-editable'              => implode( ',', $inline_editable_fields ),
+			'inline-editable-equivalences' => $this->inline_editable_equivalences,
 		);
 
 		// Add the element for the block itself.
-		add_action('padma_register_elements', array($this, 'setup_main_block_element'));
+		add_action( 'padma_register_elements', array( $this, 'setup_main_block_element' ) );
 
 		// Run init method if it exists.
 		if ( method_exists( $this, 'init' ) ) {
 			$this->init();
 		}
 
-		//Run setup_elements if it exists
-		if ( method_exists($this, 'setup_elements') )
-			add_action('padma_register_elements', array($this, 'setup_elements'));
+		// Run setup_elements if it exists.
+		if ( method_exists( $this, 'setup_elements' ) ) {
+			add_action( 'padma_register_elements', array( $this, 'setup_elements' ) );
+		}
 
-		//Setup hooks
-		if ( $this->allow_titles )
-			add_action('padma_block_content_' . $this->id, array($this, 'title_and_subtitle'));	
+		// Setup hooks.
+		if ( $this->allow_titles ) {
+			add_action( 'padma_block_content_' . $this->id, array( $this, 'title_and_subtitle' ) );
+		}
 
-		add_action('padma_block_content_' . $this->id, array($this, 'content'));
+		add_action( 'padma_block_content_' . $this->id, array( $this, 'content' ) );
 
-		add_action('padma_block_options_' . $this->id, array($this, 'options_panel'), 10, 2);
-
+		add_action( 'padma_block_options_' . $this->id, array( $this, 'options_panel' ), 10, 2 );
 	}
 
 

@@ -568,7 +568,7 @@ class Padma {
 	 * Initiate the Padma Theme updater checker class for Padma itself.
 	 **/
 	public static function initiate_updater() {
-		PadmaCoreUpdater::updater( PadmaSettings::get( 'slug' ), PADMA_DIR, true );
+		PadmaCoreUpdater::updater();
 	}
 
 	/**

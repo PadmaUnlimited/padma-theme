@@ -2,9 +2,9 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.5
-Version: 1.3.11
+Version: 1.3.12
 Requires at least: 5.0
-Tested up to: 5.4
+Tested up to: 5.6.3
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,13 +43,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.3.11 =
+= 1.3.12 =
 * Edge Version
 * Released: On dev
 Fixes for PHP 8 Compatibility
 Schema updated ( 2.1.0 => 3.2.1 ) Requieres php 7.3+
 Coding standard updates.
-Padma Updater is now part of the core
+Padma Updater is now part of the core. Plugin Padma Updater is no longer required
 Tested with WordPress 5.6
 Tested with ClassicPress 1.2.0
 Tested with WooCommerce 4.8

@@ -312,7 +312,7 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 				    return new RegExp(val, "i");
 				},
 			    testQuery: function (query, txt, _row) {
-			        return query.test(jQuery.trim(txt.replace('the quick brown fox jumps over the lazy dog.', '')));
+			        return query.test( txt.replace('the quick brown fox jumps over the lazy dog.', '').trim() ) ;
 			    }
 			});
 

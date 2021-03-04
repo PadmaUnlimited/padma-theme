@@ -127,11 +127,13 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 	function content($block) {
 
 		//Display video if there is one
-		if (parent::get_setting($block, 'video-mp4')||parent::get_setting($block, 'video-ogg')||parent::get_setting($block, 'video-webm') ) {
+		if (parent::get_setting($block, 'video-mp4')||parent::get_setting($block, 'video-ogg')||parent::get_setting($block, 'video-webm') || parent::get_setting( $block, 'video-custom-url') ) {
 
-			$video_mp4 	= parent::get_setting($block, 'video-mp4');
-			$video_ogg 	= parent::get_setting($block, 'video-ogg');
-			$video_webm = parent::get_setting($block, 'video-webm');
+			$video_mp4 	  = parent::get_setting($block, 'video-mp4');
+			$video_ogg 	  = parent::get_setting($block, 'video-ogg');
+			$video_webm   = parent::get_setting($block, 'video-webm');
+			$video_custom = parent::get_setting($block, 'video-custom-url');
+			
 
 			$videoHTML = '<div class="video"><video playsinline ';
 
@@ -177,15 +179,18 @@ class PadmaVideoBlock extends PadmaBlockAPI {
 
 			$videoHTML .= '>';
 
-			if(parent::get_setting($block, 'video-mp4'))
+			if(parent::get_setting($block, 'video-mp4')) {
 				$videoHTML .= '<source src="' . padma_format_url_ssl($video_mp4) . '" type="video/mp4">';
-
-			if(parent::get_setting($block, 'video-ogg'))
+			}
+			if(parent::get_setting($block, 'video-ogg')) {
 				$videoHTML .= '<source src="' . padma_format_url_ssl($video_ogg) . '" type="video/ogg">';
-
-			if(parent::get_setting($block, 'video-webm'))
+			}
+			if(parent::get_setting($block, 'video-webm')) {
 				$videoHTML .= '<source src="' . padma_format_url_ssl($video_webm) . '" type="video/webm">';
-
+			}
+			if(parent::get_setting($block, 'video-custom-url')) {
+				$videoHTML .= '<source src="' . padma_format_url_ssl($video_custom) . '">';
+			}
 			$videoHTML .= 'Your browser does not support the video tag.';
 			$videoHTML .= '</video></div>';
 
@@ -251,6 +256,13 @@ class PadmaVideoBlockOptions extends PadmaBlockOptionsAPI {
 					'type' => 'video',
 					'name' => 'video-webm',
 					'label' => 'Video WebM',
+					'default' => null
+				),
+
+				'video-custom-url' => array(
+					'type' => 'text',
+					'name' => 'video-custom-url',
+					'label' => 'Video Custom URL',
 					'default' => null
 				),
 

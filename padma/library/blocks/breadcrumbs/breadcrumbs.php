@@ -136,10 +136,15 @@ class PadmaBreadcrumbsBlock extends PadmaBlockAPI {
 			}
 
 		/* Date Archives */
-			else if ( is_date() ) {
+			// https://github.com/PadmaUnlimited/padma-theme/issues/17
+			else if ( is_day() ) {
+				$breadcrumbs[] = __( 'Archives:', 'padma' ) . ' ' . get_the_date();
 
-				$breadcrumbs[] = __('Archives:', 'padma') . ' ' . get_the_time('F Y'); 
+			} else if ( is_month() ) {
+				$breadcrumbs[] = __( 'Archives:', 'padma' ) . ' ' . get_the_time( 'F Y' );
 
+			} else if ( is_year() ) {
+				$breadcrumbs[] = __( 'Archives:', 'padma' ) . ' ' . get_the_time( 'Y' );
 			}
 
 		/* 404's */

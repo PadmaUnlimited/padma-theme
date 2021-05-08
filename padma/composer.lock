@@ -1,0 +1,91 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "71db99a317a203168ea1602be19f48a0",
+    "packages": [
+        {
+            "name": "spatie/schema-org",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/schema-org.git",
+                "reference": "c847dc09c78e8ba8fe3a32e062c05368388671c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/c847dc09c78e8ba8fe3a32e062c05368388671c1",
+                "reference": "c847dc09c78e8ba8fe3a32e062c05368388671c1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "graham-campbell/analyzer": "^3.0.4",
+                "illuminate/collections": "^8.16.1",
+                "league/flysystem": "^1.1.3",
+                "phpunit/phpunit": "^9.4.3",
+                "symfony/console": "^3.4.47",
+                "twig/twig": "^1.44.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SchemaOrg\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A fluent builder Schema.org types and ld+json generator",
+            "homepage": "https://github.com/spatie/schema-org",
+            "keywords": [
+                "schema-org",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/schema-org/issues",
+                "source": "https://github.com/spatie/schema-org/tree/3.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-02T18:36:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

@@ -33,6 +33,9 @@ if ( ! defined( 'WP_CONTENT_DIR' ) ) {
 /* Make sure PHP 7.0 or newer is installed and WordPress 3.4 or newer is installed. */
 require_once get_template_directory() . '/library/common/compatibility-checks.php';
 
+/* Load required packages */
+require_once get_template_directory() . '/vendor/autoload.php';
+
 /* Load Padma! */
 require_once get_template_directory() . '/library/common/functions.php';
 require_once get_template_directory() . '/library/common/parse-php.php';

@@ -43,6 +43,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 1.3.2 = 
 Tested with WordPress 5.7.1
 Updated underscorejs to 1.13.1 (Security Update)
+PHP 8 Compatibility Updates
+Schema updated ( 2.1.0 => 3.3.0 ) Requieres php 7.3+
 
 
 = 1.3.1 = 

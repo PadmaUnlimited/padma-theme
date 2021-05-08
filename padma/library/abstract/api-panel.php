@@ -194,7 +194,7 @@ abstract class PadmaVisualEditorPanelAPI {
 		}
 
 
-	public function render_input($input) {
+	public function render_input( $input = array() ) {
 
 		//Fill defaults
 		$defaults = array(

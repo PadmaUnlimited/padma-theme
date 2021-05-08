@@ -220,7 +220,7 @@ class PadmaLayout {
 
 			$current_layout[] = 'index';
 
-			if ( method_exists( $sitepress, 'get_current_language' ) ) {
+			if ( ! is_null( $sitepress ) && method_exists( $sitepress, 'get_current_language' ) ) {
 				$current_layout[] = 'index' . self::$sep . 'wpml_' . $sitepress->get_current_language();
 			}
 
@@ -228,8 +228,10 @@ class PadmaLayout {
 
 			$current_layout[] = 'front_page';
 
-			if ( method_exists( $sitepress, 'get_current_language' ) ) {
-				$current_layout[] = 'front_page' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+			if ( ! is_null( $sitepress ) ) {
+				if ( method_exists( $sitepress, 'get_current_language' ) ) {
+					$current_layout[] = 'front_page' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+				}
 			}
 
 		} elseif ( is_singular() ) {
@@ -322,9 +324,10 @@ class PadmaLayout {
 		} elseif ( is_404() ) {
 
 			$current_layout[] = 'four04';
-
-			if ( method_exists( $sitepress, 'get_current_language' ) ) {
-				$current_layout[] = 'four04' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+			if ( ! is_null( $sitepress ) ) {
+				if ( method_exists( $sitepress, 'get_current_language' ) ) {
+					$current_layout[] = 'four04' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+				}
 			}
 
 		}		

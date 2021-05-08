@@ -113,7 +113,7 @@ abstract class PadmaNotice {
 	 * @access protected
 	 * @param mixed   $data The data to pass to the template.
 	 */
-	protected function include_template( $data = null ) {
+	protected static function include_template( $data = null ) {
 
 		if ( file_exists( self::$template_file ) ) {
 			include self::$template_file;
@@ -199,7 +199,7 @@ abstract class PadmaNotice {
 	 * @param string  $redirect Custom redirect URL.
 	 * @return string           The admin url.
 	 */
-	protected function get_dismiss_link( $defer = false, $redirect = '' ) {
+	protected static function get_dismiss_link( $defer = false, $redirect = '' ) {
 
 		$link = admin_url( sprintf(
 				'admin-post.php?action=%s&nonce=%s&id=%s',

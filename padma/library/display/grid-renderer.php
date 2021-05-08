@@ -28,8 +28,7 @@ class PadmaGridRenderer {
 
 	private $row_top_tolerance = 20;
 
-
-	public function __construct($blocks, $wrapper) {
+	public function __construct( $blocks = array(), $wrapper) {
 
 		$this->blocks_unsorted = $blocks;
 		$this->blocks = $blocks;
@@ -48,8 +47,8 @@ class PadmaGridRenderer {
 
 		private function uasort_blocks_by_top_to_left($a, $b) {
 
-			$a_chunk = array_chunk($a, 1);
-			$b_chunk = array_chunk($b, 1);
+		$a_chunk = ( is_array( $a ) ) ? array_chunk( $a, 1 ) : array();
+		$b_chunk = ( is_array( $b ) ) ? array_chunk( $b, 1 ) : array();
 
 			if ( is_array($a) && isset($a_chunk[0][0]) && is_string($a_chunk[0][0]) )
 				$a = $a_chunk[0][0];

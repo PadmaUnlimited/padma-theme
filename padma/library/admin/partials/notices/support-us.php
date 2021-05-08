@@ -10,7 +10,6 @@
 			<p><?php _e( 'Hello', 'padma' ); ?>,</p>
 			<p><?php _e( 'Our team has been working really hard to bring this powerful tool to you. We hope you like it.', 'padma' ); ?></p>
 			<h4><?php _e( 'Aim to collaborate?', 'padma' ); ?></h4>
-			<p><?php _e( 'Register to get even more plugins and blocks', 'padma' ); ?></p>
 			<ul>				
 				<li><?php _e( '- Report errors in: https://www.padmaunlimited.com/bug-report/', 'padma' ); ?></li>
 				<li><?php _e( '- Collaborate coding through GitHub', 'padma' ); ?></li>
@@ -24,7 +23,6 @@
 		</div>
 
 		<p class="padma-unlimited-notice-rate-actions">			
-			<a href="https://dashboard.padmaunlimited.com/login" class="button button-primary" target="_blank"><?php _e( 'Register', 'padma' ); ?></a>			
 			<a href="https://www.facebook.com/padmaunlimited/" class="padma-admin-social-icon  first" target="_blank"><img src="<?php echo get_template_directory_uri() . '/library/admin/images/facebook.png'; ?>"></a>			
 			<a href="https://twitter.com/PadmaUnlimited" class="padma-admin-social-icon" target="_blank"><img src="<?php echo get_template_directory_uri() . '/library/admin/images/twitter.png'; ?>"></a>			
 			<a href="https://github.com/PadmaUnlimited/padma-theme" class="padma-admin-social-icon" target="_blank"><img src="<?php echo get_template_directory_uri() . '/library/admin/images/github.png'; ?>"></a>			

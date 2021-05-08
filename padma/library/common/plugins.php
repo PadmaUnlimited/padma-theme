@@ -33,18 +33,10 @@ class PadmaPlugins{
 		$plugins = array(
 
 			array(
-				'name'         => 'Padma Services', // The plugin name.
-				'slug'         => 'padma-services', // The plugin slug (typically the folder name).
-				'source'       => 'https://cdn.padmaunlimited.com/software/?action=download&slug=padma-services', // The plugin source.
+				'name'         => 'Padma Advanced', // The plugin name.
+				'slug'         => 'padma-advanced', // The plugin slug (typically the folder name).
 				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
-				'external_url' => 'https://www.padmaunlimited.com/plugins/padma-services', // If set, overrides default API URL and points to an external URL.
-			),
-			array(
-				'name'         => 'Padma Updater', // The plugin name.
-				'slug'         => 'padma-updater', // The plugin slug (typically the folder name).
-				'source'       => 'https://cdn.padmaunlimited.com/software/?action=download&slug=padma-updater', // The plugin source.
-				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
-				'external_url' => 'https://www.padmaunlimited.com/plugins/padma-updater', // If set, overrides default API URL and points to an external URL.
+				'external_url' => 'https://www.padmaunlimited.com/plugins/padma-advanced', // If set, overrides default API URL and points to an external URL.
 			),
 		);
 

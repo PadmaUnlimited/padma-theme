@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.4.2
-Version: 1.3.1
+Version: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -21,7 +21,7 @@ Padma is a Wordpress Framework template system. Padma allows you to easily creat
 
 == Copyright ==
 
-Copyright 2014-2019 Padma Unlimited S.A.
+Copyright 2014-2021 Padma Unlimited S.A.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

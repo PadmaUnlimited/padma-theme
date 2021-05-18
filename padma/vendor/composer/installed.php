@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'fbdbd0a54011839d801980bbac331e4ca1e34812',
+    'reference' => 'c0450e106326fec01307b156f93db400df3aa23b',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'fbdbd0a54011839d801980bbac331e4ca1e34812',
+      'reference' => 'c0450e106326fec01307b156f93db400df3aa23b',
     ),
     'mobiledetect/mobiledetectlib' => 
     array (

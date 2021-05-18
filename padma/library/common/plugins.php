@@ -33,7 +33,6 @@ class PadmaPlugins{
 				'name'         => 'Padma Advanced', // The plugin name.
 				'slug'         => 'padma-advanced', // The plugin slug (typically the folder name).
 				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
-				'external_url' => 'https://www.padmaunlimited.com/plugins/padma-advanced', // If set, overrides default API URL and points to an external URL.
 			),
 		);
 

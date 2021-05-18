@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.5
-Version: 1.3.12
+Version: 1.3.13
 Requires at least: 5.0
 Tested up to: 5.6.3
 Requires PHP: 7.3
@@ -24,7 +24,7 @@ Padma is a Wordpress Framework template system. Padma allows you to easily creat
 
 == Copyright ==
 
-Copyright 2014-2019 Padma Unlimited S.A.
+Copyright 2014-2021 Padma Unlimited S.A.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -43,16 +43,17 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 == Changelog ==
 
-= 1.3.12 =
+= 1.3.13 =
 * Edge Version
 * Released: On dev
-Fixes for PHP 8 Compatibility
-Schema updated ( 2.1.0 => 3.2.1 ) Requieres php 7.3+
-Coding standard updates.
-Padma Updater is now part of the core. Plugin Padma Updater is no longer required
-Tested with WordPress 5.6
+Tested with WordPress 5.7.1
 Tested with ClassicPress 1.2.0
 Tested with WooCommerce 4.8
+Fixes for PHP 8 Compatibility
+Updated underscorejs to 1.13.1 (Security Update)
+Schema updated ( 2.1.0 => 3.3.0 ) Requieres php 7.3+
+Coding standard updates.
+Padma Updater is now part of the core. Plugin Padma Updater is no longer required
 Woocommerce compatibility improvement
 PHP Compatibility fix
 Added Padma Advanced recomendation

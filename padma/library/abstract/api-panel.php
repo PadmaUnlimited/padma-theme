@@ -181,23 +181,18 @@ abstract class PadmaVisualEditorPanelAPI {
 
 		public function create_inputs($tab) {
 
-
 			if ( isset($this->inputs[$tab]) && is_array($this->inputs[$tab]) ) {
 
-
-				
-				foreach ( $this->inputs[$tab] as $name => $input )
+				foreach ( $this->inputs[$tab] as $name => $input ) {
 					$this->render_input($input);
-				
-
+				}
 			}
-
 		}
 
 
 	public function render_input( $input = array() ) {
 
-		//Fill defaults
+		// Fill defaults.
 		$defaults = array(
 			'tooltip' => false,
 			'default' => false,

@@ -52,17 +52,13 @@ defined('ABSPATH') or die("No script kiddies please!");
 
 			<div class="box">
 				<h3><?php _e('Padma | Unlimited Visual Editor','padma'); ?></h3>
-				
 				<p><?php _e('Padma | Unlimited Visual Editor is a powerful tool to design WordPress website layouts and templates.  Easily customize almost every visual element of your websites through a graphical interface (Code can be added easily using the integrated code editor if required).','padma'); ?></p>
-
 				<p><?php _e('Learn more about the platform in the document <a rel="noopener" href="https://docs.padmaunlimited.com/blog/basics/before-using-the-visual-editor/">"Introduction to Padma | Unlimited Visual Editor". </a>','padma'); ?></p>
-
-				<a href="<?php echo home_url() . '/?visual-editor=true'; ?>" class="access-to-unlimited-editor"><span class="text"><?php _e('Access <b>Padma</b> | Unlimited Editor','padma'); ?></span><span class="line -right"></span><span class="line -top"></span><span class="line -left"></span><span class="line -bottom"></span></a>
+				<a href="<?php echo home_url() . '/?visual-editor=true'; ?>" class="access-to-unlimited-editor"><span class="text"><?php _e('Access <b>Padma</b> | Unlimited Editor','padma'); ?></span></a>
 			</div>
 			<div class="box">
 				<h3><?php _e('Additional Blocks available!','padma'); ?></h3>
-				<p><?php _e('Padma dashboard allows users to manage their Padma | Unlimited installations. Also, Discover Padma tiers subscription to access additional Plugins and Services.','padma'); ?></p>
-				<a href="https://dashboard.padmaunlimited.com/login"><?php _e('Register to Padma Services to get access to additional Plugins and Blocks','padma'); ?></a>				
+				<p><?php _e('Check out Padma Advanced plugin.','padma'); ?></p>				
 			</div>
 		</div>
 	</div>
@@ -124,9 +120,6 @@ defined('ABSPATH') or die("No script kiddies please!");
 			<div class="box">
 				<h3><?php _e('Padma | Unlimited Blocks','padma'); ?></h3>
 				<p><?php _e('Extend the functionality of your Padma | Unlimited WordPress Theme Builder installation by adding useful custom blocks to your Projects.','padma'); ?></p>
-				<p><?php _e('Services: Documentation, Lifesaver (Migrate from HTW/Blox), Child Theme, Templates on cloud, site monitor.','padma'); ?></p>								
-				<a href="https://dashboard.padmaunlimited.com/login"><?php _e('Discover available Plugins and Blocks.','padma'); ?></a>	
-				<p><?php _e('Get into Padma Services to unlock the Padma Unlimited potential.','padma'); ?></p>
 			</div>
 		</div>
 	</div>

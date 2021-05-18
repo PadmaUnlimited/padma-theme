@@ -724,7 +724,33 @@ class PadmaContentBlock extends PadmaBlockAPI {
 
 		/*	End Gutenberg */
 
-
+		/* Forms support */
+			$this->register_block_element(array(
+				'id' => 'form',
+				'name' => __( 'Form', 'padma' ),
+				'selector' => 'form',
+			));
+			$this->register_block_element(array(
+				'id' => 'form-input',
+				'name' => __( 'Form Input', 'padma' ),
+				'selector' => 'form input',
+			));
+			$this->register_block_element(array(
+				'id' => 'form-textarea',
+				'name' => __( 'Form textarea', 'padma' ),
+				'selector' => 'form textarea',
+			));
+			$this->register_block_element(array(
+				'id' => 'form-select',
+				'name' => __( 'Form select', 'padma' ),
+				'selector' => 'form select',
+			));
+			$this->register_block_element(array(
+				'id' => 'form-button',
+				'name' => __( 'Form button', 'padma' ),
+				'selector' => 'form button',
+			));
+		/* END Forms support */
 		/**
 		 *
 		 * Custom Fields

@@ -22,8 +22,7 @@
 			<p><?php _e( '@PadmaTeam', 'padma' ); ?></p>
 		</div>
 
-		<p class="padma-unlimited-notice-rate-actions">			
-			<a href="https://dashboard.padmaunlimited.com/login" class="button button-primary" target="_blank"><?php _e( 'Register', 'padma' ); ?></a>			
+		<p class="padma-unlimited-notice-rate-actions">
 			<a href="https://www.facebook.com/padmaunlimited/" class="padma-admin-social-icon  first" target="_blank"><img src="<?php echo get_template_directory_uri() . '/library/admin/images/facebook.png'; ?>"></a>			
 			<a href="https://twitter.com/PadmaUnlimited" class="padma-admin-social-icon" target="_blank"><img src="<?php echo get_template_directory_uri() . '/library/admin/images/twitter.png'; ?>"></a>			
 			<a href="https://github.com/PadmaUnlimited/padma-theme" class="padma-admin-social-icon" target="_blank"><img src="<?php echo get_template_directory_uri() . '/library/admin/images/github.png'; ?>"></a>			

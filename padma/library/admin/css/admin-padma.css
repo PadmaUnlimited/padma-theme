@@ -711,9 +711,6 @@ span.green {
     font-size: 30px;
     margin-top: 35px;
     margin-bottom: 35px;
-    /*
-    background-image: url(https://cdn.padmaunlimited.com/logos/padma-32-white.png);
-    */
     background-position: 100% center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -738,44 +735,6 @@ span.green {
   z-index: -1;
   transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
   transform-origin: left;
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line {
-  position: absolute;
-  background: #1f2563;
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-right,
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-left {
-  width: 3px;
-  bottom: -3px;
-  top: -3px;
-  transform: scale3d(1, 0, 1);
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-top,
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-bottom {
-  height: 3px;
-  left: -3px;
-  right: -3px;
-  transform: scale3d(0, 1, 1);
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-right {
-  right: -3px;
-  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
-  transform-origin: top;
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-top {
-  top: -3px;
-  transition: transform 0.08s linear 0.43s;
-  transform-origin: left;
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-left {
-  left: -3px;
-  transition: transform 0.08s linear 0.51s;
-  transform-origin: bottom;
-}
-.padma-admin-container .padma-admin-tab .access-to-unlimited-editor .line.-bottom {
-  bottom: -3px;
-  transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
-  transform-origin: right;
 }
 
 .padma-admin-container .padma-admin-tab .access-to-unlimited-editor:hover .text,

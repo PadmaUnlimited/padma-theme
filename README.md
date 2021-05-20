@@ -1,5 +1,5 @@
 # Padma | Unlimited Drag & Drop WordPress and ClassicPress Theme Builder
- (Framework Template System with > PHP 7.X, WordPress 5.x, Gutenberg & ClassicPress Support)
+ (Framework Template System with > PHP 8, 7.4, 7.3,  WordPress 5.x, Gutenberg & ClassicPress Support)
 
 Padma Theme Builder is a fork of Headway Themes 3.8.X developed to provide an updated and improved alternative to WordPress and ClassicPress Theme Building. Create Unlimited Websites & Templates for personal & commercial use with the latest technologies and most powerful tools.
 

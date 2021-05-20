@@ -10,7 +10,7 @@ class PadmaPlugins{
 		 *
 		 */
 
-		if(PadmaOption::get('do-not-recommend-plugin-installation')){
+		if( PadmaOption::get( 'do-not-recommend-plugin-installation' ) ) {
 			return;
 		}
 
@@ -24,6 +24,12 @@ class PadmaPlugins{
 	 * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
 	 */
 	public static function padma_register_required_plugins() {
+
+		$padma_advanced_slug = 'padma-advanced';
+
+		if ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'padma-advanced-premium/padma-advanced.php' ) ) {
+			$padma_advanced_slug = 'padma-advanced-premium';
+		}
 		/*
 		 * Array of plugin arrays. Required keys are name and slug.
 		 * If the source is NOT from the .org repo, then source is also required.
@@ -31,7 +37,7 @@ class PadmaPlugins{
 		$plugins = array(
 			array(
 				'name'         => 'Padma Advanced', // The plugin name.
-				'slug'         => 'padma-advanced', // The plugin slug (typically the folder name).
+				'slug'         => $padma_advanced_slug, // The plugin slug (typically the folder name).
 				'required'     => false, // If false, the plugin is only 'recommended' instead of required.
 			),
 		);

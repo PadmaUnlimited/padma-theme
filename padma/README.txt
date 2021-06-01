@@ -1,8 +1,8 @@
 === Padma ===
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5.4.2
-Version: 1.3.2
+Tested up to: WordPress 5.7.2
+Version: 1.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: theme, template, template builder, builder, theme builder, padma, flexible, flexible-header
@@ -39,6 +39,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
 == Changelog ==
+
+= 1.3.3 =
+Tested with WordPress 5.7.2
+Google Fonts fix with underscorejs
 
 = 1.3.2 = 
 Tested with WordPress 5.7.1

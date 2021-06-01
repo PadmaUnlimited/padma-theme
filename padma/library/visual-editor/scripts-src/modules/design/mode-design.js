@@ -481,7 +481,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 						return elementPropertiesLI;
 
 					}
-
 						this.showElementPropertiesThrottled = _.throttle(this.showElementProperties, 300);
 
 					this.addElementProperty = function(context, property, propertyValue, specialElement) {
@@ -1485,11 +1484,13 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 											
 			});
 
+
 			/* Fonts */
 			$('.design-editor-options-container').delegate('.design-editor-property-font-family span.open-font-browser', 'click', function() {			
 				/* Using anonymous function because fontBrowserOpen won't be defined yet since it's loaded via $.getScript() */
-				if ( typeof fontBrowserOpen == 'function' )
+				if ( typeof fontBrowserOpen == 'function' ) {
 					fontBrowserOpen.apply(this);
+				}
 			});
 
 			/* Lock Sides */
@@ -3132,6 +3133,8 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 
 		init: function() {
 
+			Padma._ = _;
+
 			designEditor = new designEditorTabEditor();
 			designEditor._init();
 
@@ -3146,7 +3149,6 @@ define(['jquery', 'underscore', 'helper.contentEditor', 'deps/interact', 'util.n
 					$.getScript(Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/util.fonts-browser.js');
 
 					/* Load Google API */
-					//$.getScript('//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 					$.getScript(Padma.padmaURL + '/library/visual-editor/' + Padma.scriptFolder + '/deps/webfont-1.4.7.js');
 
 				} catch (exception) {}

@@ -1,7 +1,6 @@
 require.config({
 	paths: {
 		knockout: 'deps/knockout',
-
 		underscore: 'deps/underscore',
 
 		/* jQuery Plugins */

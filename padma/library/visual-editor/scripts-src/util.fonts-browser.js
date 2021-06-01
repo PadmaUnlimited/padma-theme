@@ -15,6 +15,10 @@ options.delay);return this};this.cache();this.results(true);this.stripe();this.l
 /* Fonts input object */
 	function fontBrowserObj(browser) {
 
+		if ( typeof _ != 'function' ) {
+			_ = Padma._;
+		}
+
 		this.browser = browser;
 
 		this.propertyInput = browser.parents('.property-font-family-select');

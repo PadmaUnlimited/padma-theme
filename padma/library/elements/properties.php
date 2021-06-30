@@ -120,6 +120,21 @@ class PadmaElementProperties {
 			'unit' => array(),
 		),
 
+		'text-justify' => array(
+			'group' => 'Fonts',
+			'name' => 'Text Justify',
+			'type' => 'select',
+			'options' => array(
+				'auto' => 'Auto',
+				'inter-word' => 'Inter Word',
+				'inter-character' => 'Inter Character',
+				'nonce' => 'None',
+				'initial' => 'Initial',
+				'inherit' => 'Inherit',
+			),
+			'js-callback' => 'stylesheet.update_rule(params.selector, {"text-justify": params.value});'
+		),
+
 		'capitalization' => array(
 			'group' => 'Fonts',
 			'name' => 'Capitalization',

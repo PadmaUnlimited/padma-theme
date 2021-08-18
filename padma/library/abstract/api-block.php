@@ -178,25 +178,25 @@ abstract class PadmaBlockAPI {
 	}
 
 
-	public function options_panel($block, $layout) {
+	public function options_panel( $block, $layout) {
 
-		if ( !class_exists($this->options_class) )
+		if ( !class_exists( $this->options_class) )
 			return new WP_Error('block_options_class_does_not_exist', __('Error: The block options class being registered does not exist.', 'padma'), $this->options_class);
 
 		//Initiate options class
-		$options = new $this->options_class($this);
-		$options->display($block, $layout);
+		$options = new $this->options_class( $this);
+		$options->display( $block, $layout);
 
 	}
 
 
 	/* Methods to extend (you can modify these!) */
-	public function content($block) {
+	public function content( $block) {
 
 	}
 
 
-	public function title_and_subtitle($block) {
+	public function title_and_subtitle( $block) {
 
 		if ( !$this->allow_titles )
 			return;
@@ -224,13 +224,13 @@ abstract class PadmaBlockAPI {
 			/* Title */
 			if ( $block_title ) {
 				if ( padma_get( 'block-title-link-check', $block_settings, false ) ) {
-					if($block_title_tag == ''){
+					if( $block_title_tag == ''){
 						echo '<h1 class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . ' rel="'.$block_title_link_rel.'"><span>' . padma_fix_data_type( $block_title ) . '</span></a></h1>';
 					}else{
 						echo '<'.$block_title_tag.' class="block-title"><a href="' . padma_fix_data_type( $block_title_link_url ) . '"' . $block_title_link_target . ' rel="'.$block_title_link_rel.'"><span>' . padma_fix_data_type( $block_title ) . '</span></a></'.$block_title_tag.'>';
 					}
 				} else {
-					if($block_title_tag == ''){
+					if( $block_title_tag == ''){
 						echo '<h1 class="block-title"><span>' . padma_fix_data_type( $block_title ) . '</span></h1>';
 					}else{
 						echo '<'.$block_title_tag.' class="block-title"><span>' . padma_fix_data_type( $block_title ) . '</span></'.$block_title_tag.'>';
@@ -240,7 +240,7 @@ abstract class PadmaBlockAPI {
 
 			/* Subtitle */
 			if ( $block_subtitle ) {
-				if($block_subtitle_tag == ''){
+				if( $block_subtitle_tag == ''){
 					echo '<h2 class="block-subtitle">' . padma_fix_data_type( $block_subtitle ) . '</h2>';
 				}else{
 					echo '<'.$block_subtitle_tag.' class="block-subtitle">' . padma_fix_data_type( $block_subtitle ) . '</'.$block_subtitle_tag.'>';				
@@ -260,22 +260,22 @@ abstract class PadmaBlockAPI {
 	/**
 	 * The following are commented out so they are not detected 
 	 * 
-	 *  public static function init_action($block_id, $block) {
+	 *  public static function init_action( $block_id, $block) {
 	 *  
 	 *  }
 	 * 
 	 * 
-	 *  public static function enqueue_action($block_id, $block, $original_block = null) {
+	 *  public static function enqueue_action( $block_id, $block, $original_block = null) {
 	 *  
 	 *  }
 	 *
 	 *
-	 *  public static function dynamic_css($block_id, $block, $original_block = null) {
+	 *  public static function dynamic_css( $block_id, $block, $original_block = null) {
 	 *  
 	 *  }
  	 *
      *
-	 *  public static function dynamic_js($block_id, $block, $original_block = null) {
+	 *  public static function dynamic_js( $block_id, $block, $original_block = null) {
 	 *  
 	 *  }
 	 * 
@@ -283,7 +283,7 @@ abstract class PadmaBlockAPI {
 
 
 	/* Methods to use, but not modify! */
-	public function register_block_element($args) {
+	public function register_block_element( $args) {
 
 		/* Add the selector prefix to the selector and even handle commas */
 		$selector_prefix = '.block-type-' . $this->id . ' ';
@@ -292,17 +292,17 @@ abstract class PadmaBlockAPI {
 
 		foreach ( $selector_array as $selector_index => $selector ) {
 
-			if ( strpos(trim($selector_array[$selector_index]), '.block-type-') === 0 )
+			if ( strpos(trim( $selector_array[$selector_index]), '.block-type-') === 0 )
 				continue;
 
 
 			// Allow selector outsite the block			
-			if( strlen($selector) > 0 && $selector[0] === '\\' ){			
+			if( strlen( $selector) > 0 && $selector[0] === '\\' ){			
 				$selector = str_replace('\\', '', $selector);				
-				$selector_array[$selector_index] = trim($selector);
+				$selector_array[$selector_index] = trim( $selector);
 				$args['tooltip'] = 'Warning: Apply style to this element affects all the instances';
 			}else{
-				$selector_array[$selector_index] = $selector_prefix . trim($selector);
+				$selector_array[$selector_index] = $selector_prefix . trim( $selector);
 			}
 
 		}
@@ -310,7 +310,7 @@ abstract class PadmaBlockAPI {
 		$modified_selector = implode(',', $selector_array);	
 		/* End Selector Modification */
 
-		if(empty($args['id']))
+		if(empty( $args['id']))
 			$args['id'] = '';
 
 		$defaults = array(
@@ -323,18 +323,18 @@ abstract class PadmaBlockAPI {
 
 
 		//Unset the following so they don't overwrite the defaults
-		unset($args['id']);
-		unset($args['name']);
-		unset($args['selector']);
+		unset( $args['id']);
+		unset( $args['name']);
+		unset( $args['selector']);
 
 		//If the parent isn't the default then put on block type prefix
-		if ( !empty($args['parent']) && $args['parent'] != 'block-' . $this->id )
+		if ( !empty( $args['parent']) && $args['parent'] != 'block-' . $this->id )
 			$args['parent'] = 'block-' . $this->id . '-' . $args['parent'];
 
-		$element = array_merge($defaults, $args);
+		$element = array_merge( $defaults, $args);
 
 		//Go through states and add the selector prefix to each state
-		if ( isset($element['states']) && is_array($element['states']) ) {
+		if ( isset( $element['states']) && is_array( $element['states']) ) {
 
 			foreach ( $element['states'] as $state_name => $state_selector ) {
 
@@ -342,15 +342,15 @@ abstract class PadmaBlockAPI {
 
 				foreach ( $state_selector_array as $selector_index => $selector ) {
 
-					if ( strpos(trim($state_selector_array[$selector_index]), '.block-type-') === 0 )
+					if ( strpos(trim( $state_selector_array[$selector_index]), '.block-type-') === 0 )
 						continue;
 
 					// Allow selector outsite the block
 					if( $selector[0] === '\\' ){			
 						$selector = str_replace('\\', '', $selector);						
-						$state_selector_array[$selector_index] = trim($selector);
+						$state_selector_array[$selector_index] = trim( $selector);
 					}else{
-						$state_selector_array[$selector_index] = $selector_prefix . trim($selector);
+						$state_selector_array[$selector_index] = $selector_prefix . trim( $selector);
 					}
 
 					
@@ -364,14 +364,14 @@ abstract class PadmaBlockAPI {
 		}
 
 
-		return PadmaElementAPI::register_element($element);
+		return PadmaElementAPI::register_element( $element);
 
 	}
 
 
-	public static function get_setting($block, $setting, $default = null) {
+	public static function get_setting( $block, $setting, $default = null) {
 
-		return PadmaBlocksData::get_block_setting($block, $setting, $default);
+		return PadmaBlocksData::get_block_setting( $block, $setting, $default);
 
 	}
 

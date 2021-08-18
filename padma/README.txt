@@ -46,7 +46,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 1.3.14 =
 * Edge Version
 * Released: On dev
-Tested with WordPress 5.7.1
+Tested with WordPress 5.7.2
 Tested with ClassicPress 1.2.0
 Tested with WooCommerce 4.8
 Fixes for PHP 8 Compatibility
@@ -68,6 +68,7 @@ Design Mode updates
 - Added "White Space"
 Typecasting functions intval(), strval(), floatval() have been removed from Core in favor of direct typecasting (int), (string) and (float)
 Added Grid CSS support to wrappers
+Google Fonts fix with underscorejs
 
 = 1.3.1 = 
 * Released: Jun 12, 2020

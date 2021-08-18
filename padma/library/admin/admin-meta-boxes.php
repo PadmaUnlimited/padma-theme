@@ -25,13 +25,13 @@ class PadmaMetaBoxTemplate extends PadmaAdminMetaBoxAPI {
 
 	}
 
-	protected function modify_arguments($post = false) {
+	protected function modify_arguments( $post = false) {
 
 		$this->inputs['template']['options'] = PadmaLayout::get_templates();
 
 		$post_type = get_post_type_object( $post->post_type );
 
-		$this->inputs['template']['description'] = str_replace('entry', strtolower($post_type->labels->singular_name), $this->inputs['template']['description']);
+		$this->inputs['template']['description'] = str_replace('entry', strtolower( $post_type->labels->singular_name), $this->inputs['template']['description']);
 
 	}
 
@@ -269,7 +269,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 	}
 
 
-	protected function input_text_with_counter($input) {
+	protected function input_text_with_counter( $input) {
 
 		echo '
 			<tr class="label">
@@ -280,7 +280,7 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 
 			<tr>
 				<td>
-					<input type="text" value="' . esc_attr($input['value']) . '" id="' . $input['attr-id'] . '" name="' . $input['attr-name'] . '" />
+					<input type="text" value="' . esc_attr( $input['value']) . '" id="' . $input['attr-id'] . '" name="' . $input['attr-name'] . '" />
 				</td>
 			</tr>
 
@@ -294,12 +294,12 @@ class PadmaMetaBoxSEO extends PadmaAdminMetaBoxAPI {
 	}
 
 
-	protected function modify_arguments($post = false) {
+	protected function modify_arguments( $post = false) {
 
-		//Do not use this box if the page being edited is the front page since they can edit the setting in the configuration.
+		// Do not use this box if the page being edited is the front page since they can edit the setting in the configuration.
 		if ( get_option('page_on_front') == padma_get('post') && get_option('show_on_front') == 'page' ) {
 
-			$this->info = sprintf( __('<strong>Configure the SEO settings for this page (Front Page) in the Padma Search Engine Optimization settings tab in <a href="%" target="_blank">Padma &raquo; Configuration</a>.</strong>','padma'), admin_url('admin.php?page=padma-options#tab-seo') );
+			$this->info = sprintf( __( '<strong>Configure the SEO settings for this page (Front Page) in the Padma Search Engine Optimization settings tab in <a href="%" target="_blank">Padma &raquo; Configuration</a>.</strong>','padma'), admin_url('admin.php?page=padma-options#tab-seo') );
 
 			$this->inputs = array();
 

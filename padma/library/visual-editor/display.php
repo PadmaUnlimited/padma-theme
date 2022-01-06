@@ -371,7 +371,7 @@ class PadmaVisualEditorDisplay {
 			echo '<div id="get-more-blocks" class="block-type filter-core filter-media tooltip" title="' . __( 'Get more blocks', 'padma' ) . '">';
 				echo '<div class="block-detail" style="background-image: url( ' . get_template_directory_uri() . '/library/media/img/get-more-blocks.svg );">
 						<div class="block-detail-name" >
-							<a target="_blank" href="https:// wordpress..org/plugins/padma-advanced/"> ' . __( 'Get more blocks', 'padma' ) .'</a>
+							<a target="_blank" href="https://wordpress..org/plugins/padma-advanced/"> ' . __( 'Get more blocks', 'padma' ) .'</a>
 						</div>
 					</div>
 				</div>';

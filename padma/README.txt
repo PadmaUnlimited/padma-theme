@@ -46,7 +46,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 = 1.3.14 =
 * Edge Version
 * Released: On dev
-Tested with WordPress 5.7.2
+Tested with WordPress 5.8.2
 Tested with ClassicPress 1.2.0
 Tested with WooCommerce 4.8
 Fixes for PHP 8 Compatibility

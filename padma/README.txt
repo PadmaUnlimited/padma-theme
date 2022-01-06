@@ -2,7 +2,7 @@
 Contributors: Padma Unlimited Team
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.5
-Version: 1.3.14
+Version: 1.3.15
 Requires at least: 5.0
 Tested up to: 5.8.2
 Requires PHP: 7.3

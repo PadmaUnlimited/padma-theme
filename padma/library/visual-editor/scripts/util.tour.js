@@ -191,13 +191,16 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 
 			}
 
+			/*
 			$('<div class="black-overlay"></div>')
 				.hide()
 				.attr('id', 'black-overlay-tour')
 				.css('zIndex', 15)
 				.appendTo('body')
 				.fadeIn(500);
+				*/
 
+			/*
 			$(document.body).qtip({
 				id: 'tour', // Give it an ID of qtip-tour so we an identify it easily
 				content: {
@@ -252,6 +255,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 						tooltip.bind('next', function (event) {
 
 							/* For some reason trigger window resizing helps tooltip positioning */
+							/*
 							$(window).trigger('resize');
 
 							// Increase/decrease step depending on the event fired
@@ -287,6 +291,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 							}
 
 							/* Set up button */
+							/*
 							var buttonText = 'Next';
 
 							if ( typeof currentTourStep.buttonText == 'string' )
@@ -301,6 +306,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 							}
 
 							/* Next Handler Callback... Be able to use something other than the button */
+							/*
 							if ( typeof currentTourStep.nextHandler !== 'undefined' && $(currentTourStep.nextHandler.clickElement) ) {
 
 								var nextHandlerCallback = function (event) {
@@ -317,18 +323,21 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 							}
 
 							/* Set the Content */
+							/*
 							api.set('content.text', currentTourStep.content + button);
 							api.set('content.title', currentTourStep.title);
 
 							if ( typeof currentTourStep.end === 'undefined' ) {
 
 								/* Position */
+								/*
 								if ( typeof currentTourStep.position !== 'undefined' ) {
 
 									api.set('position.my', currentTourStep.position.my);
 									api.set('position.at', currentTourStep.position.at);
 
 									/* Offset/Adjust */
+									/*
 									if ( typeof currentTourStep.position.adjustX !== 'undefined' ) {
 										api.set('position.adjust.x', currentTourStep.position.adjustX);
 									} else {
@@ -362,9 +371,11 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 						});
 
 						/* Tour Button Bindings */
+						/*
 						$('div.qtip-tour').on('click', 'span#tour-next', function (event) {
 
 							/* Callback that fires upon button click... Used for advancing to Design Editor */
+							/*
 							if ( typeof currentTourStep == 'object' && typeof currentTourStep.buttonCallback == 'function' )
 								currentTourStep.buttonCallback.call();
 
@@ -412,6 +423,7 @@ define(['jquery', 'util.tooltips', 'helper.boxes', 'modules/panel'], function($,
 					}
 				}
 			});
+			*/
 
 		}
 	}
